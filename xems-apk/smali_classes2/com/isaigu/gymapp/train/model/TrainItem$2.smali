@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/isaigu/gymapp/train/model/TrainItem;->startPulse()V
+    value = Lcom/isaigu/gymapp/train/model/TrainItem;->start()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,10 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/train/model/TrainItem;JJ)V
-    .locals 0
-    .param p1, "this$0"    # Lcom/isaigu/gymapp/train/model/TrainItem;
-    .param p2, "x0"    # J
-    .param p4, "x1"    # J
+    .registers 6
 
-    .line 104
+    .prologue
+    .line 81
     iput-object p1, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
 
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
@@ -36,108 +34,58 @@
 
 # virtual methods
 .method public onFinish()V
-    .locals 2
+    .registers 3
 
-    .line 113
+    .prologue
+    .line 90
+    const-string v0, "www"
+
+    const-string v1, "\u5de5\u4f5c\u7ed3\u675f"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 91
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->access$000(Lcom/isaigu/gymapp/train/model/TrainItem;)V
-
-    .line 114
-    iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
-
-    iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+    iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->recordManager:Lcom/isaigu/gymapp/train/utils/TrainRecordManager;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    iget-boolean v1, v1, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->inStart:Z
+    iget-object v1, v1, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->macAddress:Ljava/lang/String;
 
-    xor-int/lit8 v1, v1, 0x1
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/train/utils/TrainRecordManager;->saveTrainRecord(Ljava/lang/String;)V
 
-    iput-boolean v1, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->inStart:Z
-
-    .line 115
+    .line 92
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->reset()V
 
-    iget-boolean v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->inStart:Z
-
-    if-eqz v0, :cond_0
-
-    .line 116
-    iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
-
-    iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
-
-    iget-object v1, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
-
-    invoke-virtual {v1}, Lcom/isaigu/gymapp/train/model/TrainItem;->getTrainProgram()Lcom/isaigu/gymapp/bean/TrainProgram;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/isaigu/gymapp/bean/TrainProgram;->matchProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
-
-    move-result-object v1
-
-    iget v1, v1, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseContinue:I
-
-    iput v1, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->secondValue:I
-
-    goto :goto_0
-
-    .line 118
-    :cond_0
-    iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
-
-    iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
-
-    iget-object v1, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
-
-    invoke-virtual {v1}, Lcom/isaigu/gymapp/train/model/TrainItem;->getTrainProgram()Lcom/isaigu/gymapp/bean/TrainProgram;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/isaigu/gymapp/bean/TrainProgram;->matchProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
-
-    move-result-object v1
-
-    iget v1, v1, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulsePause:I
-
-    iput v1, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->secondValue:I
-
-    .line 120
-    :goto_0
-    iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
-
-    invoke-static {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->access$100(Lcom/isaigu/gymapp/train/model/TrainItem;)V
-
-    .line 121
+    .line 93
     return-void
 .end method
 
 .method public onTick(J)V
-    .locals 2
-    .param p1, "millisUntilFinished"    # J
+    .registers 8
 
-    .line 107
+    .prologue
+    .line 84
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+    const-wide/16 v2, 0x3e8
 
-    long-to-int v1, p1
+    div-long v2, p1, v2
 
-    div-int/lit16 v1, v1, 0x3e8
+    long-to-int v1, v2
 
-    iput v1, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->secondValue:I
+    iput v1, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->workLength:I
 
-    .line 108
+    .line 85
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->access$000(Lcom/isaigu/gymapp/train/model/TrainItem;)V
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->onTrainItemChange()V
 
-    .line 109
+    .line 86
     return-void
 .end method

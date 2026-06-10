@@ -23,10 +23,10 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)V
-    .locals 0
-    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/NewTrainFragment;
+    .registers 2
 
-    .line 251
+    .prologue
+    .line 105
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,19 +37,18 @@
 
 # virtual methods
 .method public onItemClick(Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuBridge;)V
-    .locals 4
-    .param p1, "menuBridge"    # Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuBridge;
+    .registers 4
 
-    .line 255
+    .prologue
+    .line 108
     invoke-virtual {p1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuBridge;->closeMenu()V
 
-    .line 257
+    .line 109
     invoke-virtual {p1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuBridge;->getAdapterPosition()I
 
     move-result v0
 
-    .line 258
-    .local v0, "position":I
+    .line 110
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
@@ -60,38 +59,38 @@
 
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
+    move-result-object v0
+
+    check-cast v0, Lcom/isaigu/gymapp/train/model/TrainItem;
+
+    .line 111
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
+
+    iget-object v1, v1, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
+
+    invoke-virtual {v1, v0}, Lcom/isaigu/gymapp/train/TrainItemManager;->removeTrainItem(Lcom/isaigu/gymapp/train/model/TrainItem;)V
+
+    .line 112
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
+
+    # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
+    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->access$100(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)Lcom/isaigu/gymapp/train/TrainAdapter;
+
     move-result-object v1
 
-    check-cast v1, Lcom/isaigu/gymapp/train/model/TrainItem;
+    invoke-virtual {v1}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 259
-    .local v1, "item":Lcom/isaigu/gymapp/train/model/TrainItem;
-    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
-
-    iget-object v2, v2, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
-
-    invoke-virtual {v2, v1}, Lcom/isaigu/gymapp/train/TrainItemManager;->removeTrainItem(Lcom/isaigu/gymapp/train/model/TrainItem;)V
-
-    .line 260
-    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
-
-    invoke-static {v2}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->access$100(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)Lcom/isaigu/gymapp/train/TrainAdapter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
-
-    .line 261
+    .line 113
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget-object v3, v1, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+    iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    iget-object v3, v3, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->macAddress:Ljava/lang/String;
+    iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->macAddress:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Lcom/isaigu/gymapp/mgr/DataMgr;->removeTrainingUser(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Lcom/isaigu/gymapp/mgr/DataMgr;->removeTrainingUser(Ljava/lang/String;)V
 
-    .line 262
+    .line 114
     return-void
 .end method

@@ -1,14 +1,11 @@
 .class Lcom/isaigu/gymapp/fragment/TrainFragment$8;
-.super Ljava/lang/Object;
+.super Lcom/isaigu/gymapp/widget/NoDoubleClickListener;
 .source "TrainFragment.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/isaigu/gymapp/fragment/TrainFragment;->handleDeviceConnectedRefreshUI(Lcom/isaigu/gymapp/message/DataBundle;)V
+    value = Lcom/isaigu/gymapp/fragment/TrainFragment;->initListener()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -23,27 +20,53 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment;)V
-    .locals 0
-    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/TrainFragment;
+    .registers 2
 
-    .line 379
+    .prologue
+    .line 271
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$8;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public onNoDoubleClick(Landroid/view/View;)V
+    .registers 4
 
-    .line 381
+    .prologue
+    .line 274
+    const-string v0, "\u6309\u4e86\u505c\u6b62\u6240\u6709\u8bbe\u5907\u6309\u94ae"
+
+    invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
+
+    .line 275
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$8;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->startGetBatteryTimer()V
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
-    .line 382
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->handleStopAllUser()V
+
+    .line 276
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$8;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
+
+    .line 277
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->isSomeoneStart()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/TrainFragment;->updateAllStartPauseUI(Z)V
+
+    .line 278
     return-void
 .end method

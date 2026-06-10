@@ -37,6 +37,8 @@
                 <TextView android:textSize="28.0sp" android:textColor="@color/light_black_color" android:id="@id/pulseContinueValue" android:layout_width="80.0dip" android:layout_height="wrap_content" android:text="4 s" />
                 <com.isaigu.gymapp.widget.RangeSeekBar android:id="@id/pulseContinueSeekBar" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:layout_weight="1.0" app:rsb_mode="single" app:rsb_progress_color="@color/light_black_color" app:rsb_progress_height="16.0dip" app:rsb_progress_radius="8.0dip" app:rsb_thumb_size="30.0dip" />
             </LinearLayout>
+            <TextView android:textSize="20.0sp" android:textStyle="bold" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="12.0dip" android:text="@string/channelCalibrationTitle" />
+            <LinearLayout android:orientation="vertical" android:id="@id/channelCalibrationContainer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" />
             <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip">
                 <TextView android:textSize="22.0sp" android:layout_width="220.0dip" android:layout_height="wrap_content" android:layout_margin="20.0dip" android:text="@string/defaultPulsePause" />
                 <TextView android:textSize="28.0sp" android:textColor="@color/light_black_color" android:id="@id/pulsePauseValue" android:layout_width="80.0dip" android:layout_height="wrap_content" android:text="3 s" />

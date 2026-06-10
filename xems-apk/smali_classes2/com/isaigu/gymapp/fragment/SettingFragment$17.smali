@@ -20,10 +20,10 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-    .locals 0
-    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
+    .registers 2
 
-    .line 405
+    .prologue
+    .line 573
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$17;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
@@ -34,61 +34,49 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 4
-    .param p1, "v"    # Landroid/view/View;
+    .registers 6
 
-    .line 408
-    :try_start_0
+    .prologue
+    .line 576
+    invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->getDefault()Lorg/greenrobot/eventbus/EventBus;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/isaigu/gymapp/train/events/ApplicationExitEvent;
+
+    invoke-direct {v1}, Lcom/isaigu/gymapp/train/events/ApplicationExitEvent;-><init>()V
+
+    invoke-virtual {v0, v1}, Lorg/greenrobot/eventbus/EventBus;->post(Ljava/lang/Object;)V
+
+    .line 577
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$17;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$17;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
-    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$17;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+    move-result-object v0
 
-    invoke-virtual {v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+    const v1, 0x7f0900a4
 
-    move-result-object v2
+    new-instance v2, Lcom/isaigu/gymapp/fragment/LoginFragment;
 
-    invoke-static {v1, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$500(Lcom/isaigu/gymapp/fragment/SettingFragment;Landroid/content/Context;)Ljava/io/File;
+    invoke-direct {v2}, Lcom/isaigu/gymapp/fragment/LoginFragment;-><init>()V
 
-    move-result-object v1
+    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
 
-    invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$402(Lcom/isaigu/gymapp/fragment/SettingFragment;Ljava/io/File;)Ljava/io/File;
+    .line 578
+    const/16 v0, 0x67
 
-    .line 409
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$17;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+    invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
 
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$17;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+    .line 579
+    new-instance v0, Lcom/isaigu/gymapp/fragment/SettingFragment$17$1;
 
-    const/16 v2, 0x3eb
+    invoke-direct {v0, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$17$1;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment$17;)V
 
-    iget-object v3, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$17;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+    const-wide/16 v2, 0x7d0
 
-    invoke-static {v3}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$400(Lcom/isaigu/gymapp/fragment/SettingFragment;)Ljava/io/File;
+    invoke-static {v0, v2, v3}, Lcom/isaigu/gymapp/utils/TimerUtils;->delayCallback(Ljava/lang/Runnable;J)Ljava/util/Timer;
 
-    move-result-object v3
-
-    invoke-static {v1, v2, v3}, Lcom/isaigu/gymapp/utils/AndroidUtils;->selectImageFromGallery(Landroid/support/v4/app/Fragment;ILjava/io/File;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$602(Lcom/isaigu/gymapp/fragment/SettingFragment;Landroid/net/Uri;)Landroid/net/Uri;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 412
-    goto :goto_0
-
-    .line 410
-    :catch_0
-    move-exception v0
-
-    .line 411
-    .local v0, "e":Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
-
-    .line 413
-    .end local v0    # "e":Ljava/io/IOException;
-    :goto_0
+    .line 587
     return-void
 .end method

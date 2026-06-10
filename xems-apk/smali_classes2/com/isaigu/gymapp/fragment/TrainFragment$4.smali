@@ -20,10 +20,10 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment;)V
-    .locals 0
-    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/TrainFragment;
+    .registers 2
 
-    .line 242
+    .prologue
+    .line 189
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
@@ -34,29 +34,30 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .registers 4
 
-    .line 244
+    .prologue
+    .line 192
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
     move-result-object v0
 
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+    invoke-static {}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->getDecreaseStepTenths()I
 
-    move-result-object v1
+    move-result v1
 
-    iget v1, v1, Lcom/isaigu/gymapp/bean/UserData;->currentIncreaseStep:I
+    neg-int v1, v1
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->handleStrenthChange(I)V
 
-    .line 245
+    .line 193
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$100(Lcom/isaigu/gymapp/fragment/TrainFragment;)V
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->startClearSelectedTimer()V
 
-    .line 246
+    .line 194
     return-void
 .end method

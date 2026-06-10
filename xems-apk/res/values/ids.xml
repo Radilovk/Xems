@@ -443,4 +443,5 @@
     <item type="id" name="pulsePauseSeekBar" />
     <item type="id" name="pulseContinueValue" />
     <item type="id" name="pulsePauseValue" />
+    <item type="id" name="channelCalibrationContainer" />
 </resources>

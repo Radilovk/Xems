@@ -1,9 +1,6 @@
 .class Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$10;
-.super Ljava/lang/Object;
+.super Lcom/isaigu/gymapp/widget/NoDoubleClickListener;
 .source "TrainFragment.java"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -22,40 +19,49 @@
 
 .field final synthetic val$position:I
 
+.field final synthetic val$userHolder:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;
+
+.field final synthetic val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
 
 # direct methods
-.method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;I)V
-    .locals 0
-    .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+.method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;I)V
+    .registers 5
 
-    .line 1543
+    .prologue
+    .line 1427
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$10;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
-    iput p2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$10;->val$position:I
+    iput-object p2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$10;->val$userHolder:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput-object p3, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$10;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    iput p4, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$10;->val$position:I
+
+    invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "view"    # Landroid/view/View;
+.method public onNoDoubleClick(Landroid/view/View;)V
+    .registers 7
 
-    .line 1545
+    .prologue
+    .line 1430
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$10;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->clearAllPartSelect()V
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$10;->val$userHolder:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;
 
-    .line 1546
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$10;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$10;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    iget v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$10;->val$position:I
+    const/4 v3, 0x2
 
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->handleRowOperation(I)V
+    iget v4, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$10;->val$position:I
 
-    .line 1547
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->changeTrainType(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;II)V
+
+    .line 1431
     return-void
 .end method

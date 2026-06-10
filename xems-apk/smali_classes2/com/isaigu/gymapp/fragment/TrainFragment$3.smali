@@ -17,14 +17,18 @@
 # instance fields
 .field final synthetic this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
+.field final synthetic val$fi:I
+
 
 # direct methods
-.method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment;)V
-    .locals 0
-    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/TrainFragment;
+.method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment;I)V
+    .registers 3
 
-    .line 236
+    .prologue
+    .line 179
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
+
+    iput p2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$3;->val$fi:I
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
 
@@ -34,28 +38,36 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .registers 4
 
-    .line 238
+    .prologue
+    .line 182
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
     move-result-object v0
 
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-    move-result-object v1
-    iget v1, v1, Lcom/isaigu/gymapp/bean/UserData;->currentDecreaseStep:I
-    neg-int v1, v1
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->clearAllMASelect()V
 
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->handleStrenthChange(I)V
-
-    .line 239
+    .line 183
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$100(Lcom/isaigu/gymapp/fragment/TrainFragment;)V
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
-    .line 240
+    move-result-object v0
+
+    iget v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$3;->val$fi:I
+
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->handleColumnOperation(I)V
+
+    .line 184
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
+
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->startClearSelectedTimer()V
+
+    .line 185
     return-void
 .end method

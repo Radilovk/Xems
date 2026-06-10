@@ -270,11 +270,11 @@ public class NewTrainFragment extends Fragment {
     }
 
     public /* synthetic */ void lambda$onCreateView$2$NewTrainFragment(View l) {
-        this.manager.addAllPartValue(UserData.getInstance().currentIncreaseStep);
+        this.manager.addAllPartValue(com.isaigu.gymapp.utils.StrengthAdjustUtil.getIncreaseStepTenths());
     }
 
     public /* synthetic */ void lambda$onCreateView$3$NewTrainFragment(View l) {
-        this.manager.addAllPartValue(-UserData.getInstance().currentDecreaseStep);
+        this.manager.addAllPartValue(-com.isaigu.gymapp.utils.StrengthAdjustUtil.getDecreaseStepTenths());
     }
 
     public /* synthetic */ void lambda$onCreateView$4$NewTrainFragment(View l) {
@@ -322,12 +322,12 @@ public class NewTrainFragment extends Fragment {
     }
 
     private void changePartControl(int index) {
-        this.partsControl[index] = !r0[index];
+        this.partsControl[index] = !this.partsControl[index];
         this.adapter.notifyDataSetChanged();
     }
 
     private void changePartDisabled(int index) {
-        this.partsDisabled[index] = !r0[index];
+        this.partsDisabled[index] = !this.partsDisabled[index];
         this.adapter.notifyDataSetChanged();
     }
 
@@ -340,15 +340,12 @@ public class NewTrainFragment extends Fragment {
                 NewTrainFragment.lambda$settingAllUser$15(wrappers, items, (TrainItem) obj);
             }
         });
-        OperationUtil.settingAllUser(getBaseActivity(), wrappers, new Runnable() { // from class: com.isaigu.gymapp.fragment.-$$Lambda$NewTrainFragment$4IA_AlIkH-9P4P6cXtPY26RerNE
-            @Override // java.lang.Runnable
-            public final void run() {
-                items.stream().forEach(new Consumer() { // from class: com.isaigu.gymapp.fragment.-$$Lambda$NewTrainFragment$wxLu4AU3T57mrv1ByelxDPKUDEk
-                    @Override // java.util.function.Consumer
-                    public final void accept(Object obj) {
-                        r1.setTrainProgram(((TrainItem) obj).getTrainProgram());
-                    }
-                });
+        OperationUtil.settingAllUser(getBaseActivity(), wrappers, new Runnable() {
+            @Override
+            public void run() {
+                for (TrainItem item : items) {
+                    item.setTrainProgram(item.getTrainProgram());
+                }
             }
         });
     }

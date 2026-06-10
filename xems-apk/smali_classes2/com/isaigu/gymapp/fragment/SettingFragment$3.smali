@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 231
+    .line 235
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +37,10 @@
 
 # virtual methods
 .method public onRangeChanged(Lcom/isaigu/gymapp/widget/RangeSeekBar;FFZ)V
-    .registers 7
+    .registers 8
 
     .prologue
-    .line 234
+    .line 238
     const/4 v0, 0x1
 
     invoke-static {p2}, Ljava/lang/Math;->round(F)I
@@ -51,28 +51,31 @@
 
     move-result v0
 
-    .line 235
+    .line 239
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v1
 
-    iput v0, v1, Lcom/isaigu/gymapp/bean/UserData;->currentIncreaseStep:I
+    iput v0, v1, Lcom/isaigu/gymapp/bean/UserData;->currentIncreaseStepTenths:I
 
-    .line 236
+    .line 240
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->currentIncreaseValue:Landroid/widget/TextView;
-    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$000(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/TextView;
+    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$100(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/TextView;
 
     move-result-object v1
 
-    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+
+    # invokes: Lcom/isaigu/gymapp/fragment/SettingFragment;->formatStepMa(I)Ljava/lang/String;
+    invoke-static {v2, v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$000(Lcom/isaigu/gymapp/fragment/SettingFragment;I)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 237
+    .line 241
     return-void
 .end method
 
@@ -80,7 +83,7 @@
     .registers 3
 
     .prologue
-    .line 241
+    .line 245
     return-void
 .end method
 
@@ -88,13 +91,13 @@
     .registers 4
 
     .prologue
-    .line 245
+    .line 249
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
 
-    .line 246
+    .line 250
     return-void
 .end method

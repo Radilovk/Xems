@@ -23,7 +23,7 @@
     .registers 2
 
     .prologue
-    .line 476
+    .line 550
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$15;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
@@ -37,46 +37,58 @@
     .registers 6
 
     .prologue
-    .line 479
-    invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->getDefault()Lorg/greenrobot/eventbus/EventBus;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/isaigu/gymapp/train/events/ApplicationExitEvent;
-
-    invoke-direct {v1}, Lcom/isaigu/gymapp/train/events/ApplicationExitEvent;-><init>()V
-
-    invoke-virtual {v0, v1}, Lorg/greenrobot/eventbus/EventBus;->post(Ljava/lang/Object;)V
-
-    .line 480
+    .line 554
+    :try_start_0
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$15;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$15;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    move-result-object v0
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$15;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    const v1, 0x7f0900a4
+    invoke-virtual {v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
-    new-instance v2, Lcom/isaigu/gymapp/fragment/LoginFragment;
+    move-result-object v2
 
-    invoke-direct {v2}, Lcom/isaigu/gymapp/fragment/LoginFragment;-><init>()V
+    invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->createOriImageFile(Landroid/content/Context;)Ljava/io/File;
 
-    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
+    move-result-object v1
 
-    .line 481
-    const/16 v0, 0x67
+    # setter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->originalFile:Ljava/io/File;
+    invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$702(Lcom/isaigu/gymapp/fragment/SettingFragment;Ljava/io/File;)Ljava/io/File;
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
+    .line 555
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$15;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    .line 482
-    new-instance v0, Lcom/isaigu/gymapp/fragment/SettingFragment$15$1;
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$15;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    invoke-direct {v0, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$15$1;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment$15;)V
+    const/16 v2, 0x3ed
 
-    const-wide/16 v2, 0x7d0
+    iget-object v3, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$15;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    invoke-static {v0, v2, v3}, Lcom/isaigu/gymapp/utils/TimerUtils;->delayCallback(Ljava/lang/Runnable;J)Ljava/util/Timer;
+    # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->originalFile:Ljava/io/File;
+    invoke-static {v3}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$700(Lcom/isaigu/gymapp/fragment/SettingFragment;)Ljava/io/File;
 
-    .line 490
+    move-result-object v3
+
+    invoke-static {v1, v2, v3}, Lcom/isaigu/gymapp/utils/AndroidUtils;->selectImageFromGallery(Landroid/support/v4/app/Fragment;ILjava/io/File;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    # setter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->imageUri:Landroid/net/Uri;
+    invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$802(Lcom/isaigu/gymapp/fragment/SettingFragment;Landroid/net/Uri;)Landroid/net/Uri;
+    :try_end_24
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_24} :catch_25
+
+    .line 559
+    :goto_24
     return-void
+
+    .line 556
+    :catch_25
+    move-exception v0
+
+    .line 557
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+
+    goto :goto_24
 .end method

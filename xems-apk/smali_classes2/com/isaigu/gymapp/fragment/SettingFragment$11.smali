@@ -1,6 +1,9 @@
 .class Lcom/isaigu/gymapp/fragment/SettingFragment$11;
-.super Lcom/isaigu/gymapp/widget/NoDoubleClickListener;
+.super Ljava/lang/Object;
 .source "SettingFragment.java"
+
+# interfaces
+.implements Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;
 
 
 # annotations
@@ -23,29 +26,47 @@
     .registers 2
 
     .prologue
-    .line 432
+    .line 509
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$11;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onNoDoubleClick(Landroid/view/View;)V
-    .registers 5
+.method public onCheckedChanged(Lcom/isaigu/gymapp/widget/SwitchButton;Z)V
+    .registers 6
 
     .prologue
-    .line 435
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$11;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+    .line 512
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
-    const-string v1, "bg"
+    move-result-object v0
 
-    const/4 v2, 0x1
+    iput-boolean p2, v0, Lcom/isaigu/gymapp/bean/UserData;->leftMode:Z
 
-    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->switchToLanguage(Ljava/lang/String;Z)V
+    .line 513
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
-    .line 436
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
+
+    .line 514
+    new-instance v0, Lcom/isaigu/gymapp/message/DataBundle;
+
+    const/4 v1, 0x1
+
+    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2}, Lcom/isaigu/gymapp/message/DataBundle;-><init>(SLjava/lang/Object;)V
+
+    invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(Lcom/isaigu/gymapp/message/DataBundle;)V
+
+    .line 515
     return-void
 .end method

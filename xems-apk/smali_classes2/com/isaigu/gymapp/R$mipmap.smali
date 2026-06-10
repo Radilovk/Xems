@@ -1,5 +1,6 @@
 .class public final Lcom/isaigu/gymapp/R$mipmap;
 .super Ljava/lang/Object;
+.source "R.java"
 
 
 # annotations
@@ -281,9 +282,12 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
+    .prologue
+    .line 1942
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1943
     return-void
 .end method

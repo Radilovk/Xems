@@ -27,10 +27,15 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment;Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;Lcom/isaigu/gymapp/message/DataBundle;)V
-    .locals 0
-    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/TrainFragment;
+    .registers 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()V"
+        }
+    .end annotation
 
-    .line 489
+    .prologue
+    .line 455
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$12;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
     iput-object p2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$12;->val$model:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
@@ -45,25 +50,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 4
 
-    .line 491
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$12;->val$model:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, v0, Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;->address:Ljava/lang/String;
-
-    invoke-static {v0}, Lorg/apache/commons/lang3/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 492
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$12;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
-
-    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$500(Lcom/isaigu/gymapp/fragment/TrainFragment;)Ljava/util/HashMap;
+    .prologue
+    .line 458
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/BleMgr;->getController()Lcom/isaigu/gymapp/ble/AndroidBleController;
 
     move-result-object v0
 
@@ -71,22 +62,42 @@
 
     iget-object v1, v1, Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;->address:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->connectByAddress(Ljava/lang/String;)Z
 
-    move-result-object v0
+    move-result v0
 
-    check-cast v0, Ljava/util/Timer;
+    .line 459
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/TimerUtils;->stopTimer(Ljava/util/Timer;)V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 494
-    :cond_0
+    const-string v2, "reconnect status : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
+
+    .line 460
+    if-nez v0, :cond_2b
+
+    .line 461
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$12;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$12;->val$bundle:Lcom/isaigu/gymapp/message/DataBundle;
 
-    invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$400(Lcom/isaigu/gymapp/fragment/TrainFragment;Lcom/isaigu/gymapp/message/DataBundle;)V
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/TrainFragment;->handleDeviceDisConnected(Lcom/isaigu/gymapp/message/DataBundle;)V
 
-    .line 495
+    .line 463
+    :cond_2b
     return-void
 .end method

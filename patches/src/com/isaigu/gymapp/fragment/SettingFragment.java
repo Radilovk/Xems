@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.isaigu.gymapp.BaseActivity;
@@ -43,6 +44,7 @@ import com.isaigu.gymapp.utils.LanguageUtils;
 import com.isaigu.gymapp.utils.Logger;
 import com.isaigu.gymapp.utils.NetworkUtils;
 import com.isaigu.gymapp.utils.OKHttpUtils;
+import com.isaigu.gymapp.utils.StrengthAdjustUtil;
 import com.isaigu.gymapp.utils.TimerUtils;
 import com.isaigu.gymapp.widget.NoDoubleClickListener;
 import com.isaigu.gymapp.widget.OnRangeChangedListener;
@@ -91,6 +93,7 @@ public class SettingFragment extends BaseFragment {
     private RangeSeekBar pulsePauseSeekBar;
     private TextView pulsePauseValue;
     private ImageView splashPreview;
+    private LinearLayout channelCalibrationContainer;
     private Button poland;
     private Button portugues;
     private TextView range;
@@ -140,6 +143,7 @@ public class SettingFragment extends BaseFragment {
         this.pulsePauseSeekBar = (RangeSeekBar) view.findViewById(0x7f09020e);
         this.pulseContinueValue = (TextView) view.findViewById(0x7f09020f);
         this.pulsePauseValue = (TextView) view.findViewById(0x7f090210);
+        this.channelCalibrationContainer = (LinearLayout) view.findViewById(0x7f090211);
         if (!TextUtils.isEmpty(UserData.getInstance().logoPath)) {
             Glide.with((FragmentActivity) getParentActivity()).load(UserData.getInstance().logoPath).into(this.logoImage);
             Glide.with((FragmentActivity) getParentActivity()).load(UserData.getInstance().logoPath).into(this.logoImage2);
@@ -225,15 +229,15 @@ public class SettingFragment extends BaseFragment {
     private void initTrainingPreferenceSeekBars() {
         ensureTrainingDefaults();
         if (this.currentIncreaseSeekBar != null) {
-            this.currentIncreaseSeekBar.setRange(1.0f, 20.0f);
-            this.currentIncreaseSeekBar.setValue(UserData.getInstance().currentIncreaseStep);
-            this.currentIncreaseValue.setText(String.valueOf(UserData.getInstance().currentIncreaseStep));
+            this.currentIncreaseSeekBar.setRange(1.0f, 50.0f);
+            this.currentIncreaseSeekBar.setValue(UserData.getInstance().currentIncreaseStepTenths);
+            this.currentIncreaseValue.setText(formatStepMa(UserData.getInstance().currentIncreaseStepTenths));
             this.currentIncreaseSeekBar.setOnRangeChangedListener(new OnRangeChangedListener() {
                 @Override
                 public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
                     int value = Math.max(1, Math.round(leftValue));
-                    UserData.getInstance().currentIncreaseStep = value;
-                    SettingFragment.this.currentIncreaseValue.setText(String.valueOf(value));
+                    UserData.getInstance().currentIncreaseStepTenths = value;
+                    SettingFragment.this.currentIncreaseValue.setText(SettingFragment.this.formatStepMa(value));
                 }
 
                 @Override
@@ -247,15 +251,15 @@ public class SettingFragment extends BaseFragment {
             });
         }
         if (this.currentDecreaseSeekBar != null) {
-            this.currentDecreaseSeekBar.setRange(1.0f, 20.0f);
-            this.currentDecreaseSeekBar.setValue(UserData.getInstance().currentDecreaseStep);
-            this.currentDecreaseValue.setText(String.valueOf(UserData.getInstance().currentDecreaseStep));
+            this.currentDecreaseSeekBar.setRange(1.0f, 50.0f);
+            this.currentDecreaseSeekBar.setValue(UserData.getInstance().currentDecreaseStepTenths);
+            this.currentDecreaseValue.setText(formatStepMa(UserData.getInstance().currentDecreaseStepTenths));
             this.currentDecreaseSeekBar.setOnRangeChangedListener(new OnRangeChangedListener() {
                 @Override
                 public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
                     int value = Math.max(1, Math.round(leftValue));
-                    UserData.getInstance().currentDecreaseStep = value;
-                    SettingFragment.this.currentDecreaseValue.setText(String.valueOf(value));
+                    UserData.getInstance().currentDecreaseStepTenths = value;
+                    SettingFragment.this.currentDecreaseValue.setText(SettingFragment.this.formatStepMa(value));
                 }
 
                 @Override
@@ -268,6 +272,7 @@ public class SettingFragment extends BaseFragment {
                 }
             });
         }
+        initChannelCalibrationRows();
         if (this.pulseContinueSeekBar != null) {
             this.pulseContinueSeekBar.setRange(1.0f, 60.0f);
             this.pulseContinueSeekBar.setValue(UserData.getInstance().defaultPulseContinue);
@@ -314,13 +319,105 @@ public class SettingFragment extends BaseFragment {
         }
     }
 
+    private String formatStepMa(int tenths) {
+        return StrengthAdjustUtil.formatMa(tenths / 10.0f) + " mA";
+    }
+
+    private void initChannelCalibrationRows() {
+        if (this.channelCalibrationContainer == null) {
+            return;
+        }
+        this.channelCalibrationContainer.removeAllViews();
+        final String[] labels = getChannelLabels();
+        for (int i = 0; i < labels.length; i++) {
+            final int channelIndex = i;
+            LinearLayout row = new LinearLayout(getParentActivity());
+            row.setOrientation(LinearLayout.HORIZONTAL);
+            row.setGravity(android.view.Gravity.CENTER_VERTICAL);
+            row.setPadding(20, 8, 20, 8);
+            TextView label = new TextView(getParentActivity());
+            label.setText(labels[i]);
+            label.setTextSize(18.0f);
+            label.setLayoutParams(new LinearLayout.LayoutParams(220, LinearLayout.LayoutParams.WRAP_CONTENT));
+            final TextView multiplierValue = new TextView(getParentActivity());
+            multiplierValue.setText(String.format(java.util.Locale.US, "%.1fx", UserData.getInstance().channelStepMultiplier[channelIndex]));
+            multiplierValue.setTextSize(18.0f);
+            multiplierValue.setLayoutParams(new LinearLayout.LayoutParams(70, LinearLayout.LayoutParams.WRAP_CONTENT));
+            RangeSeekBar multiplierSeekBar = new RangeSeekBar(getParentActivity());
+            LinearLayout.LayoutParams seekParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+            seekParams.rightMargin = 16;
+            multiplierSeekBar.setLayoutParams(seekParams);
+            multiplierSeekBar.setRange(1.0f, 20.0f);
+            multiplierSeekBar.setValue(UserData.getInstance().channelStepMultiplier[channelIndex] * 10.0f);
+            multiplierSeekBar.setOnRangeChangedListener(new OnRangeChangedListener() {
+                @Override
+                public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
+                    float value = Math.max(0.1f, Math.round(leftValue) / 10.0f);
+                    UserData.getInstance().channelStepMultiplier[channelIndex] = value;
+                    multiplierValue.setText(String.format(java.util.Locale.US, "%.1fx", value));
+                }
+
+                @Override
+                public void onStartTrackingTouch(RangeSeekBar view, boolean isLeft) {
+                }
+
+                @Override
+                public void onStopTrackingTouch(RangeSeekBar view, boolean isLeft) {
+                    FileUtils.saveData(UserData.getInstance());
+                }
+            });
+            final TextView pulseValue = new TextView(getParentActivity());
+            int pulse = UserData.getInstance().channelPulseWidthUs[channelIndex];
+            pulseValue.setText(pulse > 0 ? pulse + " us" : getString(0x7f0d0105));
+            pulseValue.setTextSize(16.0f);
+            pulseValue.setLayoutParams(new LinearLayout.LayoutParams(100, LinearLayout.LayoutParams.WRAP_CONTENT));
+            RangeSeekBar pulseSeekBar = new RangeSeekBar(getParentActivity());
+            pulseSeekBar.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
+            pulseSeekBar.setRange(0.0f, 400.0f);
+            pulseSeekBar.setValue(pulse > 0 ? pulse : 350.0f);
+            pulseSeekBar.setOnRangeChangedListener(new OnRangeChangedListener() {
+                @Override
+                public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
+                    int value = Math.round(leftValue);
+                    UserData.getInstance().channelPulseWidthUs[channelIndex] = value;
+                    pulseValue.setText(value > 0 ? value + " us" : getString(0x7f0d0105));
+                }
+
+                @Override
+                public void onStartTrackingTouch(RangeSeekBar view, boolean isLeft) {
+                }
+
+                @Override
+                public void onStopTrackingTouch(RangeSeekBar view, boolean isLeft) {
+                    FileUtils.saveData(UserData.getInstance());
+                }
+            });
+            row.addView(label);
+            row.addView(multiplierValue);
+            row.addView(multiplierSeekBar);
+            row.addView(pulseValue);
+            row.addView(pulseSeekBar);
+            this.channelCalibrationContainer.addView(row);
+        }
+    }
+
+    private String[] getChannelLabels() {
+        return new String[]{
+                getString(R.string.xiongbu),
+                getString(R.string.fubu),
+                getString(R.string.beibu),
+                getString(R.string.yaobu),
+                getString(R.string.bibu),
+                getString(R.string.shoubi),
+                getString(R.string.tuiquji),
+                getString(R.string.xiaotui),
+                getString(R.string.houxiefangji),
+                getString(R.string.xiazhishenji)
+        };
+    }
+
     private void ensureTrainingDefaults() {
-        if (UserData.getInstance().currentIncreaseStep <= 0) {
-            UserData.getInstance().currentIncreaseStep = 1;
-        }
-        if (UserData.getInstance().currentDecreaseStep <= 0) {
-            UserData.getInstance().currentDecreaseStep = 1;
-        }
+        StrengthAdjustUtil.ensureDefaults();
         if (UserData.getInstance().defaultPulseContinue <= 0) {
             UserData.getInstance().defaultPulseContinue = 4;
         }

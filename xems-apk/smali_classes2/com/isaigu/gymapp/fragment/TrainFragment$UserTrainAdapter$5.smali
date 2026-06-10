@@ -3,7 +3,7 @@
 .source "TrainFragment.java"
 
 # interfaces
-.implements Lcom/isaigu/gymapp/widget/AmountView2$OnAmountChangeListener;
+.implements Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;
 
 
 # annotations
@@ -29,10 +29,15 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;I)V
-    .locals 0
-    .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+    .registers 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()V"
+        }
+    .end annotation
 
-    .line 1424
+    .prologue
+    .line 1331
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
     iput-object p2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
@@ -48,57 +53,76 @@
 
 
 # virtual methods
-.method public onAmountChange(Landroid/view/View;I)V
-    .locals 5
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "amount"    # I
+.method public onChanged(Lcom/isaigu/gymapp/widget/CircleSeekBar;I)V
+    .registers 8
 
-    .line 1426
+    .prologue
+    .line 1334
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
-    iput-boolean v1, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->inStart:Z
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/bean/TrainProgram;->matchProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
 
-    .line 1427
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+    .line 1335
+    int-to-float v0, p2
 
-    iput v1, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->secondValue:I
+    const/high16 v1, 0x42960000    # 75.0f
 
-    .line 1428
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$userHolder:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;
+    div-float/2addr v0, v1
 
-    iget-object v0, v0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;->waveBallProgress:Lcom/isaigu/gymapp/widget/WaveBallProgress;
+    const/high16 v1, 0x42c80000    # 100.0f
 
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/WaveBallProgress;->setProgress(I)V
+    mul-float/2addr v0, v1
 
-    .line 1429
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+    float-to-int v0, v0
 
+    .line 1336
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$userHolder:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;
 
-    iget v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$position:I
+    iget-object v1, v1, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;->ma:Landroid/widget/TextView;
 
-    invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->access$1500(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;I)V
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
-    .line 1430
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+    iget-object v2, v2, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    iget-boolean v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->start:Z
+    const v3, 0x7f0d006e
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v2, v3}, Lcom/isaigu/gymapp/fragment/TrainFragment;->getString(I)Ljava/lang/String;
 
-    .line 1431
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+    move-result-object v2
 
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$userHolder:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;
+    const/4 v3, 0x1
 
-    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->firstUpdatePulseContinue(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;)V
+    const/4 v4, 0x0
 
-    .line 1433
-    :cond_0
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    aput-object v0, v3, v4
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1337
+    return-void
+.end method
+
+.method public onChangedEnd(Lcom/isaigu/gymapp/widget/CircleSeekBar;I)V
+    .registers 10
+
+    .prologue
+    const/high16 v6, 0x42c80000    # 100.0f
+
+    const/16 v5, 0x46
+
+    .line 1341
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -107,11 +131,68 @@
 
     move-result-object v0
 
-    .line 1434
-    .local v0, "programDataBean":Lcom/isaigu/gymapp/bean/ProgramDataBean;
-    iput p2, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulsePause:I
+    .line 1342
+    int-to-float v1, p2
 
-    .line 1435
+    const/high16 v2, 0x42960000    # 75.0f
+
+    div-float/2addr v1, v2
+
+    mul-float/2addr v1, v6
+
+    float-to-int v1, v1
+
+    .line 1343
+    sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "strenth Value : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    .line 1344
+    iget v2, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
+
+    if-ge v2, v5, :cond_85
+
+    .line 1345
+    iput v1, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
+
+    .line 1346
+    if-lt v1, v5, :cond_34
+
+    .line 1347
+    iput v5, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
+
+    .line 1359
+    :cond_34
+    :goto_34
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$userHolder:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;
+
+    iget-object v3, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    iget v4, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$position:I
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->updateUI(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;I)V
+
+    .line 1360
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
     iget-object v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
@@ -124,12 +205,105 @@
 
     iget v3, v3, Lcom/isaigu/gymapp/bean/TrainProgram;->useType:I
 
-    iget-object v4, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+    invoke-virtual {v1, v2, v3, v0}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->set_mode_10_part_parameter(Ljava/lang/String;ILcom/isaigu/gymapp/bean/ProgramDataBean;)V
 
-    iget-boolean v4, v4, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->start:Z
+    .line 1361
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
-    invoke-static {v1, v2, v3, v0, v4}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->access$1200(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;Ljava/lang/String;ILcom/isaigu/gymapp/bean/ProgramDataBean;Z)V
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    .line 1436
+    iget-object v2, v2, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->macAddress:Ljava/lang/String;
+
+    const-string v3, "maxBodyStrenth"
+
+    iget-object v4, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
+
+    invoke-virtual {v4}, Lcom/isaigu/gymapp/bean/PartStrenthBean;->getMaxBodyStrenth()I
+
+    move-result v4
+
+    int-to-float v4, v4
+
+    div-float/2addr v4, v6
+
+    iget v5, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
+
+    int-to-float v5, v5
+
+    mul-float/2addr v4, v5
+
+    invoke-static {v4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->updateTrainRecordValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 1362
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$5;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    iget-object v2, v2, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->macAddress:Ljava/lang/String;
+
+    const-string v3, "minBodyStrenth"
+
+    iget-object v4, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
+
+    invoke-virtual {v4}, Lcom/isaigu/gymapp/bean/PartStrenthBean;->getMinBodyStrenth()I
+
+    move-result v4
+
+    int-to-float v4, v4
+
+    div-float/2addr v4, v6
+
+    iget v0, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
+
+    int-to-float v0, v0
+
+    mul-float/2addr v0, v4
+
+    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v2, v3, v0}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->updateTrainRecordValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 1363
     return-void
+
+    .line 1349
+    :cond_85
+    if-lt v1, v5, :cond_99
+
+    .line 1350
+    iget v2, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
+
+    sub-int v2, v1, v2
+
+    .line 1351
+    const/16 v3, 0xa
+
+    if-le v2, v3, :cond_96
+
+    .line 1352
+    iget v1, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
+
+    add-int/lit8 v1, v1, 0xa
+
+    iput v1, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
+
+    goto :goto_34
+
+    .line 1354
+    :cond_96
+    iput v1, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
+
+    goto :goto_34
+
+    .line 1357
+    :cond_99
+    iput v1, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
+
+    goto :goto_34
 .end method

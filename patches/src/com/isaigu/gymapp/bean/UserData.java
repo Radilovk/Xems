@@ -30,8 +30,14 @@ public class UserData {
     public String roleName;
     public long useTime;
     public String userName;
-    public int currentIncreaseStep = 1;
-    public int currentDecreaseStep = 1;
+    public int currentIncreaseStepTenths = 1;
+    public int currentDecreaseStepTenths = 1;
+    @Deprecated
+    public int currentIncreaseStep;
+    @Deprecated
+    public int currentDecreaseStep;
+    public float[] channelStepMultiplier;
+    public int[] channelPulseWidthUs;
     public int defaultPulseContinue = 4;
     public int defaultPulsePause = 3;
 
@@ -47,8 +53,25 @@ public class UserData {
             if (TextUtils.isEmpty(instance.language)) {
                 instance.language = Locale.getDefault().getLanguage();
             }
+            migrateLegacyTrainingSettings(instance);
         }
         return instance;
+    }
+
+    private static void migrateLegacyTrainingSettings(UserData data) {
+        if (data.currentIncreaseStepTenths <= 0 && data.currentIncreaseStep > 0) {
+            data.currentIncreaseStepTenths = data.currentIncreaseStep * 10;
+        }
+        if (data.currentDecreaseStepTenths <= 0 && data.currentDecreaseStep > 0) {
+            data.currentDecreaseStepTenths = data.currentDecreaseStep * 10;
+        }
+        if (data.currentIncreaseStepTenths <= 0) {
+            data.currentIncreaseStepTenths = 1;
+        }
+        if (data.currentDecreaseStepTenths <= 0) {
+            data.currentDecreaseStepTenths = 1;
+        }
+        com.isaigu.gymapp.utils.StrengthAdjustUtil.ensureDefaults();
     }
 
     public boolean isLogin() {

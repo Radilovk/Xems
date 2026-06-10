@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 297
+    .line 302
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$6;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .registers 8
 
     .prologue
-    .line 300
+    .line 305
     const/4 v0, 0x1
 
     invoke-static {p2}, Ljava/lang/Math;->round(F)I
@@ -51,18 +51,18 @@
 
     move-result v0
 
-    .line 301
+    .line 306
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v1
 
     iput v0, v1, Lcom/isaigu/gymapp/bean/UserData;->defaultPulsePause:I
 
-    .line 302
+    .line 307
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$6;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->pulsePauseValue:Landroid/widget/TextView;
-    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$300(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/TextView;
+    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$400(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -86,7 +86,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 303
+    .line 308
     return-void
 .end method
 
@@ -94,7 +94,7 @@
     .registers 3
 
     .prologue
-    .line 307
+    .line 312
     return-void
 .end method
 
@@ -102,13 +102,13 @@
     .registers 4
 
     .prologue
-    .line 311
+    .line 316
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
 
-    .line 312
+    .line 317
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final Lcom/isaigu/gymapp/R$styleable;
 .super Ljava/lang/Object;
+.source "R.java"
 
 
 # annotations
@@ -1340,474 +1341,576 @@
 
 
 # direct methods
-.method public static constructor <clinit>()V
-    .locals 12
+.method static constructor <clinit>()V
+    .registers 7
 
-    const/4 v0, 0x2
+    .prologue
+    const/4 v6, 0x5
 
-    new-array v1, v0, [I
+    const/4 v5, 0x1
 
-    fill-array-data v1, :array_0
+    const/4 v4, 0x0
 
-    sput-object v1, Lcom/isaigu/gymapp/R$styleable;->AVLoadingIndicatorView:[I
+    const/4 v3, 0x2
 
-    const/16 v1, 0x1d
+    const/4 v2, 0x3
 
-    new-array v2, v1, [I
+    .line 3217
+    new-array v0, v3, [I
 
-    fill-array-data v2, :array_1
+    fill-array-data v0, :array_21c
 
-    sput-object v2, Lcom/isaigu/gymapp/R$styleable;->ActionBar:[I
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->AVLoadingIndicatorView:[I
 
-    const/4 v2, 0x1
-
-    new-array v3, v2, [I
-
-    const v4, 0x10100b3
-
-    const/4 v5, 0x0
-
-    aput v4, v3, v5
-
-    sput-object v3, Lcom/isaigu/gymapp/R$styleable;->ActionBarLayout:[I
-
-    new-array v3, v2, [I
-
-    const v4, 0x101013f
-
-    aput v4, v3, v5
-
-    sput-object v3, Lcom/isaigu/gymapp/R$styleable;->ActionMenuItemView:[I
-
-    new-array v3, v5, [I
-
-    sput-object v3, Lcom/isaigu/gymapp/R$styleable;->ActionMenuView:[I
-
-    const/4 v3, 0x6
-
-    new-array v4, v3, [I
-
-    fill-array-data v4, :array_2
-
-    sput-object v4, Lcom/isaigu/gymapp/R$styleable;->ActionMode:[I
-
-    new-array v4, v0, [I
-
-    fill-array-data v4, :array_3
-
-    sput-object v4, Lcom/isaigu/gymapp/R$styleable;->ActivityChooserView:[I
-
-    const/4 v4, 0x7
-
-    new-array v6, v4, [I
-
-    fill-array-data v6, :array_4
-
-    sput-object v6, Lcom/isaigu/gymapp/R$styleable;->AlertDialog:[I
-
-    const/4 v6, 0x4
-
-    new-array v7, v6, [I
-
-    fill-array-data v7, :array_5
-
-    sput-object v7, Lcom/isaigu/gymapp/R$styleable;->AmountView:[I
-
-    const/4 v7, 0x3
-
-    new-array v8, v7, [I
-
-    fill-array-data v8, :array_6
-
-    sput-object v8, Lcom/isaigu/gymapp/R$styleable;->AppBarLayout:[I
-
-    new-array v8, v0, [I
-
-    fill-array-data v8, :array_7
-
-    sput-object v8, Lcom/isaigu/gymapp/R$styleable;->AppBarLayoutStates:[I
-
-    new-array v8, v0, [I
-
-    fill-array-data v8, :array_8
-
-    sput-object v8, Lcom/isaigu/gymapp/R$styleable;->AppBarLayout_Layout:[I
-
-    new-array v8, v0, [I
-
-    fill-array-data v8, :array_9
-
-    sput-object v8, Lcom/isaigu/gymapp/R$styleable;->AppCompatImageView:[I
-
-    new-array v8, v6, [I
-
-    fill-array-data v8, :array_a
-
-    sput-object v8, Lcom/isaigu/gymapp/R$styleable;->AppCompatSeekBar:[I
-
-    new-array v8, v4, [I
-
-    fill-array-data v8, :array_b
-
-    sput-object v8, Lcom/isaigu/gymapp/R$styleable;->AppCompatTextHelper:[I
-
-    new-array v8, v0, [I
-
-    fill-array-data v8, :array_c
-
-    sput-object v8, Lcom/isaigu/gymapp/R$styleable;->AppCompatTextView:[I
-
-    const/16 v8, 0x73
-
-    new-array v8, v8, [I
-
-    fill-array-data v8, :array_d
-
-    sput-object v8, Lcom/isaigu/gymapp/R$styleable;->AppCompatTheme:[I
-
-    const/4 v8, 0x5
-
-    new-array v9, v8, [I
-
-    fill-array-data v9, :array_e
-
-    sput-object v9, Lcom/isaigu/gymapp/R$styleable;->BottomNavigationView:[I
-
-    new-array v9, v7, [I
-
-    fill-array-data v9, :array_f
-
-    sput-object v9, Lcom/isaigu/gymapp/R$styleable;->BottomSheetBehavior_Layout:[I
-
-    new-array v9, v2, [I
-
-    const v10, 0x7f04002e
-
-    aput v10, v9, v5
-
-    sput-object v9, Lcom/isaigu/gymapp/R$styleable;->ButtonBarLayout:[I
-
-    new-array v9, v8, [I
-
-    fill-array-data v9, :array_10
-
-    sput-object v9, Lcom/isaigu/gymapp/R$styleable;->CircleImageView:[I
-
-    const/16 v9, 0x15
-
-    new-array v9, v9, [I
-
-    fill-array-data v9, :array_11
-
-    sput-object v9, Lcom/isaigu/gymapp/R$styleable;->CircleSeekBar:[I
-
-    const/16 v9, 0xb
-
-    new-array v10, v9, [I
-
-    fill-array-data v10, :array_12
-
-    sput-object v10, Lcom/isaigu/gymapp/R$styleable;->CircularProgressView:[I
-
-    const/16 v10, 0x10
-
-    new-array v11, v10, [I
-
-    fill-array-data v11, :array_13
-
-    sput-object v11, Lcom/isaigu/gymapp/R$styleable;->CollapsingToolbarLayout:[I
-
-    new-array v11, v0, [I
-
-    fill-array-data v11, :array_14
-
-    sput-object v11, Lcom/isaigu/gymapp/R$styleable;->CollapsingToolbarLayout_Layout:[I
-
-    new-array v11, v7, [I
-
-    fill-array-data v11, :array_15
-
-    sput-object v11, Lcom/isaigu/gymapp/R$styleable;->ColorStateListItem:[I
-
-    new-array v11, v7, [I
-
-    fill-array-data v11, :array_16
-
-    sput-object v11, Lcom/isaigu/gymapp/R$styleable;->CompoundButton:[I
-
-    new-array v11, v0, [I
-
-    fill-array-data v11, :array_17
-
-    sput-object v11, Lcom/isaigu/gymapp/R$styleable;->CoordinatorLayout:[I
-
-    new-array v4, v4, [I
-
-    fill-array-data v4, :array_18
-
-    sput-object v4, Lcom/isaigu/gymapp/R$styleable;->CoordinatorLayout_Layout:[I
-
-    new-array v4, v1, [I
-
-    fill-array-data v4, :array_19
-
-    sput-object v4, Lcom/isaigu/gymapp/R$styleable;->CustomCalendar:[I
-
-    new-array v4, v7, [I
-
-    fill-array-data v4, :array_1a
-
-    sput-object v4, Lcom/isaigu/gymapp/R$styleable;->DesignTheme:[I
-
-    const/16 v4, 0x8
-
-    new-array v11, v4, [I
-
-    fill-array-data v11, :array_1b
-
-    sput-object v11, Lcom/isaigu/gymapp/R$styleable;->DrawerArrowToggle:[I
-
-    new-array v4, v4, [I
-
-    fill-array-data v4, :array_1c
-
-    sput-object v4, Lcom/isaigu/gymapp/R$styleable;->FloatingActionButton:[I
-
-    new-array v4, v2, [I
-
-    const v11, 0x7f040046
-
-    aput v11, v4, v5
-
-    sput-object v4, Lcom/isaigu/gymapp/R$styleable;->FloatingActionButton_Behavior_Layout:[I
-
-    new-array v4, v7, [I
-
-    fill-array-data v4, :array_1d
-
-    sput-object v4, Lcom/isaigu/gymapp/R$styleable;->ForegroundLinearLayout:[I
-
-    const/16 v4, 0x9
-
-    new-array v11, v4, [I
-
-    fill-array-data v11, :array_1e
-
-    sput-object v11, Lcom/isaigu/gymapp/R$styleable;->LinearLayoutCompat:[I
-
-    new-array v6, v6, [I
-
-    fill-array-data v6, :array_1f
-
-    sput-object v6, Lcom/isaigu/gymapp/R$styleable;->LinearLayoutCompat_Layout:[I
-
-    new-array v6, v0, [I
-
-    fill-array-data v6, :array_20
-
-    sput-object v6, Lcom/isaigu/gymapp/R$styleable;->ListPopupWindow:[I
-
-    new-array v6, v3, [I
-
-    fill-array-data v6, :array_21
-
-    sput-object v6, Lcom/isaigu/gymapp/R$styleable;->MenuGroup:[I
-
-    const/16 v6, 0x13
-
-    new-array v6, v6, [I
-
-    fill-array-data v6, :array_22
-
-    sput-object v6, Lcom/isaigu/gymapp/R$styleable;->MenuItem:[I
-
-    new-array v4, v4, [I
-
-    fill-array-data v4, :array_23
-
-    sput-object v4, Lcom/isaigu/gymapp/R$styleable;->MenuView:[I
-
-    new-array v4, v3, [I
-
-    fill-array-data v4, :array_24
-
-    sput-object v4, Lcom/isaigu/gymapp/R$styleable;->MyBatteryView:[I
-
-    const/16 v4, 0xa
-
-    new-array v6, v4, [I
-
-    fill-array-data v6, :array_25
-
-    sput-object v6, Lcom/isaigu/gymapp/R$styleable;->NavigationView:[I
-
-    new-array v6, v4, [I
-
-    fill-array-data v6, :array_26
-
-    sput-object v6, Lcom/isaigu/gymapp/R$styleable;->PercentLayout_Layout:[I
-
-    new-array v6, v7, [I
-
-    fill-array-data v6, :array_27
-
-    sput-object v6, Lcom/isaigu/gymapp/R$styleable;->PopupWindow:[I
-
-    new-array v6, v2, [I
-
-    const v11, 0x7f04016a
-
-    aput v11, v6, v5
-
-    sput-object v6, Lcom/isaigu/gymapp/R$styleable;->PopupWindowBackgroundState:[I
-
-    const/16 v6, 0x23
-
-    new-array v6, v6, [I
-
-    fill-array-data v6, :array_28
-
-    sput-object v6, Lcom/isaigu/gymapp/R$styleable;->RangeSeekBar:[I
-
-    new-array v6, v0, [I
-
-    fill-array-data v6, :array_29
-
-    sput-object v6, Lcom/isaigu/gymapp/R$styleable;->RecycleListView:[I
-
-    new-array v6, v9, [I
-
-    fill-array-data v6, :array_2a
-
-    sput-object v6, Lcom/isaigu/gymapp/R$styleable;->RecyclerView:[I
-
-    new-array v6, v2, [I
-
-    const v11, 0x7f0400c1
-
-    aput v11, v6, v5
-
-    sput-object v6, Lcom/isaigu/gymapp/R$styleable;->ScrimInsetsFrameLayout:[I
-
-    new-array v2, v2, [I
-
-    const v6, 0x7f040048
-
-    aput v6, v2, v5
-
-    sput-object v2, Lcom/isaigu/gymapp/R$styleable;->ScrollingViewBehavior_Layout:[I
-
-    const/16 v2, 0x11
-
-    new-array v2, v2, [I
-
-    fill-array-data v2, :array_2b
-
-    sput-object v2, Lcom/isaigu/gymapp/R$styleable;->SearchView:[I
-
-    new-array v2, v9, [I
-
-    fill-array-data v2, :array_2c
-
-    sput-object v2, Lcom/isaigu/gymapp/R$styleable;->ShapeCornerBgView:[I
-
-    new-array v2, v7, [I
-
-    fill-array-data v2, :array_2d
-
-    sput-object v2, Lcom/isaigu/gymapp/R$styleable;->SnackbarLayout:[I
-
-    new-array v2, v8, [I
-
-    fill-array-data v2, :array_2e
-
-    sput-object v2, Lcom/isaigu/gymapp/R$styleable;->Spinner:[I
-
-    const/16 v2, 0xe
-
-    new-array v2, v2, [I
-
-    fill-array-data v2, :array_2f
-
-    sput-object v2, Lcom/isaigu/gymapp/R$styleable;->SwitchCompat:[I
+    .line 3218
+    const/16 v0, 0x1d
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_30
+    fill-array-data v0, :array_224
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ActionBar:[I
+
+    .line 3219
+    new-array v0, v5, [I
+
+    const v1, 0x10100b3
+
+    aput v1, v0, v4
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ActionBarLayout:[I
+
+    .line 3220
+    new-array v0, v5, [I
+
+    const v1, 0x101013f
+
+    aput v1, v0, v4
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ActionMenuItemView:[I
+
+    .line 3221
+    new-array v0, v4, [I
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ActionMenuView:[I
+
+    .line 3222
+    const/4 v0, 0x6
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_262
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ActionMode:[I
+
+    .line 3223
+    new-array v0, v3, [I
+
+    fill-array-data v0, :array_272
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ActivityChooserView:[I
+
+    .line 3224
+    const/4 v0, 0x7
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_27a
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->AlertDialog:[I
+
+    .line 3225
+    const/4 v0, 0x4
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_28c
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->AmountView:[I
+
+    .line 3226
+    new-array v0, v2, [I
+
+    fill-array-data v0, :array_298
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->AppBarLayout:[I
+
+    .line 3227
+    new-array v0, v3, [I
+
+    fill-array-data v0, :array_2a2
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->AppBarLayoutStates:[I
+
+    .line 3228
+    new-array v0, v3, [I
+
+    fill-array-data v0, :array_2aa
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->AppBarLayout_Layout:[I
+
+    .line 3229
+    new-array v0, v3, [I
+
+    fill-array-data v0, :array_2b2
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->AppCompatImageView:[I
+
+    .line 3230
+    const/4 v0, 0x4
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_2ba
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->AppCompatSeekBar:[I
+
+    .line 3231
+    const/4 v0, 0x7
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_2c6
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->AppCompatTextHelper:[I
+
+    .line 3232
+    new-array v0, v3, [I
+
+    fill-array-data v0, :array_2d8
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->AppCompatTextView:[I
+
+    .line 3233
+    const/16 v0, 0x73
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_2e0
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->AppCompatTheme:[I
+
+    .line 3234
+    new-array v0, v6, [I
+
+    fill-array-data v0, :array_3ca
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->BottomNavigationView:[I
+
+    .line 3235
+    new-array v0, v2, [I
+
+    fill-array-data v0, :array_3d8
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->BottomSheetBehavior_Layout:[I
+
+    .line 3236
+    new-array v0, v5, [I
+
+    const v1, 0x7f04002e
+
+    aput v1, v0, v4
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ButtonBarLayout:[I
+
+    .line 3237
+    new-array v0, v6, [I
+
+    fill-array-data v0, :array_3e2
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->CircleImageView:[I
+
+    .line 3238
+    const/16 v0, 0x15
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_3f0
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->CircleSeekBar:[I
+
+    .line 3239
+    const/16 v0, 0xb
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_41e
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->CircularProgressView:[I
+
+    .line 3240
+    const/16 v0, 0x10
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_438
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->CollapsingToolbarLayout:[I
+
+    .line 3241
+    new-array v0, v3, [I
+
+    fill-array-data v0, :array_45c
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->CollapsingToolbarLayout_Layout:[I
+
+    .line 3242
+    new-array v0, v2, [I
+
+    fill-array-data v0, :array_464
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ColorStateListItem:[I
+
+    .line 3243
+    new-array v0, v2, [I
+
+    fill-array-data v0, :array_46e
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->CompoundButton:[I
+
+    .line 3244
+    new-array v0, v3, [I
+
+    fill-array-data v0, :array_478
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->CoordinatorLayout:[I
+
+    .line 3245
+    const/4 v0, 0x7
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_480
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->CoordinatorLayout_Layout:[I
+
+    .line 3246
+    const/16 v0, 0x1d
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_492
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->CustomCalendar:[I
+
+    .line 3247
+    new-array v0, v2, [I
+
+    fill-array-data v0, :array_4d0
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->DesignTheme:[I
+
+    .line 3248
+    const/16 v0, 0x8
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_4da
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->DrawerArrowToggle:[I
+
+    .line 3249
+    const/16 v0, 0x8
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_4ee
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->FloatingActionButton:[I
+
+    .line 3250
+    new-array v0, v5, [I
+
+    const v1, 0x7f040046
+
+    aput v1, v0, v4
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->FloatingActionButton_Behavior_Layout:[I
+
+    .line 3251
+    new-array v0, v2, [I
+
+    fill-array-data v0, :array_502
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ForegroundLinearLayout:[I
+
+    .line 3252
+    const/16 v0, 0x9
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_50c
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->LinearLayoutCompat:[I
+
+    .line 3253
+    const/4 v0, 0x4
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_522
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->LinearLayoutCompat_Layout:[I
+
+    .line 3254
+    new-array v0, v3, [I
+
+    fill-array-data v0, :array_52e
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ListPopupWindow:[I
+
+    .line 3255
+    const/4 v0, 0x6
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_536
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->MenuGroup:[I
+
+    .line 3256
+    const/16 v0, 0x13
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_546
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->MenuItem:[I
+
+    .line 3257
+    const/16 v0, 0x9
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_570
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->MenuView:[I
+
+    .line 3258
+    const/4 v0, 0x6
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_586
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->MyBatteryView:[I
+
+    .line 3259
+    const/16 v0, 0xa
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_596
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->NavigationView:[I
+
+    .line 3260
+    const/16 v0, 0xa
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_5ae
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->PercentLayout_Layout:[I
+
+    .line 3261
+    new-array v0, v2, [I
+
+    fill-array-data v0, :array_5c6
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->PopupWindow:[I
+
+    .line 3262
+    new-array v0, v5, [I
+
+    const v1, 0x7f04016a
+
+    aput v1, v0, v4
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->PopupWindowBackgroundState:[I
+
+    .line 3263
+    const/16 v0, 0x23
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_5d0
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->RangeSeekBar:[I
+
+    .line 3264
+    new-array v0, v3, [I
+
+    fill-array-data v0, :array_61a
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->RecycleListView:[I
+
+    .line 3265
+    const/16 v0, 0xb
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_622
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->RecyclerView:[I
+
+    .line 3266
+    new-array v0, v5, [I
+
+    const v1, 0x7f0400c1
+
+    aput v1, v0, v4
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ScrimInsetsFrameLayout:[I
+
+    .line 3267
+    new-array v0, v5, [I
+
+    const v1, 0x7f040048
+
+    aput v1, v0, v4
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ScrollingViewBehavior_Layout:[I
+
+    .line 3268
+    const/16 v0, 0x11
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_63c
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->SearchView:[I
+
+    .line 3269
+    const/16 v0, 0xb
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_662
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ShapeCornerBgView:[I
+
+    .line 3270
+    new-array v0, v2, [I
+
+    fill-array-data v0, :array_67c
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->SnackbarLayout:[I
+
+    .line 3271
+    new-array v0, v6, [I
+
+    fill-array-data v0, :array_686
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->Spinner:[I
+
+    .line 3272
+    const/16 v0, 0xe
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_694
+
+    sput-object v0, Lcom/isaigu/gymapp/R$styleable;->SwitchCompat:[I
+
+    .line 3273
+    new-array v0, v3, [I
+
+    fill-array-data v0, :array_6b4
 
     sput-object v0, Lcom/isaigu/gymapp/R$styleable;->SwitchView:[I
 
-    new-array v0, v7, [I
+    .line 3274
+    new-array v0, v2, [I
 
-    fill-array-data v0, :array_31
+    fill-array-data v0, :array_6bc
 
     sput-object v0, Lcom/isaigu/gymapp/R$styleable;->TabItem:[I
 
-    new-array v0, v10, [I
+    .line 3275
+    const/16 v0, 0x10
 
-    fill-array-data v0, :array_32
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_6c6
 
     sput-object v0, Lcom/isaigu/gymapp/R$styleable;->TabLayout:[I
 
-    new-array v0, v4, [I
+    .line 3276
+    const/16 v0, 0xa
 
-    fill-array-data v0, :array_33
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_6ea
 
     sput-object v0, Lcom/isaigu/gymapp/R$styleable;->TextAppearance:[I
 
-    new-array v0, v10, [I
+    .line 3277
+    const/16 v0, 0x10
 
-    fill-array-data v0, :array_34
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_702
 
     sput-object v0, Lcom/isaigu/gymapp/R$styleable;->TextInputLayout:[I
 
-    new-array v0, v1, [I
+    .line 3278
+    const/16 v0, 0x1d
 
-    fill-array-data v0, :array_35
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_726
 
     sput-object v0, Lcom/isaigu/gymapp/R$styleable;->Toolbar:[I
 
-    new-array v0, v8, [I
+    .line 3279
+    new-array v0, v6, [I
 
-    fill-array-data v0, :array_36
+    fill-array-data v0, :array_764
 
     sput-object v0, Lcom/isaigu/gymapp/R$styleable;->View:[I
 
-    new-array v0, v7, [I
+    .line 3280
+    new-array v0, v2, [I
 
-    fill-array-data v0, :array_37
+    fill-array-data v0, :array_772
 
     sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ViewBackgroundHelper:[I
 
-    new-array v0, v7, [I
+    .line 3281
+    new-array v0, v2, [I
 
-    fill-array-data v0, :array_38
+    fill-array-data v0, :array_77c
 
     sput-object v0, Lcom/isaigu/gymapp/R$styleable;->ViewStubCompat:[I
 
-    new-array v0, v3, [I
+    .line 3282
+    const/4 v0, 0x6
 
-    fill-array-data v0, :array_39
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_786
 
     sput-object v0, Lcom/isaigu/gymapp/R$styleable;->pickerview:[I
 
-    new-array v0, v7, [I
+    .line 3283
+    new-array v0, v2, [I
 
-    fill-array-data v0, :array_3a
+    fill-array-data v0, :array_796
 
     sput-object v0, Lcom/isaigu/gymapp/R$styleable;->recycler_swipe_SwipeMenuLayout:[I
 
     return-void
 
-    nop
-
-    :array_0
+    .line 3217
+    :array_21c
     .array-data 4
         0x7f0400be
         0x7f0400bf
     .end array-data
 
-    :array_1
+    .line 3218
+    :array_224
     .array-data 4
         0x7f04003e
         0x7f04003f
@@ -1840,7 +1943,8 @@
         0x7f0401a9
     .end array-data
 
-    :array_2
+    .line 3222
+    :array_262
     .array-data 4
         0x7f04003e
         0x7f04003f
@@ -1850,13 +1954,15 @@
         0x7f0401a9
     .end array-data
 
-    :array_3
+    .line 3223
+    :array_272
     .array-data 4
         0x7f0400a0
         0x7f0400c0
     .end array-data
 
-    :array_4
+    .line 3224
+    :array_27a
     .array-data 4
         0x10100f2
         0x7f040057
@@ -1867,7 +1973,8 @@
         0x7f040162
     .end array-data
 
-    :array_5
+    .line 3225
+    :array_28c
     .array-data 4
         0x7f04004f
         0x7f040050
@@ -1875,32 +1982,37 @@
         0x7f0401b2
     .end array-data
 
-    :array_6
+    .line 3226
+    :array_298
     .array-data 4
         0x10100d4
         0x7f04009d
         0x7f0400a1
     .end array-data
 
-    :array_7
+    .line 3227
+    :array_2a2
     .array-data 4
         0x7f04016b
         0x7f04016c
     .end array-data
 
-    :array_8
+    .line 3228
+    :array_2aa
     .array-data 4
         0x7f0400dc
         0x7f0400dd
     .end array-data
 
-    :array_9
+    .line 3229
+    :array_2b2
     .array-data 4
         0x1010119
         0x7f040168
     .end array-data
 
-    :array_a
+    .line 3230
+    :array_2ba
     .array-data 4
         0x1010142
         0x7f04019c
@@ -1908,7 +2020,8 @@
         0x7f04019e
     .end array-data
 
-    :array_b
+    .line 3231
+    :array_2c6
     .array-data 4
         0x1010034
         0x101016d
@@ -1919,13 +2032,15 @@
         0x1010393
     .end array-data
 
-    :array_c
+    .line 3232
+    :array_2d8
     .array-data 4
         0x1010034
         0x7f04018c
     .end array-data
 
-    :array_d
+    .line 3233
+    :array_2e0
     .array-data 4
         0x1010057
         0x10100ae
@@ -2044,7 +2159,8 @@
         0x7f0401d8
     .end array-data
 
-    :array_e
+    .line 3234
+    :array_3ca
     .array-data 4
         0x7f04009d
         0x7f0400c3
@@ -2053,14 +2169,16 @@
         0x7f04010f
     .end array-data
 
-    :array_f
+    .line 3235
+    :array_3d8
     .array-data 4
         0x7f040047
         0x7f040049
         0x7f04004a
     .end array-data
 
-    :array_10
+    .line 3237
+    :array_3e2
     .array-data 4
         0x7f04005e
         0x7f04005f
@@ -2069,7 +2187,8 @@
         0x7f040062
     .end array-data
 
-    :array_11
+    .line 3238
+    :array_3f0
     .array-data 4
         0x7f04015a
         0x7f0401b5
@@ -2094,7 +2213,8 @@
         0x7f0401c8
     .end array-data
 
-    :array_12
+    .line 3239
+    :array_41e
     .array-data 4
         0x7f040082
         0x7f040083
@@ -2109,7 +2229,8 @@
         0x7f04008c
     .end array-data
 
-    :array_13
+    .line 3240
+    :array_438
     .array-data 4
         0x7f040067
         0x7f040068
@@ -2129,33 +2250,38 @@
         0x7f0401aa
     .end array-data
 
-    :array_14
+    .line 3241
+    :array_45c
     .array-data 4
         0x7f0400cf
         0x7f0400d0
     .end array-data
 
-    :array_15
+    .line 3242
+    :array_464
     .array-data 4
         0x10101a5
         0x101031f
         0x7f04002f
     .end array-data
 
-    :array_16
+    .line 3243
+    :array_46e
     .array-data 4
         0x1010107
         0x7f04005a
         0x7f04005b
     .end array-data
 
-    :array_17
+    .line 3244
+    :array_478
     .array-data 4
         0x7f0400c8
         0x7f04016d
     .end array-data
 
-    :array_18
+    .line 3245
+    :array_480
     .array-data 4
         0x10100b3
         0x7f0400cb
@@ -2166,7 +2292,8 @@
         0x7f0400d4
     .end array-data
 
-    :array_19
+    .line 3246
+    :array_492
     .array-data 4
         0x7f0400ee
         0x7f0400ef
@@ -2199,14 +2326,16 @@
         0x7f04010b
     .end array-data
 
-    :array_1a
+    .line 3247
+    :array_4d0
     .array-data 4
         0x7f04004d
         0x7f04004e
         0x7f040195
     .end array-data
 
-    :array_1b
+    .line 3248
+    :array_4da
     .array-data 4
         0x7f04003b
         0x7f04003c
@@ -2218,7 +2347,8 @@
         0x7f040198
     .end array-data
 
-    :array_1c
+    .line 3249
+    :array_4ee
     .array-data 4
         0x7f040041
         0x7f040042
@@ -2230,14 +2360,16 @@
         0x7f0401b3
     .end array-data
 
-    :array_1d
+    .line 3251
+    :array_502
     .array-data 4
         0x1010109
         0x1010200
         0x7f0400af
     .end array-data
 
-    :array_1e
+    .line 3252
+    :array_50c
     .array-data 4
         0x10100af
         0x10100c4
@@ -2250,7 +2382,8 @@
         0x7f04015f
     .end array-data
 
-    :array_1f
+    .line 3253
+    :array_522
     .array-data 4
         0x10100b3
         0x10100f4
@@ -2258,13 +2391,15 @@
         0x1010181
     .end array-data
 
-    :array_20
+    .line 3254
+    :array_52e
     .array-data 4
         0x10102ac
         0x10102ad
     .end array-data
 
-    :array_21
+    .line 3255
+    :array_536
     .array-data 4
         0x101000e
         0x10100d0
@@ -2274,7 +2409,8 @@
         0x10101e0
     .end array-data
 
-    :array_22
+    .line 3256
+    :array_546
     .array-data 4
         0x1010002
         0x101000e
@@ -2297,7 +2433,8 @@
         0x7f0401ad
     .end array-data
 
-    :array_23
+    .line 3257
+    :array_570
     .array-data 4
         0x10100ae
         0x101012c
@@ -2310,7 +2447,8 @@
         0x7f04016f
     .end array-data
 
-    :array_24
+    .line 3258
+    :array_586
     .array-data 4
         0x7f040044
         0x7f040045
@@ -2320,7 +2458,8 @@
         0x7f040160
     .end array-data
 
-    :array_25
+    .line 3259
+    :array_596
     .array-data 4
         0x10100d4
         0x10100dd
@@ -2334,7 +2473,8 @@
         0x7f04010f
     .end array-data
 
-    :array_26
+    .line 3260
+    :array_5ae
     .array-data 4
         0x7f0400cd
         0x7f0400d2
@@ -2348,14 +2488,16 @@
         0x7f0400de
     .end array-data
 
-    :array_27
+    .line 3261
+    :array_5c6
     .array-data 4
         0x1010176
         0x10102c9
         0x7f040114
     .end array-data
 
-    :array_28
+    .line 3263
+    :array_5d0
     .array-data 4
         0x7f040132
         0x7f040133
@@ -2394,13 +2536,15 @@
         0x7f040154
     .end array-data
 
-    :array_29
+    .line 3264
+    :array_61a
     .array-data 4
         0x7f040115
         0x7f040118
     .end array-data
 
-    :array_2a
+    .line 3265
+    :array_622
     .array-data 4
         0x10100c4
         0x10100f1
@@ -2415,7 +2559,8 @@
         0x7f040169
     .end array-data
 
-    :array_2b
+    .line 3268
+    :array_63c
     .array-data 4
         0x10100da
         0x101011f
@@ -2436,7 +2581,8 @@
         0x7f0401b4
     .end array-data
 
-    :array_2c
+    .line 3269
+    :array_662
     .array-data 4
         0x7f040030
         0x7f040031
@@ -2451,14 +2597,16 @@
         0x7f04003a
     .end array-data
 
-    :array_2d
+    .line 3270
+    :array_67c
     .array-data 4
         0x101011f
         0x7f04009d
         0x7f04010c
     .end array-data
 
-    :array_2e
+    .line 3271
+    :array_686
     .array-data 4
         0x10100b2
         0x1010176
@@ -2467,7 +2615,8 @@
         0x7f040122
     .end array-data
 
-    :array_2f
+    .line 3272
+    :array_694
     .array-data 4
         0x1010124
         0x1010125
@@ -2485,20 +2634,23 @@
         0x7f0401b0
     .end array-data
 
-    :array_30
+    .line 3273
+    :array_6b4
     .array-data 4
         0x7f04017a
         0x7f04017b
     .end array-data
 
-    :array_31
+    .line 3274
+    :array_6bc
     .array-data 4
         0x1010002
         0x10100f2
         0x101014f
     .end array-data
 
-    :array_32
+    .line 3275
+    :array_6c6
     .array-data 4
         0x7f04017c
         0x7f04017d
@@ -2518,7 +2670,8 @@
         0x7f04018b
     .end array-data
 
-    :array_33
+    .line 3276
+    :array_6ea
     .array-data 4
         0x1010095
         0x1010096
@@ -2532,7 +2685,8 @@
         0x7f04018c
     .end array-data
 
-    :array_34
+    .line 3277
+    :array_702
     .array-data 4
         0x101009a
         0x1010150
@@ -2552,7 +2706,8 @@
         0x7f040120
     .end array-data
 
-    :array_35
+    .line 3278
+    :array_726
     .array-data 4
         0x10100af
         0x1010140
@@ -2585,7 +2740,8 @@
         0x7f0401a8
     .end array-data
 
-    :array_36
+    .line 3279
+    :array_764
     .array-data 4
         0x1010000
         0x10100da
@@ -2594,21 +2750,24 @@
         0x7f040197
     .end array-data
 
-    :array_37
+    .line 3280
+    :array_772
     .array-data 4
         0x10100d4
         0x7f040041
         0x7f040042
     .end array-data
 
-    :array_38
+    .line 3281
+    :array_77c
     .array-data 4
         0x10100d0
         0x10100f2
         0x10100f3
     .end array-data
 
-    :array_39
+    .line 3282
+    :array_786
     .array-data 4
         0x7f0401c9
         0x7f0401ca
@@ -2618,7 +2777,8 @@
         0x7f0401ce
     .end array-data
 
-    :array_3a
+    .line 3283
+    :array_796
     .array-data 4
         0x7f04007c
         0x7f0400df
@@ -2627,9 +2787,12 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
+    .prologue
+    .line 3285
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 3286
     return-void
 .end method

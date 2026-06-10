@@ -288,8 +288,10 @@ Setup path: Apps->%3$s->Permissions"</string>
     <string name="brandingTitle">Branding:</string>
     <string name="changeIconText">Change icon</string>
     <string name="changeSplashText">Change splash</string>
-    <string name="currentIncreaseStep">Current increase step:</string>
-    <string name="currentDecreaseStep">Current decrease step:</string>
+    <string name="currentIncreaseStep">Current increase step (0.1 mA):</string>
+    <string name="currentDecreaseStep">Current decrease step (0.1 mA):</string>
+    <string name="channelCalibrationTitle">Per-channel calibration (multiplier x / pulse μs)</string>
+    <string name="channelPulseGlobal">Global</string>
     <string name="defaultPulseContinue">Default impulse duration:</string>
     <string name="defaultPulsePause">Default impulse pause:</string>
 </resources>

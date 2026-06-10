@@ -17,22 +17,26 @@
 # instance fields
 .field final synthetic this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
-.field final synthetic val$fi:I
-
 .field final synthetic val$position:I
+
+.field final synthetic val$userHolder:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;
+
+.field final synthetic val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
 
 # direct methods
-.method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;II)V
-    .locals 0
-    .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+.method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;I)V
+    .registers 5
 
-    .line 1535
+    .prologue
+    .line 1421
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
-    iput p2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->val$position:I
+    iput-object p2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->val$userHolder:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;
 
-    iput p3, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->val$fi:I
+    iput-object p3, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    iput p4, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->val$position:I
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
 
@@ -42,30 +46,22 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 3
-    .param p1, "v"    # Landroid/view/View;
+    .registers 7
 
-    .line 1537
+    .prologue
+    .line 1424
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->clearAllMASelect()V
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->val$userHolder:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;
 
-    .line 1538
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    iget v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->val$position:I
+    const/4 v3, 0x1
 
-    iget v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->val$fi:I
+    iget v4, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->val$position:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->handleRowAndIndexOperation(II)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->changeTrainType(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;II)V
 
-    .line 1539
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$9;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
-
-    iget-object v0, v0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
-
-    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$100(Lcom/isaigu/gymapp/fragment/TrainFragment;)V
-
-    .line 1540
+    .line 1425
     return-void
 .end method

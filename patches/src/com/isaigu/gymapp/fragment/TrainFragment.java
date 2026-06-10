@@ -67,8 +67,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Timer;
-import me.weyye.hipermission.HiPermission;
-import me.weyye.hipermission.PermissionCallback;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
@@ -124,28 +122,6 @@ public class TrainFragment extends BaseFragment {
         MessageDispatcher.attachEventListener(EventMessage.event_device_disconnected, this);
         MessageDispatcher.attachEventListener(EventMessage.event_device_connected, this);
         MessageDispatcher.attachEventListener((short) 107, this);
-        HiPermission.create(getParentActivity()).checkSinglePermission("android.permission.ACCESS_FINE_LOCATION", new PermissionCallback() { // from class: com.isaigu.gymapp.fragment.TrainFragment.1
-            @Override // me.weyye.hipermission.PermissionCallback
-            public void onClose() {
-                Logger.logConsole("onClose");
-            }
-
-            @Override // me.weyye.hipermission.PermissionCallback
-            public void onFinish() {
-                Logger.logConsole("onFinish");
-            }
-
-            @Override // me.weyye.hipermission.PermissionCallback
-            public void onDeny(String permisson, int position) {
-                Logger.logConsole("onDeny: " + permisson + "  " + position);
-                TrainFragment.this.getParentActivity().showTips(TrainFragment.this.getString(R.string.location_permission_error));
-            }
-
-            @Override // me.weyye.hipermission.PermissionCallback
-            public void onGuarantee(String permisson, int position) {
-                Logger.logConsole("onGuarantee: " + permisson + "  " + position);
-            }
-        });
         return view;
     }
 
@@ -213,14 +189,14 @@ public class TrainFragment extends BaseFragment {
                 this.allMinus.setOnClickListener(new NoDoubleClickListener() { // from class: com.isaigu.gymapp.fragment.TrainFragment.3
                     @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
                     public void onNoDoubleClick(View v) {
-                        TrainFragment.this.userTrainAdapter.handleStrenthChange(-UserData.getInstance().currentDecreaseStep);
+                        TrainFragment.this.userTrainAdapter.handleStrenthChange(-com.isaigu.gymapp.utils.StrengthAdjustUtil.getDecreaseStepTenths());
                         TrainFragment.this.startClearSelectedTimer();
                     }
                 });
                 this.allAdd.setOnClickListener(new NoDoubleClickListener() { // from class: com.isaigu.gymapp.fragment.TrainFragment.4
                     @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
                     public void onNoDoubleClick(View v) {
-                        TrainFragment.this.userTrainAdapter.handleStrenthChange(UserData.getInstance().currentIncreaseStep);
+                        TrainFragment.this.userTrainAdapter.handleStrenthChange(com.isaigu.gymapp.utils.StrengthAdjustUtil.getIncreaseStepTenths());
                         TrainFragment.this.startClearSelectedTimer();
                     }
                 });
@@ -875,7 +851,7 @@ public class TrainFragment extends BaseFragment {
             if (index < 0 || index > this.maSelected.size() - 1) {
                 return;
             }
-            this.maSelected.set(index, Boolean.valueOf(!r0.get(index).booleanValue()));
+            this.maSelected.set(index, Boolean.valueOf(!this.maSelected.get(index).booleanValue()));
             UserTrainControlHolder holder = this.userTrainControlHolders.get(String.valueOf(index));
             if (!this.maSelected.get(index).booleanValue()) {
                 TrainFragment.this.stopClearSelectedTimer();
@@ -964,7 +940,7 @@ public class TrainFragment extends BaseFragment {
             return false;
         }
 
-        public void handleStrenthChange(int value) {
+        public void handleStrenthChange(int deltaTenths) {
             if (isPartSelected()) {
                 for (int i = 0; i < this.buweiSelected.size(); i++) {
                     TrainUserProgramDataWrapper wrapper = this.mData.get(i);
@@ -975,15 +951,7 @@ public class TrainFragment extends BaseFragment {
                             for (int j = 0; j < this.buweiSelected.get(i).length; j++) {
                                 if (this.buweiSelected.get(i)[j]) {
                                     contain = true;
-                                    int strenth = dataBean.strenth;
-                                    if (strenth > 0) {
-                                        int vStrenth = MathUtils.clamp(Math.round((dataBean.strenthBean.buwei[j] / 100.0f) * strenth) + value, 0, strenth);
-                                        if (value > 0) {
-                                            dataBean.strenthBean.buwei[j] = Math.round((vStrenth * 100.0f) / strenth);
-                                        } else {
-                                            dataBean.strenthBean.buwei[j] = Math.round((vStrenth * 100.0f) / strenth);
-                                        }
-                                    }
+                                    com.isaigu.gymapp.utils.StrengthAdjustUtil.adjustChannelMa(dataBean, j, deltaTenths);
                                 }
                             }
                             if (contain) {
@@ -1002,13 +970,7 @@ public class TrainFragment extends BaseFragment {
                     if (this.maSelected.get(i2).booleanValue() && wrapper2.type == 0) {
                         ProgramDataBean dataBean2 = wrapper2.trainProgram.matchProgram();
                         if (wrapper2.start) {
-                            dataBean2.strenth += value;
-                            if (dataBean2.strenth > 100) {
-                                dataBean2.strenth = 100;
-                            }
-                            if (dataBean2.strenth < 0) {
-                                dataBean2.strenth = 0;
-                            }
+                            com.isaigu.gymapp.utils.StrengthAdjustUtil.adjustOverallMa(dataBean2, deltaTenths);
                             set_mode_10_part_parameter(wrapper2.macAddress, wrapper2.trainProgram.useType, dataBean2);
                         }
                         UserTrainControlHolder holder2 = this.userTrainControlHolders.get(String.valueOf(i2));
@@ -1289,7 +1251,7 @@ public class TrainFragment extends BaseFragment {
                 int[][] iArr = this.colorArray;
                 verticalColorSeekBar.setColorArray(iArr[position][2], iArr[position][1], iArr[position][0]);
                 userHolder.verticalColorSeekBars[i].setProgress(programDataBean.strenthBean.buwei[i]);
-                userHolder.textViews[i].setText(String.format(TrainFragment.this.getString(R.string.maValue), Integer.valueOf(Math.round((programDataBean.strenthBean.buwei[i] / 100.0f) * programDataBean.strenth))));
+                userHolder.textViews[i].setText(String.format(TrainFragment.this.getString(R.string.maValue), com.isaigu.gymapp.utils.StrengthAdjustUtil.formatMa(com.isaigu.gymapp.utils.StrengthAdjustUtil.getChannelMa(programDataBean, i))));
                 userHolder.textViews[i].setTextColor(TrainFragment.this.getColor(R.color.light_black_color));
                 if (this.buweiSelected.get(position)[i]) {
                     userHolder.textViews[i].setTextColor(this.colorArray[position][0]);
@@ -1298,7 +1260,7 @@ public class TrainFragment extends BaseFragment {
             CircleSeekBar circleSeekBar = userHolder.seekBar;
             int[][] iArr2 = this.colorArray;
             circleSeekBar.setSectionColors(iArr2[position][0], iArr2[position][1], iArr2[position][2]);
-            userHolder.ma.setText(String.format(TrainFragment.this.getString(R.string.maValue), Integer.valueOf(programDataBean.strenth)));
+            userHolder.ma.setText(String.format(TrainFragment.this.getString(R.string.maValue), com.isaigu.gymapp.utils.StrengthAdjustUtil.formatMa(com.isaigu.gymapp.utils.StrengthAdjustUtil.getStrengthMa(programDataBean))));
             if (this.maSelected.get(position).booleanValue()) {
                 userHolder.ma.setBackgroundResource(this.maButtonBackgroundArray[position]);
             } else {
@@ -1812,12 +1774,22 @@ public class TrainFragment extends BaseFragment {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void set_mode_10_part_parameter(String macAddress, int useType, ProgramDataBean programDataBean) {
-            ProtocolController.request_set_mode_10_part_parameter(macAddress, useType, (int) ((programDataBean.strenthBean.buwei[0] / 100.0f) * programDataBean.strenth), (int) ((programDataBean.strenthBean.buwei[1] / 100.0f) * programDataBean.strenth), (int) ((programDataBean.strenthBean.buwei[2] / 100.0f) * programDataBean.strenth), (int) ((programDataBean.strenthBean.buwei[3] / 100.0f) * programDataBean.strenth), (int) ((programDataBean.strenthBean.buwei[4] / 100.0f) * programDataBean.strenth), (int) ((programDataBean.strenthBean.buwei[5] / 100.0f) * programDataBean.strenth), (int) ((programDataBean.strenthBean.buwei[6] / 100.0f) * programDataBean.strenth), (int) ((programDataBean.strenthBean.buwei[7] / 100.0f) * programDataBean.strenth), (int) ((programDataBean.strenthBean.buwei[8] / 100.0f) * programDataBean.strenth), (int) ((programDataBean.strenthBean.buwei[9] / 100.0f) * programDataBean.strenth));
+            com.isaigu.gymapp.utils.StrengthAdjustUtil.migrate(programDataBean);
+            int[] parts = new int[10];
+            for (int i = 0; i < 10; i++) {
+                parts[i] = Math.round(com.isaigu.gymapp.utils.StrengthAdjustUtil.getChannelMa(programDataBean, i));
+            }
+            ProtocolController.request_set_mode_10_part_parameter(macAddress, useType, parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6], parts[7], parts[8], parts[9]);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void set_mode_other_10_part_parameter(String macAddress, int useType, ProgramDataBean programDataBean, boolean start) {
-            ProtocolController.request_set_mode_other_parameter(macAddress, useType, programDataBean.workLength, programDataBean.hz, programDataBean.pulseWidth, programDataBean.pulseContinue, programDataBean.pulsePause, programDataBean.inputRamp, programDataBean.outputRamp, programDataBean.massageCycle, start);
+            int pulseWidth = resolvePulseWidth(programDataBean);
+            ProtocolController.request_set_mode_other_parameter(macAddress, useType, programDataBean.workLength, programDataBean.hz, pulseWidth, programDataBean.pulseContinue, programDataBean.pulsePause, programDataBean.inputRamp, programDataBean.outputRamp, programDataBean.massageCycle, start);
+        }
+
+        private int resolvePulseWidth(ProgramDataBean programDataBean) {
+            return com.isaigu.gymapp.utils.StrengthAdjustUtil.resolveGlobalPulseWidthForBle(programDataBean);
         }
 
         @Override // android.support.v7.widget.RecyclerView.Adapter

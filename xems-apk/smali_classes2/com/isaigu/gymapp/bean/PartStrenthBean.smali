@@ -9,169 +9,234 @@
 # instance fields
 .field public buwei:[I
 
+.field public buweiFloat:[F
+
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 3
 
-    .line 13
+    .prologue
+    const/16 v1, 0xa
+
+    .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 14
-    const/16 v0, 0xa
-
-    new-array v0, v0, [I
+    .line 7
+    new-array v0, v1, [I
 
     iput-object v0, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
-    .line 15
+    .line 8
+    new-array v0, v1, [F
+
+    iput-object v0, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
+
     return-void
 .end method
 
 
 # virtual methods
 .method public getMaxBodyStrenth()I
-    .locals 4
+    .registers 4
 
-    .line 25
-    iget-object v0, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
-
-    if-eqz v0, :cond_3
-
-    array-length v0, v0
-
-    if-gtz v0, :cond_0
-
-    goto :goto_1
-
-    .line 28
-    :cond_0
-    const/4 v0, 0x0
-
-    .line 29
-    .local v0, "max":I
+    .prologue
     const/4 v1, 0x0
 
-    .local v1, "i":I
-    :goto_0
-    iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
+    .line 29
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/bean/PartStrenthBean;->migrateIfNeeded()V
 
-    array-length v3, v2
+    move v0, v1
 
-    if-ge v1, v3, :cond_2
-
-    .line 30
-    aget v3, v2, v1
-
-    if-le v3, v0, :cond_1
+    move v2, v1
 
     .line 31
-    aget v0, v2, v1
+    :goto_6
+    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
-    .line 29
-    :cond_1
-    add-int/lit8 v1, v1, 0x1
+    array-length v1, v1
 
-    goto :goto_0
+    if-ge v0, v1, :cond_19
 
-    .line 34
-    .end local v1    # "i":I
-    :cond_2
-    return v0
+    .line 32
+    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
-    .line 26
-    .end local v0    # "max":I
-    :cond_3
-    :goto_1
-    const/4 v0, 0x0
+    aget v1, v1, v0
 
-    return v0
+    if-le v1, v2, :cond_1a
+
+    .line 33
+    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
+
+    aget v1, v1, v0
+
+    .line 31
+    :goto_15
+    add-int/lit8 v0, v0, 0x1
+
+    move v2, v1
+
+    goto :goto_6
+
+    .line 36
+    :cond_19
+    return v2
+
+    :cond_1a
+    move v1, v2
+
+    goto :goto_15
 .end method
 
 .method public getMinBodyStrenth()I
-    .locals 4
+    .registers 4
 
-    .line 38
-    iget-object v0, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
-
-    if-eqz v0, :cond_3
-
-    array-length v0, v0
-
-    if-gtz v0, :cond_0
-
-    goto :goto_1
+    .prologue
+    .line 40
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/bean/PartStrenthBean;->migrateIfNeeded()V
 
     .line 41
-    :cond_0
-    const/16 v0, 0x7d0
+    const/16 v1, 0x7d0
 
     .line 42
-    .local v0, "min":I
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    .local v1, "i":I
-    :goto_0
+    :goto_6
     iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
-    array-length v3, v2
+    array-length v2, v2
 
-    if-ge v1, v3, :cond_2
+    if-ge v0, v2, :cond_18
 
     .line 43
-    aget v3, v2, v1
+    iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
-    if-ge v3, v0, :cond_1
+    aget v2, v2, v0
+
+    if-ge v2, v1, :cond_15
 
     .line 44
-    aget v0, v2, v1
-
-    .line 42
-    :cond_1
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    .line 47
-    .end local v1    # "i":I
-    :cond_2
-    return v0
-
-    .line 39
-    .end local v0    # "min":I
-    :cond_3
-    :goto_1
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public reset()V
-    .locals 3
-
-    .line 19
-    const/4 v0, 0x0
-
-    .local v0, "i":I
-    :goto_0
     iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
-    array-length v2, v1
+    aget v1, v1, v0
 
-    if-ge v0, v2, :cond_0
+    .line 42
+    :cond_15
+    add-int/lit8 v0, v0, 0x1
 
-    .line 20
-    const/4 v2, 0x0
+    goto :goto_6
+
+    .line 47
+    :cond_18
+    return v1
+.end method
+
+.method public migrateIfNeeded()V
+    .registers 5
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 11
+    const/4 v0, 0x0
+
+    :goto_2
+    const/16 v1, 0xa
+
+    if-ge v0, v1, :cond_34
+
+    .line 12
+    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
+
+    aget v1, v1, v0
+
+    cmpg-float v1, v1, v3
+
+    if-gtz v1, :cond_1d
+
+    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
+
+    aget v1, v1, v0
+
+    if-lez v1, :cond_1d
+
+    .line 13
+    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
+
+    iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
+
+    aget v2, v2, v0
+
+    int-to-float v2, v2
 
     aput v2, v1, v0
 
-    .line 19
+    .line 15
+    :cond_1d
+    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
+
+    aget v1, v1, v0
+
+    cmpl-float v1, v1, v3
+
+    if-lez v1, :cond_31
+
+    .line 16
+    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
+
+    iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
+
+    aget v2, v2, v0
+
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    aput v2, v1, v0
+
+    .line 11
+    :cond_31
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2
+
+    .line 19
+    :cond_34
+    return-void
+.end method
+
+.method public reset()V
+    .registers 5
+
+    .prologue
+    const/4 v1, 0x0
 
     .line 22
-    .end local v0    # "i":I
-    :cond_0
+    move v0, v1
+
+    :goto_2
+    const/16 v2, 0xa
+
+    if-ge v0, v2, :cond_12
+
+    .line 23
+    iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
+
+    aput v1, v2, v0
+
+    .line 24
+    iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
+
+    const/4 v3, 0x0
+
+    aput v3, v2, v0
+
+    .line 22
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_2
+
+    .line 26
+    :cond_12
     return-void
 .end method

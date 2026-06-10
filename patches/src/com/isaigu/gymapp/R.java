@@ -1650,6 +1650,7 @@ public final class R {
         public static final int pulsePauseSeekBar = 0x7f09020e;
         public static final int pulseContinueValue = 0x7f09020f;
         public static final int pulsePauseValue = 0x7f090210;
+        public static final int channelCalibrationContainer = 0x7f090211;
 
         private id() {
         }
@@ -2203,6 +2204,8 @@ public final class R {
         public static final int currentDecreaseStep = 0x7f0d0101;
         public static final int defaultPulseContinue = 0x7f0d0102;
         public static final int defaultPulsePause = 0x7f0d0103;
+        public static final int channelCalibrationTitle = 0x7f0d0104;
+        public static final int channelPulseGlobal = 0x7f0d0105;
 
         private string() {
         }

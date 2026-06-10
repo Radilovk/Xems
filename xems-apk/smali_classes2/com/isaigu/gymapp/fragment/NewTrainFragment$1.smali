@@ -20,10 +20,10 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)V
-    .locals 0
-    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/NewTrainFragment;
+    .registers 2
 
-    .line 148
+    .prologue
+    .line 51
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$SimpleOnItemTouchListener;-><init>()V
@@ -34,16 +34,17 @@
 
 # virtual methods
 .method public onInterceptTouchEvent(Landroid/support/v7/widget/RecyclerView;Landroid/view/MotionEvent;)Z
-    .locals 2
-    .param p1, "rv"    # Landroid/support/v7/widget/RecyclerView;
-    .param p2, "e"    # Landroid/view/MotionEvent;
+    .registers 6
 
-    .line 151
+    .prologue
+    const/4 v2, 0x0
+
+    .line 54
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
@@ -51,62 +52,61 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_25
 
-    .line 152
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->selecting:Z
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_25
 
-    .line 153
+    .line 55
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     const/4 v1, 0x1
 
+    # setter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->selecting:Z
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->access$002(Lcom/isaigu/gymapp/fragment/NewTrainFragment;Z)Z
 
-    .line 154
+    .line 56
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->access$100(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)Lcom/isaigu/gymapp/train/TrainAdapter;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 157
-    :cond_1
-    const/4 v0, 0x0
-
-    return v0
+    .line 59
+    :cond_25
+    return v2
 .end method
 
 .method public onRequestDisallowInterceptTouchEvent(Z)V
-    .locals 0
-    .param p1, "disallowIntercept"    # Z
+    .registers 2
 
-    .line 172
+    .prologue
+    .line 72
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/support/v7/widget/RecyclerView;Landroid/view/MotionEvent;)V
-    .locals 2
-    .param p1, "rv"    # Landroid/support/v7/widget/RecyclerView;
-    .param p2, "e"    # Landroid/view/MotionEvent;
+    .registers 5
 
-    .line 162
+    .prologue
+    .line 64
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
@@ -114,35 +114,37 @@
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_25
 
-    .line 163
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->selecting:Z
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
-    .line 164
+    .line 65
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->selecting:Z
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->access$002(Lcom/isaigu/gymapp/fragment/NewTrainFragment;Z)Z
 
-    .line 165
+    .line 66
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->access$100(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)Lcom/isaigu/gymapp/train/TrainAdapter;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 168
-    :cond_1
+    .line 68
+    :cond_25
     return-void
 .end method

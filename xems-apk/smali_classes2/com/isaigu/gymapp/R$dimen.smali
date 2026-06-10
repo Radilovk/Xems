@@ -1,5 +1,6 @@
 .class public final Lcom/isaigu/gymapp/R$dimen;
 .super Ljava/lang/Object;
+.source "R.java"
 
 
 # annotations
@@ -329,9 +330,12 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
+    .prologue
+    .line 902
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 903
     return-void
 .end method
