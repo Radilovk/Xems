@@ -41,7 +41,7 @@
     <string name="anmomoshi">按摩模式</string>
     <string name="anmozhouqi">按摩周期</string>
     <string name="anmozhouqigap">按摩周期必须介于1到%1$d之间</string>
-    <string name="app_name">XEMS-25</string>
+    <string name="app_name">XEMS-25 Custom</string>
     <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="autologin">自动登录</string>
     <string name="avragestrength">平均最高强度</string>

@@ -4,7 +4,7 @@
 
 
 # static fields
-.field public static final APPLICATION_ID:Ljava/lang/String; = "com.isaigu.gymapp25"
+.field public static final APPLICATION_ID:Ljava/lang/String; = "com.isaigu.gymapp25.custom"
 
 .field public static final BUILD_TYPE:Ljava/lang/String; = "debug"
 

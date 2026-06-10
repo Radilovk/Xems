@@ -760,7 +760,7 @@ public class SettingFragment extends BaseFragment {
                         File cropPhotoFile = createCropImageFile(getParentActivity());
                         this.cropImageUri = Uri.fromFile(cropPhotoFile);
                         if (Build.VERSION.SDK_INT >= 24) {
-                            FileProvider.getUriForFile(getContext(), "com.isaigu.gymapp25.provider", file);
+                            FileProvider.getUriForFile(getContext(), "com.isaigu.gymapp25.custom.provider", file);
                         } else {
                             Uri.fromFile(file);
                         }

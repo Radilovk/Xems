@@ -12,6 +12,10 @@ fi
 echo "Building APK from xems-apk project..."
 java -jar "$APKTOOL_JAR" b "$ROOT_DIR/xems-apk" -o "$ROOT_DIR/xems-modified-unsigned.apk"
 
+"$ANDROID_HOME/build-tools/34.0.0/zipalign" -f -p 4 \
+  "$ROOT_DIR/xems-modified-unsigned.apk" "$ROOT_DIR/xems-modified-aligned.apk"
+mv "$ROOT_DIR/xems-modified-aligned.apk" "$ROOT_DIR/xems-modified-unsigned.apk"
+
 if [[ ! -f /tmp/debug.keystore ]]; then
   keytool -genkey -v -keystore /tmp/debug.keystore -storepass android -alias androiddebugkey \
     -keypass android -keyalg RSA -keysize 2048 -validity 10000 \
