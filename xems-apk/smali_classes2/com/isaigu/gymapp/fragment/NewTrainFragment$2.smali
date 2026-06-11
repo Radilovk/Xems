@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 74
+    .line 75
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .registers 3
 
     .prologue
-    .line 90
+    .line 94
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
@@ -50,7 +50,7 @@
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 91
+    .line 95
     return-void
 .end method
 
@@ -58,20 +58,25 @@
     .registers 4
 
     .prologue
-    .line 77
+    .line 78
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getBaseActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
 
+    .line 79
+    if-eqz v0, :cond_10
+
+    .line 80
     new-instance v1, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;
 
     invoke-direct {v1}, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;-><init>()V
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->showDialogFragment(Lcom/isaigu/gymapp/BaseDialogFragment;)V
 
-    .line 78
+    .line 82
+    :cond_10
     return-void
 .end method
 
@@ -79,7 +84,7 @@
     .registers 3
 
     .prologue
-    .line 95
+    .line 99
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
@@ -89,7 +94,7 @@
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 96
+    .line 100
     return-void
 .end method
 
@@ -97,7 +102,7 @@
     .registers 3
 
     .prologue
-    .line 82
+    .line 86
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->selecting:Z
@@ -107,7 +112,7 @@
 
     if-eqz v0, :cond_1b
 
-    .line 83
+    .line 87
     invoke-virtual {p1}, Lcom/isaigu/gymapp/train/model/TrainItem;->isSelected()Z
 
     move-result v0
@@ -119,7 +124,7 @@
     :goto_f
     invoke-virtual {p1, v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->setSelected(Z)V
 
-    .line 84
+    .line 88
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
@@ -129,11 +134,11 @@
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 86
+    .line 90
     :cond_1b
     return-void
 
-    .line 83
+    .line 87
     :cond_1c
     const/4 v0, 0x0
 

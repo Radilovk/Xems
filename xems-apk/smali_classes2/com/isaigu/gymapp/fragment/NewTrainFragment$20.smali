@@ -35,7 +35,7 @@
     .end annotation
 
     .prologue
-    .line 337
+    .line 341
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$20;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     iput-object p2, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$20;->val$wrappers:Ljava/util/ArrayList;
@@ -53,7 +53,7 @@
     .registers 4
 
     .prologue
-    .line 340
+    .line 344
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$20;->val$wrappers:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$20;->val$items:Ljava/util/List;
@@ -62,6 +62,6 @@
 
     invoke-static {v0, v1, p1}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->lambda$settingAllUser$15(Ljava/util/ArrayList;Ljava/util/List;Lcom/isaigu/gymapp/train/model/TrainItem;)V
 
-    .line 341
+    .line 345
     return-void
 .end method

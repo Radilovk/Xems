@@ -25,15 +25,6 @@ public abstract class BaseFullScreenDialogFragment extends BaseDialogFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Dialog dialog = getDialog();
-        if (dialog != null) {
-            dialog.requestWindowFeature(1);
-        }
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-    @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
         Window window = dialog.getWindow();

@@ -783,6 +783,12 @@
     .locals 6
 
     .line 295
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_init_return
+
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;->userListView:Landroid/support/v7/widget/RecyclerView;
 
     new-instance v1, Landroid/support/v7/widget/LinearLayoutManager;
@@ -984,6 +990,7 @@
 
     .line 328
     :cond_3
+    :cond_init_return
     return-void
 .end method
 
@@ -1336,6 +1343,8 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_start_scan_return
+
     new-instance v1, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$1;
 
     invoke-direct {v1, p0}, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$1;-><init>(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;)V
@@ -1345,6 +1354,7 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/isaigu/gymapp/BaseActivity;->runDelay(Ljava/lang/Runnable;J)V
 
     .line 231
+    :cond_start_scan_return
     return-void
 .end method
 
@@ -2217,8 +2227,15 @@
 
     move-result-object v1
 
+    invoke-virtual {v1, p0}, Lorg/greenrobot/eventbus/EventBus;->isRegistered(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_eventbus_skip
+
     invoke-virtual {v1, p0}, Lorg/greenrobot/eventbus/EventBus;->register(Ljava/lang/Object;)V
 
+    :cond_eventbus_skip
     .line 193
     return-object v0
 .end method
@@ -2237,7 +2254,11 @@
     .line 751
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;->deviceAdapter:Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter;
 
+    if-eqz v0, :cond_device_adapter_stop
+
     invoke-virtual {v0}, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter;->stop_all_timer()V
+
+    :cond_device_adapter_stop
 
     .line 752
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;->delayTimer1:Ljava/util/Timer;
@@ -2281,6 +2302,19 @@
     invoke-virtual {v0}, Lcom/isaigu/gymapp/ble/AndroidBleController;->stopScan()V
 
     .line 762
+    invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->getDefault()Lorg/greenrobot/eventbus/EventBus;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lorg/greenrobot/eventbus/EventBus;->isRegistered(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_eventbus_unregister
+
+    invoke-virtual {v0, p0}, Lorg/greenrobot/eventbus/EventBus;->unregister(Ljava/lang/Object;)V
+
+    :cond_eventbus_unregister
     return-void
 .end method
 
@@ -2421,8 +2455,15 @@
 
     move-result-object v0
 
+    invoke-virtual {v0, p0}, Lorg/greenrobot/eventbus/EventBus;->isRegistered(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_dismiss_eventbus
+
     invoke-virtual {v0, p0}, Lorg/greenrobot/eventbus/EventBus;->unregister(Ljava/lang/Object;)V
 
+    :cond_dismiss_eventbus
     .line 260
     return-void
 .end method

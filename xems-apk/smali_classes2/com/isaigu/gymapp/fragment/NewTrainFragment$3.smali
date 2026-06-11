@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 98
+    .line 102
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v3, -0x1
 
-    .line 101
+    .line 105
     new-instance v0, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
@@ -101,9 +101,9 @@
 
     move-result-object v0
 
-    .line 102
+    .line 106
     invoke-virtual {p2, v0}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenu;->addMenuItem(Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;)V
 
-    .line 103
+    .line 107
     return-void
 .end method

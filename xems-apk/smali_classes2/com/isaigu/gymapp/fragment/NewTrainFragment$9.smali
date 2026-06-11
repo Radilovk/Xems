@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 185
+    .line 189
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$9;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,11 +40,11 @@
     .registers 3
 
     .prologue
-    .line 188
+    .line 192
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$9;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-virtual {v0, p1}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->lambda$onCreateView$4$NewTrainFragment(Landroid/view/View;)V
 
-    .line 189
+    .line 193
     return-void
 .end method

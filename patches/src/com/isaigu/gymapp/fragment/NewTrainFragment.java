@@ -2,6 +2,7 @@ package com.isaigu.gymapp.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -74,7 +75,10 @@ public class NewTrainFragment extends Fragment {
     OnTrainListListener trainListListener = new OnTrainListListener() { // from class: com.isaigu.gymapp.fragment.NewTrainFragment.2
         @Override // com.isaigu.gymapp.train.listener.OnTrainListListener
         public void onEmptyItemClick(TrainItem item) {
-            NewTrainFragment.this.getBaseActivity().showDialogFragment(new NewUserProgramDeviceConnectDialogFragment());
+            BaseActivity activity = NewTrainFragment.this.getBaseActivity();
+            if (activity != null) {
+                activity.showDialogFragment(new NewUserProgramDeviceConnectDialogFragment());
+            }
         }
 
         @Override // com.isaigu.gymapp.train.listener.OnTrainListListener
@@ -356,7 +360,11 @@ public class NewTrainFragment extends Fragment {
     }
 
     public BaseActivity getBaseActivity() {
-        return (BaseActivity) getActivity();
+        FragmentActivity activity = getActivity();
+        if (activity instanceof BaseActivity) {
+            return (BaseActivity) activity;
+        }
+        return null;
     }
 
     public void startScan() {

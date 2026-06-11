@@ -33,7 +33,7 @@
     .end annotation
 
     .prologue
-    .line 343
+    .line 347
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$21;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     iput-object p2, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$21;->val$items:Ljava/util/List;
@@ -49,7 +49,7 @@
     .registers 4
 
     .prologue
-    .line 346
+    .line 350
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$21;->val$items:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -69,7 +69,7 @@
 
     check-cast v0, Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    .line 347
+    .line 351
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->getTrainProgram()Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v2
@@ -78,7 +78,7 @@
 
     goto :goto_6
 
-    .line 349
+    .line 353
     :cond_1a
     return-void
 .end method

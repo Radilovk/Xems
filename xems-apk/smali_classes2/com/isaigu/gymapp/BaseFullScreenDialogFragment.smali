@@ -66,51 +66,25 @@
     .registers 5
 
     .prologue
-    .line 38
+    .line 29
     invoke-super {p0, p1}, Lcom/isaigu/gymapp/BaseDialogFragment;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
 
     move-result-object v0
 
-    .line 39
+    .line 30
     invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v1
 
-    .line 40
+    .line 31
     if-eqz v1, :cond_f
 
-    .line 41
+    .line 32
     const/16 v2, 0x12
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->setSoftInputMode(I)V
 
-    .line 43
+    .line 34
     :cond_f
-    return-object v0
-.end method
-
-.method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .registers 6
-
-    .prologue
-    .line 29
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseFullScreenDialogFragment;->getDialog()Landroid/app/Dialog;
-
-    move-result-object v0
-
-    .line 30
-    if-eqz v0, :cond_a
-
-    .line 31
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/app/Dialog;->requestWindowFeature(I)Z
-
-    .line 33
-    :cond_a
-    invoke-super {p0, p1, p2, p3}, Lcom/isaigu/gymapp/BaseDialogFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-
-    move-result-object v0
-
     return-object v0
 .end method
