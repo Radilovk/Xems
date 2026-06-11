@@ -30,29 +30,30 @@
     .line 71
     invoke-static {p0}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->migrate(Lcom/isaigu/gymapp/bean/ProgramDataBean;)V
 
+    .line 72
     invoke-static {}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->ensureDefaults()V
 
-    .line 72
+    .line 73
     invoke-static {p0}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->getStrengthTenths(Lcom/isaigu/gymapp/bean/ProgramDataBean;)I
 
     move-result v1
 
-    .line 73
-    if-lez v1, :cond_f
+    .line 74
+    if-lez v1, :cond_12
 
-    if-ltz p1, :cond_f
+    if-ltz p1, :cond_12
 
     const/16 v0, 0xa
 
-    if-lt p1, v0, :cond_10
+    if-lt p1, v0, :cond_13
 
-    .line 88
-    :cond_f
-    :goto_f
+    .line 89
+    :cond_12
+    :goto_12
     return-void
 
-    .line 76
-    :cond_10
+    .line 77
+    :cond_13
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
@@ -61,18 +62,18 @@
 
     aget v0, v0, p1
 
-    .line 77
+    .line 78
     const/4 v2, 0x0
 
     cmpg-float v2, v0, v2
 
-    if-gtz v2, :cond_1f
+    if-gtz v2, :cond_22
 
-    .line 78
+    .line 79
     const/high16 v0, 0x3f800000    # 1.0f
 
-    .line 80
-    :cond_1f
+    .line 81
+    :cond_22
     int-to-float v2, p2
 
     mul-float/2addr v0, v2
@@ -81,26 +82,26 @@
 
     move-result v0
 
-    .line 81
-    if-nez v0, :cond_2c
-
-    if-eqz p2, :cond_2c
-
     .line 82
-    if-lez p2, :cond_47
+    if-nez v0, :cond_2f
+
+    if-eqz p2, :cond_2f
+
+    .line 83
+    if-lez p2, :cond_4a
 
     const/4 v0, 0x1
 
-    .line 84
-    :cond_2c
-    :goto_2c
+    .line 85
+    :cond_2f
+    :goto_2f
     iget-object v2, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
 
     invoke-static {v2, p1}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->getChannelRatio(Lcom/isaigu/gymapp/bean/PartStrenthBean;I)F
 
     move-result v2
 
-    .line 85
+    .line 86
     int-to-float v3, v1
 
     mul-float/2addr v2, v3
@@ -111,14 +112,14 @@
 
     add-int/2addr v0, v2
 
-    .line 86
+    .line 87
     const/4 v2, 0x0
 
     invoke-static {v0, v2, v1}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->clamp(III)I
 
     move-result v0
 
-    .line 87
+    .line 88
     iget-object v2, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
 
     int-to-float v0, v0
@@ -129,13 +130,13 @@
 
     invoke-static {v2, p1, v0}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->setChannelRatio(Lcom/isaigu/gymapp/bean/PartStrenthBean;IF)V
 
-    goto :goto_f
+    goto :goto_12
 
-    .line 82
-    :cond_47
+    .line 83
+    :cond_4a
     const/4 v0, -0x1
 
-    goto :goto_2c
+    goto :goto_2f
 .end method
 
 .method public static adjustOverallMa(Lcom/isaigu/gymapp/bean/ProgramDataBean;I)V
@@ -184,7 +185,7 @@
     .registers 4
 
     .prologue
-    .line 150
+    .line 151
     invoke-static {p2, p0}, Ljava/lang/Math;->min(FF)F
 
     move-result v0
@@ -200,7 +201,7 @@
     .registers 4
 
     .prologue
-    .line 146
+    .line 147
     invoke-static {p2, p0}, Ljava/lang/Math;->min(II)I
 
     move-result v0
@@ -308,7 +309,7 @@
     .prologue
     const/high16 v1, 0x41200000    # 10.0f
 
-    .line 127
+    .line 128
     mul-float v0, p0, v1
 
     invoke-static {v0}, Ljava/lang/Math;->round(F)I
@@ -319,7 +320,7 @@
 
     div-float/2addr v0, v1
 
-    .line 128
+    .line 129
     invoke-static {v0}, Ljava/lang/Math;->round(F)I
 
     move-result v1
@@ -338,7 +339,7 @@
 
     if-gez v1, :cond_25
 
-    .line 129
+    .line 130
     invoke-static {v0}, Ljava/lang/Math;->round(F)I
 
     move-result v0
@@ -347,7 +348,7 @@
 
     move-result-object v0
 
-    .line 131
+    .line 132
     :goto_24
     return-object v0
 
@@ -418,10 +419,10 @@
     .registers 4
 
     .prologue
-    .line 135
+    .line 136
     invoke-virtual {p0}, Lcom/isaigu/gymapp/bean/PartStrenthBean;->migrateIfNeeded()V
 
-    .line 136
+    .line 137
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
 
     aget v0, v0, p1
@@ -454,17 +455,17 @@
     .registers 4
 
     .prologue
-    .line 91
+    .line 92
     invoke-static {}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->ensureDefaults()V
 
-    .line 92
+    .line 93
     iget v0, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseWidth:I
 
     if-lez v0, :cond_11
 
     iget v1, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseWidth:I
 
-    .line 93
+    .line 94
     :goto_9
     if-ltz p1, :cond_f
 
@@ -475,18 +476,18 @@
     :cond_f
     move v0, v1
 
-    .line 97
+    .line 98
     :cond_10
     :goto_10
     return v0
 
-    .line 92
+    .line 93
     :cond_11
     const/16 v1, 0x15e
 
     goto :goto_9
 
-    .line 96
+    .line 97
     :cond_14
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
@@ -496,7 +497,7 @@
 
     aget v0, v0, p1
 
-    .line 97
+    .line 98
     if-gtz v0, :cond_10
 
     move v0, v1
@@ -525,7 +526,7 @@
     .registers 3
 
     .prologue
-    .line 101
+    .line 102
     invoke-static {p0, p1}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->getEffectivePulseWidthUs(Lcom/isaigu/gymapp/bean/ProgramDataBean;I)I
 
     move-result v0
@@ -571,7 +572,7 @@
     .registers 2
 
     .prologue
-    .line 117
+    .line 118
     iget v0, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthTenths:I
 
     if-gtz v0, :cond_e
@@ -580,33 +581,33 @@
 
     if-lez v0, :cond_e
 
-    .line 118
+    .line 119
     iget v0, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
 
     mul-int/lit8 v0, v0, 0xa
 
     iput v0, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthTenths:I
 
-    .line 120
+    .line 121
     :cond_e
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
 
     if-nez v0, :cond_19
 
-    .line 121
+    .line 122
     new-instance v0, Lcom/isaigu/gymapp/bean/PartStrenthBean;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/bean/PartStrenthBean;-><init>()V
 
     iput-object v0, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
 
-    .line 123
+    .line 124
     :cond_19
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/bean/PartStrenthBean;->migrateIfNeeded()V
 
-    .line 124
+    .line 125
     return-void
 .end method
 
@@ -616,18 +617,18 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 105
+    .line 106
     iget v0, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseWidth:I
 
     if-lez v0, :cond_22
 
     iget v0, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseWidth:I
 
-    .line 106
+    .line 107
     :goto_7
     invoke-static {}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->ensureDefaults()V
 
-    .line 108
+    .line 109
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v1
@@ -645,7 +646,7 @@
 
     aget v2, v4, v3
 
-    .line 109
+    .line 110
     if-lez v2, :cond_1e
 
     if-eqz v1, :cond_1d
@@ -655,7 +656,7 @@
     :cond_1d
     move v1, v2
 
-    .line 108
+    .line 109
     :cond_1e
     add-int/lit8 v2, v3, 0x1
 
@@ -663,13 +664,13 @@
 
     goto :goto_13
 
-    .line 105
+    .line 106
     :cond_22
     const/16 v0, 0x15e
 
     goto :goto_7
 
-    .line 113
+    .line 114
     :cond_25
     if-lez v1, :cond_28
 
@@ -688,10 +689,10 @@
     .prologue
     const/high16 v3, 0x42c80000    # 100.0f
 
-    .line 140
+    .line 141
     invoke-virtual {p0}, Lcom/isaigu/gymapp/bean/PartStrenthBean;->migrateIfNeeded()V
 
-    .line 141
+    .line 142
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
 
     mul-float v1, p2, v3
@@ -704,7 +705,7 @@
 
     aput v1, v0, p1
 
-    .line 142
+    .line 143
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
     iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
@@ -717,7 +718,7 @@
 
     aput v1, v0, p1
 
-    .line 143
+    .line 144
     return-void
 .end method
 

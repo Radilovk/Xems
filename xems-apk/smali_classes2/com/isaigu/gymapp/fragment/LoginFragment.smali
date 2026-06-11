@@ -3,6 +3,14 @@
 .source "LoginFragment.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;
+    }
+.end annotation
+
+
 # instance fields
 .field private autoLogin:Landroid/support/v7/widget/AppCompatCheckBox;
 
@@ -19,7 +27,8 @@
 .method public constructor <init>()V
     .registers 1
 
-    .line 38
+    .prologue
+    .line 34
     invoke-direct {p0}, Lcom/isaigu/gymapp/BaseFragment;-><init>()V
 
     return-void
@@ -27,9 +36,9 @@
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/fragment/LoginFragment;)Landroid/widget/EditText;
     .registers 2
-    .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/LoginFragment;
 
-    .line 38
+    .prologue
+    .line 34
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->userName:Landroid/widget/EditText;
 
     return-object v0
@@ -37,9 +46,9 @@
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/fragment/LoginFragment;)Landroid/widget/EditText;
     .registers 2
-    .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/LoginFragment;
 
-    .line 38
+    .prologue
+    .line 34
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->password:Landroid/widget/EditText;
 
     return-object v0
@@ -48,32 +57,32 @@
 .method private initView()V
     .registers 4
 
-    .line 199
+    .prologue
+    .line 172
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
-    .line 200
-    .local v0, "userData":Lcom/isaigu/gymapp/bean/UserData;
+    .line 173
     iget-boolean v1, v0, Lcom/isaigu/gymapp/bean/UserData;->rememberPassword:Z
 
     if-eqz v1, :cond_16
 
-    .line 201
+    .line 174
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->userName:Landroid/widget/EditText;
 
     iget-object v2, v0, Lcom/isaigu/gymapp/bean/UserData;->userName:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 202
+    .line 175
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->password:Landroid/widget/EditText;
 
     iget-object v2, v0, Lcom/isaigu/gymapp/bean/UserData;->password:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 204
+    .line 177
     :cond_16
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->rememberPassword:Landroid/support/v7/widget/AppCompatCheckBox;
 
@@ -81,14 +90,14 @@
 
     invoke-virtual {v1, v2}, Landroid/support/v7/widget/AppCompatCheckBox;->setChecked(Z)V
 
-    .line 205
+    .line 178
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->autoLogin:Landroid/support/v7/widget/AppCompatCheckBox;
 
-    iget-boolean v2, v0, Lcom/isaigu/gymapp/bean/UserData;->autoLogin:Z
+    iget-boolean v0, v0, Lcom/isaigu/gymapp/bean/UserData;->autoLogin:Z
 
-    invoke-virtual {v1, v2}, Landroid/support/v7/widget/AppCompatCheckBox;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/support/v7/widget/AppCompatCheckBox;->setChecked(Z)V
 
-    .line 206
+    .line 179
     return-void
 .end method
 
@@ -96,82 +105,78 @@
 # virtual methods
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .registers 8
-    .param p1, "inflater"    # Landroid/view/LayoutInflater;
-    .param p2, "container"    # Landroid/view/ViewGroup;
-    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .line 52
+    .prologue
+    .line 48
     invoke-super {p0, p1, p2, p3}, Lcom/isaigu/gymapp/BaseFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+
+    move-result-object v1
+
+    .line 49
+    const v0, 0x7f0901d9
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
+    check-cast v0, Landroid/widget/EditText;
+
+    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->userName:Landroid/widget/EditText;
+
+    .line 50
+    const v0, 0x7f09011d
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/EditText;
+
+    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->password:Landroid/widget/EditText;
+
+    .line 51
+    const v0, 0x7f090045
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/support/v7/widget/AppCompatCheckBox;
+
+    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->autoLogin:Landroid/support/v7/widget/AppCompatCheckBox;
+
+    .line 52
+    const v0, 0x7f09014d
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/support/v7/widget/AppCompatCheckBox;
+
+    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->rememberPassword:Landroid/support/v7/widget/AppCompatCheckBox;
+
+    .line 53
+    const v0, 0x7f0900f5
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/isaigu/gymapp/widget/MyButton;
+
+    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->login:Lcom/isaigu/gymapp/widget/MyButton;
+
     .line 54
-    .local v0, "view":Landroid/view/View;
-    const v1, 0x7f0901d9
+    const v0, 0x7f0900f6
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/EditText;
-
-    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->userName:Landroid/widget/EditText;
+    check-cast v0, Landroid/widget/ImageView;
 
     .line 55
-    const v1, 0x7f09011d
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/EditText;
-
-    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->password:Landroid/widget/EditText;
-
-    .line 56
-    const v1, 0x7f090045
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/support/v7/widget/AppCompatCheckBox;
-
-    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->autoLogin:Landroid/support/v7/widget/AppCompatCheckBox;
-
-    .line 57
-    const v1, 0x7f09014d
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/support/v7/widget/AppCompatCheckBox;
-
-    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->rememberPassword:Landroid/support/v7/widget/AppCompatCheckBox;
-
-    .line 58
-    const v1, 0x7f0900f5
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/isaigu/gymapp/widget/MyButton;
-
-    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->login:Lcom/isaigu/gymapp/widget/MyButton;
-
-    .line 60
-    const v1, 0x7f0900f6
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/ImageView;
-
-    .line 61
-    .local v1, "logoImage":Landroid/widget/ImageView;
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v2
@@ -184,7 +189,7 @@
 
     if-nez v2, :cond_65
 
-    .line 62
+    .line 56
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/LoginFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v2
@@ -203,47 +208,48 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
+    invoke-virtual {v2, v0}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
+
+    .line 58
+    :cond_65
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->login:Lcom/isaigu/gymapp/widget/MyButton;
+
+    new-instance v2, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;
+
+    invoke-direct {v2, p0}, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;-><init>(Lcom/isaigu/gymapp/fragment/LoginFragment;)V
+
+    invoke-virtual {v0, v2}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 59
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->autoLogin:Landroid/support/v7/widget/AppCompatCheckBox;
+
+    new-instance v2, Lcom/isaigu/gymapp/fragment/LoginFragment$1;
+
+    invoke-direct {v2, p0}, Lcom/isaigu/gymapp/fragment/LoginFragment$1;-><init>(Lcom/isaigu/gymapp/fragment/LoginFragment;)V
+
+    invoke-virtual {v0, v2}, Landroid/support/v7/widget/AppCompatCheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 65
-    :cond_65
-    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->login:Lcom/isaigu/gymapp/widget/MyButton;
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->rememberPassword:Landroid/support/v7/widget/AppCompatCheckBox;
 
-    new-instance v3, Lcom/isaigu/gymapp/fragment/LoginFragment$1;
+    new-instance v2, Lcom/isaigu/gymapp/fragment/LoginFragment$2;
 
-    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/LoginFragment$1;-><init>(Lcom/isaigu/gymapp/fragment/LoginFragment;)V
+    invoke-direct {v2, p0}, Lcom/isaigu/gymapp/fragment/LoginFragment$2;-><init>(Lcom/isaigu/gymapp/fragment/LoginFragment;)V
 
-    invoke-virtual {v2, v3}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v2}, Landroid/support/v7/widget/AppCompatCheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 182
-    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->autoLogin:Landroid/support/v7/widget/AppCompatCheckBox;
-
-    new-instance v3, Lcom/isaigu/gymapp/fragment/LoginFragment$2;
-
-    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/LoginFragment$2;-><init>(Lcom/isaigu/gymapp/fragment/LoginFragment;)V
-
-    invoke-virtual {v2, v3}, Landroid/support/v7/widget/AppCompatCheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
-    .line 187
-    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->rememberPassword:Landroid/support/v7/widget/AppCompatCheckBox;
-
-    new-instance v3, Lcom/isaigu/gymapp/fragment/LoginFragment$3;
-
-    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/LoginFragment$3;-><init>(Lcom/isaigu/gymapp/fragment/LoginFragment;)V
-
-    invoke-virtual {v2, v3}, Landroid/support/v7/widget/AppCompatCheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
-    .line 193
+    .line 71
     invoke-direct {p0}, Lcom/isaigu/gymapp/fragment/LoginFragment;->initView()V
 
-    .line 195
-    return-object v0
+    .line 72
+    return-object v1
 .end method
 
 .method protected viewId()I
     .registers 2
 
-    .line 46
+    .prologue
+    .line 43
     const v0, 0x7f0b0042
 
     return v0

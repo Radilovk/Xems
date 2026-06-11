@@ -15,8 +15,10 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback<",
-        "Lcom/isaigu/gymapp/bean/vo/ResponseData<",
+        "Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback",
+        "<",
+        "Lcom/isaigu/gymapp/bean/vo/ResponseData",
+        "<",
         "Lcom/isaigu/gymapp/bean/TrainUser;",
         ">;>;"
     }
@@ -30,9 +32,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;)V
     .registers 2
-    .param p1, "this$2"    # Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;
 
-    .line 106
+    .prologue
+    .line 124
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231$2;->this$2:Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;-><init>()V
@@ -44,20 +46,19 @@
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
     .registers 6
-    .param p1, "httpSuccess"    # Z
-    .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
             "Ljava/lang/String;",
-            "Lcom/isaigu/gymapp/bean/vo/ResponseData<",
+            "Lcom/isaigu/gymapp/bean/vo/ResponseData",
+            "<",
             "Lcom/isaigu/gymapp/bean/TrainUser;",
             ">;)V"
         }
     .end annotation
 
-    .line 108
-    .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Lcom/isaigu/gymapp/bean/TrainUser;>;"
+    .prologue
+    .line 127
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231$2;->this$2:Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1;
@@ -74,14 +75,15 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 138
+    .line 157
     return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
     .registers 4
 
-    .line 106
+    .prologue
+    .line 124
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231$2;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V

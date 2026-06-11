@@ -72,6 +72,24 @@
 
     iput-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
 
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->deviceBeanList:Ljava/util/List;
+
     .line 42
     return-void
 .end method

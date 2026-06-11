@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 213
+    .line 220
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,6 +40,6 @@
     .registers 1
 
     .prologue
-    .line 216
+    .line 223
     return-void
 .end method

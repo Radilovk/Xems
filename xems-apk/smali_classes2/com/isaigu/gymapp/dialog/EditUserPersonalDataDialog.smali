@@ -486,6 +486,13 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
 
+    if-nez v0, :cond_train_data_ready
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    :cond_train_data_ready
     .line 716
     .local v0, "trainPrograms":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainProgram;>;"
     new-instance v1, Ljava/util/ArrayList;

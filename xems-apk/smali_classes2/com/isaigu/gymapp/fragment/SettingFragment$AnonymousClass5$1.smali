@@ -34,7 +34,7 @@
     .registers 2
 
     .prologue
-    .line 604
+    .line 658
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5$1;->this$1:Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;-><init>()V
@@ -58,10 +58,10 @@
     .end annotation
 
     .prologue
-    .line 607
+    .line 661
     invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5$1;->httpResponse2(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
 
-    .line 608
+    .line 662
     return-void
 .end method
 
@@ -69,7 +69,7 @@
     .registers 4
 
     .prologue
-    .line 604
+    .line 658
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5$1;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
@@ -81,12 +81,12 @@
     .registers 8
 
     .prologue
-    .line 612
+    .line 666
     if-eqz p1, :cond_18
 
     if-eqz p3, :cond_18
 
-    .line 614
+    .line 668
     :try_start_4
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
@@ -94,7 +94,7 @@
 
     if-nez v0, :cond_18
 
-    .line 615
+    .line 669
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v0
@@ -111,7 +111,7 @@
     :try_end_18
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_18} :catch_29
 
-    .line 622
+    .line 676
     :cond_18
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5$1;->this$1:Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5;
 
@@ -127,15 +127,15 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 628
+    .line 682
     :goto_28
     return-void
 
-    .line 617
+    .line 671
     :catch_29
     move-exception v0
 
-    .line 618
+    .line 672
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_28

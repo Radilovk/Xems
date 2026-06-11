@@ -23,10 +23,10 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-    .locals 0
-    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
+    .registers 2
 
-    .line 641
+    .prologue
+    .line 845
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$21;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +37,10 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
-    .line 643
+    .prologue
+    .line 848
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$21;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -62,13 +63,14 @@
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$21;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$800(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
+    # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage:Landroid/widget/ImageView;
+    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$1100(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    .line 644
+    .line 849
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$21;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -91,12 +93,13 @@
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$21;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$900(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
+    # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage2:Landroid/widget/ImageView;
+    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$1200(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    .line 645
+    .line 850
     return-void
 .end method

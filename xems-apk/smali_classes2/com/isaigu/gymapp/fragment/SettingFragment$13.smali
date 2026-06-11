@@ -1,6 +1,9 @@
 .class Lcom/isaigu/gymapp/fragment/SettingFragment$13;
-.super Lcom/isaigu/gymapp/widget/NoDoubleClickListener;
+.super Ljava/lang/Object;
 .source "SettingFragment.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -17,35 +20,48 @@
 # instance fields
 .field final synthetic this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
+.field final synthetic val$dateFormat:Ljava/text/SimpleDateFormat;
+
 
 # direct methods
-.method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-    .registers 2
+.method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment;Ljava/text/SimpleDateFormat;)V
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()V"
+        }
+    .end annotation
 
     .prologue
-    .line 529
+    .line 548
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$13;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
+    iput-object p2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$13;->val$dateFormat:Ljava/text/SimpleDateFormat;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onNoDoubleClick(Landroid/view/View;)V
-    .registers 5
+.method public run()V
+    .registers 3
 
     .prologue
-    .line 532
+    .line 551
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$13;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    const-string v1, "bg"
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
-    const/4 v2, 0x1
+    move-result-object v0
 
-    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->switchToLanguage(Ljava/lang/String;Z)V
+    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$13$1;
 
-    .line 533
+    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$13$1;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment$13;)V
+
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
+
+    .line 557
     return-void
 .end method

@@ -444,4 +444,7 @@
     <item type="id" name="pulsePauseSeekBar" />
     <item type="id" name="pulsePauseValue" />
     <item type="id" name="splashPreview" />
+    <item type="id" name="alternateImpulseSwitch" />
+    <item type="id" name="alternatePhaseAerobicButton" />
+    <item type="id" name="alternatePhaseMuscleButton" />
 </resources>

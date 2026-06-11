@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 280
+    .line 287
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .registers 8
 
     .prologue
-    .line 283
+    .line 290
     const/4 v0, 0x1
 
     invoke-static {p2}, Ljava/lang/Math;->round(F)I
@@ -51,14 +51,14 @@
 
     move-result v0
 
-    .line 284
+    .line 291
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v1
 
     iput v0, v1, Lcom/isaigu/gymapp/bean/UserData;->defaultPulseContinue:I
 
-    .line 285
+    .line 292
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->pulseContinueValue:Landroid/widget/TextView;
@@ -86,7 +86,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 286
+    .line 293
     return-void
 .end method
 
@@ -94,7 +94,7 @@
     .registers 3
 
     .prologue
-    .line 290
+    .line 297
     return-void
 .end method
 
@@ -102,13 +102,13 @@
     .registers 4
 
     .prologue
-    .line 294
+    .line 301
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
 
-    .line 295
+    .line 302
     return-void
 .end method

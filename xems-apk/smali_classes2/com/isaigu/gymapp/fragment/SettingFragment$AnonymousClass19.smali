@@ -29,12 +29,12 @@
     .registers 2
 
     .prologue
-    .line 637
+    .line 691
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
 
-    .line 638
+    .line 692
     return-void
 .end method
 
@@ -44,7 +44,7 @@
     .registers 5
 
     .prologue
-    .line 643
+    .line 697
     :try_start_0
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
@@ -58,17 +58,17 @@
 
     move-result-object v0
 
-    .line 644
+    .line 698
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
 
     if-nez v1, :cond_15
 
-    .line 645
+    .line 699
     invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
 
-    .line 647
+    .line 701
     :cond_15
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
@@ -86,23 +86,23 @@
 
     move-result-object v1
 
-    .line 648
+    .line 702
     invoke-virtual {v1}, Ljava/io/InputStream;->available()I
 
     move-result v2
 
     new-array v2, v2, [B
 
-    .line 649
+    .line 703
     invoke-virtual {v1, v2}, Ljava/io/InputStream;->read([B)I
 
-    .line 650
+    .line 704
     invoke-virtual {v1}, Ljava/io/InputStream;->close()V
 
-    .line 651
+    .line 705
     invoke-static {v0, v2}, Lcom/isaigu/gymapp/utils/IOUtil;->writeFile(Ljava/io/File;[B)V
 
-    .line 652
+    .line 706
     new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1;
 
     invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;)V
@@ -111,15 +111,15 @@
     :try_end_3c
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_3c} :catch_3d
 
-    .line 656
+    .line 710
     :goto_3c
     return-void
 
-    .line 653
+    .line 707
     :catch_3d
     move-exception v0
 
-    .line 654
+    .line 708
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_3c

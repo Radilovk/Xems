@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 675
+    .line 729
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1$1$1;->this$3:Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .registers 3
 
     .prologue
-    .line 678
+    .line 732
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1$1$1;->this$3:Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1$1;->this$2:Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1;
@@ -76,13 +76,13 @@
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage:Landroid/widget/ImageView;
-    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$1000(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
+    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$1100(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    .line 679
+    .line 733
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1$1$1;->this$3:Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1$1;->this$2:Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1;
@@ -118,12 +118,12 @@
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage2:Landroid/widget/ImageView;
-    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$1100(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
+    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$1200(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    .line 680
+    .line 734
     return-void
 .end method

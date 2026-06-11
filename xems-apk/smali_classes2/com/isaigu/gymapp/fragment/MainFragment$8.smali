@@ -34,7 +34,7 @@
     .registers 2
 
     .prologue
-    .line 320
+    .line 325
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/MainFragment$8;->this$0:Lcom/isaigu/gymapp/fragment/MainFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;-><init>()V
@@ -58,7 +58,7 @@
     .end annotation
 
     .prologue
-    .line 323
+    .line 328
     if-eqz p1, :cond_11
 
     if-eqz p3, :cond_11
@@ -69,20 +69,20 @@
 
     if-nez v0, :cond_11
 
-    .line 324
+    .line 329
     const-string v0, "file_name_offline_update_train_program_data"
 
     const-class v1, Lcom/isaigu/gymapp/bean/TrainProgram;
 
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/utils/FileUtils;->removeData(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 326
+    .line 331
     :cond_11
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment$8;->this$0:Lcom/isaigu/gymapp/fragment/MainFragment;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/MainFragment;->initTrainPrograms()V
 
-    .line 327
+    .line 332
     return-void
 .end method
 
@@ -90,7 +90,7 @@
     .registers 4
 
     .prologue
-    .line 320
+    .line 325
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/MainFragment$8;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V

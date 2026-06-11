@@ -34,7 +34,7 @@
     .registers 2
 
     .prologue
-    .line 194
+    .line 199
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/MainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/MainFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;-><init>()V
@@ -58,7 +58,7 @@
     .end annotation
 
     .prologue
-    .line 197
+    .line 202
     if-eqz p1, :cond_20
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
@@ -67,7 +67,7 @@
 
     if-nez v0, :cond_20
 
-    .line 198
+    .line 203
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v1
@@ -80,7 +80,7 @@
 
     iput-object v0, v1, Lcom/isaigu/gymapp/mgr/DataMgr;->registerProtocolVO:Lcom/isaigu/gymapp/bean/vo/RegisterProtocolVO;
 
-    .line 199
+    .line 204
     const-string v0, "file_name_register_protocol_data"
 
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -91,11 +91,11 @@
 
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 204
+    .line 209
     :goto_1f
     return-void
 
-    .line 201
+    .line 206
     :cond_20
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/MainFragment;
 
@@ -105,7 +105,7 @@
 
     invoke-static {v0, p2, p3}, Lcom/isaigu/gymapp/mgr/CommonUtils;->showErrorTips(Lcom/isaigu/gymapp/BaseActivity;Ljava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
 
-    .line 202
+    .line 207
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v1
@@ -129,7 +129,7 @@
     .registers 4
 
     .prologue
-    .line 194
+    .line 199
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/MainFragment$2;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V

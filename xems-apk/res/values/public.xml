@@ -1590,6 +1590,24 @@
     <public type="id" name="wrap_content" id="0x7f090200" />
     <public type="id" name="year" id="0x7f090201" />
     <public type="id" name="youyangyundong" id="0x7f090202" />
+    <public type="id" name="bulgarian" id="0x7f090203" />
+    <public type="id" name="changeIcon" id="0x7f090204" />
+    <public type="id" name="changeSplash" id="0x7f090205" />
+    <public type="id" name="channelCalibrationContainer" id="0x7f090206" />
+    <public type="id" name="currentDecreaseSeekBar" id="0x7f090207" />
+    <public type="id" name="currentDecreaseValue" id="0x7f090208" />
+    <public type="id" name="currentIncreaseSeekBar" id="0x7f090209" />
+    <public type="id" name="currentIncreaseValue" id="0x7f09020a" />
+    <public type="id" name="iconPreview" id="0x7f09020b" />
+    <public type="id" name="password_row" id="0x7f09020c" />
+    <public type="id" name="pulseContinueSeekBar" id="0x7f09020d" />
+    <public type="id" name="pulseContinueValue" id="0x7f09020e" />
+    <public type="id" name="pulsePauseSeekBar" id="0x7f09020f" />
+    <public type="id" name="pulsePauseValue" id="0x7f090210" />
+    <public type="id" name="splashPreview" id="0x7f090211" />
+    <public type="id" name="alternateImpulseSwitch" id="0x7f090212" />
+    <public type="id" name="alternatePhaseAerobicButton" id="0x7f090213" />
+    <public type="id" name="alternatePhaseMuscleButton" id="0x7f090214" />
     <public type="integer" name="abc_config_activityDefaultDur" id="0x7f0a0000" />
     <public type="integer" name="abc_config_activityShortDur" id="0x7f0a0001" />
     <public type="integer" name="animation_default_duration" id="0x7f0a0002" />

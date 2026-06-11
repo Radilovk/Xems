@@ -819,6 +819,12 @@
 
 .field public static final splashPreview:I = 0x7f090211
 
+.field public static final alternateImpulseSwitch:I = 0x7f090212
+
+.field public static final alternatePhaseAerobicButton:I = 0x7f090213
+
+.field public static final alternatePhaseMuscleButton:I = 0x7f090214
+
 .field public static final split_action_bar:I = 0x7f090183
 
 .field public static final src_atop:I = 0x7f090184

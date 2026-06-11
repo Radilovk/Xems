@@ -34,12 +34,12 @@
     .registers 2
 
     .prologue
-    .line 818
+    .line 872
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass20;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;-><init>()V
 
-    .line 819
+    .line 873
     return-void
 .end method
 
@@ -59,7 +59,7 @@
     .end annotation
 
     .prologue
-    .line 823
+    .line 877
     if-eqz p1, :cond_4a
 
     if-eqz p3, :cond_4a
@@ -76,7 +76,7 @@
 
     if-eqz v0, :cond_4a
 
-    .line 824
+    .line 878
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v1
@@ -91,7 +91,7 @@
 
     iput-object v0, v1, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
 
-    .line 825
+    .line 879
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v0
@@ -108,7 +108,7 @@
 
     iput-object v0, v1, Lcom/isaigu/gymapp/bean/TrainUser;->appLogoUrl:Ljava/lang/String;
 
-    .line 826
+    .line 880
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v0
@@ -135,7 +135,7 @@
 
     invoke-static {v1, v0, v2}, Lcom/isaigu/gymapp/mgr/ApiMgr;->updateAppLogo(Ljava/lang/Long;Ljava/lang/String;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    .line 844
+    .line 898
     :cond_4a
     return-void
 .end method
@@ -144,7 +144,7 @@
     .registers 4
 
     .prologue
-    .line 817
+    .line 871
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass20;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V

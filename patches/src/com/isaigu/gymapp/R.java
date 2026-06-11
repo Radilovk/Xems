@@ -1651,6 +1651,9 @@ public final class R {
         public static final int pulsePauseSeekBar = 0x7f09020f;
         public static final int pulsePauseValue = 0x7f090210;
         public static final int splashPreview = 0x7f090211;
+        public static final int alternateImpulseSwitch = 0x7f090212;
+        public static final int alternatePhaseAerobicButton = 0x7f090213;
+        public static final int alternatePhaseMuscleButton = 0x7f090214;
 
         private id() {
         }
@@ -2205,7 +2208,11 @@ public final class R {
         public static final int defaultPulseContinue = 0x7f0d0102;
         public static final int defaultPulsePause = 0x7f0d0103;
         public static final int channelCalibrationTitle = 0x7f0d0104;
-        public static final int channelPulseGlobal = 0x7f0d0105;
+        public static final int channelPulseGlobal = 0x7f0d0104;
+        public static final int alternateImpulseModeTitle = 0x7f0d00fd;
+        public static final int alternateImpulseModeHint = 0x7f0d00fc;
+        public static final int alternatePhaseMuscle = 0x7f0d00ff;
+        public static final int alternatePhaseAerobic = 0x7f0d00fe;
 
         private string() {
         }

@@ -1,14 +1,11 @@
 .class Lcom/isaigu/gymapp/fragment/SettingFragment$8;
-.super Ljava/lang/Object;
+.super Lcom/isaigu/gymapp/widget/NoDoubleClickListener;
 .source "SettingFragment.java"
-
-# interfaces
-.implements Lcom/isaigu/gymapp/widget/OnRangeChangedListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/isaigu/gymapp/fragment/SettingFragment;->initChannelCalibrationRows()V
+    value = Lcom/isaigu/gymapp/fragment/SettingFragment;->initAlternateImpulseControls()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,116 +17,48 @@
 # instance fields
 .field final synthetic this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-.field final synthetic val$channelIndex:I
-
-.field final synthetic val$pulseValue:Landroid/widget/TextView;
-
 
 # direct methods
-.method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment;ILandroid/widget/TextView;)V
-    .registers 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
+.method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+    .registers 2
 
     .prologue
-    .line 378
+    .line 344
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$8;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    iput p2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$8;->val$channelIndex:I
-
-    iput-object p3, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$8;->val$pulseValue:Landroid/widget/TextView;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onRangeChanged(Lcom/isaigu/gymapp/widget/RangeSeekBar;FFZ)V
-    .registers 8
-
-    .prologue
-    .line 381
-    invoke-static {p2}, Ljava/lang/Math;->round(F)I
-
-    move-result v0
-
-    .line 382
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v1
-
-    iget-object v1, v1, Lcom/isaigu/gymapp/bean/UserData;->channelPulseWidthUs:[I
-
-    iget v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$8;->val$channelIndex:I
-
-    aput v0, v1, v2
-
-    .line 383
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$8;->val$pulseValue:Landroid/widget/TextView;
-
-    if-lez v0, :cond_29
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v2, " us"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_25
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 384
-    return-void
-
-    .line 383
-    :cond_29
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$8;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
-
-    const v2, 0x7f0d0105
-
-    invoke-virtual {v0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_25
-.end method
-
-.method public onStartTrackingTouch(Lcom/isaigu/gymapp/widget/RangeSeekBar;Z)V
-    .registers 3
-
-    .prologue
-    .line 388
-    return-void
-.end method
-
-.method public onStopTrackingTouch(Lcom/isaigu/gymapp/widget/RangeSeekBar;Z)V
+.method public onNoDoubleClick(Landroid/view/View;)V
     .registers 4
 
     .prologue
-    .line 392
+    .line 347
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    iput v1, v0, Lcom/isaigu/gymapp/bean/UserData;->alternatePhaseType:I
+
+    .line 348
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$8;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+
+    # invokes: Lcom/isaigu/gymapp/fragment/SettingFragment;->updateAlternatePhaseButtons()V
+    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$500(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    .line 349
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
 
-    .line 393
+    .line 350
     return-void
 .end method

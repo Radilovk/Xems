@@ -26,12 +26,12 @@
     .registers 2
 
     .prologue
-    .line 594
+    .line 648
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 595
+    .line 649
     return-void
 .end method
 
@@ -41,7 +41,7 @@
     .registers 7
 
     .prologue
-    .line 599
+    .line 653
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
@@ -54,7 +54,7 @@
 
     iput-wide v2, v0, Lcom/isaigu/gymapp/bean/UserData;->useTime:J
 
-    .line 600
+    .line 654
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -67,12 +67,12 @@
 
     if-eqz v0, :cond_36
 
-    .line 601
+    .line 655
     new-instance v0, Lcom/isaigu/gymapp/bean/dto/UploadUserUseTimeDTO;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/bean/dto/UploadUserUseTimeDTO;-><init>()V
 
-    .line 602
+    .line 656
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v1
@@ -81,7 +81,7 @@
 
     iput-wide v2, v0, Lcom/isaigu/gymapp/bean/dto/UploadUserUseTimeDTO;->time:J
 
-    .line 603
+    .line 657
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v1
@@ -92,14 +92,14 @@
 
     iput-wide v2, v0, Lcom/isaigu/gymapp/bean/dto/UploadUserUseTimeDTO;->userId:J
 
-    .line 604
+    .line 658
     new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5$1;
 
     invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5$1;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5;)V
 
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/mgr/ApiMgr;->uploadUseTime(Lcom/isaigu/gymapp/bean/dto/UploadUserUseTimeDTO;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    .line 631
+    .line 685
     :cond_36
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
@@ -107,6 +107,6 @@
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
 
-    .line 632
+    .line 686
     return-void
 .end method
