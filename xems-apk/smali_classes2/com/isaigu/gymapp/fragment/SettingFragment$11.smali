@@ -102,7 +102,7 @@
     :cond_29
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$11;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    const v2, 0x7f0d0105
+    const v2, 0x7f0d0104
 
     invoke-virtual {v0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
 
