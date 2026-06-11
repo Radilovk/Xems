@@ -30,6 +30,8 @@
     .line 71
     invoke-static {p0}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->migrate(Lcom/isaigu/gymapp/bean/ProgramDataBean;)V
 
+    invoke-static {}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->ensureDefaults()V
+
     .line 72
     invoke-static {p0}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->getStrengthTenths(Lcom/isaigu/gymapp/bean/ProgramDataBean;)I
 

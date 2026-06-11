@@ -185,7 +185,7 @@
 
 .field public static final btnSubmit:I = 0x7f090054
 
-.field public static final bulgarian:I = 0x7f090204
+.field public static final bulgarian:I = 0x7f090203
 
 .field public static final buttonLayout:I = 0x7f090055
 
@@ -227,13 +227,13 @@
 
 .field public static final center_vertical:I = 0x7f090068
 
-.field public static final changeIcon:I = 0x7f090205
+.field public static final changeIcon:I = 0x7f090204
 
 .field public static final changeLogo:I = 0x7f090069
 
-.field public static final changeSplash:I = 0x7f090206
+.field public static final changeSplash:I = 0x7f090205
 
-.field public static final channelCalibrationContainer:I = 0x7f090211
+.field public static final channelCalibrationContainer:I = 0x7f090206
 
 .field public static final check1:I = 0x7f09006a
 
@@ -275,13 +275,13 @@
 
 .field public static final current:I = 0x7f09007d
 
-.field public static final currentDecreaseSeekBar:I = 0x7f09020a
+.field public static final currentDecreaseSeekBar:I = 0x7f090207
 
-.field public static final currentDecreaseValue:I = 0x7f09020c
+.field public static final currentDecreaseValue:I = 0x7f090208
 
 .field public static final currentIncreaseSeekBar:I = 0x7f090209
 
-.field public static final currentIncreaseValue:I = 0x7f09020b
+.field public static final currentIncreaseValue:I = 0x7f09020a
 
 .field public static final custom:I = 0x7f09007e
 
@@ -403,7 +403,7 @@
 
 .field public static final icon:I = 0x7f0900b9
 
-.field public static final iconPreview:I = 0x7f090207
+.field public static final iconPreview:I = 0x7f09020b
 
 .field public static final icon_group:I = 0x7f0900ba
 
@@ -689,9 +689,9 @@
 
 .field public static final pulseContinueSeekBar:I = 0x7f09020d
 
-.field public static final pulseContinueValue:I = 0x7f09020f
+.field public static final pulseContinueValue:I = 0x7f09020e
 
-.field public static final pulsePauseSeekBar:I = 0x7f09020e
+.field public static final pulsePauseSeekBar:I = 0x7f09020f
 
 .field public static final pulsePauseValue:I = 0x7f090210
 
@@ -817,7 +817,7 @@
 
 .field public static final splashImage:I = 0x7f090182
 
-.field public static final splashPreview:I = 0x7f090208
+.field public static final splashPreview:I = 0x7f090211
 
 .field public static final split_action_bar:I = 0x7f090183
 

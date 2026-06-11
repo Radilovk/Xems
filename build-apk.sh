@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 APKTOOL_JAR="${APKTOOL_JAR:-/tmp/apktool.jar}"
 ANDROID_HOME="${ANDROID_HOME:-$HOME/android-sdk}"
-BUILD_TOOLS="${ANDROID_HOME}/build-tools/34.0.0"
+BUILD_TOOLS="${ANDROID_HOME}/build-tools/30.0.3"
 
 if [[ ! -f "$APKTOOL_JAR" ]]; then
   curl -sL https://github.com/iBotPeaches/apktool/releases/download/v2.10.0/apktool_2.10.0.jar -o "$APKTOOL_JAR"

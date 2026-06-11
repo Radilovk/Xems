@@ -429,19 +429,19 @@
     <item type="id" name="worklength3" />
     <item type="id" name="year" />
     <item type="id" name="youyangyundong" />
-    <item type="id" name="password_row" />
     <item type="id" name="bulgarian" />
     <item type="id" name="changeIcon" />
     <item type="id" name="changeSplash" />
-    <item type="id" name="iconPreview" />
-    <item type="id" name="splashPreview" />
-    <item type="id" name="currentIncreaseSeekBar" />
-    <item type="id" name="currentDecreaseSeekBar" />
-    <item type="id" name="currentIncreaseValue" />
-    <item type="id" name="currentDecreaseValue" />
-    <item type="id" name="pulseContinueSeekBar" />
-    <item type="id" name="pulsePauseSeekBar" />
-    <item type="id" name="pulseContinueValue" />
-    <item type="id" name="pulsePauseValue" />
     <item type="id" name="channelCalibrationContainer" />
+    <item type="id" name="currentDecreaseSeekBar" />
+    <item type="id" name="currentDecreaseValue" />
+    <item type="id" name="currentIncreaseSeekBar" />
+    <item type="id" name="currentIncreaseValue" />
+    <item type="id" name="iconPreview" />
+    <item type="id" name="password_row" />
+    <item type="id" name="pulseContinueSeekBar" />
+    <item type="id" name="pulseContinueValue" />
+    <item type="id" name="pulsePauseSeekBar" />
+    <item type="id" name="pulsePauseValue" />
+    <item type="id" name="splashPreview" />
 </resources>

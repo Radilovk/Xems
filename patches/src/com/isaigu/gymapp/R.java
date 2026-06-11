@@ -1636,21 +1636,21 @@ public final class R {
         public static final int wrap_content = 0x7f090200;
         public static final int year = 0x7f090201;
         public static final int youyangyundong = 0x7f090202;
-        public static final int password_row = 0x7f09020c;
-        public static final int bulgarian = 0x7f090204;
-        public static final int changeIcon = 0x7f090205;
-        public static final int changeSplash = 0x7f090206;
-        public static final int iconPreview = 0x7f090207;
-        public static final int splashPreview = 0x7f090208;
+        public static final int bulgarian = 0x7f090203;
+        public static final int changeIcon = 0x7f090204;
+        public static final int changeSplash = 0x7f090205;
+        public static final int channelCalibrationContainer = 0x7f090206;
+        public static final int currentDecreaseSeekBar = 0x7f090207;
+        public static final int currentDecreaseValue = 0x7f090208;
         public static final int currentIncreaseSeekBar = 0x7f090209;
-        public static final int currentDecreaseSeekBar = 0x7f09020a;
-        public static final int currentIncreaseValue = 0x7f09020b;
-        public static final int currentDecreaseValue = 0x7f09020c;
+        public static final int currentIncreaseValue = 0x7f09020a;
+        public static final int iconPreview = 0x7f09020b;
+        public static final int password_row = 0x7f09020c;
         public static final int pulseContinueSeekBar = 0x7f09020d;
-        public static final int pulsePauseSeekBar = 0x7f09020e;
-        public static final int pulseContinueValue = 0x7f09020f;
+        public static final int pulseContinueValue = 0x7f09020e;
+        public static final int pulsePauseSeekBar = 0x7f09020f;
         public static final int pulsePauseValue = 0x7f090210;
-        public static final int channelCalibrationContainer = 0x7f090211;
+        public static final int splashPreview = 0x7f090211;
 
         private id() {
         }

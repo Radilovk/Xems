@@ -133,10 +133,11 @@ public class SplashFragment extends BaseFragment {
                                             UserData.getInstance().logoPath = result.getData().appLogoUrl;
                                         }
                                         UserData.getInstance().useTime = DataMgr.getInstance().loginUser.useTime;
+                                        UserData.getInstance().roleName = DataMgr.getInstance().loginUser.roleName;
                                         FileUtils.saveData(UserData.getInstance());
                                         DataMgr.singleMode = true;
                                         ApiMgr.token = result.getData().token;
-                                        if (Constants.role_coach.equals(UserData.getInstance().roleName)) {
+                                        if (Constants.role_coach.equals(DataMgr.getInstance().loginUser.roleName)) {
                                             DataMgr.singleMode = false;
                                             MessageDispatcher.dispatchEventMessage((short) 104);
                                             SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new MainFragment());

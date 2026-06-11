@@ -2677,7 +2677,7 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->turk:Landroid/widget/Button;
 
     .line 129
-    const v0, 0x7f090204
+    const v0, 0x7f090203
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2702,7 +2702,7 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->changeLogo:Landroid/widget/Button;
 
     .line 132
-    const v0, 0x7f090205
+    const v0, 0x7f090204
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2713,7 +2713,7 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->changeIcon:Landroid/widget/Button;
 
     .line 133
-    const v0, 0x7f090206
+    const v0, 0x7f090205
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2746,7 +2746,7 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage2:Landroid/widget/ImageView;
 
     .line 136
-    const v0, 0x7f090207
+    const v0, 0x7f09020b
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2757,7 +2757,7 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->iconPreview:Landroid/widget/ImageView;
 
     .line 137
-    const v0, 0x7f090208
+    const v0, 0x7f090211
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2779,7 +2779,7 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->currentIncreaseSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
 
     .line 139
-    const v0, 0x7f09020a
+    const v0, 0x7f090207
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2790,7 +2790,7 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->currentDecreaseSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
 
     .line 140
-    const v0, 0x7f09020b
+    const v0, 0x7f09020a
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2801,7 +2801,7 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->currentIncreaseValue:Landroid/widget/TextView;
 
     .line 141
-    const v0, 0x7f09020c
+    const v0, 0x7f090208
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2823,7 +2823,7 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->pulseContinueSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
 
     .line 143
-    const v0, 0x7f09020e
+    const v0, 0x7f09020f
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2834,7 +2834,7 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->pulsePauseSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
 
     .line 144
-    const v0, 0x7f09020f
+    const v0, 0x7f09020e
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2856,7 +2856,7 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->pulsePauseValue:Landroid/widget/TextView;
 
     .line 146
-    const v0, 0x7f090211
+    const v0, 0x7f090206
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
