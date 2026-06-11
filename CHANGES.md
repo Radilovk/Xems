@@ -32,5 +32,6 @@ APK-то е съвместимо с Android 5.0+ (API 21), включителн�
 ## Сборка
 
 ```bash
+./build-patches.sh   # компилира patches/src → smali
 ./build-apk.sh
 ```
