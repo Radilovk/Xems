@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/LoginFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/LoginFragment;
 
-    .prologue
-    .line 75
+    .line 182
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/LoginFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,15 +38,16 @@
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .registers 4
+    .param p1, "compoundButton"    # Landroid/widget/CompoundButton;
+    .param p2, "b"    # Z
 
-    .prologue
-    .line 78
+    .line 184
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
-    iput-boolean p2, v0, Lcom/isaigu/gymapp/bean/UserData;->rememberPassword:Z
+    iput-boolean p2, v0, Lcom/isaigu/gymapp/bean/UserData;->autoLogin:Z
 
-    .line 79
+    .line 185
     return-void
 .end method

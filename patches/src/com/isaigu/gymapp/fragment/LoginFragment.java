@@ -55,25 +55,19 @@ public class LoginFragment extends BaseFragment {
         if (!TextUtils.isEmpty(UserData.getInstance().logoPath)) {
             Glide.with((FragmentActivity) getParentActivity()).load(UserData.getInstance().logoPath).into(logoImage);
         }
-        if (this.login != null) {
-            this.login.setOnClickListener(new AnonymousClass1());
-        }
-        if (this.autoLogin != null) {
-            this.autoLogin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                    UserData.getInstance().autoLogin = b;
-                }
-            });
-        }
-        if (this.rememberPassword != null) {
-            this.rememberPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                    UserData.getInstance().rememberPassword = b;
-                }
-            });
-        }
+        this.login.setOnClickListener(new AnonymousClass1());
+        this.autoLogin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                UserData.getInstance().autoLogin = b;
+            }
+        });
+        this.rememberPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                UserData.getInstance().rememberPassword = b;
+            }
+        });
         initView();
         return view;
     }
@@ -95,7 +89,9 @@ public class LoginFragment extends BaseFragment {
                 LoginFragment.this.getParentActivity().showTips(LoginFragment.this.getString(R.string.passwordnull));
                 return;
             }
-            if (!NetworkUtils.isNetworkConnected(LoginFragment.this.getParentActivity()) && !username.equals(UserData.getInstance().userName)) {
+            if (!NetworkUtils.isNetworkConnected(LoginFragment.this.getParentActivity())
+                    && (!username.equals(UserData.getInstance().userName)
+                    || !pwd.equals(UserData.getInstance().password))) {
                 LoginFragment.this.getParentActivity().showTips(LoginFragment.this.getString(R.string.network_error));
                 return;
             }
@@ -104,11 +100,6 @@ public class LoginFragment extends BaseFragment {
                 if (username.equals(UserData.getInstance().userName) && pwd.equals(UserData.getInstance().password)) {
                     DataMgr.singleMode = true;
                     DataMgr.getInstance().loginUser = (TrainUser) FileUtils.getData(Constants.file_name_login_user, TrainUser.class);
-                    if (DataMgr.getInstance().loginUser == null) {
-                        MessageDispatcher.dispatchEventMessage((short) 104);
-                        LoginFragment.this.getParentActivity().showTips(LoginFragment.this.getString(R.string.username_password_error));
-                        return;
-                    }
                     UserData.getInstance().useTime = DataMgr.getInstance().loginUser.useTime;
                     if (Constants.role_coach.equals(UserData.getInstance().roleName)) {
                         DataMgr.singleMode = false;
@@ -138,7 +129,7 @@ public class LoginFragment extends BaseFragment {
                 @Override
                 public void httpResponse(boolean httpSuccess, String message, ResponseData<TrainUser> result) {
                     BaseFragment fragment2;
-                    if (httpSuccess && result != null && result.getCode() == 0) {
+                    if (httpSuccess && result.getCode() == 0) {
                         DataMgr.getInstance().loginUser = result.getData();
                         if (!TextUtils.isEmpty(result.getData().appLogoUrl)) {
                             UserData.getInstance().logoPath = result.getData().appLogoUrl;
@@ -180,18 +171,10 @@ public class LoginFragment extends BaseFragment {
     private void initView() {
         UserData userData = UserData.getInstance();
         if (userData.rememberPassword) {
-            if (this.userName != null) {
-                this.userName.setText(userData.userName);
-            }
-            if (this.password != null) {
-                this.password.setText(userData.password);
-            }
+            this.userName.setText(userData.userName);
+            this.password.setText(userData.password);
         }
-        if (this.rememberPassword != null) {
-            this.rememberPassword.setChecked(userData.rememberPassword);
-        }
-        if (this.autoLogin != null) {
-            this.autoLogin.setChecked(userData.autoLogin);
-        }
+        this.rememberPassword.setChecked(userData.rememberPassword);
+        this.autoLogin.setChecked(userData.autoLogin);
     }
 }

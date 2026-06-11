@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/LoginFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/LoginFragment;
 
     .line 187
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 1
+    .registers 4
     .param p1, "compoundButton"    # Landroid/widget/CompoundButton;
     .param p2, "b"    # Z
 

@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/LoginFragment$1;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 4
     .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/LoginFragment$1;
 
     .line 138
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 4
+    .registers 8
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -68,13 +68,13 @@
     .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Lcom/isaigu/gymapp/bean/TrainUser;>;"
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_ac
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_ac
 
     .line 141
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -102,7 +102,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_31
 
     .line 143
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
@@ -120,7 +120,7 @@
     iput-object v2, v1, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
 
     .line 145
-    :cond_0
+    :cond_31
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v1
@@ -221,7 +221,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_95
 
     .line 157
     sput-boolean v0, Lcom/isaigu/gymapp/mgr/DataMgr;->singleMode:Z
@@ -233,12 +233,12 @@
 
     .end local v1    # "fragment":Lcom/isaigu/gymapp/BaseFragment;
     .local v0, "fragment":Lcom/isaigu/gymapp/BaseFragment;
-    goto :goto_0
+    goto :goto_9a
 
     .line 160
     .end local v0    # "fragment":Lcom/isaigu/gymapp/BaseFragment;
     .restart local v1    # "fragment":Lcom/isaigu/gymapp/BaseFragment;
-    :cond_1
+    :cond_95
     new-instance v0, Lcom/isaigu/gymapp/fragment/StartFragment;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/fragment/StartFragment;-><init>()V
@@ -246,7 +246,7 @@
     .line 162
     .end local v1    # "fragment":Lcom/isaigu/gymapp/BaseFragment;
     .restart local v0    # "fragment":Lcom/isaigu/gymapp/BaseFragment;
-    :goto_0
+    :goto_9a
     move-object v1, v0
 
     .line 163
@@ -268,10 +268,10 @@
     .line 169
     .end local v0    # "fragment":Lcom/isaigu/gymapp/BaseFragment;
     .end local v1    # "fragment1":Lcom/isaigu/gymapp/BaseFragment;
-    goto :goto_1
+    goto :goto_e4
 
     .line 170
-    :cond_2
+    :cond_ac
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -325,12 +325,12 @@
     invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
 
     .line 176
-    :goto_1
+    :goto_e4
     return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 138
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

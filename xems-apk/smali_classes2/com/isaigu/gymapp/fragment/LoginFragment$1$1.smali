@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/LoginFragment$1;Lcom/isaigu/gymapp/BaseFragment;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/LoginFragment$1;
 
     .line 122
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 124
     const/16 v0, 0x68

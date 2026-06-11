@@ -92,7 +92,8 @@ public class SplashFragment extends BaseFragment {
                 if (UserData.getInstance().isLogin()) {
                     MessageDispatcher.dispatchEventMessage((short) 103);
                     if (!NetworkUtils.isNetworkConnected(SplashFragment.this.getParentActivity())) {
-                        if (!TextUtils.isEmpty(UserData.getInstance().userName)) {
+                        if (!TextUtils.isEmpty(UserData.getInstance().userName)
+                                && !TextUtils.isEmpty(UserData.getInstance().password)) {
                             DataMgr.singleMode = true;
                             DataMgr.getInstance().loginUser = (TrainUser) FileUtils.getData(Constants.file_name_login_user, TrainUser.class);
                             UserData.getInstance().useTime = DataMgr.getInstance().loginUser.useTime;
@@ -103,8 +104,8 @@ public class SplashFragment extends BaseFragment {
                                 fragment = new StartFragment();
                             }
                             final BaseFragment fragment1 = fragment;
-                            SplashFragment.this.getParentActivity().runDelay(new Runnable() { // from class: com.isaigu.gymapp.fragment.SplashFragment.1.1.1
-                                @Override // java.lang.Runnable
+                            SplashFragment.this.getParentActivity().runDelay(new Runnable() {
+                                @Override
                                 public void run() {
                                     MessageDispatcher.dispatchEventMessage((short) 104);
                                     SplashFragment.this.getParentActivity().replace(R.id.frameContainer, fragment1);
@@ -118,39 +119,32 @@ public class SplashFragment extends BaseFragment {
                     }
                     LoginDTO dto = new LoginDTO();
                     dto.username = UserData.getInstance().userName;
-                    String savedPassword = UserData.getInstance().password;
-                    if (TextUtils.isEmpty(savedPassword)) {
-                        UserData.getInstance().autoLogin = false;
-                        SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new LoginFragment());
-                        return;
-                    }
-                    dto.password = MD5Utils.getMD5(savedPassword);
+                    dto.password = MD5Utils.getMD5(UserData.getInstance().password);
                     dto.md5Password = MD5Utils.getMD5(dto.password + ApiMgr.Password_Salt);
-                    ApiMgr.login(dto, new OKHttpUtils.HttpResponseCallback<ResponseData<TrainUser>>() { // from class: com.isaigu.gymapp.fragment.SplashFragment.1.1.2
-                        @Override // com.isaigu.gymapp.utils.OKHttpUtils.HttpResponseCallback
+                    ApiMgr.login(dto, new OKHttpUtils.HttpResponseCallback<ResponseData<TrainUser>>() {
+                        @Override
                         public void httpResponse(final boolean httpSuccess, final String message, final ResponseData<TrainUser> result) {
-                            SplashFragment.this.getParentActivity().runOnUiThread(new Runnable() { // from class: com.isaigu.gymapp.fragment.SplashFragment.1.1.2.1
-                                @Override // java.lang.Runnable
+                            SplashFragment.this.getParentActivity().runOnUiThread(new Runnable() {
+                                @Override
                                 public void run() {
                                     if (httpSuccess && result.getCode() == 0) {
-                                        DataMgr.getInstance().loginUser = (TrainUser) result.getData();
-                                        if (!TextUtils.isEmpty(((TrainUser) result.getData()).appLogoUrl)) {
-                                            UserData.getInstance().logoPath = ((TrainUser) result.getData()).appLogoUrl;
+                                        DataMgr.getInstance().loginUser = result.getData();
+                                        if (!TextUtils.isEmpty(result.getData().appLogoUrl)) {
+                                            UserData.getInstance().logoPath = result.getData().appLogoUrl;
                                         }
                                         UserData.getInstance().useTime = DataMgr.getInstance().loginUser.useTime;
                                         FileUtils.saveData(UserData.getInstance());
                                         DataMgr.singleMode = true;
-                                        ApiMgr.token = ((TrainUser) result.getData()).token;
+                                        ApiMgr.token = result.getData().token;
                                         if (Constants.role_coach.equals(UserData.getInstance().roleName)) {
                                             DataMgr.singleMode = false;
                                             MessageDispatcher.dispatchEventMessage((short) 104);
                                             SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new MainFragment());
                                             return;
-                                        } else {
-                                            MessageDispatcher.dispatchEventMessage((short) 104);
-                                            SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new StartFragment());
-                                            return;
                                         }
+                                        MessageDispatcher.dispatchEventMessage((short) 104);
+                                        SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new StartFragment());
+                                        return;
                                     }
                                     Logger.logConsole("code : " + httpSuccess + "  result: " + result);
                                     CommonUtils.showErrorTips(SplashFragment.this.getParentActivity(), message, result);
