@@ -24,16 +24,17 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;Landroid/view/View;)V
-    .registers 4
+    .locals 1
+    .param p1, "this$1"    # Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;
+    .param p2, "itemView"    # Landroid/view/View;
 
-    .prologue
-    .line 935
+    .line 865
     iput-object p1, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter$UserHolder;->this$1:Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;
 
-    .line 936
+    .line 866
     invoke-direct {p0, p2}, Landroid/support/v7/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
 
-    .line 937
+    .line 867
     const v0, 0x7f0901cf
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -44,7 +45,7 @@
 
     iput-object v0, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter$UserHolder;->usericon:Landroid/widget/ImageView;
 
-    .line 938
+    .line 868
     const v0, 0x7f0901d9
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -55,6 +56,6 @@
 
     iput-object v0, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter$UserHolder;->username:Landroid/widget/TextView;
 
-    .line 939
+    .line 869
     return-void
 .end method

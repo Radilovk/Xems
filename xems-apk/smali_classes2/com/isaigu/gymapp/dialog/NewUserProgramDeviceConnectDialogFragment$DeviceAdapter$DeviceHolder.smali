@@ -24,16 +24,17 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter;Landroid/view/View;)V
-    .registers 4
+    .locals 1
+    .param p1, "this$1"    # Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter;
+    .param p2, "itemView"    # Landroid/view/View;
 
-    .prologue
-    .line 1200
+    .line 1133
     iput-object p1, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter$DeviceHolder;->this$1:Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter;
 
-    .line 1201
+    .line 1134
     invoke-direct {p0, p2}, Landroid/support/v7/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
 
-    .line 1202
+    .line 1135
     const v0, 0x7f09008d
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -44,7 +45,7 @@
 
     iput-object v0, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter$DeviceHolder;->deviceName:Landroid/widget/TextView;
 
-    .line 1203
+    .line 1136
     const v0, 0x7f09008b
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -55,25 +56,25 @@
 
     iput-object v0, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter$DeviceHolder;->address:Landroid/widget/TextView;
 
-    .line 1204
+    .line 1137
     return-void
 .end method
 
-.method static synthetic access$1700(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter$DeviceHolder;)Landroid/widget/TextView;
-    .registers 2
+.method static synthetic access$2600(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter$DeviceHolder;)Landroid/widget/TextView;
+    .locals 1
+    .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter$DeviceHolder;
 
-    .prologue
-    .line 1196
+    .line 1129
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter$DeviceHolder;->deviceName:Landroid/widget/TextView;
 
     return-object v0
 .end method
 
-.method static synthetic access$1800(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter$DeviceHolder;)Landroid/widget/TextView;
-    .registers 2
+.method static synthetic access$2700(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter$DeviceHolder;)Landroid/widget/TextView;
+    .locals 1
+    .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter$DeviceHolder;
 
-    .prologue
-    .line 1196
+    .line 1129
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$DeviceAdapter$DeviceHolder;->address:Landroid/widget/TextView;
 
     return-object v0

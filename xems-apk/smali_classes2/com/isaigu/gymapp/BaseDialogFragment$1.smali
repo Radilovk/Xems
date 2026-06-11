@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 77
+    .line 56
     iput-object p1, p0, Lcom/isaigu/gymapp/BaseDialogFragment$1;->this$0:Lcom/isaigu/gymapp/BaseDialogFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .registers 4
 
     .prologue
-    .line 80
+    .line 59
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseDialogFragment$1;->this$0:Lcom/isaigu/gymapp/BaseDialogFragment;
 
     invoke-virtual {p1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
@@ -49,6 +49,6 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseDialogFragment;->hideSoftInput(Landroid/os/IBinder;)V
 
-    .line 81
+    .line 60
     return-void
 .end method
