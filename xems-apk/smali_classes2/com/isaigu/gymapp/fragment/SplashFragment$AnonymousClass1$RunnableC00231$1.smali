@@ -26,14 +26,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;Lcom/isaigu/gymapp/BaseFragment;)V
     .registers 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
+    .param p1, "this$2"    # Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;
 
-    .prologue
-    .line 106
+    .line 90
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231$1;->this$2:Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;
 
     iput-object p2, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231$1;->val$fragment1:Lcom/isaigu/gymapp/BaseFragment;
@@ -48,13 +43,12 @@
 .method public run()V
     .registers 4
 
-    .prologue
-    .line 109
+    .line 92
     const/16 v0, 0x68
 
     invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
 
-    .line 110
+    .line 93
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231$1;->this$2:Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1;
@@ -65,12 +59,12 @@
 
     move-result-object v0
 
-    const v1, 0x7f0900a4
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231$1;->val$fragment1:Lcom/isaigu/gymapp/BaseFragment;
 
-    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231$1;->val$fragment1:Lcom/isaigu/gymapp/BaseFragment;
+    const v2, 0x7f0900a4
 
-    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
+    invoke-virtual {v0, v2, v1}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
 
-    .line 111
+    .line 94
     return-void
 .end method
