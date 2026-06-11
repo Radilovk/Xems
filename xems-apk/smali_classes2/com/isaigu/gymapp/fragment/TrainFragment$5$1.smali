@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment$5;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/TrainFragment$5;
 
     .line 273
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onSaveProgram(Lcom/isaigu/gymapp/bean/TrainProgram;Ljava/util/List;)V
-    .locals 8
+    .registers 11
     .param p1, "trainProgram"    # Lcom/isaigu/gymapp/bean/TrainProgram;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,12 +54,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_90
 
     .line 276
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -76,6 +76,7 @@
 
     iget-object v2, v2, Lcom/isaigu/gymapp/fragment/TrainFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
     invoke-static {v2}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
     move-result-object v2
@@ -88,13 +89,14 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_8c
 
     .line 277
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$5$1;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$5;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/TrainFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
     invoke-static {v1}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
     move-result-object v1
@@ -172,6 +174,7 @@
 
     iget-object v5, v5, Lcom/isaigu/gymapp/fragment/TrainFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
     invoke-static {v5}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
     move-result-object v5
@@ -180,6 +183,7 @@
 
     iget-object v6, v6, Lcom/isaigu/gymapp/fragment/TrainFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
     invoke-static {v6}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
     move-result-object v6
@@ -206,6 +210,7 @@
 
     move-result v7
 
+    # invokes: Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->updateUI(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;I)V
     invoke-static {v5, v6, v1, v7}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->access$200(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;I)V
 
     .line 275
@@ -213,13 +218,13 @@
     .end local v2    # "useType":I
     .end local v3    # "cloneProgram":Lcom/isaigu/gymapp/bean/TrainProgram;
     .end local v4    # "originalProgram":Lcom/isaigu/gymapp/bean/TrainProgram;
-    :cond_0
+    :cond_8c
     add-int/lit8 v0, v0, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     .line 289
     .end local v0    # "i":I
-    :cond_1
+    :cond_90
     return-void
 .end method

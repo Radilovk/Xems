@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/train/utils/TrainRecordManager;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/train/utils/TrainRecordManager;
 
     .line 100
@@ -43,21 +43,21 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 3
+    .registers 7
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .param p3, "result"    # Lcom/isaigu/gymapp/bean/vo/ResponseData;
 
     .line 102
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1a
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1a
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->isSuccess()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 103
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -75,12 +75,12 @@
     invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/mgr/ApiMgr;->getUserCustomers(JLcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
     .line 113
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 100
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

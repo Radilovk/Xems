@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 22
     const-wide/16 v0, 0x0
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Long;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "id"    # Ljava/lang/Long;
     .param p2, "name"    # Ljava/lang/String;
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public static getTrainProgramTemplate1()Lcom/isaigu/gymapp/bean/TrainProgram;
-    .locals 6
+    .registers 6
 
     .line 55
     new-instance v0, Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -298,7 +298,7 @@
 .end method
 
 .method public static getTrainProgramTemplate2()Lcom/isaigu/gymapp/bean/TrainProgram;
-    .locals 6
+    .registers 6
 
     .line 93
     new-instance v0, Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -499,7 +499,7 @@
 .end method
 
 .method public static getTrainProgramTemplate3()Lcom/isaigu/gymapp/bean/TrainProgram;
-    .locals 6
+    .registers 6
 
     .line 131
     new-instance v0, Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -700,7 +700,7 @@
 
 # virtual methods
 .method public init()V
-    .locals 7
+    .registers 8
 
     .line 170
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/TrainProgram;->programDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -838,14 +838,14 @@
 .end method
 
 .method public matchProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
-    .locals 2
+    .registers 3
 
     .line 42
     iget v0, p0, Lcom/isaigu/gymapp/bean/TrainProgram;->useType:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 43
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/TrainProgram;->muscleTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -853,10 +853,10 @@
     return-object v0
 
     .line 45
-    :cond_0
+    :cond_8
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_e
 
     .line 46
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/TrainProgram;->aerobicTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -864,10 +864,10 @@
     return-object v0
 
     .line 48
-    :cond_1
+    :cond_e
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_14
 
     .line 49
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/TrainProgram;->massageModeProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -875,14 +875,14 @@
     return-object v0
 
     .line 51
-    :cond_2
+    :cond_14
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/TrainProgram;->programDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
 
     return-object v0
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
 
     .line 35
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/TrainProgram;->programDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;

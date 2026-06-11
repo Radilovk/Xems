@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 815
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
-    .locals 6
+    .registers 8
     .param p1, "chain"    # Lokhttp3/Interceptor$Chain;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -71,7 +71,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_4c
 
     .line 825
     invoke-virtual {v1}, Lokhttp3/HttpUrl;->scheme()Ljava/lang/String;
@@ -86,7 +86,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_34
 
     invoke-virtual {v0}, Lokhttp3/Request;->method()Ljava/lang/String;
 
@@ -98,10 +98,10 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_4c
 
     .line 827
-    :cond_0
+    :cond_34
     invoke-virtual {v0}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
 
     move-result-object v4
@@ -130,6 +130,6 @@
 
     .line 831
     .end local v4    # "newRequest":Lokhttp3/Request;
-    :cond_1
+    :cond_4c
     return-object v2
 .end method

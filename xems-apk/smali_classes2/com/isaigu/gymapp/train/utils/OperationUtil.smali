@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method static synthetic lambda$settingAllUser$0(Ljava/util/ArrayList;Ljava/lang/Runnable;Lcom/isaigu/gymapp/bean/TrainProgram;Ljava/util/List;)V
-    .locals 7
+    .registers 11
     .param p0, "wrapperArrayList"    # Ljava/util/ArrayList;
     .param p1, "completeRunnable"    # Ljava/lang/Runnable;
     .param p2, "trainProgram"    # Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -24,12 +24,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     invoke-interface {p3}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_51
 
     .line 200
     invoke-interface {p3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -46,7 +46,7 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_4e
 
     .line 201
     invoke-interface {p3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -121,19 +121,19 @@
     .end local v2    # "useType":I
     .end local v3    # "cloneProgram":Lcom/isaigu/gymapp/bean/TrainProgram;
     .end local v4    # "originalProgram":Lcom/isaigu/gymapp/bean/TrainProgram;
-    :cond_0
+    :cond_4e
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 213
     .end local v0    # "i":I
-    :cond_1
+    :cond_51
     return-void
 .end method
 
 .method public static requestPermission(Lcom/isaigu/gymapp/BaseActivity;)V
-    .locals 3
+    .registers 4
     .param p0, "activity"    # Lcom/isaigu/gymapp/BaseActivity;
 
     .line 166
@@ -155,7 +155,7 @@
 .end method
 
 .method public static save(Lcom/isaigu/gymapp/BaseActivity;Lcom/isaigu/gymapp/bean/TrainProgram;)V
-    .locals 4
+    .registers 6
     .param p0, "activity"    # Lcom/isaigu/gymapp/BaseActivity;
     .param p1, "program"    # Lcom/isaigu/gymapp/bean/TrainProgram;
 
@@ -196,7 +196,7 @@
 .end method
 
 .method public static settingAllUser(Lcom/isaigu/gymapp/BaseActivity;Ljava/util/ArrayList;Ljava/lang/Runnable;)V
-    .locals 4
+    .registers 7
     .param p0, "activity"    # Lcom/isaigu/gymapp/BaseActivity;
     .param p2, "completeRunnable"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
@@ -217,7 +217,7 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_d
 
     .line 189
     const v0, 0x7f0d0023
@@ -228,7 +228,7 @@
     return-void
 
     .line 192
-    :cond_0
+    :cond_d
     new-instance v0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;-><init>()V
@@ -277,7 +277,7 @@
 .end method
 
 .method public static showTips(Lcom/isaigu/gymapp/BaseActivity;I)V
-    .locals 1
+    .registers 3
     .param p0, "activity"    # Lcom/isaigu/gymapp/BaseActivity;
     .param p1, "resId"    # I
 

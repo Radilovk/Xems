@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/UIFactory$2;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/UIFactory$2;
 
     .line 41
@@ -34,10 +34,11 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
 
     .line 43
+    # getter for: Lcom/isaigu/gymapp/UIFactory;->pvCustomOptions:Lcom/isaigu/gymapp/widget/OptionsPickerViewExtend;
     invoke-static {}, Lcom/isaigu/gymapp/UIFactory;->access$000()Lcom/isaigu/gymapp/widget/OptionsPickerViewExtend;
 
     move-result-object v0
@@ -45,6 +46,7 @@
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/OptionsPickerViewExtend;->returnData()V
 
     .line 44
+    # getter for: Lcom/isaigu/gymapp/UIFactory;->pvCustomOptions:Lcom/isaigu/gymapp/widget/OptionsPickerViewExtend;
     invoke-static {}, Lcom/isaigu/gymapp/UIFactory;->access$000()Lcom/isaigu/gymapp/widget/OptionsPickerViewExtend;
 
     move-result-object v0

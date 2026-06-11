@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;)V
-    .locals 0
+    .registers 2
     .param p1, "this$3"    # Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;
 
     .line 1265
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 1267
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5$1;->this$3:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;
@@ -52,7 +52,7 @@
 
     const/4 v3, 0x0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_c2
 
     .line 1268
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5$1;->this$3:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;
@@ -83,7 +83,7 @@
 
     iget v4, v4, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseContinue:I
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_3c
 
     .line 1272
     iget-object v4, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5$1;->this$3:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;
@@ -113,7 +113,7 @@
     float-to-int v0, v4
 
     .line 1274
-    :cond_0
+    :cond_3c
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5$1;->this$3:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;->this$2:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2;
@@ -188,11 +188,11 @@
 
     sub-int/2addr v1, v2
 
-    if-gez v1, :cond_1
+    if-gez v1, :cond_89
 
-    goto :goto_0
+    goto :goto_99
 
-    :cond_1
+    :cond_89
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5$1;->this$3:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;->val$bean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -209,7 +209,7 @@
 
     sub-int v3, v1, v2
 
-    :goto_0
+    :goto_99
     move v1, v3
 
     .line 1279
@@ -254,10 +254,10 @@
     .line 1281
     .end local v0    # "progress":I
     .end local v1    # "value":I
-    goto/16 :goto_2
+    goto/16 :goto_176
 
     .line 1282
-    :cond_2
+    :cond_c2
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5$1;->this$3:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;->this$2:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2;
@@ -288,7 +288,7 @@
 
     iget v4, v4, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulsePause:I
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_f2
 
     .line 1286
     iget-object v4, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5$1;->this$3:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;
@@ -318,7 +318,7 @@
     float-to-int v0, v4
 
     .line 1288
-    :cond_3
+    :cond_f2
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5$1;->this$3:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;->this$2:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2;
@@ -393,11 +393,11 @@
 
     sub-int/2addr v1, v2
 
-    if-gez v1, :cond_4
+    if-gez v1, :cond_13f
 
-    goto :goto_1
+    goto :goto_14f
 
-    :cond_4
+    :cond_13f
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5$1;->this$3:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$5;->val$bean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -414,7 +414,7 @@
 
     sub-int v3, v1, v2
 
-    :goto_1
+    :goto_14f
     move v1, v3
 
     .line 1293
@@ -459,6 +459,6 @@
     .line 1296
     .end local v0    # "progress":I
     .end local v1    # "value":I
-    :goto_2
+    :goto_176
     return-void
 .end method

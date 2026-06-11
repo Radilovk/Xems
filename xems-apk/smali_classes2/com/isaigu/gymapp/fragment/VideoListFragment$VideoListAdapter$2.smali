@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;Lcom/isaigu/gymapp/bean/vo/VideoVO;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;
 
     .line 273
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
 
     .line 275
@@ -48,6 +48,7 @@
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$2;->val$videoVO:Lcom/isaigu/gymapp/bean/vo/VideoVO;
 
+    # invokes: Lcom/isaigu/gymapp/fragment/VideoListFragment;->handlePlayVideo(Lcom/isaigu/gymapp/bean/vo/VideoVO;)V
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/VideoListFragment;->access$900(Lcom/isaigu/gymapp/fragment/VideoListFragment;Lcom/isaigu/gymapp/bean/vo/VideoVO;)V
 
     .line 276

@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,9 +30,10 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .registers 8
 
     .line 34
+    # getter for: Lcom/isaigu/gymapp/ble/BleController;->queueArray:Ljava/util/ArrayList;
     invoke-static {}, Lcom/isaigu/gymapp/ble/BleController;->access$000()Ljava/util/ArrayList;
 
     move-result-object v0
@@ -40,7 +41,8 @@
     monitor-enter v0
 
     .line 35
-    :try_start_0
+    :try_start_5
+    # getter for: Lcom/isaigu/gymapp/ble/BleController;->queueArray:Ljava/util/ArrayList;
     invoke-static {}, Lcom/isaigu/gymapp/ble/BleController;->access$000()Ljava/util/ArrayList;
 
     move-result-object v1
@@ -49,7 +51,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     .line 36
     monitor-exit v0
@@ -57,7 +59,8 @@
     return-void
 
     .line 38
-    :cond_0
+    :cond_11
+    # getter for: Lcom/isaigu/gymapp/ble/BleController;->queueArray:Ljava/util/ArrayList;
     invoke-static {}, Lcom/isaigu/gymapp/ble/BleController;->access$000()Ljava/util/ArrayList;
 
     move-result-object v1
@@ -78,9 +81,9 @@
 
     .line 40
     .local v2, "controller":Lcom/isaigu/gymapp/ble/AndroidBleController;
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_77
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_77
 
     .line 41
     const-string v3, "fff2"
@@ -107,7 +110,7 @@
 
     const/4 v4, 0x1
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_45
 
     .line 44
     const-string v3, "www"
@@ -122,7 +125,7 @@
     return-void
 
     .line 47
-    :cond_1
+    :cond_45
     new-instance v3, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;
 
     invoke-direct {v3, v1}, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;-><init>(Lcom/isaigu/gymapp/ble/BleController$WrapperData;)V
@@ -133,6 +136,7 @@
 
     .line 49
     .local v4, "list":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;>;"
+    # getter for: Lcom/isaigu/gymapp/ble/BleController;->retryMap:Ljava/util/LinkedHashMap;
     invoke-static {}, Lcom/isaigu/gymapp/ble/BleController;->access$100()Ljava/util/LinkedHashMap;
 
     move-result-object v5
@@ -143,9 +147,10 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_65
 
     .line 50
+    # getter for: Lcom/isaigu/gymapp/ble/BleController;->retryMap:Ljava/util/LinkedHashMap;
     invoke-static {}, Lcom/isaigu/gymapp/ble/BleController;->access$100()Ljava/util/LinkedHashMap;
 
     move-result-object v5
@@ -160,10 +165,10 @@
 
     move-object v4, v5
 
-    goto :goto_0
+    goto :goto_74
 
     .line 52
-    :cond_2
+    :cond_65
     new-instance v5, Ljava/util/LinkedList;
 
     invoke-direct {v5}, Ljava/util/LinkedList;-><init>()V
@@ -171,6 +176,7 @@
     move-object v4, v5
 
     .line 53
+    # getter for: Lcom/isaigu/gymapp/ble/BleController;->retryMap:Ljava/util/LinkedHashMap;
     invoke-static {}, Lcom/isaigu/gymapp/ble/BleController;->access$100()Ljava/util/LinkedHashMap;
 
     move-result-object v5
@@ -180,7 +186,7 @@
     invoke-virtual {v5, v6, v4}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 55
-    :goto_0
+    :goto_74
     invoke-interface {v4, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 57
@@ -188,19 +194,19 @@
     .end local v2    # "controller":Lcom/isaigu/gymapp/ble/AndroidBleController;
     .end local v3    # "retryWrapper":Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;
     .end local v4    # "list":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;>;"
-    :cond_3
+    :cond_77
     monitor-exit v0
 
     .line 58
     return-void
 
     .line 57
-    :catchall_0
+    :catchall_79
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7b
+    .catchall {:try_start_5 .. :try_end_7b} :catchall_79
 
     throw v1
 .end method

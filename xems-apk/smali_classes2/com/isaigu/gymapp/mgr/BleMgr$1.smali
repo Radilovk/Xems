@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public onBeginScan()V
-    .locals 1
+    .registers 2
 
     .line 79
     const/16 v0, 0x3f4
@@ -42,7 +42,7 @@
 .end method
 
 .method public onBleStateChange(I)V
-    .locals 3
+    .registers 5
     .param p1, "state"    # I
 
     .line 76
@@ -63,7 +63,7 @@
 .end method
 
 .method public onDataAvailable(Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;Ljava/lang/String;[B)V
-    .locals 2
+    .registers 6
     .param p1, "model"    # Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
     .param p2, "uuid"    # Ljava/lang/String;
     .param p3, "data"    # [B
@@ -97,7 +97,7 @@
 .end method
 
 .method public onDeviceConnected(Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;)V
-    .locals 2
+    .registers 4
     .param p1, "model"    # Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
 
     .line 65
@@ -116,7 +116,7 @@
 .end method
 
 .method public onDeviceDisconnected(Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;I)V
-    .locals 2
+    .registers 5
     .param p1, "model"    # Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
     .param p2, "type"    # I
 
@@ -141,7 +141,7 @@
 .end method
 
 .method public onDeviceDiscovered(Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;ILjava/lang/String;[B)V
-    .locals 3
+    .registers 8
     .param p1, "model"    # Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
     .param p2, "rssi"    # I
     .param p3, "serviceUUID"    # Ljava/lang/String;
@@ -190,7 +190,7 @@
 .end method
 
 .method public onDeviceDiscoveredUpdate(Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;ILjava/lang/String;[B)V
-    .locals 3
+    .registers 8
     .param p1, "model"    # Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
     .param p2, "rssi"    # I
     .param p3, "serviceUUID"    # Ljava/lang/String;
@@ -239,7 +239,7 @@
 .end method
 
 .method public onReadRemoteRSSI(Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;I)V
-    .locals 3
+    .registers 6
     .param p1, "model"    # Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
     .param p2, "rssi"    # I
 
@@ -276,7 +276,7 @@
 .end method
 
 .method public onStopScan()V
-    .locals 1
+    .registers 2
 
     .line 30
     const/16 v0, 0x3ed

@@ -1,9 +1,6 @@
 .class Lcom/isaigu/gymapp/train/TrainViewHolder$2;
-.super Ljava/lang/Object;
+.super Lcom/isaigu/gymapp/widget/NoDoubleClickListener;
 .source "TrainViewHolder.java"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -24,31 +21,57 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/train/TrainViewHolder;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/train/TrainViewHolder;
 
-    .prologue
-    .line 102
+    .line 136
     iput-object p1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$2;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public onNoDoubleClick(Landroid/view/View;)V
     .registers 4
+    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 105
+    .line 138
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$2;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
-    iget-object v0, v0, Lcom/isaigu/gymapp/train/TrainViewHolder;->item:Lcom/isaigu/gymapp/train/model/TrainItem;
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    const/4 v1, 0x1
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/train/model/TrainItem;->setUserType(I)V
+    iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
-    .line 106
+    invoke-static {v0}, Lcom/alibaba/fastjson/JSON;->toJSONString(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "wwww"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 139
+    iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$2;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
+
+    # invokes: Lcom/isaigu/gymapp/train/TrainViewHolder;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$300(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$2;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
+
+    invoke-virtual {v1}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    move-result-object v1
+
+    iget-object v1, v1, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
+
+    invoke-static {v0, v1}, Lcom/isaigu/gymapp/train/utils/OperationUtil;->save(Lcom/isaigu/gymapp/BaseActivity;Lcom/isaigu/gymapp/bean/TrainProgram;)V
+
+    .line 140
     return-void
 .end method

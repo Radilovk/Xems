@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;
 
     .line 23
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 11
+    .registers 14
     .param p1, "v"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/MotionEvent;
 
@@ -64,23 +64,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_78
 
     const/4 v4, 0x2
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_16
 
-    goto :goto_0
+    goto :goto_86
 
     .line 38
-    :cond_0
+    :cond_16
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend$1;->this$0:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;
 
     iget v3, v3, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;->currentScreen:I
 
     const/4 v4, 0x3
 
-    if-ne v3, v4, :cond_6
+    if-ne v3, v4, :cond_86
 
     .line 39
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend$1;->this$0:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;
@@ -163,44 +163,44 @@
 
     cmpg-float v10, v7, v9
 
-    if-gez v10, :cond_1
+    if-gez v10, :cond_5c
 
     .line 48
     const/4 v7, 0x0
 
     .line 50
-    :cond_1
+    :cond_5c
     int-to-float v10, v5
 
     cmpl-float v10, v7, v10
 
-    if-lez v10, :cond_2
+    if-lez v10, :cond_62
 
     .line 51
     int-to-float v7, v5
 
     .line 53
-    :cond_2
+    :cond_62
     cmpg-float v9, v8, v9
 
-    if-gez v9, :cond_3
+    if-gez v9, :cond_67
 
     .line 54
     const/4 v8, 0x0
 
     .line 56
-    :cond_3
+    :cond_67
     int-to-float v9, v6
 
     cmpl-float v9, v8, v9
 
-    if-lez v9, :cond_4
+    if-lez v9, :cond_6d
 
     .line 57
     int-to-float v8, v6
 
     .line 59
-    :cond_4
+    :cond_6d
     iget-object v9, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend$1;->this$0:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;
 
     invoke-virtual {v9, v7}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;->setX(F)V
@@ -210,7 +210,7 @@
 
     invoke-virtual {v9, v8}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;->setY(F)V
 
-    goto :goto_0
+    goto :goto_86
 
     .line 31
     .end local v3    # "deltaX":F
@@ -219,7 +219,7 @@
     .end local v6    # "height":I
     .end local v7    # "ox":F
     .end local v8    # "oy":F
-    :cond_5
+    :cond_78
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend$1;->this$0:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;
 
     const/4 v4, 0x1
@@ -240,8 +240,8 @@
     nop
 
     .line 64
-    :cond_6
-    :goto_0
+    :cond_86
+    :goto_86
     const/4 v3, 0x0
 
     return v3

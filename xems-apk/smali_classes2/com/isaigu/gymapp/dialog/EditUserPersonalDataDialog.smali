@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 75
     invoke-direct {p0}, Lcom/isaigu/gymapp/BaseDialogFragment;-><init>()V
@@ -76,7 +76,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/widget/TextView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -86,7 +86,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -106,7 +106,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/widget/TextView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -116,7 +116,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -128,7 +128,7 @@
 .end method
 
 .method static synthetic access$1300(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/widget/Button;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -138,7 +138,7 @@
 .end method
 
 .method static synthetic access$1400(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/widget/ImageView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -148,7 +148,7 @@
 .end method
 
 .method static synthetic access$1500(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/widget/ImageView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -158,7 +158,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/support/v7/app/AlertDialog;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -168,7 +168,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;Landroid/content/Context;)Ljava/io/File;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
     .param p1, "x1"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
@@ -186,7 +186,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Ljava/io/File;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -196,7 +196,7 @@
 .end method
 
 .method static synthetic access$402(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;Ljava/io/File;)Ljava/io/File;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
     .param p1, "x1"    # Ljava/io/File;
 
@@ -207,7 +207,7 @@
 .end method
 
 .method static synthetic access$502(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;Landroid/net/Uri;)Landroid/net/Uri;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
     .param p1, "x1"    # Landroid/net/Uri;
 
@@ -218,7 +218,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -228,7 +228,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/widget/EditText;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -238,7 +238,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/widget/EditText;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -248,7 +248,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/support/v7/widget/AppCompatCheckBox;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 75
@@ -258,7 +258,7 @@
 .end method
 
 .method private createCropImageFile(Landroid/content/Context;)Ljava/io/File;
-    .locals 5
+    .registers 7
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -337,13 +337,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_52
 
     .line 764
     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
     .line 766
-    :cond_0
+    :cond_52
     const-string v2, ".jpg"
 
     invoke-static {v0, v2, v1}, Ljava/io/File;->createTempFile(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;
@@ -377,7 +377,7 @@
 .end method
 
 .method private createOriImageFile(Landroid/content/Context;)Ljava/io/File;
-    .locals 4
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -450,13 +450,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_4a
 
     .line 745
     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
     .line 747
-    :cond_0
+    :cond_4a
     const-string v2, ".jpg"
 
     invoke-static {v0, v2, v1}, Ljava/io/File;->createTempFile(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;
@@ -469,7 +469,7 @@
 .end method
 
 .method private getPickerViewDataFromTrainProgram()Ljava/util/List;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -486,13 +486,6 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
 
-    if-nez v0, :cond_train_data_ready
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    :cond_train_data_ready
     .line 716
     .local v0, "trainPrograms":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainProgram;>;"
     new-instance v1, Ljava/util/ArrayList;
@@ -504,12 +497,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_c
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_2d
 
     .line 718
     new-instance v3, Lcom/isaigu/gymapp/bean/PickerViewData;
@@ -540,16 +533,16 @@
     .end local v3    # "pickerViewData":Lcom/isaigu/gymapp/bean/PickerViewData;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 721
     .end local v2    # "i":I
-    :cond_0
+    :cond_2d
     return-object v1
 .end method
 
 .method private handleFontSize(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "content"    # Ljava/lang/String;
 
     .line 232
@@ -578,16 +571,16 @@
 
     const/16 v2, 0x408
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_21
 
     const/16 v1, 0xe
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_21
     const/16 v1, 0xa
 
-    :goto_0
+    :goto_23
     invoke-static {v1}, Lcom/isaigu/gymapp/utils/AndroidUtils;->setSpText(I)F
 
     move-result v1
@@ -611,7 +604,7 @@
 .end method
 
 .method private initListener()V
-    .locals 2
+    .registers 3
 
     .line 278
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->name:Landroid/widget/EditText;
@@ -753,7 +746,7 @@
 .end method
 
 .method private initSetData()V
-    .locals 3
+    .registers 4
 
     .line 212
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -762,7 +755,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->registerProtocolVO:Lcom/isaigu/gymapp/bean/vo/RegisterProtocolVO;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
@@ -776,7 +769,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_28
 
     .line 213
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -799,10 +792,10 @@
 
     .line 223
     .end local v0    # "content":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_3c
 
     .line 224
-    :cond_0
+    :cond_28
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -825,12 +818,12 @@
 
     .line 229
     .end local v0    # "text":Ljava/lang/String;
-    :goto_0
+    :goto_3c
     return-void
 .end method
 
 .method private initView(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "view"    # Landroid/view/View;
 
     .line 185
@@ -1032,7 +1025,7 @@
 .end method
 
 .method private showSexChooseDialog()V
-    .locals 4
+    .registers 5
 
     .line 172
     const/4 v0, 0x2
@@ -1087,7 +1080,7 @@
 
 # virtual methods
 .method public getViewIid()I
-    .locals 1
+    .registers 2
 
     .line 97
     const v0, 0x7f0b001c
@@ -1096,7 +1089,7 @@
 .end method
 
 .method public onActivityResult(IILandroid/content/Intent;)V
-    .locals 8
+    .registers 12
     .param p1, "requestCode"    # I
     .param p2, "resultCode"    # I
     .param p3, "data"    # Landroid/content/Intent;
@@ -1104,7 +1097,7 @@
     .line 538
     const/4 v0, -0x1
 
-    if-ne p2, v0, :cond_9
+    if-ne p2, v0, :cond_14d
 
     .line 539
     const/16 v0, 0x3e9
@@ -1113,12 +1106,12 @@
 
     const/high16 v2, 0x3f000000    # 0.5f
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_71
 
     .line 540
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->imageUri:Landroid/net/Uri;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_14d
 
     .line 541
     const-string v0, ""
@@ -1131,7 +1124,7 @@
     .local v3, "sdkVersion":I
     const/16 v4, 0x13
 
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_1e
 
     .line 544
     iget-object v4, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->originalFile:Ljava/io/File;
@@ -1140,10 +1133,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_28
 
     .line 546
-    :cond_0
+    :cond_1e
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v4
@@ -1155,7 +1148,7 @@
     move-result-object v0
 
     .line 548
-    :goto_0
+    :goto_28
     new-instance v4, Ljava/io/File;
 
     invoke-direct {v4, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
@@ -1191,7 +1184,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_60
 
     .line 551
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -1210,20 +1203,20 @@
     return-void
 
     .line 554
-    :cond_1
+    :cond_60
     invoke-static {v4, v2}, Lcom/isaigu/gymapp/utils/AndroidUtils;->compressImageFile(Ljava/io/File;F)Ljava/io/File;
 
     move-result-object v1
 
     .line 555
     .local v1, "compressFile":Ljava/io/File;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_67
 
     .line 556
     move-object v4, v1
 
     .line 558
-    :cond_2
+    :cond_67
     new-instance v2, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$10;
 
     invoke-direct {v2, p0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$10;-><init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)V
@@ -1235,13 +1228,13 @@
     .end local v1    # "compressFile":Ljava/io/File;
     .end local v3    # "sdkVersion":I
     .end local v4    # "file":Ljava/io/File;
-    goto/16 :goto_4
+    goto/16 :goto_14d
 
     .line 580
-    :cond_3
+    :cond_71
     const/16 v0, 0x3eb
 
-    if-ne p1, v0, :cond_6
+    if-ne p1, v0, :cond_be
 
     .line 581
     invoke-virtual {p3}, Landroid/content/Intent;->getData()Landroid/net/Uri;
@@ -1258,10 +1251,10 @@
 
     .line 582
     .local v0, "file":Ljava/io/File;
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_14d
 
     .line 584
-    :try_start_0
+    :try_start_83
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -1287,7 +1280,7 @@
 
     const/16 v5, 0x18
 
-    if-lt v4, v5, :cond_4
+    if-lt v4, v5, :cond_a5
 
     .line 588
     nop
@@ -1306,22 +1299,22 @@
 
     move-object v3, v4
 
-    goto :goto_1
+    goto :goto_a8
 
     .line 593
     .end local v3    # "uri":Landroid/net/Uri;
-    :cond_4
+    :cond_a5
     invoke-static {v0}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a8
+    .catch Ljava/lang/Exception; {:try_start_83 .. :try_end_a8} :catch_a9
 
     .line 598
     .end local v1    # "cropPhotoFile":Ljava/io/File;
-    :goto_1
-    goto :goto_2
+    :goto_a8
+    goto :goto_ad
 
     .line 596
-    :catch_0
+    :catch_a9
     move-exception v1
 
     .line 597
@@ -1330,38 +1323,38 @@
 
     .line 599
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_2
+    :goto_ad
     invoke-static {v0, v2}, Lcom/isaigu/gymapp/utils/AndroidUtils;->compressImageFile(Ljava/io/File;F)Ljava/io/File;
 
     move-result-object v1
 
     .line 600
     .local v1, "compressFile":Ljava/io/File;
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_b4
 
     .line 601
     move-object v0, v1
 
     .line 603
-    :cond_5
+    :cond_b4
     new-instance v2, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$11;
 
     invoke-direct {v2, p0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$11;-><init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)V
 
     invoke-static {v0, v2}, Lcom/isaigu/gymapp/mgr/ApiMgr;->uploadFile(Ljava/io/File;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_14d
 
     .line 617
     .end local v0    # "file":Ljava/io/File;
     .end local v1    # "compressFile":Ljava/io/File;
-    :cond_6
+    :cond_be
     const/16 v0, 0x3ea
 
-    if-ne p1, v0, :cond_9
+    if-ne p1, v0, :cond_14d
 
     .line 619
-    :try_start_1
+    :try_start_c2
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
@@ -1383,7 +1376,7 @@
 
     .line 627
     .restart local v3    # "uri":Landroid/net/Uri;
-    if-nez v3, :cond_7
+    if-nez v3, :cond_10b
 
     .line 628
     invoke-virtual {p3}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
@@ -1444,10 +1437,10 @@
     .line 634
     .end local v4    # "face":Landroid/graphics/Bitmap;
     .end local v5    # "fileOutputStream":Ljava/io/FileOutputStream;
-    goto :goto_3
+    goto :goto_115
 
     .line 635
-    :cond_7
+    :cond_10b
     new-instance v4, Ljava/io/File;
 
     invoke-virtual {v3}, Landroid/net/Uri;->getPath()Ljava/lang/String;
@@ -1459,7 +1452,7 @@
     move-object v0, v4
 
     .line 638
-    :goto_3
+    :goto_115
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -1495,29 +1488,29 @@
 
     .line 640
     .restart local v1    # "compressFile":Ljava/io/File;
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_13f
 
     .line 641
     move-object v0, v1
 
     .line 643
-    :cond_8
+    :cond_13f
     new-instance v2, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$13;
 
     invoke-direct {v2, p0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$13;-><init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)V
 
     invoke-static {v0, v2}, Lcom/isaigu/gymapp/mgr/ApiMgr;->uploadFile(Ljava/io/File;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_147
+    .catch Ljava/lang/Exception; {:try_start_c2 .. :try_end_147} :catch_148
 
     .line 663
     .end local v0    # "file":Ljava/io/File;
     .end local v1    # "compressFile":Ljava/io/File;
     .end local v3    # "uri":Landroid/net/Uri;
-    goto :goto_4
+    goto :goto_14d
 
     .line 661
-    :catch_1
+    :catch_148
     move-exception v0
 
     .line 662
@@ -1528,13 +1521,13 @@
 
     .line 666
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_9
-    :goto_4
+    :cond_14d
+    :goto_14d
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 6
+    .registers 10
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -1567,7 +1560,7 @@
     move-result-object v3
 
     .line 114
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_13e
 
     .line 115
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->getArguments()Landroid/os/Bundle;
@@ -1600,7 +1593,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_58
 
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
@@ -1610,7 +1603,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_58
 
     .line 118
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -1633,10 +1626,10 @@
 
     invoke-virtual {v1, v2}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    goto :goto_0
+    goto :goto_69
 
     .line 120
-    :cond_0
+    :cond_58
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -1654,7 +1647,7 @@
     invoke-virtual {v1, v2}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 122
-    :goto_0
+    :goto_69
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->name:Landroid/widget/EditText;
 
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
@@ -1672,18 +1665,18 @@
 
     const-string v3, ""
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_7e
 
     move-object v2, v3
 
-    goto :goto_1
+    goto :goto_82
 
-    :cond_1
+    :cond_7e
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
     iget-object v2, v2, Lcom/isaigu/gymapp/bean/TrainUser;->email:Ljava/lang/String;
 
-    :goto_1
+    :goto_82
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     .line 124
@@ -1702,18 +1695,18 @@
 
     iget-object v2, v2, Lcom/isaigu/gymapp/bean/TrainUser;->phone:Ljava/lang/String;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_98
 
     move-object v2, v3
 
-    goto :goto_2
+    goto :goto_9c
 
-    :cond_2
+    :cond_98
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
     iget-object v2, v2, Lcom/isaigu/gymapp/bean/TrainUser;->phone:Ljava/lang/String;
 
-    :goto_2
+    :goto_9c
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     .line 126
@@ -1723,18 +1716,18 @@
 
     iget-object v2, v2, Lcom/isaigu/gymapp/bean/TrainUser;->city:Ljava/lang/String;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_a9
 
     move-object v2, v3
 
-    goto :goto_3
+    goto :goto_ad
 
-    :cond_3
+    :cond_a9
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
     iget-object v2, v2, Lcom/isaigu/gymapp/bean/TrainUser;->city:Ljava/lang/String;
 
-    :goto_3
+    :goto_ad
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     .line 127
@@ -1744,18 +1737,18 @@
 
     iget-object v2, v2, Lcom/isaigu/gymapp/bean/TrainUser;->address:Ljava/lang/String;
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_ba
 
     move-object v2, v3
 
-    goto :goto_4
+    goto :goto_be
 
-    :cond_4
+    :cond_ba
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
     iget-object v2, v2, Lcom/isaigu/gymapp/bean/TrainUser;->address:Ljava/lang/String;
 
-    :goto_4
+    :goto_be
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     .line 128
@@ -1807,11 +1800,11 @@
 
     iget-object v4, v4, Lcom/isaigu/gymapp/bean/TrainUser;->birtyday:Ljava/util/Date;
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_f4
 
-    goto :goto_5
+    goto :goto_fc
 
-    :cond_5
+    :cond_f4
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
     iget-object v3, v3, Lcom/isaigu/gymapp/bean/TrainUser;->birtyday:Ljava/util/Date;
@@ -1820,7 +1813,7 @@
 
     move-result-object v3
 
-    :goto_5
+    :goto_fc
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 132
@@ -1865,7 +1858,7 @@
 
     .line 134
     .local v2, "dataBean":Lcom/isaigu/gymapp/bean/TrainProgram;
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_12d
 
     .line 135
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->programdatabutton:Landroid/widget/Button;
@@ -1875,7 +1868,7 @@
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
     .line 137
-    :cond_6
+    :cond_12d
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->cameraIcon:Landroid/widget/ImageView;
 
     const/16 v4, 0x8
@@ -1894,10 +1887,10 @@
     .line 139
     .end local v1    # "format":Ljava/text/SimpleDateFormat;
     .end local v2    # "dataBean":Lcom/isaigu/gymapp/bean/TrainProgram;
-    goto :goto_6
+    goto :goto_160
 
     .line 140
-    :cond_7
+    :cond_13e
     new-instance v1, Lcom/isaigu/gymapp/bean/TrainUser;
 
     invoke-direct {v1}, Lcom/isaigu/gymapp/bean/TrainUser;-><init>()V
@@ -1934,12 +1927,12 @@
     iput-object v2, v1, Lcom/isaigu/gymapp/bean/TrainUser;->iconUrl:Ljava/lang/String;
 
     .line 145
-    :goto_6
+    :goto_160
     return-object v0
 .end method
 
 .method public onDestroyView()V
-    .locals 0
+    .registers 1
 
     .line 168
     invoke-super {p0}, Lcom/isaigu/gymapp/BaseDialogFragment;->onDestroyView()V
@@ -1949,7 +1942,7 @@
 .end method
 
 .method public onStart()V
-    .locals 6
+    .registers 7
 
     .line 150
     invoke-super {p0}, Lcom/isaigu/gymapp/BaseDialogFragment;->onStart()V
@@ -2035,7 +2028,7 @@
 .end method
 
 .method readFile(Ljava/io/File;)[B
-    .locals 2
+    .registers 4
     .param p1, "file"    # Ljava/io/File;
 
     .line 726
@@ -2055,8 +2048,8 @@
     .line 728
     .local v1, "data":[B
     invoke-virtual {v0, v1}, Ljava/io/FileInputStream;->read([B)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_e} :catch_f
 
     .line 729
     return-object v1
@@ -2064,7 +2057,7 @@
     .line 730
     .end local v0    # "fileInputStream":Ljava/io/FileInputStream;
     .end local v1    # "data":[B
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 731
@@ -2079,7 +2072,7 @@
 .end method
 
 .method public setEditMode(Z)V
-    .locals 0
+    .registers 2
     .param p1, "editMode"    # Z
 
     .line 102
@@ -2090,7 +2083,7 @@
 .end method
 
 .method public showList(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$OnChooseCallback;)V
-    .locals 3
+    .registers 5
     .param p1, "callback"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$OnChooseCallback;
 
     .line 258

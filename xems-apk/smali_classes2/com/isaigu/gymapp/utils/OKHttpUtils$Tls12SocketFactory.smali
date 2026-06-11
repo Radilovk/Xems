@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 755
     const-string v0, "TLSv1.1"
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Ljavax/net/ssl/SSLSocketFactory;)V
-    .locals 0
+    .registers 2
     .param p1, "base"    # Ljavax/net/ssl/SSLSocketFactory;
 
     .line 759
@@ -55,13 +55,13 @@
 .end method
 
 .method private patch(Ljava/net/Socket;)Ljava/net/Socket;
-    .locals 2
+    .registers 4
     .param p1, "s"    # Ljava/net/Socket;
 
     .line 799
     instance-of v0, p1, Ljavax/net/ssl/SSLSocket;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 800
     move-object v0, p1
@@ -73,14 +73,14 @@
     invoke-virtual {v0, v1}, Ljavax/net/ssl/SSLSocket;->setEnabledProtocols([Ljava/lang/String;)V
 
     .line 802
-    :cond_0
+    :cond_c
     return-object p1
 .end method
 
 
 # virtual methods
 .method public createSocket(Ljava/lang/String;I)Ljava/net/Socket;
-    .locals 1
+    .registers 4
     .param p1, "host"    # Ljava/lang/String;
     .param p2, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -105,7 +105,7 @@
 .end method
 
 .method public createSocket(Ljava/lang/String;ILjava/net/InetAddress;I)Ljava/net/Socket;
-    .locals 1
+    .registers 6
     .param p1, "host"    # Ljava/lang/String;
     .param p2, "port"    # I
     .param p3, "localHost"    # Ljava/net/InetAddress;
@@ -132,7 +132,7 @@
 .end method
 
 .method public createSocket(Ljava/net/InetAddress;I)Ljava/net/Socket;
-    .locals 1
+    .registers 4
     .param p1, "host"    # Ljava/net/InetAddress;
     .param p2, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -156,7 +156,7 @@
 .end method
 
 .method public createSocket(Ljava/net/InetAddress;ILjava/net/InetAddress;I)Ljava/net/Socket;
-    .locals 1
+    .registers 6
     .param p1, "address"    # Ljava/net/InetAddress;
     .param p2, "port"    # I
     .param p3, "localAddress"    # Ljava/net/InetAddress;
@@ -182,7 +182,7 @@
 .end method
 
 .method public createSocket(Ljava/net/Socket;Ljava/lang/String;IZ)Ljava/net/Socket;
-    .locals 1
+    .registers 6
     .param p1, "s"    # Ljava/net/Socket;
     .param p2, "host"    # Ljava/lang/String;
     .param p3, "port"    # I
@@ -208,7 +208,7 @@
 .end method
 
 .method public getDefaultCipherSuites()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 765
     iget-object v0, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$Tls12SocketFactory;->delegate:Ljavax/net/ssl/SSLSocketFactory;
@@ -221,7 +221,7 @@
 .end method
 
 .method public getSupportedCipherSuites()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 770
     iget-object v0, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$Tls12SocketFactory;->delegate:Ljavax/net/ssl/SSLSocketFactory;

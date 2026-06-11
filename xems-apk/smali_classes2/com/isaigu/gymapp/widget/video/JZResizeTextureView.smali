@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 24
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method protected onMeasure(II)V
-    .locals 16
+    .registers 19
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -146,28 +146,28 @@
 
     const/16 v8, 0x5a
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_5a
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_5a
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_5a
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_5a
 
     .line 62
     sget v9, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->VIDEO_IMAGE_DISPLAY_TYPE:I
 
     const/4 v10, 0x1
 
-    if-ne v9, v10, :cond_2
+    if-ne v9, v10, :cond_5a
 
     .line 63
-    if-eq v1, v8, :cond_0
+    if-eq v1, v8, :cond_53
 
-    if-ne v1, v7, :cond_1
+    if-ne v1, v7, :cond_56
 
     .line 64
-    :cond_0
+    :cond_53
     move v9, v6
 
     .line 65
@@ -179,29 +179,29 @@
 
     .line 69
     .end local v9    # "tempSize":I
-    :cond_1
+    :cond_56
     mul-int v9, v3, v5
 
     div-int v4, v9, v6
 
     .line 74
-    :cond_2
-    if-eq v1, v8, :cond_4
+    :cond_5a
+    if-eq v1, v8, :cond_64
 
-    if-ne v1, v7, :cond_3
+    if-ne v1, v7, :cond_5f
 
-    goto :goto_0
+    goto :goto_64
 
-    :cond_3
+    :cond_5f
     move/from16 v10, p1
 
     move/from16 v11, p2
 
-    goto :goto_1
+    goto :goto_69
 
     .line 75
-    :cond_4
-    :goto_0
+    :cond_64
+    :goto_64
     move/from16 v9, p1
 
     .line 76
@@ -217,7 +217,7 @@
     .end local v9    # "tempMeasureSpec":I
     .end local p2    # "heightMeasureSpec":I
     .local v11, "heightMeasureSpec":I
-    :goto_1
+    :goto_69
     invoke-static {v3, v10}, Lcom/isaigu/gymapp/widget/video/JZResizeTextureView;->getDefaultSize(II)I
 
     move-result v9
@@ -230,9 +230,9 @@
 
     .line 82
     .local v12, "height":I
-    if-lez v3, :cond_a
+    if-lez v3, :cond_11d
 
-    if-lez v4, :cond_a
+    if-lez v4, :cond_11d
 
     .line 84
     invoke-static {v10}, Landroid/view/View$MeasureSpec;->getMode(I)I
@@ -317,9 +317,9 @@
     .line 92
     const/high16 v2, 0x40000000    # 2.0f
 
-    if-ne v13, v2, :cond_6
+    if-ne v13, v2, :cond_e0
 
-    if-ne v15, v2, :cond_6
+    if-ne v15, v2, :cond_e0
 
     .line 94
     move v9, v14
@@ -334,37 +334,37 @@
 
     mul-int v8, v9, v4
 
-    if-ge v2, v8, :cond_5
+    if-ge v2, v8, :cond_d5
 
     .line 98
     mul-int v2, v12, v3
 
     div-int v9, v2, v4
 
-    goto/16 :goto_3
+    goto/16 :goto_123
 
     .line 99
-    :cond_5
+    :cond_d5
     mul-int v2, v3, v12
 
     mul-int v8, v9, v4
 
-    if-le v2, v8, :cond_b
+    if-le v2, v8, :cond_123
 
     .line 100
     mul-int v2, v9, v4
 
     div-int v12, v2, v3
 
-    goto :goto_3
+    goto :goto_123
 
     .line 102
     .end local v9    # "width":I
     .restart local p1    # "width":I
-    :cond_6
+    :cond_e0
     const/high16 v8, -0x80000000
 
-    if-ne v13, v2, :cond_7
+    if-ne v13, v2, :cond_f3
 
     .line 104
     move v9, v14
@@ -377,9 +377,9 @@
     div-int v12, v2, v3
 
     .line 106
-    if-ne v15, v8, :cond_b
+    if-ne v15, v8, :cond_123
 
-    if-le v12, v7, :cond_b
+    if-le v12, v7, :cond_123
 
     .line 108
     move v12, v7
@@ -389,13 +389,13 @@
 
     div-int v9, v2, v4
 
-    goto :goto_3
+    goto :goto_123
 
     .line 111
     .end local v9    # "width":I
     .restart local p1    # "width":I
-    :cond_7
-    if-ne v15, v2, :cond_8
+    :cond_f3
+    if-ne v15, v2, :cond_104
 
     .line 113
     move v12, v7
@@ -408,9 +408,9 @@
     .line 115
     .end local p1    # "width":I
     .restart local v9    # "width":I
-    if-ne v13, v8, :cond_b
+    if-ne v13, v8, :cond_123
 
-    if-le v9, v14, :cond_b
+    if-le v9, v14, :cond_123
 
     .line 117
     move v9, v14
@@ -420,12 +420,12 @@
 
     div-int v12, v2, v3
 
-    goto :goto_3
+    goto :goto_123
 
     .line 122
     .end local v9    # "width":I
     .restart local p1    # "width":I
-    :cond_8
+    :cond_104
     move v2, v3
 
     .line 123
@@ -436,9 +436,9 @@
     .line 124
     .end local v12    # "height":I
     .local v9, "height":I
-    if-ne v15, v8, :cond_9
+    if-ne v15, v8, :cond_111
 
-    if-le v9, v7, :cond_9
+    if-le v9, v7, :cond_111
 
     .line 126
     move v9, v7
@@ -454,12 +454,12 @@
 
     .end local v2    # "width":I
     .local v10, "width":I
-    goto :goto_2
+    goto :goto_113
 
     .line 129
     .end local v10    # "width":I
     .restart local v2    # "width":I
-    :cond_9
+    :cond_111
     move v12, v9
 
     move v9, v2
@@ -467,10 +467,10 @@
     .end local v2    # "width":I
     .local v9, "width":I
     .restart local v12    # "height":I
-    :goto_2
-    if-ne v13, v8, :cond_b
+    :goto_113
+    if-ne v13, v8, :cond_123
 
-    if-le v9, v14, :cond_b
+    if-le v9, v14, :cond_123
 
     .line 131
     move v9, v14
@@ -480,7 +480,7 @@
 
     div-int v12, v2, v3
 
-    goto :goto_3
+    goto :goto_123
 
     .line 82
     .end local v7    # "heightSpecSize":I
@@ -489,7 +489,7 @@
     .end local v15    # "heightSpecMode":I
     .end local p2    # "widthMeasureSpec":I
     .local v10, "widthMeasureSpec":I
-    :cond_a
+    :cond_11d
     move/from16 p1, v9
 
     move/from16 p2, v10
@@ -503,22 +503,22 @@
 
     .end local p1    # "width":I
     .restart local v9    # "width":I
-    :cond_b
-    :goto_3
-    if-eqz v6, :cond_11
+    :cond_123
+    :goto_123
+    if-eqz v6, :cond_16d
 
-    if-eqz v5, :cond_11
+    if-eqz v5, :cond_16d
 
-    if-eqz v3, :cond_11
+    if-eqz v3, :cond_16d
 
-    if-eqz v4, :cond_11
+    if-eqz v4, :cond_16d
 
     .line 139
     sget v2, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->VIDEO_IMAGE_DISPLAY_TYPE:I
 
     const/4 v7, 0x3
 
-    if-ne v2, v7, :cond_c
+    if-ne v2, v7, :cond_134
 
     .line 141
     move v12, v4
@@ -528,27 +528,27 @@
 
     move v10, v1
 
-    goto :goto_4
+    goto :goto_16e
 
     .line 143
-    :cond_c
+    :cond_134
     sget v2, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->VIDEO_IMAGE_DISPLAY_TYPE:I
 
     const/4 v7, 0x2
 
-    if-ne v2, v7, :cond_10
+    if-ne v2, v7, :cond_16b
 
     .line 144
     const/16 v2, 0x5a
 
-    if-eq v1, v2, :cond_d
+    if-eq v1, v2, :cond_141
 
     const/16 v2, 0x10e
 
-    if-ne v1, v2, :cond_e
+    if-ne v1, v2, :cond_144
 
     .line 145
-    :cond_d
+    :cond_141
     move v2, v6
 
     .line 146
@@ -560,7 +560,7 @@
 
     .line 150
     .end local v2    # "tempSize":I
-    :cond_e
+    :cond_144
     int-to-double v7, v4
 
     int-to-double v13, v3
@@ -579,7 +579,7 @@
 
     cmpl-double v1, v7, v13
 
-    if-lez v1, :cond_f
+    if-lez v1, :cond_158
 
     .line 151
     int-to-double v1, v6
@@ -597,10 +597,10 @@
     .line 152
     move v9, v6
 
-    goto :goto_4
+    goto :goto_16e
 
     .line 153
-    :cond_f
+    :cond_158
     int-to-double v1, v4
 
     int-to-double v7, v3
@@ -615,7 +615,7 @@
 
     cmpg-double v13, v1, v7
 
-    if-gez v13, :cond_12
+    if-gez v13, :cond_16e
 
     .line 154
     int-to-double v1, v5
@@ -633,29 +633,29 @@
     .line 155
     move v12, v5
 
-    goto :goto_4
+    goto :goto_16e
 
     .line 143
     .end local v10    # "viewRotation":I
     .restart local v1    # "viewRotation":I
-    :cond_10
+    :cond_16b
     move v10, v1
 
     .end local v1    # "viewRotation":I
     .restart local v10    # "viewRotation":I
-    goto :goto_4
+    goto :goto_16e
 
     .line 138
     .end local v10    # "viewRotation":I
     .restart local v1    # "viewRotation":I
-    :cond_11
+    :cond_16d
     move v10, v1
 
     .line 159
     .end local v1    # "viewRotation":I
     .restart local v10    # "viewRotation":I
-    :cond_12
-    :goto_4
+    :cond_16e
+    :goto_16e
     invoke-virtual {v0, v9, v12}, Lcom/isaigu/gymapp/widget/video/JZResizeTextureView;->setMeasuredDimension(II)V
 
     .line 160
@@ -663,7 +663,7 @@
 .end method
 
 .method public setRotation(F)V
-    .locals 1
+    .registers 3
     .param p1, "rotation"    # F
 
     .line 45
@@ -673,7 +673,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 46
     invoke-super {p0, p1}, Landroid/view/TextureView;->setRotation(F)V
@@ -682,26 +682,26 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZResizeTextureView;->requestLayout()V
 
     .line 49
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public setVideoSize(II)V
-    .locals 1
+    .registers 4
     .param p1, "currentVideoWidth"    # I
     .param p2, "currentVideoHeight"    # I
 
     .line 36
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZResizeTextureView;->currentVideoWidth:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_8
 
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZResizeTextureView;->currentVideoHeight:I
 
-    if-eq v0, p2, :cond_1
+    if-eq v0, p2, :cond_f
 
     .line 37
-    :cond_0
+    :cond_8
     iput p1, p0, Lcom/isaigu/gymapp/widget/video/JZResizeTextureView;->currentVideoWidth:I
 
     .line 38
@@ -711,6 +711,6 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZResizeTextureView;->requestLayout()V
 
     .line 41
-    :cond_1
+    :cond_f
     return-void
 .end method

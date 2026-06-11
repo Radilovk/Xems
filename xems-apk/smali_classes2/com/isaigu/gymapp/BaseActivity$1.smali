@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/BaseActivity;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/BaseActivity;
 
     .line 78
@@ -41,11 +41,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 80
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity$1;->this$0:Lcom/isaigu/gymapp/BaseActivity;
 
+    # getter for: Lcom/isaigu/gymapp/BaseActivity;->toast:Landroid/widget/Toast;
     invoke-static {v0}, Lcom/isaigu/gymapp/BaseActivity;->access$000(Lcom/isaigu/gymapp/BaseActivity;)Landroid/widget/Toast;
 
     move-result-object v0
@@ -57,6 +58,7 @@
     .line 81
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity$1;->this$0:Lcom/isaigu/gymapp/BaseActivity;
 
+    # getter for: Lcom/isaigu/gymapp/BaseActivity;->toast:Landroid/widget/Toast;
     invoke-static {v0}, Lcom/isaigu/gymapp/BaseActivity;->access$000(Lcom/isaigu/gymapp/BaseActivity;)Landroid/widget/Toast;
 
     move-result-object v0

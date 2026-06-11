@@ -115,7 +115,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 85
@@ -128,7 +128,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 2
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -165,7 +165,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_2a
 
     iput-object v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->SECTION_COLORS:[I
 
@@ -194,7 +194,7 @@
     .line 100
     return-void
 
-    :array_0
+    :array_2a
     .array-data 4
         -0xff0100
         -0x100
@@ -203,7 +203,7 @@
 .end method
 
 .method private buildCache(FFF)V
-    .locals 3
+    .registers 7
     .param p1, "centerX"    # F
     .param p2, "centerY"    # F
     .param p3, "wheelRadius"    # F
@@ -244,7 +244,7 @@
 .end method
 
 .method private calcXLocationInWheel(DD)F
-    .locals 6
+    .registers 11
     .param p1, "angle"    # D
     .param p3, "cos"    # D
 
@@ -255,7 +255,7 @@
 
     cmpg-double v4, p1, v2
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_21
 
     .line 364
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->getMeasuredWidth()I
@@ -287,12 +287,12 @@
     return v0
 
     .line 366
-    :cond_0
+    :cond_21
     const-wide v2, 0x4070900000000000L    # 265.0
 
     cmpl-double v4, p1, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_40
 
     .line 367
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->getMeasuredWidth()I
@@ -324,7 +324,7 @@
     return v0
 
     .line 369
-    :cond_1
+    :cond_40
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->getMeasuredWidth()I
 
     move-result v2
@@ -355,7 +355,7 @@
 .end method
 
 .method private calcYLocationInWheel(D)F
-    .locals 3
+    .registers 6
     .param p1, "cos"    # D
 
     .line 374
@@ -379,7 +379,7 @@
 .end method
 
 .method private computeCos(FF)F
-    .locals 4
+    .registers 7
     .param p1, "x"    # F
     .param p2, "y"    # F
 
@@ -430,7 +430,7 @@
 .end method
 
 .method private getCircleWidth()F
-    .locals 3
+    .registers 4
 
     .line 343
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mUnreachedWidth:F
@@ -451,7 +451,7 @@
 .end method
 
 .method private getColor(I)I
-    .locals 2
+    .registers 4
     .param p1, "colorId"    # I
 
     .line 191
@@ -461,7 +461,7 @@
     .local v0, "version":I
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_f
 
     .line 193
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->getContext()Landroid/content/Context;
@@ -475,7 +475,7 @@
     return v1
 
     .line 195
-    :cond_0
+    :cond_f
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -488,7 +488,7 @@
 .end method
 
 .method private getDimen(I)F
-    .locals 1
+    .registers 3
     .param p1, "dimenId"    # I
 
     .line 206
@@ -504,7 +504,7 @@
 .end method
 
 .method private getSelectedValue()I
-    .locals 3
+    .registers 4
 
     .line 442
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mMaxProcess:I
@@ -529,7 +529,7 @@
 .end method
 
 .method private initAttrs(Landroid/util/AttributeSet;I)V
-    .locals 6
+    .registers 9
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .param p2, "defStyle"    # I
 
@@ -570,12 +570,12 @@
     .line 144
     iget v3, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mMaxProcess:I
 
-    if-le v1, v3, :cond_0
+    if-le v1, v3, :cond_22
 
     iput v3, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurProcess:I
 
     .line 145
-    :cond_0
+    :cond_22
     const/16 v1, 0xe
 
     const v3, 0x7f06003d
@@ -688,7 +688,7 @@
     .line 155
     const v4, 0x7f07004e
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_97
 
     .line 156
     const/16 v1, 0x12
@@ -706,7 +706,7 @@
     iput v1, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mWheelShadowRadius:F
 
     .line 159
-    :cond_1
+    :cond_97
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
@@ -716,7 +716,7 @@
     iput-boolean v1, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->isHasPointerShadow:Z
 
     .line 160
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_ad
 
     .line 161
     const/16 v1, 0xd
@@ -734,7 +734,7 @@
     iput v1, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mPointerShadowRadius:F
 
     .line 164
-    :cond_2
+    :cond_ad
     const/4 v1, 0x7
 
     iget-boolean v4, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->isHasWheelShadow:Z
@@ -770,13 +770,13 @@
 
     or-int/2addr v1, v2
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_cf
 
     .line 169
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->setSoftwareLayer()V
 
     .line 171
-    :cond_3
+    :cond_cf
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 172
@@ -784,7 +784,7 @@
 .end method
 
 .method private initPadding()V
-    .locals 8
+    .registers 9
 
     .line 175
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->getPaddingLeft()I
@@ -822,7 +822,7 @@
 
     const/16 v7, 0x11
 
-    if-lt v6, v7, :cond_0
+    if-lt v6, v7, :cond_20
 
     .line 181
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->getPaddingStart()I
@@ -835,7 +835,7 @@
     move-result v5
 
     .line 184
-    :cond_0
+    :cond_20
     nop
 
     .line 185
@@ -869,7 +869,7 @@
 .end method
 
 .method private initPaints()V
-    .locals 5
+    .registers 6
 
     .line 103
     const v0, 0x7f07004d
@@ -913,7 +913,7 @@
 
     const v2, -0xbbbbbc
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_34
 
     .line 112
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mWheelPaint:Landroid/graphics/Paint;
@@ -925,7 +925,7 @@
     invoke-virtual {v0, v3, v4, v4, v2}, Landroid/graphics/Paint;->setShadowLayer(FFFI)V
 
     .line 117
-    :cond_0
+    :cond_34
     new-instance v0, Landroid/graphics/Paint;
 
     invoke-direct {v0, v1}, Landroid/graphics/Paint;-><init>(I)V
@@ -954,7 +954,7 @@
     .line 121
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->isHasReachedCornerRound:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_59
 
     .line 122
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mReachedPaint:Landroid/graphics/Paint;
@@ -964,7 +964,7 @@
     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
     .line 127
-    :cond_1
+    :cond_59
     new-instance v0, Landroid/graphics/Paint;
 
     invoke-direct {v0, v1}, Landroid/graphics/Paint;-><init>(I)V
@@ -986,7 +986,7 @@
     .line 130
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->isHasPointerShadow:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_79
 
     .line 131
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mPointerPaint:Landroid/graphics/Paint;
@@ -998,7 +998,7 @@
     invoke-virtual {v0, v1, v3, v3, v2}, Landroid/graphics/Paint;->setShadowLayer(FFFI)V
 
     .line 136
-    :cond_2
+    :cond_79
     new-instance v0, Landroid/graphics/Paint;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mReachedPaint:Landroid/graphics/Paint;
@@ -1017,7 +1017,7 @@
 .end method
 
 .method private isTouch(FF)Z
-    .locals 12
+    .registers 15
     .param p1, "x"    # F
     .param p2, "y"    # F
 
@@ -1098,21 +1098,21 @@
 
     cmpg-double v10, v6, v8
 
-    if-gez v10, :cond_0
+    if-gez v10, :cond_3f
 
     const/4 v6, 0x1
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_0
+    :cond_3f
     const/4 v6, 0x0
 
-    :goto_0
+    :goto_40
     return v6
 .end method
 
 .method private refershPosition()V
-    .locals 4
+    .registers 5
 
     .line 357
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurProcess:I
@@ -1151,7 +1151,7 @@
 .end method
 
 .method private refershUnreachedWidth()V
-    .locals 2
+    .registers 3
 
     .line 347
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->getMeasuredWidth()I
@@ -1187,7 +1187,7 @@
 .end method
 
 .method private refershWheelCurPosition(D)V
-    .locals 2
+    .registers 5
     .param p1, "cos"    # D
 
     .line 352
@@ -1211,14 +1211,14 @@
 .end method
 
 .method private setSoftwareLayer()V
-    .locals 2
+    .registers 3
 
     .line 210
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xb
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 211
     const/4 v0, 0x1
@@ -1228,14 +1228,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->setLayerType(ILandroid/graphics/Paint;)V
 
     .line 213
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 
 # virtual methods
 .method public getCurProcess()I
-    .locals 1
+    .registers 2
 
     .line 446
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurProcess:I
@@ -1244,7 +1244,7 @@
 .end method
 
 .method public getMaxProcess()I
-    .locals 1
+    .registers 2
 
     .line 459
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mMaxProcess:I
@@ -1253,7 +1253,7 @@
 .end method
 
 .method public getPointerColor()I
-    .locals 1
+    .registers 2
 
     .line 522
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mPointerColor:I
@@ -1262,7 +1262,7 @@
 .end method
 
 .method public getPointerRadius()F
-    .locals 1
+    .registers 2
 
     .line 531
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mPointerRadius:F
@@ -1271,7 +1271,7 @@
 .end method
 
 .method public getPointerShadowRadius()F
-    .locals 1
+    .registers 2
 
     .line 568
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mPointerShadowRadius:F
@@ -1280,7 +1280,7 @@
 .end method
 
 .method public getReachedColor()I
-    .locals 1
+    .registers 2
 
     .line 469
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mReachedColor:I
@@ -1289,7 +1289,7 @@
 .end method
 
 .method public getReachedWidth()F
-    .locals 1
+    .registers 2
 
     .line 490
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mReachedWidth:F
@@ -1298,7 +1298,7 @@
 .end method
 
 .method public getUnreachedColor()I
-    .locals 1
+    .registers 2
 
     .line 480
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mUnreachedColor:I
@@ -1307,7 +1307,7 @@
 .end method
 
 .method public getUnreachedWidth()F
-    .locals 1
+    .registers 2
 
     .line 511
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mUnreachedWidth:F
@@ -1316,7 +1316,7 @@
 .end method
 
 .method public getWheelShadowRadius()F
-    .locals 1
+    .registers 2
 
     .line 560
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mWheelShadowRadius:F
@@ -1325,7 +1325,7 @@
 .end method
 
 .method public isHasPointerShadow()Z
-    .locals 1
+    .registers 2
 
     .line 564
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->isHasPointerShadow:Z
@@ -1334,7 +1334,7 @@
 .end method
 
 .method public isHasReachedCornerRound()Z
-    .locals 1
+    .registers 2
 
     .line 501
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->isHasReachedCornerRound:Z
@@ -1343,7 +1343,7 @@
 .end method
 
 .method public isHasWheelShadow()Z
-    .locals 1
+    .registers 2
 
     .line 541
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->isHasWheelShadow:Z
@@ -1352,7 +1352,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 23
+    .registers 25
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 228
@@ -1472,18 +1472,18 @@
     .local v14, "wheelRadius":F
     iget-boolean v1, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->isHasCache:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_69
 
     .line 238
     iget-object v1, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCacheCanvas:Landroid/graphics/Canvas;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_61
 
     .line 239
     invoke-direct {v0, v12, v13, v14}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->buildCache(FFF)V
 
     .line 241
-    :cond_0
+    :cond_61
     iget-object v1, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCacheBitmap:Landroid/graphics/Bitmap;
 
     const/4 v2, 0x0
@@ -1492,16 +1492,16 @@
 
     invoke-virtual {v7, v1, v3, v3, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    goto :goto_0
+    goto :goto_6e
 
     .line 243
-    :cond_1
+    :cond_69
     iget-object v1, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mWheelPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v7, v12, v13, v14, v1}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
     .line 247
-    :goto_0
+    :goto_6e
     new-instance v1, Landroid/graphics/LinearGradient;
 
     const/high16 v16, 0x40400000    # 3.0f
@@ -1577,7 +1577,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 3
+    .registers 6
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -1621,13 +1621,13 @@
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 2
+    .registers 4
     .param p1, "state"    # Landroid/os/Parcelable;
 
     .line 412
     instance-of v0, p1, Landroid/os/Bundle;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_94
 
     .line 413
     move-object v0, p1
@@ -1793,17 +1793,17 @@
 
     .line 432
     .end local v0    # "bundle":Landroid/os/Bundle;
-    goto :goto_0
+    goto :goto_97
 
     .line 433
-    :cond_0
+    :cond_94
     invoke-super {p0, p1}, Landroid/view/View;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     .line 436
-    :goto_0
+    :goto_97
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mChangListener:Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_a0
 
     .line 437
     iget v1, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurProcess:I
@@ -1811,12 +1811,12 @@
     invoke-interface {v0, p0, v1}, Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;->onChangedEnd(Lcom/isaigu/gymapp/widget/CircleSeekBar;I)V
 
     .line 439
-    :cond_1
+    :cond_a0
     return-void
 .end method
 
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 3
+    .registers 4
 
     .line 389
     new-instance v0, Landroid/os/Bundle;
@@ -1950,7 +1950,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 15
+    .registers 17
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 270
@@ -1970,7 +1970,7 @@
     .local v2, "y":F
     iget-boolean v3, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->isCanTouch:Z
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_110
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -1980,23 +1980,23 @@
 
     const/4 v5, 0x1
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_21
 
     .line 273
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v3
 
-    if-eq v3, v5, :cond_0
+    if-eq v3, v5, :cond_21
 
     invoke-direct {p0, v1, v2}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->isTouch(FF)Z
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_110
 
     .line 275
-    :cond_0
+    :cond_21
     invoke-direct {p0, v1, v2}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->computeCos(FF)F
 
     move-result v3
@@ -2017,7 +2017,7 @@
 
     cmpg-float v6, v1, v6
 
-    if-gez v6, :cond_1
+    if-gez v6, :cond_42
 
     .line 279
     float-to-double v11, v3
@@ -2031,11 +2031,11 @@
     add-double/2addr v11, v9
 
     .local v11, "angle":D
-    goto :goto_0
+    goto :goto_4b
 
     .line 281
     .end local v11    # "angle":D
-    :cond_1
+    :cond_42
     float-to-double v11, v3
 
     invoke-static {v11, v12}, Ljava/lang/Math;->acos(D)D
@@ -2048,7 +2048,7 @@
 
     .line 283
     .restart local v11    # "angle":D
-    :goto_0
+    :goto_4b
     iget-boolean v6, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->isScrollOneCircle:Z
 
     const-wide v7, 0x4056800000000000L    # 90.0
@@ -2057,7 +2057,7 @@
 
     const-wide v4, 0x4070e00000000000L    # 270.0
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_83
 
     .line 284
     iget-wide v9, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurAngle:D
@@ -2067,11 +2067,11 @@
     .line 285
     cmpl-double v6, v9, v4
 
-    if-lez v6, :cond_2
+    if-lez v6, :cond_71
 
     cmpg-double v6, v11, v7
 
-    if-gez v6, :cond_2
+    if-gez v6, :cond_71
 
     .line 286
     const-wide v9, 0x4076800000000000L    # 360.0
@@ -2081,19 +2081,19 @@
     .line 287
     const/high16 v3, -0x40800000    # -1.0f
 
-    goto :goto_1
+    goto :goto_89
 
     .line 288
-    :cond_2
+    :cond_71
     iget-wide v9, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurAngle:D
 
     cmpg-double v6, v9, v7
 
-    if-gez v6, :cond_3
+    if-gez v6, :cond_80
 
     cmpl-double v6, v11, v4
 
-    if-lez v6, :cond_3
+    if-lez v6, :cond_80
 
     .line 289
     iput-wide v13, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurAngle:D
@@ -2101,16 +2101,16 @@
     .line 290
     const/high16 v3, -0x40800000    # -1.0f
 
-    goto :goto_1
+    goto :goto_89
 
     .line 292
-    :cond_3
+    :cond_80
     iput-wide v11, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurAngle:D
 
-    goto :goto_1
+    goto :goto_89
 
     .line 295
-    :cond_4
+    :cond_83
     iget-wide v9, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurAngle:D
 
     iput-wide v9, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->lastAngle:D
@@ -2119,12 +2119,12 @@
     iput-wide v11, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurAngle:D
 
     .line 298
-    :goto_1
+    :goto_89
     iget-wide v9, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurAngle:D
 
     cmpl-double v6, v9, v4
 
-    if-lez v6, :cond_5
+    if-lez v6, :cond_93
 
     .line 299
     iput-wide v9, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->lastAngle:D
@@ -2133,22 +2133,22 @@
     iput-wide v4, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurAngle:D
 
     .line 302
-    :cond_5
+    :cond_93
     iget-wide v9, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->lastAngle:D
 
     cmpl-double v6, v9, v4
 
-    if-nez v6, :cond_6
+    if-nez v6, :cond_a7
 
     iget-wide v9, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurAngle:D
 
     cmpl-double v6, v9, v13
 
-    if-ltz v6, :cond_6
+    if-ltz v6, :cond_a7
 
     cmpg-double v6, v9, v7
 
-    if-gtz v6, :cond_6
+    if-gtz v6, :cond_a7
 
     .line 303
     iput-wide v4, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurAngle:D
@@ -2157,12 +2157,12 @@
     iput-wide v4, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->lastAngle:D
 
     .line 306
-    :cond_6
+    :cond_a7
     iget-wide v6, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->lastAngle:D
 
     cmpl-double v8, v6, v13
 
-    if-nez v8, :cond_7
+    if-nez v8, :cond_c0
 
     iget-wide v6, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurAngle:D
 
@@ -2170,11 +2170,11 @@
 
     cmpl-double v10, v6, v8
 
-    if-ltz v10, :cond_7
+    if-ltz v10, :cond_c0
 
     cmpg-double v8, v6, v4
 
-    if-gtz v8, :cond_7
+    if-gtz v8, :cond_c0
 
     .line 307
     iput-wide v13, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurAngle:D
@@ -2183,7 +2183,7 @@
     iput-wide v13, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->lastAngle:D
 
     .line 310
-    :cond_7
+    :cond_c0
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->getSelectedValue()I
 
     move-result v6
@@ -2200,7 +2200,7 @@
 
     cmpl-double v8, v6, v4
 
-    if-nez v8, :cond_8
+    if-nez v8, :cond_de
 
     .line 313
     invoke-static {v6, v7}, Ljava/lang/Math;->toRadians(D)D
@@ -2221,10 +2221,10 @@
     invoke-direct {p0, v4, v5}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->refershWheelCurPosition(D)V
 
     .line 321
-    :cond_8
+    :cond_de
     iget-object v4, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mChangListener:Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_f1
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -2234,7 +2234,7 @@
 
     and-int/2addr v4, v5
 
-    if-lez v4, :cond_9
+    if-lez v4, :cond_f1
 
     .line 322
     iget-object v4, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mChangListener:Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;
@@ -2244,10 +2244,10 @@
     invoke-interface {v4, p0, v5}, Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;->onChanged(Lcom/isaigu/gymapp/widget/CircleSeekBar;I)V
 
     .line 324
-    :cond_9
+    :cond_f1
     iget-object v4, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mChangListener:Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_104
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -2257,7 +2257,7 @@
 
     and-int/2addr v4, v5
 
-    if-lez v4, :cond_a
+    if-lez v4, :cond_104
 
     .line 325
     iget-object v4, v0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mChangListener:Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;
@@ -2267,7 +2267,7 @@
     invoke-interface {v4, p0, v5}, Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;->onChangedEnd(Lcom/isaigu/gymapp/widget/CircleSeekBar;I)V
 
     .line 327
-    :cond_a
+    :cond_104
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->invalidate()V
 
     .line 328
@@ -2285,7 +2285,7 @@
     .line 331
     .end local v3    # "cos":F
     .end local v11    # "angle":D
-    :cond_b
+    :cond_110
     invoke-super/range {p0 .. p1}, Landroid/view/View;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v3
@@ -2294,20 +2294,20 @@
 .end method
 
 .method public setCurProcess(I)V
-    .locals 1
+    .registers 3
     .param p1, "curProcess"    # I
 
     .line 450
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mMaxProcess:I
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_5
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     move v0, p1
 
-    :goto_0
+    :goto_6
     iput v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCurProcess:I
 
     .line 454
@@ -2321,7 +2321,7 @@
 .end method
 
 .method public setHasReachedCornerRound(Z)V
-    .locals 2
+    .registers 4
     .param p1, "hasReachedCornerRound"    # Z
 
     .line 505
@@ -2330,16 +2330,16 @@
     .line 506
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mReachedPaint:Landroid/graphics/Paint;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     sget-object v1, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     sget-object v1, Landroid/graphics/Paint$Cap;->BUTT:Landroid/graphics/Paint$Cap;
 
-    :goto_0
+    :goto_b
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
     .line 507
@@ -2350,7 +2350,7 @@
 .end method
 
 .method public setMaxProcess(I)V
-    .locals 0
+    .registers 2
     .param p1, "maxProcess"    # I
 
     .line 463
@@ -2367,7 +2367,7 @@
 .end method
 
 .method public setOnSeekBarChangeListener(Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;
 
     .line 584
@@ -2378,7 +2378,7 @@
 .end method
 
 .method public setPointerColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "pointerColor"    # I
 
     .line 526
@@ -2394,7 +2394,7 @@
 .end method
 
 .method public setPointerRadius(F)V
-    .locals 1
+    .registers 3
     .param p1, "pointerRadius"    # F
 
     .line 535
@@ -2413,7 +2413,7 @@
 .end method
 
 .method public setPointerShadowRadius(F)V
-    .locals 3
+    .registers 5
     .param p1, "pointerShadowRadius"    # F
 
     .line 572
@@ -2424,7 +2424,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 574
     const/4 v0, 0x0
@@ -2436,10 +2436,10 @@
 
     invoke-virtual {v0}, Landroid/graphics/Paint;->clearShadowLayer()V
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 577
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mPointerPaint:Landroid/graphics/Paint;
 
     iget v1, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mDefShadowOffset:F
@@ -2452,7 +2452,7 @@
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->setSoftwareLayer()V
 
     .line 580
-    :goto_0
+    :goto_1d
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->invalidate()V
 
     .line 581
@@ -2460,7 +2460,7 @@
 .end method
 
 .method public setReachedColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "reachedColor"    # I
 
     .line 473
@@ -2484,7 +2484,7 @@
 .end method
 
 .method public setReachedWidth(F)V
-    .locals 1
+    .registers 3
     .param p1, "reachedWidth"    # F
 
     .line 494
@@ -2508,7 +2508,7 @@
 .end method
 
 .method public setSectionColors(III)V
-    .locals 2
+    .registers 6
     .param p1, "startColor"    # I
     .param p2, "middleColor"    # I
     .param p3, "endColor"    # I
@@ -2535,7 +2535,7 @@
 .end method
 
 .method public setUnreachedColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "unreachedColor"    # I
 
     .line 484
@@ -2554,7 +2554,7 @@
 .end method
 
 .method public setUnreachedWidth(F)V
-    .locals 1
+    .registers 3
     .param p1, "unreachedWidth"    # F
 
     .line 515
@@ -2576,7 +2576,7 @@
 .end method
 
 .method public setWheelShadow(F)V
-    .locals 3
+    .registers 5
     .param p1, "wheelShadow"    # F
 
     .line 545
@@ -2587,7 +2587,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 547
     const/4 v0, 0x0
@@ -2612,10 +2612,10 @@
     .line 551
     iput-object v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mCacheBitmap:Landroid/graphics/Bitmap;
 
-    goto :goto_0
+    goto :goto_27
 
     .line 553
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mWheelPaint:Landroid/graphics/Paint;
 
     iget v1, p0, Lcom/isaigu/gymapp/widget/CircleSeekBar;->mDefShadowOffset:F
@@ -2628,7 +2628,7 @@
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->setSoftwareLayer()V
 
     .line 556
-    :goto_0
+    :goto_27
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->invalidate()V
 
     .line 557

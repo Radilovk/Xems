@@ -18,7 +18,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/RelativeLayout;Lcom/jcodecraeer/xrecyclerview/XRecyclerView;Landroid/widget/ImageView;Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;)V
-    .locals 0
+    .registers 5
     .param p1, "rootView"    # Landroid/widget/RelativeLayout;
     .param p2, "listVeiw"    # Lcom/jcodecraeer/xrecyclerview/XRecyclerView;
     .param p3, "logoImage"    # Landroid/widget/ImageView;
@@ -44,7 +44,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/VideoListFragmentBinding;
-    .locals 6
+    .registers 7
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 68
@@ -60,7 +60,7 @@
 
     .line 70
     .local v1, "listVeiw":Lcom/jcodecraeer/xrecyclerview/XRecyclerView;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2c
 
     .line 74
     const v0, 0x7f0900f6
@@ -74,7 +74,7 @@
 
     .line 76
     .local v2, "logoImage":Landroid/widget/ImageView;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2b
 
     .line 80
     const v0, 0x7f0901e5
@@ -88,7 +88,7 @@
 
     .line 82
     .local v3, "videoPlayer":Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2a
 
     .line 86
     new-instance v4, Lcom/isaigu/gymapp/databinding/VideoListFragmentBinding;
@@ -102,22 +102,22 @@
     return-object v4
 
     .line 83
-    :cond_0
-    goto :goto_0
+    :cond_2a
+    goto :goto_2d
 
     .line 77
     .end local v3    # "videoPlayer":Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;
-    :cond_1
-    goto :goto_0
+    :cond_2b
+    goto :goto_2d
 
     .line 71
     .end local v2    # "logoImage":Landroid/widget/ImageView;
-    :cond_2
+    :cond_2c
     nop
 
     .line 89
     .end local v1    # "listVeiw":Lcom/jcodecraeer/xrecyclerview/XRecyclerView;
-    :goto_0
+    :goto_2d
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -142,7 +142,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/VideoListFragmentBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 49
@@ -158,7 +158,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/VideoListFragmentBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -174,13 +174,13 @@
 
     .line 56
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 57
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 59
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/VideoListFragmentBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/VideoListFragmentBinding;
 
     move-result-object v1
@@ -191,7 +191,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/VideoListFragmentBinding;->getRoot()Landroid/widget/RelativeLayout;
@@ -202,7 +202,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/RelativeLayout;
-    .locals 1
+    .registers 2
 
     .line 44
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/VideoListFragmentBinding;->rootView:Landroid/widget/RelativeLayout;

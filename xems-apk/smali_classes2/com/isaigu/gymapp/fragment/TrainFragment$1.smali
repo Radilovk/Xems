@@ -3,12 +3,12 @@
 .source "TrainFragment.java"
 
 # interfaces
-.implements Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuCreator;
+.implements Lme/weyye/hipermission/PermissionCallback;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/isaigu/gymapp/fragment/TrainFragment;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/isaigu/gymapp/fragment/TrainFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    .prologue
-    .line 91
+    .line 159
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,70 +36,107 @@
 
 
 # virtual methods
-.method public onCreateMenu(Lcom/yanzhenjie/recyclerview/swipe/SwipeMenu;Lcom/yanzhenjie/recyclerview/swipe/SwipeMenu;I)V
-    .registers 8
+.method public onClose()V
+    .registers 2
 
-    .prologue
-    const/4 v3, -0x1
+    .line 161
+    const-string v0, "onClose"
 
-    .line 94
-    new-instance v0, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
+    invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
+    .line 162
+    return-void
+.end method
 
-    invoke-virtual {v1}, Lcom/isaigu/gymapp/fragment/TrainFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+.method public onDeny(Ljava/lang/String;I)V
+    .registers 6
+    .param p1, "permisson"    # Ljava/lang/String;
+    .param p2, "position"    # I
 
-    move-result-object v1
+    .line 167
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0, v1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
+    const-string v1, "onDeny: "
 
-    const v2, 0x7f0600a0
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/fragment/TrainFragment;->getColor(I)I
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v1
+    const-string v1, "  "
 
-    invoke-virtual {v0, v1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setBackgroundColor(I)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
+
+    .line 168
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
+
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    const v2, 0x7f0d0043
+    const v2, 0x7f0d006b
 
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/fragment/TrainFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setText(Ljava/lang/String;)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->showTips(Ljava/lang/String;)V
+
+    .line 169
+    return-void
+.end method
+
+.method public onFinish()V
+    .registers 2
+
+    .line 164
+    const-string v0, "onFinish"
+
+    invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
+
+    .line 165
+    return-void
+.end method
+
+.method public onGuarantee(Ljava/lang/String;I)V
+    .registers 5
+    .param p1, "permisson"    # Ljava/lang/String;
+    .param p2, "position"    # I
+
+    .line 171
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "onGuarantee: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "  "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setTextColor(I)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
+    invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
 
-    move-result-object v0
-
-    const/16 v1, 0x10
-
-    invoke-virtual {v0, v1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setTextSize(I)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
-
-    move-result-object v0
-
-    const/16 v1, 0x64
-
-    invoke-virtual {v0, v1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setWidth(I)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v3}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setHeight(I)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
-
-    move-result-object v0
-
-    .line 95
-    invoke-virtual {p2, v0}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenu;->addMenuItem(Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;)V
-
-    .line 96
+    .line 172
     return-void
 .end method

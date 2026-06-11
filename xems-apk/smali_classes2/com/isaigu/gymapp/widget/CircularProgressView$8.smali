@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/CircularProgressView;FF)V
-    .locals 0
+    .registers 4
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/CircularProgressView;
 
     .line 462
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+    .registers 5
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 465
@@ -61,6 +61,7 @@
 
     move-result v1
 
+    # setter for: Lcom/isaigu/gymapp/widget/CircularProgressView;->startAngle:F
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/widget/CircularProgressView;->access$202(Lcom/isaigu/gymapp/widget/CircularProgressView;F)F
 
     .line 466
@@ -68,6 +69,7 @@
 
     iget v1, p0, Lcom/isaigu/gymapp/widget/CircularProgressView$8;->val$maxSweep:F
 
+    # getter for: Lcom/isaigu/gymapp/widget/CircularProgressView;->startAngle:F
     invoke-static {v0}, Lcom/isaigu/gymapp/widget/CircularProgressView;->access$200(Lcom/isaigu/gymapp/widget/CircularProgressView;)F
 
     move-result v2
@@ -78,6 +80,7 @@
 
     add-float/2addr v1, v2
 
+    # setter for: Lcom/isaigu/gymapp/widget/CircularProgressView;->indeterminateSweep:F
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/widget/CircularProgressView;->access$302(Lcom/isaigu/gymapp/widget/CircularProgressView;F)F
 
     .line 467

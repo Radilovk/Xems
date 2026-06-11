@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$3;)V
-    .locals 0
+    .registers 2
     .param p1, "this$3"    # Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$3;
 
     .line 1171
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 3
+    .registers 7
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -60,13 +60,13 @@
 
     .line 1173
     .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainUser;>;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_21
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 1174
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -95,7 +95,7 @@
     invoke-static {v2, v0, v1}, Lcom/isaigu/gymapp/utils/FileUtils;->saveListData(Ljava/lang/String;Ljava/lang/Class;Ljava/util/List;)V
 
     .line 1177
-    :cond_0
+    :cond_21
     const/16 v0, 0x69
 
     invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
@@ -105,7 +105,7 @@
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 1171
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

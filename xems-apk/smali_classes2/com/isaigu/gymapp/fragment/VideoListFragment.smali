@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 50
     invoke-direct {p0}, Lcom/isaigu/gymapp/BaseFragment;-><init>()V
@@ -43,7 +43,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/fragment/VideoListFragment;)Lcom/isaigu/gymapp/bean/vo/PageResponseVO;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
     .line 50
@@ -53,7 +53,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/isaigu/gymapp/fragment/VideoListFragment;Lcom/isaigu/gymapp/bean/vo/PageResponseVO;)Lcom/isaigu/gymapp/bean/vo/PageResponseVO;
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment;
     .param p1, "x1"    # Lcom/isaigu/gymapp/bean/vo/PageResponseVO;
 
@@ -64,7 +64,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/fragment/VideoListFragment;)Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
     .line 50
@@ -74,7 +74,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/isaigu/gymapp/fragment/VideoListFragment;)Lcom/jcodecraeer/xrecyclerview/XRecyclerView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
     .line 50
@@ -84,7 +84,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/isaigu/gymapp/fragment/VideoListFragment;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
     .line 50
@@ -94,7 +94,7 @@
 .end method
 
 .method static synthetic access$302(Lcom/isaigu/gymapp/fragment/VideoListFragment;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment;
     .param p1, "x1"    # I
 
@@ -105,7 +105,7 @@
 .end method
 
 .method static synthetic access$308(Lcom/isaigu/gymapp/fragment/VideoListFragment;)I
-    .locals 2
+    .registers 3
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
     .line 50
@@ -119,7 +119,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/isaigu/gymapp/fragment/VideoListFragment;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
     .line 50
@@ -129,7 +129,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/isaigu/gymapp/fragment/VideoListFragment;Lcom/isaigu/gymapp/bean/vo/VideoVO;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment;
     .param p1, "x1"    # Lcom/isaigu/gymapp/bean/vo/VideoVO;
 
@@ -140,7 +140,7 @@
 .end method
 
 .method private getNextData()V
-    .locals 3
+    .registers 4
 
     .line 122
     new-instance v0, Lcom/isaigu/gymapp/bean/dto/VideoSearchDTO;
@@ -188,26 +188,26 @@
 .end method
 
 .method private handlePlayVideo(Lcom/isaigu/gymapp/bean/vo/VideoVO;)V
-    .locals 5
+    .registers 7
     .param p1, "videoVO"    # Lcom/isaigu/gymapp/bean/vo/VideoVO;
 
     .line 184
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 185
     return-void
 
     .line 187
-    :cond_0
+    :cond_3
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment;->videoPlayer:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_8
 
     .line 188
     return-void
 
     .line 190
-    :cond_1
+    :cond_8
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;->setVisibility(I)V
@@ -247,7 +247,7 @@
 .end method
 
 .method private initView(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 150
@@ -288,7 +288,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3e
 
     .line 155
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/VideoListFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -314,7 +314,7 @@
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 158
-    :cond_0
+    :cond_3e
     new-instance v0, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;
 
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/VideoListFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -379,7 +379,7 @@
 .end method
 
 .method private stopAllPlay()V
-    .locals 1
+    .registers 2
 
     .line 91
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment;->videoPlayer:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;
@@ -388,20 +388,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 92
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->releaseAllVideos()V
 
     .line 94
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 
 # virtual methods
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 1
+    .registers 5
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -423,7 +423,7 @@
 .end method
 
 .method public onDestroyView()V
-    .locals 0
+    .registers 1
 
     .line 117
     invoke-super {p0}, Lcom/isaigu/gymapp/BaseFragment;->onDestroyView()V
@@ -436,14 +436,14 @@
 .end method
 
 .method public onHiddenChanged(Z)V
-    .locals 2
+    .registers 4
     .param p1, "hidden"    # Z
 
     .line 79
     invoke-super {p0, p1}, Lcom/isaigu/gymapp/BaseFragment;->onHiddenChanged(Z)V
 
     .line 81
-    if-nez p1, :cond_1
+    if-nez p1, :cond_41
 
     .line 82
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
@@ -456,7 +456,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_29
 
     .line 83
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/VideoListFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -481,10 +481,10 @@
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    goto :goto_0
+    goto :goto_41
 
     .line 85
-    :cond_0
+    :cond_29
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/VideoListFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
@@ -508,13 +508,13 @@
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 88
-    :cond_1
-    :goto_0
+    :cond_41
+    :goto_41
     return-void
 .end method
 
 .method public onPause()V
-    .locals 1
+    .registers 2
 
     .line 99
     invoke-super {p0}, Lcom/isaigu/gymapp/BaseFragment;->onPause()V
@@ -526,7 +526,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 101
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->releaseAllVideos()V
@@ -537,12 +537,12 @@
     iput-boolean v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment;->isLastTimeVideoStop:Z
 
     .line 104
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public onResume()V
-    .locals 1
+    .registers 2
 
     .line 108
     invoke-super {p0}, Lcom/isaigu/gymapp/BaseFragment;->onResume()V
@@ -550,17 +550,17 @@
     .line 109
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment;->videoPlayer:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;->isCurrentPlay()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     iget-boolean v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment;->isLastTimeVideoStop:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 110
     const/4 v0, 0x0
@@ -573,12 +573,12 @@
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;->startVideo()V
 
     .line 113
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method protected viewId()I
-    .locals 1
+    .registers 2
 
     .line 63
     const v0, 0x7f0b0076

@@ -41,7 +41,7 @@
     <string name="anmomoshi">按摩模式</string>
     <string name="anmozhouqi">按摩周期</string>
     <string name="anmozhouqigap">按摩周期必须介于1到%1$d之间</string>
-    <string name="app_name">XEMS-25 Custom</string>
+    <string name="app_name">XEMS-25</string>
     <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="autologin">自动登录</string>
     <string name="avragestrength">平均最高强度</string>
@@ -284,18 +284,6 @@ Setup path: Apps->%3$s->Permissions"</string>
     <string name="yaobu">"腰部
 (下背)"</string>
     <string name="youyangyundong">有氧运动</string>
-    <string name="language_bulgarian">BG</string>
-    <string name="brandingTitle">Branding:</string>
-    <string name="changeIconText">Change icon</string>
-    <string name="changeSplashText">Change splash</string>
-    <string name="currentIncreaseStep">Current increase step (0.1 mA):</string>
-    <string name="currentDecreaseStep">Current decrease step (0.1 mA):</string>
-    <string name="channelCalibrationTitle">Per-channel calibration (multiplier x / pulse μs)</string>
+    <string name="channelPulseDepthTitle">Per-channel impulse depth (μs, 0 = global)</string>
     <string name="channelPulseGlobal">Global</string>
-    <string name="defaultPulseContinue">Default impulse duration:</string>
-    <string name="defaultPulsePause">Default impulse pause:</string>
-    <string name="alternateImpulseModeTitle">Alternate impulse modes (impulse/impulse):</string>
-    <string name="alternateImpulseModeHint">Phase A uses top program params; Phase B uses Muscle or Aerobic column in program editor.</string>
-    <string name="alternatePhaseMuscle">Phase B: Muscle</string>
-    <string name="alternatePhaseAerobic">Phase B: Aerobic</string>
 </resources>

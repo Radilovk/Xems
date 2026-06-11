@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 228
@@ -41,12 +41,13 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 230
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$1;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->check1:[Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$000(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)[Landroid/widget/ImageView;
 
     move-result-object v0
@@ -57,6 +58,7 @@
 
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$1;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->check1:[Landroid/widget/ImageView;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$000(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)[Landroid/widget/ImageView;
 
     move-result-object v1
@@ -69,16 +71,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
     const/4 v1, 0x4
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1d
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 231

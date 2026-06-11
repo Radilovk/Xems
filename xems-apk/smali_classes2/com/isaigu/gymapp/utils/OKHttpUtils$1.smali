@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 0
+    .registers 2
 
     .line 133
     iput-object p1, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$1;->val$callback:Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onFailure(Lokhttp3/Call;Ljava/io/IOException;)V
-    .locals 4
+    .registers 7
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "e"    # Ljava/io/IOException;
 
@@ -46,7 +46,7 @@
     .line 177
     iget-object v0, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$1;->val$callback:Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 178
     const/4 v1, 0x0
@@ -60,12 +60,12 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;->httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
 
     .line 180
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public onResponse(Lokhttp3/Call;Lokhttp3/Response;)V
-    .locals 10
+    .registers 13
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "response"    # Lokhttp3/Response;
     .annotation system Ldalvik/annotation/Throws;
@@ -79,10 +79,10 @@
 
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_2
     iget-object v2, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$1;->val$callback:Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_8b
 
     .line 138
     invoke-virtual {p2}, Lokhttp3/Response;->isSuccessful()Z
@@ -91,7 +91,7 @@
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_7e
 
     .line 139
     invoke-virtual {p2}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
@@ -104,11 +104,12 @@
 
     .line 140
     .local v2, "content":Ljava/lang/String;
+    # getter for: Lcom/isaigu/gymapp/utils/OKHttpUtils;->logEnable:Z
     invoke-static {}, Lcom/isaigu/gymapp/utils/OKHttpUtils;->access$000()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2f
 
     .line 141
     new-instance v4, Ljava/lang/StringBuilder;
@@ -128,7 +129,7 @@
     invoke-static {v4}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
 
     .line 143
-    :cond_0
+    :cond_2f
     const/4 v4, 0x0
 
     .line 144
@@ -141,7 +142,7 @@
 
     iget-object v6, v6, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;->targetType:Ljava/lang/reflect/Type;
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_54
 
     .line 146
     iget-object v6, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$1;->val$callback:Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
@@ -185,10 +186,10 @@
     .end local v6    # "cls":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v7    # "interfacesTypes":[Ljava/lang/reflect/Type;
     .end local v8    # "genericType":[Ljava/lang/reflect/Type;
-    goto :goto_0
+    goto :goto_62
 
     .line 152
-    :cond_1
+    :cond_54
     iget-object v6, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$1;->val$callback:Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
 
     iget-object v6, v6, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;->targetType:Ljava/lang/reflect/Type;
@@ -207,29 +208,29 @@
     move-object v4, v6
 
     .line 156
-    :goto_0
+    :goto_62
     const-string v6, "String"
 
     invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_68
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_68} :catch_8c
 
     const-string v7, ""
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_72
 
     .line 157
-    :try_start_1
+    :try_start_6c
     iget-object v6, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$1;->val$callback:Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
 
     invoke-virtual {v6, v3, v7, v2}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;->httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_7d
 
     .line 159
-    :cond_2
+    :cond_72
     new-array v6, v1, [Lcom/alibaba/fastjson/parser/Feature;
 
     invoke-static {v2, v5, v6}, Lcom/alibaba/fastjson/JSON;->parseObject(Ljava/lang/String;Ljava/lang/reflect/Type;[Lcom/alibaba/fastjson/parser/Feature;)Ljava/lang/Object;
@@ -247,11 +248,11 @@
     .end local v4    # "genericTypeName":Ljava/lang/String;
     .end local v5    # "targetType":Ljava/lang/reflect/Type;
     .end local v6    # "result":Ljava/lang/Object;, "TT;"
-    :goto_1
-    goto :goto_2
+    :goto_7d
+    goto :goto_8b
 
     .line 163
-    :cond_3
+    :cond_7e
     invoke-virtual {p2}, Lokhttp3/Response;->code()I
 
     move-result v2
@@ -267,18 +268,18 @@
     iget-object v5, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$1;->val$callback:Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
 
     invoke-virtual {v5, v3, v4, v0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;->httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_8b
+    .catch Ljava/lang/Exception; {:try_start_6c .. :try_end_8b} :catch_8c
 
     .line 173
     .end local v2    # "code":I
     .end local v4    # "message":Ljava/lang/String;
-    :cond_4
-    :goto_2
-    goto :goto_3
+    :cond_8b
+    :goto_8b
+    goto :goto_9b
 
     .line 168
-    :catch_0
+    :catch_8c
     move-exception v2
 
     .line 169
@@ -288,7 +289,7 @@
     .line 170
     iget-object v3, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$1;->val$callback:Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_9b
 
     .line 171
     invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
@@ -299,7 +300,7 @@
 
     .line 174
     .end local v2    # "e":Ljava/lang/Exception;
-    :cond_5
-    :goto_3
+    :cond_9b
+    :goto_9b
     return-void
 .end method

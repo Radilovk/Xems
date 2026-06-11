@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     .local p0, "this":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<TT;>;"
@@ -41,7 +41,7 @@
 .end method
 
 .method public static with(ILjava/lang/String;)Lcom/isaigu/gymapp/bean/vo/ResponseData;
-    .locals 2
+    .registers 4
     .param p0, "code"    # I
     .param p1, "message"    # Ljava/lang/String;
 
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public getCode()I
-    .locals 1
+    .registers 2
 
     .line 25
     .local p0, "this":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<TT;>;"
@@ -79,7 +79,7 @@
 .end method
 
 .method public getData()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -94,7 +94,7 @@
 .end method
 
 .method public getMessage()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 17
     .local p0, "this":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<TT;>;"
@@ -104,7 +104,7 @@
 .end method
 
 .method public getShowString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 44
     .local p0, "this":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<TT;>;"
@@ -136,27 +136,27 @@
 .end method
 
 .method public isSuccess()Z
-    .locals 1
+    .registers 2
 
     .line 33
     .local p0, "this":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<TT;>;"
     iget v0, p0, Lcom/isaigu/gymapp/bean/vo/ResponseData;->code:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public setCode(I)V
-    .locals 0
+    .registers 2
     .param p1, "code"    # I
 
     .line 29
@@ -168,7 +168,7 @@
 .end method
 
 .method public setData(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -185,7 +185,7 @@
 .end method
 
 .method public setMessage(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "message"    # Ljava/lang/String;
 
     .line 21
@@ -197,7 +197,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 49
     .local p0, "this":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<TT;>;"

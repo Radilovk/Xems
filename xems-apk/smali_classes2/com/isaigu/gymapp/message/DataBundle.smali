@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(SLjava/lang/Object;)V
-    .locals 3
+    .registers 6
     .param p1, "event"    # S
     .param p2, "content"    # Ljava/lang/Object;
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(SLjava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "event"    # S
     .param p2, "content"    # Ljava/lang/String;
 
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -130,7 +130,7 @@
 .end method
 
 .method public getBoolean(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     .line 181
@@ -144,7 +144,7 @@
 .end method
 
 .method public getBoolean(Ljava/lang/String;Z)Z
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defaultVal"    # Z
 
@@ -159,13 +159,13 @@
 
     .line 174
     .local v0, "b":Ljava/lang/Boolean;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 175
     return p2
 
     .line 177
-    :cond_0
+    :cond_b
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
@@ -174,7 +174,7 @@
 .end method
 
 .method public getChar(Ljava/lang/String;)C
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     .line 117
@@ -188,7 +188,7 @@
 .end method
 
 .method public getChar(Ljava/lang/String;C)C
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defaultVal"    # C
 
@@ -203,13 +203,13 @@
 
     .line 110
     .local v0, "character":Ljava/lang/Character;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 111
     return p2
 
     .line 113
-    :cond_0
+    :cond_b
     invoke-virtual {v0}, Ljava/lang/Character;->charValue()C
 
     move-result v1
@@ -218,7 +218,7 @@
 .end method
 
 .method public getContent()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -240,7 +240,7 @@
 .end method
 
 .method public getDouble(Ljava/lang/String;)D
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
 
     .line 149
@@ -254,7 +254,7 @@
 .end method
 
 .method public getDouble(Ljava/lang/String;D)D
-    .locals 3
+    .registers 7
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defaultVal"    # D
 
@@ -269,13 +269,13 @@
 
     .line 142
     .local v0, "d":Ljava/lang/Double;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 143
     return-wide p2
 
     .line 145
-    :cond_0
+    :cond_b
     invoke-virtual {v0}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide v1
@@ -284,7 +284,7 @@
 .end method
 
 .method public getEvent()S
-    .locals 2
+    .registers 3
 
     .line 33
     iget-object v0, p0, Lcom/isaigu/gymapp/message/DataBundle;->map:Ljava/util/HashMap;
@@ -305,7 +305,7 @@
 .end method
 
 .method public getFloat(Ljava/lang/String;)F
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     .line 101
@@ -319,7 +319,7 @@
 .end method
 
 .method public getFloat(Ljava/lang/String;F)F
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defaultVal"    # F
 
@@ -334,13 +334,13 @@
 
     .line 94
     .local v0, "f":Ljava/lang/Float;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 95
     return p2
 
     .line 97
-    :cond_0
+    :cond_b
     invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
     move-result v1
@@ -349,7 +349,7 @@
 .end method
 
 .method public getInt(Ljava/lang/String;)I
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     .line 85
@@ -363,7 +363,7 @@
 .end method
 
 .method public getInt(Ljava/lang/String;I)I
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defaultVal"    # I
 
@@ -378,13 +378,13 @@
 
     .line 78
     .local v0, "integer":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 79
     return p2
 
     .line 81
-    :cond_0
+    :cond_b
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
@@ -393,7 +393,7 @@
 .end method
 
 .method public getLong(Ljava/lang/String;)J
-    .locals 2
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
 
     .line 133
@@ -407,7 +407,7 @@
 .end method
 
 .method public getLong(Ljava/lang/String;J)J
-    .locals 3
+    .registers 7
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defaultVal"    # J
 
@@ -422,13 +422,13 @@
 
     .line 126
     .local v0, "l":Ljava/lang/Long;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 127
     return-wide p2
 
     .line 129
-    :cond_0
+    :cond_b
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v1
@@ -437,7 +437,7 @@
 .end method
 
 .method public getShort(Ljava/lang/String;)S
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     .line 165
@@ -451,7 +451,7 @@
 .end method
 
 .method public getShort(Ljava/lang/String;S)S
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defaultVal"    # S
 
@@ -466,13 +466,13 @@
 
     .line 158
     .local v0, "s":Ljava/lang/Short;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 159
     return p2
 
     .line 161
-    :cond_0
+    :cond_b
     invoke-virtual {v0}, Ljava/lang/Short;->shortValue()S
 
     move-result v1
@@ -481,7 +481,7 @@
 .end method
 
 .method public getString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "key"    # Ljava/lang/String;
 
     .line 61
@@ -495,7 +495,7 @@
 .end method
 
 .method public getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "defaultValue"    # Ljava/lang/String;
 
@@ -510,18 +510,18 @@
 
     .line 66
     .local v0, "value":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 67
     return-object p2
 
     .line 69
-    :cond_0
+    :cond_b
     return-object v0
 .end method
 
 .method public set(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -544,7 +544,7 @@
 .end method
 
 .method public setBoolean(Ljava/lang/String;Z)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Z
 
@@ -562,7 +562,7 @@
 .end method
 
 .method public setChar(Ljava/lang/String;C)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # C
 
@@ -580,7 +580,7 @@
 .end method
 
 .method public setContent(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .param p1, "content"    # Ljava/lang/Object;
 
     .line 38
@@ -595,7 +595,7 @@
 .end method
 
 .method public setDouble(Ljava/lang/String;D)V
-    .locals 2
+    .registers 6
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # D
 
@@ -613,7 +613,7 @@
 .end method
 
 .method public setEvent(S)V
-    .locals 3
+    .registers 5
     .param p1, "event"    # S
 
     .line 28
@@ -632,7 +632,7 @@
 .end method
 
 .method public setFloat(Ljava/lang/String;F)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # F
 
@@ -650,7 +650,7 @@
 .end method
 
 .method public setInt(Ljava/lang/String;I)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # I
 
@@ -668,7 +668,7 @@
 .end method
 
 .method public setLong(Ljava/lang/String;J)V
-    .locals 2
+    .registers 6
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # J
 
@@ -686,7 +686,7 @@
 .end method
 
 .method public setShort(Ljava/lang/String;S)V
-    .locals 2
+    .registers 5
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # S
 
@@ -704,7 +704,7 @@
 .end method
 
 .method public setString(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "value"    # Ljava/lang/String;
 

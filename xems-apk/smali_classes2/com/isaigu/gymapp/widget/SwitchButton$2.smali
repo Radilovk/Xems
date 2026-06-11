@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/SwitchButton;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/SwitchButton;
 
     .line 233
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 235
@@ -53,17 +53,20 @@
 
     move-result v1
 
+    # setter for: Lcom/isaigu/gymapp/widget/SwitchButton;->switchViewBgColor:I
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/widget/SwitchButton;->access$102(Lcom/isaigu/gymapp/widget/SwitchButton;I)I
 
     .line 236
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton$2;->this$0:Lcom/isaigu/gymapp/widget/SwitchButton;
 
+    # getter for: Lcom/isaigu/gymapp/widget/SwitchButton;->mBgPaint:Landroid/graphics/Paint;
     invoke-static {v0}, Lcom/isaigu/gymapp/widget/SwitchButton;->access$200(Lcom/isaigu/gymapp/widget/SwitchButton;)Landroid/graphics/Paint;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/SwitchButton$2;->this$0:Lcom/isaigu/gymapp/widget/SwitchButton;
 
+    # getter for: Lcom/isaigu/gymapp/widget/SwitchButton;->switchViewBgColor:I
     invoke-static {v1}, Lcom/isaigu/gymapp/widget/SwitchButton;->access$100(Lcom/isaigu/gymapp/widget/SwitchButton;)I
 
     move-result v1

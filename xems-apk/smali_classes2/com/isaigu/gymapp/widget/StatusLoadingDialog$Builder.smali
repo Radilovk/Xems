@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 121
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public build()Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
-    .locals 1
+    .registers 2
 
     .line 126
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/StatusLoadingDialog$Builder;->dialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;

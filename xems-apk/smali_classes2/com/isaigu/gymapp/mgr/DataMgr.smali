@@ -60,7 +60,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,35 +72,17 @@
 
     iput-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
 
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->deviceBeanList:Ljava/util/List;
-
     .line 42
     return-void
 .end method
 
 .method public static getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
-    .locals 1
+    .registers 1
 
     .line 44
     sget-object v0, Lcom/isaigu/gymapp/mgr/DataMgr;->instance:Lcom/isaigu/gymapp/mgr/DataMgr;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 45
     new-instance v0, Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -110,14 +92,14 @@
     sput-object v0, Lcom/isaigu/gymapp/mgr/DataMgr;->instance:Lcom/isaigu/gymapp/mgr/DataMgr;
 
     .line 47
-    :cond_0
+    :cond_b
     sget-object v0, Lcom/isaigu/gymapp/mgr/DataMgr;->instance:Lcom/isaigu/gymapp/mgr/DataMgr;
 
     return-object v0
 .end method
 
 .method private handleDataAvailable(Lcom/isaigu/gymapp/message/DataBundle;)V
-    .locals 3
+    .registers 5
     .param p1, "dataBundle"    # Lcom/isaigu/gymapp/message/DataBundle;
 
     .line 267
@@ -152,7 +134,7 @@
 
 # virtual methods
 .method public addOrUpdateTrainProgram(Lcom/isaigu/gymapp/bean/TrainProgram;)V
-    .locals 4
+    .registers 6
     .param p1, "program"    # Lcom/isaigu/gymapp/bean/TrainProgram;
 
     .line 150
@@ -163,14 +145,14 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     iget-object v2, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_26
 
     .line 152
     iget-object v2, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
@@ -189,7 +171,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     .line 153
     iget-object v2, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
@@ -200,19 +182,19 @@
     const/4 v0, 0x1
 
     .line 155
-    goto :goto_1
+    goto :goto_26
 
     .line 151
-    :cond_0
+    :cond_23
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 158
     .end local v1    # "i":I
-    :cond_1
-    :goto_1
-    if-nez v0, :cond_2
+    :cond_26
+    :goto_26
+    if-nez v0, :cond_2d
 
     .line 159
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
@@ -220,12 +202,12 @@
     invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 161
-    :cond_2
+    :cond_2d
     return-void
 .end method
 
 .method public addOrUpdateTrainUser(Lcom/isaigu/gymapp/bean/TrainUser;)V
-    .locals 7
+    .registers 9
     .param p1, "user"    # Lcom/isaigu/gymapp/bean/TrainUser;
 
     .line 136
@@ -236,14 +218,14 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     iget-object v2, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_24
 
     .line 138
     iget-object v2, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
@@ -260,7 +242,7 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_21
 
     .line 139
     iget-object v2, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
@@ -271,19 +253,19 @@
     const/4 v0, 0x1
 
     .line 141
-    goto :goto_1
+    goto :goto_24
 
     .line 137
-    :cond_0
+    :cond_21
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 144
     .end local v1    # "i":I
-    :cond_1
-    :goto_1
-    if-nez v0, :cond_2
+    :cond_24
+    :goto_24
+    if-nez v0, :cond_2b
 
     .line 145
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
@@ -291,18 +273,18 @@
     invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 147
-    :cond_2
+    :cond_2b
     return-void
 .end method
 
 .method public addTrainingUser(Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;)Z
-    .locals 5
+    .registers 7
     .param p1, "trainingUser"    # Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     .line 71
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_49
 
     iget-object v1, p1, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->macAddress:Ljava/lang/String;
 
@@ -310,38 +292,38 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
-    goto :goto_2
+    goto :goto_49
 
     .line 74
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
     .line 75
     .local v1, "contain":Z
     iget-object v2, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_3f
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-lez v2, :cond_3
+    if-lez v2, :cond_3f
 
     .line 76
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_18
     iget-object v3, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_3
+    if-ge v2, v3, :cond_3f
 
     .line 77
     iget-object v3, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
@@ -350,7 +332,7 @@
 
     move-result-object v3
 
-    if-eq v3, p1, :cond_2
+    if-eq v3, p1, :cond_3e
 
     iget-object v3, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
 
@@ -368,25 +350,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3b
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 76
-    :cond_1
+    :cond_3b
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 78
-    :cond_2
-    :goto_1
+    :cond_3e
+    :goto_3e
     const/4 v1, 0x1
 
     .line 83
     .end local v2    # "i":I
-    :cond_3
-    if-nez v1, :cond_4
+    :cond_3f
+    if-nez v1, :cond_48
 
     .line 84
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
@@ -399,43 +381,43 @@
     return v0
 
     .line 87
-    :cond_4
+    :cond_48
     return v0
 
     .line 72
     .end local v1    # "contain":Z
-    :cond_5
-    :goto_2
+    :cond_49
+    :goto_49
     return v0
 .end method
 
 .method public getProgramData(Ljava/lang/String;)Lcom/isaigu/gymapp/bean/TrainProgram;
-    .locals 2
+    .registers 4
     .param p1, "name"    # Ljava/lang/String;
 
     .line 114
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2f
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_2f
 
     .line 115
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_b
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_2f
 
     .line 116
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
@@ -452,7 +434,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2c
 
     .line 117
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
@@ -466,14 +448,14 @@
     return-object v1
 
     .line 115
-    :cond_0
+    :cond_2c
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 121
     .end local v0    # "i":I
-    :cond_1
+    :cond_2f
     new-instance v0, Lcom/isaigu/gymapp/bean/TrainProgram;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/bean/TrainProgram;-><init>()V
@@ -482,7 +464,7 @@
 .end method
 
 .method public getSubmitUserData(Lcom/isaigu/gymapp/bean/TrainUser;)Lcom/isaigu/gymapp/bean/dto/SubmitUserDataDTO;
-    .locals 3
+    .registers 5
     .param p1, "trainUser"    # Lcom/isaigu/gymapp/bean/TrainUser;
 
     .line 195
@@ -572,32 +554,32 @@
 .end method
 
 .method public getTrainUser(J)Lcom/isaigu/gymapp/bean/TrainUser;
-    .locals 4
+    .registers 7
     .param p1, "id"    # J
 
     .line 125
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_2d
 
     .line 126
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_b
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_2d
 
     .line 127
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
@@ -612,7 +594,7 @@
 
     cmp-long v3, v1, p1
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2a
 
     .line 128
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
@@ -626,14 +608,14 @@
     return-object v1
 
     .line 126
-    :cond_0
+    :cond_2a
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 132
     .end local v0    # "i":I
-    :cond_1
+    :cond_2d
     new-instance v0, Lcom/isaigu/gymapp/bean/TrainUser;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/bean/TrainUser;-><init>()V
@@ -642,7 +624,7 @@
 .end method
 
 .method public getUpdateUserData(Lcom/isaigu/gymapp/bean/TrainUser;)Lcom/isaigu/gymapp/bean/dto/UpdateUserDataDTO;
-    .locals 3
+    .registers 5
     .param p1, "trainUser"    # Lcom/isaigu/gymapp/bean/TrainUser;
 
     .line 217
@@ -730,21 +712,21 @@
 .end method
 
 .method public getUserUsedTrainType(Ljava/lang/String;)Lcom/isaigu/gymapp/bean/ProgramDataBean;
-    .locals 5
+    .registers 7
     .param p1, "userId"    # Ljava/lang/String;
 
     .line 165
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_6
+    if-ge v0, v1, :cond_8d
 
     .line 166
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
@@ -761,31 +743,31 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_89
 
     .line 167
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_8d
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-lez v1, :cond_6
+    if-lez v1, :cond_8d
 
     .line 168
     const/4 v1, 0x0
 
     .local v1, "j":I
-    :goto_1
+    :goto_24
     iget-object v2, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_4
+    if-ge v1, v2, :cond_88
 
     .line 169
     iget-object v2, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
@@ -798,7 +780,7 @@
 
     iget-object v2, v2, Lcom/isaigu/gymapp/bean/TrainProgram;->name:Ljava/lang/String;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_85
 
     iget-object v2, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
 
@@ -810,7 +792,7 @@
 
     iget-object v2, v2, Lcom/isaigu/gymapp/bean/TrainUser;->trainName:Ljava/lang/String;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_85
 
     iget-object v2, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
 
@@ -837,7 +819,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_85
 
     .line 171
     iget-object v2, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
@@ -852,7 +834,7 @@
     .local v2, "trainProgram":Lcom/isaigu/gymapp/bean/TrainProgram;
     iget v3, v2, Lcom/isaigu/gymapp/bean/TrainProgram;->useType:I
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_6d
 
     .line 173
     iget-object v3, v2, Lcom/isaigu/gymapp/bean/TrainProgram;->programDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -860,12 +842,12 @@
     return-object v3
 
     .line 175
-    :cond_0
+    :cond_6d
     iget v3, v2, Lcom/isaigu/gymapp/bean/TrainProgram;->useType:I
 
     const/4 v4, 0x1
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_75
 
     .line 176
     iget-object v3, v2, Lcom/isaigu/gymapp/bean/TrainProgram;->muscleTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -873,12 +855,12 @@
     return-object v3
 
     .line 178
-    :cond_1
+    :cond_75
     iget v3, v2, Lcom/isaigu/gymapp/bean/TrainProgram;->useType:I
 
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_7d
 
     .line 179
     iget-object v3, v2, Lcom/isaigu/gymapp/bean/TrainProgram;->aerobicTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -886,12 +868,12 @@
     return-object v3
 
     .line 181
-    :cond_2
+    :cond_7d
     iget v3, v2, Lcom/isaigu/gymapp/bean/TrainProgram;->useType:I
 
     const/4 v4, 0x3
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_85
 
     .line 182
     iget-object v3, v2, Lcom/isaigu/gymapp/bean/TrainProgram;->massageModeProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -900,32 +882,32 @@
 
     .line 168
     .end local v2    # "trainProgram":Lcom/isaigu/gymapp/bean/TrainProgram;
-    :cond_3
+    :cond_85
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_24
 
     .end local v1    # "j":I
-    :cond_4
-    goto :goto_2
+    :cond_88
+    goto :goto_8d
 
     .line 165
-    :cond_5
+    :cond_89
     add-int/lit8 v0, v0, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     .line 190
     .end local v0    # "i":I
-    :cond_6
-    :goto_2
+    :cond_8d
+    :goto_8d
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public handleEvent(Lcom/isaigu/gymapp/message/DataBundle;)V
-    .locals 2
+    .registers 4
     .param p1, "bundle"    # Lcom/isaigu/gymapp/message/DataBundle;
 
     .line 240
@@ -937,24 +919,24 @@
     .local v0, "event":S
     const/16 v1, 0x3f2
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_9
 
-    goto :goto_0
+    goto :goto_d
 
     .line 252
-    :cond_0
+    :cond_9
     invoke-direct {p0, p1}, Lcom/isaigu/gymapp/mgr/DataMgr;->handleDataAvailable(Lcom/isaigu/gymapp/message/DataBundle;)V
 
     .line 253
     nop
 
     .line 264
-    :goto_0
+    :goto_d
     return-void
 .end method
 
 .method public init()V
-    .locals 1
+    .registers 2
 
     .line 52
     const/16 v0, 0x3f4
@@ -996,35 +978,35 @@
 .end method
 
 .method public removeAllTrainingUser()V
-    .locals 1
+    .registers 2
 
     .line 108
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 109
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
     .line 111
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public removeTrainingUser(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "address"    # Ljava/lang/String;
 
     .line 94
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_39
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_39
 
     .line 95
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
@@ -1036,8 +1018,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_12
+    if-ltz v0, :cond_39
 
     .line 96
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
@@ -1050,7 +1032,7 @@
 
     iget-object v1, v1, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->macAddress:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_36
 
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
 
@@ -1066,7 +1048,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_36
 
     .line 97
     iget-object v1, p0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
@@ -1074,23 +1056,23 @@
     invoke-interface {v1, v0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     .line 98
-    goto :goto_1
+    goto :goto_39
 
     .line 95
-    :cond_0
+    :cond_36
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 102
     .end local v0    # "i":I
-    :cond_1
-    :goto_1
+    :cond_39
+    :goto_39
     return-void
 .end method
 
 .method public unInit()V
-    .locals 0
+    .registers 1
 
     .line 62
     invoke-static {p0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->detachEventListener(Lcom/isaigu/gymapp/message/EventListener;)V

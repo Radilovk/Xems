@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 43
@@ -72,7 +72,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -149,7 +149,7 @@
 .end method
 
 .method private drawBackground(Landroid/graphics/Canvas;)V
-    .locals 6
+    .registers 8
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 102
@@ -237,7 +237,7 @@
 .end method
 
 .method private drawCircle(Landroid/graphics/Canvas;)V
-    .locals 5
+    .registers 7
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 123
@@ -253,11 +253,11 @@
 
     cmpg-float v3, v1, v2
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_e
 
     move v1, v2
 
-    :cond_0
+    :cond_e
     iput v1, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->y:F
 
     .line 125
@@ -269,11 +269,11 @@
 
     cmpl-float v4, v1, v4
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_1c
 
     sub-float v1, v2, v3
 
-    :cond_1
+    :cond_1c
     iput v1, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->y:F
 
     .line 126
@@ -342,7 +342,7 @@
 .end method
 
 .method private drawForground(Landroid/graphics/Canvas;)V
-    .locals 13
+    .registers 15
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 113
@@ -473,7 +473,7 @@
 .end method
 
 .method private drawThumb(Landroid/graphics/Canvas;)V
-    .locals 5
+    .registers 7
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 138
@@ -489,11 +489,11 @@
 
     cmpg-float v3, v1, v2
 
-    if-gez v3, :cond_0
+    if-gez v3, :cond_e
 
     move v1, v2
 
-    :cond_0
+    :cond_e
     iput v1, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->y:F
 
     .line 140
@@ -505,11 +505,11 @@
 
     cmpl-float v4, v1, v4
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_1c
 
     sub-float v1, v2, v3
 
-    :cond_1
+    :cond_1c
     iput v1, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->y:F
 
     .line 141
@@ -567,7 +567,7 @@
 
 # virtual methods
 .method public getMaxCount()F
-    .locals 1
+    .registers 2
 
     .line 159
     iget v0, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->maxCount:F
@@ -576,7 +576,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 8
+    .registers 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 80
@@ -680,7 +680,7 @@
 
     cmpl-float v2, v2, v3
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_58
 
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->thumbBitmap:Landroid/graphics/Bitmap;
 
@@ -692,12 +692,12 @@
 
     int-to-float v2, v2
 
-    goto :goto_0
+    goto :goto_5a
 
-    :cond_0
+    :cond_58
     iget v2, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->mRadius:F
 
-    :goto_0
+    :goto_5a
     iput v2, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->mRadius:F
 
     .line 95
@@ -719,14 +719,14 @@
 .end method
 
 .method protected declared-synchronized onMeasure(II)V
-    .locals 2
+    .registers 5
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
     monitor-enter p0
 
     .line 53
-    :try_start_0
+    :try_start_1
     invoke-super {p0, p1, p2}, Landroid/view/View;->onMeasure(II)V
 
     .line 54
@@ -739,8 +739,8 @@
     move-result v1
 
     invoke-virtual {p0, v0, v1}, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->setMeasuredDimension(II)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_1 .. :try_end_f} :catchall_11
 
     .line 55
     monitor-exit p0
@@ -751,7 +751,7 @@
     .end local p0    # "this":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
     .end local p1    # "widthMeasureSpec":I
     .end local p2    # "heightMeasureSpec":I
-    :catchall_0
+    :catchall_11
     move-exception p1
 
     monitor-exit p0
@@ -760,7 +760,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 3
+    .registers 5
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 165
@@ -786,48 +786,48 @@
     .line 167
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_17
 
     .line 168
     iput v1, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->progress:F
 
     .line 170
-    :cond_0
+    :cond_17
     iget v0, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->progress:F
 
     const/4 v1, 0x0
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_20
 
     .line 171
     iput v1, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->progress:F
 
     .line 173
-    :cond_1
+    :cond_20
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_4
+    if-eq v0, v1, :cond_3f
 
     const/4 v2, 0x2
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v2, :cond_2b
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 183
-    :cond_2
+    :cond_2b
     iput-boolean v1, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->clickMove:Z
 
     .line 184
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->onStateChangeListener:Lcom/isaigu/gymapp/widget/VerticalColorSeekBar$OnStateChangeListener;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_36
 
     .line 185
     iget v2, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->progress:F
@@ -835,7 +835,7 @@
     invoke-interface {v0, p0, v2}, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar$OnStateChangeListener;->OnStateChangeListener(Landroid/view/View;F)V
 
     .line 187
-    :cond_3
+    :cond_36
     iget v0, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->progress:F
 
     invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->setProgress(F)V
@@ -843,17 +843,17 @@
     .line 188
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->invalidate()V
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 177
-    :cond_4
+    :cond_3f
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->clickMove:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4f
 
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->onStateChangeListener:Lcom/isaigu/gymapp/widget/VerticalColorSeekBar$OnStateChangeListener;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4f
 
     .line 178
     iget v2, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->progress:F
@@ -866,8 +866,8 @@
     iput-boolean v0, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->clickMove:Z
 
     .line 191
-    :cond_5
-    :goto_0
+    :cond_4f
+    :goto_4f
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
@@ -879,7 +879,7 @@
 .end method
 
 .method public setColor(IIIII)V
-    .locals 2
+    .registers 8
     .param p1, "startColor"    # I
     .param p2, "middleColor"    # I
     .param p3, "endColor"    # I
@@ -923,7 +923,7 @@
 .end method
 
 .method public setColorArray(III)V
-    .locals 2
+    .registers 6
     .param p1, "startColor"    # I
     .param p2, "middleColor"    # I
     .param p3, "endColor"    # I
@@ -959,7 +959,7 @@
 .end method
 
 .method public setMaxCount(I)V
-    .locals 2
+    .registers 4
     .param p1, "maxCount"    # I
 
     .line 152
@@ -972,7 +972,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 154
     const/high16 v0, 0x42c80000    # 100.0f
@@ -980,12 +980,12 @@
     iput v0, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->maxCount:F
 
     .line 156
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setOnStateChangeListener(Lcom/isaigu/gymapp/widget/VerticalColorSeekBar$OnStateChangeListener;)V
-    .locals 0
+    .registers 2
     .param p1, "onStateChangeListener"    # Lcom/isaigu/gymapp/widget/VerticalColorSeekBar$OnStateChangeListener;
 
     .line 202
@@ -996,7 +996,7 @@
 .end method
 
 .method public setProgress(F)V
-    .locals 2
+    .registers 4
     .param p1, "progress"    # F
 
     .line 206
@@ -1007,13 +1007,13 @@
 
     cmpl-float v1, p1, v0
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_a
 
     .line 208
     iput v0, p0, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->progress:F
 
     .line 210
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->invalidate()V
 
     .line 211

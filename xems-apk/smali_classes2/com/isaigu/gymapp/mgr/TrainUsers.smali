@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public add(Lcom/isaigu/gymapp/bean/TrainUser;)V
-    .locals 1
+    .registers 3
     .param p1, "user"    # Lcom/isaigu/gymapp/bean/TrainUser;
 
     .line 20

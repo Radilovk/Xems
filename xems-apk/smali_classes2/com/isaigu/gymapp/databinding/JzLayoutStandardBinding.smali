@@ -58,7 +58,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/RelativeLayout;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/LinearLayout;Landroid/widget/ProgressBar;Landroid/widget/SeekBar;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/LinearLayout;Landroid/widget/RelativeLayout;Landroid/widget/ProgressBar;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/LinearLayout;Landroid/widget/ImageView;Landroid/widget/LinearLayout;Landroid/widget/FrameLayout;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;)V
-    .locals 16
+    .registers 41
     .param p1, "rootView"    # Landroid/widget/RelativeLayout;
     .param p2, "back"    # Landroid/widget/ImageView;
     .param p3, "backTiny"    # Landroid/widget/ImageView;
@@ -214,7 +214,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/JzLayoutStandardBinding;
-    .locals 51
+    .registers 52
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 158
@@ -232,7 +232,7 @@
 
     .line 160
     .local v2, "back":Landroid/widget/ImageView;
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_179
 
     .line 164
     const v1, 0x7f090047
@@ -248,7 +248,7 @@
 
     .line 166
     .local v28, "backTiny":Landroid/widget/ImageView;
-    if-eqz v28, :cond_15
+    if-eqz v28, :cond_178
 
     .line 170
     const v1, 0x7f090049
@@ -264,7 +264,7 @@
 
     .line 172
     .local v29, "batteryLevel":Landroid/widget/ImageView;
-    if-eqz v29, :cond_14
+    if-eqz v29, :cond_177
 
     .line 176
     const v1, 0x7f09004a
@@ -280,7 +280,7 @@
 
     .line 178
     .local v30, "batteryTimeLayout":Landroid/widget/LinearLayout;
-    if-eqz v30, :cond_13
+    if-eqz v30, :cond_176
 
     .line 182
     const v1, 0x7f09004e
@@ -296,7 +296,7 @@
 
     .line 184
     .local v31, "bottomProgress":Landroid/widget/ProgressBar;
-    if-eqz v31, :cond_12
+    if-eqz v31, :cond_175
 
     .line 188
     const v1, 0x7f09004f
@@ -312,7 +312,7 @@
 
     .line 190
     .local v32, "bottomSeekProgress":Landroid/widget/SeekBar;
-    if-eqz v32, :cond_11
+    if-eqz v32, :cond_174
 
     .line 194
     const v1, 0x7f090075
@@ -328,7 +328,7 @@
 
     .line 196
     .local v33, "clarity":Landroid/widget/TextView;
-    if-eqz v33, :cond_10
+    if-eqz v33, :cond_173
 
     .line 200
     const v1, 0x7f090078
@@ -344,7 +344,7 @@
 
     .line 202
     .local v34, "close":Landroid/widget/ImageView;
-    if-eqz v34, :cond_f
+    if-eqz v34, :cond_172
 
     .line 206
     const v1, 0x7f09007d
@@ -360,7 +360,7 @@
 
     .line 208
     .local v35, "current":Landroid/widget/TextView;
-    if-eqz v35, :cond_e
+    if-eqz v35, :cond_171
 
     .line 212
     const v1, 0x7f0900aa
@@ -376,7 +376,7 @@
 
     .line 214
     .local v36, "fullscreen":Landroid/widget/ImageView;
-    if-eqz v36, :cond_d
+    if-eqz v36, :cond_170
 
     .line 218
     const v1, 0x7f0900d8
@@ -392,7 +392,7 @@
 
     .line 220
     .local v37, "layoutBottom":Landroid/widget/LinearLayout;
-    if-eqz v37, :cond_c
+    if-eqz v37, :cond_16f
 
     .line 224
     const v1, 0x7f0900d9
@@ -408,7 +408,7 @@
 
     .line 226
     .local v38, "layoutTop":Landroid/widget/RelativeLayout;
-    if-eqz v38, :cond_b
+    if-eqz v38, :cond_16e
 
     .line 230
     const v1, 0x7f0900f1
@@ -424,7 +424,7 @@
 
     .line 232
     .local v39, "loading":Landroid/widget/ProgressBar;
-    if-eqz v39, :cond_a
+    if-eqz v39, :cond_16d
 
     .line 236
     const v1, 0x7f09014e
@@ -440,7 +440,7 @@
 
     .line 238
     .local v40, "replayText":Landroid/widget/TextView;
-    if-eqz v40, :cond_9
+    if-eqz v40, :cond_16c
 
     .line 242
     const v1, 0x7f090152
@@ -456,7 +456,7 @@
 
     .line 244
     .local v41, "retryBtn":Landroid/widget/TextView;
-    if-eqz v41, :cond_8
+    if-eqz v41, :cond_16b
 
     .line 248
     const v1, 0x7f090153
@@ -472,7 +472,7 @@
 
     .line 250
     .local v42, "retryLayout":Landroid/widget/LinearLayout;
-    if-eqz v42, :cond_7
+    if-eqz v42, :cond_16a
 
     .line 254
     const v1, 0x7f090187
@@ -488,7 +488,7 @@
 
     .line 256
     .local v43, "start":Landroid/widget/ImageView;
-    if-eqz v43, :cond_6
+    if-eqz v43, :cond_169
 
     .line 260
     const v1, 0x7f090188
@@ -504,7 +504,7 @@
 
     .line 262
     .local v44, "startLayout":Landroid/widget/LinearLayout;
-    if-eqz v44, :cond_5
+    if-eqz v44, :cond_168
 
     .line 266
     const v1, 0x7f090191
@@ -520,7 +520,7 @@
 
     .line 268
     .local v45, "surfaceContainer":Landroid/widget/FrameLayout;
-    if-eqz v45, :cond_4
+    if-eqz v45, :cond_167
 
     .line 272
     const v1, 0x7f0901a9
@@ -536,7 +536,7 @@
 
     .line 274
     .local v46, "thumb":Landroid/widget/ImageView;
-    if-eqz v46, :cond_3
+    if-eqz v46, :cond_166
 
     .line 278
     const v1, 0x7f0901af
@@ -552,7 +552,7 @@
 
     .line 280
     .local v47, "title":Landroid/widget/TextView;
-    if-eqz v47, :cond_2
+    if-eqz v47, :cond_165
 
     .line 284
     const v1, 0x7f0901b5
@@ -568,7 +568,7 @@
 
     .line 286
     .local v48, "total":Landroid/widget/TextView;
-    if-eqz v48, :cond_1
+    if-eqz v48, :cond_164
 
     .line 290
     const v1, 0x7f0901e6
@@ -584,7 +584,7 @@
 
     .line 292
     .local v49, "videoCurrentTime":Landroid/widget/TextView;
-    if-eqz v49, :cond_0
+    if-eqz v49, :cond_163
 
     .line 296
     new-instance v50, Lcom/isaigu/gymapp/databinding/JzLayoutStandardBinding;
@@ -646,122 +646,122 @@
     return-object v50
 
     .line 293
-    :cond_0
-    goto :goto_0
+    :cond_163
+    goto :goto_17a
 
     .line 287
     .end local v49    # "videoCurrentTime":Landroid/widget/TextView;
-    :cond_1
-    goto :goto_0
+    :cond_164
+    goto :goto_17a
 
     .line 281
     .end local v48    # "total":Landroid/widget/TextView;
-    :cond_2
-    goto :goto_0
+    :cond_165
+    goto :goto_17a
 
     .line 275
     .end local v47    # "title":Landroid/widget/TextView;
-    :cond_3
-    goto :goto_0
+    :cond_166
+    goto :goto_17a
 
     .line 269
     .end local v46    # "thumb":Landroid/widget/ImageView;
-    :cond_4
-    goto :goto_0
+    :cond_167
+    goto :goto_17a
 
     .line 263
     .end local v45    # "surfaceContainer":Landroid/widget/FrameLayout;
-    :cond_5
-    goto :goto_0
+    :cond_168
+    goto :goto_17a
 
     .line 257
     .end local v44    # "startLayout":Landroid/widget/LinearLayout;
-    :cond_6
-    goto :goto_0
+    :cond_169
+    goto :goto_17a
 
     .line 251
     .end local v43    # "start":Landroid/widget/ImageView;
-    :cond_7
-    goto :goto_0
+    :cond_16a
+    goto :goto_17a
 
     .line 245
     .end local v42    # "retryLayout":Landroid/widget/LinearLayout;
-    :cond_8
-    goto :goto_0
+    :cond_16b
+    goto :goto_17a
 
     .line 239
     .end local v41    # "retryBtn":Landroid/widget/TextView;
-    :cond_9
-    goto :goto_0
+    :cond_16c
+    goto :goto_17a
 
     .line 233
     .end local v40    # "replayText":Landroid/widget/TextView;
-    :cond_a
-    goto :goto_0
+    :cond_16d
+    goto :goto_17a
 
     .line 227
     .end local v39    # "loading":Landroid/widget/ProgressBar;
-    :cond_b
-    goto :goto_0
+    :cond_16e
+    goto :goto_17a
 
     .line 221
     .end local v38    # "layoutTop":Landroid/widget/RelativeLayout;
-    :cond_c
-    goto :goto_0
+    :cond_16f
+    goto :goto_17a
 
     .line 215
     .end local v37    # "layoutBottom":Landroid/widget/LinearLayout;
-    :cond_d
-    goto :goto_0
+    :cond_170
+    goto :goto_17a
 
     .line 209
     .end local v36    # "fullscreen":Landroid/widget/ImageView;
-    :cond_e
-    goto :goto_0
+    :cond_171
+    goto :goto_17a
 
     .line 203
     .end local v35    # "current":Landroid/widget/TextView;
-    :cond_f
-    goto :goto_0
+    :cond_172
+    goto :goto_17a
 
     .line 197
     .end local v34    # "close":Landroid/widget/ImageView;
-    :cond_10
-    goto :goto_0
+    :cond_173
+    goto :goto_17a
 
     .line 191
     .end local v33    # "clarity":Landroid/widget/TextView;
-    :cond_11
-    goto :goto_0
+    :cond_174
+    goto :goto_17a
 
     .line 185
     .end local v32    # "bottomSeekProgress":Landroid/widget/SeekBar;
-    :cond_12
-    goto :goto_0
+    :cond_175
+    goto :goto_17a
 
     .line 179
     .end local v31    # "bottomProgress":Landroid/widget/ProgressBar;
-    :cond_13
-    goto :goto_0
+    :cond_176
+    goto :goto_17a
 
     .line 173
     .end local v30    # "batteryTimeLayout":Landroid/widget/LinearLayout;
-    :cond_14
-    goto :goto_0
+    :cond_177
+    goto :goto_17a
 
     .line 167
     .end local v29    # "batteryLevel":Landroid/widget/ImageView;
-    :cond_15
-    goto :goto_0
+    :cond_178
+    goto :goto_17a
 
     .line 161
     .end local v28    # "backTiny":Landroid/widget/ImageView;
-    :cond_16
+    :cond_179
     nop
 
     .line 301
     .end local v2    # "back":Landroid/widget/ImageView;
-    :goto_0
+    :goto_17a
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -786,7 +786,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/JzLayoutStandardBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 139
@@ -802,7 +802,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/JzLayoutStandardBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -818,13 +818,13 @@
 
     .line 146
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 147
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 149
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/JzLayoutStandardBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/JzLayoutStandardBinding;
 
     move-result-object v1
@@ -835,7 +835,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/JzLayoutStandardBinding;->getRoot()Landroid/widget/RelativeLayout;
@@ -846,7 +846,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/RelativeLayout;
-    .locals 1
+    .registers 2
 
     .line 134
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/JzLayoutStandardBinding;->rootView:Landroid/widget/RelativeLayout;

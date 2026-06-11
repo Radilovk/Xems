@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;Lcom/isaigu/gymapp/bean/ProgramPlanBean;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;
     .param p2, "data"    # Lcom/isaigu/gymapp/bean/ProgramPlanBean;
 
@@ -47,12 +47,12 @@
 
 # virtual methods
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 178
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$PlanAdapter;->mData:Lcom/isaigu/gymapp/bean/ProgramPlanBean;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 179
     iget-object v0, v0, Lcom/isaigu/gymapp/bean/ProgramPlanBean;->planList:Ljava/util/List;
@@ -64,14 +64,14 @@
     return v0
 
     .line 181
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public onBindViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
-    .locals 4
+    .registers 7
     .param p1, "holder"    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
     .param p2, "position"    # I
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .locals 3
+    .registers 6
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -145,12 +145,12 @@
 .end method
 
 .method public removeItem(Ljava/lang/String;I)V
-    .locals 3
+    .registers 6
     .param p1, "day"    # Ljava/lang/String;
     .param p2, "position"    # I
 
     .line 151
-    if-ltz p2, :cond_1
+    if-ltz p2, :cond_45
 
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$PlanAdapter;->mData:Lcom/isaigu/gymapp/bean/ProgramPlanBean;
 
@@ -160,7 +160,7 @@
 
     move-result v0
 
-    if-ge p2, v0, :cond_1
+    if-ge p2, v0, :cond_45
 
     .line 152
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$PlanAdapter;->mData:Lcom/isaigu/gymapp/bean/ProgramPlanBean;
@@ -180,21 +180,24 @@
     .line 154
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$PlanAdapter;->this$0:Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;->listener:Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$ProgramPlanRemoveListener;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;->access$200(Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;)Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$ProgramPlanRemoveListener;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_30
 
     .line 155
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$PlanAdapter;->this$0:Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;->listener:Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$ProgramPlanRemoveListener;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;->access$200(Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;)Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$ProgramPlanRemoveListener;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$PlanAdapter;->this$0:Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;->programPlanBean:Lcom/isaigu/gymapp/bean/ProgramPlanBean;
     invoke-static {v2}, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;->access$000(Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;)Lcom/isaigu/gymapp/bean/ProgramPlanBean;
 
     move-result-object v2
@@ -202,7 +205,7 @@
     invoke-interface {v1, v2, v0}, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$ProgramPlanRemoveListener;->programPlanRemove(Lcom/isaigu/gymapp/bean/ProgramPlanBean;Lcom/isaigu/gymapp/bean/ProgramPlanBean$ProgramPlan;)V
 
     .line 157
-    :cond_0
+    :cond_30
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$PlanAdapter;->mData:Lcom/isaigu/gymapp/bean/ProgramPlanBean;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/bean/ProgramPlanBean;->planList:Ljava/util/List;
@@ -211,7 +214,7 @@
 
     move-result v1
 
-    if-gtz v1, :cond_1
+    if-gtz v1, :cond_45
 
     .line 158
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$PlanAdapter;->this$0:Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;
@@ -226,16 +229,16 @@
 
     .line 161
     .end local v0    # "plan":Lcom/isaigu/gymapp/bean/ProgramPlanBean$ProgramPlan;
-    :cond_1
+    :cond_45
     return-void
 .end method
 
 .method public updateAdapter(Lcom/isaigu/gymapp/bean/ProgramPlanBean;)V
-    .locals 0
+    .registers 2
     .param p1, "data"    # Lcom/isaigu/gymapp/bean/ProgramPlanBean;
 
     .line 144
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 145
     iput-object p1, p0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$PlanAdapter;->mData:Lcom/isaigu/gymapp/bean/ProgramPlanBean;
@@ -244,6 +247,6 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$PlanAdapter;->notifyDataSetChanged()V
 
     .line 148
-    :cond_0
+    :cond_7
     return-void
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;[Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 174
@@ -41,13 +41,14 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+    .registers 6
     .param p1, "dialog"    # Landroid/content/DialogInterface;
     .param p2, "which"    # I
 
     .line 176
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$1;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->sex:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$000(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -61,6 +62,7 @@
     .line 177
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$1;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v0

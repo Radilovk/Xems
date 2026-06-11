@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public onAudioFocusChange(I)V
-    .locals 4
+    .registers 6
     .param p1, "focusChange"    # I
 
     .line 79
@@ -40,16 +40,16 @@
 
     const-string v2, "JiaoZiVideoPlayer"
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_2a
 
     const/4 v0, -0x1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_b
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 83
-    :cond_0
+    :cond_b
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->releaseAllVideos()V
 
     .line 84
@@ -76,11 +76,11 @@
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 85
-    goto :goto_1
+    goto :goto_5d
 
     .line 88
-    :cond_1
-    :try_start_0
+    :cond_2a
+    :try_start_2a
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerManager;->getCurrentJzvd()Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;
 
     move-result-object v0
@@ -89,7 +89,7 @@
 
     const/4 v3, 0x3
 
-    if-ne v0, v3, :cond_2
+    if-ne v0, v3, :cond_3c
 
     .line 89
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerManager;->getCurrentJzvd()Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;
@@ -99,15 +99,15 @@
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->startButton:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->performClick()Z
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3c
+    .catch Ljava/lang/IllegalStateException; {:try_start_2a .. :try_end_3c} :catch_3d
 
     .line 93
-    :cond_2
-    goto :goto_0
+    :cond_3c
+    goto :goto_41
 
     .line 91
-    :catch_0
+    :catch_3d
     move-exception v0
 
     .line 92
@@ -116,7 +116,7 @@
 
     .line 94
     .end local v0    # "e":Ljava/lang/IllegalStateException;
-    :goto_0
+    :goto_41
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -143,6 +143,6 @@
     nop
 
     .line 99
-    :goto_1
+    :goto_5d
     return-void
 .end method

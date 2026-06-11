@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 635
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public checkClientTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "chain"    # [Ljava/security/cert/X509Certificate;
     .param p2, "authType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -44,7 +44,7 @@
 .end method
 
 .method public checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "chain"    # [Ljava/security/cert/X509Certificate;
     .param p2, "authType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -58,7 +58,7 @@
 .end method
 
 .method public getAcceptedIssuers()[Ljava/security/cert/X509Certificate;
-    .locals 1
+    .registers 2
 
     .line 647
     const/4 v0, 0x0

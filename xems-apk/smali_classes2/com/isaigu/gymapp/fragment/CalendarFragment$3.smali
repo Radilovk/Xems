@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/CalendarFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
     .line 293
@@ -37,11 +37,11 @@
 
 # virtual methods
 .method public onPermission(Z)V
-    .locals 3
+    .registers 5
     .param p1, "success"    # Z
 
     .line 295
-    if-nez p1, :cond_0
+    if-nez p1, :cond_14
 
     .line 296
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/CalendarFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
@@ -61,6 +61,6 @@
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->showTips(Ljava/lang/String;)V
 
     .line 298
-    :cond_0
+    :cond_14
     return-void
 .end method

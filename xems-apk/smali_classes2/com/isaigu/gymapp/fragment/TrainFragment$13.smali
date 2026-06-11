@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/isaigu/gymapp/fragment/TrainFragment;->handleDeviceDisConnected(Lcom/isaigu/gymapp/message/DataBundle;)V
+    value = Lcom/isaigu/gymapp/fragment/TrainFragment;->handleGetBattery(Lcom/isaigu/gymapp/message/DataBundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,27 +20,22 @@
 # instance fields
 .field final synthetic this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-.field final synthetic val$bundle:Lcom/isaigu/gymapp/message/DataBundle;
+.field final synthetic val$address:Ljava/lang/String;
 
-.field final synthetic val$model:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
+.field final synthetic val$content:[B
 
 
 # direct methods
-.method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment;Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;Lcom/isaigu/gymapp/message/DataBundle;)V
+.method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment;Ljava/lang/String;[B)V
     .registers 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    .prologue
-    .line 467
+    .line 519
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$13;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    iput-object p2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$13;->val$model:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
+    iput-object p2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$13;->val$address:Ljava/lang/String;
 
-    iput-object p3, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$13;->val$bundle:Lcom/isaigu/gymapp/message/DataBundle;
+    iput-object p3, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$13;->val$content:[B
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -50,51 +45,27 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .registers 5
 
-    .prologue
-    .line 470
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$13;->val$model:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
-
-    .line 471
-    if-eqz v0, :cond_1f
-
-    iget-object v0, v0, Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;->address:Ljava/lang/String;
-
-    invoke-static {v0}, Lorg/apache/commons/lang3/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1f
-
-    .line 472
+    .line 521
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$13;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->reconnectTimer:Ljava/util/HashMap;
-    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$100(Lcom/isaigu/gymapp/fragment/TrainFragment;)Ljava/util/HashMap;
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$13;->val$model:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$13;->val$address:Ljava/lang/String;
 
-    iget-object v1, v1, Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;->address:Ljava/lang/String;
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$13;->val$content:[B
 
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v3, 0x0
 
-    move-result-object v0
+    aget-byte v2, v2, v3
 
-    check-cast v0, Ljava/util/Timer;
+    # invokes: Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->handleGetBattery(Ljava/lang/String;B)V
+    invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->access$600(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;Ljava/lang/String;B)V
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/TimerUtils;->stopTimer(Ljava/util/Timer;)V
-
-    .line 474
-    :cond_1f
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$13;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
-
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$13;->val$bundle:Lcom/isaigu/gymapp/message/DataBundle;
-
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/TrainFragment;->handleDeviceDisConnected(Lcom/isaigu/gymapp/message/DataBundle;)V
-
-    .line 475
+    .line 522
     return-void
 .end method

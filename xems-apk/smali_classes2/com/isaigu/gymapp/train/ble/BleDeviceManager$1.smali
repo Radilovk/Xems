@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 132
     invoke-direct {p0}, Lcom/clj/fastble/callback/BleScanCallback;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public onScanFinished(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -48,26 +48,27 @@
     .line 137
     sget-boolean v0, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->started:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 138
+    # invokes: Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->connectAll(Ljava/util/List;)V
     invoke-static {p1}, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->access$000(Ljava/util/List;)V
 
     .line 139
     sget v0, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->connectCount:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 140
     invoke-static {}, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->scan()V
 
     .line 142
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public onScanStarted(Z)V
-    .locals 0
+    .registers 2
     .param p1, "success"    # Z
 
     .line 147
@@ -75,15 +76,16 @@
 .end method
 
 .method public onScanning(Lcom/clj/fastble/data/BleDevice;)V
-    .locals 2
+    .registers 4
     .param p1, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 152
+    # invokes: Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->matchName(Lcom/clj/fastble/data/BleDevice;)Z
     invoke-static {p1}, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->access$100(Lcom/clj/fastble/data/BleDevice;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 153
     invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->getDefault()Lorg/greenrobot/eventbus/EventBus;
@@ -97,6 +99,6 @@
     invoke-virtual {v0, v1}, Lorg/greenrobot/eventbus/EventBus;->post(Ljava/lang/Object;)V
 
     .line 155
-    :cond_0
+    :cond_12
     return-void
 .end method

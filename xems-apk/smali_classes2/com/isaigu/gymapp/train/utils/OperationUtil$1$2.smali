@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/train/utils/OperationUtil$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/train/utils/OperationUtil$1;
 
     .line 95
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 3
+    .registers 7
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -58,15 +58,15 @@
 
     .line 97
     .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Lcom/isaigu/gymapp/bean/TrainProgram;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1b
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1b
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 98
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -83,10 +83,10 @@
 
     invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/mgr/ApiMgr;->getUserProgramTrainDataList(JLcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    goto :goto_0
+    goto :goto_22
 
     .line 112
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Lcom/isaigu/gymapp/train/utils/OperationUtil$1$2;->this$0:Lcom/isaigu/gymapp/train/utils/OperationUtil$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/train/utils/OperationUtil$1;->val$activity:Lcom/isaigu/gymapp/BaseActivity;
@@ -94,12 +94,12 @@
     invoke-static {v0, p2, p3}, Lcom/isaigu/gymapp/mgr/CommonUtils;->showErrorTips(Lcom/isaigu/gymapp/BaseActivity;Ljava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
 
     .line 114
-    :goto_0
+    :goto_22
     return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 95
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

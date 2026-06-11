@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
     .line 613
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 616
     :try_start_0
@@ -56,14 +56,14 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->showTips(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_12} :catch_13
 
     .line 619
-    goto :goto_0
+    goto :goto_17
 
     .line 617
-    :catch_0
+    :catch_13
     move-exception v0
 
     .line 618
@@ -72,6 +72,6 @@
 
     .line 620
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_17
     return-void
 .end method

@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 19
     new-instance v0, Ljava/util/LinkedHashMap;
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/util/ArrayList;
-    .locals 1
+    .registers 1
 
     .line 17
     sget-object v0, Lcom/isaigu/gymapp/ble/BleController;->queueArray:Ljava/util/ArrayList;
@@ -78,7 +78,7 @@
 .end method
 
 .method static synthetic access$100()Ljava/util/LinkedHashMap;
-    .locals 1
+    .registers 1
 
     .line 17
     sget-object v0, Lcom/isaigu/gymapp/ble/BleController;->retryMap:Ljava/util/LinkedHashMap;
@@ -87,7 +87,7 @@
 .end method
 
 .method public static clearWriteData()V
-    .locals 2
+    .registers 2
 
     .line 81
     sget-object v0, Lcom/isaigu/gymapp/ble/BleController;->queueArray:Ljava/util/ArrayList;
@@ -95,7 +95,7 @@
     monitor-enter v0
 
     .line 82
-    :try_start_0
+    :try_start_3
     sget-object v1, Lcom/isaigu/gymapp/ble/BleController;->queueArray:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
@@ -107,18 +107,18 @@
     return-void
 
     .line 83
-    :catchall_0
+    :catchall_a
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw v1
 .end method
 
 .method public static protocolResponse(Ljava/lang/String;I)V
-    .locals 3
+    .registers 5
     .param p0, "address"    # Ljava/lang/String;
     .param p1, "responseProtocol"    # I
 
@@ -162,7 +162,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5f
 
     .line 66
     sget-object v0, Lcom/isaigu/gymapp/ble/BleController;->retryMap:Ljava/util/LinkedHashMap;
@@ -182,15 +182,15 @@
     add-int/lit8 v1, v1, -0x1
 
     .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_1
+    :goto_3e
+    if-ltz v1, :cond_5f
 
     .line 68
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_5c
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -200,7 +200,7 @@
 
     iget v2, v2, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;->responseProtocol:I
 
-    if-ne v2, p1, :cond_0
+    if-ne v2, p1, :cond_5c
 
     .line 69
     invoke-interface {v0, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
@@ -211,30 +211,30 @@
 
     .line 70
     .local v2, "wrapper":Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_5f
 
     .line 71
     invoke-virtual {v2}, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;->clear()V
 
-    goto :goto_1
+    goto :goto_5f
 
     .line 67
     .end local v2    # "wrapper":Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;
-    :cond_0
+    :cond_5c
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 77
     .end local v0    # "list":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;>;"
     .end local v1    # "i":I
-    :cond_1
-    :goto_1
+    :cond_5f
+    :goto_5f
     return-void
 .end method
 
 .method public static declared-synchronized writeData(Ljava/lang/String;[B)V
-    .locals 7
+    .registers 9
     .param p0, "address"    # Ljava/lang/String;
     .param p1, "data"    # [B
 
@@ -243,17 +243,17 @@
     monitor-enter v0
 
     .line 25
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_2b
 
-    :try_start_0
+    :try_start_5
     array-length v1, p1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_9
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 29
-    :cond_0
+    :cond_9
     new-instance v1, Lcom/isaigu/gymapp/ble/BleController$WrapperData;
 
     invoke-direct {v1, p0, p1}, Lcom/isaigu/gymapp/ble/BleController$WrapperData;-><init>(Ljava/lang/String;[B)V
@@ -267,7 +267,7 @@
     .line 31
     sget-object v2, Lcom/isaigu/gymapp/ble/BleController;->timer:Ljava/util/Timer;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_26
 
     .line 32
     new-instance v2, Lcom/isaigu/gymapp/ble/BleController$1;
@@ -283,11 +283,11 @@
     move-result-object v2
 
     sput-object v2, Lcom/isaigu/gymapp/ble/BleController;->timer:Ljava/util/Timer;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_5 .. :try_end_26} :catchall_28
 
     .line 61
-    :cond_1
+    :cond_26
     monitor-exit v0
 
     return-void
@@ -296,7 +296,7 @@
     .end local v1    # "wrapperData":Lcom/isaigu/gymapp/ble/BleController$WrapperData;
     .end local p0    # "address":Ljava/lang/String;
     .end local p1    # "data":[B
-    :catchall_0
+    :catchall_28
     move-exception p0
 
     monitor-exit v0
@@ -306,8 +306,8 @@
     .line 26
     .restart local p0    # "address":Ljava/lang/String;
     .restart local p1    # "data":[B
-    :cond_2
-    :goto_0
+    :cond_2b
+    :goto_2b
     monitor-exit v0
 
     return-void

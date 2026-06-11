@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$7;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$7;
 
     .line 422
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onSaveProgram(Lcom/isaigu/gymapp/bean/TrainProgram;Ljava/util/List;)V
-    .locals 2
+    .registers 5
     .param p1, "trainProgram"    # Lcom/isaigu/gymapp/bean/TrainProgram;
     .annotation system Ldalvik/annotation/Signature;
         value = {

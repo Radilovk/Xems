@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
+    .registers 10
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 58
@@ -87,23 +87,23 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_41
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
-    goto :goto_0
+    goto :goto_41
 
     .line 61
-    :cond_0
+    :cond_8
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_1
+    if-ne p1, p0, :cond_c
 
     .line 62
     return v0
 
     .line 64
-    :cond_1
+    :cond_c
     move-object v2, p1
 
     check-cast v2, Lcom/isaigu/gymapp/bean/TrainUser;
@@ -116,7 +116,7 @@
 
     cmp-long v7, v3, v5
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_40
 
     iget-object v3, v2, Lcom/isaigu/gymapp/bean/TrainUser;->name:Ljava/lang/String;
 
@@ -126,7 +126,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_40
 
     iget-object v3, v2, Lcom/isaigu/gymapp/bean/TrainUser;->inputId:Ljava/lang/String;
 
@@ -137,19 +137,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_40
 
     iget-object v3, v2, Lcom/isaigu/gymapp/bean/TrainUser;->gender:Lcom/isaigu/gymapp/bean/Gender;
 
     iget-object v4, p0, Lcom/isaigu/gymapp/bean/TrainUser;->gender:Lcom/isaigu/gymapp/bean/Gender;
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_40
 
     iget v3, v2, Lcom/isaigu/gymapp/bean/TrainUser;->height:I
 
     iget v4, p0, Lcom/isaigu/gymapp/bean/TrainUser;->height:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_40
 
     iget v3, v2, Lcom/isaigu/gymapp/bean/TrainUser;->weight:F
 
@@ -157,18 +157,18 @@
 
     cmpl-float v3, v3, v4
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_40
 
     .line 70
     return v0
 
     .line 72
-    :cond_2
+    :cond_40
     return v1
 
     .line 59
     .end local v2    # "trainUser":Lcom/isaigu/gymapp/bean/TrainUser;
-    :cond_3
-    :goto_0
+    :cond_41
+    :goto_41
     return v1
 .end method

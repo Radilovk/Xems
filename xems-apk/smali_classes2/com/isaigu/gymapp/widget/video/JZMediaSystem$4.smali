@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/video/JZMediaSystem;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/video/JZMediaSystem;
 
     .line 180
@@ -37,14 +37,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 183
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerManager;->getCurrentJzvd()Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 184
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerManager;->getCurrentJzvd()Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;
@@ -54,6 +54,6 @@
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->onSeekComplete()V
 
     .line 186
-    :cond_0
+    :cond_d
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 2
 
     .line 353
     iput-object p1, p0, Lcom/isaigu/gymapp/utils/ReflectionUtils$5;->val$methods:Ljava/util/ArrayList;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public doWith(Ljava/lang/reflect/Method;)V
-    .locals 6
+    .registers 8
     .param p1, "method"    # Ljava/lang/reflect/Method;
 
     .line 355
@@ -56,12 +56,12 @@
 
     .line 359
     .local v2, "var4":Ljava/util/Iterator;
-    :goto_0
+    :goto_8
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4d
 
     .line 360
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -84,7 +84,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_4c
 
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
@@ -98,7 +98,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_4c
 
     .line 362
     invoke-virtual {v3}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
@@ -109,7 +109,7 @@
 
     move-result-object v5
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_4a
 
     invoke-virtual {v3}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
 
@@ -123,30 +123,30 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_4a
 
     .line 363
     move-object v1, v3
 
     .line 364
-    goto :goto_1
+    goto :goto_4d
 
     .line 367
-    :cond_0
+    :cond_4a
     const/4 v0, 0x1
 
     .line 368
-    goto :goto_1
+    goto :goto_4d
 
     .line 370
     .end local v3    # "existingMethod":Ljava/lang/reflect/Method;
-    :cond_1
-    goto :goto_0
+    :cond_4c
+    goto :goto_8
 
     .line 372
-    :cond_2
-    :goto_1
-    if-eqz v1, :cond_3
+    :cond_4d
+    :goto_4d
+    if-eqz v1, :cond_54
 
     .line 373
     iget-object v3, p0, Lcom/isaigu/gymapp/utils/ReflectionUtils$5;->val$methods:Ljava/util/ArrayList;
@@ -154,14 +154,14 @@
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     .line 376
-    :cond_3
-    if-nez v0, :cond_4
+    :cond_54
+    if-nez v0, :cond_61
 
     invoke-static {p1}, Lcom/isaigu/gymapp/utils/ReflectionUtils;->isCglibRenamedMethod(Ljava/lang/reflect/Method;)Z
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_61
 
     .line 377
     iget-object v3, p0, Lcom/isaigu/gymapp/utils/ReflectionUtils$5;->val$methods:Ljava/util/ArrayList;
@@ -169,6 +169,6 @@
     invoke-virtual {v3, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 380
-    :cond_4
+    :cond_61
     return-void
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;
 
     .line 1230
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 1233
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer$ProgressTimerTask;->this$0:Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;
@@ -43,7 +43,7 @@
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer$ProgressTimerTask;->this$0:Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;
 
@@ -51,10 +51,10 @@
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_18
 
     .line 1235
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer$ProgressTimerTask;->this$0:Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;
 
     new-instance v1, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer$ProgressTimerTask$1;
@@ -64,6 +64,6 @@
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->post(Ljava/lang/Runnable;)Z
 
     .line 1245
-    :cond_1
+    :cond_18
     return-void
 .end method

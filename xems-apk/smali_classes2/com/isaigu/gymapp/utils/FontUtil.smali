@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static getFontHeight(Landroid/graphics/Paint;)F
-    .locals 3
+    .registers 4
     .param p0, "paint"    # Landroid/graphics/Paint;
 
     .line 20
@@ -34,7 +34,7 @@
 .end method
 
 .method public static getFontLeading(Landroid/graphics/Paint;)F
-    .locals 3
+    .registers 4
     .param p0, "paint"    # Landroid/graphics/Paint;
 
     .line 28
@@ -54,7 +54,7 @@
 .end method
 
 .method public static getFontlength(Landroid/graphics/Paint;Ljava/lang/String;)F
-    .locals 1
+    .registers 3
     .param p0, "paint"    # Landroid/graphics/Paint;
     .param p1, "str"    # Ljava/lang/String;
 

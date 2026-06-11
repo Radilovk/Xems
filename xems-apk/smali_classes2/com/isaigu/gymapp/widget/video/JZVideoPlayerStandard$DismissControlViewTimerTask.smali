@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;
 
     .line 921
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 925
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard$DismissControlViewTimerTask;->this$0:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;

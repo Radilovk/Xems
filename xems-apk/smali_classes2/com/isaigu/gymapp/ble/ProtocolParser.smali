@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,21 +14,21 @@
 .end method
 
 .method public static parse(Ljava/lang/String;[B)V
-    .locals 6
+    .registers 8
     .param p0, "address"    # Ljava/lang/String;
     .param p1, "data"    # [B
 
     .line 13
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_87
 
     array-length v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
-    goto/16 :goto_1
+    goto/16 :goto_87
 
     .line 21
-    :cond_0
+    :cond_7
     const-string v0, "get: "
 
     invoke-static {v0, p1}, Lcom/isaigu/gymapp/utils/Utils;->printByteArray(Ljava/lang/String;[B)V
@@ -46,7 +46,7 @@
 
     const/4 v4, 0x0
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_2e
 
     array-length v0, p1
 
@@ -56,7 +56,7 @@
 
     const/16 v2, 0xd
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_2e
 
     array-length v0, p1
 
@@ -66,7 +66,7 @@
 
     const/16 v2, 0xa
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_2e
 
     .line 24
     array-length v0, p1
@@ -86,12 +86,12 @@
 
     .line 29
     .end local v0    # "newData":[B
-    :cond_1
+    :cond_2e
     array-length v0, p1
 
     aget-byte v2, p1, v1
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v2, :cond_39
 
     .line 30
     const-string v0, "\u534f\u8bae\u6570\u636e\u957f\u5ea6\u4e0d\u4e00\u81f4"
@@ -102,7 +102,7 @@
     return-void
 
     .line 34
-    :cond_2
+    :cond_39
     const/4 v0, 0x0
 
     .line 35
@@ -110,12 +110,12 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_3b
     array-length v5, p1
 
     sub-int/2addr v5, v1
 
-    if-ge v2, v5, :cond_3
+    if-ge v2, v5, :cond_46
 
     .line 36
     aget-byte v5, p1, v2
@@ -127,18 +127,18 @@
     .line 35
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 39
     .end local v2    # "i":I
-    :cond_3
+    :cond_46
     array-length v2, p1
 
     sub-int/2addr v2, v1
 
     aget-byte v1, p1, v2
 
-    if-eq v1, v0, :cond_4
+    if-eq v1, v0, :cond_63
 
     .line 40
     new-instance v1, Ljava/lang/StringBuilder;
@@ -163,7 +163,7 @@
     return-void
 
     .line 43
-    :cond_4
+    :cond_63
     aget-byte v1, p1, v3
 
     .line 44
@@ -215,7 +215,7 @@
     .end local v1    # "protocol":B
     .end local v2    # "dataPack":[B
     .end local v3    # "dataBundle":Lcom/isaigu/gymapp/message/DataBundle;
-    :cond_5
-    :goto_1
+    :cond_87
+    :goto_87
     return-void
 .end method

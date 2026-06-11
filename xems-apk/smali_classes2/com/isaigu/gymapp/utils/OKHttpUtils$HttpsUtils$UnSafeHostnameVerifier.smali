@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 628
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public verify(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z
-    .locals 1
+    .registers 4
     .param p1, "hostname"    # Ljava/lang/String;
     .param p2, "session"    # Ljavax/net/ssl/SSLSession;
 

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static getMD5(Ljava/lang/String;)Ljava/lang/String;
-    .locals 10
+    .registers 11
     .param p0, "password"    # Ljava/lang/String;
 
     .line 33
@@ -53,8 +53,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_1
+    :goto_1b
+    if-ge v4, v3, :cond_38
 
     aget-byte v5, v1, v4
 
@@ -76,7 +76,7 @@
 
     const/4 v9, 0x1
 
-    if-ne v8, v9, :cond_0
+    if-ne v8, v9, :cond_31
 
     .line 42
     const-string v8, "0"
@@ -84,7 +84,7 @@
     invoke-virtual {v2, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 44
-    :cond_0
+    :cond_31
     invoke-virtual {v2, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 37
@@ -95,15 +95,15 @@
     .end local v7    # "str":Ljava/lang/String;
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 47
-    :cond_1
+    :cond_38
     invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3c
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_3c} :catch_3d
 
     return-object v3
 
@@ -111,7 +111,7 @@
     .end local v0    # "digest":Ljava/security/MessageDigest;
     .end local v1    # "result":[B
     .end local v2    # "buffer":Ljava/lang/StringBuffer;
-    :catch_0
+    :catch_3d
     move-exception v0
 
     .line 49

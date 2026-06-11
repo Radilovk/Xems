@@ -62,7 +62,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 52
     const/4 v0, 0x2
@@ -127,7 +127,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -136,7 +136,7 @@
 .end method
 
 .method public static catchImageFromCamera(Landroid/support/v4/app/Fragment;Ljava/io/File;)Landroid/net/Uri;
-    .locals 4
+    .registers 6
     .param p0, "fragment"    # Landroid/support/v4/app/Fragment;
     .param p1, "targetFile"    # Ljava/io/File;
 
@@ -153,7 +153,7 @@
 
     const/16 v2, 0x18
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_12
 
     .line 401
     invoke-static {p1}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
@@ -161,11 +161,11 @@
     move-result-object v1
 
     .local v1, "imageUri":Landroid/net/Uri;
-    goto :goto_0
+    goto :goto_33
 
     .line 403
     .end local v1    # "imageUri":Landroid/net/Uri;
-    :cond_0
+    :cond_12
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -198,7 +198,7 @@
 
     .line 406
     .restart local v1    # "imageUri":Landroid/net/Uri;
-    :goto_0
+    :goto_33
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
@@ -218,7 +218,7 @@
 .end method
 
 .method public static compressImageFile(Ljava/io/File;F)Ljava/io/File;
-    .locals 9
+    .registers 11
     .param p0, "file"    # Ljava/io/File;
     .param p1, "scale"    # F
 
@@ -294,13 +294,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_52
 
     .line 433
     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
     .line 435
-    :cond_0
+    :cond_52
     const-string v2, ".jpg"
 
     invoke-static {v0, v2}, Ljava/io/File;->createTempFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
@@ -371,8 +371,8 @@
 
     .line 448
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8d
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_8d} :catch_8e
 
     .line 449
     return-object v2
@@ -384,7 +384,7 @@
     .end local v3    # "fos":Ljava/io/FileOutputStream;
     .end local v4    # "o":Landroid/graphics/BitmapFactory$Options;
     .end local v5    # "bitmap":Landroid/graphics/Bitmap;
-    :catch_0
+    :catch_8e
     move-exception v0
 
     .line 451
@@ -399,7 +399,7 @@
 .end method
 
 .method public static cropImage(Landroid/app/Activity;Landroid/net/Uri;Landroid/net/Uri;)V
-    .locals 4
+    .registers 7
     .param p0, "context"    # Landroid/app/Activity;
     .param p1, "uri"    # Landroid/net/Uri;
     .param p2, "targetUri"    # Landroid/net/Uri;
@@ -492,7 +492,7 @@
 .end method
 
 .method public static cropImage(Landroid/support/v4/app/Fragment;Landroid/net/Uri;Landroid/net/Uri;)V
-    .locals 1
+    .registers 4
     .param p0, "context"    # Landroid/support/v4/app/Fragment;
     .param p1, "uri"    # Landroid/net/Uri;
     .param p2, "targetUri"    # Landroid/net/Uri;
@@ -507,7 +507,7 @@
 .end method
 
 .method public static cropImage(Landroid/support/v4/app/Fragment;Landroid/net/Uri;Landroid/net/Uri;II)V
-    .locals 3
+    .registers 8
     .param p0, "context"    # Landroid/support/v4/app/Fragment;
     .param p1, "uri"    # Landroid/net/Uri;
     .param p2, "targetUri"    # Landroid/net/Uri;
@@ -559,7 +559,7 @@
 
     const/16 v2, 0x18
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_31
 
     .line 384
     const/4 v1, 0x3
@@ -567,7 +567,7 @@
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 388
-    :cond_0
+    :cond_31
     const-string v1, "output"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
@@ -605,7 +605,7 @@
 .end method
 
 .method public static dip2px(Landroid/content/Context;F)I
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "dpValue"    # F
 
@@ -634,7 +634,7 @@
 .end method
 
 .method public static disableShowInput(Landroid/widget/EditText;)V
-    .locals 6
+    .registers 7
     .param p0, "et"    # Landroid/widget/EditText;
 
     .line 413
@@ -642,7 +642,7 @@
 
     .line 416
     .local v0, "cls":Ljava/lang/Class;, "Ljava/lang/Class<Landroid/widget/EditText;>;"
-    :try_start_0
+    :try_start_2
     const-string v1, "setShowSoftInputOnFocus"
 
     const/4 v2, 0x1
@@ -673,24 +673,24 @@
     aput-object v3, v2, v5
 
     invoke-virtual {v1, p0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1e
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_1e} :catch_1f
 
     .line 421
-    goto :goto_0
+    goto :goto_20
 
     .line 419
     .end local v1    # "method":Ljava/lang/reflect/Method;
-    :catch_0
+    :catch_1f
     move-exception v1
 
     .line 422
-    :goto_0
+    :goto_20
     return-void
 .end method
 
 .method public static dp2px(Landroid/content/Context;F)I
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "dpVal"    # F
 
@@ -719,14 +719,14 @@
 .end method
 
 .method public static declared-synchronized getAndroidUUID()Ljava/lang/String;
-    .locals 5
+    .registers 5
 
     const-class v0, Lcom/isaigu/gymapp/utils/AndroidUtils;
 
     monitor-enter v0
 
     .line 251
-    :try_start_0
+    :try_start_3
     sget-object v1, Lcom/isaigu/gymapp/utils/AndroidUtils;->context:Landroid/content/Context;
 
     const-string v2, "device_id.xml"
@@ -749,17 +749,17 @@
 
     .line 254
     .local v2, "deviceId":Ljava/lang/String;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     const-string v3, ""
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_3 .. :try_end_1b} :catchall_89
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1f
 
     .line 255
     monitor-exit v0
@@ -767,8 +767,8 @@
     return-object v2
 
     .line 259
-    :cond_0
-    :try_start_1
+    :cond_1f
+    :try_start_1f
     sget-object v3, Lcom/isaigu/gymapp/utils/AndroidUtils;->context:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -799,15 +799,15 @@
     move-result-object v3
 
     invoke-static {v3}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_40
+    .catch Ljava/lang/Exception; {:try_start_1f .. :try_end_40} :catch_41
+    .catchall {:try_start_1f .. :try_end_40} :catchall_89
 
     .line 264
-    goto :goto_0
+    goto :goto_43
 
     .line 262
-    :catch_0
+    :catch_41
     move-exception v3
 
     .line 263
@@ -816,31 +816,31 @@
 
     .line 265
     .end local v3    # "ex":Ljava/lang/Exception;
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_43
+    if-eqz v2, :cond_55
 
-    :try_start_2
+    :try_start_45
     const-string v3, ""
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_55
 
     const-string v3, "9774d56d682e549c"
 
     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_53
+    .catchall {:try_start_45 .. :try_end_53} :catchall_89
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_67
 
     .line 267
-    :cond_1
-    :try_start_3
+    :cond_55
+    :try_start_55
     sget-object v3, Lcom/isaigu/gymapp/utils/AndroidUtils;->context:Landroid/content/Context;
 
     const-string v4, "phone"
@@ -855,17 +855,17 @@
     invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
 
     move-result-object v3
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_63
+    .catch Ljava/lang/Exception; {:try_start_55 .. :try_end_63} :catch_65
+    .catchall {:try_start_55 .. :try_end_63} :catchall_89
 
     move-object v2, v3
 
     .line 271
-    goto :goto_1
+    goto :goto_67
 
     .line 269
-    :catch_1
+    :catch_65
     move-exception v3
 
     .line 270
@@ -874,21 +874,21 @@
 
     .line 273
     .end local v3    # "ex":Ljava/lang/Exception;
-    :cond_2
-    :goto_1
-    if-eqz v2, :cond_3
+    :cond_67
+    :goto_67
+    if-eqz v2, :cond_71
 
-    :try_start_4
+    :try_start_69
     const-string v3, ""
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_7a
 
     .line 274
-    :cond_3
+    :cond_71
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 
     move-result-object v3
@@ -900,7 +900,7 @@
     move-object v2, v3
 
     .line 276
-    :cond_4
+    :cond_7a
     invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v3
@@ -912,8 +912,8 @@
     move-result-object v3
 
     invoke-interface {v3}, Landroid/content/SharedPreferences$Editor;->commit()Z
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_87
+    .catchall {:try_start_69 .. :try_end_87} :catchall_89
 
     .line 277
     monitor-exit v0
@@ -923,7 +923,7 @@
     .line 250
     .end local v1    # "prefs":Landroid/content/SharedPreferences;
     .end local v2    # "deviceId":Ljava/lang/String;
-    :catchall_0
+    :catchall_89
     move-exception v1
 
     monitor-exit v0
@@ -932,7 +932,7 @@
 .end method
 
 .method public static getAppName()Ljava/lang/String;
-    .locals 2
+    .registers 2
 
     .line 162
     sget-object v0, Lcom/isaigu/gymapp/utils/AndroidUtils;->context:Landroid/content/Context;
@@ -959,7 +959,7 @@
 .end method
 
 .method public static getScreenHeight(Landroid/app/Activity;)I
-    .locals 3
+    .registers 4
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 478
@@ -992,7 +992,7 @@
 .end method
 
 .method public static getScreenWidth(Landroid/app/Activity;)I
-    .locals 3
+    .registers 4
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 472
@@ -1025,7 +1025,7 @@
 .end method
 
 .method public static getVersionName(Landroid/content/Context;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
 
     .line 150
@@ -1033,7 +1033,7 @@
 
     .line 152
     .local v0, "packInfo":Landroid/content/pm/PackageInfo;
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -1049,16 +1049,16 @@
     invoke-virtual {v1, v2, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
     move-result-object v1
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_e} :catch_10
 
     move-object v0, v1
 
     .line 156
-    goto :goto_0
+    goto :goto_14
 
     .line 154
-    :catch_0
+    :catch_10
     move-exception v1
 
     .line 155
@@ -1067,7 +1067,7 @@
 
     .line 157
     .end local v1    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    :goto_0
+    :goto_14
     iget-object v1, v0, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
 
     .line 158
@@ -1076,7 +1076,7 @@
 .end method
 
 .method public static init(Landroid/app/Activity;)V
-    .locals 4
+    .registers 5
     .param p0, "context"    # Landroid/app/Activity;
 
     .line 78
@@ -1160,7 +1160,7 @@
 .end method
 
 .method public static installSlient(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0, "abspath"    # Ljava/lang/String;
 
     .line 192
@@ -1178,7 +1178,7 @@
 .end method
 
 .method public static intIP2StringIP(I)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "ip"    # I
 
     .line 184
@@ -1224,7 +1224,7 @@
 .end method
 
 .method public static isVirtualButtonHide(Landroid/content/Context;)Z
-    .locals 5
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
 
     .line 94
@@ -1256,15 +1256,15 @@
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_18} :catch_19
 
     return v2
 
     .line 97
     .end local v0    # "field":Ljava/lang/String;
     .end local v1    # "value":Ljava/lang/String;
-    :catch_0
+    :catch_19
     move-exception v0
 
     .line 98
@@ -1283,7 +1283,7 @@
 
     const/4 v1, 0x0
 
-    :try_start_1
+    :try_start_25
     const-class v3, Landroid/provider/Settings$System;
 
     const-string v4, "HIDER_BUTTON_SHOW"
@@ -1313,23 +1313,23 @@
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_3f
+    .catch Ljava/lang/Exception; {:try_start_25 .. :try_end_3f} :catch_44
 
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_42
 
-    goto :goto_0
+    goto :goto_43
 
-    :cond_0
+    :cond_42
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_43
     return v0
 
     .line 106
     .end local v3    # "fieldValue":Ljava/lang/String;
     .end local v4    # "hideValue":Ljava/lang/Integer;
-    :catch_1
+    :catch_44
     move-exception v3
 
     .line 107
@@ -1342,7 +1342,7 @@
 
     .line 113
     .end local v3    # "e":Ljava/lang/Exception;
-    :try_start_2
+    :try_start_4c
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -1352,24 +1352,24 @@
     invoke-static {v3, v4, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v2
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_56
+    .catch Ljava/lang/Exception; {:try_start_4c .. :try_end_56} :catch_5b
 
     .line 114
     .local v2, "fullscreen":I
-    if-ne v2, v0, :cond_1
+    if-ne v2, v0, :cond_59
 
-    goto :goto_1
+    goto :goto_5a
 
-    :cond_1
+    :cond_59
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_5a
     return v0
 
     .line 115
     .end local v2    # "fullscreen":I
-    :catch_2
+    :catch_5b
     move-exception v0
 
     .line 116
@@ -1386,7 +1386,7 @@
 .end method
 
 .method public static onRequestPermissionsResult(Landroid/app/Activity;I[Ljava/lang/String;[I)V
-    .locals 8
+    .registers 12
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "requestCode"    # I
     .param p2, "permissions"    # [Ljava/lang/String;
@@ -1409,35 +1409,35 @@
     .local v0, "callback":Lcom/isaigu/gymapp/utils/AndroidUtils$RequestPermissionCallback;
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     array-length v2, p2
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_1e
 
     .line 526
     aget-object v2, p2, v1
 
     aget v3, p3, v1
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1a
 
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_1b
     invoke-interface {v0, v2, p1, v3}, Lcom/isaigu/gymapp/utils/AndroidUtils$RequestPermissionCallback;->onRequestPermission(Ljava/lang/String;IZ)V
 
     .line 528
-    :cond_1
+    :cond_1e
     array-length v2, p2
 
-    :goto_1
-    if-ge v1, v2, :cond_2
+    :goto_1f
+    if-ge v1, v2, :cond_48
 
     aget-object v3, p2, v1
 
@@ -1478,15 +1478,15 @@
     .end local v4    # "shouldShow":Z
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 535
-    :cond_2
+    :cond_48
     return-void
 .end method
 
 .method public static px2dip(Landroid/content/Context;F)I
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "pxValue"    # F
 
@@ -1515,7 +1515,7 @@
 .end method
 
 .method public static requestPermission(Landroid/app/Activity;Ljava/lang/String;ILcom/isaigu/gymapp/utils/AndroidUtils$RequestPermissionCallback;)V
-    .locals 3
+    .registers 7
     .param p0, "context"    # Landroid/app/Activity;
     .param p1, "permissionString"    # Ljava/lang/String;
     .param p2, "requestCode"    # I
@@ -1528,18 +1528,18 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 510
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_1e
 
     .line 511
     invoke-interface {p3, p1, p2, v1}, Lcom/isaigu/gymapp/utils/AndroidUtils$RequestPermissionCallback;->onRequestPermission(Ljava/lang/String;IZ)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 514
-    :cond_0
+    :cond_d
     sget-object v0, Lcom/isaigu/gymapp/utils/AndroidUtils;->callbackHashMap:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1558,13 +1558,13 @@
     invoke-static {p0, v0, p2}, Landroid/support/v4/app/ActivityCompat;->requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
 
     .line 517
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     return-void
 .end method
 
 .method public static requestPermission(Landroid/app/Activity;[Ljava/lang/String;ILcom/isaigu/gymapp/utils/AndroidUtils$RequestPermissionCallback;)V
-    .locals 2
+    .registers 6
     .param p0, "context"    # Landroid/app/Activity;
     .param p1, "permissionString"    # [Ljava/lang/String;
     .param p2, "requestCode"    # I
@@ -1587,7 +1587,7 @@
 .end method
 
 .method public static scaleSize(I)F
-    .locals 2
+    .registers 3
     .param p0, "size"    # I
 
     .line 492
@@ -1601,7 +1601,7 @@
 .end method
 
 .method public static selectImageFromCamera(Landroid/app/Activity;I)V
-    .locals 2
+    .registers 4
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "code"    # I
 
@@ -1621,7 +1621,7 @@
 .end method
 
 .method public static selectImageFromGallery(Landroid/support/v4/app/Fragment;ILjava/io/File;)Landroid/net/Uri;
-    .locals 4
+    .registers 7
     .param p0, "context"    # Landroid/support/v4/app/Fragment;
     .param p1, "code"    # I
     .param p2, "targetFile"    # Ljava/io/File;
@@ -1645,7 +1645,7 @@
 
     const/16 v2, 0x18
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_17
 
     .line 315
     invoke-static {p2}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
@@ -1653,11 +1653,11 @@
     move-result-object v1
 
     .local v1, "imageUri":Landroid/net/Uri;
-    goto :goto_0
+    goto :goto_38
 
     .line 317
     .end local v1    # "imageUri":Landroid/net/Uri;
-    :cond_0
+    :cond_17
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -1690,7 +1690,7 @@
 
     .line 320
     .restart local v1    # "imageUri":Landroid/net/Uri;
-    :goto_0
+    :goto_38
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
@@ -1702,8 +1702,8 @@
 
     .line 322
     invoke-virtual {p0, v0, p1}, Landroid/support/v4/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_44
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_44} :catch_45
 
     .line 323
     return-object v1
@@ -1711,7 +1711,7 @@
     .line 324
     .end local v0    # "intent":Landroid/content/Intent;
     .end local v1    # "imageUri":Landroid/net/Uri;
-    :catch_0
+    :catch_45
     move-exception v0
 
     .line 325
@@ -1726,15 +1726,15 @@
 .end method
 
 .method public static setKeyBoardVisible(Landroid/app/Activity;Landroid/view/View;Z)V
-    .locals 3
+    .registers 6
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "visible"    # Z
 
     .line 166
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_1a
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1a
 
     .line 167
     const-string v0, "input_method"
@@ -1749,15 +1749,15 @@
     .local v0, "manager":Landroid/view/inputmethod/InputMethodManager;
     const/4 v1, 0x2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_13
 
     .line 169
     invoke-virtual {v0, p1, v1}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 171
-    :cond_0
+    :cond_13
     invoke-virtual {p1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v2
@@ -1766,13 +1766,13 @@
 
     .line 174
     .end local v0    # "manager":Landroid/view/inputmethod/InputMethodManager;
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     return-void
 .end method
 
 .method public static setSpText(I)F
-    .locals 5
+    .registers 6
     .param p0, "size"    # I
 
     .line 501
@@ -1849,14 +1849,14 @@
 .end method
 
 .method public static setVirtualButtonVisible(Landroid/content/Context;Z)V
-    .locals 5
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "visible"    # Z
 
     .line 123
     const-string v0, "error"
 
-    :try_start_0
+    :try_start_2
     const-class v1, Landroid/provider/Settings$System;
 
     const-string v2, "SHOW_NAVIGATION_BAR"
@@ -1878,17 +1878,17 @@
     move-result-object v3
 
     invoke-static {v2, v1, v3}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_17} :catch_19
 
     .line 127
     nop
 
     .end local v1    # "fieldValue":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_21
 
     .line 125
-    :catch_0
+    :catch_19
     move-exception v1
 
     .line 126
@@ -1901,12 +1901,12 @@
 
     .line 131
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_21
     const/4 v1, 0x0
 
     const/4 v2, 0x1
 
-    :try_start_1
+    :try_start_23
     const-class v3, Landroid/provider/Settings$System;
 
     const-string v4, "HIDER_BUTTON_SHOW"
@@ -1919,7 +1919,7 @@
 
     .line 132
     .local v3, "fValue":Ljava/lang/String;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_37
 
     .line 133
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1928,25 +1928,25 @@
 
     invoke-static {v4, v3, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 135
-    :cond_0
+    :cond_37
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
     invoke-static {v4, v3, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_3e
+    .catch Ljava/lang/Exception; {:try_start_23 .. :try_end_3e} :catch_3f
 
     .line 139
     .end local v3    # "fValue":Ljava/lang/String;
-    :goto_1
-    goto :goto_2
+    :goto_3e
+    goto :goto_47
 
     .line 137
-    :catch_1
+    :catch_3f
     move-exception v3
 
     .line 138
@@ -1959,31 +1959,31 @@
 
     .line 143
     .end local v3    # "e":Ljava/lang/Exception;
-    :goto_2
-    :try_start_2
+    :goto_47
+    :try_start_47
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
     const-string v4, "full_screen_mode"
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_50
 
-    goto :goto_3
+    goto :goto_51
 
-    :cond_1
+    :cond_50
     const/4 v1, 0x1
 
-    :goto_3
+    :goto_51
     invoke-static {v3, v4, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_54
+    .catch Ljava/lang/Exception; {:try_start_47 .. :try_end_54} :catch_55
 
     .line 146
-    goto :goto_4
+    goto :goto_5d
 
     .line 144
-    :catch_2
+    :catch_55
     move-exception v1
 
     .line 145
@@ -1996,12 +1996,12 @@
 
     .line 147
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_4
+    :goto_5d
     return-void
 .end method
 
 .method public static tintDrawable(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 3
     .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .param p1, "colors"    # Landroid/content/res/ColorStateList;
 

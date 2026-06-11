@@ -1,4 +1,4 @@
-.class Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass20;
+.class public Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass20;
 .super Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
 .source "SettingFragment.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "AnonymousClass20"
 .end annotation
 
@@ -34,12 +34,12 @@
     .registers 2
 
     .prologue
-    .line 872
+    .line 686
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass20;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;-><init>()V
 
-    .line 873
+    .line 687
     return-void
 .end method
 
@@ -59,7 +59,7 @@
     .end annotation
 
     .prologue
-    .line 877
+    .line 691
     if-eqz p1, :cond_4a
 
     if-eqz p3, :cond_4a
@@ -76,7 +76,7 @@
 
     if-eqz v0, :cond_4a
 
-    .line 878
+    .line 692
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v1
@@ -91,7 +91,7 @@
 
     iput-object v0, v1, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
 
-    .line 879
+    .line 693
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v0
@@ -108,7 +108,7 @@
 
     iput-object v0, v1, Lcom/isaigu/gymapp/bean/TrainUser;->appLogoUrl:Ljava/lang/String;
 
-    .line 880
+    .line 694
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v0
@@ -135,7 +135,7 @@
 
     invoke-static {v1, v0, v2}, Lcom/isaigu/gymapp/mgr/ApiMgr;->updateAppLogo(Ljava/lang/Long;Ljava/lang/String;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    .line 898
+    .line 712
     :cond_4a
     return-void
 .end method
@@ -144,7 +144,7 @@
     .registers 4
 
     .prologue
-    .line 871
+    .line 685
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass20;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V

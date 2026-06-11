@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
     .line 572
@@ -37,17 +37,19 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 574
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$11;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->userAdapter:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$UserAdapter;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$1200(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$UserAdapter;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$11;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->trainUsers:Ljava/util/List;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$1100(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)Ljava/util/List;
 
     move-result-object v1

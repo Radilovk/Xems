@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$6$1;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/-$$Lambda$NewUserProgramDeviceConnectDialogFragment$6$1$0rvqONVdQrk4scclBeqvhDtpndo;->f$0:Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$6$1;
 

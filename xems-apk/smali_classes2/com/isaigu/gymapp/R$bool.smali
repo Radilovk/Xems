@@ -1,6 +1,5 @@
 .class public final Lcom/isaigu/gymapp/R$bool;
 .super Ljava/lang/Object;
-.source "R.java"
 
 
 # annotations
@@ -34,10 +33,7 @@
 .method private constructor <init>()V
     .registers 1
 
-    .prologue
-    .line 541
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 542
     return-void
 .end method

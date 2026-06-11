@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public matches(Ljava/lang/reflect/Method;)Z
-    .locals 1
+    .registers 3
     .param p1, "method"    # Ljava/lang/reflect/Method;
 
     .line 30

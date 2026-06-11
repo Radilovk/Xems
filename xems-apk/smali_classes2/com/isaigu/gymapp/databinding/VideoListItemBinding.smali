@@ -52,7 +52,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;)V
-    .locals 16
+    .registers 38
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "item1"    # Landroid/widget/RelativeLayout;
     .param p3, "item2"    # Landroid/widget/RelativeLayout;
@@ -190,7 +190,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/VideoListItemBinding;
-    .locals 45
+    .registers 46
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 141
@@ -208,7 +208,7 @@
 
     .line 143
     .local v2, "item1":Landroid/widget/RelativeLayout;
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_149
 
     .line 147
     const v1, 0x7f0900c6
@@ -224,7 +224,7 @@
 
     .line 149
     .local v25, "item2":Landroid/widget/RelativeLayout;
-    if-eqz v25, :cond_12
+    if-eqz v25, :cond_148
 
     .line 153
     const v1, 0x7f0900c7
@@ -240,7 +240,7 @@
 
     .line 155
     .local v26, "item3":Landroid/widget/RelativeLayout;
-    if-eqz v26, :cond_11
+    if-eqz v26, :cond_147
 
     .line 159
     const v1, 0x7f0900c8
@@ -256,7 +256,7 @@
 
     .line 161
     .local v27, "item4":Landroid/widget/RelativeLayout;
-    if-eqz v27, :cond_10
+    if-eqz v27, :cond_146
 
     .line 165
     const v1, 0x7f0900d4
@@ -272,7 +272,7 @@
 
     .line 167
     .local v28, "layout1":Landroid/widget/RelativeLayout;
-    if-eqz v28, :cond_f
+    if-eqz v28, :cond_145
 
     .line 171
     const v1, 0x7f0900d5
@@ -288,7 +288,7 @@
 
     .line 173
     .local v29, "layout2":Landroid/widget/RelativeLayout;
-    if-eqz v29, :cond_e
+    if-eqz v29, :cond_144
 
     .line 177
     const v1, 0x7f0900d6
@@ -304,7 +304,7 @@
 
     .line 179
     .local v30, "layout3":Landroid/widget/RelativeLayout;
-    if-eqz v30, :cond_d
+    if-eqz v30, :cond_143
 
     .line 183
     const v1, 0x7f0900d7
@@ -320,7 +320,7 @@
 
     .line 185
     .local v31, "layout4":Landroid/widget/RelativeLayout;
-    if-eqz v31, :cond_c
+    if-eqz v31, :cond_142
 
     .line 189
     const v1, 0x7f0900fb
@@ -336,7 +336,7 @@
 
     .line 191
     .local v32, "maskImage1":Landroid/widget/ImageView;
-    if-eqz v32, :cond_b
+    if-eqz v32, :cond_141
 
     .line 195
     const v1, 0x7f0900fc
@@ -352,7 +352,7 @@
 
     .line 197
     .local v33, "maskImage2":Landroid/widget/ImageView;
-    if-eqz v33, :cond_a
+    if-eqz v33, :cond_140
 
     .line 201
     const v1, 0x7f0900fd
@@ -368,7 +368,7 @@
 
     .line 203
     .local v34, "maskImage3":Landroid/widget/ImageView;
-    if-eqz v34, :cond_9
+    if-eqz v34, :cond_13f
 
     .line 207
     const v1, 0x7f0900fe
@@ -384,7 +384,7 @@
 
     .line 209
     .local v35, "maskImage4":Landroid/widget/ImageView;
-    if-eqz v35, :cond_8
+    if-eqz v35, :cond_13e
 
     .line 213
     const v1, 0x7f090135
@@ -400,7 +400,7 @@
 
     .line 215
     .local v36, "play1":Landroid/widget/ImageView;
-    if-eqz v36, :cond_7
+    if-eqz v36, :cond_13d
 
     .line 219
     const v1, 0x7f090136
@@ -416,7 +416,7 @@
 
     .line 221
     .local v37, "play2":Landroid/widget/ImageView;
-    if-eqz v37, :cond_6
+    if-eqz v37, :cond_13c
 
     .line 225
     const v1, 0x7f090137
@@ -432,7 +432,7 @@
 
     .line 227
     .local v38, "play3":Landroid/widget/ImageView;
-    if-eqz v38, :cond_5
+    if-eqz v38, :cond_13b
 
     .line 231
     const v1, 0x7f090138
@@ -448,7 +448,7 @@
 
     .line 233
     .local v39, "play4":Landroid/widget/ImageView;
-    if-eqz v39, :cond_4
+    if-eqz v39, :cond_13a
 
     .line 237
     const v1, 0x7f0901e1
@@ -464,7 +464,7 @@
 
     .line 239
     .local v40, "videoName1":Landroid/widget/TextView;
-    if-eqz v40, :cond_3
+    if-eqz v40, :cond_139
 
     .line 243
     const v1, 0x7f0901e2
@@ -480,7 +480,7 @@
 
     .line 245
     .local v41, "videoName2":Landroid/widget/TextView;
-    if-eqz v41, :cond_2
+    if-eqz v41, :cond_138
 
     .line 249
     const v1, 0x7f0901e3
@@ -496,7 +496,7 @@
 
     .line 251
     .local v42, "videoName3":Landroid/widget/TextView;
-    if-eqz v42, :cond_1
+    if-eqz v42, :cond_137
 
     .line 255
     const v1, 0x7f0901e4
@@ -512,7 +512,7 @@
 
     .line 257
     .local v43, "videoName4":Landroid/widget/TextView;
-    if-eqz v43, :cond_0
+    if-eqz v43, :cond_136
 
     .line 261
     new-instance v44, Lcom/isaigu/gymapp/databinding/VideoListItemBinding;
@@ -568,107 +568,107 @@
     return-object v44
 
     .line 258
-    :cond_0
-    goto :goto_0
+    :cond_136
+    goto :goto_14a
 
     .line 252
     .end local v43    # "videoName4":Landroid/widget/TextView;
-    :cond_1
-    goto :goto_0
+    :cond_137
+    goto :goto_14a
 
     .line 246
     .end local v42    # "videoName3":Landroid/widget/TextView;
-    :cond_2
-    goto :goto_0
+    :cond_138
+    goto :goto_14a
 
     .line 240
     .end local v41    # "videoName2":Landroid/widget/TextView;
-    :cond_3
-    goto :goto_0
+    :cond_139
+    goto :goto_14a
 
     .line 234
     .end local v40    # "videoName1":Landroid/widget/TextView;
-    :cond_4
-    goto :goto_0
+    :cond_13a
+    goto :goto_14a
 
     .line 228
     .end local v39    # "play4":Landroid/widget/ImageView;
-    :cond_5
-    goto :goto_0
+    :cond_13b
+    goto :goto_14a
 
     .line 222
     .end local v38    # "play3":Landroid/widget/ImageView;
-    :cond_6
-    goto :goto_0
+    :cond_13c
+    goto :goto_14a
 
     .line 216
     .end local v37    # "play2":Landroid/widget/ImageView;
-    :cond_7
-    goto :goto_0
+    :cond_13d
+    goto :goto_14a
 
     .line 210
     .end local v36    # "play1":Landroid/widget/ImageView;
-    :cond_8
-    goto :goto_0
+    :cond_13e
+    goto :goto_14a
 
     .line 204
     .end local v35    # "maskImage4":Landroid/widget/ImageView;
-    :cond_9
-    goto :goto_0
+    :cond_13f
+    goto :goto_14a
 
     .line 198
     .end local v34    # "maskImage3":Landroid/widget/ImageView;
-    :cond_a
-    goto :goto_0
+    :cond_140
+    goto :goto_14a
 
     .line 192
     .end local v33    # "maskImage2":Landroid/widget/ImageView;
-    :cond_b
-    goto :goto_0
+    :cond_141
+    goto :goto_14a
 
     .line 186
     .end local v32    # "maskImage1":Landroid/widget/ImageView;
-    :cond_c
-    goto :goto_0
+    :cond_142
+    goto :goto_14a
 
     .line 180
     .end local v31    # "layout4":Landroid/widget/RelativeLayout;
-    :cond_d
-    goto :goto_0
+    :cond_143
+    goto :goto_14a
 
     .line 174
     .end local v30    # "layout3":Landroid/widget/RelativeLayout;
-    :cond_e
-    goto :goto_0
+    :cond_144
+    goto :goto_14a
 
     .line 168
     .end local v29    # "layout2":Landroid/widget/RelativeLayout;
-    :cond_f
-    goto :goto_0
+    :cond_145
+    goto :goto_14a
 
     .line 162
     .end local v28    # "layout1":Landroid/widget/RelativeLayout;
-    :cond_10
-    goto :goto_0
+    :cond_146
+    goto :goto_14a
 
     .line 156
     .end local v27    # "item4":Landroid/widget/RelativeLayout;
-    :cond_11
-    goto :goto_0
+    :cond_147
+    goto :goto_14a
 
     .line 150
     .end local v26    # "item3":Landroid/widget/RelativeLayout;
-    :cond_12
-    goto :goto_0
+    :cond_148
+    goto :goto_14a
 
     .line 144
     .end local v25    # "item2":Landroid/widget/RelativeLayout;
-    :cond_13
+    :cond_149
     nop
 
     .line 265
     .end local v2    # "item1":Landroid/widget/RelativeLayout;
-    :goto_0
+    :goto_14a
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -693,7 +693,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/VideoListItemBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 122
@@ -709,7 +709,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/VideoListItemBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -725,13 +725,13 @@
 
     .line 129
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 130
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 132
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/VideoListItemBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/VideoListItemBinding;
 
     move-result-object v1
@@ -742,7 +742,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/VideoListItemBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -753,7 +753,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 117
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/VideoListItemBinding;->rootView:Landroid/widget/LinearLayout;

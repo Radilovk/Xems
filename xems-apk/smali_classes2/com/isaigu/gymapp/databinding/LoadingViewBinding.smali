@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/CircularProgressView;Landroid/widget/ImageView;Lcom/isaigu/gymapp/widget/MyButton;)V
-    .locals 0
+    .registers 10
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "buttonLayout"    # Landroid/widget/LinearLayout;
     .param p3, "cancelButton"    # Lcom/isaigu/gymapp/widget/MyButton;
@@ -74,7 +74,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/LoadingViewBinding;
-    .locals 21
+    .registers 22
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 91
@@ -92,7 +92,7 @@
 
     .line 93
     .local v2, "buttonLayout":Landroid/widget/LinearLayout;
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_83
 
     .line 97
     const v1, 0x7f090064
@@ -108,7 +108,7 @@
 
     .line 99
     .local v13, "cancelButton":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v13, :cond_6
+    if-eqz v13, :cond_82
 
     .line 103
     const v1, 0x7f0900f2
@@ -124,7 +124,7 @@
 
     .line 105
     .local v14, "loadingText":Landroid/widget/TextView;
-    if-eqz v14, :cond_5
+    if-eqz v14, :cond_81
 
     .line 109
     const v1, 0x7f090111
@@ -140,7 +140,7 @@
 
     .line 111
     .local v15, "offlineTestImage":Landroid/widget/ImageView;
-    if-eqz v15, :cond_4
+    if-eqz v15, :cond_80
 
     .line 115
     const v1, 0x7f090141
@@ -156,7 +156,7 @@
 
     .line 117
     .local v16, "progressText":Landroid/widget/TextView;
-    if-eqz v16, :cond_3
+    if-eqz v16, :cond_7f
 
     .line 121
     const v1, 0x7f090144
@@ -172,7 +172,7 @@
 
     .line 123
     .local v17, "progressView":Lcom/isaigu/gymapp/widget/CircularProgressView;
-    if-eqz v17, :cond_2
+    if-eqz v17, :cond_7e
 
     .line 127
     const v1, 0x7f09018a
@@ -188,7 +188,7 @@
 
     .line 129
     .local v18, "statusImage":Landroid/widget/ImageView;
-    if-eqz v18, :cond_1
+    if-eqz v18, :cond_7d
 
     .line 133
     const v1, 0x7f090190
@@ -204,7 +204,7 @@
 
     .line 135
     .local v19, "sureButton":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v19, :cond_0
+    if-eqz v19, :cond_7c
 
     .line 139
     new-instance v20, Lcom/isaigu/gymapp/databinding/LoadingViewBinding;
@@ -236,47 +236,47 @@
     return-object v20
 
     .line 136
-    :cond_0
-    goto :goto_0
+    :cond_7c
+    goto :goto_84
 
     .line 130
     .end local v19    # "sureButton":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_1
-    goto :goto_0
+    :cond_7d
+    goto :goto_84
 
     .line 124
     .end local v18    # "statusImage":Landroid/widget/ImageView;
-    :cond_2
-    goto :goto_0
+    :cond_7e
+    goto :goto_84
 
     .line 118
     .end local v17    # "progressView":Lcom/isaigu/gymapp/widget/CircularProgressView;
-    :cond_3
-    goto :goto_0
+    :cond_7f
+    goto :goto_84
 
     .line 112
     .end local v16    # "progressText":Landroid/widget/TextView;
-    :cond_4
-    goto :goto_0
+    :cond_80
+    goto :goto_84
 
     .line 106
     .end local v15    # "offlineTestImage":Landroid/widget/ImageView;
-    :cond_5
-    goto :goto_0
+    :cond_81
+    goto :goto_84
 
     .line 100
     .end local v14    # "loadingText":Landroid/widget/TextView;
-    :cond_6
-    goto :goto_0
+    :cond_82
+    goto :goto_84
 
     .line 94
     .end local v13    # "cancelButton":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_7
+    :cond_83
     nop
 
     .line 142
     .end local v2    # "buttonLayout":Landroid/widget/LinearLayout;
-    :goto_0
+    :goto_84
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -301,7 +301,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/LoadingViewBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 72
@@ -317,7 +317,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/LoadingViewBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -333,13 +333,13 @@
 
     .line 79
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 80
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 82
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/LoadingViewBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/LoadingViewBinding;
 
     move-result-object v1
@@ -350,7 +350,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 20
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/LoadingViewBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -361,7 +361,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 67
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/LoadingViewBinding;->rootView:Landroid/widget/LinearLayout;

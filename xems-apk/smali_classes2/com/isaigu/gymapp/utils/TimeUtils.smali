@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static date2GMTString(Ljava/util/Date;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "date"    # Ljava/util/Date;
 
     .line 175
@@ -47,7 +47,7 @@
 .end method
 
 .method public static getCurrentDateyyyy_MM_dd()Ljava/lang/String;
-    .locals 2
+    .registers 2
 
     .line 95
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -70,7 +70,7 @@
 .end method
 
 .method public static getCurrentDateyyyy_MM_dd_HH_mm_ss()Ljava/lang/String;
-    .locals 2
+    .registers 2
 
     .line 104
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -93,7 +93,7 @@
 .end method
 
 .method public static getCurrentDayTimeInMillis000()J
-    .locals 3
+    .registers 3
 
     .line 125
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
@@ -132,7 +132,7 @@
 .end method
 
 .method public static getDateWithFormat_yyyy_MM_dd(III)Ljava/lang/String;
-    .locals 3
+    .registers 6
     .param p0, "year"    # I
     .param p1, "month"    # I
     .param p2, "day"    # I
@@ -169,7 +169,7 @@
 .end method
 
 .method public static getDateWithFormat_yyyy_MM_dd(Ljava/util/Date;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "date"    # Ljava/util/Date;
 
     .line 54
@@ -189,7 +189,7 @@
 .end method
 
 .method public static getDateWithFormat_yyyy_MM_dd_HH_mm_ss(Ljava/util/Date;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "date"    # Ljava/util/Date;
 
     .line 76
@@ -209,7 +209,7 @@
 .end method
 
 .method public static getDateWithRealFormat_yyyy_MM_dd_HH_mm_ss(Ljava/util/Date;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "date"    # Ljava/util/Date;
 
     .line 85
@@ -229,7 +229,7 @@
 .end method
 
 .method public static getGMT8_yyyy_MM_dd_HH_mm_ss()Ljava/lang/String;
-    .locals 3
+    .registers 3
 
     .line 186
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -263,7 +263,7 @@
 .end method
 
 .method public static getTimeInMillis(III)J
-    .locals 4
+    .registers 7
     .param p0, "year"    # I
     .param p1, "month"    # I
     .param p2, "day"    # I
@@ -318,7 +318,7 @@
 .end method
 
 .method public static getTimeInMillis000WithDate(Ljava/util/Date;)J
-    .locals 3
+    .registers 4
     .param p0, "date"    # Ljava/util/Date;
 
     .line 139
@@ -361,7 +361,7 @@
 .end method
 
 .method public static isDateEqual(Ljava/util/Date;Ljava/util/Date;)Z
-    .locals 2
+    .registers 4
     .param p0, "date"    # Ljava/util/Date;
     .param p1, "date2"    # Ljava/util/Date;
 
@@ -374,7 +374,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_20
 
     invoke-virtual {p0}, Ljava/util/Date;->getMonth()I
 
@@ -384,7 +384,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_20
 
     invoke-virtual {p0}, Ljava/util/Date;->getDay()I
 
@@ -394,7 +394,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_20
 
     .line 156
     const/4 v0, 0x1
@@ -402,44 +402,44 @@
     return v0
 
     .line 158
-    :cond_0
+    :cond_20
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private static isLeapYear(I)Z
-    .locals 1
+    .registers 2
     .param p0, "year"    # I
 
     .line 45
     rem-int/lit8 v0, p0, 0x4
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     rem-int/lit8 v0, p0, 0x64
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_c
 
-    :cond_0
+    :cond_8
     rem-int/lit16 v0, p0, 0x190
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_e
 
-    :cond_1
+    :cond_c
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_2
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 .method public static utc2GMTString(J)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "utcTime"    # J
 
     .line 168
@@ -480,7 +480,7 @@
 .end method
 
 .method public static validate(Ljava/lang/String;)Z
-    .locals 11
+    .registers 12
     .param p0, "dateString"    # Ljava/lang/String;
 
     .line 18
@@ -504,12 +504,12 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_12
 
     return v3
 
     .line 23
-    :cond_0
+    :cond_12
     const-string v2, "-"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -558,21 +558,21 @@
 
     .line 28
     .local v8, "day":I
-    if-lt v6, v5, :cond_5
+    if-lt v6, v5, :cond_5e
 
     const/16 v9, 0xc
 
-    if-le v6, v9, :cond_1
+    if-le v6, v9, :cond_3f
 
-    goto :goto_2
+    goto :goto_5e
 
     .line 29
-    :cond_1
+    :cond_3f
     const/16 v9, 0xd
 
     new-array v9, v9, [I
 
-    fill-array-data v9, :array_0
+    fill-array-data v9, :array_60
 
     .line 30
     .local v9, "monthLengths":[I
@@ -580,52 +580,52 @@
 
     move-result v10
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_51
 
     .line 31
     const/16 v10, 0x1d
 
     aput v10, v9, v7
 
-    goto :goto_0
+    goto :goto_55
 
     .line 33
-    :cond_2
+    :cond_51
     const/16 v10, 0x1c
 
     aput v10, v9, v7
 
     .line 35
-    :goto_0
+    :goto_55
     aget v7, v9, v6
 
     .line 36
     .local v7, "monthLength":I
-    if-lt v8, v5, :cond_4
+    if-lt v8, v5, :cond_5d
 
-    if-le v8, v7, :cond_3
+    if-le v8, v7, :cond_5c
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 39
-    :cond_3
+    :cond_5c
     return v5
 
     .line 37
-    :cond_4
-    :goto_1
+    :cond_5d
+    :goto_5d
     return v3
 
     .line 28
     .end local v7    # "monthLength":I
     .end local v9    # "monthLengths":[I
-    :cond_5
-    :goto_2
+    :cond_5e
+    :goto_5e
     return v3
 
     nop
 
-    :array_0
+    :array_60
     .array-data 4
         0x0
         0x1f

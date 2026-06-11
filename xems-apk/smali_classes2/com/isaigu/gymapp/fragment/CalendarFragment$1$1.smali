@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/CalendarFragment$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/CalendarFragment$1;
 
     .line 92
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public programPlanRemove(Lcom/isaigu/gymapp/bean/ProgramPlanBean;Lcom/isaigu/gymapp/bean/ProgramPlanBean$ProgramPlan;)V
-    .locals 3
+    .registers 6
     .param p1, "programPlanBean"    # Lcom/isaigu/gymapp/bean/ProgramPlanBean;
     .param p2, "plan"    # Lcom/isaigu/gymapp/bean/ProgramPlanBean$ProgramPlan;
 
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     .line 95
     iget-object v0, p1, Lcom/isaigu/gymapp/bean/ProgramPlanBean;->dateFullString:Ljava/lang/String;
@@ -62,6 +62,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/CalendarFragment;->calendar:Lcom/isaigu/gymapp/widget/CustomCalendar;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->access$000(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Lcom/isaigu/gymapp/widget/CustomCalendar;
 
     move-result-object v0
@@ -72,14 +73,15 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/widget/CustomCalendar;->removeDayTask(ILjava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 98
-    :cond_0
+    :cond_1f
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1$1;->this$1:Lcom/isaigu/gymapp/fragment/CalendarFragment$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/CalendarFragment;->calendar:Lcom/isaigu/gymapp/widget/CustomCalendar;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->access$000(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Lcom/isaigu/gymapp/widget/CustomCalendar;
 
     move-result-object v0
@@ -91,7 +93,7 @@
     invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/widget/CustomCalendar;->removeDayPlan(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 100
-    :goto_0
+    :goto_2e
     iget v0, p2, Lcom/isaigu/gymapp/bean/ProgramPlanBean$ProgramPlan;->eventId:I
 
     new-instance v1, Ljava/util/HashMap;

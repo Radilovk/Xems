@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 22
     new-instance v0, Lcom/isaigu/gymapp/bean/vo/SplashScreenVO$AppType;
@@ -77,7 +77,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .param p3, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -96,7 +96,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/isaigu/gymapp/bean/vo/SplashScreenVO$AppType;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 21
@@ -112,7 +112,7 @@
 .end method
 
 .method public static values()[Lcom/isaigu/gymapp/bean/vo/SplashScreenVO$AppType;
-    .locals 1
+    .registers 1
 
     .line 21
     sget-object v0, Lcom/isaigu/gymapp/bean/vo/SplashScreenVO$AppType;->$VALUES:[Lcom/isaigu/gymapp/bean/vo/SplashScreenVO$AppType;
@@ -129,7 +129,7 @@
 
 # virtual methods
 .method public getType()I
-    .locals 1
+    .registers 2
 
     .line 32
     iget v0, p0, Lcom/isaigu/gymapp/bean/vo/SplashScreenVO$AppType;->type:I

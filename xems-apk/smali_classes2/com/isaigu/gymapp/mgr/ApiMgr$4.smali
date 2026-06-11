@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Type;Ljava/lang/String;Ljava/io/File;Ljava/util/Map;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 0
+    .registers 6
     .param p1, "clazz"    # Ljava/lang/reflect/Type;
 
     .line 451
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 3
+    .registers 7
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -68,9 +68,9 @@
 
     .line 453
     .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<TT;>;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_54
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_54
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
@@ -78,7 +78,7 @@
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_19
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
@@ -86,7 +86,7 @@
 
     const/4 v1, 0x6
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_19
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
@@ -94,10 +94,10 @@
 
     const/4 v1, 0x7
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_54
 
     .line 454
-    :cond_0
+    :cond_19
     new-instance v0, Lcom/isaigu/gymapp/bean/dto/LoginDTO;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/bean/dto/LoginDTO;-><init>()V
@@ -157,25 +157,25 @@
 
     .line 472
     .end local v0    # "dto":Lcom/isaigu/gymapp/bean/dto/LoginDTO;
-    goto :goto_0
+    goto :goto_5b
 
     .line 473
-    :cond_1
+    :cond_54
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/ApiMgr$4;->val$callback:Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5b
 
     .line 474
     invoke-virtual {v0, p1, p2, p3}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;->httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
 
     .line 477
-    :cond_2
-    :goto_0
+    :cond_5b
+    :goto_5b
     return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 451
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

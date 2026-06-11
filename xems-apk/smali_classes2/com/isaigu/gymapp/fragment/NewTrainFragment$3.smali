@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
-    .prologue
-    .line 102
+    .line 236
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +37,12 @@
 
 # virtual methods
 .method public onCreateMenu(Lcom/yanzhenjie/recyclerview/swipe/SwipeMenu;Lcom/yanzhenjie/recyclerview/swipe/SwipeMenu;I)V
-    .registers 8
+    .registers 7
+    .param p1, "swipeLeftMenu"    # Lcom/yanzhenjie/recyclerview/swipe/SwipeMenu;
+    .param p2, "swipeRightMenu"    # Lcom/yanzhenjie/recyclerview/swipe/SwipeMenu;
+    .param p3, "viewType"    # I
 
-    .prologue
-    const/4 v3, -0x1
-
-    .line 105
+    .line 239
     new-instance v0, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
@@ -55,6 +55,7 @@
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
+    .line 240
     invoke-virtual {v1}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getBaseActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -71,6 +72,7 @@
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
+    .line 241
     const v2, 0x7f0d0043
 
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getString(I)Ljava/lang/String;
@@ -81,29 +83,36 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setTextColor(I)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
+    .line 242
+    const/4 v1, -0x1
+
+    invoke-virtual {v0, v1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setTextColor(I)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
 
     move-result-object v0
 
-    const/16 v1, 0x10
+    .line 243
+    const/16 v2, 0x10
 
-    invoke-virtual {v0, v1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setTextSize(I)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
-
-    move-result-object v0
-
-    const/16 v1, 0x64
-
-    invoke-virtual {v0, v1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setWidth(I)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
+    invoke-virtual {v0, v2}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setTextSize(I)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setHeight(I)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
+    .line 244
+    const/16 v2, 0x64
+
+    invoke-virtual {v0, v2}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setWidth(I)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
 
     move-result-object v0
 
-    .line 106
+    .line 245
+    invoke-virtual {v0, v1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;->setHeight(I)Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
+
+    move-result-object v0
+
+    .line 246
+    .local v0, "deleteItem":Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;
     invoke-virtual {p2, v0}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenu;->addMenuItem(Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItem;)V
 
-    .line 107
+    .line 247
     return-void
 .end method

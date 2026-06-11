@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 588
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method static synthetic access$200([Ljavax/net/ssl/TrustManager;)Ljavax/net/ssl/X509TrustManager;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # [Ljavax/net/ssl/TrustManager;
 
     .line 588
@@ -46,7 +46,7 @@
 .end method
 
 .method private static chooseTrustManager([Ljavax/net/ssl/TrustManager;)Ljavax/net/ssl/X509TrustManager;
-    .locals 4
+    .registers 5
     .param p0, "trustManagers"    # [Ljavax/net/ssl/TrustManager;
 
     .line 716
@@ -54,8 +54,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_2
+    if-ge v1, v0, :cond_11
 
     aget-object v2, p0, v1
 
@@ -63,7 +63,7 @@
     .local v2, "trustManager":Ljavax/net/ssl/TrustManager;
     instance-of v3, v2, Ljavax/net/ssl/X509TrustManager;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_e
 
     .line 718
     move-object v0, v2
@@ -74,20 +74,20 @@
 
     .line 716
     .end local v2    # "trustManager":Ljavax/net/ssl/TrustManager;
-    :cond_0
+    :cond_e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 721
-    :cond_1
+    :cond_11
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public static getSslSocketFactory([Ljava/io/InputStream;Ljava/io/InputStream;Ljava/lang/String;)Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpsUtils$SSLParams;
-    .locals 7
+    .registers 10
     .param p0, "certificates"    # [Ljava/io/InputStream;
     .param p1, "bksFile"    # Ljava/io/InputStream;
     .param p2, "password"    # Ljava/lang/String;
@@ -99,7 +99,7 @@
 
     .line 601
     .local v0, "sslParams":Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpsUtils$SSLParams;
-    :try_start_0
+    :try_start_5
     invoke-static {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpsUtils;->prepareTrustManager([Ljava/io/InputStream;)[Ljavax/net/ssl/TrustManager;
 
     move-result-object v1
@@ -124,7 +124,7 @@
 
     .line 605
     .local v4, "trustManager":Ljavax/net/ssl/X509TrustManager;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 607
     new-instance v5, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpsUtils$MyTrustManager;
@@ -137,10 +137,10 @@
 
     move-object v4, v5
 
-    goto :goto_0
+    goto :goto_27
 
     .line 610
-    :cond_0
+    :cond_21
     new-instance v5, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpsUtils$UnSafeTrustManager;
 
     invoke-direct {v5}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpsUtils$UnSafeTrustManager;-><init>()V
@@ -148,7 +148,7 @@
     move-object v4, v5
 
     .line 612
-    :goto_0
+    :goto_27
     const/4 v5, 0x1
 
     new-array v5, v5, [Ljavax/net/ssl/TrustManager;
@@ -170,10 +170,10 @@
 
     .line 614
     iput-object v4, v0, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpsUtils$SSLParams;->trustManager:Ljavax/net/ssl/X509TrustManager;
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/security/KeyManagementException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/security/KeyStoreException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_39
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_5 .. :try_end_39} :catch_48
+    .catch Ljava/security/KeyManagementException; {:try_start_5 .. :try_end_39} :catch_41
+    .catch Ljava/security/KeyStoreException; {:try_start_5 .. :try_end_39} :catch_3a
 
     .line 615
     return-object v0
@@ -183,7 +183,7 @@
     .end local v2    # "keyManagers":[Ljavax/net/ssl/KeyManager;
     .end local v3    # "sslContext":Ljavax/net/ssl/SSLContext;
     .end local v4    # "trustManager":Ljavax/net/ssl/X509TrustManager;
-    :catch_0
+    :catch_3a
     move-exception v1
 
     .line 624
@@ -196,7 +196,7 @@
 
     .line 619
     .end local v1    # "e":Ljava/security/KeyStoreException;
-    :catch_1
+    :catch_41
     move-exception v1
 
     .line 621
@@ -209,7 +209,7 @@
 
     .line 616
     .end local v1    # "e":Ljava/security/KeyManagementException;
-    :catch_2
+    :catch_48
     move-exception v1
 
     .line 618
@@ -222,22 +222,22 @@
 .end method
 
 .method private static prepareKeyManager(Ljava/io/InputStream;Ljava/lang/String;)[Ljavax/net/ssl/KeyManager;
-    .locals 4
+    .registers 6
     .param p0, "bksFile"    # Ljava/io/InputStream;
     .param p1, "password"    # Ljava/lang/String;
 
     .line 692
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_46
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
-    goto :goto_2
+    goto :goto_46
 
     .line 693
-    :cond_0
-    :try_start_0
+    :cond_6
+    :try_start_6
     const-string v1, "BKS"
 
     invoke-static {v1}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
@@ -273,31 +273,31 @@
     invoke-virtual {v2}, Ljavax/net/ssl/KeyManagerFactory;->getKeyManagers()[Ljavax/net/ssl/KeyManager;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/security/KeyStoreException; {:try_start_0 .. :try_end_0} :catch_5
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_4
-    .catch Ljava/security/UnrecoverableKeyException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/security/cert/CertificateException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Ljava/security/KeyStoreException; {:try_start_6 .. :try_end_26} :catch_40
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_6 .. :try_end_26} :catch_3b
+    .catch Ljava/security/UnrecoverableKeyException; {:try_start_6 .. :try_end_26} :catch_36
+    .catch Ljava/security/cert/CertificateException; {:try_start_6 .. :try_end_26} :catch_31
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_26} :catch_2c
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_26} :catch_27
 
     return-object v0
 
     .line 709
     .end local v1    # "clientKeyStore":Ljava/security/KeyStore;
     .end local v2    # "keyManagerFactory":Ljavax/net/ssl/KeyManagerFactory;
-    :catch_0
+    :catch_27
     move-exception v1
 
     .line 710
     .local v1, "e":Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_45
 
     .line 707
     .end local v1    # "e":Ljava/lang/Exception;
-    :catch_1
+    :catch_2c
     move-exception v1
 
     .line 708
@@ -305,10 +305,10 @@
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     .end local v1    # "e":Ljava/io/IOException;
-    goto :goto_0
+    goto :goto_44
 
     .line 705
-    :catch_2
+    :catch_31
     move-exception v1
 
     .line 706
@@ -316,10 +316,10 @@
     invoke-virtual {v1}, Ljava/security/cert/CertificateException;->printStackTrace()V
 
     .end local v1    # "e":Ljava/security/cert/CertificateException;
-    goto :goto_0
+    goto :goto_44
 
     .line 703
-    :catch_3
+    :catch_36
     move-exception v1
 
     .line 704
@@ -327,10 +327,10 @@
     invoke-virtual {v1}, Ljava/security/UnrecoverableKeyException;->printStackTrace()V
 
     .end local v1    # "e":Ljava/security/UnrecoverableKeyException;
-    goto :goto_0
+    goto :goto_44
 
     .line 701
-    :catch_4
+    :catch_3b
     move-exception v1
 
     .line 702
@@ -338,10 +338,10 @@
     invoke-virtual {v1}, Ljava/security/NoSuchAlgorithmException;->printStackTrace()V
 
     .end local v1    # "e":Ljava/security/NoSuchAlgorithmException;
-    goto :goto_0
+    goto :goto_44
 
     .line 699
-    :catch_5
+    :catch_40
     move-exception v1
 
     .line 700
@@ -350,37 +350,37 @@
 
     .line 711
     .end local v1    # "e":Ljava/security/KeyStoreException;
-    :goto_0
+    :goto_44
     nop
 
     .line 712
-    :goto_1
+    :goto_45
     return-object v0
 
     .line 692
-    :cond_1
-    :goto_2
+    :cond_46
+    :goto_46
     return-object v0
 .end method
 
 .method private static varargs prepareTrustManager([Ljava/io/InputStream;)[Ljavax/net/ssl/TrustManager;
-    .locals 9
+    .registers 10
     .param p0, "certificates"    # [Ljava/io/InputStream;
 
     .line 652
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_60
 
     array-length v1, p0
 
-    if-gtz v1, :cond_0
+    if-gtz v1, :cond_7
 
-    goto :goto_5
+    goto :goto_60
 
     .line 654
-    :cond_0
-    :try_start_0
+    :cond_7
+    :try_start_7
     const-string v1, "X.509"
 
     invoke-static {v1}, Ljava/security/cert/CertificateFactory;->getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;
@@ -410,8 +410,8 @@
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v4, :cond_2
+    :goto_1b
+    if-ge v5, v4, :cond_39
 
     aget-object v6, p0, v5
 
@@ -432,57 +432,57 @@
     move-result-object v8
 
     invoke-virtual {v2, v3, v8}, Ljava/security/KeyStore;->setCertificateEntry(Ljava/lang/String;Ljava/security/cert/Certificate;)V
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_4
-    .catch Ljava/security/cert/CertificateException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/security/KeyStoreException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_2c
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_7 .. :try_end_2c} :catch_5a
+    .catch Ljava/security/cert/CertificateException; {:try_start_7 .. :try_end_2c} :catch_55
+    .catch Ljava/security/KeyStoreException; {:try_start_7 .. :try_end_2c} :catch_50
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_2c} :catch_4b
 
     .line 662
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_34
 
     .line 663
-    :try_start_1
+    :try_start_2e
     invoke-virtual {v6}, Ljava/io/InputStream;->close()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_1 .. :try_end_1} :catch_4
-    .catch Ljava/security/cert/CertificateException; {:try_start_1 .. :try_end_1} :catch_3
-    .catch Ljava/security/KeyStoreException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_31
+    .catch Ljava/io/IOException; {:try_start_2e .. :try_end_31} :catch_32
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_2e .. :try_end_31} :catch_5a
+    .catch Ljava/security/cert/CertificateException; {:try_start_2e .. :try_end_31} :catch_55
+    .catch Ljava/security/KeyStoreException; {:try_start_2e .. :try_end_31} :catch_50
+    .catch Ljava/lang/Exception; {:try_start_2e .. :try_end_31} :catch_4b
 
-    goto :goto_1
+    goto :goto_34
 
     .line 664
-    :catch_0
+    :catch_32
     move-exception v8
 
-    goto :goto_2
+    goto :goto_35
 
     .line 666
-    :cond_1
-    :goto_1
+    :cond_34
+    :goto_34
     nop
 
     .line 658
     .end local v3    # "certificateAlias":Ljava/lang/String;
     .end local v6    # "certificate":Ljava/io/InputStream;
-    :goto_2
+    :goto_35
     add-int/lit8 v5, v5, 0x1
 
     move v3, v7
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 668
     .end local v7    # "index":I
     .local v3, "index":I
-    :cond_2
+    :cond_39
     const/4 v4, 0x0
 
     .line 671
     .local v4, "trustManagerFactory":Ljavax/net/ssl/TrustManagerFactory;
-    :try_start_2
+    :try_start_3a
     invoke-static {}, Ljavax/net/ssl/TrustManagerFactory;->getDefaultAlgorithm()Ljava/lang/String;
 
     move-result-object v5
@@ -500,11 +500,11 @@
     invoke-virtual {v4}, Ljavax/net/ssl/TrustManagerFactory;->getTrustManagers()[Ljavax/net/ssl/TrustManager;
 
     move-result-object v0
-    :try_end_2
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_2 .. :try_end_2} :catch_4
-    .catch Ljava/security/cert/CertificateException; {:try_start_2 .. :try_end_2} :catch_3
-    .catch Ljava/security/KeyStoreException; {:try_start_2 .. :try_end_2} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_4a
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_3a .. :try_end_4a} :catch_5a
+    .catch Ljava/security/cert/CertificateException; {:try_start_3a .. :try_end_4a} :catch_55
+    .catch Ljava/security/KeyStoreException; {:try_start_3a .. :try_end_4a} :catch_50
+    .catch Ljava/lang/Exception; {:try_start_3a .. :try_end_4a} :catch_4b
 
     .line 676
     .local v0, "trustManagers":[Ljavax/net/ssl/TrustManager;
@@ -516,18 +516,18 @@
     .end local v2    # "keyStore":Ljava/security/KeyStore;
     .end local v3    # "index":I
     .end local v4    # "trustManagerFactory":Ljavax/net/ssl/TrustManagerFactory;
-    :catch_1
+    :catch_4b
     move-exception v1
 
     .line 684
     .local v1, "e":Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_4
+    goto :goto_5f
 
     .line 681
     .end local v1    # "e":Ljava/lang/Exception;
-    :catch_2
+    :catch_50
     move-exception v1
 
     .line 682
@@ -535,10 +535,10 @@
     invoke-virtual {v1}, Ljava/security/KeyStoreException;->printStackTrace()V
 
     .end local v1    # "e":Ljava/security/KeyStoreException;
-    goto :goto_3
+    goto :goto_5e
 
     .line 679
-    :catch_3
+    :catch_55
     move-exception v1
 
     .line 680
@@ -546,10 +546,10 @@
     invoke-virtual {v1}, Ljava/security/cert/CertificateException;->printStackTrace()V
 
     .end local v1    # "e":Ljava/security/cert/CertificateException;
-    goto :goto_3
+    goto :goto_5e
 
     .line 677
-    :catch_4
+    :catch_5a
     move-exception v1
 
     .line 678
@@ -558,15 +558,15 @@
 
     .line 685
     .end local v1    # "e":Ljava/security/NoSuchAlgorithmException;
-    :goto_3
+    :goto_5e
     nop
 
     .line 686
-    :goto_4
+    :goto_5f
     return-object v0
 
     .line 652
-    :cond_3
-    :goto_5
+    :cond_60
+    :goto_60
     return-object v0
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
 
     .line 40
     iput-object p1, p0, Lcom/isaigu/gymapp/utils/TimerUtils$2;->val$runnable:Ljava/lang/Runnable;
@@ -33,17 +33,17 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Lcom/isaigu/gymapp/utils/TimerUtils$2;->val$runnable:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 44
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     .line 46
-    :cond_0
+    :cond_7
     return-void
 .end method

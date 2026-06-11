@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/UserFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/UserFragment;
 
     .line 136
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 4
+    .registers 6
     .param p1, "editable"    # Landroid/text/Editable;
 
     .line 142
@@ -55,7 +55,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_12
 
     .line 145
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -64,10 +64,10 @@
 
     iget-object v1, v2, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
 
-    goto :goto_1
+    goto :goto_49
 
     .line 147
-    :cond_0
+    :cond_12
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
@@ -78,7 +78,7 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_19
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v3
@@ -89,7 +89,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_49
 
     .line 149
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -110,7 +110,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_46
 
     .line 150
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -126,17 +126,18 @@
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 148
-    :cond_1
+    :cond_46
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 154
     .end local v2    # "i":I
-    :cond_2
-    :goto_1
+    :cond_49
+    :goto_49
     iget-object v2, p0, Lcom/isaigu/gymapp/fragment/UserFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/UserFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/UserFragment;->userAdapter:Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;
     invoke-static {v2}, Lcom/isaigu/gymapp/fragment/UserFragment;->access$000(Lcom/isaigu/gymapp/fragment/UserFragment;)Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;
 
     move-result-object v2
@@ -148,7 +149,7 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
     .param p2, "i"    # I
     .param p3, "i1"    # I
@@ -159,7 +160,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
     .param p2, "i"    # I
     .param p3, "i1"    # I

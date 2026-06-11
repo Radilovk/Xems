@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/AndroidCrashHandler;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p1, "this$0"    # Lcom/isaigu/gymapp/AndroidCrashHandler;
 
     .line 70
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 73
     :try_start_0
@@ -121,14 +121,14 @@
 
     .line 73
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/ApacheMail;->sendSimpleEmail(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_54
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_54} :catch_55
 
     .line 77
-    goto :goto_0
+    goto :goto_59
 
     .line 75
-    :catch_0
+    :catch_55
     move-exception v0
 
     .line 76
@@ -137,7 +137,7 @@
 
     .line 78
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_59
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v0

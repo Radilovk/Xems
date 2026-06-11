@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 30
     const/16 v0, 0x25
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method private static addEvent(Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;)I
-    .locals 20
+    .registers 23
     .param p0, "title"    # Ljava/lang/String;
     .param p1, "details"    # Ljava/util/Map;
     .param p2, "options"    # Ljava/util/Map;
@@ -98,7 +98,7 @@
 
     .line 307
     .local v6, "eventValues":Landroid/content/ContentValues;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     .line 308
     const-string v0, "title"
@@ -106,14 +106,14 @@
     invoke-virtual {v6, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 311
-    :cond_0
+    :cond_24
     const-string v0, "description"
 
     invoke-interface {v2, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_35
 
     .line 312
     invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -125,14 +125,14 @@
     invoke-virtual {v6, v0, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 315
-    :cond_1
+    :cond_35
     const-string v0, "location"
 
     invoke-interface {v2, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_48
 
     .line 316
     invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -146,14 +146,14 @@
     invoke-virtual {v6, v7, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 319
-    :cond_2
+    :cond_48
     const-string v0, "startDate"
 
     invoke-interface {v2, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_92
 
     .line 320
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
@@ -168,10 +168,10 @@
 
     .line 324
     .local v8, "type":Ljava/lang/Object;
-    :try_start_0
+    :try_start_58
     instance-of v9, v8, Ljava/lang/String;
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_79
 
     .line 325
     sget-object v9, Lcom/isaigu/gymapp/calendar/CalendarEvents;->dateFormat:Ljava/text/SimpleDateFormat;
@@ -201,10 +201,10 @@
 
     invoke-virtual {v6, v0, v9}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    goto :goto_0
+    goto :goto_8c
 
     .line 328
-    :cond_3
+    :cond_79
     const-string v9, "dtstart"
 
     invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -222,15 +222,15 @@
     move-result-object v0
 
     invoke-virtual {v6, v9, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
-    :try_end_0
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8c
+    .catch Ljava/text/ParseException; {:try_start_58 .. :try_end_8c} :catch_8d
 
     .line 333
-    :goto_0
-    goto :goto_1
+    :goto_8c
+    goto :goto_92
 
     .line 330
-    :catch_0
+    :catch_8d
     move-exception v0
 
     .line 331
@@ -244,15 +244,15 @@
     .end local v0    # "e":Ljava/text/ParseException;
     .end local v7    # "startCal":Ljava/util/Calendar;
     .end local v8    # "type":Ljava/lang/Object;
-    :cond_4
-    :goto_1
+    :cond_92
+    :goto_92
     const-string v0, "endDate"
 
     invoke-interface {v2, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_dc
 
     .line 337
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
@@ -267,10 +267,10 @@
 
     .line 341
     .restart local v8    # "type":Ljava/lang/Object;
-    :try_start_1
+    :try_start_a2
     instance-of v9, v8, Ljava/lang/String;
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_c3
 
     .line 342
     sget-object v9, Lcom/isaigu/gymapp/calendar/CalendarEvents;->dateFormat:Ljava/text/SimpleDateFormat;
@@ -300,10 +300,10 @@
 
     invoke-virtual {v6, v9, v10}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    goto :goto_2
+    goto :goto_d6
 
     .line 345
-    :cond_5
+    :cond_c3
     const-string v9, "dtend"
 
     invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -321,15 +321,15 @@
     move-result-object v10
 
     invoke-virtual {v6, v9, v10}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
-    :try_end_1
-    .catch Ljava/text/ParseException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_d6
+    .catch Ljava/text/ParseException; {:try_start_a2 .. :try_end_d6} :catch_d7
 
     .line 350
-    :goto_2
-    goto :goto_3
+    :goto_d6
+    goto :goto_dc
 
     .line 347
-    :catch_1
+    :catch_d7
     move-exception v0
 
     .line 348
@@ -343,8 +343,8 @@
     .end local v0    # "e":Ljava/text/ParseException;
     .end local v7    # "endCal":Ljava/util/Calendar;
     .end local v8    # "type":Ljava/lang/Object;
-    :cond_6
-    :goto_3
+    :cond_dc
+    :goto_dc
     const-string v7, "recurrence"
 
     invoke-interface {v2, v7}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -353,7 +353,7 @@
 
     const/4 v9, 0x0
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_f6
 
     .line 354
     invoke-interface {v2, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -368,7 +368,7 @@
 
     .line 355
     .local v7, "rule":Ljava/lang/String;
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_f6
 
     .line 356
     const-string v8, "rrule"
@@ -377,14 +377,14 @@
 
     .line 360
     .end local v7    # "rule":Ljava/lang/String;
-    :cond_7
+    :cond_f6
     const-string v7, "recurrenceRule"
 
     invoke-interface {v2, v7}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_e
+    if-eqz v8, :cond_192
 
     .line 361
     invoke-interface {v2, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -401,7 +401,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_e
+    if-eqz v10, :cond_192
 
     .line 364
     invoke-interface {v7, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -434,7 +434,7 @@
 
     move-result v14
 
-    if-eqz v14, :cond_8
+    if-eqz v14, :cond_128
 
     .line 371
     const-string v14, "interval"
@@ -448,14 +448,14 @@
     check-cast v11, Ljava/lang/Integer;
 
     .line 374
-    :cond_8
+    :cond_128
     const-string v14, "duration"
 
     invoke-interface {v7, v14}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v15
 
-    if-eqz v15, :cond_9
+    if-eqz v15, :cond_137
 
     .line 375
     invoke-interface {v7, v14}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -467,14 +467,14 @@
     check-cast v10, Ljava/lang/String;
 
     .line 378
-    :cond_9
+    :cond_137
     const-string v15, "occurrence"
 
     invoke-interface {v7, v15}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v15
 
-    if-eqz v15, :cond_a
+    if-eqz v15, :cond_148
 
     .line 379
     const-string v15, "occurrence"
@@ -488,12 +488,12 @@
     check-cast v12, Ljava/lang/Integer;
 
     .line 382
-    :cond_a
+    :cond_148
     invoke-interface {v7, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v15
 
-    if-eqz v15, :cond_c
+    if-eqz v15, :cond_182
 
     .line 383
     invoke-interface {v7, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -504,7 +504,7 @@
     .local v15, "type":Ljava/lang/Object;
     instance-of v9, v15, Ljava/lang/String;
 
-    if-eqz v9, :cond_b
+    if-eqz v9, :cond_167
 
     .line 386
     sget-object v9, Lcom/isaigu/gymapp/calendar/CalendarEvents;->dateFormat:Ljava/text/SimpleDateFormat;
@@ -523,10 +523,10 @@
 
     move-result-object v13
 
-    goto :goto_4
+    goto :goto_182
 
     .line 388
-    :cond_b
+    :cond_167
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v9
@@ -559,22 +559,22 @@
     .line 394
     .end local v9    # "calendar":Ljava/util/Calendar;
     .end local v15    # "type":Ljava/lang/Object;
-    :cond_c
-    :goto_4
+    :cond_182
+    :goto_182
     invoke-static {v8, v11, v13, v12}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->createRecurrenceRule(Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Integer;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 395
     .local v0, "rule":Ljava/lang/String;
-    if-eqz v10, :cond_d
+    if-eqz v10, :cond_18b
 
     .line 396
     invoke-virtual {v6, v14, v10}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 398
-    :cond_d
-    if-eqz v0, :cond_e
+    :cond_18b
+    if-eqz v0, :cond_192
 
     .line 399
     const-string v1, "rrule"
@@ -589,14 +589,14 @@
     .end local v11    # "interval":Ljava/lang/Integer;
     .end local v12    # "occurrence":Ljava/lang/Integer;
     .end local v13    # "endDate":Ljava/lang/String;
-    :cond_e
+    :cond_192
     const-string v0, "allDay"
 
     invoke-interface {v2, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_1ab
 
     .line 405
     invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -616,14 +616,14 @@
     invoke-virtual {v6, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 408
-    :cond_f
+    :cond_1ab
     const-string v0, "timeZone"
 
     invoke-interface {v2, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1c1
 
     .line 409
     const-string v0, "timeZone"
@@ -638,10 +638,10 @@
 
     invoke-virtual {v6, v1, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_1ce
 
     .line 411
-    :cond_10
+    :cond_1c1
     invoke-static {v4}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v0
@@ -655,14 +655,14 @@
     invoke-virtual {v6, v1, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 414
-    :goto_5
+    :goto_1ce
     const-string v0, "endTimeZone"
 
     invoke-interface {v2, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_1e4
 
     .line 415
     const-string v0, "endTimeZone"
@@ -677,10 +677,10 @@
 
     invoke-virtual {v6, v1, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_6
+    goto :goto_1f1
 
     .line 417
-    :cond_11
+    :cond_1e4
     invoke-static {v4}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v0
@@ -694,7 +694,7 @@
     invoke-virtual {v6, v1, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 420
-    :goto_6
+    :goto_1f1
     const-string v1, "alarms"
 
     invoke-interface {v2, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -703,7 +703,7 @@
 
     const/4 v4, 0x1
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_203
 
     .line 421
     invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -715,14 +715,14 @@
     invoke-virtual {v6, v7, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
     .line 424
-    :cond_12
+    :cond_203
     const-string v0, "availability"
 
     invoke-interface {v2, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_13
+    if-eqz v7, :cond_218
 
     .line 425
     invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -738,7 +738,7 @@
     invoke-virtual {v6, v0, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 429
-    :cond_13
+    :cond_218
     const-string v7, "id"
 
     invoke-interface {v2, v7}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -753,7 +753,7 @@
 
     const-string v11, "sync"
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_35e
 
     .line 430
     invoke-interface {v2, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -774,7 +774,7 @@
 
     .line 433
     .local v12, "eventInstance":Ljava/util/Map;
-    if-eqz v12, :cond_19
+    if-eqz v12, :cond_325
 
     .line 434
     const-string v0, "calendar"
@@ -793,7 +793,7 @@
 
     move-result v15
 
-    if-nez v15, :cond_15
+    if-nez v15, :cond_289
 
     .line 437
     sget-object v14, Landroid/provider/CalendarContract$Events;->CONTENT_URI:Landroid/net/Uri;
@@ -812,7 +812,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_281
 
     invoke-interface {v3, v11}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -824,7 +824,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_281
 
     .line 440
     invoke-interface {v12, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -859,7 +859,7 @@
     move-result-object v1
 
     .line 443
-    :cond_14
+    :cond_281
     const/4 v0, 0x0
 
     invoke-virtual {v5, v1, v6, v0, v0}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
@@ -868,10 +868,10 @@
     .end local v1    # "updateUri":Landroid/net/Uri;
     move-object/from16 v16, v15
 
-    goto/16 :goto_8
+    goto/16 :goto_327
 
     .line 446
-    :cond_15
+    :cond_289
     move-object v15, v1
 
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
@@ -888,10 +888,10 @@
     .local v2, "type":Ljava/lang/Object;
     move-object/from16 v16, v15
 
-    :try_start_2
+    :try_start_294
     instance-of v15, v2, Ljava/lang/String;
 
-    if-eqz v15, :cond_16
+    if-eqz v15, :cond_2b5
 
     .line 451
     sget-object v15, Lcom/isaigu/gymapp/calendar/CalendarEvents;->dateFormat:Ljava/text/SimpleDateFormat;
@@ -921,10 +921,10 @@
 
     invoke-virtual {v6, v14, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    goto :goto_7
+    goto :goto_2c8
 
     .line 454
-    :cond_16
+    :cond_2b5
     const-string v15, "originalInstanceTime"
 
     invoke-interface {v3, v14}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -942,11 +942,11 @@
     move-result-object v14
 
     invoke-virtual {v6, v15, v14}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
-    :try_end_2
-    .catch Ljava/text/ParseException; {:try_start_2 .. :try_end_2} :catch_3
+    :try_end_2c8
+    .catch Ljava/text/ParseException; {:try_start_294 .. :try_end_2c8} :catch_320
 
     .line 459
-    :goto_7
+    :goto_2c8
     nop
 
     .line 461
@@ -966,7 +966,7 @@
 
     move-result v15
 
-    if-eqz v15, :cond_17
+    if-eqz v15, :cond_303
 
     invoke-interface {v3, v11}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -978,7 +978,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_17
+    if-eqz v11, :cond_303
 
     .line 464
     invoke-interface {v12, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1011,15 +1011,15 @@
     invoke-static {v14, v0, v8}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->eventUriAsSyncAdapter(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
 
     .line 469
-    :cond_17
-    :try_start_3
+    :cond_303
+    :try_start_303
     invoke-virtual {v5, v14, v6}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
 
     move-result-object v0
 
     .line 470
     .local v0, "eventUri":Landroid/net/Uri;
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_312
 
     .line 471
     invoke-virtual {v0}, Landroid/net/Uri;->getLastPathSegment()Ljava/lang/String;
@@ -1029,18 +1029,18 @@
     invoke-static {v8}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v8
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+    :try_end_311
+    .catch Ljava/lang/Exception; {:try_start_303 .. :try_end_311} :catch_313
 
     move v4, v8
 
     .line 475
     .end local v0    # "eventUri":Landroid/net/Uri;
-    :cond_18
-    goto :goto_8
+    :cond_312
+    goto :goto_327
 
     .line 473
-    :catch_2
+    :catch_313
     move-exception v0
 
     .line 474
@@ -1055,12 +1055,12 @@
 
     invoke-static {v8, v9, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_8
+    goto :goto_327
 
     .line 456
     .end local v0    # "e":Ljava/lang/Exception;
     .end local v14    # "exceptionUri":Landroid/net/Uri;
-    :catch_3
+    :catch_320
     move-exception v0
 
     .line 457
@@ -1075,11 +1075,11 @@
     .end local v1    # "exceptionStart":Ljava/util/Calendar;
     .end local v2    # "type":Ljava/lang/Object;
     .end local v13    # "eventCalendar":Ljava/util/Map;
-    :cond_19
+    :cond_325
     move-object/from16 v16, v1
 
     .line 479
-    :goto_8
+    :goto_327
     move-object/from16 v1, p1
 
     move-object/from16 v2, v16
@@ -1088,7 +1088,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_344
 
     .line 480
     invoke-interface {v1, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1110,12 +1110,12 @@
     invoke-static {v5, v0, v2}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->createRemindersForEvent(Landroid/content/ContentResolver;ILjava/util/List;)V
 
     .line 483
-    :cond_1a
+    :cond_344
     invoke-interface {v1, v10}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_35d
 
     .line 484
     invoke-interface {v1, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1137,13 +1137,13 @@
     invoke-static {v5, v0, v2}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->createAttendeesForEvent(Landroid/content/ContentResolver;ILjava/util/List;)V
 
     .line 487
-    :cond_1b
+    :cond_35d
     return v4
 
     .line 491
     .end local v4    # "eventID":I
     .end local v12    # "eventInstance":Ljava/util/Map;
-    :cond_1c
+    :cond_35e
     move-object/from16 v19, v2
 
     move-object v2, v1
@@ -1162,7 +1162,7 @@
 
     const-string v13, "calendar_id"
 
-    if-eqz v12, :cond_1e
+    if-eqz v12, :cond_396
 
     .line 494
     const-string v12, "calendarId"
@@ -1179,7 +1179,7 @@
 
     .line 496
     .local v12, "calendar":Ljava/util/Map;
-    if-eqz v12, :cond_1d
+    if-eqz v12, :cond_38e
 
     .line 497
     invoke-interface {v12, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1198,21 +1198,21 @@
 
     invoke-virtual {v6, v13, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    goto :goto_9
+    goto :goto_3a3
 
     .line 499
-    :cond_1d
+    :cond_38e
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
     invoke-virtual {v6, v13, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    goto :goto_9
+    goto :goto_3a3
 
     .line 503
     .end local v12    # "calendar":Ljava/util/Map;
-    :cond_1e
+    :cond_396
     const-string v12, "1"
 
     invoke-static {v12}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->findCalendarById(Ljava/lang/String;)Ljava/util/Map;
@@ -1228,7 +1228,7 @@
     invoke-virtual {v6, v13, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 507
-    :goto_9
+    :goto_3a3
     sget-object v4, Landroid/provider/CalendarContract$Events;->CONTENT_URI:Landroid/net/Uri;
 
     .line 509
@@ -1237,7 +1237,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_1f
+    if-eqz v13, :cond_3d2
 
     invoke-interface {v3, v11}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1249,7 +1249,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_1f
+    if-eqz v11, :cond_3d2
 
     .line 510
     invoke-interface {v12, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1280,7 +1280,7 @@
     move-result-object v4
 
     .line 514
-    :cond_1f
+    :cond_3d2
     sget-object v7, Lcom/isaigu/gymapp/calendar/CalendarEvents;->context:Landroid/app/Activity;
 
     const-string v8, "android.permission.WRITE_CALENDAR"
@@ -1289,7 +1289,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_20
+    if-eqz v7, :cond_3de
 
     .line 515
     const/4 v2, -0x1
@@ -1297,14 +1297,14 @@
     return v2
 
     .line 517
-    :cond_20
+    :cond_3de
     invoke-virtual {v5, v4, v6}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
 
     move-result-object v7
 
     .line 519
     .local v7, "eventUri":Landroid/net/Uri;
-    if-eqz v7, :cond_23
+    if-eqz v7, :cond_40b
 
     .line 520
     invoke-virtual {v7}, Landroid/net/Uri;->getLastPathSegment()Ljava/lang/String;
@@ -1320,7 +1320,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_21
+    if-eqz v8, :cond_3fb
 
     .line 523
     invoke-interface {v1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1332,12 +1332,12 @@
     invoke-static {v5, v0, v2}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->createRemindersForEvent(Landroid/content/ContentResolver;ILjava/util/List;)V
 
     .line 526
-    :cond_21
+    :cond_3fb
     invoke-interface {v1, v10}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_22
+    if-eqz v2, :cond_40a
 
     .line 527
     invoke-interface {v1, v10}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1349,16 +1349,16 @@
     invoke-static {v5, v0, v2}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->createAttendeesForEvent(Landroid/content/ContentResolver;ILjava/util/List;)V
 
     .line 530
-    :cond_22
+    :cond_40a
     return v0
 
     .line 533
-    :cond_23
+    :cond_40b
     return v0
 .end method
 
 .method private static availabilityConstantMatchingString(Ljava/lang/String;)Ljava/lang/Integer;
-    .locals 1
+    .registers 2
     .param p0, "string"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1373,7 +1373,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 756
     const/4 v0, 0x1
@@ -1385,14 +1385,14 @@
     return-object v0
 
     .line 759
-    :cond_0
+    :cond_e
     const-string v0, "tentative"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 760
     const/4 v0, 0x2
@@ -1404,7 +1404,7 @@
     return-object v0
 
     .line 763
-    :cond_1
+    :cond_1c
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1415,7 +1415,7 @@
 .end method
 
 .method private static availabilityStringMatchingConstant(Ljava/lang/Integer;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0, "constant"    # Ljava/lang/Integer;
 
     .line 743
@@ -1425,11 +1425,11 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_10
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_d
 
     .line 746
     const-string v0, "busy"
@@ -1437,20 +1437,20 @@
     return-object v0
 
     .line 750
-    :cond_0
+    :cond_d
     const-string v0, "tentative"
 
     return-object v0
 
     .line 748
-    :cond_1
+    :cond_10
     const-string v0, "free"
 
     return-object v0
 .end method
 
 .method private static calendarAllowedAvailabilitiesFromDBString(Ljava/lang/String;)Ljava/util/List;
-    .locals 7
+    .registers 8
     .param p0, "dbString"    # Ljava/lang/String;
 
     .line 724
@@ -1470,8 +1470,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_3
+    :goto_d
+    if-ge v3, v2, :cond_33
 
     aget-object v4, v1, v3
 
@@ -1481,37 +1481,37 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_2a
 
     const/4 v6, 0x1
 
-    if-eq v5, v6, :cond_1
+    if-eq v5, v6, :cond_24
 
     const/4 v6, 0x2
 
-    if-eq v5, v6, :cond_0
+    if-eq v5, v6, :cond_1e
 
-    goto :goto_1
+    goto :goto_30
 
     .line 734
-    :cond_0
+    :cond_1e
     const-string v5, "tentative"
 
     invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_30
 
     .line 731
-    :cond_1
+    :cond_24
     const-string v5, "free"
 
     invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 732
-    goto :goto_1
+    goto :goto_30
 
     .line 728
-    :cond_2
+    :cond_2a
     const-string v5, "busy"
 
     invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -1521,18 +1521,18 @@
 
     .line 725
     .end local v4    # "availabilityId":Ljava/lang/String;
-    :goto_1
+    :goto_30
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 739
-    :cond_3
+    :cond_33
     return-object v0
 .end method
 
 .method private static createAttendeesForEvent(Landroid/content/ContentResolver;ILjava/util/List;)V
-    .locals 8
+    .registers 11
     .param p0, "resolver"    # Landroid/content/ContentResolver;
     .param p1, "eventID"    # I
     .param p2, "attendees"    # Ljava/util/List;
@@ -1552,12 +1552,12 @@
 
     .line 623
     .local v0, "cursor":Landroid/database/Cursor;
-    :goto_0
+    :goto_b
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 624
     const/4 v1, 0x0
@@ -1583,22 +1583,22 @@
     .line 627
     .end local v1    # "attendeeId":J
     .end local v3    # "attendeeUri":Landroid/net/Uri;
-    goto :goto_0
+    goto :goto_b
 
     .line 628
-    :cond_0
+    :cond_21
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
     .line 630
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
+    :goto_25
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_76
 
     .line 631
     invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1673,13 +1673,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_6e
 
     .line 642
     return-void
 
     .line 644
-    :cond_1
+    :cond_6e
     sget-object v6, Landroid/provider/CalendarContract$Attendees;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {p0, v6, v5}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
@@ -1691,16 +1691,16 @@
     .end local v5    # "attendeeValues":Landroid/content/ContentValues;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_25
 
     .line 646
     .end local v1    # "i":I
-    :cond_2
+    :cond_76
     return-void
 .end method
 
 .method private static createRecurrenceRule(Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Integer;)Ljava/lang/String;
-    .locals 3
+    .registers 7
     .param p0, "recurrence"    # Ljava/lang/String;
     .param p1, "interval"    # Ljava/lang/Integer;
     .param p2, "endDate"    # Ljava/lang/String;
@@ -1713,66 +1713,66 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 772
     const-string v0, "FREQ=DAILY"
 
     .local v0, "rrule":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_2b
 
     .line 773
     .end local v0    # "rrule":Ljava/lang/String;
-    :cond_0
+    :cond_b
     const-string v0, "weekly"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 774
     const-string v0, "FREQ=WEEKLY"
 
     .restart local v0    # "rrule":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_2b
 
     .line 775
     .end local v0    # "rrule":Ljava/lang/String;
-    :cond_1
+    :cond_16
     const-string v0, "monthly"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     .line 776
     const-string v0, "FREQ=MONTHLY"
 
     .restart local v0    # "rrule":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_2b
 
     .line 777
     .end local v0    # "rrule":Ljava/lang/String;
-    :cond_2
+    :cond_21
     const-string v0, "yearly"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_6f
 
     .line 778
     const-string v0, "FREQ=YEARLY"
 
     .line 783
     .restart local v0    # "rrule":Ljava/lang/String;
-    :goto_0
-    if-eqz p1, :cond_3
+    :goto_2b
+    if-eqz p1, :cond_41
 
     .line 784
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1792,8 +1792,8 @@
     move-result-object v0
 
     .line 787
-    :cond_3
-    if-eqz p2, :cond_4
+    :cond_41
+    if-eqz p2, :cond_58
 
     .line 788
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1812,11 +1812,11 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_6e
 
     .line 789
-    :cond_4
-    if-eqz p3, :cond_5
+    :cond_58
+    if-eqz p3, :cond_6e
 
     .line 790
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1836,20 +1836,20 @@
     move-result-object v0
 
     .line 793
-    :cond_5
-    :goto_1
+    :cond_6e
+    :goto_6e
     return-object v0
 
     .line 780
     .end local v0    # "rrule":Ljava/lang/String;
-    :cond_6
+    :cond_6f
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private static createRemindersForEvent(Landroid/content/ContentResolver;ILjava/util/List;)V
-    .locals 8
+    .registers 11
     .param p0, "resolver"    # Landroid/content/ContentResolver;
     .param p1, "eventID"    # I
     .param p2, "reminders"    # Ljava/util/List;
@@ -1869,12 +1869,12 @@
 
     .line 656
     .local v0, "cursor":Landroid/database/Cursor;
-    :goto_0
+    :goto_b
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 657
     const/4 v1, 0x0
@@ -1900,22 +1900,22 @@
     .line 660
     .end local v1    # "reminderId":J
     .end local v3    # "reminderUri":Landroid/net/Uri;
-    goto :goto_0
+    goto :goto_b
 
     .line 661
-    :cond_0
+    :cond_21
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
     .line 663
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_1
+    :goto_25
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_7e
 
     .line 664
     invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1936,7 +1936,7 @@
     .local v4, "type":Ljava/lang/Object;
     instance-of v5, v4, Ljava/lang/Long;
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_7b
 
     .line 667
     invoke-interface {v2, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2000,13 +2000,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_76
 
     .line 675
     return-void
 
     .line 677
-    :cond_1
+    :cond_76
     sget-object v6, Landroid/provider/CalendarContract$Reminders;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {p0, v6, v5}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
@@ -2016,19 +2016,19 @@
     .end local v3    # "minutes":I
     .end local v4    # "type":Ljava/lang/Object;
     .end local v5    # "reminderValues":Landroid/content/ContentValues;
-    :cond_2
+    :cond_7b
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_25
 
     .line 680
     .end local v1    # "i":I
-    :cond_3
+    :cond_7e
     return-void
 .end method
 
 .method private static eventUriAsSyncAdapter(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 3
+    .registers 6
     .param p0, "uri"    # Landroid/net/Uri;
     .param p1, "accountName"    # Ljava/lang/String;
     .param p2, "accountType"    # Ljava/lang/String;
@@ -2071,7 +2071,7 @@
 .end method
 
 .method public static findAllEvents(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 4
     .param p0, "startDate"    # Ljava/lang/String;
     .param p1, "endDate"    # Ljava/lang/String;
     .param p2, "calendars"    # Ljava/util/List;
@@ -2081,7 +2081,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1008
     invoke-static {p0, p1, p2}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->findEvents(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Ljava/util/List;
@@ -2094,14 +2094,14 @@
 
     .line 1012
     .end local v0    # "results":Ljava/util/List;
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private static findAttendeesByEventId(Ljava/lang/String;)Ljava/util/List;
-    .locals 15
+    .registers 16
     .param p0, "eventID"    # Ljava/lang/String;
 
     .line 134
@@ -2135,7 +2135,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 139
     const/4 v1, 0x0
@@ -2143,7 +2143,7 @@
     return-object v1
 
     .line 141
-    :cond_0
+    :cond_1a
     sget-object v2, Landroid/provider/CalendarContract$Attendees;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v8, "_id"
@@ -2176,13 +2176,13 @@
 
     .line 151
     .local v1, "cursor":Landroid/database/Cursor;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_45
 
     invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_45
 
     .line 152
     invoke-static {v1}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->serializeAttendeeCalendar(Landroid/database/Cursor;)Ljava/util/List;
@@ -2193,11 +2193,11 @@
     .local v2, "result":Ljava/util/List;
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 155
     .end local v2    # "result":Ljava/util/List;
-    :cond_1
+    :cond_45
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
@@ -2208,12 +2208,12 @@
 
     .line 159
     .local v2, "result":Ljava/util/List;
-    :goto_0
+    :goto_4b
     return-object v2
 .end method
 
 .method public static findById(I)Ljava/util/Map;
-    .locals 1
+    .registers 2
     .param p0, "eventID"    # I
 
     .line 1016
@@ -2221,7 +2221,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1017
     invoke-static {p0}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->findEventById(I)Ljava/util/Map;
@@ -2234,14 +2234,14 @@
 
     .line 1021
     .end local v0    # "results":Ljava/util/Map;
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private static findCalendarById(Ljava/lang/String;)Ljava/util/Map;
-    .locals 9
+    .registers 10
     .param p0, "calendarID"    # Ljava/lang/String;
 
     .line 105
@@ -2339,13 +2339,13 @@
 
     .line 121
     .local v1, "cursor":Landroid/database/Cursor;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_57
 
     invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_57
 
     .line 122
     invoke-static {v1}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->serializeEventCalendar(Landroid/database/Cursor;)Ljava/util/Map;
@@ -2356,28 +2356,28 @@
     .local v2, "result":Ljava/util/Map;
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    goto :goto_0
+    goto :goto_58
 
     .line 125
     .end local v2    # "result":Ljava/util/Map;
-    :cond_0
+    :cond_57
     const/4 v2, 0x0
 
     .line 128
     .restart local v2    # "result":Ljava/util/Map;
-    :goto_0
+    :goto_58
     return-object v2
 .end method
 
 .method public static findCalendars()Ljava/util/List;
-    .locals 1
+    .registers 1
 
     .line 983
     invoke-static {}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->haveCalendarReadWritePermissions()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 984
     invoke-static {}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->findEventCalendars()Ljava/util/List;
@@ -2387,14 +2387,14 @@
     return-object v0
 
     .line 986
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private static findEventById(I)Ljava/util/Map;
-    .locals 23
+    .registers 24
     .param p0, "eventID"    # I
 
     .line 228
@@ -2473,7 +2473,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_45
 
     .line 250
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
@@ -2484,16 +2484,16 @@
     move-result-object v2
 
     .local v2, "result":Ljava/util/Map;
-    goto :goto_0
+    goto :goto_46
 
     .line 253
     .end local v2    # "result":Ljava/util/Map;
-    :cond_0
+    :cond_45
     const/4 v2, 0x0
 
     .line 256
     .restart local v2    # "result":Ljava/util/Map;
-    :goto_0
+    :goto_46
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
     .line 258
@@ -2501,7 +2501,7 @@
 .end method
 
 .method private static findEventCalendars()Ljava/util/List;
-    .locals 9
+    .registers 9
 
     .line 78
     sget-object v0, Lcom/isaigu/gymapp/calendar/CalendarEvents;->context:Landroid/app/Activity;
@@ -2530,7 +2530,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 85
     const/4 v1, 0x0
@@ -2538,7 +2538,7 @@
     return-object v1
 
     .line 87
-    :cond_0
+    :cond_17
     const/16 v1, 0x8
 
     new-array v3, v1, [Ljava/lang/String;
@@ -2613,7 +2613,7 @@
 .end method
 
 .method private static findEventInstanceById(Ljava/lang/String;)Ljava/util/Map;
-    .locals 25
+    .registers 26
     .param p0, "eventID"    # Ljava/lang/String;
 
     .line 265
@@ -2719,13 +2719,13 @@
 
     .line 291
     .local v1, "cursor":Landroid/database/Cursor;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_6e
 
     invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_6e
 
     .line 292
     invoke-static {v1}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->serializeEvent(Landroid/database/Cursor;)Ljava/util/Map;
@@ -2736,21 +2736,21 @@
     .local v2, "result":Ljava/util/Map;
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    goto :goto_0
+    goto :goto_6f
 
     .line 295
     .end local v2    # "result":Ljava/util/Map;
-    :cond_0
+    :cond_6e
     const/4 v2, 0x0
 
     .line 298
     .restart local v2    # "result":Ljava/util/Map;
-    :goto_0
+    :goto_6f
     return-object v2
 .end method
 
 .method private static findEvents(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Ljava/util/List;
-    .locals 30
+    .registers 33
     .param p0, "startDate"    # Ljava/lang/String;
     .param p1, "endDate"    # Ljava/lang/String;
     .param p2, "calendars"    # Ljava/util/List;
@@ -2779,14 +2779,14 @@
 
     .line 170
     .local v2, "eEndDate":Ljava/util/Calendar;
-    :try_start_0
+    :try_start_13
     sget-object v0, Lcom/isaigu/gymapp/calendar/CalendarEvents;->dateFormat:Ljava/text/SimpleDateFormat;
-    :try_end_0
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_2
+    :try_end_15
+    .catch Ljava/text/ParseException; {:try_start_13 .. :try_end_15} :catch_2e
 
     move-object/from16 v3, p0
 
-    :try_start_1
+    :try_start_17
     invoke-virtual {v0, v3}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v0
@@ -2795,50 +2795,50 @@
 
     .line 171
     sget-object v0, Lcom/isaigu/gymapp/calendar/CalendarEvents;->dateFormat:Ljava/text/SimpleDateFormat;
-    :try_end_1
-    .catch Ljava/text/ParseException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_20
+    .catch Ljava/text/ParseException; {:try_start_17 .. :try_end_20} :catch_2c
 
     move-object/from16 v4, p1
 
-    :try_start_2
+    :try_start_22
     invoke-virtual {v0, v4}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v0
 
     invoke-virtual {v2, v0}, Ljava/util/Calendar;->setTime(Ljava/util/Date;)V
-    :try_end_2
-    .catch Ljava/text/ParseException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_29
+    .catch Ljava/text/ParseException; {:try_start_22 .. :try_end_29} :catch_2a
 
     .line 174
-    goto :goto_2
+    goto :goto_36
 
     .line 172
-    :catch_0
+    :catch_2a
     move-exception v0
 
-    goto :goto_1
+    goto :goto_33
 
-    :catch_1
+    :catch_2c
     move-exception v0
 
-    goto :goto_0
+    goto :goto_31
 
-    :catch_2
+    :catch_2e
     move-exception v0
 
     move-object/from16 v3, p0
 
-    :goto_0
+    :goto_31
     move-object/from16 v4, p1
 
     .line 173
     .local v0, "e":Ljava/text/ParseException;
-    :goto_1
+    :goto_33
     invoke-virtual {v0}, Ljava/text/ParseException;->printStackTrace()V
 
     .line 177
     .end local v0    # "e":Ljava/text/ParseException;
-    :goto_2
+    :goto_36
     sget-object v0, Lcom/isaigu/gymapp/calendar/CalendarEvents;->context:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
@@ -2946,7 +2946,7 @@
 
     const-string v7, ")"
 
-    if-lez v6, :cond_2
+    if-lez v6, :cond_107
 
     .line 191
     const-string v6, "AND ("
@@ -2956,12 +2956,12 @@
     const/4 v8, 0x0
 
     .local v8, "i":I
-    :goto_3
+    :goto_aa
     invoke-interface/range {p2 .. p2}, Ljava/util/List;->size()I
 
     move-result v9
 
-    if-ge v8, v9, :cond_1
+    if-ge v8, v9, :cond_e6
 
     .line 193
     new-instance v9, Ljava/lang/StringBuilder;
@@ -2993,7 +2993,7 @@
 
     add-int/lit8 v9, v9, -0x1
 
-    if-eq v8, v9, :cond_0
+    if-eq v8, v9, :cond_e3
 
     .line 195
     new-instance v9, Ljava/lang/StringBuilder;
@@ -3011,12 +3011,12 @@
     move-result-object v6
 
     .line 192
-    :cond_0
+    :cond_e3
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_3
+    goto :goto_aa
 
-    :cond_1
+    :cond_e6
     move-object/from16 v13, p2
 
     .line 198
@@ -3046,15 +3046,15 @@
 
     move-result-object v5
 
-    goto :goto_4
+    goto :goto_109
 
     .line 190
     .end local v6    # "calendarQuery":Ljava/lang/String;
-    :cond_2
+    :cond_107
     move-object/from16 v13, p2
 
     .line 202
-    :goto_4
+    :goto_109
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -3128,7 +3128,7 @@
 .end method
 
 .method private static findReminderByEventId(Ljava/lang/String;J)Ljava/util/List;
-    .locals 10
+    .registers 13
     .param p0, "eventID"    # Ljava/lang/String;
     .param p1, "startDate"    # J
 
@@ -3159,7 +3159,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     .line 689
     const/4 v2, 0x0
@@ -3167,7 +3167,7 @@
     return-object v2
 
     .line 691
-    :cond_0
+    :cond_19
     sget-object v3, Landroid/provider/CalendarContract$Reminders;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v2, "minutes"
@@ -3196,14 +3196,14 @@
 
     .line 695
     .local v2, "cursor":Landroid/database/Cursor;
-    :goto_0
-    if-eqz v2, :cond_1
+    :goto_2e
+    if-eqz v2, :cond_77
 
     invoke-interface {v2}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_77
 
     .line 696
     new-instance v3, Ljava/util/HashMap;
@@ -3232,12 +3232,12 @@
     invoke-virtual {v4, p1, p2}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
     .line 703
-    :try_start_0
+    :try_start_4d
     invoke-interface {v2, v9}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v5
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_51
+    .catch Ljava/lang/Exception; {:try_start_4d .. :try_end_51} :catch_6a
 
     .line 707
     .local v5, "minutes":I
@@ -3270,12 +3270,12 @@
     .end local v3    # "alarm":Ljava/util/Map;
     .end local v4    # "cal":Ljava/util/Calendar;
     .end local v5    # "minutes":I
-    goto :goto_0
+    goto :goto_2e
 
     .line 704
     .restart local v3    # "alarm":Ljava/util/Map;
     .restart local v4    # "cal":Ljava/util/Calendar;
-    :catch_0
+    :catch_6a
     move-exception v5
 
     .line 705
@@ -3291,25 +3291,25 @@
     invoke-static {v6, v7, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 706
-    goto :goto_0
+    goto :goto_2e
 
     .line 714
     .end local v3    # "alarm":Ljava/util/Map;
     .end local v4    # "cal":Ljava/util/Calendar;
     .end local v5    # "e":Ljava/lang/Exception;
-    :cond_1
-    if-eqz v2, :cond_2
+    :cond_77
+    if-eqz v2, :cond_7c
 
     .line 715
     invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
     .line 718
-    :cond_2
+    :cond_7c
     return-object v0
 .end method
 
 .method public static getCalendarPermissions()Ljava/lang/String;
-    .locals 3
+    .registers 3
 
     .line 969
     sget-object v0, Lcom/isaigu/gymapp/calendar/CalendarEvents;->context:Landroid/app/Activity;
@@ -3336,7 +3336,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     .line 973
     const-string v2, "authorized"
@@ -3344,8 +3344,8 @@
     return-object v2
 
     .line 974
-    :cond_0
-    if-nez v1, :cond_1
+    :cond_18
+    if-nez v1, :cond_1d
 
     .line 975
     const-string v2, "undetermined"
@@ -3353,14 +3353,14 @@
     return-object v2
 
     .line 977
-    :cond_1
+    :cond_1d
     const-string v2, "denied"
 
     return-object v2
 .end method
 
 .method private static haveCalendarReadWritePermissions()Z
-    .locals 3
+    .registers 3
 
     .line 67
     sget-object v0, Lcom/isaigu/gymapp/calendar/CalendarEvents;->context:Landroid/app/Activity;
@@ -3383,23 +3383,23 @@
 
     .line 70
     .local v1, "readPermission":I
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_17
     return v2
 .end method
 
 .method public static init(Landroid/app/Activity;)V
-    .locals 0
+    .registers 1
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 43
@@ -3410,7 +3410,7 @@
 .end method
 
 .method public static onRequestPermissionsResult(I[Ljava/lang/String;[I)V
-    .locals 2
+    .registers 5
     .param p0, "requestCode"    # I
     .param p1, "permissions"    # [Ljava/lang/String;
     .param p2, "grantResults"    # [I
@@ -3418,45 +3418,45 @@
     .line 55
     sget v0, Lcom/isaigu/gymapp/calendar/CalendarEvents;->PERMISSION_REQUEST_CODE:I
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_1a
 
     .line 56
     array-length v0, p2
 
     const/4 v1, 0x0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_15
 
     aget v0, p2, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 57
     sget-object v0, Lcom/isaigu/gymapp/calendar/CalendarEvents;->callback:Lcom/isaigu/gymapp/calendar/CalendarEvents$OnPermissionCallback;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 58
     const/4 v1, 0x1
 
     invoke-interface {v0, v1}, Lcom/isaigu/gymapp/calendar/CalendarEvents$OnPermissionCallback;->onPermission(Z)V
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 61
-    :cond_0
+    :cond_15
     sget-object v0, Lcom/isaigu/gymapp/calendar/CalendarEvents;->callback:Lcom/isaigu/gymapp/calendar/CalendarEvents$OnPermissionCallback;
 
     invoke-interface {v0, v1}, Lcom/isaigu/gymapp/calendar/CalendarEvents$OnPermissionCallback;->onPermission(Z)V
 
     .line 64
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     return-void
 .end method
 
 .method public static openEventInCalendar(I)V
-    .locals 3
+    .registers 4
     .param p0, "eventID"    # I
 
     .line 1026
@@ -3498,7 +3498,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_29
 
     .line 1030
     sget-object v2, Lcom/isaigu/gymapp/calendar/CalendarEvents;->context:Landroid/app/Activity;
@@ -3506,12 +3506,12 @@
     invoke-virtual {v2, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     .line 1032
-    :cond_0
+    :cond_29
     return-void
 .end method
 
 .method public static removeEvent(ILjava/util/Map;)Z
-    .locals 18
+    .registers 20
     .param p0, "eventID"    # I
     .param p1, "options"    # Ljava/util/Map;
 
@@ -3526,14 +3526,14 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_107
 
     .line 540
     const/4 v2, 0x0
 
     .line 542
     .local v2, "rows":I
-    :try_start_0
+    :try_start_c
     sget-object v4, Lcom/isaigu/gymapp/calendar/CalendarEvents;->context:Landroid/app/Activity;
 
     invoke-virtual {v4}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
@@ -3561,8 +3561,8 @@
     invoke-interface {v1, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v7
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+    :try_end_22
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_22} :catch_fd
 
     const-string v8, "type"
 
@@ -3570,19 +3570,19 @@
 
     const-string v10, "sync"
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_69
 
     .line 547
-    :try_start_1
+    :try_start_2a
     sget-object v0, Landroid/provider/CalendarContract$Events;->CONTENT_URI:Landroid/net/Uri;
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
+    :try_end_2c
+    .catch Ljava/lang/Exception; {:try_start_2a .. :try_end_2c} :catch_fd
 
     move/from16 v7, p0
 
     int-to-long v11, v7
 
-    :try_start_2
+    :try_start_2f
     invoke-static {v0, v11, v12}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
 
     move-result-object v0
@@ -3593,7 +3593,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_0
+    if-eqz v11, :cond_61
 
     invoke-interface {v1, v10}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -3605,7 +3605,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_61
 
     .line 550
     const-string v10, "id"
@@ -3638,7 +3638,7 @@
     move-object v0, v8
 
     .line 553
-    :cond_0
+    :cond_61
     const/4 v8, 0x0
 
     invoke-virtual {v4, v0, v8, v8}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
@@ -3649,10 +3649,10 @@
 
     .line 555
     .end local v0    # "uri":Landroid/net/Uri;
-    goto/16 :goto_1
+    goto/16 :goto_f4
 
     .line 556
-    :cond_1
+    :cond_69
     move/from16 v7, p0
 
     new-instance v11, Landroid/content/ContentValues;
@@ -3681,23 +3681,23 @@
     invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v13
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_83
+    .catch Ljava/lang/Exception; {:try_start_2f .. :try_end_83} :catch_fb
 
     .line 563
     .local v13, "type":Ljava/lang/Object;
-    :try_start_3
+    :try_start_83
     instance-of v14, v13, Ljava/lang/String;
-    :try_end_3
-    .catch Ljava/text/ParseException; {:try_start_3 .. :try_end_3} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    :try_end_85
+    .catch Ljava/text/ParseException; {:try_start_83 .. :try_end_85} :catch_f5
+    .catch Ljava/lang/Exception; {:try_start_83 .. :try_end_85} :catch_fb
 
     const-string v15, "originalInstanceTime"
 
-    if-eqz v14, :cond_2
+    if-eqz v14, :cond_a4
 
     .line 564
-    :try_start_4
+    :try_start_89
     sget-object v14, Lcom/isaigu/gymapp/calendar/CalendarEvents;->dateFormat:Ljava/text/SimpleDateFormat;
 
     invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -3723,10 +3723,10 @@
 
     invoke-virtual {v11, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    goto :goto_0
+    goto :goto_b5
 
     .line 567
-    :cond_2
+    :cond_a4
     invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -3742,16 +3742,16 @@
     move-result-object v0
 
     invoke-virtual {v11, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
-    :try_end_4
-    .catch Ljava/text/ParseException; {:try_start_4 .. :try_end_4} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
+    :try_end_b5
+    .catch Ljava/text/ParseException; {:try_start_89 .. :try_end_b5} :catch_f5
+    .catch Ljava/lang/Exception; {:try_start_89 .. :try_end_b5} :catch_fb
 
     .line 572
-    :goto_0
+    :goto_b5
     nop
 
     .line 574
-    :try_start_5
+    :try_start_b6
     const-string v0, "eventStatus"
 
     const/4 v14, 0x2
@@ -3779,7 +3779,7 @@
 
     move-result v14
 
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_ed
 
     invoke-interface {v1, v10}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -3791,7 +3791,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_ed
 
     .line 579
     invoke-interface {v6, v9}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -3813,14 +3813,14 @@
     move-object v0, v8
 
     .line 582
-    :cond_3
+    :cond_ed
     invoke-virtual {v4, v0, v11}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
 
     move-result-object v8
 
     .line 583
     .local v8, "exceptionUri":Landroid/net/Uri;
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_f4
 
     .line 584
     const/4 v2, 0x1
@@ -3834,9 +3834,9 @@
     .end local v11    # "eventValues":Landroid/content/ContentValues;
     .end local v12    # "exceptionStart":Ljava/util/Calendar;
     .end local v13    # "type":Ljava/lang/Object;
-    :cond_4
-    :goto_1
-    goto :goto_3
+    :cond_f4
+    :goto_f4
+    goto :goto_103
 
     .line 569
     .restart local v4    # "cr":Landroid/content/ContentResolver;
@@ -3845,7 +3845,7 @@
     .restart local v11    # "eventValues":Landroid/content/ContentValues;
     .restart local v12    # "exceptionStart":Ljava/util/Calendar;
     .restart local v13    # "type":Ljava/lang/Object;
-    :catch_0
+    :catch_f5
     move-exception v0
 
     .line 570
@@ -3859,8 +3859,8 @@
     .end local p0    # "eventID":I
     .end local p1    # "options":Ljava/util/Map;
     throw v0
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
+    :try_end_fb
+    .catch Ljava/lang/Exception; {:try_start_b6 .. :try_end_fb} :catch_fb
 
     .line 589
     .end local v0    # "e":Ljava/text/ParseException;
@@ -3873,41 +3873,41 @@
     .restart local v2    # "rows":I
     .restart local p0    # "eventID":I
     .restart local p1    # "options":Ljava/util/Map;
-    :catch_1
+    :catch_fb
     move-exception v0
 
-    goto :goto_2
+    goto :goto_100
 
-    :catch_2
+    :catch_fd
     move-exception v0
 
     move/from16 v7, p0
 
     .line 590
     .local v0, "e":Ljava/lang/Exception;
-    :goto_2
+    :goto_100
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 592
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_3
-    if-lez v2, :cond_5
+    :goto_103
+    if-lez v2, :cond_106
 
     const/4 v3, 0x1
 
-    :cond_5
+    :cond_106
     return v3
 
     .line 594
     .end local v2    # "rows":I
-    :cond_6
+    :cond_107
     move/from16 v7, p0
 
     return v3
 .end method
 
 .method public static requestCalendarReadWritePermission(Lcom/isaigu/gymapp/calendar/CalendarEvents$OnPermissionCallback;)V
-    .locals 3
+    .registers 4
     .param p0, "cal"    # Lcom/isaigu/gymapp/calendar/CalendarEvents$OnPermissionCallback;
 
     .line 47
@@ -3933,7 +3933,7 @@
 .end method
 
 .method public static saveEvent(Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;)I
-    .locals 2
+    .registers 5
     .param p0, "title"    # Ljava/lang/String;
     .param p1, "details"    # Ljava/util/Map;
     .param p2, "options"    # Ljava/util/Map;
@@ -3945,43 +3945,43 @@
 
     const/4 v1, -0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 993
-    :try_start_0
+    :try_start_7
     invoke-static {p0, p1, p2}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->addEvent(Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;)I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/text/ParseException; {:try_start_7 .. :try_end_b} :catch_f
 
     .line 994
     .local v0, "eventId":I
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_e
 
     .line 995
     return v0
 
     .line 998
     .end local v0    # "eventId":I
-    :cond_0
-    goto :goto_0
+    :cond_e
+    goto :goto_10
 
     .line 997
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 999
-    :goto_0
+    :goto_10
     return v1
 
     .line 1001
-    :cond_1
+    :cond_11
     return v1
 .end method
 
 .method private static serializeAttendeeCalendar(Landroid/database/Cursor;)Ljava/util/List;
-    .locals 4
+    .registers 5
     .param p0, "cursor"    # Landroid/database/Cursor;
 
     .line 951
@@ -3993,12 +3993,12 @@
     .local v0, "results":Ljava/util/List;
     invoke-interface {p0}, Landroid/database/Cursor;->moveToFirst()Z
 
-    :goto_0
+    :goto_8
     invoke-interface {p0}, Landroid/database/Cursor;->isAfterLast()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2e
 
     .line 955
     new-instance v1, Ljava/util/HashMap;
@@ -4035,15 +4035,15 @@
     .end local v1    # "attendee":Ljava/util/Map;
     invoke-interface {p0}, Landroid/database/Cursor;->moveToNext()Z
 
-    goto :goto_0
+    goto :goto_8
 
     .line 963
-    :cond_0
+    :cond_2e
     return-object v0
 .end method
 
 .method private static serializeEvent(Landroid/database/Cursor;)Ljava/util/Map;
-    .locals 17
+    .registers 18
     .param p0, "cursor"    # Landroid/database/Cursor;
 
     .line 812
@@ -4098,7 +4098,7 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_3c
 
     .line 824
     invoke-interface {v1, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -4123,14 +4123,14 @@
     move-result-object v5
 
     .line 828
-    :cond_0
+    :cond_3c
     const/4 v8, 0x4
 
     invoke-interface {v1, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_58
 
     .line 829
     invoke-interface {v1, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -4155,7 +4155,7 @@
     move-result-object v6
 
     .line 833
-    :cond_1
+    :cond_58
     const/4 v8, 0x5
 
     invoke-interface {v1, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -4166,35 +4166,35 @@
 
     const/4 v11, 0x0
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_6c
 
     .line 834
     invoke-interface {v1, v8}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_69
 
     const/4 v8, 0x1
 
-    goto :goto_0
+    goto :goto_6a
 
-    :cond_2
+    :cond_69
     const/4 v8, 0x0
 
-    :goto_0
+    :goto_6a
     move v0, v8
 
-    goto :goto_1
+    goto :goto_6d
 
     .line 833
-    :cond_3
+    :cond_6c
     move v8, v0
 
     .line 837
     .end local v0    # "allDay":Z
     .local v8, "allDay":Z
-    :goto_1
+    :goto_6d
     const/4 v0, 0x7
 
     invoke-interface {v1, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -4205,7 +4205,7 @@
 
     const/4 v13, -0x1
 
-    if-eqz v9, :cond_8
+    if-eqz v9, :cond_14f
 
     .line 838
     new-instance v9, Ljava/util/HashMap;
@@ -4268,7 +4268,7 @@
 
     move-result v14
 
-    if-eq v14, v13, :cond_4
+    if-eq v14, v13, :cond_c7
 
     invoke-interface {v1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
@@ -4278,7 +4278,7 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_4
+    if-eqz v14, :cond_c7
 
     .line 845
     invoke-interface {v1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -4292,12 +4292,12 @@
     invoke-interface {v9, v0, v14}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 848
-    :cond_4
+    :cond_c7
     array-length v0, v15
 
     const/4 v14, 0x2
 
-    if-lt v0, v14, :cond_5
+    if-lt v0, v14, :cond_f0
 
     aget-object v0, v15, v10
 
@@ -4313,7 +4313,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_f0
 
     .line 849
     aget-object v0, v15, v10
@@ -4337,12 +4337,12 @@
     invoke-interface {v9, v14, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 852
-    :cond_5
+    :cond_f0
     array-length v0, v15
 
     const/4 v14, 0x3
 
-    if-lt v0, v14, :cond_7
+    if-lt v0, v14, :cond_14a
 
     .line 853
     const/4 v14, 0x2
@@ -4361,10 +4361,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_124
 
     .line 855
-    :try_start_0
+    :try_start_105
     sget-object v0, Lcom/isaigu/gymapp/calendar/CalendarEvents;->dateFormat:Ljava/text/SimpleDateFormat;
 
     sget-object v14, Lcom/isaigu/gymapp/calendar/CalendarEvents;->dateFormat:Ljava/text/SimpleDateFormat;
@@ -4388,13 +4388,13 @@
     move-result-object v0
 
     invoke-interface {v9, v12, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11e
+    .catch Ljava/text/ParseException; {:try_start_105 .. :try_end_11e} :catch_11f
 
-    goto :goto_2
+    goto :goto_123
 
     .line 856
-    :catch_0
+    :catch_11f
     move-exception v0
 
     .line 857
@@ -4403,11 +4403,11 @@
 
     .line 858
     .end local v0    # "e":Ljava/text/ParseException;
-    :goto_2
-    goto :goto_3
+    :goto_123
+    goto :goto_14a
 
     .line 859
-    :cond_6
+    :cond_124
     const/4 v13, 0x2
 
     aget-object v0, v15, v13
@@ -4424,7 +4424,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_14a
 
     .line 860
     aget-object v0, v15, v13
@@ -4448,8 +4448,8 @@
     invoke-interface {v9, v7, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 865
-    :cond_7
-    :goto_3
+    :cond_14a
+    :goto_14a
     const-string v0, "recurrenceRule"
 
     invoke-interface {v2, v0, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -4457,7 +4457,7 @@
     .line 868
     .end local v9    # "recurrenceRule":Ljava/util/Map;
     .end local v15    # "recurrenceRules":[Ljava/lang/String;
-    :cond_8
+    :cond_14f
     invoke-interface {v1, v11}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -4578,7 +4578,7 @@
 
     const-string v7, "alarms"
 
-    if-lez v0, :cond_9
+    if-lez v0, :cond_1dc
 
     .line 880
     invoke-interface {v1, v11}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -4601,10 +4601,10 @@
 
     invoke-interface {v2, v7, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_4
+    goto :goto_1e4
 
     .line 882
-    :cond_9
+    :cond_1dc
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -4615,7 +4615,7 @@
 
     .line 886
     .end local v0    # "emptyAlarms":Ljava/util/List;
-    :goto_4
+    :goto_1e4
     const-string v0, "original_id"
 
     invoke-interface {v1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -4624,7 +4624,7 @@
 
     const/4 v9, -0x1
 
-    if-eq v7, v9, :cond_a
+    if-eq v7, v9, :cond_204
 
     invoke-interface {v1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
@@ -4634,7 +4634,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_204
 
     .line 887
     invoke-interface {v1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -4650,7 +4650,7 @@
     invoke-interface {v2, v7, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 890
-    :cond_a
+    :cond_204
     const-string v0, "original_sync_id"
 
     invoke-interface {v1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -4659,7 +4659,7 @@
 
     const/4 v9, -0x1
 
-    if-eq v7, v9, :cond_b
+    if-eq v7, v9, :cond_224
 
     invoke-interface {v1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
@@ -4669,7 +4669,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_b
+    if-eqz v7, :cond_224
 
     .line 891
     invoke-interface {v1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -4685,12 +4685,12 @@
     invoke-interface {v2, v7, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 894
-    :cond_b
+    :cond_224
     return-object v2
 .end method
 
 .method private static serializeEventCalendar(Landroid/database/Cursor;)Ljava/util/Map;
-    .locals 8
+    .registers 9
     .param p0, "cursor"    # Landroid/database/Cursor;
 
     .line 911
@@ -4763,7 +4763,7 @@
 
     .line 921
     .local v3, "colorHex":Ljava/lang/String;
-    :try_start_0
+    :try_start_3d
     const-string v4, "#%06X"
 
     new-array v5, v2, [Ljava/lang/Object;
@@ -4787,16 +4787,16 @@
     invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_54
+    .catch Ljava/lang/Exception; {:try_start_3d .. :try_end_54} :catch_56
 
     move-object v3, v4
 
     .line 924
-    goto :goto_0
+    goto :goto_62
 
     .line 922
-    :catch_0
+    :catch_56
     move-exception v4
 
     .line 923
@@ -4813,7 +4813,7 @@
 
     .line 925
     .end local v4    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_62
     const-string v4, "color"
 
     invoke-interface {v0, v4, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -4829,7 +4829,7 @@
 
     const-string v7, "isPrimary"
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_81
 
     .line 928
     invoke-interface {p0, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -4847,12 +4847,12 @@
     invoke-interface {v0, v7, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 931
-    :cond_0
+    :cond_81
     invoke-interface {p0, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_96
 
     .line 932
     invoke-interface {p0, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -4870,7 +4870,7 @@
     invoke-interface {v0, v7, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 935
-    :cond_1
+    :cond_96
     const/4 v4, 0x4
 
     invoke-interface {p0, v4}, Landroid/database/Cursor;->getInt(I)I
@@ -4883,35 +4883,35 @@
 
     const-string v6, "allowsModifications"
 
-    if-eq v4, v5, :cond_3
+    if-eq v4, v5, :cond_b6
 
     const/16 v5, 0x2bc
 
-    if-eq v4, v5, :cond_3
+    if-eq v4, v5, :cond_b6
 
     const/16 v5, 0x258
 
-    if-eq v4, v5, :cond_3
+    if-eq v4, v5, :cond_b6
 
     const/16 v5, 0x1f4
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_ae
 
-    goto :goto_1
+    goto :goto_b6
 
     .line 943
-    :cond_2
+    :cond_ae
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
 
     invoke-interface {v0, v6, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_bd
 
     .line 941
-    :cond_3
-    :goto_1
+    :cond_b6
+    :goto_b6
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -4919,12 +4919,12 @@
     invoke-interface {v0, v6, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 946
-    :goto_2
+    :goto_bd
     return-object v0
 .end method
 
 .method private static serializeEventCalendars(Landroid/database/Cursor;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "cursor"    # Landroid/database/Cursor;
 
     .line 898
@@ -4934,12 +4934,12 @@
 
     .line 900
     .local v0, "results":Ljava/util/List;
-    :goto_0
+    :goto_5
     invoke-interface {p0}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 901
     invoke-static {p0}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->serializeEventCalendar(Landroid/database/Cursor;)Ljava/util/Map;
@@ -4948,10 +4948,10 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_5
 
     .line 904
-    :cond_0
+    :cond_13
     invoke-interface {p0}, Landroid/database/Cursor;->close()V
 
     .line 906
@@ -4959,7 +4959,7 @@
 .end method
 
 .method private static serializeEvents(Landroid/database/Cursor;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .param p0, "cursor"    # Landroid/database/Cursor;
 
     .line 799
@@ -4969,15 +4969,15 @@
 
     .line 800
     .local v0, "results":Ljava/util/List;
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_18
 
     .line 801
-    :goto_0
+    :goto_7
     invoke-interface {p0}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 802
     invoke-static {p0}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->serializeEvent(Landroid/database/Cursor;)Ljava/util/Map;
@@ -4986,19 +4986,19 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_7
 
     .line 805
-    :cond_0
+    :cond_15
     invoke-interface {p0}, Landroid/database/Cursor;->close()V
 
     .line 808
-    :cond_1
+    :cond_18
     return-object v0
 .end method
 
 .method public static syncCalendar(Landroid/content/ContentResolver;Ljava/lang/String;)V
-    .locals 4
+    .registers 6
     .param p0, "cr"    # Landroid/content/ContentResolver;
     .param p1, "calendarId"    # Ljava/lang/String;
 
@@ -5044,7 +5044,7 @@
 .end method
 
 .method public static uriForCalendar()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 1035
     sget-object v0, Landroid/provider/CalendarContract$Events;->CONTENT_URI:Landroid/net/Uri;

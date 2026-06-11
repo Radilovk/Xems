@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1$1$2;)V
-    .locals 0
+    .registers 2
     .param p1, "this$4"    # Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1$1$2;
 
     .line 307
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onDenied()V
-    .locals 2
+    .registers 3
 
     .line 323
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1$1$2$1;->this$4:Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1$1$2;
@@ -61,7 +61,7 @@
 .end method
 
 .method public onGranted()V
-    .locals 3
+    .registers 4
 
     .line 310
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1$1$2$1;->this$4:Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1$1$2;

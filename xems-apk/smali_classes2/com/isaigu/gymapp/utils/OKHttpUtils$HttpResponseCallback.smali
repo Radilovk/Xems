@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 5
+    .registers 6
 
     .line 450
     .local p0, "this":Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;, "Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback<TT;>;"
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/reflect/Type;)V
-    .locals 0
+    .registers 2
     .param p1, "clazz"    # Ljava/lang/reflect/Type;
 
     .line 458

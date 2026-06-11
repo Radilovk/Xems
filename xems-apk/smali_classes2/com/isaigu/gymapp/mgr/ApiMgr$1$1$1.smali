@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/mgr/ApiMgr$1$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/isaigu/gymapp/mgr/ApiMgr$1$1;
 
     .line 280
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 283
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1;->this$1:Lcom/isaigu/gymapp/mgr/ApiMgr$1$1;

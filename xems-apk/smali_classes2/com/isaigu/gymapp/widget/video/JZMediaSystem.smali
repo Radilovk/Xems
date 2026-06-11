@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/video/JZMediaInterface;-><init>()V
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public getCurrentPosition()J
-    .locals 2
+    .registers 3
 
     .line 99
     :try_start_0
@@ -38,15 +38,15 @@
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->getCurrentPosition()I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_6} :catch_8
 
     int-to-long v0, v0
 
     return-wide v0
 
     .line 100
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 101
@@ -61,7 +61,7 @@
 .end method
 
 .method public getDuration()J
-    .locals 2
+    .registers 3
 
     .line 109
     :try_start_0
@@ -70,15 +70,15 @@
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->getDuration()I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_6} :catch_8
 
     int-to-long v0, v0
 
     return-wide v0
 
     .line 110
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 111
@@ -93,7 +93,7 @@
 .end method
 
 .method public isPlaying()Z
-    .locals 1
+    .registers 2
 
     .line 69
     :try_start_0
@@ -102,13 +102,13 @@
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->isPlaying()Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_6} :catch_7
 
     return v0
 
     .line 70
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 71
@@ -123,7 +123,7 @@
 .end method
 
 .method public onBufferingUpdate(Landroid/media/MediaPlayer;I)V
-    .locals 2
+    .registers 5
     .param p1, "mediaPlayer"    # Landroid/media/MediaPlayer;
     .param p2, "percent"    # I
 
@@ -145,7 +145,7 @@
 .end method
 
 .method public onCompletion(Landroid/media/MediaPlayer;)V
-    .locals 2
+    .registers 4
     .param p1, "mediaPlayer"    # Landroid/media/MediaPlayer;
 
     .line 155
@@ -166,7 +166,7 @@
 .end method
 
 .method public onError(Landroid/media/MediaPlayer;II)Z
-    .locals 2
+    .registers 6
     .param p1, "mediaPlayer"    # Landroid/media/MediaPlayer;
     .param p2, "what"    # I
     .param p3, "extra"    # I
@@ -184,14 +184,14 @@
     invoke-direct {v1, p0, p2, p3}, Lcom/isaigu/gymapp/widget/video/JZMediaSystem$5;-><init>(Lcom/isaigu/gymapp/widget/video/JZMediaSystem;II)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_e} :catch_f
 
     .line 206
-    goto :goto_0
+    goto :goto_13
 
     .line 204
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 205
@@ -200,14 +200,14 @@
 
     .line 207
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_13
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public onInfo(Landroid/media/MediaPlayer;II)Z
-    .locals 2
+    .registers 6
     .param p1, "mediaPlayer"    # Landroid/media/MediaPlayer;
     .param p2, "what"    # I
     .param p3, "extra"    # I
@@ -232,7 +232,7 @@
 .end method
 
 .method public onPrepared(Landroid/media/MediaPlayer;)V
-    .locals 2
+    .registers 4
     .param p1, "mediaPlayer"    # Landroid/media/MediaPlayer;
 
     .line 137
@@ -256,7 +256,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 139
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -270,15 +270,15 @@
     invoke-direct {v1, p0}, Lcom/isaigu/gymapp/widget/video/JZMediaSystem$1;-><init>(Lcom/isaigu/gymapp/widget/video/JZMediaSystem;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_23
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_23} :catch_24
 
     .line 150
-    :cond_0
-    goto :goto_0
+    :cond_23
+    goto :goto_28
 
     .line 148
-    :catch_0
+    :catch_24
     move-exception v0
 
     .line 149
@@ -287,12 +287,12 @@
 
     .line 151
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_28
     return-void
 .end method
 
 .method public onSeekComplete(Landroid/media/MediaPlayer;)V
-    .locals 2
+    .registers 4
     .param p1, "mediaPlayer"    # Landroid/media/MediaPlayer;
 
     .line 180
@@ -308,14 +308,14 @@
     invoke-direct {v1, p0}, Lcom/isaigu/gymapp/widget/video/JZMediaSystem$4;-><init>(Lcom/isaigu/gymapp/widget/video/JZMediaSystem;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_e} :catch_f
 
     .line 190
-    goto :goto_0
+    goto :goto_13
 
     .line 188
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 189
@@ -324,12 +324,12 @@
 
     .line 191
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 .method public onVideoSizeChanged(Landroid/media/MediaPlayer;II)V
-    .locals 2
+    .registers 6
     .param p1, "mediaPlayer"    # Landroid/media/MediaPlayer;
     .param p2, "width"    # I
     .param p3, "height"    # I
@@ -361,14 +361,14 @@
     invoke-direct {v1, p0}, Lcom/isaigu/gymapp/widget/video/JZMediaSystem$7;-><init>(Lcom/isaigu/gymapp/widget/video/JZMediaSystem;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_1a} :catch_1b
 
     .line 242
-    goto :goto_0
+    goto :goto_1f
 
     .line 240
-    :catch_0
+    :catch_1b
     move-exception v0
 
     .line 241
@@ -377,26 +377,26 @@
 
     .line 243
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_1f
     return-void
 .end method
 
 .method public pause()V
-    .locals 1
+    .registers 2
 
     .line 60
     :try_start_0
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaSystem;->mediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->pause()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_5} :catch_6
 
     .line 63
-    goto :goto_0
+    goto :goto_a
 
     .line 61
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 62
@@ -405,12 +405,12 @@
 
     .line 64
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_a
     return-void
 .end method
 
 .method public prepare()V
-    .locals 8
+    .registers 9
 
     .line 31
     :try_start_0
@@ -432,7 +432,7 @@
 
     const/4 v1, 0x1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_20
 
     .line 34
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaSystem;->mediaPlayer:Landroid/media/MediaPlayer;
@@ -450,7 +450,7 @@
     invoke-virtual {v0, v2}, Landroid/media/MediaPlayer;->setLooping(Z)V
 
     .line 36
-    :cond_0
+    :cond_20
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaSystem;->mediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0, p0}, Landroid/media/MediaPlayer;->setOnPreparedListener(Landroid/media/MediaPlayer$OnPreparedListener;)V
@@ -521,7 +521,7 @@
 
     array-length v4, v4
 
-    if-le v4, v3, :cond_1
+    if-le v4, v3, :cond_77
 
     .line 47
     iget-object v4, p0, Lcom/isaigu/gymapp/widget/video/JZMediaSystem;->mediaPlayer:Landroid/media/MediaPlayer;
@@ -544,10 +544,10 @@
 
     invoke-virtual {v2, v4, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_89
 
     .line 49
-    :cond_1
+    :cond_77
     iget-object v4, p0, Lcom/isaigu/gymapp/widget/video/JZMediaSystem;->mediaPlayer:Landroid/media/MediaPlayer;
 
     new-array v3, v3, [Ljava/lang/Object;
@@ -567,20 +567,20 @@
     invoke-virtual {v2, v4, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 51
-    :goto_0
+    :goto_89
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/video/JZMediaSystem;->mediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v1}, Landroid/media/MediaPlayer;->prepareAsync()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8e
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_8e} :catch_8f
 
     .line 54
     .end local v0    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Landroid/media/MediaPlayer;>;"
     .end local v2    # "method":Ljava/lang/reflect/Method;
-    goto :goto_1
+    goto :goto_93
 
     .line 52
-    :catch_0
+    :catch_8f
     move-exception v0
 
     .line 53
@@ -589,32 +589,32 @@
 
     .line 55
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_93
     return-void
 .end method
 
 .method public release()V
-    .locals 1
+    .registers 2
 
     .line 88
     :try_start_0
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaSystem;->mediaPlayer:Landroid/media/MediaPlayer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 89
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaSystem;->mediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->release()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_9} :catch_a
 
     .line 93
-    :cond_0
-    goto :goto_0
+    :cond_9
+    goto :goto_e
 
     .line 91
-    :catch_0
+    :catch_a
     move-exception v0
 
     .line 92
@@ -623,12 +623,12 @@
 
     .line 94
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_e
     return-void
 .end method
 
 .method public seekTo(J)V
-    .locals 2
+    .registers 5
     .param p1, "time"    # J
 
     .line 79
@@ -638,14 +638,14 @@
     long-to-int v1, p1
 
     invoke-virtual {v0, v1}, Landroid/media/MediaPlayer;->seekTo(I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_6} :catch_7
 
     .line 82
-    goto :goto_0
+    goto :goto_b
 
     .line 80
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 81
@@ -654,12 +654,12 @@
 
     .line 83
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_b
     return-void
 .end method
 
 .method public setSurface(Landroid/view/Surface;)V
-    .locals 1
+    .registers 3
     .param p1, "surface"    # Landroid/view/Surface;
 
     .line 119
@@ -667,14 +667,14 @@
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaSystem;->mediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0, p1}, Landroid/media/MediaPlayer;->setSurface(Landroid/view/Surface;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_5} :catch_6
 
     .line 122
-    goto :goto_0
+    goto :goto_a
 
     .line 120
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 121
@@ -683,12 +683,12 @@
 
     .line 123
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_a
     return-void
 .end method
 
 .method public setVolume(FF)V
-    .locals 1
+    .registers 4
     .param p1, "leftVolume"    # F
     .param p2, "rightVolume"    # F
 
@@ -697,14 +697,14 @@
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaSystem;->mediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0, p1, p2}, Landroid/media/MediaPlayer;->setVolume(FF)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_5} :catch_6
 
     .line 131
-    goto :goto_0
+    goto :goto_a
 
     .line 129
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 130
@@ -713,26 +713,26 @@
 
     .line 132
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_a
     return-void
 .end method
 
 .method public start()V
-    .locals 1
+    .registers 2
 
     .line 22
     :try_start_0
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaSystem;->mediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->start()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_5} :catch_6
 
     .line 25
-    goto :goto_0
+    goto :goto_a
 
     .line 23
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 24
@@ -741,6 +741,6 @@
 
     .line 26
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_a
     return-void
 .end method

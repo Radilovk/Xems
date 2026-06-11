@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 326
@@ -37,13 +37,14 @@
 
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 1
+    .registers 4
     .param p1, "compoundButton"    # Landroid/widget/CompoundButton;
     .param p2, "b"    # Z
 
     .line 328
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$5;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v0

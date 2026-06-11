@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1, "deviceName"    # Ljava/lang/String;
     .param p2, "serviceUUID"    # Ljava/lang/String;
 
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 1
+    .registers 5
     .param p1, "deviceName"    # Ljava/lang/String;
     .param p2, "serviceUUID"    # Ljava/lang/String;
     .param p3, "advertiseDataLength"    # I
@@ -70,22 +70,22 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1, "obj"    # Ljava/lang/Object;
 
     .line 107
     const/4 v0, 0x0
 
-    if-ne p0, p1, :cond_2
+    if-ne p0, p1, :cond_28
 
     instance-of v1, p1, Lcom/isaigu/gymapp/ble/BleInterface$FilterBean;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_8
 
-    goto :goto_0
+    goto :goto_28
 
     .line 110
-    :cond_0
+    :cond_8
     move-object v1, p1
 
     check-cast v1, Lcom/isaigu/gymapp/ble/BleInterface$FilterBean;
@@ -100,7 +100,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     iget-object v2, v1, Lcom/isaigu/gymapp/ble/BleInterface$FilterBean;->serviceUUID:Ljava/lang/String;
 
@@ -110,13 +110,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     iget-object v2, v1, Lcom/isaigu/gymapp/ble/BleInterface$FilterBean;->advertiseDataLength:Ljava/lang/Integer;
 
     iget-object v3, p0, Lcom/isaigu/gymapp/ble/BleInterface$FilterBean;->advertiseDataLength:Ljava/lang/Integer;
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_27
 
     .line 112
     const/4 v0, 0x1
@@ -124,12 +124,12 @@
     return v0
 
     .line 114
-    :cond_1
+    :cond_27
     return v0
 
     .line 108
     .end local v1    # "bean":Lcom/isaigu/gymapp/ble/BleInterface$FilterBean;
-    :cond_2
-    :goto_0
+    :cond_28
+    :goto_28
     return v0
 .end method

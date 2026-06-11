@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Lcom/isaigu/gymapp/BaseFragment;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/fragment/UserFragment;)Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/UserFragment;
 
     .line 44
@@ -48,7 +48,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/fragment/UserFragment;)Landroid/widget/EditText;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/UserFragment;
 
     .line 44
@@ -58,7 +58,7 @@
 .end method
 
 .method private initListener()V
-    .locals 2
+    .registers 3
 
     .line 107
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/UserFragment;->add:Landroid/widget/Button;
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public handleEvent(Lcom/isaigu/gymapp/message/DataBundle;)V
-    .locals 3
+    .registers 5
     .param p1, "bundle"    # Lcom/isaigu/gymapp/message/DataBundle;
 
     .line 270
@@ -115,16 +115,16 @@
     .local v0, "event":S
     const/16 v1, 0x65
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1a
 
     const/16 v1, 0x69
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_d
 
-    goto :goto_0
+    goto :goto_27
 
     .line 280
-    :cond_0
+    :cond_d
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/UserFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -135,10 +135,10 @@
 
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    goto :goto_27
 
     .line 273
-    :cond_1
+    :cond_1a
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/UserFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -153,12 +153,12 @@
     nop
 
     .line 287
-    :goto_0
+    :goto_27
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 4
+    .registers 8
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -235,7 +235,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_5e
 
     .line 72
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/UserFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -261,7 +261,7 @@
     invoke-virtual {v1, v2}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 75
-    :cond_0
+    :cond_5e
     const v1, 0x7f09016e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -303,7 +303,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_97
 
     .line 80
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/UserFragment;->userlistview:Landroid/support/v7/widget/RecyclerView;
@@ -319,7 +319,7 @@
     invoke-virtual {v1, v2, v3}, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->setMaxRecycledViews(II)V
 
     .line 82
-    :cond_1
+    :cond_97
     new-instance v1, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;
 
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -355,14 +355,14 @@
 .end method
 
 .method public onHiddenChanged(Z)V
-    .locals 2
+    .registers 4
     .param p1, "hidden"    # Z
 
     .line 95
     invoke-super {p0, p1}, Lcom/isaigu/gymapp/BaseFragment;->onHiddenChanged(Z)V
 
     .line 97
-    if-nez p1, :cond_1
+    if-nez p1, :cond_41
 
     .line 98
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
@@ -375,7 +375,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_29
 
     .line 99
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/UserFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -400,10 +400,10 @@
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    goto :goto_0
+    goto :goto_41
 
     .line 101
-    :cond_0
+    :cond_29
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/UserFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
@@ -427,13 +427,13 @@
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 104
-    :cond_1
-    :goto_0
+    :cond_41
+    :goto_41
     return-void
 .end method
 
 .method protected viewId()I
-    .locals 1
+    .registers 2
 
     .line 57
     const v0, 0x7f0b0071

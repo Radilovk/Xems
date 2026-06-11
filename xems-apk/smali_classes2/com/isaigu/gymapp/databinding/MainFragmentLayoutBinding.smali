@@ -48,7 +48,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Landroid/widget/FrameLayout;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/view/View;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;)V
-    .locals 16
+    .registers 36
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "flFragment"    # Landroid/widget/FrameLayout;
     .param p3, "iv1"    # Landroid/widget/ImageView;
@@ -174,7 +174,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/MainFragmentLayoutBinding;
-    .locals 41
+    .registers 42
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 131
@@ -192,7 +192,7 @@
 
     .line 133
     .local v2, "flFragment":Landroid/widget/FrameLayout;
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_125
 
     .line 137
     const v1, 0x7f0900ca
@@ -208,7 +208,7 @@
 
     .line 139
     .local v23, "iv1":Landroid/widget/ImageView;
-    if-eqz v23, :cond_10
+    if-eqz v23, :cond_124
 
     .line 143
     const v1, 0x7f0900cb
@@ -224,7 +224,7 @@
 
     .line 145
     .local v24, "iv2":Landroid/widget/ImageView;
-    if-eqz v24, :cond_f
+    if-eqz v24, :cond_123
 
     .line 149
     const v1, 0x7f0900cc
@@ -240,7 +240,7 @@
 
     .line 151
     .local v25, "iv3":Landroid/widget/ImageView;
-    if-eqz v25, :cond_e
+    if-eqz v25, :cond_122
 
     .line 155
     const v1, 0x7f0900cd
@@ -256,7 +256,7 @@
 
     .line 157
     .local v26, "iv4":Landroid/widget/ImageView;
-    if-eqz v26, :cond_d
+    if-eqz v26, :cond_121
 
     .line 161
     const v1, 0x7f0900ce
@@ -272,7 +272,7 @@
 
     .line 163
     .local v27, "iv5":Landroid/widget/ImageView;
-    if-eqz v27, :cond_c
+    if-eqz v27, :cond_120
 
     .line 167
     const v1, 0x7f0900de
@@ -284,7 +284,7 @@
 
     .line 169
     .local v28, "line":Landroid/view/View;
-    if-eqz v28, :cond_b
+    if-eqz v28, :cond_11f
 
     .line 173
     const v1, 0x7f0900ea
@@ -300,7 +300,7 @@
 
     .line 175
     .local v29, "ll":Landroid/widget/LinearLayout;
-    if-eqz v29, :cond_a
+    if-eqz v29, :cond_11e
 
     .line 179
     const v1, 0x7f0900ec
@@ -316,7 +316,7 @@
 
     .line 181
     .local v30, "llTab1":Landroid/widget/LinearLayout;
-    if-eqz v30, :cond_9
+    if-eqz v30, :cond_11d
 
     .line 185
     const v1, 0x7f0900ed
@@ -332,7 +332,7 @@
 
     .line 187
     .local v31, "llTab2":Landroid/widget/LinearLayout;
-    if-eqz v31, :cond_8
+    if-eqz v31, :cond_11c
 
     .line 191
     const v1, 0x7f0900ee
@@ -348,7 +348,7 @@
 
     .line 193
     .local v32, "llTab3":Landroid/widget/LinearLayout;
-    if-eqz v32, :cond_7
+    if-eqz v32, :cond_11b
 
     .line 197
     const v1, 0x7f0900ef
@@ -364,7 +364,7 @@
 
     .line 199
     .local v33, "llTab4":Landroid/widget/LinearLayout;
-    if-eqz v33, :cond_6
+    if-eqz v33, :cond_11a
 
     .line 203
     const v1, 0x7f0900f0
@@ -380,7 +380,7 @@
 
     .line 205
     .local v34, "llTab5":Landroid/widget/LinearLayout;
-    if-eqz v34, :cond_5
+    if-eqz v34, :cond_119
 
     .line 209
     const v1, 0x7f0901be
@@ -396,7 +396,7 @@
 
     .line 211
     .local v35, "tv1":Landroid/widget/TextView;
-    if-eqz v35, :cond_4
+    if-eqz v35, :cond_118
 
     .line 215
     const v1, 0x7f0901bf
@@ -412,7 +412,7 @@
 
     .line 217
     .local v36, "tv2":Landroid/widget/TextView;
-    if-eqz v36, :cond_3
+    if-eqz v36, :cond_117
 
     .line 221
     const v1, 0x7f0901c0
@@ -428,7 +428,7 @@
 
     .line 223
     .local v37, "tv3":Landroid/widget/TextView;
-    if-eqz v37, :cond_2
+    if-eqz v37, :cond_116
 
     .line 227
     const v1, 0x7f0901c1
@@ -444,7 +444,7 @@
 
     .line 229
     .local v38, "tv4":Landroid/widget/TextView;
-    if-eqz v38, :cond_1
+    if-eqz v38, :cond_115
 
     .line 233
     const v1, 0x7f0901c2
@@ -460,7 +460,7 @@
 
     .line 235
     .local v39, "tv5":Landroid/widget/TextView;
-    if-eqz v39, :cond_0
+    if-eqz v39, :cond_114
 
     .line 239
     new-instance v40, Lcom/isaigu/gymapp/databinding/MainFragmentLayoutBinding;
@@ -512,97 +512,97 @@
     return-object v40
 
     .line 236
-    :cond_0
-    goto :goto_0
+    :cond_114
+    goto :goto_126
 
     .line 230
     .end local v39    # "tv5":Landroid/widget/TextView;
-    :cond_1
-    goto :goto_0
+    :cond_115
+    goto :goto_126
 
     .line 224
     .end local v38    # "tv4":Landroid/widget/TextView;
-    :cond_2
-    goto :goto_0
+    :cond_116
+    goto :goto_126
 
     .line 218
     .end local v37    # "tv3":Landroid/widget/TextView;
-    :cond_3
-    goto :goto_0
+    :cond_117
+    goto :goto_126
 
     .line 212
     .end local v36    # "tv2":Landroid/widget/TextView;
-    :cond_4
-    goto :goto_0
+    :cond_118
+    goto :goto_126
 
     .line 206
     .end local v35    # "tv1":Landroid/widget/TextView;
-    :cond_5
-    goto :goto_0
+    :cond_119
+    goto :goto_126
 
     .line 200
     .end local v34    # "llTab5":Landroid/widget/LinearLayout;
-    :cond_6
-    goto :goto_0
+    :cond_11a
+    goto :goto_126
 
     .line 194
     .end local v33    # "llTab4":Landroid/widget/LinearLayout;
-    :cond_7
-    goto :goto_0
+    :cond_11b
+    goto :goto_126
 
     .line 188
     .end local v32    # "llTab3":Landroid/widget/LinearLayout;
-    :cond_8
-    goto :goto_0
+    :cond_11c
+    goto :goto_126
 
     .line 182
     .end local v31    # "llTab2":Landroid/widget/LinearLayout;
-    :cond_9
-    goto :goto_0
+    :cond_11d
+    goto :goto_126
 
     .line 176
     .end local v30    # "llTab1":Landroid/widget/LinearLayout;
-    :cond_a
-    goto :goto_0
+    :cond_11e
+    goto :goto_126
 
     .line 170
     .end local v29    # "ll":Landroid/widget/LinearLayout;
-    :cond_b
-    goto :goto_0
+    :cond_11f
+    goto :goto_126
 
     .line 164
     .end local v28    # "line":Landroid/view/View;
-    :cond_c
-    goto :goto_0
+    :cond_120
+    goto :goto_126
 
     .line 158
     .end local v27    # "iv5":Landroid/widget/ImageView;
-    :cond_d
-    goto :goto_0
+    :cond_121
+    goto :goto_126
 
     .line 152
     .end local v26    # "iv4":Landroid/widget/ImageView;
-    :cond_e
-    goto :goto_0
+    :cond_122
+    goto :goto_126
 
     .line 146
     .end local v25    # "iv3":Landroid/widget/ImageView;
-    :cond_f
-    goto :goto_0
+    :cond_123
+    goto :goto_126
 
     .line 140
     .end local v24    # "iv2":Landroid/widget/ImageView;
-    :cond_10
-    goto :goto_0
+    :cond_124
+    goto :goto_126
 
     .line 134
     .end local v23    # "iv1":Landroid/widget/ImageView;
-    :cond_11
+    :cond_125
     nop
 
     .line 242
     .end local v2    # "flFragment":Landroid/widget/FrameLayout;
-    :goto_0
+    :goto_126
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -627,7 +627,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/MainFragmentLayoutBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 112
@@ -643,7 +643,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/MainFragmentLayoutBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -659,13 +659,13 @@
 
     .line 119
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 120
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 122
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/MainFragmentLayoutBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/MainFragmentLayoutBinding;
 
     move-result-object v1
@@ -676,7 +676,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/MainFragmentLayoutBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -687,7 +687,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 107
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/MainFragmentLayoutBinding;->rootView:Landroid/widget/LinearLayout;

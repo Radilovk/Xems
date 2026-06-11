@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 287
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "v"    # Landroid/view/View;
 
     .line 289
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     .line 290
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
@@ -71,7 +71,7 @@
     return-void
 
     .line 293
-    :cond_0
+    :cond_1f
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     new-instance v1, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3$1;

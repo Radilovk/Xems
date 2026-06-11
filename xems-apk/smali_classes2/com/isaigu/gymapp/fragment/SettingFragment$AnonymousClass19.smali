@@ -1,4 +1,4 @@
-.class Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;
+.class public Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;
 .super Lcom/isaigu/gymapp/widget/NoDoubleClickListener;
 .source "SettingFragment.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "AnonymousClass19"
 .end annotation
 
@@ -29,12 +29,12 @@
     .registers 2
 
     .prologue
-    .line 691
+    .line 501
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
 
-    .line 692
+    .line 502
     return-void
 .end method
 
@@ -44,7 +44,7 @@
     .registers 5
 
     .prologue
-    .line 697
+    .line 507
     :try_start_0
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
@@ -58,17 +58,17 @@
 
     move-result-object v0
 
-    .line 698
+    .line 508
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
 
     if-nez v1, :cond_15
 
-    .line 699
+    .line 509
     invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
 
-    .line 701
+    .line 511
     :cond_15
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
@@ -86,23 +86,23 @@
 
     move-result-object v1
 
-    .line 702
+    .line 512
     invoke-virtual {v1}, Ljava/io/InputStream;->available()I
 
     move-result v2
 
     new-array v2, v2, [B
 
-    .line 703
+    .line 513
     invoke-virtual {v1, v2}, Ljava/io/InputStream;->read([B)I
 
-    .line 704
+    .line 514
     invoke-virtual {v1}, Ljava/io/InputStream;->close()V
 
-    .line 705
+    .line 515
     invoke-static {v0, v2}, Lcom/isaigu/gymapp/utils/IOUtil;->writeFile(Ljava/io/File;[B)V
 
-    .line 706
+    .line 516
     new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1;
 
     invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;)V
@@ -111,15 +111,15 @@
     :try_end_3c
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_3c} :catch_3d
 
-    .line 710
+    .line 520
     :goto_3c
     return-void
 
-    .line 707
+    .line 517
     :catch_3d
     move-exception v0
 
-    .line 708
+    .line 518
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_3c

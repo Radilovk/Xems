@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 518
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 5
+    .registers 7
     .param p1, "v"    # Landroid/view/View;
 
     .line 520
@@ -54,6 +54,7 @@
 
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$8;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # invokes: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->getPickerViewDataFromTrainProgram()Ljava/util/List;
     invoke-static {v2}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$1200(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Ljava/util/List;
 
     move-result-object v2

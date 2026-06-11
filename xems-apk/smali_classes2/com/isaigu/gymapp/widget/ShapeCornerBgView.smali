@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
+    .registers 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -154,16 +154,16 @@
     .line 54
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->isHasBorder:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_64
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_66
 
-    :cond_0
+    :cond_64
     const/high16 v0, -0x10000
 
-    :goto_0
+    :goto_66
     iput v0, p0, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->bgColor:I
 
     .line 56
@@ -259,7 +259,7 @@
 .end method
 
 .method public static dip2px(Landroid/content/Context;F)I
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "dpValue"    # F
 
@@ -288,7 +288,7 @@
 .end method
 
 .method private getOutterRadii()[F
-    .locals 11
+    .registers 12
 
     .line 102
     const/16 v0, 0x8
@@ -351,7 +351,7 @@
 
     const/4 v10, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2f
 
     .line 105
     aput v10, v0, v3
@@ -360,10 +360,10 @@
     aput v10, v0, v4
 
     .line 108
-    :cond_0
+    :cond_2f
     iget-boolean v1, p0, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->isTopRightCorner:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_37
 
     .line 109
     aput v10, v0, v5
@@ -372,10 +372,10 @@
     aput v10, v0, v6
 
     .line 112
-    :cond_1
+    :cond_37
     iget-boolean v1, p0, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->isBottomLeftCorner:Z
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3f
 
     .line 113
     aput v10, v0, v7
@@ -384,10 +384,10 @@
     aput v10, v0, v8
 
     .line 116
-    :cond_2
+    :cond_3f
     iget-boolean v1, p0, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->isBottomRightCorner:Z
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_47
 
     .line 117
     aput v10, v0, v9
@@ -396,14 +396,14 @@
     aput v10, v0, v2
 
     .line 120
-    :cond_3
+    :cond_47
     return-object v0
 .end method
 
 
 # virtual methods
 .method public getDimen720Px(Landroid/content/Context;I)I
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "dimen"    # I
 
@@ -432,7 +432,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 6
+    .registers 8
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 73
@@ -440,13 +440,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 74
     return-void
 
     .line 75
-    :cond_0
+    :cond_7
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->getOutterRadii()[F
 
     move-result-object v0
@@ -455,7 +455,7 @@
     .local v0, "ffVar":[F
     iget v1, p0, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->bgColor:I
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_33
 
     .line 78
     iget v1, p0, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->bgColor:I
@@ -466,13 +466,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_19
 
     .line 80
     iget v1, p0, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->mColorBgEnableFalse:I
 
     .line 82
-    :cond_1
+    :cond_19
     new-instance v2, Landroid/graphics/drawable/ShapeDrawable;
 
     new-instance v3, Landroid/graphics/drawable/shapes/RoundRectShape;
@@ -505,10 +505,10 @@
     .end local v1    # "color":I
     .end local v2    # "shapeDrawable":Landroid/graphics/drawable/ShapeDrawable;
     .end local v3    # "paint":Landroid/graphics/Paint;
-    :cond_2
+    :cond_33
     iget-boolean v1, p0, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->isHasBorder:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5d
 
     .line 90
     new-instance v1, Landroid/graphics/RectF;
@@ -559,7 +559,7 @@
     .end local v1    # "rectF":Landroid/graphics/RectF;
     .end local v2    # "shapeDrawable":Landroid/graphics/drawable/ShapeDrawable;
     .end local v3    # "paint":Landroid/graphics/Paint;
-    :cond_3
+    :cond_5d
     invoke-super {p0, p1}, Landroid/widget/TextView;->onDraw(Landroid/graphics/Canvas;)V
 
     .line 98
@@ -567,7 +567,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 2
+    .registers 7
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I
@@ -603,7 +603,7 @@
 .end method
 
 .method public setBgColor(I)V
-    .locals 0
+    .registers 2
     .param p1, "bgColor"    # I
 
     .line 142
@@ -617,23 +617,23 @@
 .end method
 
 .method public setEnabled(Z)V
-    .locals 1
+    .registers 3
     .param p1, "enabled"    # Z
 
     .line 136
     invoke-super {p0, p1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 137
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     iget v0, p0, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->mColorText:I
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_8
     iget v0, p0, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->mColorTextEnableFalse:I
 
-    :goto_0
+    :goto_a
     invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->setTextColor(I)V
 
     .line 138

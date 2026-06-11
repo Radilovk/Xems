@@ -1590,24 +1590,12 @@
     <public type="id" name="wrap_content" id="0x7f090200" />
     <public type="id" name="year" id="0x7f090201" />
     <public type="id" name="youyangyundong" id="0x7f090202" />
-    <public type="id" name="bulgarian" id="0x7f090203" />
-    <public type="id" name="changeIcon" id="0x7f090204" />
-    <public type="id" name="changeSplash" id="0x7f090205" />
     <public type="id" name="channelCalibrationContainer" id="0x7f090206" />
-    <public type="id" name="currentDecreaseSeekBar" id="0x7f090207" />
     <public type="id" name="currentDecreaseValue" id="0x7f090208" />
-    <public type="id" name="currentIncreaseSeekBar" id="0x7f090209" />
     <public type="id" name="currentIncreaseValue" id="0x7f09020a" />
-    <public type="id" name="iconPreview" id="0x7f09020b" />
     <public type="id" name="password_row" id="0x7f09020c" />
-    <public type="id" name="pulseContinueSeekBar" id="0x7f09020d" />
     <public type="id" name="pulseContinueValue" id="0x7f09020e" />
-    <public type="id" name="pulsePauseSeekBar" id="0x7f09020f" />
     <public type="id" name="pulsePauseValue" id="0x7f090210" />
-    <public type="id" name="splashPreview" id="0x7f090211" />
-    <public type="id" name="alternateImpulseSwitch" id="0x7f090212" />
-    <public type="id" name="alternatePhaseAerobicButton" id="0x7f090213" />
-    <public type="id" name="alternatePhaseMuscleButton" id="0x7f090214" />
     <public type="integer" name="abc_config_activityDefaultDur" id="0x7f0a0000" />
     <public type="integer" name="abc_config_activityShortDur" id="0x7f0a0001" />
     <public type="integer" name="animation_default_duration" id="0x7f0a0002" />
@@ -2129,20 +2117,9 @@
     <public type="string" name="xiongbu" id="0x7f0d00f9" />
     <public type="string" name="yaobu" id="0x7f0d00fa" />
     <public type="string" name="youyangyundong" id="0x7f0d00fb" />
-    <public type="string" name="language_bulgarian" id="0x7f0d00fc" />
-    <public type="string" name="brandingTitle" id="0x7f0d00fd" />
-    <public type="string" name="changeIconText" id="0x7f0d00fe" />
-    <public type="string" name="changeSplashText" id="0x7f0d00ff" />
-    <public type="string" name="currentIncreaseStep" id="0x7f0d0100" />
-    <public type="string" name="currentDecreaseStep" id="0x7f0d0101" />
-    <public type="string" name="defaultPulseContinue" id="0x7f0d0102" />
-    <public type="string" name="defaultPulsePause" id="0x7f0d0103" />
-    <public type="string" name="channelCalibrationTitle" id="0x7f0d0104" />
+    <public type="string" name="channelPulseDepthTitle" id="0x7f0d0104" />
     <public type="string" name="channelPulseGlobal" id="0x7f0d0105" />
-    <public type="string" name="alternateImpulseModeTitle" id="0x7f0d0106" />
-    <public type="string" name="alternateImpulseModeHint" id="0x7f0d0107" />
-    <public type="string" name="alternatePhaseMuscle" id="0x7f0d0108" />
-    <public type="string" name="alternatePhaseAerobic" id="0x7f0d0109" />
+    <public type="string" name="channelPulseGlobal" id="0x7f0d0105" />
     <public type="style" name="AlertDialog.AppCompat" id="0x7f0e0000" />
     <public type="style" name="AlertDialog.AppCompat.Light" id="0x7f0e0001" />
     <public type="style" name="Animation.AppCompat.Dialog" id="0x7f0e0002" />

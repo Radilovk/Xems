@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$2"    # Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1;
 
     .line 283
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onDenied()V
-    .locals 3
+    .registers 4
 
     .line 299
     new-instance v0, Landroid/app/AlertDialog$Builder;
@@ -100,7 +100,7 @@
 .end method
 
 .method public onGranted()V
-    .locals 3
+    .registers 4
 
     .line 286
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1$1;->this$2:Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1;

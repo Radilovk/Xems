@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$3$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$2"    # Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$3$1;
 
     .line 322
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 0
+    .registers 4
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -58,19 +58,19 @@
 
     .line 324
     .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Lcom/isaigu/gymapp/bean/TrainProgram;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_7
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
     .line 327
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 322
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

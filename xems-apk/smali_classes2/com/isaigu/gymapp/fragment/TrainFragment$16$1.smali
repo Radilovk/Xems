@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment$16;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/TrainFragment$16;
 
     .line 561
@@ -37,13 +37,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 563
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$16$1;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$16;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/TrainFragment$16;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
     move-result-object v0
@@ -55,6 +56,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/TrainFragment$16;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
     move-result-object v0

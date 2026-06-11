@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
     .line 340
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p1, "v"    # Landroid/view/View;
 
     .line 342
@@ -55,6 +55,7 @@
     .line 344
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->delayTimer1:Ljava/util/Timer;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$200(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)Ljava/util/Timer;
 
     move-result-object v0
@@ -66,11 +67,13 @@
 
     const/4 v1, 0x0
 
+    # setter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->delayTimer1:Ljava/util/Timer;
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$202(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;Ljava/util/Timer;)Ljava/util/Timer;
 
     .line 346
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->delayTimer2:Ljava/util/Timer;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$300(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)Ljava/util/Timer;
 
     move-result-object v0
@@ -80,11 +83,13 @@
     .line 347
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # setter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->delayTimer2:Ljava/util/Timer;
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$302(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;Ljava/util/Timer;)Ljava/util/Timer;
 
     .line 348
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->delayTimer3:Ljava/util/Timer;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$400(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)Ljava/util/Timer;
 
     move-result-object v0
@@ -94,11 +99,13 @@
     .line 349
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # setter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->delayTimer3:Ljava/util/Timer;
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$402(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;Ljava/util/Timer;)Ljava/util/Timer;
 
     .line 350
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->delayTimer4:Ljava/util/Timer;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$500(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)Ljava/util/Timer;
 
     move-result-object v0
@@ -108,18 +115,20 @@
     .line 351
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # setter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->delayTimer4:Ljava/util/Timer;
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$502(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;Ljava/util/Timer;)Ljava/util/Timer;
 
     .line 353
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->addTrainUser:Z
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$600(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)Z
 
     move-result v0
 
     const-wide/16 v1, 0x1f4
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5b
 
     .line 354
     new-instance v0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4$1;
@@ -128,17 +137,18 @@
 
     invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/utils/TimerUtils;->delayCallback(Ljava/lang/Runnable;J)Ljava/util/Timer;
 
-    goto :goto_0
+    goto :goto_7d
 
     .line 373
-    :cond_0
+    :cond_5b
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->selectedDeviceBean:Lcom/isaigu/gymapp/bean/DeviceBean;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$800(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)Lcom/isaigu/gymapp/bean/DeviceBean;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_7d
 
     invoke-static {}, Lcom/isaigu/gymapp/mgr/BleMgr;->getController()Lcom/isaigu/gymapp/ble/AndroidBleController;
 
@@ -146,6 +156,7 @@
 
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->selectedDeviceBean:Lcom/isaigu/gymapp/bean/DeviceBean;
     invoke-static {v3}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$800(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)Lcom/isaigu/gymapp/bean/DeviceBean;
 
     move-result-object v3
@@ -156,7 +167,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_7d
 
     .line 374
     new-instance v0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4$2;
@@ -166,7 +177,7 @@
     invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/utils/TimerUtils;->delayCallback(Ljava/lang/Runnable;J)Ljava/util/Timer;
 
     .line 395
-    :cond_1
-    :goto_0
+    :cond_7d
+    :goto_7d
     return-void
 .end method

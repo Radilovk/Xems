@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/VideoListFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
     .line 128
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 3
+    .registers 7
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -58,15 +58,15 @@
 
     .line 130
     .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Lcom/isaigu/gymapp/bean/vo/PageResponseVO;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_27
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_27
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->isSuccess()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 131
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/VideoListFragment;
@@ -77,6 +77,7 @@
 
     check-cast v1, Lcom/isaigu/gymapp/bean/vo/PageResponseVO;
 
+    # setter for: Lcom/isaigu/gymapp/fragment/VideoListFragment;->pageResponseVO:Lcom/isaigu/gymapp/bean/vo/PageResponseVO;
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/VideoListFragment;->access$002(Lcom/isaigu/gymapp/fragment/VideoListFragment;Lcom/isaigu/gymapp/bean/vo/PageResponseVO;)Lcom/isaigu/gymapp/bean/vo/PageResponseVO;
 
     .line 132
@@ -100,12 +101,12 @@
 
     .line 146
     .end local v0    # "content":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/vo/VideoVO;>;"
-    :cond_0
+    :cond_27
     return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 128
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

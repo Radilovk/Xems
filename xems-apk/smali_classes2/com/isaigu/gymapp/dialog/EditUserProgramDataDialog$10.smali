@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 482
@@ -34,33 +34,35 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 5
+    .registers 7
     .param p1, "v"    # Landroid/view/View;
 
     .line 485
     :try_start_0
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # invokes: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->preCheck()Z
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2500(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Z
 
     move-result v0
 
     .line 486
     .local v0, "check":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 487
     return-void
 
     .line 489
-    :cond_0
+    :cond_9
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->multiEdit:Z
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2600(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5b
 
     .line 490
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
@@ -76,11 +78,12 @@
     .line 491
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->saveProgramListener:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2700(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;
 
     move-result-object v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_94
 
     .line 492
     new-instance v1, Ljava/util/ArrayList;
@@ -92,20 +95,22 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_2a
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->people:[Landroid/widget/RelativeLayout;
     invoke-static {v3}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2800(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)[Landroid/widget/RelativeLayout;
 
     move-result-object v3
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_4b
 
     .line 494
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->people:[Landroid/widget/RelativeLayout;
     invoke-static {v3}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2800(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)[Landroid/widget/RelativeLayout;
 
     move-result-object v3
@@ -116,7 +121,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_48
 
     .line 495
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -126,22 +131,24 @@
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 493
-    :cond_1
+    :cond_48
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 498
     .end local v2    # "i":I
-    :cond_2
+    :cond_4b
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->saveProgramListener:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;
     invoke-static {v2}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2700(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v3}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v3
@@ -150,10 +157,10 @@
 
     .line 499
     .end local v1    # "checks":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
-    goto :goto_1
+    goto :goto_94
 
     .line 501
-    :cond_3
+    :cond_5b
     new-instance v1, Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
 
     invoke-direct {v1}, Lcom/isaigu/gymapp/dialog/SaveProgramDialog;-><init>()V
@@ -162,6 +169,7 @@
     .local v1, "dialog":Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v2}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v2
@@ -172,7 +180,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_83
 
     .line 503
     new-instance v2, Landroid/os/Bundle;
@@ -185,6 +193,7 @@
 
     iget-object v4, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v4}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v4
@@ -198,7 +207,7 @@
 
     .line 507
     .end local v2    # "bundle":Landroid/os/Bundle;
-    :cond_4
+    :cond_83
     new-instance v2, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1;
 
     invoke-direct {v2, p0, v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1;-><init>(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;Lcom/isaigu/gymapp/dialog/SaveProgramDialog;)V
@@ -213,18 +222,18 @@
     move-result-object v2
 
     invoke-virtual {v2, v1}, Lcom/isaigu/gymapp/BaseActivity;->showDialogFragment(Lcom/isaigu/gymapp/BaseDialogFragment;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_94
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_94} :catch_95
 
     .line 638
     .end local v0    # "check":Z
     .end local v1    # "dialog":Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
-    :cond_5
-    :goto_1
-    goto :goto_2
+    :cond_94
+    :goto_94
+    goto :goto_ab
 
     .line 635
-    :catch_0
+    :catch_95
     move-exception v0
 
     .line 636
@@ -250,6 +259,6 @@
 
     .line 639
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_2
+    :goto_ab
     return-void
 .end method

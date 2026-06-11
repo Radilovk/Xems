@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 38
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public create()Lcom/isaigu/gymapp/widget/LoadingDialog;
-    .locals 11
+    .registers 12
 
     .line 86
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/LoadingDialog$Builder;->context:Landroid/content/Context;
@@ -157,23 +157,23 @@
     .local v6, "msgText":Landroid/widget/TextView;
     iget-boolean v7, p0, Lcom/isaigu/gymapp/widget/LoadingDialog$Builder;->isShowMessage:Z
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_5b
 
     .line 101
     iget-object v7, p0, Lcom/isaigu/gymapp/widget/LoadingDialog$Builder;->message:Ljava/lang/String;
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    goto :goto_60
 
     .line 103
-    :cond_0
+    :cond_5b
     const/16 v7, 0x8
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 105
-    :goto_0
+    :goto_60
     invoke-virtual {v5, v1}, Lcom/isaigu/gymapp/widget/LoadingDialog;->setContentView(Landroid/view/View;)V
 
     .line 106
@@ -191,7 +191,7 @@
 .end method
 
 .method public setCancelOutside(Z)Lcom/isaigu/gymapp/widget/LoadingDialog$Builder;
-    .locals 0
+    .registers 2
     .param p1, "isCancelOutside"    # Z
 
     .line 80
@@ -202,7 +202,7 @@
 .end method
 
 .method public setCancelable(Z)Lcom/isaigu/gymapp/widget/LoadingDialog$Builder;
-    .locals 0
+    .registers 2
     .param p1, "isCancelable"    # Z
 
     .line 70
@@ -213,7 +213,7 @@
 .end method
 
 .method public setMessage(Ljava/lang/String;)Lcom/isaigu/gymapp/widget/LoadingDialog$Builder;
-    .locals 0
+    .registers 2
     .param p1, "message"    # Ljava/lang/String;
 
     .line 49
@@ -224,7 +224,7 @@
 .end method
 
 .method public setShowMessage(Z)Lcom/isaigu/gymapp/widget/LoadingDialog$Builder;
-    .locals 0
+    .registers 2
     .param p1, "isShowMessage"    # Z
 
     .line 59

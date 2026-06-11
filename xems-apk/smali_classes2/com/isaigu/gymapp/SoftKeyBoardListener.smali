@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/BaseActivity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Lcom/isaigu/gymapp/BaseActivity;
 
     .line 21
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Lcom/isaigu/gymapp/BaseDialogFragment;)V
-    .locals 1
+    .registers 3
     .param p1, "fragment"    # Lcom/isaigu/gymapp/BaseDialogFragment;
 
     .line 16
@@ -97,7 +97,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/SoftKeyBoardListener;)Landroid/view/View;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/SoftKeyBoardListener;
 
     .line 10
@@ -107,7 +107,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/SoftKeyBoardListener;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/SoftKeyBoardListener;
 
     .line 10
@@ -117,7 +117,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/isaigu/gymapp/SoftKeyBoardListener;)Lcom/isaigu/gymapp/SoftKeyBoardListener$OnKeyboardChangeListener;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/SoftKeyBoardListener;
 
     .line 10
@@ -127,7 +127,7 @@
 .end method
 
 .method private adjustLayout(Z)V
-    .locals 2
+    .registers 4
     .param p1, "isVisible"    # Z
 
     .line 103
@@ -141,7 +141,7 @@
 
     .line 104
     .local v0, "params":Landroid/view/WindowManager$LayoutParams;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     .line 105
     const/16 v1, -0x6c
@@ -153,10 +153,10 @@
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 108
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->y:I
@@ -167,12 +167,12 @@
     invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 111
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 .method private init(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
     .param p1, "activity"    # Landroid/app/Activity;
 
     .line 29
@@ -190,7 +190,7 @@
 .end method
 
 .method private initListener()V
-    .locals 2
+    .registers 3
 
     .line 35
     iget-object v0, p0, Lcom/isaigu/gymapp/SoftKeyBoardListener;->rootView:Landroid/view/View;
@@ -206,7 +206,7 @@
 .end method
 
 .method public static setListener(Lcom/isaigu/gymapp/BaseActivity;Lcom/isaigu/gymapp/SoftKeyBoardListener$OnKeyboardChangeListener;)V
-    .locals 1
+    .registers 3
     .param p0, "activity"    # Lcom/isaigu/gymapp/BaseActivity;
     .param p1, "onSoftKeyBoardChangeListener"    # Lcom/isaigu/gymapp/SoftKeyBoardListener$OnKeyboardChangeListener;
 
@@ -224,7 +224,7 @@
 .end method
 
 .method public static setListener(Lcom/isaigu/gymapp/BaseDialogFragment;Lcom/isaigu/gymapp/SoftKeyBoardListener$OnKeyboardChangeListener;)V
-    .locals 1
+    .registers 3
     .param p0, "dialog"    # Lcom/isaigu/gymapp/BaseDialogFragment;
     .param p1, "onSoftKeyBoardChangeListener"    # Lcom/isaigu/gymapp/SoftKeyBoardListener$OnKeyboardChangeListener;
 
@@ -242,7 +242,7 @@
 .end method
 
 .method private setOnSoftKeyBoardChangeListener(Lcom/isaigu/gymapp/SoftKeyBoardListener$OnKeyboardChangeListener;)V
-    .locals 0
+    .registers 2
     .param p1, "onSoftKeyBoardChangeListener"    # Lcom/isaigu/gymapp/SoftKeyBoardListener$OnKeyboardChangeListener;
 
     .line 114

@@ -7,8 +7,6 @@
 
 
 # instance fields
-.field public alternateImpulseMode:Z
-
 .field public hz:I
 
 .field public inputRamp:I
@@ -27,8 +25,6 @@
 
 .field public strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
 
-.field public strenthTenths:I
-
 .field public workLength:I
 
 
@@ -36,17 +32,17 @@
 .method public constructor <init>()V
     .registers 2
 
-    .prologue
-    .line 6
+    .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 17
+    .line 28
     new-instance v0, Lcom/isaigu/gymapp/bean/PartStrenthBean;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/bean/PartStrenthBean;-><init>()V
 
     iput-object v0, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
 
+    .line 29
     return-void
 .end method
 
@@ -55,26 +51,11 @@
 .method public reset()V
     .registers 2
 
-    .prologue
+    .line 38
     const/4 v0, 0x0
 
-    .line 21
     iput v0, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
 
-    .line 22
-    iput v0, p0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthTenths:I
-
-    .line 23
-    return-void
-.end method
-
-.method public syncStrengthFields()V
-    .registers 1
-
-    .prologue
-    .line 26
-    invoke-static {p0}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->migrate(Lcom/isaigu/gymapp/bean/ProgramDataBean;)V
-
-    .line 27
+    .line 40
     return-void
 .end method

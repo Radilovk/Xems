@@ -20,14 +20,18 @@
 # instance fields
 .field final synthetic this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
+.field final synthetic val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
 
 # direct methods
-.method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment;)V
-    .registers 2
+.method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment;Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;)V
+    .registers 3
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    .prologue
-    .line 349
+    .line 384
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$9;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
+
+    iput-object p2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$9;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,14 +41,20 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .registers 3
 
-    .prologue
-    .line 352
+    .line 386
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$9;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->startGetBatteryTimer()V
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
-    .line 353
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$9;->val$wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->addUser(Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;)V
+
+    .line 387
     return-void
 .end method

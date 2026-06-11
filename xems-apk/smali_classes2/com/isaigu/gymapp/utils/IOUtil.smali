@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 11
     const-class v0, Lcom/isaigu/gymapp/utils/IOUtil;
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,27 +40,27 @@
 .end method
 
 .method public static close(Ljava/io/Closeable;)V
-    .locals 3
+    .registers 4
     .param p0, "close"    # Ljava/io/Closeable;
 
     .line 35
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     .line 36
     return-void
 
     .line 38
-    :cond_0
-    :try_start_0
+    :cond_3
+    :try_start_3
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_6} :catch_7
 
     .line 41
-    goto :goto_0
+    goto :goto_f
 
     .line 39
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 40
@@ -73,32 +73,32 @@
 
     .line 42
     .end local v0    # "e1":Ljava/lang/Exception;
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public static close(Ljava/lang/AutoCloseable;)V
-    .locals 3
+    .registers 4
     .param p0, "c"    # Ljava/lang/AutoCloseable;
 
     .line 25
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     .line 26
     return-void
 
     .line 28
-    :cond_0
-    :try_start_0
+    :cond_3
+    :try_start_3
     invoke-interface {p0}, Ljava/lang/AutoCloseable;->close()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_6} :catch_7
 
     .line 31
-    goto :goto_0
+    goto :goto_f
 
     .line 29
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 30
@@ -111,32 +111,32 @@
 
     .line 32
     .end local v0    # "e1":Ljava/lang/Exception;
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public static closeIs(Ljava/io/InputStream;)V
-    .locals 3
+    .registers 4
     .param p0, "is"    # Ljava/io/InputStream;
 
     .line 65
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     .line 66
     return-void
 
     .line 68
-    :cond_0
-    :try_start_0
+    :cond_3
+    :try_start_3
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_6} :catch_7
 
     .line 71
-    goto :goto_0
+    goto :goto_f
 
     .line 69
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 70
@@ -149,32 +149,32 @@
 
     .line 72
     .end local v0    # "e1":Ljava/io/IOException;
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public static closeOs(Ljava/io/OutputStream;)V
-    .locals 3
+    .registers 4
     .param p0, "os"    # Ljava/io/OutputStream;
 
     .line 45
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     .line 46
     return-void
 
     .line 48
-    :cond_0
-    :try_start_0
+    :cond_3
+    :try_start_3
     invoke-virtual {p0}, Ljava/io/OutputStream;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_6} :catch_7
 
     .line 51
-    goto :goto_0
+    goto :goto_f
 
     .line 49
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 50
@@ -187,32 +187,32 @@
 
     .line 52
     .end local v0    # "e1":Ljava/io/IOException;
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public static closeRead(Ljava/io/Reader;)V
-    .locals 3
+    .registers 4
     .param p0, "read"    # Ljava/io/Reader;
 
     .line 55
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     .line 56
     return-void
 
     .line 58
-    :cond_0
-    :try_start_0
+    :cond_3
+    :try_start_3
     invoke-virtual {p0}, Ljava/io/Reader;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_6} :catch_7
 
     .line 61
-    goto :goto_0
+    goto :goto_f
 
     .line 59
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 60
@@ -225,32 +225,32 @@
 
     .line 62
     .end local v0    # "e1":Ljava/io/IOException;
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public static closeWriter(Ljava/io/Writer;)V
-    .locals 3
+    .registers 4
     .param p0, "writer"    # Ljava/io/Writer;
 
     .line 15
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     .line 16
     return-void
 
     .line 18
-    :cond_0
-    :try_start_0
+    :cond_3
+    :try_start_3
     invoke-virtual {p0}, Ljava/io/Writer;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_6} :catch_7
 
     .line 21
-    goto :goto_0
+    goto :goto_f
 
     .line 19
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 20
@@ -263,12 +263,12 @@
 
     .line 22
     .end local v0    # "e1":Ljava/io/IOException;
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public static readFile(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p0, "file"    # Ljava/lang/String;
     .param p1, "charset"    # Ljava/nio/charset/Charset;
     .annotation system Ldalvik/annotation/Throws;
@@ -282,28 +282,28 @@
 
     .line 77
     .local v0, "isr":Ljava/io/InputStreamReader;
-    if-nez p1, :cond_0
+    if-nez p1, :cond_c
 
-    :try_start_0
+    :try_start_3
     const-string v1, "utf-8"
 
     invoke-static {v1}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 90
-    :catchall_0
+    :catchall_a
     move-exception v1
 
-    goto :goto_2
+    goto :goto_44
 
     .line 77
-    :cond_0
+    :cond_c
     move-object v1, p1
 
-    :goto_0
+    :goto_d
     move-object p1, v1
 
     .line 78
@@ -332,12 +332,12 @@
 
     .line 81
     .local v3, "bf":Ljava/nio/CharBuffer;
-    :goto_1
+    :goto_24
     invoke-virtual {v0, v3}, Ljava/io/InputStreamReader;->read(Ljava/nio/CharBuffer;)I
 
     move-result v4
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_3a
 
     .line 82
     invoke-virtual {v3}, Ljava/nio/CharBuffer;->flip()Ljava/nio/Buffer;
@@ -356,15 +356,15 @@
 
     move-object v3, v4
 
-    goto :goto_1
+    goto :goto_24
 
     .line 86
-    :cond_1
+    :cond_3a
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3e
+    .catchall {:try_start_3 .. :try_end_3e} :catchall_a
 
     .line 88
     .local v2, "str":Ljava/lang/String;
@@ -383,19 +383,19 @@
     .end local v1    # "s":Ljava/lang/StringBuffer;
     .end local v2    # "str":Ljava/lang/String;
     .end local v3    # "bf":Ljava/nio/CharBuffer;
-    :goto_2
-    if-eqz v0, :cond_2
+    :goto_44
+    if-eqz v0, :cond_49
 
     .line 91
     invoke-virtual {v0}, Ljava/io/InputStreamReader;->close()V
 
     .line 92
-    :cond_2
+    :cond_49
     throw v1
 .end method
 
 .method public static readFile(Ljava/io/File;)[B
-    .locals 4
+    .registers 5
     .param p0, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -412,7 +412,7 @@
 
     .line 99
     .local v1, "data":[B
-    :try_start_0
+    :try_start_2
     new-instance v2, Ljava/io/FileInputStream;
 
     invoke-direct {v2, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
@@ -432,8 +432,8 @@
 
     .line 101
     invoke-virtual {v0, v1}, Ljava/io/FileInputStream;->read([B)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_2 .. :try_end_13} :catchall_18
 
     .line 103
     nop
@@ -445,21 +445,21 @@
     return-object v1
 
     .line 103
-    :catchall_0
+    :catchall_18
     move-exception v2
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 104
     invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
 
     .line 105
-    :cond_0
+    :cond_1e
     throw v2
 .end method
 
 .method public static writeFile(Ljava/io/File;[B)V
-    .locals 1
+    .registers 3
     .param p0, "file"    # Ljava/io/File;
     .param p1, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
@@ -478,7 +478,7 @@
 .end method
 
 .method public static writeFile(Ljava/io/File;[BZ)V
-    .locals 2
+    .registers 5
     .param p0, "file"    # Ljava/io/File;
     .param p1, "data"    # [B
     .param p2, "append"    # Z
@@ -493,7 +493,7 @@
 
     .line 124
     .local v0, "fos":Ljava/io/FileOutputStream;
-    :try_start_0
+    :try_start_1
     new-instance v1, Ljava/io/FileOutputStream;
 
     invoke-direct {v1, p0, p2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;Z)V
@@ -504,8 +504,8 @@
 
     .line 125
     invoke-virtual {v0}, Ljava/io/FileOutputStream;->flush()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_1 .. :try_end_d} :catchall_12
 
     .line 127
     nop
@@ -517,21 +517,21 @@
     return-void
 
     .line 127
-    :catchall_0
+    :catchall_12
     move-exception v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 128
     invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V
 
     .line 129
-    :cond_0
+    :cond_18
     throw v1
 .end method
 
 .method public static writeFile(Ljava/lang/String;[B)V
-    .locals 1
+    .registers 3
     .param p0, "fileName"    # Ljava/lang/String;
     .param p1, "data"    # [B
     .annotation system Ldalvik/annotation/Throws;
@@ -552,7 +552,7 @@
 .end method
 
 .method public static writeFile(Ljava/lang/String;[BZ)V
-    .locals 1
+    .registers 4
     .param p0, "fileName"    # Ljava/lang/String;
     .param p1, "data"    # [B
     .param p2, "append"    # Z

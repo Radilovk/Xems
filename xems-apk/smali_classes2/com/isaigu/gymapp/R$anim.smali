@@ -1,6 +1,5 @@
 .class public final Lcom/isaigu/gymapp/R$anim;
 .super Ljava/lang/Object;
-.source "R.java"
 
 
 # annotations
@@ -72,10 +71,7 @@
 .method private constructor <init>()V
     .registers 1
 
-    .prologue
-    .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
     return-void
 .end method

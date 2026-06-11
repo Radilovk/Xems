@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 70
     iput-object p1, p0, Lcom/isaigu/gymapp/UIFactory$4;->val$title:Ljava/lang/String;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public customLayout(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "v"    # Landroid/view/View;
 
     .line 73

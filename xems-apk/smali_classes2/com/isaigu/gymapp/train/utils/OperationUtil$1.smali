@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/BaseActivity;Lcom/isaigu/gymapp/bean/TrainProgram;Lcom/isaigu/gymapp/dialog/SaveProgramDialog;)V
-    .locals 0
+    .registers 4
 
     .line 41
     iput-object p1, p0, Lcom/isaigu/gymapp/train/utils/OperationUtil$1;->val$activity:Lcom/isaigu/gymapp/BaseActivity;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public onSaveProgram(Ljava/lang/String;)V
-    .locals 8
+    .registers 10
     .param p1, "name"    # Ljava/lang/String;
 
     .line 43
@@ -52,7 +52,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 44
     iget-object v0, p0, Lcom/isaigu/gymapp/train/utils/OperationUtil$1;->val$activity:Lcom/isaigu/gymapp/BaseActivity;
@@ -65,7 +65,7 @@
     return-void
 
     .line 53
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/isaigu/gymapp/train/utils/OperationUtil$1;->val$program:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/BeanUtils;->cloneObject(Ljava/lang/Object;)Ljava/lang/Object;
@@ -99,7 +99,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_58
 
     .line 56
     const/4 v1, 0x1
@@ -112,7 +112,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_3a
 
     .line 58
     iput-object p1, v0, Lcom/isaigu/gymapp/bean/TrainProgram;->name:Ljava/lang/String;
@@ -121,7 +121,7 @@
     const/4 v1, 0x0
 
     .line 68
-    :cond_1
+    :cond_3a
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v3
@@ -129,7 +129,7 @@
     invoke-virtual {v3, v0}, Lcom/isaigu/gymapp/mgr/DataMgr;->addOrUpdateTrainProgram(Lcom/isaigu/gymapp/bean/TrainProgram;)V
 
     .line 69
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4c
 
     .line 72
     new-instance v2, Lcom/isaigu/gymapp/train/utils/OperationUtil$1$1;
@@ -138,10 +138,10 @@
 
     invoke-static {v0, v2}, Lcom/isaigu/gymapp/mgr/ApiMgr;->updateProgramTrainData(Lcom/isaigu/gymapp/bean/TrainProgram;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    goto :goto_0
+    goto :goto_56
 
     .line 94
-    :cond_2
+    :cond_4c
     iput-object v2, v0, Lcom/isaigu/gymapp/bean/TrainProgram;->id:Ljava/lang/Long;
 
     .line 95
@@ -153,11 +153,11 @@
 
     .line 117
     .end local v1    # "update":Z
-    :goto_0
-    goto/16 :goto_4
+    :goto_56
+    goto/16 :goto_106
 
     .line 118
-    :cond_3
+    :cond_58
     const/4 v1, 0x1
 
     .line 119
@@ -168,7 +168,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_64
 
     .line 120
     iput-object p1, v0, Lcom/isaigu/gymapp/bean/TrainProgram;->name:Ljava/lang/String;
@@ -177,8 +177,8 @@
     const/4 v1, 0x0
 
     .line 123
-    :cond_4
-    if-eqz v1, :cond_8
+    :cond_64
+    if-eqz v1, :cond_a4
 
     .line 124
     const-class v2, Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -200,12 +200,12 @@
     const/4 v5, 0x0
 
     .local v5, "i":I
-    :goto_1
+    :goto_72
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v6
 
-    if-ge v5, v6, :cond_6
+    if-ge v5, v6, :cond_99
 
     .line 127
     invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -216,7 +216,7 @@
 
     iget-object v6, v6, Lcom/isaigu/gymapp/bean/TrainProgram;->name:Ljava/lang/String;
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_96
 
     invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -232,7 +232,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_96
 
     .line 128
     const/4 v4, 0x1
@@ -241,21 +241,21 @@
     invoke-interface {v2, v5, v0}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .line 126
-    :cond_5
+    :cond_96
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_72
 
     .line 132
     .end local v5    # "i":I
-    :cond_6
-    if-nez v4, :cond_7
+    :cond_99
+    if-nez v4, :cond_9e
 
     .line 133
     invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 135
-    :cond_7
+    :cond_9e
     const-class v5, Lcom/isaigu/gymapp/bean/TrainProgram;
 
     invoke-static {v3, v5, v2}, Lcom/isaigu/gymapp/utils/FileUtils;->saveListData(Ljava/lang/String;Ljava/lang/Class;Ljava/util/List;)V
@@ -263,10 +263,10 @@
     .line 136
     .end local v2    # "offlineData":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainProgram;>;"
     .end local v4    # "contain":Z
-    goto :goto_3
+    goto :goto_e3
 
     .line 137
-    :cond_8
+    :cond_a4
     iput-object v2, v0, Lcom/isaigu/gymapp/bean/TrainProgram;->id:Ljava/lang/Long;
 
     .line 138
@@ -289,12 +289,12 @@
     const/4 v5, 0x0
 
     .restart local v5    # "i":I
-    :goto_2
+    :goto_b2
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v6
 
-    if-ge v5, v6, :cond_a
+    if-ge v5, v6, :cond_d9
 
     .line 141
     invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -305,7 +305,7 @@
 
     iget-object v6, v6, Lcom/isaigu/gymapp/bean/TrainProgram;->name:Ljava/lang/String;
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_d6
 
     invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -321,7 +321,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_d6
 
     .line 142
     const/4 v4, 0x1
@@ -330,21 +330,21 @@
     invoke-interface {v2, v5, v0}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .line 140
-    :cond_9
+    :cond_d6
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_2
+    goto :goto_b2
 
     .line 146
     .end local v5    # "i":I
-    :cond_a
-    if-nez v4, :cond_b
+    :cond_d9
+    if-nez v4, :cond_de
 
     .line 147
     invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 149
-    :cond_b
+    :cond_de
     const-class v5, Lcom/isaigu/gymapp/bean/TrainProgram;
 
     invoke-static {v3, v5, v2}, Lcom/isaigu/gymapp/utils/FileUtils;->saveListData(Ljava/lang/String;Ljava/lang/Class;Ljava/util/List;)V
@@ -352,7 +352,7 @@
     .line 151
     .end local v2    # "offlineData":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainProgram;>;"
     .end local v4    # "contain":Z
-    :goto_3
+    :goto_e3
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v2
@@ -388,6 +388,6 @@
 
     .line 156
     .end local v1    # "update":Z
-    :goto_4
+    :goto_106
     return-void
 .end method

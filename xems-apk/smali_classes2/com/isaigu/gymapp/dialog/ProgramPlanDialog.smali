@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 34
     invoke-direct {p0}, Lcom/isaigu/gymapp/BaseDialogFragment;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;)Lcom/isaigu/gymapp/bean/ProgramPlanBean;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;
 
     .line 34
@@ -65,7 +65,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;)Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$PlanAdapter;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;
 
     .line 34
@@ -75,7 +75,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;)Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$ProgramPlanRemoveListener;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;
 
     .line 34
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public getViewIid()I
-    .locals 1
+    .registers 2
 
     .line 46
     const v0, 0x7f0b005c
@@ -96,7 +96,7 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 4
+    .registers 6
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 122
@@ -134,7 +134,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 4
+    .registers 8
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -221,7 +221,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_5f
 
     .line 64
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;->programPlanListView:Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;
@@ -237,12 +237,12 @@
     invoke-virtual {v1, v2, v3}, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->setMaxRecycledViews(II)V
 
     .line 67
-    :cond_0
+    :cond_5f
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_73
 
     .line 68
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;->getArguments()Landroid/os/Bundle;
@@ -260,7 +260,7 @@
     iput-object v1, p0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;->programPlanBean:Lcom/isaigu/gymapp/bean/ProgramPlanBean;
 
     .line 71
-    :cond_1
+    :cond_73
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;->timeView:Landroid/widget/TextView;
 
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;->programPlanBean:Lcom/isaigu/gymapp/bean/ProgramPlanBean;
@@ -297,7 +297,7 @@
 .end method
 
 .method public setListener(Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$ProgramPlanRemoveListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$ProgramPlanRemoveListener;
 
     .line 132

@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public getType(Landroid/content/Context;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 40
@@ -56,7 +56,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 41
     const v0, 0x7f0d0079
@@ -68,10 +68,10 @@
     return-object v0
 
     .line 42
-    :cond_0
+    :cond_d
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_18
 
     .line 43
     const v0, 0x7f0d00fb
@@ -83,10 +83,10 @@
     return-object v0
 
     .line 44
-    :cond_1
+    :cond_18
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_23
 
     .line 45
     const v0, 0x7f0d0026
@@ -98,7 +98,7 @@
     return-object v0
 
     .line 47
-    :cond_2
+    :cond_23
     const v0, 0x7f0d0046
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;

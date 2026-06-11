@@ -128,7 +128,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Lcom/isaigu/gymapp/widget/AmountView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/AmountView;Lcom/isaigu/gymapp/widget/AmountView;Lcom/isaigu/gymapp/widget/AmountView;Landroid/widget/TextView;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/TextView;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/AmountView;Lcom/isaigu/gymapp/widget/AmountView;Lcom/isaigu/gymapp/widget/AmountView;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/AmountView;Lcom/isaigu/gymapp/widget/AmountView;Lcom/isaigu/gymapp/widget/AmountView;Lcom/isaigu/gymapp/widget/AmountView;Lcom/isaigu/gymapp/widget/AmountView;Lcom/isaigu/gymapp/widget/AmountView;Lcom/isaigu/gymapp/widget/AmountView;Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/AmountView;Lcom/isaigu/gymapp/widget/AmountView;Lcom/isaigu/gymapp/widget/AmountView;)V
-    .locals 16
+    .registers 76
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "anmozhouqi"    # Lcom/isaigu/gymapp/widget/AmountView;
     .param p3, "check1"    # Landroid/widget/ImageView;
@@ -494,7 +494,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/EditParameterDialogBinding;
-    .locals 121
+    .registers 122
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 312
@@ -512,7 +512,7 @@
 
     .line 314
     .local v2, "anmozhouqi":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v2, :cond_39
+    if-eqz v2, :cond_3b8
 
     .line 318
     const v1, 0x7f09006a
@@ -528,7 +528,7 @@
 
     .line 320
     .local v63, "check1":Landroid/widget/ImageView;
-    if-eqz v63, :cond_38
+    if-eqz v63, :cond_3b7
 
     .line 324
     const v1, 0x7f09006b
@@ -544,7 +544,7 @@
 
     .line 326
     .local v64, "check2":Landroid/widget/ImageView;
-    if-eqz v64, :cond_37
+    if-eqz v64, :cond_3b6
 
     .line 330
     const v1, 0x7f09006c
@@ -560,7 +560,7 @@
 
     .line 332
     .local v65, "check3":Landroid/widget/ImageView;
-    if-eqz v65, :cond_36
+    if-eqz v65, :cond_3b5
 
     .line 336
     const v1, 0x7f09006d
@@ -576,7 +576,7 @@
 
     .line 338
     .local v66, "check4":Landroid/widget/ImageView;
-    if-eqz v66, :cond_35
+    if-eqz v66, :cond_3b4
 
     .line 342
     const v1, 0x7f09006e
@@ -592,7 +592,7 @@
 
     .line 344
     .local v67, "check5":Landroid/widget/ImageView;
-    if-eqz v67, :cond_34
+    if-eqz v67, :cond_3b3
 
     .line 348
     const v1, 0x7f09006f
@@ -608,7 +608,7 @@
 
     .line 350
     .local v68, "check6":Landroid/widget/ImageView;
-    if-eqz v68, :cond_33
+    if-eqz v68, :cond_3b2
 
     .line 354
     const v1, 0x7f090078
@@ -624,7 +624,7 @@
 
     .line 356
     .local v69, "close":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v69, :cond_32
+    if-eqz v69, :cond_3b1
 
     .line 360
     const v1, 0x7f0900a6
@@ -640,7 +640,7 @@
 
     .line 362
     .local v70, "frequency":Landroid/widget/TextView;
-    if-eqz v70, :cond_31
+    if-eqz v70, :cond_3b0
 
     .line 366
     const v1, 0x7f0900a7
@@ -656,7 +656,7 @@
 
     .line 368
     .local v71, "frequencyview1":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v71, :cond_30
+    if-eqz v71, :cond_3af
 
     .line 372
     const v1, 0x7f0900a8
@@ -672,7 +672,7 @@
 
     .line 374
     .local v72, "frequencyview2":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v72, :cond_2f
+    if-eqz v72, :cond_3ae
 
     .line 378
     const v1, 0x7f0900a9
@@ -688,7 +688,7 @@
 
     .line 380
     .local v73, "frequencyview3":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v73, :cond_2e
+    if-eqz v73, :cond_3ad
 
     .line 384
     const v1, 0x7f0900c2
@@ -704,7 +704,7 @@
 
     .line 386
     .local v74, "inputramp":Landroid/widget/TextView;
-    if-eqz v74, :cond_2d
+    if-eqz v74, :cond_3ac
 
     .line 390
     const v1, 0x7f0900da
@@ -720,7 +720,7 @@
 
     .line 392
     .local v75, "layoutpeople1":Landroid/widget/LinearLayout;
-    if-eqz v75, :cond_2c
+    if-eqz v75, :cond_3ab
 
     .line 396
     const v1, 0x7f0900db
@@ -736,7 +736,7 @@
 
     .line 398
     .local v76, "layoutpeople2":Landroid/widget/LinearLayout;
-    if-eqz v76, :cond_2b
+    if-eqz v76, :cond_3aa
 
     .line 402
     const v1, 0x7f09011a
@@ -752,7 +752,7 @@
 
     .line 404
     .local v77, "outputramp":Landroid/widget/TextView;
-    if-eqz v77, :cond_2a
+    if-eqz v77, :cond_3a9
 
     .line 408
     const v1, 0x7f09011e
@@ -768,7 +768,7 @@
 
     .line 410
     .local v78, "paulseContinue":Landroid/widget/TextView;
-    if-eqz v78, :cond_29
+    if-eqz v78, :cond_3a8
 
     .line 414
     const v1, 0x7f09011f
@@ -784,7 +784,7 @@
 
     .line 416
     .local v79, "paulseContinue1":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v79, :cond_28
+    if-eqz v79, :cond_3a7
 
     .line 420
     const v1, 0x7f090120
@@ -800,7 +800,7 @@
 
     .line 422
     .local v80, "paulseContinue2":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v80, :cond_27
+    if-eqz v80, :cond_3a6
 
     .line 426
     const v1, 0x7f090121
@@ -816,7 +816,7 @@
 
     .line 428
     .local v81, "paulseContinue3":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v81, :cond_26
+    if-eqz v81, :cond_3a5
 
     .line 432
     const v1, 0x7f090122
@@ -832,7 +832,7 @@
 
     .line 434
     .local v82, "paulseStop":Landroid/widget/TextView;
-    if-eqz v82, :cond_25
+    if-eqz v82, :cond_3a4
 
     .line 438
     const v1, 0x7f090123
@@ -848,7 +848,7 @@
 
     .line 440
     .local v83, "paulseStop1":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v83, :cond_24
+    if-eqz v83, :cond_3a3
 
     .line 444
     const v1, 0x7f090124
@@ -864,7 +864,7 @@
 
     .line 446
     .local v84, "paulseStop2":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v84, :cond_23
+    if-eqz v84, :cond_3a2
 
     .line 450
     const v1, 0x7f090125
@@ -880,7 +880,7 @@
 
     .line 452
     .local v85, "paulseStop3":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v85, :cond_22
+    if-eqz v85, :cond_3a1
 
     .line 456
     const v1, 0x7f090126
@@ -896,7 +896,7 @@
 
     .line 458
     .local v86, "paulseWidth":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v86, :cond_21
+    if-eqz v86, :cond_3a0
 
     .line 462
     const v1, 0x7f090127
@@ -912,7 +912,7 @@
 
     .line 464
     .local v87, "paulseWidth1":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v87, :cond_20
+    if-eqz v87, :cond_39f
 
     .line 468
     const v1, 0x7f090128
@@ -928,7 +928,7 @@
 
     .line 470
     .local v88, "paulseWidth2":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v88, :cond_1f
+    if-eqz v88, :cond_39e
 
     .line 474
     const v1, 0x7f090129
@@ -944,7 +944,7 @@
 
     .line 476
     .local v89, "paulseWidth3":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v89, :cond_1e
+    if-eqz v89, :cond_39d
 
     .line 480
     const v1, 0x7f09012c
@@ -960,7 +960,7 @@
 
     .line 482
     .local v90, "people1":Landroid/widget/RelativeLayout;
-    if-eqz v90, :cond_1d
+    if-eqz v90, :cond_39c
 
     .line 486
     const v1, 0x7f09012d
@@ -976,7 +976,7 @@
 
     .line 488
     .local v91, "people2":Landroid/widget/RelativeLayout;
-    if-eqz v91, :cond_1c
+    if-eqz v91, :cond_39b
 
     .line 492
     const v1, 0x7f09012e
@@ -992,7 +992,7 @@
 
     .line 494
     .local v92, "people3":Landroid/widget/RelativeLayout;
-    if-eqz v92, :cond_1b
+    if-eqz v92, :cond_39a
 
     .line 498
     const v1, 0x7f09012f
@@ -1008,7 +1008,7 @@
 
     .line 500
     .local v93, "people4":Landroid/widget/RelativeLayout;
-    if-eqz v93, :cond_1a
+    if-eqz v93, :cond_399
 
     .line 504
     const v1, 0x7f090130
@@ -1024,7 +1024,7 @@
 
     .line 506
     .local v94, "people5":Landroid/widget/RelativeLayout;
-    if-eqz v94, :cond_19
+    if-eqz v94, :cond_398
 
     .line 510
     const v1, 0x7f090131
@@ -1040,7 +1040,7 @@
 
     .line 512
     .local v95, "people6":Landroid/widget/RelativeLayout;
-    if-eqz v95, :cond_18
+    if-eqz v95, :cond_397
 
     .line 516
     const v1, 0x7f09014f
@@ -1056,7 +1056,7 @@
 
     .line 518
     .local v96, "reset1":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v96, :cond_17
+    if-eqz v96, :cond_396
 
     .line 522
     const v1, 0x7f090150
@@ -1072,7 +1072,7 @@
 
     .line 524
     .local v97, "reset2":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v97, :cond_16
+    if-eqz v97, :cond_395
 
     .line 528
     const v1, 0x7f090151
@@ -1088,7 +1088,7 @@
 
     .line 530
     .local v98, "reset3":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v98, :cond_15
+    if-eqz v98, :cond_394
 
     .line 534
     const v1, 0x7f09015a
@@ -1104,7 +1104,7 @@
 
     .line 536
     .local v99, "save":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v99, :cond_14
+    if-eqz v99, :cond_393
 
     .line 540
     const v1, 0x7f0901ce
@@ -1120,7 +1120,7 @@
 
     .line 542
     .local v100, "userIcon":Landroid/widget/ImageView;
-    if-eqz v100, :cond_13
+    if-eqz v100, :cond_392
 
     .line 546
     const v1, 0x7f0901d0
@@ -1136,7 +1136,7 @@
 
     .line 548
     .local v101, "usericon1":Landroid/widget/ImageView;
-    if-eqz v101, :cond_12
+    if-eqz v101, :cond_391
 
     .line 552
     const v1, 0x7f0901d1
@@ -1152,7 +1152,7 @@
 
     .line 554
     .local v102, "usericon2":Landroid/widget/ImageView;
-    if-eqz v102, :cond_11
+    if-eqz v102, :cond_390
 
     .line 558
     const v1, 0x7f0901d2
@@ -1168,7 +1168,7 @@
 
     .line 560
     .local v103, "usericon3":Landroid/widget/ImageView;
-    if-eqz v103, :cond_10
+    if-eqz v103, :cond_38f
 
     .line 564
     const v1, 0x7f0901d3
@@ -1184,7 +1184,7 @@
 
     .line 566
     .local v104, "usericon4":Landroid/widget/ImageView;
-    if-eqz v104, :cond_f
+    if-eqz v104, :cond_38e
 
     .line 570
     const v1, 0x7f0901d4
@@ -1200,7 +1200,7 @@
 
     .line 572
     .local v105, "usericon5":Landroid/widget/ImageView;
-    if-eqz v105, :cond_e
+    if-eqz v105, :cond_38c
 
     .line 576
     const v1, 0x7f0901d5
@@ -1216,7 +1216,7 @@
 
     .line 578
     .local v106, "usericon6":Landroid/widget/ImageView;
-    if-eqz v106, :cond_d
+    if-eqz v106, :cond_38a
 
     .line 582
     const v1, 0x7f0901d6
@@ -1232,7 +1232,7 @@
 
     .line 584
     .local v107, "usericonLayout":Landroid/widget/LinearLayout;
-    if-eqz v107, :cond_c
+    if-eqz v107, :cond_388
 
     .line 588
     const v1, 0x7f0901d7
@@ -1248,7 +1248,7 @@
 
     .line 590
     .local v108, "usericonLayout2":Landroid/widget/LinearLayout;
-    if-eqz v108, :cond_b
+    if-eqz v108, :cond_386
 
     .line 594
     const v1, 0x7f0901d9
@@ -1264,7 +1264,7 @@
 
     .line 596
     .local v109, "username":Landroid/widget/TextView;
-    if-eqz v109, :cond_a
+    if-eqz v109, :cond_384
 
     .line 600
     const v1, 0x7f0901da
@@ -1280,7 +1280,7 @@
 
     .line 602
     .local v110, "username1":Landroid/widget/TextView;
-    if-eqz v110, :cond_9
+    if-eqz v110, :cond_382
 
     .line 606
     const v1, 0x7f0901db
@@ -1296,7 +1296,7 @@
 
     .line 608
     .local v111, "username2":Landroid/widget/TextView;
-    if-eqz v111, :cond_8
+    if-eqz v111, :cond_380
 
     .line 612
     const v1, 0x7f0901dc
@@ -1312,7 +1312,7 @@
 
     .line 614
     .local v112, "username3":Landroid/widget/TextView;
-    if-eqz v112, :cond_7
+    if-eqz v112, :cond_37e
 
     .line 618
     const v1, 0x7f0901dd
@@ -1328,7 +1328,7 @@
 
     .line 620
     .local v113, "username4":Landroid/widget/TextView;
-    if-eqz v113, :cond_6
+    if-eqz v113, :cond_37c
 
     .line 624
     const v1, 0x7f0901de
@@ -1344,7 +1344,7 @@
 
     .line 626
     .local v114, "username5":Landroid/widget/TextView;
-    if-eqz v114, :cond_5
+    if-eqz v114, :cond_37a
 
     .line 630
     const v1, 0x7f0901df
@@ -1360,7 +1360,7 @@
 
     .line 632
     .local v115, "username6":Landroid/widget/TextView;
-    if-eqz v115, :cond_4
+    if-eqz v115, :cond_378
 
     .line 636
     const v1, 0x7f0901fc
@@ -1376,7 +1376,7 @@
 
     .line 638
     .local v116, "worklength":Landroid/widget/TextView;
-    if-eqz v116, :cond_3
+    if-eqz v116, :cond_376
 
     .line 642
     const v1, 0x7f0901fd
@@ -1392,7 +1392,7 @@
 
     .line 644
     .local v117, "worklength1":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v117, :cond_2
+    if-eqz v117, :cond_374
 
     .line 648
     const v1, 0x7f0901fe
@@ -1408,7 +1408,7 @@
 
     .line 650
     .local v118, "worklength2":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v118, :cond_1
+    if-eqz v118, :cond_372
 
     .line 654
     const v1, 0x7f0901ff
@@ -1424,7 +1424,7 @@
 
     .line 656
     .local v119, "worklength3":Lcom/isaigu/gymapp/widget/AmountView;
-    if-eqz v119, :cond_0
+    if-eqz v119, :cond_370
 
     .line 660
     new-instance v120, Lcom/isaigu/gymapp/databinding/EditParameterDialogBinding;
@@ -1556,297 +1556,297 @@
     return-object v120
 
     .line 657
-    :cond_0
-    goto/16 :goto_0
+    :cond_370
+    goto/16 :goto_3b9
 
     .line 651
     .end local v119    # "worklength3":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_1
-    goto/16 :goto_0
+    :cond_372
+    goto/16 :goto_3b9
 
     .line 645
     .end local v118    # "worklength2":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_2
-    goto/16 :goto_0
+    :cond_374
+    goto/16 :goto_3b9
 
     .line 639
     .end local v117    # "worklength1":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_3
-    goto/16 :goto_0
+    :cond_376
+    goto/16 :goto_3b9
 
     .line 633
     .end local v116    # "worklength":Landroid/widget/TextView;
-    :cond_4
-    goto/16 :goto_0
+    :cond_378
+    goto/16 :goto_3b9
 
     .line 627
     .end local v115    # "username6":Landroid/widget/TextView;
-    :cond_5
-    goto/16 :goto_0
+    :cond_37a
+    goto/16 :goto_3b9
 
     .line 621
     .end local v114    # "username5":Landroid/widget/TextView;
-    :cond_6
-    goto/16 :goto_0
+    :cond_37c
+    goto/16 :goto_3b9
 
     .line 615
     .end local v113    # "username4":Landroid/widget/TextView;
-    :cond_7
-    goto/16 :goto_0
+    :cond_37e
+    goto/16 :goto_3b9
 
     .line 609
     .end local v112    # "username3":Landroid/widget/TextView;
-    :cond_8
-    goto/16 :goto_0
+    :cond_380
+    goto/16 :goto_3b9
 
     .line 603
     .end local v111    # "username2":Landroid/widget/TextView;
-    :cond_9
-    goto/16 :goto_0
+    :cond_382
+    goto/16 :goto_3b9
 
     .line 597
     .end local v110    # "username1":Landroid/widget/TextView;
-    :cond_a
-    goto/16 :goto_0
+    :cond_384
+    goto/16 :goto_3b9
 
     .line 591
     .end local v109    # "username":Landroid/widget/TextView;
-    :cond_b
-    goto/16 :goto_0
+    :cond_386
+    goto/16 :goto_3b9
 
     .line 585
     .end local v108    # "usericonLayout2":Landroid/widget/LinearLayout;
-    :cond_c
-    goto/16 :goto_0
+    :cond_388
+    goto/16 :goto_3b9
 
     .line 579
     .end local v107    # "usericonLayout":Landroid/widget/LinearLayout;
-    :cond_d
-    goto/16 :goto_0
+    :cond_38a
+    goto/16 :goto_3b9
 
     .line 573
     .end local v106    # "usericon6":Landroid/widget/ImageView;
-    :cond_e
-    goto/16 :goto_0
+    :cond_38c
+    goto/16 :goto_3b9
 
     .line 567
     .end local v105    # "usericon5":Landroid/widget/ImageView;
-    :cond_f
-    goto :goto_0
+    :cond_38e
+    goto :goto_3b9
 
     .line 561
     .end local v104    # "usericon4":Landroid/widget/ImageView;
-    :cond_10
-    goto :goto_0
+    :cond_38f
+    goto :goto_3b9
 
     .line 555
     .end local v103    # "usericon3":Landroid/widget/ImageView;
-    :cond_11
-    goto :goto_0
+    :cond_390
+    goto :goto_3b9
 
     .line 549
     .end local v102    # "usericon2":Landroid/widget/ImageView;
-    :cond_12
-    goto :goto_0
+    :cond_391
+    goto :goto_3b9
 
     .line 543
     .end local v101    # "usericon1":Landroid/widget/ImageView;
-    :cond_13
-    goto :goto_0
+    :cond_392
+    goto :goto_3b9
 
     .line 537
     .end local v100    # "userIcon":Landroid/widget/ImageView;
-    :cond_14
-    goto :goto_0
+    :cond_393
+    goto :goto_3b9
 
     .line 531
     .end local v99    # "save":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_15
-    goto :goto_0
+    :cond_394
+    goto :goto_3b9
 
     .line 525
     .end local v98    # "reset3":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_16
-    goto :goto_0
+    :cond_395
+    goto :goto_3b9
 
     .line 519
     .end local v97    # "reset2":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_17
-    goto :goto_0
+    :cond_396
+    goto :goto_3b9
 
     .line 513
     .end local v96    # "reset1":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_18
-    goto :goto_0
+    :cond_397
+    goto :goto_3b9
 
     .line 507
     .end local v95    # "people6":Landroid/widget/RelativeLayout;
-    :cond_19
-    goto :goto_0
+    :cond_398
+    goto :goto_3b9
 
     .line 501
     .end local v94    # "people5":Landroid/widget/RelativeLayout;
-    :cond_1a
-    goto :goto_0
+    :cond_399
+    goto :goto_3b9
 
     .line 495
     .end local v93    # "people4":Landroid/widget/RelativeLayout;
-    :cond_1b
-    goto :goto_0
+    :cond_39a
+    goto :goto_3b9
 
     .line 489
     .end local v92    # "people3":Landroid/widget/RelativeLayout;
-    :cond_1c
-    goto :goto_0
+    :cond_39b
+    goto :goto_3b9
 
     .line 483
     .end local v91    # "people2":Landroid/widget/RelativeLayout;
-    :cond_1d
-    goto :goto_0
+    :cond_39c
+    goto :goto_3b9
 
     .line 477
     .end local v90    # "people1":Landroid/widget/RelativeLayout;
-    :cond_1e
-    goto :goto_0
+    :cond_39d
+    goto :goto_3b9
 
     .line 471
     .end local v89    # "paulseWidth3":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_1f
-    goto :goto_0
+    :cond_39e
+    goto :goto_3b9
 
     .line 465
     .end local v88    # "paulseWidth2":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_20
-    goto :goto_0
+    :cond_39f
+    goto :goto_3b9
 
     .line 459
     .end local v87    # "paulseWidth1":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_21
-    goto :goto_0
+    :cond_3a0
+    goto :goto_3b9
 
     .line 453
     .end local v86    # "paulseWidth":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_22
-    goto :goto_0
+    :cond_3a1
+    goto :goto_3b9
 
     .line 447
     .end local v85    # "paulseStop3":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_23
-    goto :goto_0
+    :cond_3a2
+    goto :goto_3b9
 
     .line 441
     .end local v84    # "paulseStop2":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_24
-    goto :goto_0
+    :cond_3a3
+    goto :goto_3b9
 
     .line 435
     .end local v83    # "paulseStop1":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_25
-    goto :goto_0
+    :cond_3a4
+    goto :goto_3b9
 
     .line 429
     .end local v82    # "paulseStop":Landroid/widget/TextView;
-    :cond_26
-    goto :goto_0
+    :cond_3a5
+    goto :goto_3b9
 
     .line 423
     .end local v81    # "paulseContinue3":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_27
-    goto :goto_0
+    :cond_3a6
+    goto :goto_3b9
 
     .line 417
     .end local v80    # "paulseContinue2":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_28
-    goto :goto_0
+    :cond_3a7
+    goto :goto_3b9
 
     .line 411
     .end local v79    # "paulseContinue1":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_29
-    goto :goto_0
+    :cond_3a8
+    goto :goto_3b9
 
     .line 405
     .end local v78    # "paulseContinue":Landroid/widget/TextView;
-    :cond_2a
-    goto :goto_0
+    :cond_3a9
+    goto :goto_3b9
 
     .line 399
     .end local v77    # "outputramp":Landroid/widget/TextView;
-    :cond_2b
-    goto :goto_0
+    :cond_3aa
+    goto :goto_3b9
 
     .line 393
     .end local v76    # "layoutpeople2":Landroid/widget/LinearLayout;
-    :cond_2c
-    goto :goto_0
+    :cond_3ab
+    goto :goto_3b9
 
     .line 387
     .end local v75    # "layoutpeople1":Landroid/widget/LinearLayout;
-    :cond_2d
-    goto :goto_0
+    :cond_3ac
+    goto :goto_3b9
 
     .line 381
     .end local v74    # "inputramp":Landroid/widget/TextView;
-    :cond_2e
-    goto :goto_0
+    :cond_3ad
+    goto :goto_3b9
 
     .line 375
     .end local v73    # "frequencyview3":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_2f
-    goto :goto_0
+    :cond_3ae
+    goto :goto_3b9
 
     .line 369
     .end local v72    # "frequencyview2":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_30
-    goto :goto_0
+    :cond_3af
+    goto :goto_3b9
 
     .line 363
     .end local v71    # "frequencyview1":Lcom/isaigu/gymapp/widget/AmountView;
-    :cond_31
-    goto :goto_0
+    :cond_3b0
+    goto :goto_3b9
 
     .line 357
     .end local v70    # "frequency":Landroid/widget/TextView;
-    :cond_32
-    goto :goto_0
+    :cond_3b1
+    goto :goto_3b9
 
     .line 351
     .end local v69    # "close":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_33
-    goto :goto_0
+    :cond_3b2
+    goto :goto_3b9
 
     .line 345
     .end local v68    # "check6":Landroid/widget/ImageView;
-    :cond_34
-    goto :goto_0
+    :cond_3b3
+    goto :goto_3b9
 
     .line 339
     .end local v67    # "check5":Landroid/widget/ImageView;
-    :cond_35
-    goto :goto_0
+    :cond_3b4
+    goto :goto_3b9
 
     .line 333
     .end local v66    # "check4":Landroid/widget/ImageView;
-    :cond_36
-    goto :goto_0
+    :cond_3b5
+    goto :goto_3b9
 
     .line 327
     .end local v65    # "check3":Landroid/widget/ImageView;
-    :cond_37
-    goto :goto_0
+    :cond_3b6
+    goto :goto_3b9
 
     .line 321
     .end local v64    # "check2":Landroid/widget/ImageView;
-    :cond_38
-    goto :goto_0
+    :cond_3b7
+    goto :goto_3b9
 
     .line 315
     .end local v63    # "check1":Landroid/widget/ImageView;
-    :cond_39
+    :cond_3b8
     nop
 
     .line 670
     .end local v2    # "anmozhouqi":Lcom/isaigu/gymapp/widget/AmountView;
-    :goto_0
+    :goto_3b9
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -1871,7 +1871,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/EditParameterDialogBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 293
@@ -1887,7 +1887,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/EditParameterDialogBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -1903,13 +1903,13 @@
 
     .line 300
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 301
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 303
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/EditParameterDialogBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/EditParameterDialogBinding;
 
     move-result-object v1
@@ -1920,7 +1920,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 21
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/EditParameterDialogBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -1931,7 +1931,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 288
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/EditParameterDialogBinding;->rootView:Landroid/widget/LinearLayout;

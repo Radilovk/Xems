@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/WaveBallProgress;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/WaveBallProgress;
 
     .line 158
@@ -37,24 +37,27 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+    .registers 5
     .param p1, "valueAnimator"    # Landroid/animation/ValueAnimator;
 
     .line 162
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/WaveBallProgress$2;->this$0:Lcom/isaigu/gymapp/widget/WaveBallProgress;
 
+    # getter for: Lcom/isaigu/gymapp/widget/WaveBallProgress;->mOffsetA:I
     invoke-static {v0}, Lcom/isaigu/gymapp/widget/WaveBallProgress;->access$000(Lcom/isaigu/gymapp/widget/WaveBallProgress;)I
 
     move-result v1
 
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/WaveBallProgress$2;->this$0:Lcom/isaigu/gymapp/widget/WaveBallProgress;
 
+    # getter for: Lcom/isaigu/gymapp/widget/WaveBallProgress;->mWaveSpeedA:I
     invoke-static {v2}, Lcom/isaigu/gymapp/widget/WaveBallProgress;->access$100(Lcom/isaigu/gymapp/widget/WaveBallProgress;)I
 
     move-result v2
 
     add-int/2addr v1, v2
 
+    # setter for: Lcom/isaigu/gymapp/widget/WaveBallProgress;->mOffsetA:I
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/widget/WaveBallProgress;->access$002(Lcom/isaigu/gymapp/widget/WaveBallProgress;I)I
 
     .line 163

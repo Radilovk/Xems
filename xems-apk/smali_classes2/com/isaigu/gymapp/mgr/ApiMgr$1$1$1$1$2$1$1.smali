@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1$1$2$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$5"    # Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1$1$2$1;
 
     .line 310
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onFail(Ljava/lang/Exception;)V
-    .locals 2
+    .registers 4
     .param p1, "e"    # Ljava/lang/Exception;
 
     .line 317
@@ -64,7 +64,7 @@
 .end method
 
 .method public onSuccess()V
-    .locals 2
+    .registers 3
 
     .line 314
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1$1$2$1$1;->this$5:Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1$1$2$1;

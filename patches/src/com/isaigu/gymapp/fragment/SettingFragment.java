@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -21,7 +20,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.isaigu.gymapp.BaseActivity;
 import com.isaigu.gymapp.BaseFragment;
-import com.isaigu.gymapp.BuildConfig;
 import com.isaigu.gymapp.R;
 import com.isaigu.gymapp.bean.TrainUser;
 import com.isaigu.gymapp.bean.UserData;
@@ -35,6 +33,7 @@ import com.isaigu.gymapp.mgr.BleMgr;
 import com.isaigu.gymapp.mgr.CommonUtils;
 import com.isaigu.gymapp.mgr.Constants;
 import com.isaigu.gymapp.mgr.DataMgr;
+import com.isaigu.gymapp.mgr.EventMessage;
 import com.isaigu.gymapp.train.events.ApplicationExitEvent;
 import com.isaigu.gymapp.utils.AndroidUtils;
 import com.isaigu.gymapp.utils.FileUtils;
@@ -44,8 +43,6 @@ import com.isaigu.gymapp.utils.LanguageUtils;
 import com.isaigu.gymapp.utils.Logger;
 import com.isaigu.gymapp.utils.NetworkUtils;
 import com.isaigu.gymapp.utils.OKHttpUtils;
-import com.isaigu.gymapp.utils.PulseModeUtil;
-import com.isaigu.gymapp.utils.StrengthAdjustUtil;
 import com.isaigu.gymapp.utils.TimerUtils;
 import com.isaigu.gymapp.widget.NoDoubleClickListener;
 import com.isaigu.gymapp.widget.OnRangeChangedListener;
@@ -58,23 +55,14 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Timer;
-import org.apache.commons.lang3.time.DateUtils;
 import org.greenrobot.eventbus.EventBus;
 
-/* loaded from: /workspace/classes2.dex */
+/* loaded from: /tmp/original-classes2.dex */
 public class SettingFragment extends BaseFragment {
     private static final int REQUEST_CODE_WRITE_SETTINGS = 2;
-    private static final int REQUEST_CODE_PICK_ICON = 1004;
-    private static final int REQUEST_CODE_PICK_SPLASH = 1005;
-    private Button bulgarian;
-    private Button changeIcon;
+    private LinearLayout channelCalibrationContainer;
     private Button changeLogo;
-    private Button changeSplash;
     private Button chinese;
-    private RangeSeekBar currentDecreaseSeekBar;
-    private TextView currentDecreaseValue;
-    private RangeSeekBar currentIncreaseSeekBar;
-    private TextView currentIncreaseValue;
     private Uri cropImageUri;
     private Button defaultLogo;
     private Button english;
@@ -86,24 +74,14 @@ public class SettingFragment extends BaseFragment {
     private RangeSeekBar lightSeekBar;
     private ImageView logoImage;
     private ImageView logoImage2;
-    private ImageView iconPreview;
     private Button logout;
     private File originalFile;
-    private RangeSeekBar pulseContinueSeekBar;
-    private TextView pulseContinueValue;
-    private RangeSeekBar pulsePauseSeekBar;
-    private TextView pulsePauseValue;
-    private ImageView splashPreview;
-    private LinearLayout channelCalibrationContainer;
     private Button poland;
     private Button portugues;
     private TextView range;
     private Button rassia;
     private TextView softwareVersion;
     private SwitchButton switchButton;
-    private SwitchButton alternateImpulseSwitch;
-    private Button alternatePhaseMuscleButton;
-    private Button alternatePhaseAerobicButton;
     private TextView time;
     private TextView timelength;
     private Timer timer;
@@ -115,7 +93,7 @@ public class SettingFragment extends BaseFragment {
         return R.layout.setting_fragment_layout;
     }
 
-    @Override // com.isaigu.gymapp.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.isaigu.gymapp.BaseFragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
         this.lightSeekBar = (RangeSeekBar) view.findViewById(R.id.seekBar1);
@@ -130,36 +108,12 @@ public class SettingFragment extends BaseFragment {
         this.german = (Button) view.findViewById(R.id.german);
         this.italian = (Button) view.findViewById(R.id.italian);
         this.turk = (Button) view.findViewById(R.id.turk);
-        this.bulgarian = (Button) view.findViewById(R.id.bulgarian);
-        hideLegacyLanguageButtons();
         this.changeLogo = (Button) view.findViewById(R.id.changeLogo);
-        this.changeIcon = (Button) view.findViewById(R.id.changeIcon);
-        this.changeSplash = (Button) view.findViewById(R.id.changeSplash);
         this.logoImage = (ImageView) view.findViewById(R.id.logoImage);
         this.logoImage2 = (ImageView) view.findViewById(R.id.logoImage2);
-        this.iconPreview = (ImageView) view.findViewById(R.id.iconPreview);
-        this.splashPreview = (ImageView) view.findViewById(R.id.splashPreview);
-        this.currentIncreaseSeekBar = (RangeSeekBar) view.findViewById(R.id.currentIncreaseSeekBar);
-        this.currentDecreaseSeekBar = (RangeSeekBar) view.findViewById(R.id.currentDecreaseSeekBar);
-        this.currentIncreaseValue = (TextView) view.findViewById(R.id.currentIncreaseValue);
-        this.currentDecreaseValue = (TextView) view.findViewById(R.id.currentDecreaseValue);
-        this.pulseContinueSeekBar = (RangeSeekBar) view.findViewById(R.id.pulseContinueSeekBar);
-        this.pulsePauseSeekBar = (RangeSeekBar) view.findViewById(R.id.pulsePauseSeekBar);
-        this.pulseContinueValue = (TextView) view.findViewById(R.id.pulseContinueValue);
-        this.pulsePauseValue = (TextView) view.findViewById(R.id.pulsePauseValue);
-        this.channelCalibrationContainer = (LinearLayout) view.findViewById(R.id.channelCalibrationContainer);
-        this.alternateImpulseSwitch = (SwitchButton) view.findViewById(R.id.alternateImpulseSwitch);
-        this.alternatePhaseMuscleButton = (Button) view.findViewById(R.id.alternatePhaseMuscleButton);
-        this.alternatePhaseAerobicButton = (Button) view.findViewById(R.id.alternatePhaseAerobicButton);
         if (!TextUtils.isEmpty(UserData.getInstance().logoPath)) {
-            Glide.with((FragmentActivity) getParentActivity()).load(UserData.getInstance().logoPath).into(this.logoImage);
-            Glide.with((FragmentActivity) getParentActivity()).load(UserData.getInstance().logoPath).into(this.logoImage2);
-        }
-        if (!TextUtils.isEmpty(UserData.getInstance().iconPath) && this.iconPreview != null) {
-            Glide.with((FragmentActivity) getParentActivity()).load(UserData.getInstance().iconPath).into(this.iconPreview);
-        }
-        if (!TextUtils.isEmpty(UserData.getInstance().splashPath) && this.splashPreview != null) {
-            Glide.with((FragmentActivity) getParentActivity()).load(UserData.getInstance().splashPath).into(this.splashPreview);
+            Glide.with(getParentActivity()).load(UserData.getInstance().logoPath).into(this.logoImage);
+            Glide.with(getParentActivity()).load(UserData.getInstance().logoPath).into(this.logoImage2);
         }
         TextView textView = (TextView) view.findViewById(R.id.softwareVersion);
         this.softwareVersion = textView;
@@ -169,13 +123,14 @@ public class SettingFragment extends BaseFragment {
         this.switchButton = (SwitchButton) view.findViewById(R.id.switch_button);
         this.logout = (Button) view.findViewById(R.id.logout);
         this.defaultLogo = (Button) view.findViewById(R.id.defaultLogo);
+        this.channelCalibrationContainer = (LinearLayout) view.findViewById(R.id.channelCalibrationContainer);
+        initChannelPulseRows();
         requestWriteSettings();
         MessageDispatcher.attachEventListener((short) 10, this);
         MessageDispatcher.attachEventListener((short) 8, this);
         return view;
     }
 
-    @Override // android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
         initSet();
@@ -224,205 +179,37 @@ public class SettingFragment extends BaseFragment {
         });
     }
 
-    private void hideLegacyLanguageButtons() {
-        Button[] legacyButtons = {this.chinese, this.espanol, this.rassia, this.portugues, this.french, this.poland, this.german, this.italian, this.turk};
-        for (Button button : legacyButtons) {
-            if (button != null) {
-                button.setVisibility(View.GONE);
-            }
-        }
-    }
-
-    private void initTrainingPreferenceSeekBars() {
-        ensureTrainingDefaults();
-        if (this.currentIncreaseSeekBar != null) {
-            this.currentIncreaseSeekBar.setRange(1.0f, 50.0f);
-            this.currentIncreaseSeekBar.setValue(UserData.getInstance().currentIncreaseStepTenths);
-            this.currentIncreaseValue.setText(formatStepMa(UserData.getInstance().currentIncreaseStepTenths));
-            this.currentIncreaseSeekBar.setOnRangeChangedListener(new OnRangeChangedListener() {
-                @Override
-                public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
-                    int value = Math.max(1, Math.round(leftValue));
-                    UserData.getInstance().currentIncreaseStepTenths = value;
-                    SettingFragment.this.currentIncreaseValue.setText(SettingFragment.this.formatStepMa(value));
-                }
-
-                @Override
-                public void onStartTrackingTouch(RangeSeekBar view, boolean isLeft) {
-                }
-
-                @Override
-                public void onStopTrackingTouch(RangeSeekBar view, boolean isLeft) {
-                    FileUtils.saveData(UserData.getInstance());
-                }
-            });
-        }
-        if (this.currentDecreaseSeekBar != null) {
-            this.currentDecreaseSeekBar.setRange(1.0f, 50.0f);
-            this.currentDecreaseSeekBar.setValue(UserData.getInstance().currentDecreaseStepTenths);
-            this.currentDecreaseValue.setText(formatStepMa(UserData.getInstance().currentDecreaseStepTenths));
-            this.currentDecreaseSeekBar.setOnRangeChangedListener(new OnRangeChangedListener() {
-                @Override
-                public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
-                    int value = Math.max(1, Math.round(leftValue));
-                    UserData.getInstance().currentDecreaseStepTenths = value;
-                    SettingFragment.this.currentDecreaseValue.setText(SettingFragment.this.formatStepMa(value));
-                }
-
-                @Override
-                public void onStartTrackingTouch(RangeSeekBar view, boolean isLeft) {
-                }
-
-                @Override
-                public void onStopTrackingTouch(RangeSeekBar view, boolean isLeft) {
-                    FileUtils.saveData(UserData.getInstance());
-                }
-            });
-        }
-        initChannelCalibrationRows();
-        if (this.pulseContinueSeekBar != null) {
-            this.pulseContinueSeekBar.setRange(1.0f, 60.0f);
-            this.pulseContinueSeekBar.setValue(UserData.getInstance().defaultPulseContinue);
-            this.pulseContinueValue.setText(UserData.getInstance().defaultPulseContinue + " s");
-            this.pulseContinueSeekBar.setOnRangeChangedListener(new OnRangeChangedListener() {
-                @Override
-                public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
-                    int value = Math.max(1, Math.round(leftValue));
-                    UserData.getInstance().defaultPulseContinue = value;
-                    SettingFragment.this.pulseContinueValue.setText(value + " s");
-                }
-
-                @Override
-                public void onStartTrackingTouch(RangeSeekBar view, boolean isLeft) {
-                }
-
-                @Override
-                public void onStopTrackingTouch(RangeSeekBar view, boolean isLeft) {
-                    FileUtils.saveData(UserData.getInstance());
-                }
-            });
-        }
-        if (this.pulsePauseSeekBar != null) {
-            this.pulsePauseSeekBar.setRange(1.0f, 60.0f);
-            this.pulsePauseSeekBar.setValue(UserData.getInstance().defaultPulsePause);
-            this.pulsePauseValue.setText(UserData.getInstance().defaultPulsePause + " s");
-            this.pulsePauseSeekBar.setOnRangeChangedListener(new OnRangeChangedListener() {
-                @Override
-                public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
-                    int value = Math.max(1, Math.round(leftValue));
-                    UserData.getInstance().defaultPulsePause = value;
-                    SettingFragment.this.pulsePauseValue.setText(value + " s");
-                }
-
-                @Override
-                public void onStartTrackingTouch(RangeSeekBar view, boolean isLeft) {
-                }
-
-                @Override
-                public void onStopTrackingTouch(RangeSeekBar view, boolean isLeft) {
-                    FileUtils.saveData(UserData.getInstance());
-                }
-            });
-        }
-        initAlternateImpulseControls();
-    }
-
-    private void initAlternateImpulseControls() {
-        if (this.alternateImpulseSwitch == null) {
-            return;
-        }
-        this.alternateImpulseSwitch.setCheck(UserData.getInstance().alternateImpulseMode);
-        updateAlternatePhaseButtons();
-        this.alternateImpulseSwitch.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(SwitchButton buttonView, boolean isChecked) {
-                UserData.getInstance().alternateImpulseMode = isChecked;
-                FileUtils.saveData(UserData.getInstance());
-            }
-        });
-        if (this.alternatePhaseMuscleButton != null) {
-            this.alternatePhaseMuscleButton.setOnClickListener(new NoDoubleClickListener() {
-                @Override
-                public void onNoDoubleClick(View v) {
-                    UserData.getInstance().alternatePhaseType = PulseModeUtil.PHASE_MUSCLE;
-                    SettingFragment.this.updateAlternatePhaseButtons();
-                    FileUtils.saveData(UserData.getInstance());
-                }
-            });
-        }
-        if (this.alternatePhaseAerobicButton != null) {
-            this.alternatePhaseAerobicButton.setOnClickListener(new NoDoubleClickListener() {
-                @Override
-                public void onNoDoubleClick(View v) {
-                    UserData.getInstance().alternatePhaseType = PulseModeUtil.PHASE_AEROBIC;
-                    SettingFragment.this.updateAlternatePhaseButtons();
-                    FileUtils.saveData(UserData.getInstance());
-                }
-            });
-        }
-    }
-
-    private void updateAlternatePhaseButtons() {
-        if (this.alternatePhaseMuscleButton == null || this.alternatePhaseAerobicButton == null) {
-            return;
-        }
-        boolean muscleSelected = UserData.getInstance().alternatePhaseType != PulseModeUtil.PHASE_AEROBIC;
-        this.alternatePhaseMuscleButton.setBackgroundResource(muscleSelected ? R.drawable.round_circle_drawable_r20_red : R.drawable.round_circle_drawable_r20_white);
-        this.alternatePhaseMuscleButton.setTextColor(getResources().getColor(muscleSelected ? R.color.white_color : R.color.light_black_color));
-        this.alternatePhaseAerobicButton.setBackgroundResource(muscleSelected ? R.drawable.round_circle_drawable_r20_white : R.drawable.round_circle_drawable_r20_red);
-        this.alternatePhaseAerobicButton.setTextColor(getResources().getColor(muscleSelected ? R.color.light_black_color : R.color.white_color));
-    }
-
-    private String formatStepMa(int tenths) {
-        return StrengthAdjustUtil.formatMa(tenths / 10.0f) + " mA";
-    }
-
-    private void initChannelCalibrationRows() {
+    private void initChannelPulseRows() {
         if (this.channelCalibrationContainer == null) {
             return;
         }
+        UserData.ensureChannelPulseWidths(UserData.getInstance());
         this.channelCalibrationContainer.removeAllViews();
-        final String[] labels = getChannelLabels();
+        String[] labels = new String[]{
+                getString(R.string.xiongbu),
+                getString(R.string.fubu),
+                getString(R.string.beibu),
+                getString(R.string.yaobu),
+                getString(R.string.bibu),
+                getString(R.string.shoubi),
+                getString(R.string.tuiquji),
+                getString(R.string.xiaotui),
+                getString(R.string.houxiefangji),
+                getString(R.string.xiazhishenji)
+        };
         for (int i = 0; i < labels.length; i++) {
             final int channelIndex = i;
             LinearLayout row = new LinearLayout(getParentActivity());
             row.setOrientation(LinearLayout.HORIZONTAL);
             row.setGravity(android.view.Gravity.CENTER_VERTICAL);
-            row.setPadding(20, 8, 20, 8);
+            row.setPadding(20, 6, 20, 6);
             TextView label = new TextView(getParentActivity());
             label.setText(labels[i]);
             label.setTextSize(18.0f);
             label.setLayoutParams(new LinearLayout.LayoutParams(220, LinearLayout.LayoutParams.WRAP_CONTENT));
-            final TextView multiplierValue = new TextView(getParentActivity());
-            multiplierValue.setText(String.format(java.util.Locale.US, "%.1fx", UserData.getInstance().channelStepMultiplier[channelIndex]));
-            multiplierValue.setTextSize(18.0f);
-            multiplierValue.setLayoutParams(new LinearLayout.LayoutParams(70, LinearLayout.LayoutParams.WRAP_CONTENT));
-            RangeSeekBar multiplierSeekBar = new RangeSeekBar(getParentActivity());
-            LinearLayout.LayoutParams seekParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
-            seekParams.rightMargin = 16;
-            multiplierSeekBar.setLayoutParams(seekParams);
-            multiplierSeekBar.setRange(1.0f, 20.0f);
-            multiplierSeekBar.setValue(UserData.getInstance().channelStepMultiplier[channelIndex] * 10.0f);
-            multiplierSeekBar.setOnRangeChangedListener(new OnRangeChangedListener() {
-                @Override
-                public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
-                    float value = Math.max(0.1f, Math.round(leftValue) / 10.0f);
-                    UserData.getInstance().channelStepMultiplier[channelIndex] = value;
-                    multiplierValue.setText(String.format(java.util.Locale.US, "%.1fx", value));
-                }
-
-                @Override
-                public void onStartTrackingTouch(RangeSeekBar view, boolean isLeft) {
-                }
-
-                @Override
-                public void onStopTrackingTouch(RangeSeekBar view, boolean isLeft) {
-                    FileUtils.saveData(UserData.getInstance());
-                }
-            });
             final TextView pulseValue = new TextView(getParentActivity());
             int pulse = UserData.getInstance().channelPulseWidthUs[channelIndex];
-            pulseValue.setText(pulse > 0 ? pulse + " us" : getString(R.string.channelPulseGlobal));
+            pulseValue.setText(pulse > 0 ? pulse + " μs" : getString(R.string.channelPulseGlobal));
             pulseValue.setTextSize(16.0f);
             pulseValue.setLayoutParams(new LinearLayout.LayoutParams(100, LinearLayout.LayoutParams.WRAP_CONTENT));
             RangeSeekBar pulseSeekBar = new RangeSeekBar(getParentActivity());
@@ -434,7 +221,7 @@ public class SettingFragment extends BaseFragment {
                 public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
                     int value = Math.round(leftValue);
                     UserData.getInstance().channelPulseWidthUs[channelIndex] = value;
-                    pulseValue.setText(value > 0 ? value + " us" : getString(R.string.channelPulseGlobal));
+                    pulseValue.setText(value > 0 ? value + " μs" : getString(R.string.channelPulseGlobal));
                 }
 
                 @Override
@@ -447,41 +234,13 @@ public class SettingFragment extends BaseFragment {
                 }
             });
             row.addView(label);
-            row.addView(multiplierValue);
-            row.addView(multiplierSeekBar);
             row.addView(pulseValue);
             row.addView(pulseSeekBar);
             this.channelCalibrationContainer.addView(row);
         }
     }
 
-    private String[] getChannelLabels() {
-        return new String[]{
-                getString(R.string.xiongbu),
-                getString(R.string.fubu),
-                getString(R.string.beibu),
-                getString(R.string.yaobu),
-                getString(R.string.bibu),
-                getString(R.string.shoubi),
-                getString(R.string.tuiquji),
-                getString(R.string.xiaotui),
-                getString(R.string.houxiefangji),
-                getString(R.string.xiazhishenji)
-        };
-    }
-
-    private void ensureTrainingDefaults() {
-        StrengthAdjustUtil.ensureDefaults();
-        if (UserData.getInstance().defaultPulseContinue <= 0) {
-            UserData.getInstance().defaultPulseContinue = 4;
-        }
-        if (UserData.getInstance().defaultPulsePause <= 0) {
-            UserData.getInstance().defaultPulsePause = 3;
-        }
-    }
-
     private void initSet() {
-        initTrainingPreferenceSeekBars();
         try {
             if (UserData.getInstance().light == 0) {
                 int value = Settings.System.getInt(getParentActivity().getContentResolver(), "screen_brightness", 0);
@@ -557,7 +316,7 @@ public class SettingFragment extends BaseFragment {
             }
         }, 0L, 1000L);
         TimerUtils.stopTimer(this.useTimer);
-        this.useTimer = TimerUtils.scheduleTimer(new AnonymousClass5(), DateUtils.MILLIS_PER_MINUTE, DateUtils.MILLIS_PER_MINUTE);
+        this.useTimer = TimerUtils.scheduleTimer(new AnonymousClass5(), 60000L, 60000L);
         this.timelength.setText(String.format(CommonUtils.formatTime2(UserData.getInstance().useTime), getString(R.string.day), getString(R.string.hour), getString(R.string.minute)));
         this.switchButton.setCheck(UserData.getInstance().leftMode);
         this.switchButton.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() { // from class: com.isaigu.gymapp.fragment.SettingFragment.6
@@ -569,50 +328,97 @@ public class SettingFragment extends BaseFragment {
             }
         });
         String language = LanguageUtils.getLang(getParentActivity());
-        if (!UserData.english.equals(language) && !UserData.bulgarian.equals(language)) {
-            language = UserData.english;
+        this.chinese.setBackgroundResource(R.mipmap.chinese1);
+        this.english.setBackgroundResource(R.mipmap.english1);
+        this.espanol.setBackgroundResource(R.mipmap.espanol1);
+        this.rassia.setBackgroundResource(R.mipmap.russia1);
+        this.portugues.setBackgroundResource(R.mipmap.portugues1);
+        this.french.setBackgroundResource(R.mipmap.french1);
+        this.poland.setBackgroundResource(R.mipmap.poland1);
+        this.german.setBackgroundResource(R.mipmap.german1);
+        this.italian.setBackgroundResource(R.mipmap.italian1);
+        this.turk.setBackgroundResource(R.mipmap.turk1);
+        if (UserData.chinese.equals(language)) {
+            this.chinese.setBackgroundResource(R.mipmap.chinese);
+        } else if (UserData.english.equals(language)) {
+            this.english.setBackgroundResource(R.mipmap.english);
+        } else if (UserData.espanol.equals(language)) {
+            this.espanol.setBackgroundResource(R.mipmap.espanol);
+        } else if (UserData.russia.equals(language)) {
+            this.rassia.setBackgroundResource(R.mipmap.russia);
+        } else if (UserData.portugus.equals(language)) {
+            this.portugues.setBackgroundResource(R.mipmap.portugues);
+        } else if (UserData.french.equals(language)) {
+            this.french.setBackgroundResource(R.mipmap.french);
+        } else if (UserData.poland.equals(language)) {
+            this.poland.setBackgroundResource(R.mipmap.poland);
+        } else if (UserData.german.equals(language)) {
+            this.german.setBackgroundResource(R.mipmap.german);
+        } else if (UserData.italian.equals(language)) {
+            this.italian.setBackgroundResource(R.mipmap.italian);
+        } else if (UserData.turk.equals(language)) {
+            this.turk.setBackgroundResource(R.mipmap.turk);
         }
-        updateLanguageSelection(language);
-        this.english.setOnClickListener(new NoDoubleClickListener() {
-            @Override
+        this.chinese.setOnClickListener(new NoDoubleClickListener() { // from class: com.isaigu.gymapp.fragment.SettingFragment.7
+            @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
+            public void onNoDoubleClick(View v) {
+                SettingFragment.this.switchToLanguage(UserData.chinese, true);
+            }
+        });
+        this.english.setOnClickListener(new NoDoubleClickListener() { // from class: com.isaigu.gymapp.fragment.SettingFragment.8
+            @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
             public void onNoDoubleClick(View v) {
                 SettingFragment.this.switchToLanguage(UserData.english, true);
             }
         });
-        if (this.bulgarian != null) {
-            this.bulgarian.setOnClickListener(new NoDoubleClickListener() {
-                @Override
-                public void onNoDoubleClick(View v) {
-                    SettingFragment.this.switchToLanguage(UserData.bulgarian, true);
-                }
-            });
-        }
-        if (this.changeIcon != null) {
-            this.changeIcon.setOnClickListener(new NoDoubleClickListener() {
-                @Override
-                public void onNoDoubleClick(View v) {
-                    try {
-                        SettingFragment.this.originalFile = SettingFragment.this.createOriImageFile(SettingFragment.this.getParentActivity());
-                        SettingFragment.this.imageUri = AndroidUtils.selectImageFromGallery(SettingFragment.this, REQUEST_CODE_PICK_ICON, SettingFragment.this.originalFile);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-        }
-        if (this.changeSplash != null) {
-            this.changeSplash.setOnClickListener(new NoDoubleClickListener() {
-                @Override
-                public void onNoDoubleClick(View v) {
-                    try {
-                        SettingFragment.this.originalFile = SettingFragment.this.createOriImageFile(SettingFragment.this.getParentActivity());
-                        SettingFragment.this.imageUri = AndroidUtils.selectImageFromGallery(SettingFragment.this, REQUEST_CODE_PICK_SPLASH, SettingFragment.this.originalFile);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-        }
+        this.espanol.setOnClickListener(new NoDoubleClickListener() { // from class: com.isaigu.gymapp.fragment.SettingFragment.9
+            @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
+            public void onNoDoubleClick(View v) {
+                SettingFragment.this.switchToLanguage(UserData.espanol, true);
+            }
+        });
+        this.rassia.setOnClickListener(new NoDoubleClickListener() { // from class: com.isaigu.gymapp.fragment.SettingFragment.10
+            @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
+            public void onNoDoubleClick(View v) {
+                SettingFragment.this.switchToLanguage(UserData.russia, true);
+            }
+        });
+        this.portugues.setOnClickListener(new NoDoubleClickListener() { // from class: com.isaigu.gymapp.fragment.SettingFragment.11
+            @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
+            public void onNoDoubleClick(View v) {
+                SettingFragment.this.switchToLanguage(UserData.portugus, true);
+            }
+        });
+        this.french.setOnClickListener(new NoDoubleClickListener() { // from class: com.isaigu.gymapp.fragment.SettingFragment.12
+            @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
+            public void onNoDoubleClick(View v) {
+                SettingFragment.this.switchToLanguage(UserData.french, true);
+            }
+        });
+        this.poland.setOnClickListener(new NoDoubleClickListener() { // from class: com.isaigu.gymapp.fragment.SettingFragment.13
+            @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
+            public void onNoDoubleClick(View v) {
+                SettingFragment.this.switchToLanguage(UserData.poland, true);
+            }
+        });
+        this.german.setOnClickListener(new NoDoubleClickListener() { // from class: com.isaigu.gymapp.fragment.SettingFragment.14
+            @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
+            public void onNoDoubleClick(View v) {
+                SettingFragment.this.switchToLanguage(UserData.german, true);
+            }
+        });
+        this.italian.setOnClickListener(new NoDoubleClickListener() { // from class: com.isaigu.gymapp.fragment.SettingFragment.15
+            @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
+            public void onNoDoubleClick(View v) {
+                SettingFragment.this.switchToLanguage(UserData.italian, true);
+            }
+        });
+        this.turk.setOnClickListener(new NoDoubleClickListener() { // from class: com.isaigu.gymapp.fragment.SettingFragment.16
+            @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
+            public void onNoDoubleClick(View v) {
+                SettingFragment.this.switchToLanguage(UserData.turk, true);
+            }
+        });
         this.changeLogo.setOnClickListener(new NoDoubleClickListener() { // from class: com.isaigu.gymapp.fragment.SettingFragment.17
             @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
             public void onNoDoubleClick(View v) {
@@ -629,13 +435,13 @@ public class SettingFragment extends BaseFragment {
             public void onNoDoubleClick(View v) {
                 EventBus.getDefault().post(new ApplicationExitEvent());
                 SettingFragment.this.getParentActivity().replace(R.id.frameContainer, new LoginFragment());
-                MessageDispatcher.dispatchEventMessage((short) 103);
+                MessageDispatcher.dispatchEventMessage(EventMessage.event_show_loading_ui);
                 TimerUtils.delayCallback(new Runnable() { // from class: com.isaigu.gymapp.fragment.SettingFragment.18.1
                     @Override // java.lang.Runnable
                     public void run() {
                         BleMgr.getController().disconnectAll();
                         DataMgr.getInstance().removeAllTrainingUser();
-                        MessageDispatcher.dispatchEventMessage((short) 104);
+                        MessageDispatcher.dispatchEventMessage(EventMessage.event_hide_loading_ui);
                     }
                 }, 2000L);
             }
@@ -643,8 +449,10 @@ public class SettingFragment extends BaseFragment {
         this.defaultLogo.setOnClickListener(new AnonymousClass19());
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.isaigu.gymapp.fragment.SettingFragment$5, reason: invalid class name */
-    class AnonymousClass5 implements Runnable {
+    /* loaded from: /tmp/original-classes2.dex */
+    public class AnonymousClass5 implements Runnable {
         AnonymousClass5() {
         }
 
@@ -686,8 +494,10 @@ public class SettingFragment extends BaseFragment {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.isaigu.gymapp.fragment.SettingFragment$19, reason: invalid class name */
-    class AnonymousClass19 extends NoDoubleClickListener {
+    /* loaded from: /tmp/original-classes2.dex */
+    public class AnonymousClass19 extends NoDoubleClickListener {
         AnonymousClass19() {
         }
 
@@ -709,8 +519,10 @@ public class SettingFragment extends BaseFragment {
             }
         }
 
+        /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.isaigu.gymapp.fragment.SettingFragment$19$1, reason: invalid class name */
-        class AnonymousClass1 extends OKHttpUtils.HttpResponseCallback<ResponseData<UploadFileVO>> {
+        /* loaded from: /tmp/original-classes2.dex */
+        public class AnonymousClass1 extends OKHttpUtils.HttpResponseCallback<ResponseData<UploadFileVO>> {
             AnonymousClass1() {
             }
 
@@ -729,8 +541,8 @@ public class SettingFragment extends BaseFragment {
                                 SettingFragment.this.getParentActivity().runOnUiThread(new Runnable() { // from class: com.isaigu.gymapp.fragment.SettingFragment.19.1.1.1
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        Glide.with((FragmentActivity) SettingFragment.this.getParentActivity()).load(UserData.getInstance().logoPath).into(SettingFragment.this.logoImage);
-                                        Glide.with((FragmentActivity) SettingFragment.this.getParentActivity()).load(UserData.getInstance().logoPath).into(SettingFragment.this.logoImage2);
+                                        Glide.with(SettingFragment.this.getParentActivity()).load(UserData.getInstance().logoPath).into(SettingFragment.this.logoImage);
+                                        Glide.with(SettingFragment.this.getParentActivity()).load(UserData.getInstance().logoPath).into(SettingFragment.this.logoImage2);
                                     }
                                 });
                             }
@@ -742,21 +554,38 @@ public class SettingFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    private void updateLanguageSelection(String language) {
-        if (this.english != null) {
-            this.english.setBackgroundResource(UserData.english.equals(language) ? R.mipmap.english : R.mipmap.english1);
-        }
-        if (this.bulgarian != null) {
-            this.bulgarian.setBackgroundResource(UserData.bulgarian.equals(language) ? R.drawable.round_circle_drawable_r20_red : R.drawable.round_circle_drawable_r20_white);
-            this.bulgarian.setTextColor(getResources().getColor(UserData.bulgarian.equals(language) ? R.color.white_color : R.color.light_black_color));
-        }
-    }
-
     public void switchToLanguage(String language, boolean restart) {
-        if (!UserData.english.equals(language) && !UserData.bulgarian.equals(language)) {
-            language = UserData.english;
+        this.chinese.setBackgroundResource(R.mipmap.chinese1);
+        this.english.setBackgroundResource(R.mipmap.english1);
+        this.espanol.setBackgroundResource(R.mipmap.espanol1);
+        this.rassia.setBackgroundResource(R.mipmap.russia1);
+        this.portugues.setBackgroundResource(R.mipmap.portugues1);
+        this.french.setBackgroundResource(R.mipmap.french1);
+        this.poland.setBackgroundResource(R.mipmap.poland1);
+        this.german.setBackgroundResource(R.mipmap.german1);
+        this.italian.setBackgroundResource(R.mipmap.italian1);
+        this.turk.setBackgroundResource(R.mipmap.turk1);
+        if (UserData.chinese.equals(language)) {
+            this.chinese.setBackgroundResource(R.mipmap.chinese);
+        } else if (UserData.english.equals(language)) {
+            this.english.setBackgroundResource(R.mipmap.english);
+        } else if (UserData.espanol.equals(language)) {
+            this.espanol.setBackgroundResource(R.mipmap.espanol);
+        } else if (UserData.russia.equals(language)) {
+            this.rassia.setBackgroundResource(R.mipmap.russia);
+        } else if (UserData.portugus.equals(language)) {
+            this.portugues.setBackgroundResource(R.mipmap.portugues);
+        } else if (UserData.french.equals(language)) {
+            this.french.setBackgroundResource(R.mipmap.french);
+        } else if (UserData.poland.equals(language)) {
+            this.poland.setBackgroundResource(R.mipmap.poland);
+        } else if (UserData.german.equals(language)) {
+            this.german.setBackgroundResource(R.mipmap.german);
+        } else if (UserData.italian.equals(language)) {
+            this.italian.setBackgroundResource(R.mipmap.italian);
+        } else if (UserData.turk.equals(language)) {
+            this.turk.setBackgroundResource(R.mipmap.turk);
         }
-        updateLanguageSelection(language);
         LanguageUtils.setLang(getParentActivity(), language);
         UserData.getInstance().language = language;
         FileUtils.saveData(UserData.getInstance());
@@ -779,7 +608,7 @@ public class SettingFragment extends BaseFragment {
     /* JADX INFO: Access modifiers changed from: private */
     public File createCropImageFile(Context context) throws IOException {
         String imgNameCrop = "LogoPic_" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        File pictureDirCrop = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + BuildConfig.APPLICATION_ID + "/CropPicture");
+        File pictureDirCrop = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "com.isaigu.gymapp25" + "/CropPicture");
         if (!pictureDirCrop.exists()) {
             pictureDirCrop.mkdirs();
         }
@@ -788,29 +617,12 @@ public class SettingFragment extends BaseFragment {
         return image;
     }
 
-    @Override // android.support.v4.app.Fragment
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == -1) {
-            if (requestCode == 1003 || requestCode == REQUEST_CODE_PICK_ICON || requestCode == REQUEST_CODE_PICK_SPLASH) {
+            if (requestCode == 1003) {
                 File file = ImageUtils.getFileFromUri(data.getData(), getParentActivity());
                 if (file != null) {
                     try {
-                        if (requestCode == REQUEST_CODE_PICK_ICON) {
-                            UserData.getInstance().iconPath = file.getAbsolutePath();
-                            FileUtils.saveData(UserData.getInstance());
-                            if (this.iconPreview != null) {
-                                Glide.with((FragmentActivity) getParentActivity()).load(UserData.getInstance().iconPath).into(this.iconPreview);
-                            }
-                            return;
-                        }
-                        if (requestCode == REQUEST_CODE_PICK_SPLASH) {
-                            UserData.getInstance().splashPath = file.getAbsolutePath();
-                            FileUtils.saveData(UserData.getInstance());
-                            if (this.splashPreview != null) {
-                                Glide.with((FragmentActivity) getParentActivity()).load(UserData.getInstance().splashPath).into(this.splashPreview);
-                            }
-                            return;
-                        }
                         File cropPhotoFile = createCropImageFile(getParentActivity());
                         this.cropImageUri = Uri.fromFile(cropPhotoFile);
                         if (Build.VERSION.SDK_INT >= 24) {
@@ -845,8 +657,8 @@ public class SettingFragment extends BaseFragment {
                     getParentActivity().runOnUiThread(new Runnable() { // from class: com.isaigu.gymapp.fragment.SettingFragment.21
                         @Override // java.lang.Runnable
                         public void run() {
-                            Glide.with((FragmentActivity) SettingFragment.this.getParentActivity()).load(UserData.getInstance().logoPath).into(SettingFragment.this.logoImage);
-                            Glide.with((FragmentActivity) SettingFragment.this.getParentActivity()).load(UserData.getInstance().logoPath).into(SettingFragment.this.logoImage2);
+                            Glide.with(SettingFragment.this.getParentActivity()).load(UserData.getInstance().logoPath).into(SettingFragment.this.logoImage);
+                            Glide.with(SettingFragment.this.getParentActivity()).load(UserData.getInstance().logoPath).into(SettingFragment.this.logoImage2);
                         }
                     });
                     return;
@@ -867,8 +679,10 @@ public class SettingFragment extends BaseFragment {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.isaigu.gymapp.fragment.SettingFragment$20, reason: invalid class name */
-    class AnonymousClass20 extends OKHttpUtils.HttpResponseCallback<ResponseData<UploadFileVO>> {
+    /* loaded from: /tmp/original-classes2.dex */
+    public class AnonymousClass20 extends OKHttpUtils.HttpResponseCallback<ResponseData<UploadFileVO>> {
         AnonymousClass20() {
         }
 
@@ -887,8 +701,8 @@ public class SettingFragment extends BaseFragment {
                             SettingFragment.this.getParentActivity().runOnUiThread(new Runnable() { // from class: com.isaigu.gymapp.fragment.SettingFragment.20.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    Glide.with((FragmentActivity) SettingFragment.this.getParentActivity()).load(UserData.getInstance().logoPath).into(SettingFragment.this.logoImage);
-                                    Glide.with((FragmentActivity) SettingFragment.this.getParentActivity()).load(UserData.getInstance().logoPath).into(SettingFragment.this.logoImage2);
+                                    Glide.with(SettingFragment.this.getParentActivity()).load(UserData.getInstance().logoPath).into(SettingFragment.this.logoImage);
+                                    Glide.with(SettingFragment.this.getParentActivity()).load(UserData.getInstance().logoPath).into(SettingFragment.this.logoImage2);
                                 }
                             });
                         }
@@ -898,7 +712,7 @@ public class SettingFragment extends BaseFragment {
         }
     }
 
-    @Override // com.isaigu.gymapp.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.isaigu.gymapp.BaseFragment
     public void onDestroyView() {
         super.onDestroyView();
         TimerUtils.stopTimer(this.timer);

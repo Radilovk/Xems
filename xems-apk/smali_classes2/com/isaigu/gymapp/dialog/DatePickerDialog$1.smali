@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/DatePickerDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/DatePickerDialog;
 
     .line 58
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onDateChanged(Landroid/widget/DatePicker;III)V
-    .locals 0
+    .registers 5
     .param p1, "view"    # Landroid/widget/DatePicker;
     .param p2, "year"    # I
     .param p3, "monthOfYear"    # I

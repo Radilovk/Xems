@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;Landroid/widget/EditText;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
     .param p2, "editText"    # Landroid/widget/EditText;
 
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 3
+    .registers 5
     .param p1, "editable"    # Landroid/text/Editable;
 
     .line 678
@@ -61,14 +61,15 @@
 
     move-result v1
 
-    sparse-switch v1, :sswitch_data_0
+    sparse-switch v1, :sswitch_data_78
 
-    goto :goto_0
+    goto :goto_71
 
     .line 705
-    :sswitch_0
+    :sswitch_e
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$EditTextWatcher;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v1
@@ -79,12 +80,13 @@
 
     iput v2, v1, Lcom/isaigu/gymapp/bean/TrainUser;->weight:F
 
-    goto :goto_0
+    goto :goto_71
 
     .line 699
-    :sswitch_1
+    :sswitch_1b
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$EditTextWatcher;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v1
@@ -102,12 +104,13 @@
     iput-object v2, v1, Lcom/isaigu/gymapp/bean/TrainUser;->gender:Lcom/isaigu/gymapp/bean/Gender;
 
     .line 700
-    goto :goto_0
+    goto :goto_71
 
     .line 690
-    :sswitch_2
+    :sswitch_2e
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$EditTextWatcher;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v1
@@ -115,12 +118,13 @@
     iput-object v0, v1, Lcom/isaigu/gymapp/bean/TrainUser;->phone:Ljava/lang/String;
 
     .line 691
-    goto :goto_0
+    goto :goto_71
 
     .line 681
-    :sswitch_3
+    :sswitch_37
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$EditTextWatcher;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v1
@@ -128,12 +132,13 @@
     iput-object v0, v1, Lcom/isaigu/gymapp/bean/TrainUser;->name:Ljava/lang/String;
 
     .line 682
-    goto :goto_0
+    goto :goto_71
 
     .line 687
-    :sswitch_4
+    :sswitch_40
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$EditTextWatcher;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v1
@@ -141,12 +146,13 @@
     iput-object v0, v1, Lcom/isaigu/gymapp/bean/TrainUser;->inputId:Ljava/lang/String;
 
     .line 688
-    goto :goto_0
+    goto :goto_71
 
     .line 702
-    :sswitch_5
+    :sswitch_49
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$EditTextWatcher;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v1
@@ -158,12 +164,13 @@
     iput v2, v1, Lcom/isaigu/gymapp/bean/TrainUser;->height:I
 
     .line 703
-    goto :goto_0
+    goto :goto_71
 
     .line 684
-    :sswitch_6
+    :sswitch_56
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$EditTextWatcher;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v1
@@ -171,12 +178,13 @@
     iput-object v0, v1, Lcom/isaigu/gymapp/bean/TrainUser;->email:Ljava/lang/String;
 
     .line 685
-    goto :goto_0
+    goto :goto_71
 
     .line 693
-    :sswitch_7
+    :sswitch_5f
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$EditTextWatcher;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v1
@@ -184,30 +192,31 @@
     iput-object v0, v1, Lcom/isaigu/gymapp/bean/TrainUser;->city:Ljava/lang/String;
 
     .line 694
-    goto :goto_0
+    goto :goto_71
 
     .line 696
-    :sswitch_8
+    :sswitch_68
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$EditTextWatcher;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v1
 
     iput-object v0, v1, Lcom/isaigu/gymapp/bean/TrainUser;->address:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_70
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_70} :catch_72
 
     .line 697
     nop
 
     .line 710
     .end local v0    # "value":Ljava/lang/String;
-    :goto_0
-    goto :goto_1
+    :goto_71
+    goto :goto_76
 
     .line 708
-    :catch_0
+    :catch_72
     move-exception v0
 
     .line 709
@@ -216,27 +225,27 @@
 
     .line 711
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_76
     return-void
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_78
     .sparse-switch
-        0x7f090033 -> :sswitch_8
-        0x7f090074 -> :sswitch_7
-        0x7f090095 -> :sswitch_6
-        0x7f0900b4 -> :sswitch_5
-        0x7f0900bb -> :sswitch_4
-        0x7f090107 -> :sswitch_3
-        0x7f090133 -> :sswitch_2
-        0x7f090173 -> :sswitch_1
-        0x7f0901f9 -> :sswitch_0
+        0x7f090033 -> :sswitch_68
+        0x7f090074 -> :sswitch_5f
+        0x7f090095 -> :sswitch_56
+        0x7f0900b4 -> :sswitch_49
+        0x7f0900bb -> :sswitch_40
+        0x7f090107 -> :sswitch_37
+        0x7f090133 -> :sswitch_2e
+        0x7f090173 -> :sswitch_1b
+        0x7f0901f9 -> :sswitch_e
     .end sparse-switch
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
     .param p2, "i"    # I
     .param p3, "i1"    # I
@@ -247,7 +256,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
     .param p1, "charSequence"    # Ljava/lang/CharSequence;
     .param p2, "i"    # I
     .param p3, "i1"    # I

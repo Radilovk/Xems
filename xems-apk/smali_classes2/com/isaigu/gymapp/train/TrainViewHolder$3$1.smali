@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/train/TrainViewHolder$3;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/isaigu/gymapp/train/TrainViewHolder$3;
 
     .line 167
@@ -37,13 +37,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 170
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$3$1;->this$1:Lcom/isaigu/gymapp/train/TrainViewHolder$3;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/train/TrainViewHolder$3;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
+    # getter for: Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
     invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$400(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     move-result-object v0

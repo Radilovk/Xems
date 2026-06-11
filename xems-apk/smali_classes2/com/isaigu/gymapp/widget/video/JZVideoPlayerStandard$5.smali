@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;
 
     .line 424
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
-    .locals 0
+    .registers 2
     .param p1, "dialog"    # Landroid/content/DialogInterface;
 
     .line 427

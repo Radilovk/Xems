@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 643
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 2
+    .registers 6
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -71,17 +71,18 @@
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
     .line 650
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_34
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_34
 
     .line 651
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$13;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v0
@@ -110,12 +111,12 @@
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
     .line 659
-    :cond_0
+    :cond_34
     return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 643
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

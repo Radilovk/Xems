@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Lcom/isaigu/gymapp/BaseFragment;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Lcom/isaigu/gymapp/widget/CustomCalendar;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
     .line 41
@@ -34,7 +34,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/fragment/CalendarFragment;Ljava/util/Date;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/CalendarFragment;
     .param p1, "x1"    # Ljava/util/Date;
 
@@ -47,7 +47,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
     .line 41
@@ -59,7 +59,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
     .line 41
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
     .line 41
@@ -83,7 +83,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/isaigu/gymapp/fragment/CalendarFragment;Ljava/lang/String;Lcom/isaigu/gymapp/bean/PickerViewData;Lcom/isaigu/gymapp/bean/PickerViewData;III)V
-    .locals 0
+    .registers 7
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/CalendarFragment;
     .param p1, "x1"    # Ljava/lang/String;
     .param p2, "x2"    # Lcom/isaigu/gymapp/bean/PickerViewData;
@@ -99,7 +99,7 @@
 .end method
 
 .method private getDayTaskList(Ljava/util/Date;)Ljava/util/List;
-    .locals 8
+    .registers 10
     .param p1, "month"    # Ljava/util/Date;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -156,8 +156,8 @@
     const/4 v3, 0x1
 
     .local v3, "i":I
-    :goto_0
-    if-gt v3, v1, :cond_1
+    :goto_26
+    if-gt v3, v1, :cond_7a
 
     .line 212
     const v4, 0x7f0d004c
@@ -230,11 +230,11 @@
 
     .line 214
     .local v5, "programPlanBean":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_77
 
     iget-object v6, v5, Lcom/isaigu/gymapp/bean/ProgramPlanBean;->planList:Ljava/util/List;
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_77
 
     iget-object v6, v5, Lcom/isaigu/gymapp/bean/ProgramPlanBean;->planList:Ljava/util/List;
 
@@ -242,7 +242,7 @@
 
     move-result v6
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_77
 
     .line 215
     invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -250,19 +250,19 @@
     .line 211
     .end local v4    # "dayStr":Ljava/lang/String;
     .end local v5    # "programPlanBean":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
-    :cond_0
+    :cond_77
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 218
     .end local v3    # "i":I
-    :cond_1
+    :cond_7a
     return-object v2
 .end method
 
 .method private getTrainPickerViewData()Ljava/util/List;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -370,7 +370,7 @@
 .end method
 
 .method private getTrainPickerViewDataHour()Ljava/util/List;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -390,10 +390,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_6
     const/16 v2, 0x18
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1e
 
     .line 243
     new-instance v2, Lcom/isaigu/gymapp/bean/PickerViewData;
@@ -418,16 +418,16 @@
     .end local v2    # "pickerViewData":Lcom/isaigu/gymapp/bean/PickerViewData;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 246
     .end local v1    # "i":I
-    :cond_0
+    :cond_1e
     return-object v0
 .end method
 
 .method private getTrainPickerViewDataMinute()Ljava/util/List;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -447,10 +447,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_6
     const/16 v2, 0x3c
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1e
 
     .line 252
     new-instance v2, Lcom/isaigu/gymapp/bean/PickerViewData;
@@ -475,16 +475,16 @@
     .end local v2    # "pickerViewData":Lcom/isaigu/gymapp/bean/PickerViewData;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 255
     .end local v1    # "i":I
-    :cond_0
+    :cond_1e
     return-object v0
 .end method
 
 .method private handleSelectPlanTime(Ljava/lang/String;Lcom/isaigu/gymapp/bean/PickerViewData;Lcom/isaigu/gymapp/bean/PickerViewData;III)V
-    .locals 18
+    .registers 25
     .param p1, "planText"    # Ljava/lang/String;
     .param p2, "pickerViewData2"    # Lcom/isaigu/gymapp/bean/PickerViewData;
     .param p3, "pickerViewData3"    # Lcom/isaigu/gymapp/bean/PickerViewData;
@@ -495,7 +495,7 @@
     move-object/from16 v8, p0
 
     .line 164
-    :try_start_0
+    :try_start_2
     new-instance v0, Lcom/isaigu/gymapp/bean/ProgramPlanBean$ProgramPlan;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/bean/ProgramPlanBean$ProgramPlan;-><init>()V
@@ -507,20 +507,20 @@
     move-object/from16 v10, p1
 
     iput-object v10, v9, Lcom/isaigu/gymapp/bean/ProgramPlanBean$ProgramPlan;->plan:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_5
+    :try_end_c
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_c} :catch_136
 
     .line 166
     move-object/from16 v11, p2
 
-    :try_start_1
+    :try_start_e
     iget-object v0, v11, Lcom/isaigu/gymapp/bean/PickerViewData;->text:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
+    :try_end_14
+    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_14} :catch_134
 
     move v12, v0
 
@@ -528,7 +528,7 @@
     .local v12, "hour":I
     move-object/from16 v13, p3
 
-    :try_start_2
+    :try_start_17
     iget-object v0, v13, Lcom/isaigu/gymapp/bean/PickerViewData;->text:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -548,16 +548,16 @@
     const/4 v1, 0x2
 
     new-array v2, v1, [Ljava/lang/Object;
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_3
+    :try_end_28
+    .catch Ljava/lang/Exception; {:try_start_17 .. :try_end_28} :catch_132
 
     const-string v3, "0"
 
     const/16 v4, 0xa
 
-    if-ge v12, v4, :cond_0
+    if-ge v12, v4, :cond_3e
 
-    :try_start_3
+    :try_start_2e
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -570,19 +570,19 @@
 
     move-result-object v5
 
-    goto :goto_0
+    goto :goto_42
 
-    :cond_0
+    :cond_3e
     invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
 
-    :goto_0
+    :goto_42
     const/4 v6, 0x0
 
     aput-object v5, v2, v6
 
-    if-ge v14, v4, :cond_1
+    if-ge v14, v4, :cond_57
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -596,14 +596,14 @@
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_5b
 
-    :cond_1
+    :cond_57
     invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
 
-    :goto_1
+    :goto_5b
     const/4 v4, 0x1
 
     aput-object v3, v2, v4
@@ -656,8 +656,8 @@
     invoke-virtual {v0, v15}, Lcom/isaigu/gymapp/widget/CustomCalendar;->getDayTask(Ljava/lang/String;)Lcom/isaigu/gymapp/bean/ProgramPlanBean;
 
     move-result-object v0
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_8b
+    .catch Ljava/lang/Exception; {:try_start_2e .. :try_end_8b} :catch_132
 
     .line 172
     .local v0, "programPlanBean":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
@@ -665,24 +665,24 @@
 
     .line 173
     .local v1, "programnull":Z
-    if-nez v0, :cond_2
+    if-nez v0, :cond_aa
 
     .line 174
     const/4 v1, 0x1
 
     .line 175
-    :try_start_4
+    :try_start_8f
     new-instance v2, Lcom/isaigu/gymapp/bean/ProgramPlanBean;
 
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_96
+    .catch Ljava/lang/Exception; {:try_start_8f .. :try_end_96} :catch_a5
 
     move/from16 v7, p6
 
-    :try_start_5
+    :try_start_98
     invoke-direct {v2, v7, v15, v3}, Lcom/isaigu/gymapp/bean/ProgramPlanBean;-><init>(ILjava/lang/String;Ljava/util/List;)V
 
     move-object v0, v2
@@ -696,7 +696,7 @@
 
     move/from16 v16, v1
 
-    goto :goto_2
+    goto :goto_af
 
     .line 200
     .end local v0    # "programPlanBean":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
@@ -705,12 +705,12 @@
     .end local v12    # "hour":I
     .end local v14    # "minute":I
     .end local v15    # "dayStr":Ljava/lang/String;
-    :catch_0
+    :catch_a5
     move-exception v0
 
     move/from16 v7, p6
 
-    goto/16 :goto_9
+    goto/16 :goto_13b
 
     .line 173
     .restart local v0    # "programPlanBean":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
@@ -719,7 +719,7 @@
     .restart local v12    # "hour":I
     .restart local v14    # "minute":I
     .restart local v15    # "dayStr":Ljava/lang/String;
-    :cond_2
+    :cond_aa
     move/from16 v7, p6
 
     move-object v6, v0
@@ -731,7 +731,7 @@
     .end local v1    # "programnull":Z
     .local v6, "programPlanBean":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
     .local v16, "programnull":Z
-    :goto_2
+    :goto_af
     const/4 v0, 0x0
 
     .line 179
@@ -742,12 +742,12 @@
 
     move-result-object v1
 
-    :goto_3
+    :goto_b6
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_d1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -765,7 +765,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_d0
 
     .line 181
     const/4 v0, 0x1
@@ -773,32 +773,32 @@
     .line 182
     move/from16 v17, v0
 
-    goto :goto_4
+    goto :goto_d3
 
     .line 184
     .end local v2    # "programPlan":Lcom/isaigu/gymapp/bean/ProgramPlanBean$ProgramPlan;
-    :cond_3
-    goto :goto_3
+    :cond_d0
+    goto :goto_b6
 
     .line 179
-    :cond_4
+    :cond_d1
     move/from16 v17, v0
 
     .line 185
     .end local v0    # "contain":Z
     .local v17, "contain":Z
-    :goto_4
-    if-nez v17, :cond_5
+    :goto_d3
+    if-nez v17, :cond_11b
 
     .line 186
     iget-object v0, v6, Lcom/isaigu/gymapp/bean/ProgramPlanBean;->planList:Ljava/util/List;
 
     invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
+    :try_end_da
+    .catch Ljava/lang/Exception; {:try_start_98 .. :try_end_da} :catch_132
 
     .line 188
-    :try_start_6
+    :try_start_da
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -818,8 +818,8 @@
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
-    :try_end_6
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_2
+    :try_end_f2
+    .catch Ljava/lang/Exception; {:try_start_da .. :try_end_f2} :catch_115
 
     move-object/from16 v1, p0
 
@@ -839,7 +839,7 @@
 
     move-object v7, v0
 
-    :try_start_7
+    :try_start_fe
     invoke-direct/range {v1 .. v7}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->saveCalendarEvent(IIIIILjava/lang/String;)I
 
     move-result v0
@@ -860,21 +860,21 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/BaseActivity;->showTips(Ljava/lang/String;)V
-    :try_end_7
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_1
+    :try_end_112
+    .catch Ljava/lang/Exception; {:try_start_fe .. :try_end_112} :catch_113
 
     .end local v0    # "eventID":I
-    goto :goto_6
+    goto :goto_11a
 
     .line 191
-    :catch_1
+    :catch_113
     move-exception v0
 
-    goto :goto_5
+    goto :goto_117
 
     .end local v10    # "programPlanBean":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
     .restart local v6    # "programPlanBean":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
-    :catch_2
+    :catch_115
     move-exception v0
 
     move-object v10, v6
@@ -883,19 +883,19 @@
     .end local v6    # "programPlanBean":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
     .local v0, "e":Ljava/lang/Exception;
     .restart local v10    # "programPlanBean":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
-    :goto_5
-    :try_start_8
+    :goto_117
+    :try_start_117
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 193
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_6
-    goto :goto_7
+    :goto_11a
+    goto :goto_12a
 
     .line 195
     .end local v10    # "programPlanBean":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
     .restart local v6    # "programPlanBean":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
-    :cond_5
+    :cond_11b
     move-object v10, v6
 
     .end local v6    # "programPlanBean":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
@@ -913,16 +913,16 @@
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->showTips(Ljava/lang/String;)V
 
     .line 197
-    :goto_7
-    if-eqz v17, :cond_6
+    :goto_12a
+    if-eqz v17, :cond_12e
 
-    if-eqz v16, :cond_7
+    if-eqz v16, :cond_131
 
     .line 198
-    :cond_6
+    :cond_12e
     invoke-static {v15, v10}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/String;Ljava/lang/Object;)V
-    :try_end_8
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_3
+    :try_end_131
+    .catch Ljava/lang/Exception; {:try_start_117 .. :try_end_131} :catch_132
 
     .line 202
     .end local v9    # "plan":Lcom/isaigu/gymapp/bean/ProgramPlanBean$ProgramPlan;
@@ -932,51 +932,51 @@
     .end local v15    # "dayStr":Ljava/lang/String;
     .end local v16    # "programnull":Z
     .end local v17    # "contain":Z
-    :cond_7
-    goto :goto_a
+    :cond_131
+    goto :goto_13e
 
     .line 200
-    :catch_3
+    :catch_132
     move-exception v0
 
-    goto :goto_9
+    goto :goto_13b
 
-    :catch_4
+    :catch_134
     move-exception v0
 
-    goto :goto_8
+    goto :goto_139
 
-    :catch_5
+    :catch_136
     move-exception v0
 
     move-object/from16 v11, p2
 
-    :goto_8
+    :goto_139
     move-object/from16 v13, p3
 
     .line 201
     .restart local v0    # "e":Ljava/lang/Exception;
-    :goto_9
+    :goto_13b
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 203
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_a
+    :goto_13e
     return-void
 .end method
 
 .method private requestWriteSettings()Z
-    .locals 4
+    .registers 5
 
     .line 309
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_1
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x17
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_3d
 
     .line 310
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -987,7 +987,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_3d
 
     .line 311
     new-instance v1, Landroid/content/Intent;
@@ -1028,8 +1028,8 @@
 
     .line 313
     invoke-virtual {p0, v1, v0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->startActivityForResult(Landroid/content/Intent;I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3b
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_3b} :catch_3e
 
     .line 314
     const/4 v0, 0x0
@@ -1038,11 +1038,11 @@
 
     .line 319
     .end local v1    # "intent":Landroid/content/Intent;
-    :cond_0
-    goto :goto_0
+    :cond_3d
+    goto :goto_42
 
     .line 317
-    :catch_0
+    :catch_3e
     move-exception v1
 
     .line 318
@@ -1051,12 +1051,12 @@
 
     .line 320
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_42
     return v0
 .end method
 
 .method private saveCalendarEvent(IIIIILjava/lang/String;)I
-    .locals 9
+    .registers 16
     .param p1, "year"    # I
     .param p2, "month"    # I
     .param p3, "day"    # I
@@ -1191,7 +1191,7 @@
 
 # virtual methods
 .method public onActivityResult(IILandroid/content/Intent;)V
-    .locals 2
+    .registers 6
     .param p1, "requestCode"    # I
     .param p2, "resultCode"    # I
     .param p3, "data"    # Landroid/content/Intent;
@@ -1202,10 +1202,10 @@
     .line 288
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_2b
 
     .line 290
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
@@ -1214,7 +1214,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     .line 291
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -1230,20 +1230,20 @@
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->showTips(Ljava/lang/String;)V
 
     .line 293
-    :cond_0
+    :cond_1e
     new-instance v0, Lcom/isaigu/gymapp/fragment/CalendarFragment$3;
 
     invoke-direct {v0, p0}, Lcom/isaigu/gymapp/fragment/CalendarFragment$3;-><init>(Lcom/isaigu/gymapp/fragment/CalendarFragment;)V
 
     invoke-static {v0}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->requestCalendarReadWritePermission(Lcom/isaigu/gymapp/calendar/CalendarEvents$OnPermissionCallback;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_26} :catch_27
 
     .line 302
-    goto :goto_0
+    goto :goto_2b
 
     .line 300
-    :catch_0
+    :catch_27
     move-exception v0
 
     .line 301
@@ -1252,13 +1252,13 @@
 
     .line 304
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_1
-    :goto_0
+    :cond_2b
+    :goto_2b
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 4
+    .registers 8
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -1291,7 +1291,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_32
 
     .line 61
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -1317,7 +1317,7 @@
     invoke-virtual {v1, v2}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 64
-    :cond_0
+    :cond_32
     const v1, 0x7f090062
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1361,7 +1361,7 @@
 
     .line 132
     .local v2, "can":Z
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_64
 
     .line 133
     new-instance v3, Lcom/isaigu/gymapp/fragment/CalendarFragment$2;
@@ -1371,19 +1371,19 @@
     invoke-static {v3}, Lcom/isaigu/gymapp/calendar/CalendarEvents;->requestCalendarReadWritePermission(Lcom/isaigu/gymapp/calendar/CalendarEvents$OnPermissionCallback;)V
 
     .line 145
-    :cond_1
+    :cond_64
     return-object v0
 .end method
 
 .method public onHiddenChanged(Z)V
-    .locals 2
+    .registers 4
     .param p1, "hidden"    # Z
 
     .line 150
     invoke-super {p0, p1}, Lcom/isaigu/gymapp/BaseFragment;->onHiddenChanged(Z)V
 
     .line 152
-    if-nez p1, :cond_1
+    if-nez p1, :cond_41
 
     .line 153
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
@@ -1396,7 +1396,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_29
 
     .line 154
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -1421,10 +1421,10 @@
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    goto :goto_0
+    goto :goto_41
 
     .line 156
-    :cond_0
+    :cond_29
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
@@ -1448,13 +1448,13 @@
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 159
-    :cond_1
-    :goto_0
+    :cond_41
+    :goto_41
     return-void
 .end method
 
 .method protected viewId()I
-    .locals 1
+    .registers 2
 
     .line 50
     const v0, 0x7f0b001f

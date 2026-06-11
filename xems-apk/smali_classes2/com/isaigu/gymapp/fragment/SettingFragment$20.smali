@@ -1,16 +1,25 @@
 .class Lcom/isaigu/gymapp/fragment/SettingFragment$20;
-.super Lcom/isaigu/gymapp/widget/NoDoubleClickListener;
+.super Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
 .source "SettingFragment.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/isaigu/gymapp/fragment/SettingFragment;->initSet()V
+    value = Lcom/isaigu/gymapp/fragment/SettingFragment;->onActivityResult(IILandroid/content/Intent;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x0
     name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback<",
+        "Lcom/isaigu/gymapp/bean/vo/ResponseData<",
+        "Lcom/isaigu/gymapp/bean/vo/UploadFileVO;",
+        ">;>;"
+    }
 .end annotation
 
 
@@ -21,62 +30,121 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    .prologue
-    .line 627
+    .line 599
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$20;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
+    invoke-direct {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onNoDoubleClick(Landroid/view/View;)V
-    .registers 6
+.method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
+    .registers 7
+    .param p1, "httpSuccess"    # Z
+    .param p2, "message"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(Z",
+            "Ljava/lang/String;",
+            "Lcom/isaigu/gymapp/bean/vo/ResponseData<",
+            "Lcom/isaigu/gymapp/bean/vo/UploadFileVO;",
+            ">;)V"
+        }
+    .end annotation
 
-    .prologue
-    .line 630
-    invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->getDefault()Lorg/greenrobot/eventbus/EventBus;
+    .line 601
+    .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Lcom/isaigu/gymapp/bean/vo/UploadFileVO;>;"
+    if-eqz p1, :cond_4a
+
+    if-eqz p3, :cond_4a
+
+    invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getData()Ljava/lang/Object;
 
     move-result-object v0
 
-    new-instance v1, Lcom/isaigu/gymapp/train/events/ApplicationExitEvent;
+    if-eqz v0, :cond_4a
 
-    invoke-direct {v1}, Lcom/isaigu/gymapp/train/events/ApplicationExitEvent;-><init>()V
+    invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->isSuccess()Z
 
-    invoke-virtual {v0, v1}, Lorg/greenrobot/eventbus/EventBus;->post(Ljava/lang/Object;)V
+    move-result v0
 
-    .line 631
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$20;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+    if-eqz v0, :cond_4a
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+    .line 602
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
-    const v1, 0x7f0900a4
+    invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getData()Ljava/lang/Object;
 
-    new-instance v2, Lcom/isaigu/gymapp/fragment/LoginFragment;
+    move-result-object v1
 
-    invoke-direct {v2}, Lcom/isaigu/gymapp/fragment/LoginFragment;-><init>()V
+    check-cast v1, Lcom/isaigu/gymapp/bean/vo/UploadFileVO;
 
-    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
+    iget-object v1, v1, Lcom/isaigu/gymapp/bean/vo/UploadFileVO;->fileUrl:Ljava/lang/String;
 
-    .line 632
-    const/16 v0, 0x67
+    iput-object v1, v0, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
+    .line 603
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
-    .line 633
-    new-instance v0, Lcom/isaigu/gymapp/fragment/SettingFragment$20$1;
+    move-result-object v0
 
-    invoke-direct {v0, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$20$1;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment$20;)V
+    iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
-    const-wide/16 v2, 0x7d0
+    invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getData()Ljava/lang/Object;
 
-    invoke-static {v0, v2, v3}, Lcom/isaigu/gymapp/utils/TimerUtils;->delayCallback(Ljava/lang/Runnable;J)Ljava/util/Timer;
+    move-result-object v1
 
-    .line 641
+    check-cast v1, Lcom/isaigu/gymapp/bean/vo/UploadFileVO;
+
+    iget-object v1, v1, Lcom/isaigu/gymapp/bean/vo/UploadFileVO;->fileUrl:Ljava/lang/String;
+
+    iput-object v1, v0, Lcom/isaigu/gymapp/bean/TrainUser;->appLogoUrl:Ljava/lang/String;
+
+    .line 604
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
+
+    iget-wide v0, v0, Lcom/isaigu/gymapp/bean/TrainUser;->id:J
+
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v0
+
+    invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getData()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/isaigu/gymapp/bean/vo/UploadFileVO;
+
+    iget-object v1, v1, Lcom/isaigu/gymapp/bean/vo/UploadFileVO;->fileUrl:Ljava/lang/String;
+
+    new-instance v2, Lcom/isaigu/gymapp/fragment/SettingFragment$20$1;
+
+    invoke-direct {v2, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$20$1;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment$20;)V
+
+    invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/mgr/ApiMgr;->updateAppLogo(Ljava/lang/Long;Ljava/lang/String;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
+
+    .line 620
+    :cond_4a
+    return-void
+.end method
+
+.method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
+    .registers 4
+
+    .line 599
+    check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/SettingFragment$20;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
+
     return-void
 .end method

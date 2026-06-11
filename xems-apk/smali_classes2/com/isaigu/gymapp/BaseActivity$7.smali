@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/BaseActivity;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/BaseActivity;
 
     .line 275
@@ -41,13 +41,13 @@
 
 # virtual methods
 .method public onSystemUiVisibilityChange(I)V
-    .locals 2
+    .registers 4
     .param p1, "visibility"    # I
 
     .line 278
     and-int/lit8 v0, p1, 0x4
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 279
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity$7;->val$decorView:Landroid/view/View;
@@ -57,6 +57,6 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
 
     .line 281
-    :cond_0
+    :cond_b
     return-void
 .end method

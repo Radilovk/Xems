@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 166
     const-wide v0, 0x9e3779b9L
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,12 +43,12 @@
 .end method
 
 .method public static Decrypt(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .param p0, "data"    # Ljava/lang/String;
     .param p1, "key"    # Ljava/lang/String;
 
     .line 23
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_36
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -56,12 +56,12 @@
 
     sget v1, Lcom/isaigu/gymapp/utils/XXTEATool;->MIN_LENGTH:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_b
 
-    goto :goto_0
+    goto :goto_36
 
     .line 26
-    :cond_0
+    :cond_b
     nop
 
     .line 27
@@ -115,13 +115,13 @@
 
     .line 24
     .end local v0    # "code":[B
-    :cond_1
-    :goto_0
+    :cond_36
+    :goto_36
     return-object p0
 .end method
 
 .method public static Encrypt(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p0, "data"    # Ljava/lang/String;
     .param p1, "key"    # Ljava/lang/String;
 
@@ -183,7 +183,7 @@
 .end method
 
 .method private static PadLeft(Ljava/lang/String;I)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "source"    # Ljava/lang/String;
     .param p1, "length"    # I
 
@@ -193,7 +193,7 @@
 
     move-result v0
 
-    if-ge v0, p1, :cond_0
+    if-ge v0, p1, :cond_18
 
     .line 161
     new-instance v0, Ljava/lang/StringBuilder;
@@ -213,12 +213,12 @@
     goto :goto_0
 
     .line 163
-    :cond_0
+    :cond_18
     return-object p0
 .end method
 
 .method private static PadRight(Ljava/lang/String;I)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "source"    # Ljava/lang/String;
     .param p1, "length"    # I
 
@@ -228,7 +228,7 @@
 
     move-result v0
 
-    if-ge v0, p1, :cond_0
+    if-ge v0, p1, :cond_18
 
     .line 154
     new-instance v0, Ljava/lang/StringBuilder;
@@ -248,12 +248,12 @@
     goto :goto_0
 
     .line 156
-    :cond_0
+    :cond_18
     return-object p0
 .end method
 
 .method private static TEADecrypt([J[J)[J
-    .locals 35
+    .registers 37
     .param p0, "data"    # [J
     .param p1, "key"    # [J
 
@@ -266,13 +266,13 @@
     .local v1, "n":I
     const/4 v2, 0x1
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_7
 
     .line 60
     return-object v0
 
     .line 63
-    :cond_0
+    :cond_7
     array-length v3, v0
 
     sub-int/2addr v3, v2
@@ -306,12 +306,12 @@
     .line 66
     .end local v7    # "sum":J
     .local v11, "sum":J
-    :goto_0
+    :goto_1a
     const-wide/16 v7, 0x0
 
     cmp-long v13, v11, v7
 
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_9e
 
     .line 67
     const/4 v13, 0x2
@@ -333,7 +333,7 @@
     int-to-long v13, v4
 
     .local v13, "p":J
-    :goto_1
+    :goto_2c
     const/4 v4, 0x4
 
     const/4 v15, 0x3
@@ -342,7 +342,7 @@
 
     cmp-long v21, v13, v7
 
-    if-lez v21, :cond_1
+    if-lez v21, :cond_6a
 
     .line 69
     const-wide/16 v21, 0x1
@@ -407,12 +407,12 @@
 
     const-wide/16 v7, 0x0
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 73
     .end local v33    # "q":J
     .restart local v9    # "q":J
-    :cond_1
+    :cond_6a
     move-wide/from16 v33, v9
 
     .end local v9    # "q":J
@@ -479,19 +479,19 @@
 
     move-wide/from16 v9, v33
 
-    goto/16 :goto_0
+    goto/16 :goto_1a
 
     .line 79
     .end local v13    # "p":J
     .end local v18    # "e":J
     .end local v33    # "q":J
     .restart local v9    # "q":J
-    :cond_2
+    :cond_9e
     return-object v0
 .end method
 
 .method private static TEAEncrypt([J[J)[J
-    .locals 33
+    .registers 35
     .param p0, "data"    # [J
     .param p1, "key"    # [J
 
@@ -504,13 +504,13 @@
     .local v1, "n":I
     const/4 v2, 0x1
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_7
 
     .line 36
     return-object v0
 
     .line 39
-    :cond_0
+    :cond_7
     array-length v3, v0
 
     sub-int/2addr v3, v2
@@ -537,7 +537,7 @@
 
     .line 41
     .local v9, "q":J
-    :goto_0
+    :goto_16
     const-wide/16 v11, 0x1
 
     sub-long v13, v9, v11
@@ -548,7 +548,7 @@
 
     cmp-long v17, v9, v15
 
-    if-lez v17, :cond_2
+    if-lez v17, :cond_a2
 
     .line 42
     sget-wide v9, Lcom/isaigu/gymapp/utils/XXTEATool;->DELTA:J
@@ -577,7 +577,7 @@
     .end local v5    # "y":J
     .local v4, "p":J
     .local v19, "y":J
-    :goto_1
+    :goto_32
     add-int/lit8 v6, v1, -0x1
 
     int-to-long v9, v6
@@ -590,7 +590,7 @@
 
     cmp-long v25, v4, v9
 
-    if-gez v25, :cond_1
+    if-gez v25, :cond_6f
 
     .line 45
     add-long v9, v4, v11
@@ -651,10 +651,10 @@
 
     const/4 v9, 0x2
 
-    goto :goto_1
+    goto :goto_32
 
     .line 49
-    :cond_1
+    :cond_6f
     const/4 v9, 0x0
 
     aget-wide v10, v0, v9
@@ -714,19 +714,19 @@
 
     const/4 v4, 0x0
 
-    goto/16 :goto_0
+    goto/16 :goto_16
 
     .line 54
     .end local v4    # "p":J
     .end local v15    # "e":J
     .end local v26    # "y":J
     .restart local v5    # "y":J
-    :cond_2
+    :cond_a2
     return-object v0
 .end method
 
 .method private static ToByteArray([J)[B
-    .locals 5
+    .registers 6
     .param p0, "data"    # [J
 
     .line 100
@@ -739,10 +739,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_6
     array-length v2, p0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_23
 
     .line 103
     aget-wide v2, p0, v1
@@ -756,10 +756,10 @@
     const/4 v3, 0x0
 
     .local v3, "j":I
-    :goto_1
+    :goto_10
     const/16 v4, 0x8
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_20
 
     .line 105
     aget-byte v4, v2, v3
@@ -773,20 +773,20 @@
     .line 104
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_10
 
     .line 102
     .end local v2    # "bs":[B
     .end local v3    # "j":I
-    :cond_0
+    :cond_20
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 109
     .end local v1    # "i":I
-    :cond_1
-    :goto_2
+    :cond_23
+    :goto_23
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -805,7 +805,7 @@
 
     sget-char v2, Lcom/isaigu/gymapp/utils/XXTEATool;->SPECIAL_CHAR:C
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_41
 
     .line 110
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -816,10 +816,10 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_23
 
     .line 113
-    :cond_2
+    :cond_41
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -831,10 +831,10 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_3
+    :goto_48
     array-length v3, v1
 
-    if-ge v2, v3, :cond_3
+    if-ge v2, v3, :cond_5a
 
     .line 115
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -852,16 +852,16 @@
     .line 114
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_48
 
     .line 117
     .end local v2    # "i":I
-    :cond_3
+    :cond_5a
     return-object v1
 .end method
 
 .method private static ToHexString([J)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "data"    # [J
 
     .line 135
@@ -874,10 +874,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_6
     array-length v2, p0
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1b
 
     .line 137
     aget-wide v2, p0, v1
@@ -897,11 +897,11 @@
     .line 136
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 139
     .end local v1    # "i":I
-    :cond_0
+    :cond_1b
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -910,7 +910,7 @@
 .end method
 
 .method private static ToLongArray(Ljava/lang/String;)[J
-    .locals 7
+    .registers 8
     .param p0, "data"    # Ljava/lang/String;
 
     .line 143
@@ -931,8 +931,8 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
-    if-ge v3, v0, :cond_0
+    :goto_a
+    if-ge v3, v0, :cond_23
 
     .line 146
     new-instance v4, Ljava/math/BigInteger;
@@ -959,16 +959,16 @@
     .line 145
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 149
     .end local v3    # "i":I
-    :cond_0
+    :cond_23
     return-object v2
 .end method
 
 .method private static ToLongArray([B)[J
-    .locals 7
+    .registers 8
     .param p0, "data"    # [B
 
     .line 83
@@ -980,16 +980,16 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_a
     array-length v3, p0
 
     div-int/2addr v3, v1
@@ -1005,10 +1005,10 @@
     const/4 v4, 0x0
 
     .local v4, "i":I
-    :goto_1
+    :goto_10
     add-int/lit8 v5, v0, -0x1
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_1f
 
     .line 87
     mul-int/lit8 v5, v4, 0x8
@@ -1022,11 +1022,11 @@
     .line 86
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_10
 
     .line 90
     .end local v4    # "i":I
-    :cond_1
+    :cond_1f
     new-array v4, v1, [B
 
     .line 91
@@ -1039,10 +1039,10 @@
     mul-int/lit8 v6, v6, 0x8
 
     .local v6, "j":I
-    :goto_2
+    :goto_26
     array-length v1, p0
 
-    if-ge v6, v1, :cond_2
+    if-ge v6, v1, :cond_32
 
     .line 92
     aget-byte v1, p0, v6
@@ -1054,12 +1054,12 @@
 
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2
+    goto :goto_26
 
     .line 94
     .end local v5    # "i":I
     .end local v6    # "j":I
-    :cond_2
+    :cond_32
     add-int/lit8 v1, v0, -0x1
 
     invoke-static {v4, v2}, Lcom/isaigu/gymapp/utils/XXTEATool;->bytes2long([BI)J
@@ -1073,7 +1073,7 @@
 .end method
 
 .method public static bytes2long([BI)J
-    .locals 4
+    .registers 6
     .param p0, "b"    # [B
     .param p1, "index"    # I
 
@@ -1105,7 +1105,7 @@
 .end method
 
 .method public static long2bytes(J)[B
-    .locals 2
+    .registers 4
     .param p0, "num"    # J
 
     .line 121
@@ -1134,7 +1134,7 @@
 .end method
 
 .method public static main([Ljava/lang/String;)V
-    .locals 8
+    .registers 9
     .param p0, "args"    # [Ljava/lang/String;
 
     .line 171

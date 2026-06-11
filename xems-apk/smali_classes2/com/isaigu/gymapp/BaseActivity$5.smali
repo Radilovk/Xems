@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/BaseActivity;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/BaseActivity;
 
     .line 223
@@ -38,21 +38,22 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
 
     .line 225
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity$5;->val$okCallback:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 226
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     .line 228
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity$5;->this$0:Lcom/isaigu/gymapp/BaseActivity;
 
+    # getter for: Lcom/isaigu/gymapp/BaseActivity;->messageDialog:Landroid/support/v7/app/AlertDialog;
     invoke-static {v0}, Lcom/isaigu/gymapp/BaseActivity;->access$100(Lcom/isaigu/gymapp/BaseActivity;)Landroid/support/v7/app/AlertDialog;
 
     move-result-object v0

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment$5$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$2"    # Lcom/isaigu/gymapp/fragment/SettingFragment$5$1;
 
     .line 290
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 292
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$5$1$1;->this$2:Lcom/isaigu/gymapp/fragment/SettingFragment$5$1;
@@ -46,6 +46,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SettingFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->timelength:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$200(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/TextView;
 
     move-result-object v0

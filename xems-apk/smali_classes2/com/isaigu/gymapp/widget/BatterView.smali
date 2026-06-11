@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 56
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 5
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -186,7 +186,7 @@
 
 # virtual methods
 .method public initPaint()V
-    .locals 3
+    .registers 4
 
     .line 80
     new-instance v0, Landroid/graphics/Paint;
@@ -260,7 +260,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 13
+    .registers 15
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 115
@@ -271,7 +271,7 @@
 
     const/16 v1, 0x14
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_18
 
     .line 117
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/BatterView;->mPowerPaint:Landroid/graphics/Paint;
@@ -287,10 +287,10 @@
 
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setColor(I)V
 
-    goto :goto_0
+    goto :goto_26
 
     .line 120
-    :cond_0
+    :cond_18
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/BatterView;->mPowerPaint:Landroid/graphics/Paint;
 
     iget v2, p0, Lcom/isaigu/gymapp/widget/BatterView;->powerColor:I
@@ -305,14 +305,14 @@
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 123
-    :goto_0
+    :goto_26
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/BatterView;->isShowText:Z
 
     const/high16 v2, 0x41200000    # 10.0f
 
     const/high16 v3, 0x40000000    # 2.0f
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_98
 
     .line 124
     new-instance v0, Ljava/lang/StringBuilder;
@@ -446,16 +446,16 @@
     .end local v7    # "top":F
     .end local v8    # "bottom":F
     .end local v9    # "baseLineY":I
-    goto :goto_1
+    goto :goto_9b
 
     .line 139
-    :cond_1
+    :cond_98
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/isaigu/gymapp/widget/BatterView;->textWidth:F
 
     .line 146
-    :goto_1
+    :goto_9b
     new-instance v0, Landroid/graphics/RectF;
 
     iget v4, p0, Lcom/isaigu/gymapp/widget/BatterView;->specWidthSize:I
@@ -532,7 +532,7 @@
 
     const/high16 v4, 0x42c80000    # 100.0f
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_eb
 
     .line 157
     iget v0, p0, Lcom/isaigu/gymapp/widget/BatterView;->specWidthSize:I
@@ -556,11 +556,11 @@
     mul-float v0, v0, v1
 
     .local v0, "right":F
-    goto :goto_2
+    goto :goto_f9
 
     .line 160
     .end local v0    # "right":F
-    :cond_2
+    :cond_eb
     iget v1, p0, Lcom/isaigu/gymapp/widget/BatterView;->specWidthSize:I
 
     int-to-float v1, v1
@@ -583,7 +583,7 @@
 
     .line 162
     .restart local v0    # "right":F
-    :goto_2
+    :goto_f9
     new-instance v1, Landroid/graphics/RectF;
 
     iget v2, p0, Lcom/isaigu/gymapp/widget/BatterView;->mBatteryStroke:F
@@ -605,7 +605,7 @@
 
     iget v2, p0, Lcom/isaigu/gymapp/widget/BatterView;->specHeightSize:I
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_167
 
     .line 167
     new-instance v1, Landroid/graphics/RectF;
@@ -720,7 +720,7 @@
     iput-object v1, p0, Lcom/isaigu/gymapp/widget/BatterView;->mPowerRect:Landroid/graphics/RectF;
 
     .line 177
-    :cond_3
+    :cond_167
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/BatterView;->mBatteryRect:Landroid/graphics/RectF;
 
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/BatterView;->mBatteryPaint:Landroid/graphics/Paint;
@@ -748,7 +748,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 2
+    .registers 5
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -779,29 +779,29 @@
 .end method
 
 .method public setProgress(I)V
-    .locals 1
+    .registers 3
     .param p1, "power"    # I
 
     .line 46
-    if-gez p1, :cond_0
+    if-gez p1, :cond_4
 
     .line 47
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_a
 
     .line 48
-    :cond_0
+    :cond_4
     const/16 v0, 0x64
 
-    if-le p1, v0, :cond_1
+    if-le p1, v0, :cond_a
 
     .line 49
     const/16 p1, 0x64
 
     .line 51
-    :cond_1
-    :goto_0
+    :cond_a
+    :goto_a
     iput p1, p0, Lcom/isaigu/gymapp/widget/BatterView;->power:I
 
     .line 52

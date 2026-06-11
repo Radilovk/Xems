@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Landroid/support/v7/app/AppCompatActivity;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/BaseActivity;)Landroid/widget/Toast;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/BaseActivity;
 
     .line 28
@@ -38,7 +38,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/BaseActivity;)Landroid/support/v7/app/AlertDialog;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/BaseActivity;
 
     .line 28
@@ -48,7 +48,7 @@
 .end method
 
 .method public static getActivityBrightness(Landroid/app/Activity;)F
-    .locals 3
+    .registers 4
     .param p0, "activity"    # Landroid/app/Activity;
 
     .line 305
@@ -70,7 +70,7 @@
 .end method
 
 .method public static setActivityBrightness(FLandroid/app/Activity;)V
-    .locals 2
+    .registers 4
     .param p0, "paramFloat"    # F
     .param p1, "activity"    # Landroid/app/Activity;
 
@@ -99,49 +99,49 @@
 
 # virtual methods
 .method public closeDialogFragment(Lcom/isaigu/gymapp/BaseDialogFragment;)V
-    .locals 1
+    .registers 3
     .param p1, "baseDialogFragment"    # Lcom/isaigu/gymapp/BaseDialogFragment;
 
     .line 351
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     .line 352
-    :try_start_0
+    :try_start_2
     invoke-virtual {p1}, Lcom/isaigu/gymapp/BaseDialogFragment;->dismiss()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_5} :catch_6
 
-    goto :goto_0
+    goto :goto_b
 
     .line 354
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 355
     .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_c
 
     .line 356
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_0
-    :goto_0
+    :cond_b
+    :goto_b
     nop
 
     .line 357
-    :goto_1
+    :goto_c
     return-void
 .end method
 
 .method public dismissLoadingDialog()V
-    .locals 1
+    .registers 2
 
     .line 187
     :try_start_0
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->loadingDialog:Lcom/isaigu/gymapp/widget/LoadingDialog;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->loadingDialog:Lcom/isaigu/gymapp/widget/LoadingDialog;
 
@@ -149,7 +149,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 188
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->loadingDialog:Lcom/isaigu/gymapp/widget/LoadingDialog;
@@ -160,15 +160,15 @@
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->loadingDialog:Lcom/isaigu/gymapp/widget/LoadingDialog;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_14} :catch_15
 
     .line 193
-    :cond_0
-    goto :goto_0
+    :cond_14
+    goto :goto_19
 
     .line 191
-    :catch_0
+    :catch_15
     move-exception v0
 
     .line 192
@@ -177,18 +177,18 @@
 
     .line 194
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_19
     return-void
 .end method
 
 .method public dismissStatusDialog()V
-    .locals 1
+    .registers 2
 
     .line 198
     :try_start_0
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
@@ -196,7 +196,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 199
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
@@ -207,15 +207,15 @@
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_14} :catch_15
 
     .line 204
-    :cond_0
-    goto :goto_0
+    :cond_14
+    goto :goto_19
 
     .line 202
-    :catch_0
+    :catch_15
     move-exception v0
 
     .line 203
@@ -224,12 +224,12 @@
 
     .line 205
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_19
     return-void
 .end method
 
 .method public getGlobalFragmentManager()Landroid/support/v4/app/FragmentManager;
-    .locals 1
+    .registers 2
 
     .line 66
     invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
@@ -240,7 +240,7 @@
 .end method
 
 .method public getStringValue(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p1, "resId"    # I
 
     .line 293
@@ -256,7 +256,7 @@
 .end method
 
 .method protected hideVirtualButton()V
-    .locals 3
+    .registers 4
 
     .line 267
     invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseActivity;->getWindow()Landroid/view/Window;
@@ -289,7 +289,7 @@
 .end method
 
 .method public isFragmentShow(Ljava/lang/Class;)Z
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -310,29 +310,29 @@
 
     .line 254
     .local v0, "fragmentList":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/app/Fragment;>;"
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3e
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_3e
 
     .line 255
     monitor-enter v0
 
     .line 256
-    :try_start_0
+    :try_start_11
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_0
+    :goto_15
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_39
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -342,7 +342,7 @@
 
     .line 257
     .local v2, "fragment":Landroid/support/v4/app/Fragment;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_38
 
     invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -360,7 +360,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_38
 
     .line 258
     const/4 v1, 0x1
@@ -371,34 +371,34 @@
 
     .line 260
     .end local v2    # "fragment":Landroid/support/v4/app/Fragment;
-    :cond_0
-    goto :goto_0
+    :cond_38
+    goto :goto_15
 
     .line 261
-    :cond_1
+    :cond_39
     monitor-exit v0
 
-    goto :goto_1
+    goto :goto_3e
 
-    :catchall_0
+    :catchall_3b
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3d
+    .catchall {:try_start_11 .. :try_end_3d} :catchall_3b
 
     throw v1
 
     .line 263
-    :cond_2
-    :goto_1
+    :cond_3e
+    :goto_3e
     const/4 v1, 0x0
 
     return v1
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 40
@@ -445,7 +445,7 @@
 .end method
 
 .method protected onDestroy()V
-    .locals 0
+    .registers 1
 
     .line 361
     invoke-super {p0}, Landroid/support/v7/app/AppCompatActivity;->onDestroy()V
@@ -455,7 +455,7 @@
 .end method
 
 .method public onWindowFocusChanged(Z)V
-    .locals 0
+    .registers 2
     .param p1, "hasFocus"    # Z
 
     .line 246
@@ -466,7 +466,7 @@
 .end method
 
 .method public replace(ILcom/isaigu/gymapp/BaseFragment;)V
-    .locals 2
+    .registers 5
     .param p1, "resId"    # I
     .param p2, "fragment"    # Lcom/isaigu/gymapp/BaseFragment;
 
@@ -491,17 +491,17 @@
 
     .line 326
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commitAllowingStateLoss()I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_13} :catch_15
 
     .line 329
     nop
 
     .end local v0    # "transaction":Landroid/support/v4/app/FragmentTransaction;
-    goto :goto_0
+    goto :goto_19
 
     .line 327
-    :catch_0
+    :catch_15
     move-exception v0
 
     .line 328
@@ -510,12 +510,12 @@
 
     .line 330
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_19
     return-void
 .end method
 
 .method public replace(ILcom/isaigu/gymapp/BaseFragment;Ljava/lang/String;)V
-    .locals 2
+    .registers 6
     .param p1, "resId"    # I
     .param p2, "fragment"    # Lcom/isaigu/gymapp/BaseFragment;
     .param p3, "tag"    # Ljava/lang/String;
@@ -541,17 +541,17 @@
 
     .line 315
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commitAllowingStateLoss()I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_13} :catch_15
 
     .line 318
     nop
 
     .end local v0    # "transaction":Landroid/support/v4/app/FragmentTransaction;
-    goto :goto_0
+    goto :goto_19
 
     .line 316
-    :catch_0
+    :catch_15
     move-exception v0
 
     .line 317
@@ -560,12 +560,12 @@
 
     .line 319
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_19
     return-void
 .end method
 
 .method public runDelay(Ljava/lang/Runnable;J)V
-    .locals 1
+    .registers 5
     .param p1, "runnable"    # Ljava/lang/Runnable;
     .param p2, "delayMillis"    # J
 
@@ -579,14 +579,14 @@
 .end method
 
 .method public showDialogFragment(Lcom/isaigu/gymapp/BaseDialogFragment;)V
-    .locals 5
+    .registers 7
     .param p1, "baseDialogFragment"    # Lcom/isaigu/gymapp/BaseDialogFragment;
 
     .line 334
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_50
 
     .line 335
-    :try_start_0
+    :try_start_2
     invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseActivity;->getGlobalFragmentManager()Landroid/support/v4/app/FragmentManager;
 
     move-result-object v0
@@ -601,12 +601,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_34
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -616,7 +616,7 @@
 
     .line 337
     .local v2, "fragment":Landroid/support/v4/app/Fragment;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_33
 
     invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -638,18 +638,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_33
 
     .line 338
     return-void
 
     .line 340
     .end local v2    # "fragment":Landroid/support/v4/app/Fragment;
-    :cond_0
-    goto :goto_0
+    :cond_33
+    goto :goto_e
 
     .line 341
-    :cond_1
+    :cond_34
     invoke-super {p0}, Landroid/support/v7/app/AppCompatActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -670,42 +670,42 @@
     move-result-object v2
 
     invoke-virtual {p1, v1, v2}, Lcom/isaigu/gymapp/BaseDialogFragment;->show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4a
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_4a} :catch_4b
 
-    goto :goto_1
+    goto :goto_50
 
     .line 344
     .end local v0    # "fragments":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/app/Fragment;>;"
-    :catch_0
+    :catch_4b
     move-exception v0
 
     .line 345
     .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_2
+    goto :goto_51
 
     .line 346
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_2
-    :goto_1
+    :cond_50
+    :goto_50
     nop
 
     .line 347
-    :goto_2
+    :goto_51
     return-void
 .end method
 
 .method public showDialogWithImage(ILjava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "imgId"    # I
     .param p2, "text"    # Ljava/lang/String;
 
     .line 87
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 88
     new-instance v0, Lcom/isaigu/gymapp/widget/StatusLoadingDialog$Builder;
@@ -719,24 +719,24 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     .line 90
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     invoke-virtual {v0, p1, p2}, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->setShowWithStatusImage(ILjava/lang/String;)V
 
     .line 92
-    :try_start_0
+    :try_start_14
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->show()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/Exception; {:try_start_14 .. :try_end_19} :catch_1a
 
     .line 95
-    goto :goto_0
+    goto :goto_1e
 
     .line 93
-    :catch_0
+    :catch_1a
     move-exception v0
 
     .line 94
@@ -745,12 +745,12 @@
 
     .line 96
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_1e
     return-void
 .end method
 
 .method public showDialogWithImage(ILjava/lang/String;JLjava/lang/Runnable;)V
-    .locals 1
+    .registers 7
     .param p1, "imgId"    # I
     .param p2, "text"    # Ljava/lang/String;
     .param p3, "dismissDelay"    # J
@@ -771,12 +771,12 @@
 .end method
 
 .method public showLoadingDialog()V
-    .locals 2
+    .registers 3
 
     .line 163
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->loadingDialog:Lcom/isaigu/gymapp/widget/LoadingDialog;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     .line 164
     new-instance v0, Lcom/isaigu/gymapp/widget/LoadingDialog$Builder;
@@ -804,29 +804,29 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->loadingDialog:Lcom/isaigu/gymapp/widget/LoadingDialog;
 
     .line 167
-    :cond_0
-    :try_start_0
+    :cond_1c
+    :try_start_1c
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->loadingDialog:Lcom/isaigu/gymapp/widget/LoadingDialog;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/LoadingDialog;->isShowing()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 168
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->loadingDialog:Lcom/isaigu/gymapp/widget/LoadingDialog;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/LoadingDialog;->show()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_29
+    .catch Ljava/lang/Exception; {:try_start_1c .. :try_end_29} :catch_2a
 
     .line 172
-    :cond_1
-    goto :goto_0
+    :cond_29
+    goto :goto_2e
 
     .line 170
-    :catch_0
+    :catch_2a
     move-exception v0
 
     .line 171
@@ -835,12 +835,12 @@
 
     .line 173
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_2e
     return-void
 .end method
 
 .method public showLoadingDialog(J)V
-    .locals 1
+    .registers 4
     .param p1, "dismissDelay"    # J
 
     .line 176
@@ -858,14 +858,14 @@
 .end method
 
 .method public showLoadingDialogWithImage(ILjava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "resId"    # I
     .param p2, "text"    # Ljava/lang/String;
 
     .line 137
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 138
     new-instance v0, Lcom/isaigu/gymapp/widget/StatusLoadingDialog$Builder;
@@ -879,34 +879,34 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     .line 140
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     invoke-virtual {v0, p1, p2}, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->setShowWithStatusImage(ILjava/lang/String;)V
 
     .line 142
-    :try_start_0
+    :try_start_14
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->isShowing()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     .line 143
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->show()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_21
+    .catch Ljava/lang/Exception; {:try_start_14 .. :try_end_21} :catch_22
 
     .line 147
-    :cond_1
-    goto :goto_0
+    :cond_21
+    goto :goto_26
 
     .line 145
-    :catch_0
+    :catch_22
     move-exception v0
 
     .line 146
@@ -915,18 +915,18 @@
 
     .line 148
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_26
     return-void
 .end method
 
 .method public showLoadingDialogWithText(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/String;
 
     .line 99
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 100
     new-instance v0, Lcom/isaigu/gymapp/widget/StatusLoadingDialog$Builder;
@@ -940,34 +940,34 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     .line 102
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     invoke-virtual {v0, p1}, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->setShowWithProgressText(Ljava/lang/String;)V
 
     .line 104
-    :try_start_0
+    :try_start_14
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->isShowing()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     .line 105
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->show()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_21
+    .catch Ljava/lang/Exception; {:try_start_14 .. :try_end_21} :catch_22
 
     .line 109
-    :cond_1
-    goto :goto_0
+    :cond_21
+    goto :goto_26
 
     .line 107
-    :catch_0
+    :catch_22
     move-exception v0
 
     .line 108
@@ -976,19 +976,19 @@
 
     .line 110
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_26
     return-void
 .end method
 
 .method public showLoadingDialogWithText(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "progress"    # I
 
     .line 114
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 115
     new-instance v0, Lcom/isaigu/gymapp/widget/StatusLoadingDialog$Builder;
@@ -1002,34 +1002,34 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     .line 117
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     invoke-virtual {v0, p1, p2}, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->setShowWithProgressText(Ljava/lang/String;I)V
 
     .line 119
-    :try_start_0
+    :try_start_14
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->isShowing()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     .line 120
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity;->statusLoadingDialog:Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->show()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_21
+    .catch Ljava/lang/Exception; {:try_start_14 .. :try_end_21} :catch_22
 
     .line 124
-    :cond_1
-    goto :goto_0
+    :cond_21
+    goto :goto_26
 
     .line 122
-    :catch_0
+    :catch_22
     move-exception v0
 
     .line 123
@@ -1038,12 +1038,12 @@
 
     .line 125
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_26
     return-void
 .end method
 
 .method public showLoadingDialogWithText(Ljava/lang/String;IJ)V
-    .locals 1
+    .registers 6
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "progress"    # I
     .param p3, "dismissDelay"    # J
@@ -1063,7 +1063,7 @@
 .end method
 
 .method public showMessageDialog(Ljava/lang/String;Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 5
     .param p1, "content"    # Ljava/lang/String;
     .param p2, "okCallback"    # Ljava/lang/Runnable;
 
@@ -1087,7 +1087,7 @@
 .end method
 
 .method public showMessageDialog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Runnable;)V
-    .locals 6
+    .registers 11
     .param p1, "content"    # Ljava/lang/String;
     .param p2, "okText"    # Ljava/lang/String;
     .param p3, "cancelText"    # Ljava/lang/String;
@@ -1200,18 +1200,18 @@
     iget-object v4, p0, Lcom/isaigu/gymapp/BaseActivity;->messageDialog:Landroid/support/v7/app/AlertDialog;
 
     invoke-virtual {v4}, Landroid/support/v7/app/AlertDialog;->show()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_66
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_66} :catch_67
 
     .line 241
     .end local v0    # "customView":Landroid/view/View;
     .end local v1    # "logTextView":Landroid/widget/TextView;
     .end local v2    # "sureButton":Landroid/widget/Button;
     .end local v3    # "cancelButton":Landroid/widget/Button;
-    goto :goto_0
+    goto :goto_6b
 
     .line 239
-    :catch_0
+    :catch_67
     move-exception v0
 
     .line 240
@@ -1220,12 +1220,12 @@
 
     .line 242
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_6b
     return-void
 .end method
 
 .method public showOnUIThread(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
     .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 70
@@ -1238,7 +1238,7 @@
 .end method
 
 .method public showTips(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "text"    # Ljava/lang/String;
 
     .line 78
@@ -1253,7 +1253,7 @@
 .end method
 
 .method protected showVirtualButton()V
-    .locals 2
+    .registers 3
 
     .line 286
     invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseActivity;->getWindow()Landroid/view/Window;

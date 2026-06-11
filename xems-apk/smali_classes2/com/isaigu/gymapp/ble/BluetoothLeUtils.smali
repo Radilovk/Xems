@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method static equals(Landroid/util/SparseArray;Landroid/util/SparseArray;)Z
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -30,23 +30,23 @@
     .local p1, "otherArray":Landroid/util/SparseArray;, "Landroid/util/SparseArray<[B>;"
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     .line 66
     return v0
 
     .line 68
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-eqz p0, :cond_6
+    if-eqz p0, :cond_3e
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_a
 
-    goto :goto_2
+    goto :goto_3e
 
     .line 71
-    :cond_1
+    :cond_a
     invoke-virtual {p0}, Landroid/util/SparseArray;->size()I
 
     move-result v2
@@ -55,22 +55,22 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_15
 
     .line 72
     return v1
 
     .line 76
-    :cond_2
+    :cond_15
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_16
     invoke-virtual {p0}, Landroid/util/SparseArray;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_5
+    if-ge v2, v3, :cond_3d
 
     .line 77
     invoke-virtual {p0, v2}, Landroid/util/SparseArray;->keyAt(I)I
@@ -81,7 +81,7 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_3c
 
     .line 78
     invoke-virtual {p0, v2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -100,34 +100,34 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_39
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 76
-    :cond_3
+    :cond_39
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 79
-    :cond_4
-    :goto_1
+    :cond_3c
+    :goto_3c
     return v1
 
     .line 82
     .end local v2    # "i":I
-    :cond_5
+    :cond_3d
     return v0
 
     .line 69
-    :cond_6
-    :goto_2
+    :cond_3e
+    :goto_3e
     return v1
 .end method
 
 .method static toString(Landroid/util/SparseArray;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -139,7 +139,7 @@
 
     .line 21
     .local p0, "array":Landroid/util/SparseArray;, "Landroid/util/SparseArray<[B>;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 22
     const-string v0, "null"
@@ -147,12 +147,12 @@
     return-object v0
 
     .line 24
-    :cond_0
+    :cond_5
     invoke-virtual {p0}, Landroid/util/SparseArray;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     .line 25
     const-string v0, "{}"
@@ -160,7 +160,7 @@
     return-object v0
 
     .line 27
-    :cond_1
+    :cond_e
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -175,12 +175,12 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_19
     invoke-virtual {p0}, Landroid/util/SparseArray;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_3b
 
     .line 30
     invoke-virtual {p0, v1}, Landroid/util/SparseArray;->keyAt(I)I
@@ -208,11 +208,11 @@
     .line 29
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 32
     .end local v1    # "i":I
-    :cond_2
+    :cond_3b
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -226,7 +226,7 @@
 .end method
 
 .method static toString(Ljava/util/Map;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -240,7 +240,7 @@
 
     .line 40
     .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<TT;[B>;"
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 41
     const-string v0, "null"
@@ -248,12 +248,12 @@
     return-object v0
 
     .line 43
-    :cond_0
+    :cond_5
     invoke-interface {p0}, Ljava/util/Map;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
     .line 44
     const-string v0, "{}"
@@ -261,7 +261,7 @@
     return-object v0
 
     .line 46
-    :cond_1
+    :cond_e
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -283,12 +283,12 @@
 
     .line 49
     .local v1, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TT;[B>;>;"
-    :goto_0
+    :goto_20
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_51
 
     .line 50
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -328,7 +328,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_50
 
     .line 54
     const-string v4, ", "
@@ -338,11 +338,11 @@
     .line 56
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TT;[B>;"
     .end local v3    # "key":Ljava/lang/Object;
-    :cond_2
-    goto :goto_0
+    :cond_50
+    goto :goto_20
 
     .line 57
-    :cond_3
+    :cond_51
     const/16 v2, 0x7d
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;

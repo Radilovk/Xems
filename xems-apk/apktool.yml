@@ -1,5 +1,5 @@
 version: 2.10.0
-apkFileName: xems-original.apk
+apkFileName: xems-original.zip
 isFrameworkApk: false
 usesFramework:
   ids:
@@ -7,27 +7,15 @@ usesFramework:
   tag: null
 sdkInfo:
   minSdkVersion: 21
-  targetSdkVersion: 33
+  targetSdkVersion: 30
 packageInfo:
   forcedPackageId: 127
   renameManifestPackage: null
 versionInfo:
-  versionCode: 3
-  versionName: 1.0.1-custom
+  versionCode: 1
+  versionName: 1.0.0 - 240704
 resourcesAreCompressed: false
 sharedLibrary: false
 sparseResources: false
-unknownFiles:
-  font_metrics.properties: 8
-  mailcap.default: 8
-  mimetypes.default: 8
-  okhttp3/internal/publicsuffix/publicsuffixes.gz: 8
-  org/apache/harmony/awt/internal/nls/messages.properties: 8
-  org/apache/poi/ss/formula/function/functionMetadata.txt: 8
-  org/apache/poi/ss/formula/function/functionMetadata-asGenerated.txt: 8
 doNotCompress:
-- resources.arsc
-- dex
-- arsc
 - png
-- META-INF/androidx.databinding_viewbinding.version

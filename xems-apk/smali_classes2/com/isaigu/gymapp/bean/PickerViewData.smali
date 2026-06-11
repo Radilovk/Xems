@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Long;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .param p1, "id"    # Ljava/lang/Long;
     .param p2, "text"    # Ljava/lang/String;
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public getPickerViewText()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 19
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/PickerViewData;->text:Ljava/lang/String;
@@ -47,7 +47,7 @@
 .end method
 
 .method public setScale(F)V
-    .locals 0
+    .registers 2
     .param p1, "scale"    # F
 
     .line 23
@@ -58,7 +58,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 28
     iget v0, p0, Lcom/isaigu/gymapp/bean/PickerViewData;->scale:F
@@ -67,7 +67,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 29
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/PickerViewData;->text:Ljava/lang/String;
@@ -75,7 +75,7 @@
     return-object v0
 
     .line 31
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

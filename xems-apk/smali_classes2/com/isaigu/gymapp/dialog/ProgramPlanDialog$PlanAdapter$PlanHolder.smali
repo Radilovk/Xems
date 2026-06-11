@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/dialog/ProgramPlanDialog$PlanAdapter;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p2, "itemView"    # Landroid/view/View;
 
     .line 191

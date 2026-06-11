@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SplashFragment$2;Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/SplashFragment$2;
 
     .line 155
@@ -41,13 +41,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 157
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$2$1;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$2;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SplashFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/SplashFragment;->logoImage:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/SplashFragment;->access$000(Lcom/isaigu/gymapp/fragment/SplashFragment;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -61,6 +62,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SplashFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/SplashFragment;->splashImage:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/SplashFragment;->access$100(Lcom/isaigu/gymapp/fragment/SplashFragment;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -100,6 +102,7 @@
 
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/SplashFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/SplashFragment;->splashImage:Landroid/widget/ImageView;
     invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SplashFragment;->access$100(Lcom/isaigu/gymapp/fragment/SplashFragment;)Landroid/widget/ImageView;
 
     move-result-object v1

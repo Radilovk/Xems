@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -86,7 +86,7 @@
 .end method
 
 .method private getRangeValue(Ljava/lang/Integer;II)Ljava/lang/Integer;
-    .locals 1
+    .registers 5
     .param p1, "value"    # Ljava/lang/Integer;
     .param p2, "maxValue"    # I
     .param p3, "minValue"    # I
@@ -96,29 +96,29 @@
 
     move-result v0
 
-    if-le v0, p2, :cond_0
+    if-le v0, p2, :cond_8
 
     move v0, p2
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_8
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    if-ge v0, p3, :cond_1
+    if-ge v0, p3, :cond_10
 
     move v0, p3
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_10
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    :goto_0
+    :goto_14
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -129,7 +129,7 @@
 
 # virtual methods
 .method public copyProperties(Lcom/isaigu/gymapp/train/model/WorkParams;)Lcom/isaigu/gymapp/train/model/WorkParams;
-    .locals 1
+    .registers 3
     .param p1, "target"    # Lcom/isaigu/gymapp/train/model/WorkParams;
 
     .line 84
@@ -177,7 +177,7 @@
 .end method
 
 .method public getDurationTime()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 39
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/WorkParams;->durationTime:Ljava/lang/Integer;
@@ -186,7 +186,7 @@
 .end method
 
 .method public getFrequency()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 23
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/WorkParams;->frequency:Ljava/lang/Integer;
@@ -195,7 +195,7 @@
 .end method
 
 .method public getInputRamp()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 55
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/WorkParams;->inputRamp:Ljava/lang/Integer;
@@ -204,7 +204,7 @@
 .end method
 
 .method public getMassage()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 71
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/WorkParams;->massage:Ljava/lang/Integer;
@@ -213,7 +213,7 @@
 .end method
 
 .method public getOutputRamp()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 63
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/WorkParams;->outputRamp:Ljava/lang/Integer;
@@ -222,7 +222,7 @@
 .end method
 
 .method public getPauseTime()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 47
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/WorkParams;->pauseTime:Ljava/lang/Integer;
@@ -231,7 +231,7 @@
 .end method
 
 .method public getPulseWidth()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 31
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/WorkParams;->pulseWidth:Ljava/lang/Integer;
@@ -240,7 +240,7 @@
 .end method
 
 .method public getTrainingTime()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 15
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/WorkParams;->trainingTime:Ljava/lang/Integer;
@@ -249,7 +249,7 @@
 .end method
 
 .method public setDurationTime(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
     .param p1, "durationTime"    # Ljava/lang/Integer;
 
     .line 43
@@ -260,7 +260,7 @@
 .end method
 
 .method public setFrequency(Ljava/lang/Integer;)V
-    .locals 2
+    .registers 4
     .param p1, "frequency"    # Ljava/lang/Integer;
 
     .line 27
@@ -279,7 +279,7 @@
 .end method
 
 .method public setInputRamp(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
     .param p1, "inputRamp"    # Ljava/lang/Integer;
 
     .line 59
@@ -290,7 +290,7 @@
 .end method
 
 .method public setMassage(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
     .param p1, "massage"    # Ljava/lang/Integer;
 
     .line 75
@@ -301,7 +301,7 @@
 .end method
 
 .method public setOutputRamp(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
     .param p1, "outputRamp"    # Ljava/lang/Integer;
 
     .line 67
@@ -312,7 +312,7 @@
 .end method
 
 .method public setPauseTime(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
     .param p1, "pauseTime"    # Ljava/lang/Integer;
 
     .line 51
@@ -323,7 +323,7 @@
 .end method
 
 .method public setPulseWidth(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
     .param p1, "pulseWidth"    # Ljava/lang/Integer;
 
     .line 35
@@ -334,7 +334,7 @@
 .end method
 
 .method public setTrainingTime(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
     .param p1, "trainingTime"    # Ljava/lang/Integer;
 
     .line 19

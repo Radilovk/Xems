@@ -14,7 +14,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
-    .locals 0
+    .registers 3
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "videoQualityWrapperArea"    # Landroid/widget/LinearLayout;
 
@@ -32,11 +32,11 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/JzLayoutClarityBinding;
-    .locals 3
+    .registers 4
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 51
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     .line 55
     move-object v0, p0
@@ -57,7 +57,7 @@
 
     .line 52
     .end local v0    # "videoQualityWrapperArea":Landroid/widget/LinearLayout;
-    :cond_0
+    :cond_e
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "rootView"
@@ -68,7 +68,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/JzLayoutClarityBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 36
@@ -84,7 +84,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/JzLayoutClarityBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -100,13 +100,13 @@
 
     .line 43
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 44
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 46
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/JzLayoutClarityBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/JzLayoutClarityBinding;
 
     move-result-object v1
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 15
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/JzLayoutClarityBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -128,7 +128,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 31
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/JzLayoutClarityBinding;->rootView:Landroid/widget/LinearLayout;

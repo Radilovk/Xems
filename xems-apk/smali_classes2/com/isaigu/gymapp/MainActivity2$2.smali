@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/MainActivity2;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/MainActivity2;
 
     .line 153
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onOptionsSelect(IIILandroid/view/View;)V
-    .locals 0
+    .registers 5
     .param p1, "options1"    # I
     .param p2, "option2"    # I
     .param p3, "options3"    # I

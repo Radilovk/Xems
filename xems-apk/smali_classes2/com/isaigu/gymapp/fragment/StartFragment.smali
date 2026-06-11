@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Lcom/isaigu/gymapp/BaseFragment;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 4
+    .registers 8
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -74,7 +74,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_4c
 
     .line 53
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/StartFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -98,12 +98,12 @@
     invoke-virtual {v2, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 76
-    :cond_0
+    :cond_4c
     return-object v0
 .end method
 
 .method protected viewId()I
-    .locals 1
+    .registers 2
 
     .line 29
     const v0, 0x7f0b0069

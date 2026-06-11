@@ -32,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/ImageView;Landroid/widget/TextView;Landroid/widget/TextView;)V
-    .locals 0
+    .registers 12
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "height"    # Landroid/widget/TextView;
     .param p3, "orderText"    # Landroid/widget/TextView;
@@ -86,7 +86,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/UserItemLayoutBinding;
-    .locals 25
+    .registers 26
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 96
@@ -104,7 +104,7 @@
 
     .line 98
     .local v2, "height":Landroid/widget/TextView;
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_a7
 
     .line 102
     const v1, 0x7f090117
@@ -120,7 +120,7 @@
 
     .line 104
     .local v15, "orderText":Landroid/widget/TextView;
-    if-eqz v15, :cond_8
+    if-eqz v15, :cond_a6
 
     .line 108
     const v1, 0x7f090148
@@ -136,7 +136,7 @@
 
     .line 110
     .local v16, "recordImage":Landroid/widget/ImageView;
-    if-eqz v16, :cond_7
+    if-eqz v16, :cond_a5
 
     .line 114
     const v1, 0x7f09014c
@@ -152,7 +152,7 @@
 
     .line 116
     .local v17, "registertime":Landroid/widget/TextView;
-    if-eqz v17, :cond_6
+    if-eqz v17, :cond_a4
 
     .line 120
     const v1, 0x7f090173
@@ -168,7 +168,7 @@
 
     .line 122
     .local v18, "sex":Landroid/widget/TextView;
-    if-eqz v18, :cond_5
+    if-eqz v18, :cond_a3
 
     .line 126
     const v1, 0x7f0901b8
@@ -184,7 +184,7 @@
 
     .line 128
     .local v19, "traindata":Landroid/widget/TextView;
-    if-eqz v19, :cond_4
+    if-eqz v19, :cond_a2
 
     .line 132
     const v1, 0x7f0901b9
@@ -200,7 +200,7 @@
 
     .line 134
     .local v20, "trainname":Landroid/widget/TextView;
-    if-eqz v20, :cond_3
+    if-eqz v20, :cond_a1
 
     .line 138
     const v1, 0x7f0901ce
@@ -216,7 +216,7 @@
 
     .line 140
     .local v21, "userIcon":Landroid/widget/ImageView;
-    if-eqz v21, :cond_2
+    if-eqz v21, :cond_a0
 
     .line 144
     const v1, 0x7f0901d9
@@ -232,7 +232,7 @@
 
     .line 146
     .local v22, "username":Landroid/widget/TextView;
-    if-eqz v22, :cond_1
+    if-eqz v22, :cond_9f
 
     .line 150
     const v1, 0x7f0901f9
@@ -248,7 +248,7 @@
 
     .line 152
     .local v23, "weight":Landroid/widget/TextView;
-    if-eqz v23, :cond_0
+    if-eqz v23, :cond_9e
 
     .line 156
     new-instance v24, Lcom/isaigu/gymapp/databinding/UserItemLayoutBinding;
@@ -284,57 +284,57 @@
     return-object v24
 
     .line 153
-    :cond_0
-    goto :goto_0
+    :cond_9e
+    goto :goto_a8
 
     .line 147
     .end local v23    # "weight":Landroid/widget/TextView;
-    :cond_1
-    goto :goto_0
+    :cond_9f
+    goto :goto_a8
 
     .line 141
     .end local v22    # "username":Landroid/widget/TextView;
-    :cond_2
-    goto :goto_0
+    :cond_a0
+    goto :goto_a8
 
     .line 135
     .end local v21    # "userIcon":Landroid/widget/ImageView;
-    :cond_3
-    goto :goto_0
+    :cond_a1
+    goto :goto_a8
 
     .line 129
     .end local v20    # "trainname":Landroid/widget/TextView;
-    :cond_4
-    goto :goto_0
+    :cond_a2
+    goto :goto_a8
 
     .line 123
     .end local v19    # "traindata":Landroid/widget/TextView;
-    :cond_5
-    goto :goto_0
+    :cond_a3
+    goto :goto_a8
 
     .line 117
     .end local v18    # "sex":Landroid/widget/TextView;
-    :cond_6
-    goto :goto_0
+    :cond_a4
+    goto :goto_a8
 
     .line 111
     .end local v17    # "registertime":Landroid/widget/TextView;
-    :cond_7
-    goto :goto_0
+    :cond_a5
+    goto :goto_a8
 
     .line 105
     .end local v16    # "recordImage":Landroid/widget/ImageView;
-    :cond_8
-    goto :goto_0
+    :cond_a6
+    goto :goto_a8
 
     .line 99
     .end local v15    # "orderText":Landroid/widget/TextView;
-    :cond_9
+    :cond_a7
     nop
 
     .line 159
     .end local v2    # "height":Landroid/widget/TextView;
-    :goto_0
+    :goto_a8
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -359,7 +359,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/UserItemLayoutBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 77
@@ -375,7 +375,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/UserItemLayoutBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -391,13 +391,13 @@
 
     .line 84
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 85
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 87
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/UserItemLayoutBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/UserItemLayoutBinding;
 
     move-result-object v1
@@ -408,7 +408,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 18
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/UserItemLayoutBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -419,7 +419,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 72
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/UserItemLayoutBinding;->rootView:Landroid/widget/LinearLayout;

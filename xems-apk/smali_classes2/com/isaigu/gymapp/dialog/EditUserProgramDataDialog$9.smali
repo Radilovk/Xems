@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 455
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "v"    # Landroid/view/View;
 
     .line 457
@@ -44,6 +44,7 @@
 
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v1
@@ -58,6 +59,7 @@
     .local v0, "train":Lcom/isaigu/gymapp/bean/TrainProgram;
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v1
@@ -71,6 +73,7 @@
     .line 467
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v1
@@ -84,6 +87,7 @@
     .line 468
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v1
@@ -97,6 +101,7 @@
     .line 469
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v1
@@ -110,6 +115,7 @@
     .line 470
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v1
@@ -123,6 +129,7 @@
     .line 471
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v1
@@ -136,12 +143,14 @@
     .line 473
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->frequencyview3:Lcom/isaigu/gymapp/widget/AmountView;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$1900(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v2}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v2
@@ -155,12 +164,14 @@
     .line 474
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->paulseWidth3:Lcom/isaigu/gymapp/widget/AmountView;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2000(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v2}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v2
@@ -174,12 +185,14 @@
     .line 475
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->paulseContinue3:Lcom/isaigu/gymapp/widget/AmountView;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2100(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v2}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v2
@@ -193,12 +206,14 @@
     .line 476
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->paulseStop3:Lcom/isaigu/gymapp/widget/AmountView;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v2}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v2
@@ -212,12 +227,14 @@
     .line 477
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->worklength3:Lcom/isaigu/gymapp/widget/AmountView;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2300(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v2}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v2
@@ -233,12 +250,14 @@
     .line 478
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->anmozhouqi:Lcom/isaigu/gymapp/widget/AmountView;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2400(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$9;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v2}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v2

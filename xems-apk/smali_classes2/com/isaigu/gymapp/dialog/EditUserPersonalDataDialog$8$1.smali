@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$8;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$8;
 
     .line 520
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onOptionSelect(Lcom/isaigu/gymapp/bean/PickerViewData;)V
-    .locals 2
+    .registers 4
     .param p1, "pickerViewData"    # Lcom/isaigu/gymapp/bean/PickerViewData;
 
     .line 522
@@ -45,6 +45,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$8;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v0
@@ -58,6 +59,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$8;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->programdatabutton:Landroid/widget/Button;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$1300(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/widget/Button;
 
     move-result-object v0

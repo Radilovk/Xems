@@ -1,14 +1,11 @@
 .class Lcom/isaigu/gymapp/train/TrainViewHolder$1;
-.super Ljava/lang/Object;
+.super Lcom/isaigu/gymapp/widget/NoDoubleClickListener;
 .source "TrainViewHolder.java"
-
-# interfaces
-.implements Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/isaigu/gymapp/train/TrainViewHolder;-><init>(ZLandroid/view/View;Lcom/isaigu/gymapp/fragment/NewTrainFragment;)V
+    value = Lcom/isaigu/gymapp/train/TrainViewHolder;->bindListener()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,134 +21,143 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/train/TrainViewHolder;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/train/TrainViewHolder;
 
-    .prologue
-    .line 54
+    .line 118
     iput-object p1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChanged(Lcom/isaigu/gymapp/widget/CircleSeekBar;I)V
-    .registers 8
+.method public synthetic lambda$null$0$TrainViewHolder$1(Lcom/isaigu/gymapp/bean/TrainProgram;)V
+    .registers 3
+    .param p1, "trainProgram"    # Lcom/isaigu/gymapp/bean/TrainProgram;
 
-    .prologue
-    .line 57
-    int-to-float v0, p2
-
-    const/high16 v1, 0x42960000    # 75.0f
-
-    div-float/2addr v0, v1
-
-    const/high16 v1, 0x42c80000    # 100.0f
-
-    mul-float/2addr v0, v1
-
-    .line 58
-    iget-object v1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
-
-    # getter for: Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
-    invoke-static {v1}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$100(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
-
-    move-result-object v1
-
-    iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->ma:Landroid/widget/TextView;
-
-    iget-object v2, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
-
-    .line 59
-    # getter for: Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
-    invoke-static {v2}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$000(Lcom/isaigu/gymapp/train/TrainViewHolder;)Landroid/content/Context;
-
-    move-result-object v2
-
-    const v3, 0x7f0d006e
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    .line 60
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->formatMa(F)Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v3, v4
-
-    .line 58
-    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 61
-    return-void
-.end method
-
-.method public onChangedEnd(Lcom/isaigu/gymapp/widget/CircleSeekBar;I)V
-    .registers 8
-
-    .prologue
-    .line 65
+    .line 127
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
-    # invokes: Lcom/isaigu/gymapp/train/TrainViewHolder;->getEditableProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
-    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$200(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/bean/ProgramDataBean;
+    iget-object v0, v0, Lcom/isaigu/gymapp/train/TrainViewHolder;->item:Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    move-result-object v1
+    invoke-virtual {v0, p1}, Lcom/isaigu/gymapp/train/model/TrainItem;->setTrainProgram(Lcom/isaigu/gymapp/bean/TrainProgram;)V
 
-    .line 66
-    invoke-static {v1}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->migrate(Lcom/isaigu/gymapp/bean/ProgramDataBean;)V
-
-    .line 67
-    mul-int/lit8 v0, p2, 0x64
-
-    div-int/lit8 v0, v0, 0x4b
-
-    .line 68
-    iget v2, v1, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
-
-    .line 69
-    sub-int v3, v0, v2
-
-    const/16 v4, 0x14
-
-    if-le v3, v4, :cond_17
-
-    .line 70
-    add-int/lit8 v0, v2, 0x14
-
-    .line 72
-    :cond_17
-    iput v0, v1, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
-
-    .line 73
-    mul-int/lit8 v0, v0, 0xa
-
-    iput v0, v1, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthTenths:I
-
-    .line 74
+    .line 128
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->lambda$bindNotEmpty$9$TrainViewHolder()V
+    # invokes: Lcom/isaigu/gymapp/train/TrainViewHolder;->updateUI()V
+    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$100(Lcom/isaigu/gymapp/train/TrainViewHolder;)V
 
-    .line 75
+    .line 129
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     # invokes: Lcom/isaigu/gymapp/train/TrainViewHolder;->onItemChange()V
-    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$300(Lcom/isaigu/gymapp/train/TrainViewHolder;)V
+    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$200(Lcom/isaigu/gymapp/train/TrainViewHolder;)V
 
-    .line 76
+    .line 130
+    return-void
+.end method
+
+.method public synthetic lambda$onNoDoubleClick$1$TrainViewHolder$1(Lcom/isaigu/gymapp/bean/TrainProgram;Ljava/util/List;)V
+    .registers 5
+    .param p1, "trainProgram"    # Lcom/isaigu/gymapp/bean/TrainProgram;
+    .param p2, "checks"    # Ljava/util/List;
+
+    .line 126
+    iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
+
+    # getter for: Lcom/isaigu/gymapp/train/TrainViewHolder;->fragment:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
+    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$000(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/fragment/NewTrainFragment;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getBaseActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/isaigu/gymapp/train/-$$Lambda$TrainViewHolder$1$AznCd_PX9U_AFipHY0-fJKnkhF8;
+
+    invoke-direct {v1, p0, p1}, Lcom/isaigu/gymapp/train/-$$Lambda$TrainViewHolder$1$AznCd_PX9U_AFipHY0-fJKnkhF8;-><init>(Lcom/isaigu/gymapp/train/TrainViewHolder$1;Lcom/isaigu/gymapp/bean/TrainProgram;)V
+
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method public onNoDoubleClick(Landroid/view/View;)V
+    .registers 6
+    .param p1, "v"    # Landroid/view/View;
+
+    .line 120
+    iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
+
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    move-result-object v0
+
+    iget-boolean v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->start:Z
+
+    if-nez v0, :cond_3d
+
+    .line 121
+    new-instance v0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
+
+    invoke-direct {v0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;-><init>()V
+
+    .line 122
+    .local v0, "programDataDialog":Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
+    new-instance v1, Landroid/os/Bundle;
+
+    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
+
+    .line 123
+    .local v1, "bundle":Landroid/os/Bundle;
+    const/4 v2, 0x0
+
+    const-string v3, "editProgram"
+
+    invoke-virtual {v1, v3, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    .line 124
+    iget-object v2, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
+
+    invoke-virtual {v2}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    move-result-object v2
+
+    const-string v3, "data"
+
+    invoke-virtual {v1, v3, v2}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V
+
+    .line 125
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->setArguments(Landroid/os/Bundle;)V
+
+    .line 126
+    new-instance v2, Lcom/isaigu/gymapp/train/-$$Lambda$TrainViewHolder$1$Z2GxQ76UHCmqHpj7Cqw7-6ABzKY;
+
+    invoke-direct {v2, p0}, Lcom/isaigu/gymapp/train/-$$Lambda$TrainViewHolder$1$Z2GxQ76UHCmqHpj7Cqw7-6ABzKY;-><init>(Lcom/isaigu/gymapp/train/TrainViewHolder$1;)V
+
+    invoke-virtual {v0, v2}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->setSaveProgramListener(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;)V
+
+    .line 131
+    iget-object v2, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
+
+    # getter for: Lcom/isaigu/gymapp/train/TrainViewHolder;->fragment:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
+    invoke-static {v2}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$000(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/fragment/NewTrainFragment;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getBaseActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Lcom/isaigu/gymapp/BaseActivity;->showDialogFragment(Lcom/isaigu/gymapp/BaseDialogFragment;)V
+
+    .line 133
+    .end local v0    # "programDataDialog":Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
+    .end local v1    # "bundle":Landroid/os/Bundle;
+    :cond_3d
     return-void
 .end method

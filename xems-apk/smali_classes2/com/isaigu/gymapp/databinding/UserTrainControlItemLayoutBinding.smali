@@ -92,7 +92,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Lcom/isaigu/gymapp/widget/BatterView;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/CircleSeekBar;Landroid/widget/TextView;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/AmountView2;Lcom/isaigu/gymapp/widget/AmountView2;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/ImageView;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/ImageView;Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;Lcom/isaigu/gymapp/widget/WaveBallProgress;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/MyButton;)V
-    .locals 16
+    .registers 58
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "MyBatterView"    # Lcom/isaigu/gymapp/widget/BatterView;
     .param p3, "address"    # Landroid/widget/TextView;
@@ -350,7 +350,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/UserTrainControlItemLayoutBinding;
-    .locals 85
+    .registers 86
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 236
@@ -368,7 +368,7 @@
 
     .line 238
     .local v2, "MyBatterView":Lcom/isaigu/gymapp/widget/BatterView;
-    if-eqz v2, :cond_27
+    if-eqz v2, :cond_289
 
     .line 242
     const v1, 0x7f090033
@@ -384,7 +384,7 @@
 
     .line 244
     .local v45, "address":Landroid/widget/TextView;
-    if-eqz v45, :cond_26
+    if-eqz v45, :cond_288
 
     .line 248
     const v1, 0x7f090042
@@ -400,7 +400,7 @@
 
     .line 250
     .local v46, "anmo":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v46, :cond_25
+    if-eqz v46, :cond_287
 
     .line 254
     const v1, 0x7f090048
@@ -416,7 +416,7 @@
 
     .line 256
     .local v47, "batteryValueTextView":Landroid/widget/TextView;
-    if-eqz v47, :cond_24
+    if-eqz v47, :cond_286
 
     .line 260
     const v1, 0x7f090073
@@ -432,7 +432,7 @@
 
     .line 262
     .local v48, "circleSeekBar":Lcom/isaigu/gymapp/widget/CircleSeekBar;
-    if-eqz v48, :cond_23
+    if-eqz v48, :cond_285
 
     .line 266
     const v1, 0x7f0900fa
@@ -448,7 +448,7 @@
 
     .line 268
     .local v49, "ma":Landroid/widget/TextView;
-    if-eqz v49, :cond_22
+    if-eqz v49, :cond_284
 
     .line 272
     const v1, 0x7f090107
@@ -464,7 +464,7 @@
 
     .line 274
     .local v50, "name":Landroid/widget/TextView;
-    if-eqz v50, :cond_21
+    if-eqz v50, :cond_283
 
     .line 278
     const v1, 0x7f09012a
@@ -480,7 +480,7 @@
 
     .line 280
     .local v51, "paulsecontinue":Lcom/isaigu/gymapp/widget/AmountView2;
-    if-eqz v51, :cond_20
+    if-eqz v51, :cond_282
 
     .line 284
     const v1, 0x7f09012b
@@ -496,7 +496,7 @@
 
     .line 286
     .local v52, "paulsestop":Lcom/isaigu/gymapp/widget/AmountView2;
-    if-eqz v52, :cond_1f
+    if-eqz v52, :cond_281
 
     .line 290
     const v1, 0x7f09015a
@@ -512,7 +512,7 @@
 
     .line 292
     .local v53, "save":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v53, :cond_1e
+    if-eqz v53, :cond_280
 
     .line 296
     const v1, 0x7f090172
@@ -528,7 +528,7 @@
 
     .line 298
     .local v54, "setting":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v54, :cond_1d
+    if-eqz v54, :cond_27f
 
     .line 302
     const v1, 0x7f090179
@@ -544,7 +544,7 @@
 
     .line 304
     .local v55, "signalImage":Landroid/widget/ImageView;
-    if-eqz v55, :cond_1c
+    if-eqz v55, :cond_27e
 
     .line 308
     const v1, 0x7f090189
@@ -560,7 +560,7 @@
 
     .line 310
     .local v56, "startpaulse":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v56, :cond_1b
+    if-eqz v56, :cond_27d
 
     .line 314
     const v1, 0x7f09018c
@@ -576,7 +576,7 @@
 
     .line 316
     .local v57, "stop":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v57, :cond_1a
+    if-eqz v57, :cond_27c
 
     .line 320
     const v1, 0x7f09018d
@@ -592,7 +592,7 @@
 
     .line 322
     .local v58, "strenthExist":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v58, :cond_19
+    if-eqz v58, :cond_27b
 
     .line 326
     const v1, 0x7f09019f
@@ -608,7 +608,7 @@
 
     .line 328
     .local v59, "textview1":Landroid/widget/TextView;
-    if-eqz v59, :cond_18
+    if-eqz v59, :cond_27a
 
     .line 332
     const v1, 0x7f0901a0
@@ -624,7 +624,7 @@
 
     .line 334
     .local v60, "textview10":Landroid/widget/TextView;
-    if-eqz v60, :cond_17
+    if-eqz v60, :cond_279
 
     .line 338
     const v1, 0x7f0901a1
@@ -640,7 +640,7 @@
 
     .line 340
     .local v61, "textview2":Landroid/widget/TextView;
-    if-eqz v61, :cond_16
+    if-eqz v61, :cond_278
 
     .line 344
     const v1, 0x7f0901a2
@@ -656,7 +656,7 @@
 
     .line 346
     .local v62, "textview3":Landroid/widget/TextView;
-    if-eqz v62, :cond_15
+    if-eqz v62, :cond_277
 
     .line 350
     const v1, 0x7f0901a3
@@ -672,7 +672,7 @@
 
     .line 352
     .local v63, "textview4":Landroid/widget/TextView;
-    if-eqz v63, :cond_14
+    if-eqz v63, :cond_276
 
     .line 356
     const v1, 0x7f0901a4
@@ -688,7 +688,7 @@
 
     .line 358
     .local v64, "textview5":Landroid/widget/TextView;
-    if-eqz v64, :cond_13
+    if-eqz v64, :cond_275
 
     .line 362
     const v1, 0x7f0901a5
@@ -704,7 +704,7 @@
 
     .line 364
     .local v65, "textview6":Landroid/widget/TextView;
-    if-eqz v65, :cond_12
+    if-eqz v65, :cond_274
 
     .line 368
     const v1, 0x7f0901a6
@@ -720,7 +720,7 @@
 
     .line 370
     .local v66, "textview7":Landroid/widget/TextView;
-    if-eqz v66, :cond_11
+    if-eqz v66, :cond_273
 
     .line 374
     const v1, 0x7f0901a7
@@ -736,7 +736,7 @@
 
     .line 376
     .local v67, "textview8":Landroid/widget/TextView;
-    if-eqz v67, :cond_10
+    if-eqz v67, :cond_272
 
     .line 380
     const v1, 0x7f0901a8
@@ -752,7 +752,7 @@
 
     .line 382
     .local v68, "textview9":Landroid/widget/TextView;
-    if-eqz v68, :cond_f
+    if-eqz v68, :cond_271
 
     .line 386
     const v1, 0x7f0901aa
@@ -768,7 +768,7 @@
 
     .line 388
     .local v69, "time":Landroid/widget/TextView;
-    if-eqz v69, :cond_e
+    if-eqz v69, :cond_270
 
     .line 392
     const v1, 0x7f0901ce
@@ -784,7 +784,7 @@
 
     .line 394
     .local v70, "userIcon":Landroid/widget/ImageView;
-    if-eqz v70, :cond_d
+    if-eqz v70, :cond_26f
 
     .line 398
     const v1, 0x7f0901ed
@@ -800,7 +800,7 @@
 
     .line 400
     .local v71, "vpbBrightness1":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    if-eqz v71, :cond_c
+    if-eqz v71, :cond_26e
 
     .line 404
     const v1, 0x7f0901ee
@@ -816,7 +816,7 @@
 
     .line 406
     .local v72, "vpbBrightness10":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    if-eqz v72, :cond_b
+    if-eqz v72, :cond_26d
 
     .line 410
     const v1, 0x7f0901ef
@@ -832,7 +832,7 @@
 
     .line 412
     .local v73, "vpbBrightness2":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    if-eqz v73, :cond_a
+    if-eqz v73, :cond_26c
 
     .line 416
     const v1, 0x7f0901f0
@@ -848,7 +848,7 @@
 
     .line 418
     .local v74, "vpbBrightness3":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    if-eqz v74, :cond_9
+    if-eqz v74, :cond_26b
 
     .line 422
     const v1, 0x7f0901f1
@@ -864,7 +864,7 @@
 
     .line 424
     .local v75, "vpbBrightness4":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    if-eqz v75, :cond_8
+    if-eqz v75, :cond_26a
 
     .line 428
     const v1, 0x7f0901f2
@@ -880,7 +880,7 @@
 
     .line 430
     .local v76, "vpbBrightness5":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    if-eqz v76, :cond_7
+    if-eqz v76, :cond_269
 
     .line 434
     const v1, 0x7f0901f3
@@ -896,7 +896,7 @@
 
     .line 436
     .local v77, "vpbBrightness6":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    if-eqz v77, :cond_6
+    if-eqz v77, :cond_268
 
     .line 440
     const v1, 0x7f0901f4
@@ -912,7 +912,7 @@
 
     .line 442
     .local v78, "vpbBrightness7":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    if-eqz v78, :cond_5
+    if-eqz v78, :cond_267
 
     .line 446
     const v1, 0x7f0901f5
@@ -928,7 +928,7 @@
 
     .line 448
     .local v79, "vpbBrightness8":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    if-eqz v79, :cond_4
+    if-eqz v79, :cond_266
 
     .line 452
     const v1, 0x7f0901f6
@@ -944,7 +944,7 @@
 
     .line 454
     .local v80, "vpbBrightness9":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    if-eqz v80, :cond_3
+    if-eqz v80, :cond_265
 
     .line 458
     const v1, 0x7f0901f7
@@ -960,7 +960,7 @@
 
     .line 460
     .local v81, "waveBallProgressActView":Lcom/isaigu/gymapp/widget/WaveBallProgress;
-    if-eqz v81, :cond_2
+    if-eqz v81, :cond_264
 
     .line 464
     const v1, 0x7f0901f8
@@ -976,7 +976,7 @@
 
     .line 466
     .local v82, "waveBallProgressValue":Landroid/widget/TextView;
-    if-eqz v82, :cond_1
+    if-eqz v82, :cond_263
 
     .line 470
     const v1, 0x7f090202
@@ -992,7 +992,7 @@
 
     .line 472
     .local v83, "youyangyundong":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v83, :cond_0
+    if-eqz v83, :cond_262
 
     .line 476
     new-instance v84, Lcom/isaigu/gymapp/databinding/UserTrainControlItemLayoutBinding;
@@ -1088,207 +1088,207 @@
     return-object v84
 
     .line 473
-    :cond_0
-    goto :goto_0
+    :cond_262
+    goto :goto_28a
 
     .line 467
     .end local v83    # "youyangyundong":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_1
-    goto :goto_0
+    :cond_263
+    goto :goto_28a
 
     .line 461
     .end local v82    # "waveBallProgressValue":Landroid/widget/TextView;
-    :cond_2
-    goto :goto_0
+    :cond_264
+    goto :goto_28a
 
     .line 455
     .end local v81    # "waveBallProgressActView":Lcom/isaigu/gymapp/widget/WaveBallProgress;
-    :cond_3
-    goto :goto_0
+    :cond_265
+    goto :goto_28a
 
     .line 449
     .end local v80    # "vpbBrightness9":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    :cond_4
-    goto :goto_0
+    :cond_266
+    goto :goto_28a
 
     .line 443
     .end local v79    # "vpbBrightness8":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    :cond_5
-    goto :goto_0
+    :cond_267
+    goto :goto_28a
 
     .line 437
     .end local v78    # "vpbBrightness7":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    :cond_6
-    goto :goto_0
+    :cond_268
+    goto :goto_28a
 
     .line 431
     .end local v77    # "vpbBrightness6":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    :cond_7
-    goto :goto_0
+    :cond_269
+    goto :goto_28a
 
     .line 425
     .end local v76    # "vpbBrightness5":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    :cond_8
-    goto :goto_0
+    :cond_26a
+    goto :goto_28a
 
     .line 419
     .end local v75    # "vpbBrightness4":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    :cond_9
-    goto :goto_0
+    :cond_26b
+    goto :goto_28a
 
     .line 413
     .end local v74    # "vpbBrightness3":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    :cond_a
-    goto :goto_0
+    :cond_26c
+    goto :goto_28a
 
     .line 407
     .end local v73    # "vpbBrightness2":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    :cond_b
-    goto :goto_0
+    :cond_26d
+    goto :goto_28a
 
     .line 401
     .end local v72    # "vpbBrightness10":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    :cond_c
-    goto :goto_0
+    :cond_26e
+    goto :goto_28a
 
     .line 395
     .end local v71    # "vpbBrightness1":Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-    :cond_d
-    goto :goto_0
+    :cond_26f
+    goto :goto_28a
 
     .line 389
     .end local v70    # "userIcon":Landroid/widget/ImageView;
-    :cond_e
-    goto :goto_0
+    :cond_270
+    goto :goto_28a
 
     .line 383
     .end local v69    # "time":Landroid/widget/TextView;
-    :cond_f
-    goto :goto_0
+    :cond_271
+    goto :goto_28a
 
     .line 377
     .end local v68    # "textview9":Landroid/widget/TextView;
-    :cond_10
-    goto :goto_0
+    :cond_272
+    goto :goto_28a
 
     .line 371
     .end local v67    # "textview8":Landroid/widget/TextView;
-    :cond_11
-    goto :goto_0
+    :cond_273
+    goto :goto_28a
 
     .line 365
     .end local v66    # "textview7":Landroid/widget/TextView;
-    :cond_12
-    goto :goto_0
+    :cond_274
+    goto :goto_28a
 
     .line 359
     .end local v65    # "textview6":Landroid/widget/TextView;
-    :cond_13
-    goto :goto_0
+    :cond_275
+    goto :goto_28a
 
     .line 353
     .end local v64    # "textview5":Landroid/widget/TextView;
-    :cond_14
-    goto :goto_0
+    :cond_276
+    goto :goto_28a
 
     .line 347
     .end local v63    # "textview4":Landroid/widget/TextView;
-    :cond_15
-    goto :goto_0
+    :cond_277
+    goto :goto_28a
 
     .line 341
     .end local v62    # "textview3":Landroid/widget/TextView;
-    :cond_16
-    goto :goto_0
+    :cond_278
+    goto :goto_28a
 
     .line 335
     .end local v61    # "textview2":Landroid/widget/TextView;
-    :cond_17
-    goto :goto_0
+    :cond_279
+    goto :goto_28a
 
     .line 329
     .end local v60    # "textview10":Landroid/widget/TextView;
-    :cond_18
-    goto :goto_0
+    :cond_27a
+    goto :goto_28a
 
     .line 323
     .end local v59    # "textview1":Landroid/widget/TextView;
-    :cond_19
-    goto :goto_0
+    :cond_27b
+    goto :goto_28a
 
     .line 317
     .end local v58    # "strenthExist":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_1a
-    goto :goto_0
+    :cond_27c
+    goto :goto_28a
 
     .line 311
     .end local v57    # "stop":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_1b
-    goto :goto_0
+    :cond_27d
+    goto :goto_28a
 
     .line 305
     .end local v56    # "startpaulse":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_1c
-    goto :goto_0
+    :cond_27e
+    goto :goto_28a
 
     .line 299
     .end local v55    # "signalImage":Landroid/widget/ImageView;
-    :cond_1d
-    goto :goto_0
+    :cond_27f
+    goto :goto_28a
 
     .line 293
     .end local v54    # "setting":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_1e
-    goto :goto_0
+    :cond_280
+    goto :goto_28a
 
     .line 287
     .end local v53    # "save":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_1f
-    goto :goto_0
+    :cond_281
+    goto :goto_28a
 
     .line 281
     .end local v52    # "paulsestop":Lcom/isaigu/gymapp/widget/AmountView2;
-    :cond_20
-    goto :goto_0
+    :cond_282
+    goto :goto_28a
 
     .line 275
     .end local v51    # "paulsecontinue":Lcom/isaigu/gymapp/widget/AmountView2;
-    :cond_21
-    goto :goto_0
+    :cond_283
+    goto :goto_28a
 
     .line 269
     .end local v50    # "name":Landroid/widget/TextView;
-    :cond_22
-    goto :goto_0
+    :cond_284
+    goto :goto_28a
 
     .line 263
     .end local v49    # "ma":Landroid/widget/TextView;
-    :cond_23
-    goto :goto_0
+    :cond_285
+    goto :goto_28a
 
     .line 257
     .end local v48    # "circleSeekBar":Lcom/isaigu/gymapp/widget/CircleSeekBar;
-    :cond_24
-    goto :goto_0
+    :cond_286
+    goto :goto_28a
 
     .line 251
     .end local v47    # "batteryValueTextView":Landroid/widget/TextView;
-    :cond_25
-    goto :goto_0
+    :cond_287
+    goto :goto_28a
 
     .line 245
     .end local v46    # "anmo":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_26
-    goto :goto_0
+    :cond_288
+    goto :goto_28a
 
     .line 239
     .end local v45    # "address":Landroid/widget/TextView;
-    :cond_27
+    :cond_289
     nop
 
     .line 484
     .end local v2    # "MyBatterView":Lcom/isaigu/gymapp/widget/BatterView;
-    :goto_0
+    :goto_28a
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -1313,7 +1313,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/UserTrainControlItemLayoutBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 217
@@ -1329,7 +1329,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/UserTrainControlItemLayoutBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -1345,13 +1345,13 @@
 
     .line 224
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 225
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 227
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/UserTrainControlItemLayoutBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/UserTrainControlItemLayoutBinding;
 
     move-result-object v1
@@ -1362,7 +1362,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 24
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/UserTrainControlItemLayoutBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -1373,7 +1373,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 212
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/UserTrainControlItemLayoutBinding;->rootView:Landroid/widget/LinearLayout;

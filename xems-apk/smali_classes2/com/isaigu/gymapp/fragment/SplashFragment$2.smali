@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SplashFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/SplashFragment;
 
     .line 150
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 3
+    .registers 7
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -58,15 +58,15 @@
 
     .line 152
     .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_24
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_24
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->isSuccess()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     .line 153
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getData()Ljava/lang/Object;
@@ -77,7 +77,7 @@
 
     .line 154
     .local v0, "splashScreenVO":Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     iget-object v1, v0, Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;->imageUrl:Ljava/lang/String;
 
@@ -85,7 +85,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_24
 
     .line 155
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
@@ -98,12 +98,12 @@
 
     .line 164
     .end local v0    # "splashScreenVO":Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;
-    :cond_0
+    :cond_24
     return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 150
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

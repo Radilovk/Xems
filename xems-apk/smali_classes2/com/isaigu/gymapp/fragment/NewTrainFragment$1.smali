@@ -21,9 +21,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
-    .prologue
-    .line 52
+    .line 148
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$SimpleOnItemTouchListener;-><init>()V
@@ -34,17 +34,16 @@
 
 # virtual methods
 .method public onInterceptTouchEvent(Landroid/support/v7/widget/RecyclerView;Landroid/view/MotionEvent;)Z
-    .registers 6
+    .registers 5
+    .param p1, "rv"    # Landroid/support/v7/widget/RecyclerView;
+    .param p2, "e"    # Landroid/view/MotionEvent;
 
-    .prologue
-    const/4 v2, 0x0
-
-    .line 55
+    .line 151
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_d
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
@@ -52,9 +51,10 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_25
+    if-ne v0, v1, :cond_24
 
-    :cond_e
+    .line 152
+    :cond_d
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->selecting:Z
@@ -62,9 +62,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_24
 
-    .line 56
+    .line 153
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     const/4 v1, 0x1
@@ -72,7 +72,7 @@
     # setter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->selecting:Z
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->access$002(Lcom/isaigu/gymapp/fragment/NewTrainFragment;Z)Z
 
-    .line 57
+    .line 154
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
@@ -82,24 +82,27 @@
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 60
-    :cond_25
-    return v2
+    .line 157
+    :cond_24
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public onRequestDisallowInterceptTouchEvent(Z)V
     .registers 2
+    .param p1, "disallowIntercept"    # Z
 
-    .prologue
-    .line 73
+    .line 172
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/support/v7/widget/RecyclerView;Landroid/view/MotionEvent;)V
     .registers 5
+    .param p1, "rv"    # Landroid/support/v7/widget/RecyclerView;
+    .param p2, "e"    # Landroid/view/MotionEvent;
 
-    .prologue
-    .line 65
+    .line 162
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
@@ -116,6 +119,7 @@
 
     if-ne v0, v1, :cond_25
 
+    .line 163
     :cond_e
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
@@ -126,7 +130,7 @@
 
     if-eqz v0, :cond_25
 
-    .line 66
+    .line 164
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     const/4 v1, 0x0
@@ -134,7 +138,7 @@
     # setter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->selecting:Z
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->access$002(Lcom/isaigu/gymapp/fragment/NewTrainFragment;Z)Z
 
-    .line 67
+    .line 165
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
@@ -144,7 +148,7 @@
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 69
+    .line 168
     :cond_25
     return-void
 .end method

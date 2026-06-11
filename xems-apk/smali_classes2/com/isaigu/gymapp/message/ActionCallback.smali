@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(SLcom/isaigu/gymapp/message/ActionListener;)V
-    .locals 0
+    .registers 3
     .param p1, "action"    # S
     .param p2, "listener"    # Lcom/isaigu/gymapp/message/ActionListener;
 
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getAction()S
-    .locals 1
+    .registers 2
 
     .line 30
     iget-short v0, p0, Lcom/isaigu/gymapp/message/ActionCallback;->action:S
@@ -40,7 +40,7 @@
 .end method
 
 .method public getListener()Lcom/isaigu/gymapp/message/ActionListener;
-    .locals 1
+    .registers 2
 
     .line 22
     iget-object v0, p0, Lcom/isaigu/gymapp/message/ActionCallback;->listener:Lcom/isaigu/gymapp/message/ActionListener;
@@ -49,24 +49,24 @@
 .end method
 
 .method public handleActionMessage(Lcom/isaigu/gymapp/message/DataDecoder;)V
-    .locals 1
+    .registers 3
     .param p1, "decoder"    # Lcom/isaigu/gymapp/message/DataDecoder;
 
     .line 16
     iget-object v0, p0, Lcom/isaigu/gymapp/message/ActionCallback;->listener:Lcom/isaigu/gymapp/message/ActionListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 17
     invoke-interface {v0, p1}, Lcom/isaigu/gymapp/message/ActionListener;->handleAction(Lcom/isaigu/gymapp/message/DataDecoder;)V
 
     .line 19
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public setAction(S)V
-    .locals 0
+    .registers 2
     .param p1, "action"    # S
 
     .line 34
@@ -77,7 +77,7 @@
 .end method
 
 .method public setListener(Lcom/isaigu/gymapp/message/ActionListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/isaigu/gymapp/message/ActionListener;
 
     .line 26

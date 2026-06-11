@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 57
     const/4 v0, 0x0
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -113,7 +113,7 @@
 .end method
 
 .method static synthetic access$000()Z
-    .locals 1
+    .registers 1
 
     .line 55
     sget-boolean v0, Lcom/isaigu/gymapp/utils/OKHttpUtils;->logEnable:Z
@@ -122,7 +122,7 @@
 .end method
 
 .method static synthetic access$100(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Ljava/lang/String;
 
     .line 55
@@ -134,7 +134,7 @@
 .end method
 
 .method public static downloadFile(Ljava/lang/String;Ljava/lang/String;Lcom/isaigu/gymapp/utils/OKHttpUtils$OnDownloadListener;)V
-    .locals 3
+    .registers 6
     .param p0, "url"    # Ljava/lang/String;
     .param p1, "saveDir"    # Ljava/lang/String;
     .param p2, "listener"    # Lcom/isaigu/gymapp/utils/OKHttpUtils$OnDownloadListener;
@@ -171,7 +171,7 @@
 .end method
 
 .method public static getClient()Lokhttp3/OkHttpClient;
-    .locals 1
+    .registers 1
 
     .line 70
     sget-object v0, Lcom/isaigu/gymapp/utils/OKHttpUtils;->client:Lokhttp3/OkHttpClient;
@@ -180,7 +180,7 @@
 .end method
 
 .method private static getNameFromUrl(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .param p0, "url"    # Ljava/lang/String;
 
     .line 421
@@ -202,7 +202,7 @@
 .end method
 
 .method private static getSslSocketFactory(Ljavax/net/ssl/X509TrustManager;)Ljavax/net/ssl/SSLSocketFactory;
-    .locals 3
+    .registers 4
     .param p0, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
     .line 74
@@ -210,47 +210,47 @@
 
     .line 76
     .local v0, "sslContext":Ljavax/net/ssl/SSLContext;
-    :try_start_0
+    :try_start_1
     const-string v1, "SSL"
 
     invoke-static {v1}, Ljavax/net/ssl/SSLContext;->getInstance(Ljava/lang/String;)Ljavax/net/ssl/SSLContext;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_7
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_1 .. :try_end_7} :catch_12
 
     move-object v0, v1
 
     .line 78
     const/4 v1, 0x0
 
-    :try_start_1
+    :try_start_9
     invoke-virtual {v0, v1, v1, v1}, Ljavax/net/ssl/SSLContext;->init([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V
-    :try_end_1
-    .catch Ljava/security/KeyManagementException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_c
+    .catch Ljava/security/KeyManagementException; {:try_start_9 .. :try_end_c} :catch_d
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_9 .. :try_end_c} :catch_12
 
     .line 81
-    goto :goto_0
+    goto :goto_11
 
     .line 79
-    :catch_0
+    :catch_d
     move-exception v1
 
     .line 80
     .local v1, "e":Ljava/security/KeyManagementException;
-    :try_start_2
+    :try_start_e
     invoke-virtual {v1}, Ljava/security/KeyManagementException;->printStackTrace()V
-    :try_end_2
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_11
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_e .. :try_end_11} :catch_12
 
     .line 84
     .end local v1    # "e":Ljava/security/KeyManagementException;
-    :goto_0
-    goto :goto_1
+    :goto_11
+    goto :goto_16
 
     .line 82
-    :catch_1
+    :catch_12
     move-exception v1
 
     .line 83
@@ -259,7 +259,7 @@
 
     .line 85
     .end local v1    # "e":Ljava/security/NoSuchAlgorithmException;
-    :goto_1
+    :goto_16
     new-instance v1, Lcom/isaigu/gymapp/utils/OKHttpUtils$Tls12SocketFactory;
 
     invoke-virtual {v0}, Ljavax/net/ssl/SSLContext;->getSocketFactory()Ljavax/net/ssl/SSLSocketFactory;
@@ -274,7 +274,7 @@
 .end method
 
 .method public static httpGetJson(Ljava/lang/String;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 1
+    .registers 3
     .param p0, "url"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -298,7 +298,7 @@
 .end method
 
 .method public static httpGetJson(Ljava/lang/String;Ljava/util/Map;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 5
+    .registers 8
     .param p0, "url"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -324,13 +324,13 @@
 
     .line 226
     .local v0, "builder":Lokhttp3/Request$Builder;
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_31
 
     invoke-interface {p1}, Ljava/util/Map;->size()I
 
     move-result v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_31
 
     .line 227
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -341,12 +341,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_15
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_31
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -372,10 +372,10 @@
 
     .line 229
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
-    goto :goto_0
+    goto :goto_15
 
     .line 231
-    :cond_0
+    :cond_31
     const-string v1, "Accept"
 
     const-string v2, "application/json"
@@ -413,7 +413,7 @@
 .end method
 
 .method public static httpPostJson(Ljava/lang/String;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 2
+    .registers 4
     .param p0, "url"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -439,7 +439,7 @@
 .end method
 
 .method public static httpPostJson(Ljava/lang/String;Ljava/lang/String;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 1
+    .registers 4
     .param p0, "url"    # Ljava/lang/String;
     .param p1, "json"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -465,7 +465,7 @@
 .end method
 
 .method public static httpPostJson(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 7
+    .registers 11
     .param p0, "url"    # Ljava/lang/String;
     .param p1, "json"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -507,13 +507,13 @@
 
     .line 196
     .local v2, "builder":Lokhttp3/Request$Builder;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_3b
 
     invoke-interface {p2}, Ljava/util/Map;->size()I
 
     move-result v3
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_3b
 
     .line 197
     invoke-interface {p2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -524,12 +524,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_1f
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_3b
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -555,10 +555,10 @@
 
     .line 199
     .end local v4    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
-    goto :goto_0
+    goto :goto_1f
 
     .line 201
-    :cond_0
+    :cond_3b
     invoke-virtual {v2, p0}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 202
@@ -592,7 +592,7 @@
 .end method
 
 .method public static httpRequest(Lokhttp3/Request;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 4
+    .registers 6
     .param p0, "request"    # Lokhttp3/Request;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -607,13 +607,13 @@
 
     .line 129
     .local p1, "callback":Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;, "Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback<TT;>;"
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_3d
 
     .line 130
-    :try_start_0
+    :try_start_2
     sget-boolean v0, Lcom/isaigu/gymapp/utils/OKHttpUtils;->logEnable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 131
     new-instance v0, Ljava/lang/StringBuilder;
@@ -637,7 +637,7 @@
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
 
     .line 133
-    :cond_0
+    :cond_1e
     sget-object v0, Lcom/isaigu/gymapp/utils/OKHttpUtils;->client:Lokhttp3/OkHttpClient;
 
     invoke-virtual {v0, p0}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
@@ -649,13 +649,13 @@
     invoke-direct {v1, p1}, Lcom/isaigu/gymapp/utils/OKHttpUtils$1;-><init>(Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
     invoke-interface {v0, v1}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2c
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2c} :catch_2d
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 183
-    :catch_0
+    :catch_2d
     move-exception v0
 
     .line 184
@@ -663,7 +663,7 @@
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 185
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3e
 
     .line 186
     const/4 v1, 0x0
@@ -676,22 +676,22 @@
 
     invoke-virtual {p1, v1, v2, v3}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;->httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 188
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_1
-    :goto_0
+    :cond_3d
+    :goto_3d
     nop
 
     .line 189
-    :cond_2
-    :goto_1
+    :cond_3e
+    :goto_3e
     return-void
 .end method
 
 .method private static isExistDir(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "saveDir"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -715,13 +715,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 409
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
     .line 411
-    :cond_0
+    :cond_12
     invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v1
@@ -732,7 +732,7 @@
 .end method
 
 .method public static setLogEnable(Z)V
-    .locals 0
+    .registers 1
     .param p0, "logEnable"    # Z
 
     .line 90
@@ -743,7 +743,7 @@
 .end method
 
 .method public static uploadFile(Ljava/lang/String;Ljava/io/File;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 1
+    .registers 4
     .param p0, "url"    # Ljava/lang/String;
     .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
@@ -769,7 +769,7 @@
 .end method
 
 .method public static uploadFile(Ljava/lang/String;Ljava/io/File;Ljava/util/Map;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 8
+    .registers 12
     .param p0, "url"    # Ljava/lang/String;
     .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
@@ -791,7 +791,7 @@
     .line 263
     .local p2, "header":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .local p3, "callback":Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;, "Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback<TT;>;"
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_70
 
     const-string v0, ""
 
@@ -799,14 +799,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_70
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_d
 
-    goto :goto_1
+    goto :goto_70
 
     .line 266
-    :cond_0
+    :cond_d
     new-instance v0, Lokhttp3/MultipartBody$Builder;
 
     invoke-direct {v0}, Lokhttp3/MultipartBody$Builder;-><init>()V
@@ -862,13 +862,13 @@
 
     .line 274
     .local v3, "builder":Lokhttp3/Request$Builder;
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_68
 
     invoke-interface {p2}, Ljava/util/Map;->size()I
 
     move-result v4
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_68
 
     .line 275
     invoke-interface {p2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -879,12 +879,12 @@
 
     move-result-object v4
 
-    :goto_0
+    :goto_4c
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_68
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -910,10 +910,10 @@
 
     .line 277
     .end local v5    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
-    goto :goto_0
+    goto :goto_4c
 
     .line 280
-    :cond_1
+    :cond_68
     invoke-virtual {v3}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
     move-result-object v4
@@ -931,7 +931,7 @@
     .end local v2    # "filename":Ljava/lang/String;
     .end local v3    # "builder":Lokhttp3/Request$Builder;
     .end local v4    # "request":Lokhttp3/Request;
-    :cond_2
-    :goto_1
+    :cond_70
+    :goto_70
     return-void
 .end method

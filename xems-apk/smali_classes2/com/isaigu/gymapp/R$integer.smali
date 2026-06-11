@@ -1,6 +1,5 @@
 .class public final Lcom/isaigu/gymapp/R$integer;
 .super Ljava/lang/Object;
-.source "R.java"
 
 
 # annotations
@@ -54,10 +53,7 @@
 .method private constructor <init>()V
     .registers 1
 
-    .prologue
-    .line 1678
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1679
     return-void
 .end method

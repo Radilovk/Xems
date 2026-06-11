@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;
 
     .line 904
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 907
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard$6;->this$0:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;
@@ -67,7 +67,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->clarityPopWindow:Landroid/widget/PopupWindow;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 911
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard$6;->this$0:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;
@@ -77,7 +77,7 @@
     invoke-virtual {v0}, Landroid/widget/PopupWindow;->dismiss()V
 
     .line 914
-    :cond_0
+    :cond_23
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard$6;->this$0:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->bottomProgressBar:Landroid/widget/ProgressBar;

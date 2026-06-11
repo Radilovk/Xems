@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/concurrent/atomic/AtomicBoolean;I)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
 
     iget-object v0, p0, Lcom/isaigu/gymapp/train/-$$Lambda$TrainItemManager$NH_2vasCxMVn7scoo3q5zW5xA-M;->f$0:Ljava/util/concurrent/atomic/AtomicBoolean;
 

@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lcom/isaigu/gymapp/train/TrainViewHolder$1;Lcom/isaigu/gymapp/bean/TrainProgram;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .registers 3
 
     iget-object v0, p0, Lcom/isaigu/gymapp/train/-$$Lambda$TrainViewHolder$1$AznCd_PX9U_AFipHY0-fJKnkhF8;->f$0:Lcom/isaigu/gymapp/train/TrainViewHolder$1;
 

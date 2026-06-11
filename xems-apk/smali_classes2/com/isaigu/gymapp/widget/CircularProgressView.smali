@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 51
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyle"    # I
@@ -133,7 +133,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/isaigu/gymapp/widget/CircularProgressView;F)F
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/CircularProgressView;
     .param p1, "x1"    # F
 
@@ -144,7 +144,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/widget/CircularProgressView;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/CircularProgressView;
 
     .line 29
@@ -154,7 +154,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/isaigu/gymapp/widget/CircularProgressView;)F
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/CircularProgressView;
 
     .line 29
@@ -164,7 +164,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/isaigu/gymapp/widget/CircularProgressView;F)F
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/CircularProgressView;
     .param p1, "x1"    # F
 
@@ -175,7 +175,7 @@
 .end method
 
 .method static synthetic access$302(Lcom/isaigu/gymapp/widget/CircularProgressView;F)F
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/CircularProgressView;
     .param p1, "x1"    # F
 
@@ -186,7 +186,7 @@
 .end method
 
 .method static synthetic access$402(Lcom/isaigu/gymapp/widget/CircularProgressView;F)F
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/CircularProgressView;
     .param p1, "x1"    # F
 
@@ -197,7 +197,7 @@
 .end method
 
 .method private createIndeterminateAnimator(F)Landroid/animation/AnimatorSet;
-    .locals 14
+    .registers 16
     .param p1, "step"    # F
 
     .line 430
@@ -465,7 +465,7 @@
 .end method
 
 .method private initAttributes(Landroid/util/AttributeSet;I)V
-    .locals 9
+    .registers 12
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .param p2, "defStyle"    # I
 
@@ -647,7 +647,7 @@
 
     const v7, 0x7f060039
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_9e
 
     .line 102
     invoke-virtual {v1, v7}, Landroid/content/res/Resources;->getColor(I)I
@@ -660,11 +660,11 @@
 
     iput v2, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->color:I
 
-    goto :goto_0
+    goto :goto_db
 
     .line 105
-    :cond_0
-    if-eqz v3, :cond_1
+    :cond_9e
+    if-eqz v3, :cond_b5
 
     .line 106
     new-instance v2, Landroid/util/TypedValue;
@@ -690,15 +690,15 @@
 
     .line 109
     .end local v2    # "t":Landroid/util/TypedValue;
-    goto :goto_0
+    goto :goto_db
 
     .line 111
-    :cond_1
+    :cond_b5
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v5, 0x15
 
-    if-lt v4, v5, :cond_2
+    if-lt v4, v5, :cond_d5
 
     .line 112
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircularProgressView;->getContext()Landroid/content/Context;
@@ -729,10 +729,10 @@
 
     .line 114
     .end local v4    # "t":Landroid/content/res/TypedArray;
-    goto :goto_0
+    goto :goto_db
 
     .line 117
-    :cond_2
+    :cond_d5
     invoke-virtual {v1, v7}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v2
@@ -740,7 +740,7 @@
     iput v2, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->color:I
 
     .line 120
-    :goto_0
+    :goto_db
     const v2, 0x7f0a0006
 
     .line 121
@@ -814,7 +814,7 @@
 .end method
 
 .method private updateBounds()V
-    .locals 8
+    .registers 9
 
     .line 152
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircularProgressView;->getPaddingLeft()I
@@ -862,7 +862,7 @@
 .end method
 
 .method private updatePaint()V
-    .locals 2
+    .registers 3
 
     .line 159
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->paint:Landroid/graphics/Paint;
@@ -901,11 +901,11 @@
 
 # virtual methods
 .method public addListener(Lcom/isaigu/gymapp/widget/CircularProgressView$CircularProgressViewListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/isaigu/gymapp/widget/CircularProgressView$CircularProgressViewListener;
 
     .line 307
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 308
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->listeners:Ljava/util/List;
@@ -913,12 +913,12 @@
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 309
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public getColor()I
-    .locals 1
+    .registers 2
 
     .line 227
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->color:I
@@ -927,7 +927,7 @@
 .end method
 
 .method public getMaxProgress()F
-    .locals 1
+    .registers 2
 
     .line 245
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->maxProgress:F
@@ -936,7 +936,7 @@
 .end method
 
 .method public getProgress()F
-    .locals 1
+    .registers 2
 
     .line 261
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->currentProgress:F
@@ -945,7 +945,7 @@
 .end method
 
 .method public getThickness()I
-    .locals 1
+    .registers 2
 
     .line 208
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->thickness:I
@@ -954,7 +954,7 @@
 .end method
 
 .method protected init(Landroid/util/AttributeSet;I)V
-    .locals 2
+    .registers 5
     .param p1, "attrs"    # Landroid/util/AttributeSet;
     .param p2, "defStyle"    # I
 
@@ -992,7 +992,7 @@
 .end method
 
 .method public isIndeterminate()Z
-    .locals 1
+    .registers 2
 
     .line 182
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->isIndeterminate:Z
@@ -1001,7 +1001,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 1
+    .registers 2
 
     .line 490
     invoke-super {p0}, Landroid/view/View;->onAttachedToWindow()V
@@ -1009,18 +1009,18 @@
     .line 491
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->autostartAnimation:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 492
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircularProgressView;->startAnimation()V
 
     .line 493
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method protected onDetachedFromWindow()V
-    .locals 0
+    .registers 1
 
     .line 497
     invoke-super {p0}, Landroid/view/View;->onDetachedFromWindow()V
@@ -1033,7 +1033,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 13
+    .registers 15
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 167
@@ -1046,16 +1046,16 @@
 
     const/high16 v1, 0x43b40000    # 360.0f
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->currentProgress:F
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_e
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->actualProgress:F
 
-    :goto_0
+    :goto_10
     iget v2, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->maxProgress:F
 
     div-float/2addr v0, v2
@@ -1068,7 +1068,7 @@
     .local v4, "sweepAngle":F
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->isIndeterminate:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_26
 
     .line 172
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->bounds:Landroid/graphics/RectF;
@@ -1083,10 +1083,10 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawArc(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V
 
-    goto :goto_1
+    goto :goto_37
 
     .line 174
-    :cond_1
+    :cond_26
     iget-object v8, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->bounds:Landroid/graphics/RectF;
 
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->startAngle:F
@@ -1106,12 +1106,12 @@
     invoke-virtual/range {v7 .. v12}, Landroid/graphics/Canvas;->drawArc(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V
 
     .line 175
-    :goto_1
+    :goto_37
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 6
+    .registers 9
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -1159,16 +1159,16 @@
 
     .line 138
     .local v3, "height":I
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_23
 
     move v4, v2
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     move v4, v3
 
-    :goto_0
+    :goto_24
     iput v4, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->size:I
 
     .line 139
@@ -1183,7 +1183,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 1
+    .registers 6
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I
@@ -1193,16 +1193,16 @@
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
 
     .line 146
-    if-ge p1, p2, :cond_0
+    if-ge p1, p2, :cond_7
 
     move v0, p1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     move v0, p2
 
-    :goto_0
+    :goto_8
     iput v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->size:I
 
     .line 147
@@ -1213,7 +1213,7 @@
 .end method
 
 .method public removeListener(Lcom/isaigu/gymapp/widget/CircularProgressView$CircularProgressViewListener;)V
-    .locals 1
+    .registers 3
     .param p1, "listener"    # Lcom/isaigu/gymapp/widget/CircularProgressView$CircularProgressViewListener;
 
     .line 316
@@ -1226,18 +1226,18 @@
 .end method
 
 .method public resetAnimation()V
-    .locals 7
+    .registers 8
 
     .line 332
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->startAngleRotate:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 333
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->startAngleRotate:Landroid/animation/ValueAnimator;
@@ -1245,16 +1245,16 @@
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
     .line 334
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->progressAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 335
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->progressAnimator:Landroid/animation/ValueAnimator;
@@ -1262,16 +1262,16 @@
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
     .line 336
-    :cond_1
+    :cond_1e
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->indeterminateAnimator:Landroid/animation/AnimatorSet;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2d
 
     invoke-virtual {v0}, Landroid/animation/AnimatorSet;->isRunning()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2d
 
     .line 337
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->indeterminateAnimator:Landroid/animation/AnimatorSet;
@@ -1279,10 +1279,10 @@
     invoke-virtual {v0}, Landroid/animation/AnimatorSet;->cancel()V
 
     .line 340
-    :cond_2
+    :cond_2d
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->isIndeterminate:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_99
 
     .line 343
     iget v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->initialStartAngle:F
@@ -1394,10 +1394,10 @@
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
-    goto :goto_2
+    goto :goto_e3
 
     .line 373
-    :cond_3
+    :cond_99
     const/high16 v0, 0x41700000    # 15.0f
 
     iput v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->indeterminateSweep:F
@@ -1417,10 +1417,10 @@
     const/4 v1, 0x0
 
     .local v1, "k":I
-    :goto_0
+    :goto_a6
     iget v2, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->animSteps:I
 
-    if-ge v1, v2, :cond_5
+    if-ge v1, v2, :cond_be
 
     .line 379
     int-to-float v2, v1
@@ -1439,25 +1439,25 @@
 
     .line 381
     .local v3, "builder":Landroid/animation/AnimatorSet$Builder;
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_ba
 
     .line 382
     invoke-virtual {v3, v0}, Landroid/animation/AnimatorSet$Builder;->after(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
     .line 383
-    :cond_4
+    :cond_ba
     move-object v0, v2
 
     .line 377
     .end local v3    # "builder":Landroid/animation/AnimatorSet$Builder;
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_a6
 
     .line 387
     .end local v1    # "k":I
     .end local v2    # "nextSet":Landroid/animation/AnimatorSet;
-    :cond_5
+    :cond_be
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->indeterminateAnimator:Landroid/animation/AnimatorSet;
 
     new-instance v2, Lcom/isaigu/gymapp/widget/CircularProgressView$5;
@@ -1478,12 +1478,12 @@
 
     move-result-object v1
 
-    :goto_1
+    :goto_d3
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_e3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1497,17 +1497,17 @@
 
     .line 403
     .end local v2    # "listener":Lcom/isaigu/gymapp/widget/CircularProgressView$CircularProgressViewListener;
-    goto :goto_1
+    goto :goto_d3
 
     .line 407
     .end local v0    # "prevSet":Landroid/animation/AnimatorSet;
-    :cond_6
-    :goto_2
+    :cond_e3
+    :goto_e3
     return-void
 .end method
 
 .method public setColor(I)V
-    .locals 0
+    .registers 2
     .param p1, "color"    # I
 
     .line 235
@@ -1524,7 +1524,7 @@
 .end method
 
 .method public setIndeterminate(Z)V
-    .locals 4
+    .registers 6
     .param p1, "isIndeterminate"    # Z
 
     .line 191
@@ -1534,29 +1534,29 @@
     .local v0, "old":Z
     iget-boolean v1, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->isIndeterminate:Z
 
-    if-eq v1, p1, :cond_0
+    if-eq v1, p1, :cond_8
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x0
 
     .line 193
     .local v1, "reset":Z
-    :goto_0
+    :goto_9
     iput-boolean p1, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->isIndeterminate:Z
 
     .line 194
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_10
 
     .line 195
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircularProgressView;->resetAnimation()V
 
     .line 196
-    :cond_1
-    if-eq v0, p1, :cond_2
+    :cond_10
+    if-eq v0, p1, :cond_28
 
     .line 197
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->listeners:Ljava/util/List;
@@ -1565,12 +1565,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_18
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_28
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1584,15 +1584,15 @@
 
     .line 199
     .end local v3    # "listener":Lcom/isaigu/gymapp/widget/CircularProgressView$CircularProgressViewListener;
-    goto :goto_1
+    goto :goto_18
 
     .line 201
-    :cond_2
+    :cond_28
     return-void
 .end method
 
 .method public setMaxProgress(F)V
-    .locals 0
+    .registers 2
     .param p1, "maxProgress"    # F
 
     .line 253
@@ -1606,7 +1606,7 @@
 .end method
 
 .method public setProgress(F)V
-    .locals 3
+    .registers 5
     .param p1, "currentProgress"    # F
 
     .line 270
@@ -1615,18 +1615,18 @@
     .line 272
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->isIndeterminate:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_4f
 
     .line 273
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->progressAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 274
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->progressAnimator:Landroid/animation/ValueAnimator;
@@ -1634,7 +1634,7 @@
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
     .line 275
-    :cond_0
+    :cond_15
     const/4 v0, 0x2
 
     new-array v0, v0, [F
@@ -1695,7 +1695,7 @@
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
     .line 296
-    :cond_1
+    :cond_4f
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircularProgressView;->invalidate()V
 
     .line 297
@@ -1705,12 +1705,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_58
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_68
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1724,15 +1724,15 @@
 
     .line 299
     .end local v1    # "listener":Lcom/isaigu/gymapp/widget/CircularProgressView$CircularProgressViewListener;
-    goto :goto_0
+    goto :goto_58
 
     .line 300
-    :cond_2
+    :cond_68
     return-void
 .end method
 
 .method public setThickness(I)V
-    .locals 0
+    .registers 2
     .param p1, "thickness"    # I
 
     .line 216
@@ -1752,7 +1752,7 @@
 .end method
 
 .method public setVisibility(I)V
-    .locals 2
+    .registers 4
     .param p1, "visibility"    # I
 
     .line 503
@@ -1765,38 +1765,38 @@
     invoke-super {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
     .line 505
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_19
 
     .line 506
-    if-nez p1, :cond_0
+    if-nez p1, :cond_f
 
     .line 507
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircularProgressView;->resetAnimation()V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 508
-    :cond_0
+    :cond_f
     const/16 v1, 0x8
 
-    if-eq p1, v1, :cond_1
+    if-eq p1, v1, :cond_16
 
     const/4 v1, 0x4
 
-    if-ne p1, v1, :cond_2
+    if-ne p1, v1, :cond_19
 
     .line 509
-    :cond_1
+    :cond_16
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircularProgressView;->stopAnimation()V
 
     .line 512
-    :cond_2
-    :goto_0
+    :cond_19
+    :goto_19
     return-void
 .end method
 
 .method public startAnimation()V
-    .locals 0
+    .registers 1
 
     .line 324
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CircularProgressView;->resetAnimation()V
@@ -1806,14 +1806,14 @@
 .end method
 
 .method public stopAnimation()V
-    .locals 2
+    .registers 3
 
     .line 414
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->startAngleRotate:Landroid/animation/ValueAnimator;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 415
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
@@ -1822,10 +1822,10 @@
     iput-object v1, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->startAngleRotate:Landroid/animation/ValueAnimator;
 
     .line 418
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->progressAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 419
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
@@ -1834,10 +1834,10 @@
     iput-object v1, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->progressAnimator:Landroid/animation/ValueAnimator;
 
     .line 422
-    :cond_1
+    :cond_13
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->indeterminateAnimator:Landroid/animation/AnimatorSet;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1c
 
     .line 423
     invoke-virtual {v0}, Landroid/animation/AnimatorSet;->cancel()V
@@ -1846,6 +1846,6 @@
     iput-object v1, p0, Lcom/isaigu/gymapp/widget/CircularProgressView;->indeterminateAnimator:Landroid/animation/AnimatorSet;
 
     .line 426
-    :cond_2
+    :cond_1c
     return-void
 .end method

@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Landroid/support/v7/app/AppCompatActivity;-><init>()V
@@ -20,7 +20,7 @@
 .end method
 
 .method private checkGPSIsOpen()Z
-    .locals 2
+    .registers 3
 
     .line 85
     const-string v0, "location"
@@ -33,7 +33,7 @@
 
     .line 86
     .local v0, "locationManager":Landroid/location/LocationManager;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 87
     const/4 v1, 0x0
@@ -41,7 +41,7 @@
     return v1
 
     .line 88
-    :cond_0
+    :cond_c
     const-string v1, "gps"
 
     invoke-virtual {v0, v1}, Landroid/location/LocationManager;->isProviderEnabled(Ljava/lang/String;)Z
@@ -52,7 +52,7 @@
 .end method
 
 .method private onPermissionGranted(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "permission"    # Ljava/lang/String;
 
     .line 72
@@ -62,45 +62,45 @@
 
     const v1, -0x70918bc1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_a
 
-    :cond_0
-    goto :goto_0
+    :cond_9
+    goto :goto_14
 
-    :cond_1
+    :cond_a
     const-string v0, "android.permission.ACCESS_FINE_LOCATION"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_15
 
-    :goto_0
+    :goto_14
     const/4 v0, -0x1
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_15
+    if-eqz v0, :cond_18
 
-    goto :goto_2
+    goto :goto_33
 
     .line 74
-    :cond_2
+    :cond_18
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_30
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/PermissionsActivity;->checkGPSIsOpen()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_30
 
     .line 75
     new-instance v0, Landroid/content/Intent;
@@ -117,19 +117,19 @@
 
     .line 77
     .end local v0    # "intent":Landroid/content/Intent;
-    goto :goto_2
+    goto :goto_33
 
     .line 78
-    :cond_3
+    :cond_30
     invoke-direct {p0}, Lcom/isaigu/gymapp/PermissionsActivity;->startScan()V
 
     .line 82
-    :goto_2
+    :goto_33
     return-void
 .end method
 
 .method private startScan()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-static {}, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->start()V
@@ -141,7 +141,7 @@
 
 # virtual methods
 .method public checkPermissions()V
-    .locals 7
+    .registers 8
 
     .line 50
     invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
@@ -154,13 +154,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_b
 
     .line 52
     return-void
 
     .line 55
-    :cond_0
+    :cond_b
     const-string v1, "android.permission.ACCESS_FINE_LOCATION"
 
     filled-new-array {v1}, [Ljava/lang/String;
@@ -179,8 +179,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_2
+    :goto_18
+    if-ge v4, v3, :cond_2c
 
     aget-object v5, v1, v4
 
@@ -192,32 +192,32 @@
 
     .line 59
     .local v6, "permissionCheck":I
-    if-nez v6, :cond_1
+    if-nez v6, :cond_26
 
     .line 60
     invoke-direct {p0, v5}, Lcom/isaigu/gymapp/PermissionsActivity;->onPermissionGranted(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_29
 
     .line 62
-    :cond_1
+    :cond_26
     invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 57
     .end local v5    # "permission":Ljava/lang/String;
     .end local v6    # "permissionCheck":I
-    :goto_1
+    :goto_29
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 65
-    :cond_2
+    :cond_2c
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_42
 
     .line 66
     invoke-interface {v2}, Ljava/util/List;->size()I
@@ -240,12 +240,12 @@
 
     .line 69
     .end local v3    # "deniedPermissions":[Ljava/lang/String;
-    :cond_3
+    :cond_42
     return-void
 .end method
 
 .method protected onActivityResult(IILandroid/content/Intent;)V
-    .locals 1
+    .registers 5
     .param p1, "requestCode"    # I
     .param p2, "resultCode"    # I
     .param p3, "data"    # Landroid/content/Intent;
@@ -256,25 +256,25 @@
     .line 94
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_f
 
     .line 95
     invoke-direct {p0}, Lcom/isaigu/gymapp/PermissionsActivity;->checkGPSIsOpen()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 96
     invoke-direct {p0}, Lcom/isaigu/gymapp/PermissionsActivity;->startScan()V
 
     .line 99
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
-    .locals 2
+    .registers 6
     .param p1, "requestCode"    # I
     .param p2, "permissions"    # [Ljava/lang/String;
     .param p3, "grantResults"    # [I
@@ -285,29 +285,29 @@
     .line 36
     const/4 v0, 0x2
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_7
 
-    goto :goto_1
+    goto :goto_1a
 
     .line 38
-    :cond_0
+    :cond_7
     array-length v0, p3
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_1a
 
     .line 39
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_b
     array-length v1, p3
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_1a
 
     .line 40
     aget v1, p3, v0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_17
 
     .line 41
     aget-object v1, p2, v0
@@ -315,14 +315,14 @@
     invoke-direct {p0, v1}, Lcom/isaigu/gymapp/PermissionsActivity;->onPermissionGranted(Ljava/lang/String;)V
 
     .line 39
-    :cond_1
+    :cond_17
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 47
     .end local v0    # "i":I
-    :cond_2
-    :goto_1
+    :cond_1a
+    :goto_1a
     return-void
 .end method

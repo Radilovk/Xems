@@ -117,7 +117,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 46
     invoke-direct {p0}, Lcom/isaigu/gymapp/BaseFullScreenDialogFragment;-><init>()V
@@ -148,7 +148,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)[Landroid/widget/ImageView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -158,7 +158,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;IIILjava/lang/String;)Ljava/util/List;
-    .locals 1
+    .registers 6
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
     .param p1, "x1"    # I
     .param p2, "x2"    # I
@@ -174,7 +174,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -184,7 +184,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -194,7 +194,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -204,7 +204,7 @@
 .end method
 
 .method static synthetic access$1300(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -214,7 +214,7 @@
 .end method
 
 .method static synthetic access$1400(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -224,7 +224,7 @@
 .end method
 
 .method static synthetic access$1500(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -234,7 +234,7 @@
 .end method
 
 .method static synthetic access$1600(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -244,7 +244,7 @@
 .end method
 
 .method static synthetic access$1700(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -254,7 +254,7 @@
 .end method
 
 .method static synthetic access$1800(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -264,7 +264,7 @@
 .end method
 
 .method static synthetic access$1900(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -274,7 +274,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -284,7 +284,7 @@
 .end method
 
 .method static synthetic access$2000(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -294,7 +294,7 @@
 .end method
 
 .method static synthetic access$2100(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -304,7 +304,7 @@
 .end method
 
 .method static synthetic access$2200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -314,7 +314,7 @@
 .end method
 
 .method static synthetic access$2300(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -324,7 +324,7 @@
 .end method
 
 .method static synthetic access$2400(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -334,7 +334,7 @@
 .end method
 
 .method static synthetic access$2500(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -346,7 +346,7 @@
 .end method
 
 .method static synthetic access$2600(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -356,7 +356,7 @@
 .end method
 
 .method static synthetic access$2700(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -366,7 +366,7 @@
 .end method
 
 .method static synthetic access$2800(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)[Landroid/widget/RelativeLayout;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -376,7 +376,7 @@
 .end method
 
 .method static synthetic access$2900(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -386,7 +386,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;Ljava/util/List;I)I
-    .locals 1
+    .registers 4
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
     .param p1, "x1"    # Ljava/util/List;
     .param p2, "x2"    # I
@@ -400,7 +400,7 @@
 .end method
 
 .method static synthetic access$3000(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Landroid/widget/TextView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -410,7 +410,7 @@
 .end method
 
 .method static synthetic access$3100(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -420,7 +420,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Landroid/widget/TextView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -430,7 +430,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Landroid/widget/TextView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -440,7 +440,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Landroid/widget/TextView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -450,7 +450,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Landroid/widget/TextView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -460,7 +460,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Landroid/widget/TextView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -470,7 +470,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 46
@@ -480,7 +480,7 @@
 .end method
 
 .method private getPickerViewData(IIILjava/lang/String;)Ljava/util/List;
-    .locals 6
+    .registers 11
     .param p1, "start"    # I
     .param p2, "end"    # I
     .param p3, "step"    # I
@@ -506,8 +506,8 @@
     move v1, p1
 
     .local v1, "i":I
-    :goto_0
-    if-gt v1, p2, :cond_0
+    :goto_6
+    if-gt v1, p2, :cond_2b
 
     .line 1227
     new-instance v2, Lcom/isaigu/gymapp/bean/PickerViewData;
@@ -544,16 +544,16 @@
     .end local v2    # "data":Lcom/isaigu/gymapp/bean/PickerViewData;
     add-int/2addr v1, p3
 
-    goto :goto_0
+    goto :goto_6
 
     .line 1230
     .end local v1    # "i":I
-    :cond_0
+    :cond_2b
     return-object v0
 .end method
 
 .method private getSelected(Ljava/util/List;I)I
-    .locals 6
+    .registers 9
     .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -569,12 +569,12 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_1c
 
     .line 1218
     invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -593,38 +593,38 @@
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_19
 
     .line 1219
     return v0
 
     .line 1217
-    :cond_0
+    :cond_19
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1222
     .end local v0    # "i":I
-    :cond_1
+    :cond_1c
     const/4 v0, -0x1
 
     return v0
 .end method
 
 .method private initListener()V
-    .locals 4
+    .registers 5
 
     .line 226
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->people:[Landroid/widget/RelativeLayout;
 
     array-length v2, v1
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_14
 
     .line 227
     move v2, v0
@@ -643,11 +643,11 @@
     .end local v2    # "fi":I
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 235
     .end local v0    # "i":I
-    :cond_0
+    :cond_14
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->inputramp:Landroid/widget/TextView;
 
     new-instance v1, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$2;
@@ -1057,7 +1057,7 @@
 .end method
 
 .method private initPickDataListHz()V
-    .locals 5
+    .registers 6
 
     .line 1208
     new-instance v0, Ljava/util/ArrayList;
@@ -1070,10 +1070,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_8
     const/16 v1, 0x78
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_33
 
     .line 1210
     new-instance v1, Lcom/isaigu/gymapp/bean/PickerViewData;
@@ -1114,16 +1114,16 @@
     .end local v1    # "data":Lcom/isaigu/gymapp/bean/PickerViewData;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 1214
     .end local v0    # "i":I
-    :cond_0
+    :cond_33
     return-void
 .end method
 
 .method private initSetData()V
-    .locals 6
+    .registers 7
 
     .line 1077
     iget-boolean v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->multiEdit:Z
@@ -1138,16 +1138,16 @@
     move-result-object v2
 
     .line 1077
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_8a
 
     .line 1078
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_e
     const/4 v3, 0x6
 
-    if-ge v0, v3, :cond_2
+    if-ge v0, v3, :cond_89
 
     .line 1079
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainUserProgramDataWrapperList:Ljava/util/List;
@@ -1156,7 +1156,7 @@
 
     move-result v3
 
-    if-ge v0, v3, :cond_1
+    if-ge v0, v3, :cond_7e
 
     .line 1080
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainUserProgramDataWrapperList:Ljava/util/List;
@@ -1169,11 +1169,11 @@
 
     .line 1081
     .local v3, "wrapper":Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_57
 
     iget-object v4, v3, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_57
 
     iget-object v4, v3, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
@@ -1183,7 +1183,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_57
 
     iget-object v4, v3, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
@@ -1193,7 +1193,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_57
 
     .line 1082
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -1222,10 +1222,10 @@
 
     invoke-virtual {v4, v5}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    goto :goto_1
+    goto :goto_6a
 
     .line 1084
-    :cond_0
+    :cond_57
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v4
@@ -1245,7 +1245,7 @@
     invoke-virtual {v4, v5}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 1086
-    :goto_1
+    :goto_6a
     iget-object v4, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->userName1:[Landroid/widget/TextView;
 
     aget-object v4, v4, v0
@@ -1267,10 +1267,10 @@
 
     .line 1088
     .end local v3    # "wrapper":Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
-    goto :goto_2
+    goto :goto_86
 
     .line 1089
-    :cond_1
+    :cond_7e
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->people:[Landroid/widget/RelativeLayout;
 
     aget-object v3, v3, v0
@@ -1280,20 +1280,20 @@
     invoke-virtual {v3, v4}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
     .line 1078
-    :goto_2
+    :goto_86
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .end local v0    # "i":I
-    :cond_2
-    goto :goto_3
+    :cond_89
+    goto :goto_e2
 
     .line 1093
-    :cond_3
+    :cond_8a
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_e2
 
     .line 1094
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->username:Landroid/widget/TextView;
@@ -1309,7 +1309,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_d1
 
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
@@ -1321,7 +1321,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_d1
 
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
@@ -1333,7 +1333,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_d1
 
     .line 1096
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -1362,10 +1362,10 @@
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    goto :goto_3
+    goto :goto_e2
 
     .line 1098
-    :cond_4
+    :cond_d1
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
@@ -1383,8 +1383,8 @@
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 1102
-    :cond_5
-    :goto_3
+    :cond_e2
+    :goto_e2
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->worklength:Landroid/widget/TextView;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -1921,7 +1921,7 @@
 .end method
 
 .method private initView(Landroid/view/View;)V
-    .locals 8
+    .registers 10
     .param p1, "view"    # Landroid/view/View;
 
     .line 147
@@ -2605,7 +2605,7 @@
 .end method
 
 .method private preCheck()Z
-    .locals 9
+    .registers 10
 
     .line 952
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -2640,14 +2640,14 @@
 
     const/4 v7, 0x0
 
-    if-ltz v0, :cond_2b
+    if-ltz v0, :cond_304
 
-    if-le v0, v4, :cond_0
+    if-le v0, v4, :cond_1e
 
-    goto/16 :goto_15
+    goto/16 :goto_304
 
     .line 957
-    :cond_0
+    :cond_1e
     iget-object v8, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v8, v8, Lcom/isaigu/gymapp/bean/TrainProgram;->muscleTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2659,14 +2659,14 @@
     .line 958
     .end local v0    # "value":I
     .local v8, "value":I
-    if-ltz v8, :cond_2a
+    if-ltz v8, :cond_2f0
 
-    if-le v8, v4, :cond_1
+    if-le v8, v4, :cond_2b
 
-    goto/16 :goto_14
+    goto/16 :goto_2f0
 
     .line 962
-    :cond_1
+    :cond_2b
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainProgram;->aerobicTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2678,14 +2678,14 @@
     .line 963
     .end local v8    # "value":I
     .restart local v0    # "value":I
-    if-ltz v0, :cond_29
+    if-ltz v0, :cond_2dc
 
-    if-le v0, v4, :cond_2
+    if-le v0, v4, :cond_38
 
-    goto/16 :goto_13
+    goto/16 :goto_2dc
 
     .line 967
-    :cond_2
+    :cond_38
     iget-object v8, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v8, v8, Lcom/isaigu/gymapp/bean/TrainProgram;->massageModeProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2697,14 +2697,14 @@
     .line 968
     .end local v0    # "value":I
     .restart local v8    # "value":I
-    if-ltz v8, :cond_28
+    if-ltz v8, :cond_2c8
 
-    if-le v8, v4, :cond_3
+    if-le v8, v4, :cond_45
 
-    goto/16 :goto_12
+    goto/16 :goto_2c8
 
     .line 973
-    :cond_3
+    :cond_45
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainProgram;->programDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2716,14 +2716,14 @@
     .restart local v0    # "value":I
     const v3, 0x7f0d008d
 
-    if-ltz v0, :cond_27
+    if-ltz v0, :cond_2b4
 
-    if-le v0, v1, :cond_4
+    if-le v0, v1, :cond_54
 
-    goto/16 :goto_11
+    goto/16 :goto_2b4
 
     .line 978
-    :cond_4
+    :cond_54
     iget-object v4, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v4, v4, Lcom/isaigu/gymapp/bean/TrainProgram;->muscleTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2731,14 +2731,14 @@
     iget v0, v4, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseContinue:I
 
     .line 979
-    if-ltz v0, :cond_26
+    if-ltz v0, :cond_2a0
 
-    if-le v0, v1, :cond_5
+    if-le v0, v1, :cond_60
 
-    goto/16 :goto_10
+    goto/16 :goto_2a0
 
     .line 983
-    :cond_5
+    :cond_60
     iget-object v4, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v4, v4, Lcom/isaigu/gymapp/bean/TrainProgram;->aerobicTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2746,14 +2746,14 @@
     iget v0, v4, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseContinue:I
 
     .line 984
-    if-ltz v0, :cond_25
+    if-ltz v0, :cond_28c
 
-    if-le v0, v1, :cond_6
+    if-le v0, v1, :cond_6c
 
-    goto/16 :goto_f
+    goto/16 :goto_28c
 
     .line 988
-    :cond_6
+    :cond_6c
     iget-object v4, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v4, v4, Lcom/isaigu/gymapp/bean/TrainProgram;->massageModeProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2761,14 +2761,14 @@
     iget v0, v4, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseContinue:I
 
     .line 989
-    if-ltz v0, :cond_24
+    if-ltz v0, :cond_278
 
-    if-le v0, v1, :cond_7
+    if-le v0, v1, :cond_78
 
-    goto/16 :goto_e
+    goto/16 :goto_278
 
     .line 994
-    :cond_7
+    :cond_78
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v3, v3, Lcom/isaigu/gymapp/bean/TrainProgram;->programDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2780,14 +2780,14 @@
 
     const/16 v4, 0x78
 
-    if-ltz v0, :cond_23
+    if-ltz v0, :cond_260
 
-    if-le v0, v4, :cond_8
+    if-le v0, v4, :cond_89
 
-    goto/16 :goto_d
+    goto/16 :goto_260
 
     .line 999
-    :cond_8
+    :cond_89
     iget-object v5, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v5, v5, Lcom/isaigu/gymapp/bean/TrainProgram;->muscleTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2795,14 +2795,14 @@
     iget v0, v5, Lcom/isaigu/gymapp/bean/ProgramDataBean;->hz:I
 
     .line 1000
-    if-ltz v0, :cond_22
+    if-ltz v0, :cond_248
 
-    if-le v0, v4, :cond_9
+    if-le v0, v4, :cond_95
 
-    goto/16 :goto_c
+    goto/16 :goto_248
 
     .line 1004
-    :cond_9
+    :cond_95
     iget-object v5, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v5, v5, Lcom/isaigu/gymapp/bean/TrainProgram;->aerobicTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2810,14 +2810,14 @@
     iget v0, v5, Lcom/isaigu/gymapp/bean/ProgramDataBean;->hz:I
 
     .line 1005
-    if-ltz v0, :cond_21
+    if-ltz v0, :cond_230
 
-    if-le v0, v4, :cond_a
+    if-le v0, v4, :cond_a1
 
-    goto/16 :goto_b
+    goto/16 :goto_230
 
     .line 1009
-    :cond_a
+    :cond_a1
     iget-object v5, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v5, v5, Lcom/isaigu/gymapp/bean/TrainProgram;->massageModeProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2825,14 +2825,14 @@
     iget v0, v5, Lcom/isaigu/gymapp/bean/ProgramDataBean;->hz:I
 
     .line 1010
-    if-ltz v0, :cond_20
+    if-ltz v0, :cond_218
 
-    if-le v0, v4, :cond_b
+    if-le v0, v4, :cond_ad
 
-    goto/16 :goto_a
+    goto/16 :goto_218
 
     .line 1015
-    :cond_b
+    :cond_ad
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v3, v3, Lcom/isaigu/gymapp/bean/TrainProgram;->programDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2842,14 +2842,14 @@
     .line 1016
     const v3, 0x7f0d008f
 
-    if-ltz v0, :cond_1f
+    if-ltz v0, :cond_204
 
-    if-le v0, v1, :cond_c
+    if-le v0, v1, :cond_bc
 
-    goto/16 :goto_9
+    goto/16 :goto_204
 
     .line 1020
-    :cond_c
+    :cond_bc
     iget-object v4, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v4, v4, Lcom/isaigu/gymapp/bean/TrainProgram;->muscleTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2857,14 +2857,14 @@
     iget v0, v4, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulsePause:I
 
     .line 1021
-    if-ltz v0, :cond_1e
+    if-ltz v0, :cond_1f0
 
-    if-le v0, v1, :cond_d
+    if-le v0, v1, :cond_c8
 
-    goto/16 :goto_8
+    goto/16 :goto_1f0
 
     .line 1025
-    :cond_d
+    :cond_c8
     iget-object v4, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v4, v4, Lcom/isaigu/gymapp/bean/TrainProgram;->aerobicTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2872,14 +2872,14 @@
     iget v0, v4, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulsePause:I
 
     .line 1026
-    if-ltz v0, :cond_1d
+    if-ltz v0, :cond_1dc
 
-    if-le v0, v1, :cond_e
+    if-le v0, v1, :cond_d4
 
-    goto/16 :goto_7
+    goto/16 :goto_1dc
 
     .line 1030
-    :cond_e
+    :cond_d4
     iget-object v4, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v4, v4, Lcom/isaigu/gymapp/bean/TrainProgram;->massageModeProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2887,14 +2887,14 @@
     iget v0, v4, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulsePause:I
 
     .line 1031
-    if-ltz v0, :cond_1c
+    if-ltz v0, :cond_1c8
 
-    if-le v0, v1, :cond_f
+    if-le v0, v1, :cond_e0
 
-    goto/16 :goto_6
+    goto/16 :goto_1c8
 
     .line 1035
-    :cond_f
+    :cond_e0
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/bean/TrainProgram;->programDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2919,20 +2919,20 @@
 
     .line 1038
     .local v3, "value2":I
-    if-ltz v2, :cond_1b
+    if-ltz v2, :cond_1b9
 
-    if-ltz v3, :cond_1b
+    if-ltz v3, :cond_1b9
 
     add-int v4, v2, v3
 
     mul-int/lit16 v5, v1, 0x3e8
 
-    if-le v4, v5, :cond_10
+    if-le v4, v5, :cond_fe
 
-    goto/16 :goto_5
+    goto/16 :goto_1b9
 
     .line 1042
-    :cond_10
+    :cond_fe
     iget-object v4, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v4, v4, Lcom/isaigu/gymapp/bean/TrainProgram;->programDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2944,14 +2944,14 @@
 
     const/16 v5, 0x190
 
-    if-ltz v0, :cond_1a
+    if-ltz v0, :cond_1a1
 
-    if-le v0, v5, :cond_11
+    if-le v0, v5, :cond_10f
 
-    goto/16 :goto_4
+    goto/16 :goto_1a1
 
     .line 1047
-    :cond_11
+    :cond_10f
     iget-object v8, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v8, v8, Lcom/isaigu/gymapp/bean/TrainProgram;->muscleTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2959,14 +2959,14 @@
     iget v0, v8, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseWidth:I
 
     .line 1048
-    if-ltz v0, :cond_19
+    if-ltz v0, :cond_189
 
-    if-le v0, v5, :cond_12
+    if-le v0, v5, :cond_11a
 
-    goto :goto_3
+    goto :goto_189
 
     .line 1052
-    :cond_12
+    :cond_11a
     iget-object v8, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v8, v8, Lcom/isaigu/gymapp/bean/TrainProgram;->aerobicTrainingProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2974,14 +2974,14 @@
     iget v0, v8, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseWidth:I
 
     .line 1053
-    if-ltz v0, :cond_18
+    if-ltz v0, :cond_171
 
-    if-le v0, v5, :cond_13
+    if-le v0, v5, :cond_125
 
-    goto :goto_2
+    goto :goto_171
 
     .line 1057
-    :cond_13
+    :cond_125
     iget-object v8, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v8, v8, Lcom/isaigu/gymapp/bean/TrainProgram;->massageModeProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -2989,14 +2989,14 @@
     iget v0, v8, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseWidth:I
 
     .line 1058
-    if-ltz v0, :cond_17
+    if-ltz v0, :cond_159
 
-    if-le v0, v5, :cond_14
+    if-le v0, v5, :cond_130
 
-    goto :goto_1
+    goto :goto_159
 
     .line 1063
-    :cond_14
+    :cond_130
     iget-object v4, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
     iget-object v4, v4, Lcom/isaigu/gymapp/bean/TrainProgram;->massageModeProgramDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
@@ -3006,19 +3006,19 @@
     .line 1064
     const/16 v4, 0xa
 
-    if-ltz v0, :cond_16
+    if-ltz v0, :cond_13e
 
-    if-le v0, v4, :cond_15
+    if-le v0, v4, :cond_13d
 
-    goto :goto_0
+    goto :goto_13e
 
     .line 1069
-    :cond_15
+    :cond_13d
     return v6
 
     .line 1065
-    :cond_16
-    :goto_0
+    :cond_13e
+    :goto_13e
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v5
@@ -3047,8 +3047,8 @@
     return v7
 
     .line 1059
-    :cond_17
-    :goto_1
+    :cond_159
+    :goto_159
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v8
@@ -3075,8 +3075,8 @@
     return v7
 
     .line 1054
-    :cond_18
-    :goto_2
+    :cond_171
+    :goto_171
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v8
@@ -3103,8 +3103,8 @@
     return v7
 
     .line 1049
-    :cond_19
-    :goto_3
+    :cond_189
+    :goto_189
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v8
@@ -3131,8 +3131,8 @@
     return v7
 
     .line 1044
-    :cond_1a
-    :goto_4
+    :cond_1a1
+    :goto_1a1
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v8
@@ -3159,8 +3159,8 @@
     return v7
 
     .line 1039
-    :cond_1b
-    :goto_5
+    :cond_1b9
+    :goto_1b9
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v4
@@ -3180,8 +3180,8 @@
     .end local v1    # "paulseCe":I
     .end local v2    # "value1":I
     .end local v3    # "value2":I
-    :cond_1c
-    :goto_6
+    :cond_1c8
+    :goto_1c8
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3204,8 +3204,8 @@
     return v7
 
     .line 1027
-    :cond_1d
-    :goto_7
+    :cond_1dc
+    :goto_1dc
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3228,8 +3228,8 @@
     return v7
 
     .line 1022
-    :cond_1e
-    :goto_8
+    :cond_1f0
+    :goto_1f0
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3252,8 +3252,8 @@
     return v7
 
     .line 1017
-    :cond_1f
-    :goto_9
+    :cond_204
+    :goto_204
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3276,8 +3276,8 @@
     return v7
 
     .line 1011
-    :cond_20
-    :goto_a
+    :cond_218
+    :goto_218
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3304,8 +3304,8 @@
     return v7
 
     .line 1006
-    :cond_21
-    :goto_b
+    :cond_230
+    :goto_230
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3332,8 +3332,8 @@
     return v7
 
     .line 1001
-    :cond_22
-    :goto_c
+    :cond_248
+    :goto_248
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3360,8 +3360,8 @@
     return v7
 
     .line 996
-    :cond_23
-    :goto_d
+    :cond_260
+    :goto_260
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3388,8 +3388,8 @@
     return v7
 
     .line 990
-    :cond_24
-    :goto_e
+    :cond_278
+    :goto_278
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3412,8 +3412,8 @@
     return v7
 
     .line 985
-    :cond_25
-    :goto_f
+    :cond_28c
+    :goto_28c
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3436,8 +3436,8 @@
     return v7
 
     .line 980
-    :cond_26
-    :goto_10
+    :cond_2a0
+    :goto_2a0
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3460,8 +3460,8 @@
     return v7
 
     .line 975
-    :cond_27
-    :goto_11
+    :cond_2b4
+    :goto_2b4
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3486,8 +3486,8 @@
     .line 969
     .end local v0    # "value":I
     .restart local v8    # "value":I
-    :cond_28
-    :goto_12
+    :cond_2c8
+    :goto_2c8
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
@@ -3512,8 +3512,8 @@
     .line 964
     .end local v8    # "value":I
     .restart local v0    # "value":I
-    :cond_29
-    :goto_13
+    :cond_2dc
+    :goto_2dc
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3538,8 +3538,8 @@
     .line 959
     .end local v0    # "value":I
     .restart local v8    # "value":I
-    :cond_2a
-    :goto_14
+    :cond_2f0
+    :goto_2f0
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
@@ -3564,8 +3564,8 @@
     .line 954
     .end local v8    # "value":I
     .restart local v0    # "value":I
-    :cond_2b
-    :goto_15
+    :cond_304
+    :goto_304
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
@@ -3591,7 +3591,7 @@
 
 # virtual methods
 .method public getViewIid()I
-    .locals 1
+    .registers 2
 
     .line 87
     const v0, 0x7f0b0033
@@ -3600,7 +3600,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 6
+    .registers 10
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -3623,7 +3623,7 @@
     .local v1, "bundle":Landroid/os/Bundle;
     const/16 v2, 0x8
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_b0
 
     .line 99
     const-string v3, "editProgram"
@@ -3637,7 +3637,7 @@
     .line 100
     const-string v4, "data"
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_82
 
     .line 101
     const-string v3, "multiEdit"
@@ -3651,7 +3651,7 @@
     iput-boolean v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->multiEdit:Z
 
     .line 102
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_53
 
     .line 103
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getArguments()Landroid/os/Bundle;
@@ -3667,7 +3667,7 @@
     iput-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainUserProgramDataWrapperList:Ljava/util/List;
 
     .line 104
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3c
 
     .line 105
     const-class v4, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
@@ -3679,7 +3679,7 @@
     iput-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainUserProgramDataWrapperList:Ljava/util/List;
 
     .line 107
-    :cond_0
+    :cond_3c
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainUserProgramDataWrapperList:Ljava/util/List;
 
     invoke-interface {v3, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -3702,10 +3702,10 @@
 
     invoke-virtual {v2, v5}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    goto :goto_1
+    goto :goto_c4
 
     .line 111
-    :cond_1
+    :cond_53
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getArguments()Landroid/os/Bundle;
 
     move-result-object v3
@@ -3719,7 +3719,7 @@
     iput-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     .line 112
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_6a
 
     .line 113
     invoke-static {v3}, Lcom/isaigu/gymapp/utils/BeanUtils;->cloneObject(Ljava/lang/Object;)Ljava/lang/Object;
@@ -3730,10 +3730,10 @@
 
     iput-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    goto :goto_0
+    goto :goto_71
 
     .line 115
-    :cond_2
+    :cond_6a
     new-instance v3, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     invoke-direct {v3}, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;-><init>()V
@@ -3741,7 +3741,7 @@
     iput-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     .line 117
-    :goto_0
+    :goto_71
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->wrapper:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     iget-object v3, v3, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -3758,10 +3758,10 @@
 
     invoke-virtual {v3, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    goto :goto_1
+    goto :goto_c4
 
     .line 122
-    :cond_3
+    :cond_82
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getArguments()Landroid/os/Bundle;
 
     move-result-object v3
@@ -3787,7 +3787,7 @@
     .line 125
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_a5
 
     .line 126
     invoke-static {v2}, Lcom/isaigu/gymapp/utils/BeanUtils;->cloneObject(Ljava/lang/Object;)Ljava/lang/Object;
@@ -3798,10 +3798,10 @@
 
     iput-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
-    goto :goto_1
+    goto :goto_c4
 
     .line 128
-    :cond_4
+    :cond_a5
     new-instance v2, Lcom/isaigu/gymapp/bean/TrainProgram;
 
     invoke-direct {v2}, Lcom/isaigu/gymapp/bean/TrainProgram;-><init>()V
@@ -3811,10 +3811,10 @@
     .line 129
     invoke-virtual {v2}, Lcom/isaigu/gymapp/bean/TrainProgram;->init()V
 
-    goto :goto_1
+    goto :goto_c4
 
     .line 133
-    :cond_5
+    :cond_b0
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->usericonLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v3, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
@@ -3835,7 +3835,7 @@
     invoke-virtual {v2}, Lcom/isaigu/gymapp/bean/TrainProgram;->init()V
 
     .line 139
-    :goto_1
+    :goto_c4
     invoke-direct {p0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->initPickDataListHz()V
 
     .line 140
@@ -3849,7 +3849,7 @@
 .end method
 
 .method public onStart()V
-    .locals 6
+    .registers 7
 
     .line 1188
     invoke-super {p0}, Lcom/isaigu/gymapp/BaseFullScreenDialogFragment;->onStart()V
@@ -3946,7 +3946,7 @@
 .end method
 
 .method public setSaveProgramListener(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;)V
-    .locals 0
+    .registers 2
     .param p1, "saveProgramListener"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;
 
     .line 1073

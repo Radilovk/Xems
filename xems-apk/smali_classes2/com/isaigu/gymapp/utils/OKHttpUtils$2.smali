@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/utils/OKHttpUtils$OnDownloadListener;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 4
 
     .line 290
     iput-object p1, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$2;->val$listener:Lcom/isaigu/gymapp/utils/OKHttpUtils$OnDownloadListener;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public onFailure(Lokhttp3/Call;Ljava/io/IOException;)V
-    .locals 1
+    .registers 4
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "e"    # Ljava/io/IOException;
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public onResponse(Lokhttp3/Call;Lokhttp3/Response;)V
-    .locals 12
+    .registers 15
     .param p1, "call"    # Lokhttp3/Call;
     .param p2, "response"    # Lokhttp3/Response;
     .annotation system Ldalvik/annotation/Throws;
@@ -98,14 +98,14 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_17
 
     .line 305
     invoke-virtual {v4}, Ljava/io/File;->mkdirs()Z
 
     .line 308
-    :cond_0
-    :try_start_0
+    :cond_17
+    :try_start_17
     invoke-virtual {p2}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
 
     move-result-object v5
@@ -131,6 +131,7 @@
 
     iget-object v8, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$2;->val$url:Ljava/lang/String;
 
+    # invokes: Lcom/isaigu/gymapp/utils/OKHttpUtils;->getNameFromUrl(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v8}, Lcom/isaigu/gymapp/utils/OKHttpUtils;->access$100(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
@@ -143,13 +144,13 @@
 
     move-result v8
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_49
 
     invoke-virtual {v7}, Ljava/io/File;->createNewFile()Z
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_49
 
     .line 312
     const/4 v8, 0x1
@@ -163,7 +164,7 @@
     invoke-virtual {v7, v8}, Ljava/io/File;->setReadable(Z)Z
 
     .line 316
-    :cond_1
+    :cond_49
     new-instance v8, Ljava/io/FileOutputStream;
 
     invoke-direct {v8, v7}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
@@ -175,7 +176,7 @@
 
     .line 318
     .local v8, "sum":J
-    :goto_0
+    :goto_51
     invoke-virtual {v0, v1}, Ljava/io/InputStream;->read([B)I
 
     move-result v10
@@ -184,7 +185,7 @@
 
     const/4 v11, -0x1
 
-    if-eq v10, v11, :cond_2
+    if-eq v10, v11, :cond_71
 
     .line 319
     const/4 v10, 0x0
@@ -221,10 +222,10 @@
 
     .line 324
     .end local v10    # "progress":I
-    goto :goto_0
+    goto :goto_51
 
     .line 325
-    :cond_2
+    :cond_71
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->flush()V
 
     .line 327
@@ -235,165 +236,165 @@
     move-result-object v11
 
     invoke-interface {v10, v11}, Lcom/isaigu/gymapp/utils/OKHttpUtils$OnDownloadListener;->onDownloadSuccess(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7d
+    .catch Ljava/lang/Exception; {:try_start_17 .. :try_end_7d} :catch_8f
+    .catchall {:try_start_17 .. :try_end_7d} :catchall_8d
 
     .line 333
     .end local v5    # "total":J
     .end local v7    # "file":Ljava/io/File;
     .end local v8    # "sum":J
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_85
 
     .line 334
-    :try_start_1
+    :try_start_7f
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_82
+    .catch Ljava/io/IOException; {:try_start_7f .. :try_end_82} :catch_83
 
-    goto :goto_1
+    goto :goto_85
 
     .line 335
-    :catch_0
+    :catch_83
     move-exception v5
 
-    goto :goto_2
+    goto :goto_86
 
     .line 336
-    :cond_3
-    :goto_1
+    :cond_85
+    :goto_85
     nop
 
     .line 338
-    :goto_2
+    :goto_86
     nop
 
     .line 339
-    :try_start_2
+    :try_start_87
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_8a
+    .catch Ljava/io/IOException; {:try_start_87 .. :try_end_8a} :catch_8b
 
     .line 341
-    :cond_4
-    :goto_3
-    goto :goto_6
+    :cond_8a
+    :goto_8a
+    goto :goto_a7
 
     .line 340
-    :catch_1
+    :catch_8b
     move-exception v5
 
     .line 342
-    goto :goto_6
+    goto :goto_a7
 
     .line 332
-    :catchall_0
+    :catchall_8d
     move-exception v5
 
-    goto :goto_7
+    goto :goto_a8
 
     .line 328
-    :catch_2
+    :catch_8f
     move-exception v5
 
     .line 329
     .local v5, "e":Ljava/lang/Exception;
-    :try_start_3
+    :try_start_90
     invoke-virtual {v5}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 330
     iget-object v6, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$2;->val$listener:Lcom/isaigu/gymapp/utils/OKHttpUtils$OnDownloadListener;
 
     invoke-interface {v6}, Lcom/isaigu/gymapp/utils/OKHttpUtils$OnDownloadListener;->onDownloadFailed()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_98
+    .catchall {:try_start_90 .. :try_end_98} :catchall_8d
 
     .line 333
     .end local v5    # "e":Ljava/lang/Exception;
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_a0
 
     .line 334
-    :try_start_4
+    :try_start_9a
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+    :try_end_9d
+    .catch Ljava/io/IOException; {:try_start_9a .. :try_end_9d} :catch_9e
 
-    goto :goto_4
+    goto :goto_a0
 
     .line 335
-    :catch_3
+    :catch_9e
     move-exception v5
 
-    goto :goto_5
+    goto :goto_a1
 
     .line 336
-    :cond_5
-    :goto_4
+    :cond_a0
+    :goto_a0
     nop
 
     .line 338
-    :goto_5
-    if-eqz v3, :cond_4
+    :goto_a1
+    if-eqz v3, :cond_8a
 
     .line 339
-    :try_start_5
+    :try_start_a3
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_1
+    :try_end_a6
+    .catch Ljava/io/IOException; {:try_start_a3 .. :try_end_a6} :catch_8b
 
-    goto :goto_3
+    goto :goto_8a
 
     .line 343
-    :goto_6
+    :goto_a7
     return-void
 
     .line 333
-    :goto_7
-    if-eqz v0, :cond_6
+    :goto_a8
+    if-eqz v0, :cond_b0
 
     .line 334
-    :try_start_6
+    :try_start_aa
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_4
+    :try_end_ad
+    .catch Ljava/io/IOException; {:try_start_aa .. :try_end_ad} :catch_ae
 
-    goto :goto_8
+    goto :goto_b0
 
     .line 335
-    :catch_4
+    :catch_ae
     move-exception v6
 
-    goto :goto_9
+    goto :goto_b1
 
     .line 336
-    :cond_6
-    :goto_8
+    :cond_b0
+    :goto_b0
     nop
 
     .line 338
-    :goto_9
-    if-eqz v3, :cond_7
+    :goto_b1
+    if-eqz v3, :cond_b9
 
     .line 339
-    :try_start_7
+    :try_start_b3
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-    :try_end_7
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_5
+    :try_end_b6
+    .catch Ljava/io/IOException; {:try_start_b3 .. :try_end_b6} :catch_b7
 
-    goto :goto_a
+    goto :goto_b9
 
     .line 340
-    :catch_5
+    :catch_b7
     move-exception v6
 
-    goto :goto_b
+    goto :goto_ba
 
     .line 341
-    :cond_7
-    :goto_a
+    :cond_b9
+    :goto_b9
     nop
 
     .line 342
-    :goto_b
+    :goto_ba
     throw v5
 .end method

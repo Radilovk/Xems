@@ -55,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 22
     nop
@@ -386,7 +386,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -395,46 +395,46 @@
 .end method
 
 .method public static containsAllUuids([Landroid/os/ParcelUuid;[Landroid/os/ParcelUuid;)Z
-    .locals 7
+    .registers 9
     .param p0, "uuidA"    # [Landroid/os/ParcelUuid;
     .param p1, "uuidB"    # [Landroid/os/ParcelUuid;
 
     .line 159
     const/4 v0, 0x1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_6
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
     return v0
 
     .line 160
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_f
 
     .line 161
     array-length v2, p1
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_d
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_1
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return v0
 
     .line 163
-    :cond_2
-    if-nez p1, :cond_3
+    :cond_f
+    if-nez p1, :cond_12
 
     return v0
 
     .line 164
-    :cond_3
+    :cond_12
     new-instance v2, Ljava/util/HashSet;
 
     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -449,8 +449,8 @@
 
     const/4 v4, 0x0
 
-    :goto_1
-    if-ge v4, v3, :cond_5
+    :goto_1d
+    if-ge v4, v3, :cond_2b
 
     aget-object v5, p1, v4
 
@@ -460,74 +460,74 @@
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_28
 
     return v1
 
     .line 165
     .end local v5    # "uuid":Landroid/os/ParcelUuid;
-    :cond_4
+    :cond_28
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 168
-    :cond_5
+    :cond_2b
     return v0
 .end method
 
 .method public static containsAnyUuid([Landroid/os/ParcelUuid;[Landroid/os/ParcelUuid;)Z
-    .locals 7
+    .registers 9
     .param p0, "uuidA"    # [Landroid/os/ParcelUuid;
     .param p1, "uuidB"    # [Landroid/os/ParcelUuid;
 
     .line 137
     const/4 v0, 0x1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_6
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
     return v0
 
     .line 138
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_f
 
     .line 139
     array-length v2, p1
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_d
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_1
+    :cond_d
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_e
     return v0
 
     .line 141
-    :cond_2
-    if-nez p1, :cond_4
+    :cond_f
+    if-nez p1, :cond_17
 
     .line 142
     array-length v2, p0
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_15
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_3
+    :cond_15
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_16
     return v0
 
     .line 144
-    :cond_4
+    :cond_17
     new-instance v2, Ljava/util/HashSet;
 
     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -542,8 +542,8 @@
 
     const/4 v4, 0x0
 
-    :goto_2
-    if-ge v4, v3, :cond_6
+    :goto_22
+    if-ge v4, v3, :cond_30
 
     aget-object v5, p1, v4
 
@@ -553,24 +553,24 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_2d
 
     return v0
 
     .line 145
     .end local v5    # "uuid":Landroid/os/ParcelUuid;
-    :cond_5
+    :cond_2d
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_22
 
     .line 148
-    :cond_6
+    :cond_30
     return v1
 .end method
 
 .method public static getServiceIdentifierFromParcelUuid(Landroid/os/ParcelUuid;)I
-    .locals 5
+    .registers 6
     .param p0, "parcelUuid"    # Landroid/os/ParcelUuid;
 
     .line 178
@@ -600,7 +600,7 @@
 .end method
 
 .method public static is16BitUuid(Landroid/os/ParcelUuid;)Z
-    .locals 7
+    .registers 8
     .param p0, "parcelUuid"    # Landroid/os/ParcelUuid;
 
     .line 230
@@ -628,13 +628,13 @@
 
     cmp-long v6, v1, v3
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_18
 
     .line 232
     return v5
 
     .line 234
-    :cond_0
+    :cond_18
     invoke-virtual {v0}, Ljava/util/UUID;->getMostSignificantBits()J
 
     move-result-wide v1
@@ -647,16 +647,16 @@
 
     cmp-long v6, v1, v3
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_29
 
     const/4 v5, 0x1
 
-    :cond_1
+    :cond_29
     return v5
 .end method
 
 .method public static is32BitUuid(Landroid/os/ParcelUuid;)Z
-    .locals 7
+    .registers 8
     .param p0, "parcelUuid"    # Landroid/os/ParcelUuid;
 
     .line 243
@@ -684,24 +684,24 @@
 
     cmp-long v6, v1, v3
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_18
 
     .line 245
     return v5
 
     .line 247
-    :cond_0
+    :cond_18
     invoke-static {p0}, Lcom/isaigu/gymapp/ble/BluetoothUuid;->is16BitUuid(Landroid/os/ParcelUuid;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
     .line 248
     return v5
 
     .line 250
-    :cond_1
+    :cond_1f
     invoke-virtual {v0}, Ljava/util/UUID;->getMostSignificantBits()J
 
     move-result-wide v1
@@ -714,16 +714,16 @@
 
     cmp-long v6, v1, v3
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_30
 
     const/4 v5, 0x1
 
-    :cond_2
+    :cond_30
     return v5
 .end method
 
 .method public static isAdvAudioDist(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 78
@@ -737,7 +737,7 @@
 .end method
 
 .method public static isAudioSink(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 75
@@ -751,7 +751,7 @@
 .end method
 
 .method public static isAudioSource(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 72
@@ -765,7 +765,7 @@
 .end method
 
 .method public static isAvrcpController(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 87
@@ -779,7 +779,7 @@
 .end method
 
 .method public static isAvrcpTarget(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 90
@@ -793,7 +793,7 @@
 .end method
 
 .method public static isBnep(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 102
@@ -807,7 +807,7 @@
 .end method
 
 .method public static isHandsfree(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 81
@@ -821,7 +821,7 @@
 .end method
 
 .method public static isHeadset(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 84
@@ -835,7 +835,7 @@
 .end method
 
 .method public static isInputDevice(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 93
@@ -849,7 +849,7 @@
 .end method
 
 .method public static isMap(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 105
@@ -863,7 +863,7 @@
 .end method
 
 .method public static isMas(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 111
@@ -877,7 +877,7 @@
 .end method
 
 .method public static isMns(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 108
@@ -891,7 +891,7 @@
 .end method
 
 .method public static isNap(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 99
@@ -905,7 +905,7 @@
 .end method
 
 .method public static isPanu(Landroid/os/ParcelUuid;)Z
-    .locals 1
+    .registers 2
     .param p0, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 96
@@ -919,42 +919,42 @@
 .end method
 
 .method public static isUuidPresent([Landroid/os/ParcelUuid;Landroid/os/ParcelUuid;)Z
-    .locals 6
+    .registers 8
     .param p0, "uuidArray"    # [Landroid/os/ParcelUuid;
     .param p1, "uuid"    # Landroid/os/ParcelUuid;
 
     .line 120
     const/4 v0, 0x1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_6
 
     array-length v1, p0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_9
 
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_6
+    if-nez p1, :cond_9
 
     .line 121
     return v0
 
     .line 122
-    :cond_1
+    :cond_9
     const/4 v1, 0x0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_d
 
     .line 123
     return v1
 
     .line 124
-    :cond_2
+    :cond_d
     array-length v2, p0
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_4
+    :goto_f
+    if-ge v3, v2, :cond_1d
 
     aget-object v4, p0, v3
 
@@ -964,28 +964,28 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_1a
 
     return v0
 
     .line 124
     .end local v4    # "element":Landroid/os/ParcelUuid;
-    :cond_3
+    :cond_1a
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 127
-    :cond_4
+    :cond_1d
     return v1
 .end method
 
 .method public static parseUuidFrom([B)Landroid/os/ParcelUuid;
-    .locals 9
+    .registers 10
     .param p0, "uuidBytes"    # [B
 
     .line 192
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_98
 
     .line 195
     array-length v0, p0
@@ -996,18 +996,18 @@
 
     const/4 v2, 0x2
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_25
 
     const/4 v3, 0x4
 
-    if-eq v0, v3, :cond_1
+    if-eq v0, v3, :cond_25
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
-    goto :goto_0
+    goto :goto_25
 
     .line 198
-    :cond_0
+    :cond_e
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1029,13 +1029,13 @@
     throw v1
 
     .line 201
-    :cond_1
-    :goto_0
+    :cond_25
+    :goto_25
     const/4 v3, 0x0
 
     const/16 v4, 0x8
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_47
 
     .line 202
     invoke-static {p0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
@@ -1076,10 +1076,10 @@
     .end local v1    # "buf":Ljava/nio/ByteBuffer;
     .end local v2    # "lsb":J
     .end local v4    # "msb":J
-    :cond_2
+    :cond_47
     const/4 v5, 0x1
 
-    if-ne v0, v2, :cond_3
+    if-ne v0, v2, :cond_57
 
     .line 211
     aget-byte v1, p0, v3
@@ -1100,11 +1100,11 @@
 
     add-long/2addr v1, v3
 
-    goto :goto_1
+    goto :goto_74
 
     .line 214
     .end local v1    # "shortUuid":J
-    :cond_3
+    :cond_57
     aget-byte v3, p0, v3
 
     and-int/lit16 v3, v3, 0xff
@@ -1150,7 +1150,7 @@
     .line 219
     .end local v6    # "shortUuid":J
     .restart local v1    # "shortUuid":J
-    :goto_1
+    :goto_74
     sget-object v3, Lcom/isaigu/gymapp/ble/BluetoothUuid;->BASE_UUID:Landroid/os/ParcelUuid;
 
     invoke-virtual {v3}, Landroid/os/ParcelUuid;->getUuid()Ljava/util/UUID;
@@ -1196,7 +1196,7 @@
     .end local v1    # "shortUuid":J
     .end local v3    # "msb":J
     .end local v5    # "lsb":J
-    :cond_4
+    :cond_98
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "uuidBytes cannot be null"

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 192
     iput-object p1, p0, Lcom/isaigu/gymapp/utils/AndroidUtils$1;->val$abspath:Ljava/lang/String;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 10
+    .registers 11
 
     .line 194
     new-instance v0, Ljava/lang/StringBuilder;
@@ -82,7 +82,7 @@
 
     .line 203
     .local v6, "errorMsg":Ljava/lang/StringBuilder;
-    :try_start_0
+    :try_start_21
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v7
@@ -160,7 +160,7 @@
     move-object v4, v7
 
     .line 215
-    :goto_0
+    :goto_6b
     invoke-virtual {v3}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v7
@@ -168,49 +168,49 @@
     move-object v8, v7
 
     .local v8, "s":Ljava/lang/String;
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_76
 
     .line 216
     invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_6b
 
     .line 218
-    :cond_0
-    :goto_1
+    :cond_76
+    :goto_76
     invoke-virtual {v4}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v7
 
     move-object v8, v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_81
 
     .line 219
     invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_80
+    .catch Ljava/lang/Exception; {:try_start_21 .. :try_end_80} :catch_9a
+    .catchall {:try_start_21 .. :try_end_80} :catchall_98
 
-    goto :goto_1
+    goto :goto_76
 
     .line 225
     .end local v8    # "s":Ljava/lang/String;
-    :cond_1
+    :cond_81
     nop
 
     .line 226
-    :try_start_1
+    :try_start_82
     invoke-virtual {v2}, Ljava/io/DataOutputStream;->close()V
 
     .line 228
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_8a
 
     .line 229
     invoke-virtual {v1}, Ljava/lang/Process;->destroy()V
 
     .line 231
-    :cond_2
+    :cond_8a
     nop
 
     .line 232
@@ -221,16 +221,16 @@
 
     .line 235
     invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_92
+    .catch Ljava/lang/Exception; {:try_start_82 .. :try_end_92} :catch_93
 
     .line 239
-    :cond_3
-    :goto_2
-    goto :goto_3
+    :cond_92
+    :goto_92
+    goto :goto_b3
 
     .line 237
-    :catch_0
+    :catch_93
     move-exception v7
 
     .line 238
@@ -239,60 +239,60 @@
 
     .line 240
     .end local v7    # "e":Ljava/lang/Exception;
-    goto :goto_3
+    goto :goto_b3
 
     .line 224
-    :catchall_0
+    :catchall_98
     move-exception v7
 
-    goto :goto_4
+    goto :goto_e8
 
     .line 221
-    :catch_1
+    :catch_9a
     move-exception v7
 
     .line 222
     .restart local v7    # "e":Ljava/lang/Exception;
-    :try_start_2
+    :try_start_9b
     invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_9e
+    .catchall {:try_start_9b .. :try_end_9e} :catchall_98
 
     .line 225
     .end local v7    # "e":Ljava/lang/Exception;
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_a3
 
     .line 226
-    :try_start_3
+    :try_start_a0
     invoke-virtual {v2}, Ljava/io/DataOutputStream;->close()V
 
     .line 228
-    :cond_4
-    if-eqz v1, :cond_5
+    :cond_a3
+    if-eqz v1, :cond_a8
 
     .line 229
     invoke-virtual {v1}, Ljava/lang/Process;->destroy()V
 
     .line 231
-    :cond_5
-    if-eqz v3, :cond_6
+    :cond_a8
+    if-eqz v3, :cond_ad
 
     .line 232
     invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
 
     .line 234
-    :cond_6
-    if-eqz v4, :cond_3
+    :cond_ad
+    if-eqz v4, :cond_92
 
     .line 235
     invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_b2
+    .catch Ljava/lang/Exception; {:try_start_a0 .. :try_end_b2} :catch_93
 
-    goto :goto_2
+    goto :goto_92
 
     .line 241
-    :goto_3
+    :goto_b3
     sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -342,61 +342,61 @@
     return-void
 
     .line 225
-    :goto_4
-    if-eqz v2, :cond_7
+    :goto_e8
+    if-eqz v2, :cond_f0
 
     .line 226
-    :try_start_4
+    :try_start_ea
     invoke-virtual {v2}, Ljava/io/DataOutputStream;->close()V
 
-    goto :goto_5
+    goto :goto_f0
 
     .line 237
-    :catch_2
+    :catch_ee
     move-exception v8
 
-    goto :goto_6
+    goto :goto_100
 
     .line 228
-    :cond_7
-    :goto_5
-    if-eqz v1, :cond_8
+    :cond_f0
+    :goto_f0
+    if-eqz v1, :cond_f5
 
     .line 229
     invoke-virtual {v1}, Ljava/lang/Process;->destroy()V
 
     .line 231
-    :cond_8
-    if-eqz v3, :cond_9
+    :cond_f5
+    if-eqz v3, :cond_fa
 
     .line 232
     invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
 
     .line 234
-    :cond_9
-    if-eqz v4, :cond_a
+    :cond_fa
+    if-eqz v4, :cond_104
 
     .line 235
     invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
+    :try_end_ff
+    .catch Ljava/lang/Exception; {:try_start_ea .. :try_end_ff} :catch_ee
 
-    goto :goto_7
+    goto :goto_104
 
     .line 238
     .local v8, "e":Ljava/lang/Exception;
-    :goto_6
+    :goto_100
     invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_8
+    goto :goto_105
 
     .line 239
     .end local v8    # "e":Ljava/lang/Exception;
-    :cond_a
-    :goto_7
+    :cond_104
+    :goto_104
     nop
 
     .line 240
-    :goto_8
+    :goto_105
     throw v7
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2;Lcom/isaigu/gymapp/bean/ProgramDataBean;)V
-    .locals 0
+    .registers 3
     .param p1, "this$2"    # Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2;
 
     .line 1193
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .registers 8
 
     .line 1195
     const/4 v0, 0x0
@@ -52,7 +52,7 @@
 
     iget v1, v1, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseContinue:I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 1197
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$4;->this$2:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2;
@@ -82,7 +82,7 @@
     float-to-int v0, v1
 
     .line 1199
-    :cond_0
+    :cond_1d
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$4;->this$2:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2;->val$userHolder:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$UserTrainControlHolder;
@@ -145,11 +145,11 @@
 
     sub-int/2addr v1, v3
 
-    if-gez v1, :cond_1
+    if-gez v1, :cond_5d
 
-    goto :goto_0
+    goto :goto_69
 
-    :cond_1
+    :cond_5d
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$4;->val$bean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
 
     iget v1, v1, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseContinue:I
@@ -162,7 +162,7 @@
 
     sub-int v2, v1, v2
 
-    :goto_0
+    :goto_69
     move v1, v2
 
     .line 1204
@@ -211,14 +211,14 @@
 
     sub-int/2addr v2, v3
 
-    if-gtz v2, :cond_3
+    if-gtz v2, :cond_ce
 
     .line 1208
     iget-object v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$4;->val$bean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
 
     iget v2, v2, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulsePause:I
 
-    if-gtz v2, :cond_2
+    if-gtz v2, :cond_ba
 
     .line 1209
     iget-object v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$4;->this$2:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2;
@@ -247,10 +247,11 @@
 
     iget-boolean v6, v6, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->start:Z
 
+    # invokes: Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->set_mode_other_10_part_parameter(Ljava/lang/String;ILcom/isaigu/gymapp/bean/ProgramDataBean;Z)V
     invoke-static {v2, v3, v4, v5, v6}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->access$1200(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;Ljava/lang/String;ILcom/isaigu/gymapp/bean/ProgramDataBean;Z)V
 
     .line 1211
-    :cond_2
+    :cond_ba
     iget-object v2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2$4;->this$2:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2;
 
     iget-object v2, v2, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$2;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
@@ -270,6 +271,6 @@
     invoke-virtual {v2, v3, v4, v5}, Lcom/isaigu/gymapp/BaseActivity;->runDelay(Ljava/lang/Runnable;J)V
 
     .line 1245
-    :cond_3
+    :cond_ce
     return-void
 .end method

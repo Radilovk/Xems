@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/BaseActivity;)V
-    .locals 1
+    .registers 3
     .param p1, "baseActivity"    # Lcom/isaigu/gymapp/BaseActivity;
 
     .line 28
@@ -41,7 +41,7 @@
 .end method
 
 .method private save(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "macAddress"    # Ljava/lang/String;
 
     .line 97
@@ -55,7 +55,7 @@
 
     .line 98
     .local v0, "trainRecordDTO":Lcom/isaigu/gymapp/bean/dto/TrainRecordDTO;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 99
     iget-object v1, p0, Lcom/isaigu/gymapp/train/utils/TrainRecordManager;->baseActivity:Lcom/isaigu/gymapp/BaseActivity;
@@ -70,12 +70,12 @@
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/mgr/ApiMgr;->addTrainRecord(Lcom/isaigu/gymapp/bean/dto/TrainRecordDTO;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
     .line 121
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method private updateTrainRecordValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 3
+    .registers 7
     .param p1, "macAddress"    # Ljava/lang/String;
     .param p2, "name"    # Ljava/lang/String;
     .param p3, "value"    # Ljava/lang/Object;
@@ -85,33 +85,33 @@
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_5b
 
     invoke-static {p2}, Lorg/apache/commons/lang3/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_5b
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_f
 
-    goto :goto_1
+    goto :goto_5b
 
     .line 66
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/isaigu/gymapp/train/utils/TrainRecordManager;->trainRecordMap:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     .line 67
     return-void
 
     .line 69
-    :cond_1
+    :cond_18
     iget-object v0, p0, Lcom/isaigu/gymapp/train/utils/TrainRecordManager;->trainRecordMap:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -128,7 +128,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_3d
 
     .line 71
     move-object v1, p3
@@ -147,7 +147,7 @@
 
     cmpg-float v2, v2, v1
 
-    if-gez v2, :cond_2
+    if-gez v2, :cond_3c
 
     .line 73
     float-to-int v2, v1
@@ -161,17 +161,17 @@
 
     .line 76
     .end local v1    # "integer":F
-    :cond_2
-    goto :goto_0
+    :cond_3c
+    goto :goto_5a
 
-    :cond_3
+    :cond_3d
     const-string v1, "minBodyStrenth"
 
     invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_57
 
     .line 77
     move-object v1, p3
@@ -190,7 +190,7 @@
 
     cmpl-float v2, v2, v1
 
-    if-lez v2, :cond_4
+    if-lez v2, :cond_56
 
     .line 79
     float-to-int v2, v1
@@ -199,41 +199,41 @@
 
     .line 81
     .end local v1    # "integer":F
-    :cond_4
-    goto :goto_0
+    :cond_56
+    goto :goto_5a
 
     .line 82
-    :cond_5
+    :cond_57
     invoke-static {v0, p2, p3}, Lcom/isaigu/gymapp/utils/ReflectUtils;->setObjectFieldValue(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 84
-    :goto_0
+    :goto_5a
     return-void
 
     .line 64
     .end local v0    # "recordDTO":Lcom/isaigu/gymapp/bean/dto/TrainRecordDTO;
-    :cond_6
-    :goto_1
+    :cond_5b
+    :goto_5b
     return-void
 .end method
 
 
 # virtual methods
 .method public addTrainRecord(Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;)V
-    .locals 4
+    .registers 6
     .param p1, "wrapper"    # Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     .line 33
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_61
 
     iget-boolean v0, p1, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->start:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
-    goto :goto_0
+    goto :goto_61
 
     .line 36
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/isaigu/gymapp/train/utils/TrainRecordManager;->trainRecordMap:Ljava/util/HashMap;
 
     iget-object v1, p1, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->macAddress:Ljava/lang/String;
@@ -242,7 +242,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_60
 
     .line 37
     new-instance v0, Lcom/isaigu/gymapp/bean/dto/TrainRecordDTO;
@@ -343,17 +343,17 @@
     .line 55
     .end local v0    # "recordDTO":Lcom/isaigu/gymapp/bean/dto/TrainRecordDTO;
     .end local v1    # "program":Lcom/isaigu/gymapp/bean/ProgramDataBean;
-    :cond_1
+    :cond_60
     return-void
 
     .line 34
-    :cond_2
-    :goto_0
+    :cond_61
+    :goto_61
     return-void
 .end method
 
 .method public synthetic lambda$saveTrainRecord$0$TrainRecordManager(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "macAddress"    # Ljava/lang/String;
 
     .line 93
@@ -363,7 +363,7 @@
 .end method
 
 .method public removeTrainRecord(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "macAddress"    # Ljava/lang/String;
 
     .line 87
@@ -373,7 +373,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 88
     iget-object v0, p0, Lcom/isaigu/gymapp/train/utils/TrainRecordManager;->trainRecordMap:Ljava/util/HashMap;
@@ -381,12 +381,12 @@
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 90
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public saveTrainRecord(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "macAddress"    # Ljava/lang/String;
 
     .line 93
@@ -405,7 +405,7 @@
 .end method
 
 .method public updateRecordValue(Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;)V
-    .locals 4
+    .registers 6
     .param p1, "data"    # Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     .line 58

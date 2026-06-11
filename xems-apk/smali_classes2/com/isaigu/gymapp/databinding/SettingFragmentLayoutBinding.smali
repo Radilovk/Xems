@@ -54,7 +54,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/ImageView;Landroid/widget/ImageView;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/RangeSeekBar;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/SwitchButton;Landroid/widget/TextView;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/MyButton;)V
-    .locals 16
+    .registers 39
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "changeLogo"    # Lcom/isaigu/gymapp/widget/MyButton;
     .param p3, "chinese"    # Lcom/isaigu/gymapp/widget/MyButton;
@@ -198,7 +198,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/SettingFragmentLayoutBinding;
-    .locals 47
+    .registers 48
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 147
@@ -216,7 +216,7 @@
 
     .line 149
     .local v2, "changeLogo":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_159
 
     .line 153
     const v1, 0x7f090071
@@ -232,7 +232,7 @@
 
     .line 155
     .local v26, "chinese":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v26, :cond_13
+    if-eqz v26, :cond_158
 
     .line 159
     const v1, 0x7f090083
@@ -248,7 +248,7 @@
 
     .line 161
     .local v27, "defaultLogo":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v27, :cond_12
+    if-eqz v27, :cond_157
 
     .line 165
     const v1, 0x7f090098
@@ -264,7 +264,7 @@
 
     .line 167
     .local v28, "english":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v28, :cond_11
+    if-eqz v28, :cond_156
 
     .line 171
     const v1, 0x7f09009b
@@ -280,7 +280,7 @@
 
     .line 173
     .local v29, "espanol":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v29, :cond_10
+    if-eqz v29, :cond_155
 
     .line 177
     const v1, 0x7f0900a5
@@ -296,7 +296,7 @@
 
     .line 179
     .local v30, "french":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v30, :cond_f
+    if-eqz v30, :cond_154
 
     .line 183
     const v1, 0x7f0900ab
@@ -312,7 +312,7 @@
 
     .line 185
     .local v31, "german":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v31, :cond_e
+    if-eqz v31, :cond_153
 
     .line 189
     const v1, 0x7f0900c4
@@ -328,7 +328,7 @@
 
     .line 191
     .local v32, "italian":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v32, :cond_d
+    if-eqz v32, :cond_152
 
     .line 195
     const v1, 0x7f0900f6
@@ -344,7 +344,7 @@
 
     .line 197
     .local v33, "logoImage":Landroid/widget/ImageView;
-    if-eqz v33, :cond_c
+    if-eqz v33, :cond_151
 
     .line 201
     const v1, 0x7f0900f8
@@ -360,7 +360,7 @@
 
     .line 203
     .local v34, "logoImage2":Landroid/widget/ImageView;
-    if-eqz v34, :cond_b
+    if-eqz v34, :cond_150
 
     .line 207
     const v1, 0x7f0900f9
@@ -376,7 +376,7 @@
 
     .line 209
     .local v35, "logout":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v35, :cond_a
+    if-eqz v35, :cond_14f
 
     .line 213
     const v1, 0x7f090132
@@ -392,7 +392,7 @@
 
     .line 215
     .local v36, "percent":Landroid/widget/TextView;
-    if-eqz v36, :cond_9
+    if-eqz v36, :cond_14e
 
     .line 219
     const v1, 0x7f090139
@@ -408,7 +408,7 @@
 
     .line 221
     .local v37, "poland":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v37, :cond_8
+    if-eqz v37, :cond_14d
 
     .line 225
     const v1, 0x7f09013a
@@ -424,7 +424,7 @@
 
     .line 227
     .local v38, "portugues":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v38, :cond_7
+    if-eqz v38, :cond_14c
 
     .line 231
     const v1, 0x7f090158
@@ -440,7 +440,7 @@
 
     .line 233
     .local v39, "russia":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v39, :cond_6
+    if-eqz v39, :cond_14b
 
     .line 237
     const v1, 0x7f090170
@@ -456,7 +456,7 @@
 
     .line 239
     .local v40, "seekBar1":Lcom/isaigu/gymapp/widget/RangeSeekBar;
-    if-eqz v40, :cond_5
+    if-eqz v40, :cond_14a
 
     .line 243
     const v1, 0x7f090180
@@ -472,7 +472,7 @@
 
     .line 245
     .local v41, "softwareVersion":Landroid/widget/TextView;
-    if-eqz v41, :cond_4
+    if-eqz v41, :cond_149
 
     .line 249
     const v1, 0x7f090195
@@ -488,7 +488,7 @@
 
     .line 251
     .local v42, "switchButton":Lcom/isaigu/gymapp/widget/SwitchButton;
-    if-eqz v42, :cond_3
+    if-eqz v42, :cond_148
 
     .line 255
     const v1, 0x7f0901aa
@@ -504,7 +504,7 @@
 
     .line 257
     .local v43, "time":Landroid/widget/TextView;
-    if-eqz v43, :cond_2
+    if-eqz v43, :cond_147
 
     .line 261
     const v1, 0x7f0901ac
@@ -520,7 +520,7 @@
 
     .line 263
     .local v44, "timelength":Landroid/widget/TextView;
-    if-eqz v44, :cond_1
+    if-eqz v44, :cond_146
 
     .line 267
     const v1, 0x7f0901bd
@@ -536,7 +536,7 @@
 
     .line 269
     .local v45, "turk":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v45, :cond_0
+    if-eqz v45, :cond_145
 
     .line 273
     new-instance v46, Lcom/isaigu/gymapp/databinding/SettingFragmentLayoutBinding;
@@ -594,112 +594,112 @@
     return-object v46
 
     .line 270
-    :cond_0
-    goto :goto_0
+    :cond_145
+    goto :goto_15a
 
     .line 264
     .end local v45    # "turk":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_1
-    goto :goto_0
+    :cond_146
+    goto :goto_15a
 
     .line 258
     .end local v44    # "timelength":Landroid/widget/TextView;
-    :cond_2
-    goto :goto_0
+    :cond_147
+    goto :goto_15a
 
     .line 252
     .end local v43    # "time":Landroid/widget/TextView;
-    :cond_3
-    goto :goto_0
+    :cond_148
+    goto :goto_15a
 
     .line 246
     .end local v42    # "switchButton":Lcom/isaigu/gymapp/widget/SwitchButton;
-    :cond_4
-    goto :goto_0
+    :cond_149
+    goto :goto_15a
 
     .line 240
     .end local v41    # "softwareVersion":Landroid/widget/TextView;
-    :cond_5
-    goto :goto_0
+    :cond_14a
+    goto :goto_15a
 
     .line 234
     .end local v40    # "seekBar1":Lcom/isaigu/gymapp/widget/RangeSeekBar;
-    :cond_6
-    goto :goto_0
+    :cond_14b
+    goto :goto_15a
 
     .line 228
     .end local v39    # "russia":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_7
-    goto :goto_0
+    :cond_14c
+    goto :goto_15a
 
     .line 222
     .end local v38    # "portugues":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_8
-    goto :goto_0
+    :cond_14d
+    goto :goto_15a
 
     .line 216
     .end local v37    # "poland":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_9
-    goto :goto_0
+    :cond_14e
+    goto :goto_15a
 
     .line 210
     .end local v36    # "percent":Landroid/widget/TextView;
-    :cond_a
-    goto :goto_0
+    :cond_14f
+    goto :goto_15a
 
     .line 204
     .end local v35    # "logout":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_b
-    goto :goto_0
+    :cond_150
+    goto :goto_15a
 
     .line 198
     .end local v34    # "logoImage2":Landroid/widget/ImageView;
-    :cond_c
-    goto :goto_0
+    :cond_151
+    goto :goto_15a
 
     .line 192
     .end local v33    # "logoImage":Landroid/widget/ImageView;
-    :cond_d
-    goto :goto_0
+    :cond_152
+    goto :goto_15a
 
     .line 186
     .end local v32    # "italian":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_e
-    goto :goto_0
+    :cond_153
+    goto :goto_15a
 
     .line 180
     .end local v31    # "german":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_f
-    goto :goto_0
+    :cond_154
+    goto :goto_15a
 
     .line 174
     .end local v30    # "french":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_10
-    goto :goto_0
+    :cond_155
+    goto :goto_15a
 
     .line 168
     .end local v29    # "espanol":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_11
-    goto :goto_0
+    :cond_156
+    goto :goto_15a
 
     .line 162
     .end local v28    # "english":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_12
-    goto :goto_0
+    :cond_157
+    goto :goto_15a
 
     .line 156
     .end local v27    # "defaultLogo":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_13
-    goto :goto_0
+    :cond_158
+    goto :goto_15a
 
     .line 150
     .end local v26    # "chinese":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_14
+    :cond_159
     nop
 
     .line 278
     .end local v2    # "changeLogo":Lcom/isaigu/gymapp/widget/MyButton;
-    :goto_0
+    :goto_15a
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -724,7 +724,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/SettingFragmentLayoutBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 128
@@ -740,7 +740,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/SettingFragmentLayoutBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -756,13 +756,13 @@
 
     .line 135
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 136
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 138
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/SettingFragmentLayoutBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/SettingFragmentLayoutBinding;
 
     move-result-object v1
@@ -773,7 +773,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 21
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/SettingFragmentLayoutBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -784,7 +784,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 123
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/SettingFragmentLayoutBinding;->rootView:Landroid/widget/LinearLayout;

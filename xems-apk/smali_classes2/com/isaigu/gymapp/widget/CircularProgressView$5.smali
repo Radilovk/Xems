@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/CircularProgressView;)V
-    .locals 1
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/CircularProgressView;
 
     .line 387
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 391
@@ -54,13 +54,13 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 396
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView$5;->wasCancelled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 397
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CircularProgressView$5;->this$0:Lcom/isaigu/gymapp/widget/CircularProgressView;
@@ -68,6 +68,6 @@
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/CircularProgressView;->resetAnimation()V
 
     .line 398
-    :cond_0
+    :cond_9
     return-void
 .end method

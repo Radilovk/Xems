@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .param p2, "itemView"    # Landroid/view/View;
 
     .line 249
@@ -164,7 +164,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter$UserHolder;)Landroid/widget/TextView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter$UserHolder;
 
     .line 244

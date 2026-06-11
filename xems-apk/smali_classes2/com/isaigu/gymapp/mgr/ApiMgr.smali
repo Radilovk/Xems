@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 48
     const-string v0, ""
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -83,7 +83,7 @@
 .end method
 
 .method public static addProgramTrainData(Lcom/isaigu/gymapp/bean/TrainProgram;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 4
+    .registers 6
     .param p0, "trainProgram"    # Lcom/isaigu/gymapp/bean/TrainProgram;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -150,7 +150,7 @@
 .end method
 
 .method public static addProgramTrainDataList(JLjava/util/List;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 4
+    .registers 8
     .param p0, "userId"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -232,7 +232,7 @@
 .end method
 
 .method public static addTrainRecord(Lcom/isaigu/gymapp/bean/dto/TrainRecordDTO;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 4
+    .registers 6
     .param p0, "trainRecordDTO"    # Lcom/isaigu/gymapp/bean/dto/TrainRecordDTO;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -299,7 +299,7 @@
 .end method
 
 .method public static addTrainRecordList(Ljava/util/List;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -368,7 +368,7 @@
 .end method
 
 .method public static checkUpdateApp(Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -394,7 +394,7 @@
 .end method
 
 .method public static deleteProgramTrainData(JJLcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 8
     .param p0, "userId"    # J
     .param p2, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
@@ -465,7 +465,7 @@
 .end method
 
 .method public static deleteProgramTrainDataList(JLjava/util/List;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 4
+    .registers 8
     .param p0, "userId"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -547,7 +547,7 @@
 .end method
 
 .method public static downloadApk(Lcom/isaigu/gymapp/BaseActivity;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p0, "parent"    # Lcom/isaigu/gymapp/BaseActivity;
     .param p1, "packageUrl"    # Ljava/lang/String;
     .param p2, "apkVersion"    # Ljava/lang/String;
@@ -592,7 +592,7 @@
 .end method
 
 .method public static getCurrentProtocol(Ljava/lang/String;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 5
     .param p0, "language"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -655,7 +655,7 @@
 .end method
 
 .method public static getSplashScreen(Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -681,7 +681,7 @@
 .end method
 
 .method public static getTrainRecordList(JLcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 6
     .param p0, "userId"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -746,7 +746,7 @@
 .end method
 
 .method public static getUserBindMachine(JLcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 6
     .param p0, "userId"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -809,7 +809,7 @@
 .end method
 
 .method public static getUserCustomers(JLcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 6
     .param p0, "userId"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -874,7 +874,7 @@
 .end method
 
 .method public static getUserProgramTrainDataList(JLcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 6
     .param p0, "userId"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -939,7 +939,7 @@
 .end method
 
 .method public static getVideoListByPage(Lcom/isaigu/gymapp/bean/dto/VideoSearchDTO;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 5
     .param p0, "searchDTO"    # Lcom/isaigu/gymapp/bean/dto/VideoSearchDTO;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -994,7 +994,7 @@
 .end method
 
 .method private static httpGetJson(Ljava/lang/String;Ljava/util/Map;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 5
+    .registers 8
     .param p0, "url"    # Ljava/lang/String;
     .param p1, "header"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -1049,7 +1049,7 @@
 .end method
 
 .method private static httpPostJson(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 11
+    .registers 15
     .param p0, "url"    # Ljava/lang/String;
     .param p1, "json"    # Ljava/lang/String;
     .param p2, "header"    # Ljava/util/Map;
@@ -1118,7 +1118,7 @@
 .end method
 
 .method static synthetic lambda$updateProgramTrainDataList$0(Lcom/isaigu/gymapp/bean/TrainProgram;)V
-    .locals 1
+    .registers 2
     .param p0, "p"    # Lcom/isaigu/gymapp/bean/TrainProgram;
 
     .line 190
@@ -1130,7 +1130,7 @@
 .end method
 
 .method public static login(Lcom/isaigu/gymapp/bean/dto/LoginDTO;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 2
+    .registers 4
     .param p0, "dto"    # Lcom/isaigu/gymapp/bean/dto/LoginDTO;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1158,14 +1158,14 @@
 .end method
 
 .method public static needUpdate(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 6
+    .registers 8
     .param p0, "clientVersion"    # Ljava/lang/String;
     .param p1, "serverVersion"    # Ljava/lang/String;
 
     .line 356
     const-string v0, "\\."
 
-    :try_start_0
+    :try_start_2
     invoke-virtual {p0, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v1
@@ -1182,23 +1182,23 @@
 
     array-length v3, v0
 
-    if-le v2, v3, :cond_0
+    if-le v2, v3, :cond_10
 
     array-length v2, v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     array-length v2, v1
 
     .line 359
     .local v2, "min":I
-    :goto_0
+    :goto_11
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_1
-    if-ge v3, v2, :cond_2
+    :goto_12
+    if-ge v3, v2, :cond_27
 
     .line 360
     aget-object v4, v0, v3
@@ -1212,10 +1212,10 @@
     invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_20
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_20} :catch_28
 
-    if-le v4, v5, :cond_1
+    if-le v4, v5, :cond_24
 
     .line 361
     const/4 v4, 0x1
@@ -1223,21 +1223,21 @@
     return v4
 
     .line 359
-    :cond_1
+    :cond_24
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_12
 
     .line 366
     .end local v0    # "servers":[Ljava/lang/String;
     .end local v1    # "clients":[Ljava/lang/String;
     .end local v2    # "min":I
     .end local v3    # "i":I
-    :cond_2
-    goto :goto_2
+    :cond_27
+    goto :goto_2c
 
     .line 364
-    :catch_0
+    :catch_28
     move-exception v0
 
     .line 365
@@ -1246,14 +1246,14 @@
 
     .line 367
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_2
+    :goto_2c
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public static submitUserData(Lcom/isaigu/gymapp/bean/dto/SubmitUserDataDTO;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 5
     .param p0, "dataDTO"    # Lcom/isaigu/gymapp/bean/dto/SubmitUserDataDTO;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1313,7 +1313,7 @@
 .end method
 
 .method public static submitUserDataList(Ljava/util/List;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1370,7 +1370,7 @@
 .end method
 
 .method public static submitUserTrainData(Lcom/isaigu/gymapp/bean/dto/UserTrainDataDTO;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 5
     .param p0, "dataDTO"    # Lcom/isaigu/gymapp/bean/dto/UserTrainDataDTO;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1423,7 +1423,7 @@
 .end method
 
 .method public static updateAppLogo(Ljava/lang/Long;Ljava/lang/String;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 4
+    .registers 7
     .param p0, "userId"    # Ljava/lang/Long;
     .param p1, "url"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -1496,7 +1496,7 @@
 .end method
 
 .method public static updateProgramTrainData(Lcom/isaigu/gymapp/bean/TrainProgram;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 4
+    .registers 6
     .param p0, "trainProgram"    # Lcom/isaigu/gymapp/bean/TrainProgram;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1566,7 +1566,7 @@
 .end method
 
 .method public static updateProgramTrainDataList(JLjava/util/List;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 4
+    .registers 8
     .param p0, "userId"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1657,7 +1657,7 @@
 .end method
 
 .method public static updateUserData(Lcom/isaigu/gymapp/bean/dto/UpdateUserDataDTO;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 5
     .param p0, "dataDTO"    # Lcom/isaigu/gymapp/bean/dto/UpdateUserDataDTO;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1712,7 +1712,7 @@
 .end method
 
 .method public static updateUserDataList(Ljava/util/List;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1769,7 +1769,7 @@
 .end method
 
 .method public static uploadFile(Ljava/io/File;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 5
     .param p0, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1820,7 +1820,7 @@
 .end method
 
 .method private static uploadFile(Ljava/lang/String;Ljava/io/File;Ljava/util/Map;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 11
+    .registers 15
     .param p0, "url"    # Ljava/lang/String;
     .param p1, "file"    # Ljava/io/File;
     .param p2, "header"    # Ljava/util/Map;
@@ -1889,7 +1889,7 @@
 .end method
 
 .method public static uploadUseTime(Lcom/isaigu/gymapp/bean/dto/UploadUserUseTimeDTO;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 3
+    .registers 5
     .param p0, "dataDTO"    # Lcom/isaigu/gymapp/bean/dto/UploadUserUseTimeDTO;
     .annotation system Ldalvik/annotation/Signature;
         value = {

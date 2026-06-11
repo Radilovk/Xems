@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v4/app/FragmentManager;Ljava/util/List;Ljava/util/List;)V
-    .locals 0
+    .registers 4
     .param p1, "fm"    # Landroid/support/v4/app/FragmentManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public getCount()I
-    .locals 1
+    .registers 2
 
     .line 31
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/FragmentAdapter;->list:Ljava/util/List;
@@ -73,7 +73,7 @@
 .end method
 
 .method public getItem(I)Landroid/support/v4/app/Fragment;
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 39
@@ -89,7 +89,7 @@
 .end method
 
 .method public getPageTitle(I)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 47

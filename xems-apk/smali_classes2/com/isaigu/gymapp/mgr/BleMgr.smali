@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,36 +18,36 @@
 .end method
 
 .method public static getController()Lcom/isaigu/gymapp/ble/AndroidBleController;
-    .locals 1
+    .registers 1
 
     .line 16
     sget-object v0, Lcom/isaigu/gymapp/mgr/BleMgr;->controller:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 17
     invoke-static {}, Lcom/isaigu/gymapp/mgr/BleMgr;->initBle()V
 
     .line 19
-    :cond_0
+    :cond_7
     sget-object v0, Lcom/isaigu/gymapp/mgr/BleMgr;->controller:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
     return-object v0
 .end method
 
 .method public static initBle()V
-    .locals 4
+    .registers 4
 
     .line 22
     sget-object v0, Lcom/isaigu/gymapp/mgr/BleMgr;->controller:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 23
     return-void
 
     .line 25
-    :cond_0
+    :cond_5
     new-instance v0, Lcom/isaigu/gymapp/ble/AndroidBleController;
 
     invoke-static {}, Lcom/isaigu/gymapp/MainActivity;->getInstance()Lcom/isaigu/gymapp/MainActivity;
@@ -88,18 +88,18 @@
 .end method
 
 .method public static onPause()V
-    .locals 1
+    .registers 1
 
     .line 97
     sget-object v0, Lcom/isaigu/gymapp/mgr/BleMgr;->controller:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/ble/AndroidBleController;->isBleScanning()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 98
     sget-object v0, Lcom/isaigu/gymapp/mgr/BleMgr;->controller:Lcom/isaigu/gymapp/ble/AndroidBleController;
@@ -112,17 +112,17 @@
     invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
 
     .line 101
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public static onResume()V
-    .locals 2
+    .registers 2
 
     .line 104
     sget-object v0, Lcom/isaigu/gymapp/mgr/BleMgr;->controller:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 105
     invoke-virtual {v0}, Lcom/isaigu/gymapp/ble/AndroidBleController;->getBleState()I
@@ -131,7 +131,7 @@
 
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     .line 106
     sget-object v0, Lcom/isaigu/gymapp/mgr/BleMgr;->controller:Lcom/isaigu/gymapp/ble/AndroidBleController;
@@ -142,17 +142,17 @@
     return-void
 
     .line 110
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public static unInitBle()V
-    .locals 2
+    .registers 2
 
     .line 86
     sget-object v0, Lcom/isaigu/gymapp/mgr/BleMgr;->controller:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 87
     invoke-virtual {v0}, Lcom/isaigu/gymapp/ble/AndroidBleController;->disconnectAll()V
@@ -173,6 +173,6 @@
     sput-object v1, Lcom/isaigu/gymapp/mgr/BleMgr;->controller:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
     .line 92
-    :cond_0
+    :cond_14
     return-void
 .end method
