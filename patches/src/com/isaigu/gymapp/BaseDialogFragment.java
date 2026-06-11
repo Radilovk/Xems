@@ -3,6 +3,7 @@ package com.isaigu.gymapp;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -26,8 +27,9 @@ public abstract class BaseDialogFragment extends DialogFragment implements Event
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof BaseActivity) {
-            parentActivity = (BaseActivity) context;
+        BaseActivity activity = findBaseActivity(context);
+        if (activity != null) {
+            parentActivity = activity;
         }
     }
 
@@ -45,9 +47,28 @@ public abstract class BaseDialogFragment extends DialogFragment implements Event
             FragmentActivity activity = getActivity();
             if (activity instanceof BaseActivity) {
                 parentActivity = (BaseActivity) activity;
+            } else if (activity != null) {
+                parentActivity = findBaseActivity(activity);
             }
         }
+        if (parentActivity == null) {
+            parentActivity = findBaseActivity(getContext());
+        }
         return parentActivity;
+    }
+
+    private static BaseActivity findBaseActivity(Context context) {
+        while (context != null) {
+            if (context instanceof BaseActivity) {
+                return (BaseActivity) context;
+            }
+            if (context instanceof ContextWrapper) {
+                context = ((ContextWrapper) context).getBaseContext();
+            } else {
+                break;
+            }
+        }
+        return null;
     }
 
     @Override
