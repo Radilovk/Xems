@@ -138,6 +138,20 @@
 
     move-result-object v0
 
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v3
+
+    iget-object v3, v3, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
+
+    iget-object v3, v3, Lcom/isaigu/gymapp/bean/TrainUser;->roleName:Ljava/lang/String;
+
+    iput-object v3, v0, Lcom/isaigu/gymapp/bean/UserData;->roleName:Ljava/lang/String;
+
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v0
+
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
 
     .line 118
@@ -159,11 +173,13 @@
     sput-object v0, Lcom/isaigu/gymapp/mgr/ApiMgr;->token:Ljava/lang/String;
 
     .line 120
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/isaigu/gymapp/bean/UserData;->roleName:Ljava/lang/String;
+    iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainUser;->roleName:Ljava/lang/String;
 
     const-string v3, "ROLE_COACH"
 

@@ -69,6 +69,7 @@ public final class StrengthAdjustUtil {
 
     public static void adjustChannelMa(ProgramDataBean bean, int channelIndex, int signedDeltaTenths) {
         migrate(bean);
+        ensureDefaults();
         int totalTenths = getStrengthTenths(bean);
         if (totalTenths <= 0 || channelIndex < 0 || channelIndex >= 10) {
             return;
