@@ -116,51 +116,8 @@ public class SplashFragment extends BaseFragment {
                         SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new LoginFragment());
                         return;
                     }
-                    LoginDTO dto = new LoginDTO();
-                    dto.username = UserData.getInstance().userName;
-                    String savedPassword = UserData.getInstance().password;
-                    if (TextUtils.isEmpty(savedPassword)) {
-                        UserData.getInstance().autoLogin = false;
-                        SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new LoginFragment());
-                        return;
-                    }
-                    dto.password = MD5Utils.getMD5(savedPassword);
-                    dto.md5Password = MD5Utils.getMD5(dto.password + ApiMgr.Password_Salt);
-                    ApiMgr.login(dto, new OKHttpUtils.HttpResponseCallback<ResponseData<TrainUser>>() { // from class: com.isaigu.gymapp.fragment.SplashFragment.1.1.2
-                        @Override // com.isaigu.gymapp.utils.OKHttpUtils.HttpResponseCallback
-                        public void httpResponse(final boolean httpSuccess, final String message, final ResponseData<TrainUser> result) {
-                            SplashFragment.this.getParentActivity().runOnUiThread(new Runnable() { // from class: com.isaigu.gymapp.fragment.SplashFragment.1.1.2.1
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    if (httpSuccess && result.getCode() == 0) {
-                                        DataMgr.getInstance().loginUser = (TrainUser) result.getData();
-                                        if (!TextUtils.isEmpty(((TrainUser) result.getData()).appLogoUrl)) {
-                                            UserData.getInstance().logoPath = ((TrainUser) result.getData()).appLogoUrl;
-                                        }
-                                        UserData.getInstance().useTime = DataMgr.getInstance().loginUser.useTime;
-                                        FileUtils.saveData(UserData.getInstance());
-                                        DataMgr.singleMode = true;
-                                        ApiMgr.token = ((TrainUser) result.getData()).token;
-                                        if (Constants.role_coach.equals(UserData.getInstance().roleName)) {
-                                            DataMgr.singleMode = false;
-                                            MessageDispatcher.dispatchEventMessage((short) 104);
-                                            SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new MainFragment());
-                                            return;
-                                        } else {
-                                            MessageDispatcher.dispatchEventMessage((short) 104);
-                                            SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new StartFragment());
-                                            return;
-                                        }
-                                    }
-                                    Logger.logConsole("code : " + httpSuccess + "  result: " + result);
-                                    CommonUtils.showErrorTips(SplashFragment.this.getParentActivity(), message, result);
-                                    UserData.getInstance().autoLogin = false;
-                                    UserData.getInstance().rememberPassword = false;
-                                    SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new LoginFragment());
-                                }
-                            });
-                        }
-                    });
+                    MessageDispatcher.dispatchEventMessage((short) 104);
+                    SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new LoginFragment());
                     return;
                 }
                 SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new LoginFragment());
