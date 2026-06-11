@@ -40,6 +40,8 @@ public class UserData {
     public int[] channelPulseWidthUs;
     public int defaultPulseContinue = 4;
     public int defaultPulsePause = 3;
+    public boolean alternateImpulseMode;
+    public int alternatePhaseType;
 
     public static UserData getInstance() {
         if (instance == null) {

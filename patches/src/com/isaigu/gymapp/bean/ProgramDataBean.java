@@ -11,6 +11,7 @@ public class ProgramDataBean implements Serializable {
     public int pulseContinue;
     public int pulsePause;
     public int pulseWidth;
+    public boolean alternateImpulseMode;
     public int strenth;
     public int strenthTenths;
     public PartStrenthBean strenthBean = new PartStrenthBean();

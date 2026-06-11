@@ -294,4 +294,8 @@ Setup path: Apps->%3$s->Permissions"</string>
     <string name="channelPulseGlobal">Global</string>
     <string name="defaultPulseContinue">Default impulse duration:</string>
     <string name="defaultPulsePause">Default impulse pause:</string>
+    <string name="alternateImpulseModeTitle">Alternate impulse modes (impulse/impulse):</string>
+    <string name="alternateImpulseModeHint">Phase A uses top program params; Phase B uses Muscle or Aerobic column in program editor.</string>
+    <string name="alternatePhaseMuscle">Phase B: Muscle</string>
+    <string name="alternatePhaseAerobic">Phase B: Aerobic</string>
 </resources>

@@ -102,6 +102,7 @@ public class TrainItem {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void startPulse() {
+        com.isaigu.gymapp.utils.PulseModeUtil.applyTrainProgramDefaults(getTrainProgram());
         if (this.data.secondValue > 0) {
             sendPulse();
         }
@@ -116,18 +117,28 @@ public class TrainItem {
             public void onFinish() {
                 TrainItem.this.onTrainItemChange();
                 TrainItem.this.data.inStart = !TrainItem.this.data.inStart;
-                if (TrainItem.this.data.inStart) {
-                    TrainItem.this.data.secondValue = TrainItem.this.getTrainProgram().matchProgram().pulseContinue;
-                } else {
-                    TrainItem.this.data.secondValue = TrainItem.this.getTrainProgram().matchProgram().pulsePause;
-                }
+                TrainItem.this.data.secondValue = TrainItem.this.resolveNextPhaseDuration();
                 TrainItem.this.startPulse();
             }
         };
-        if (getTrainProgram().matchProgram().pulseContinue == 0 && getTrainProgram().matchProgram().pulsePause == 0) {
+        if (!hasActivePulseCycle()) {
             return;
         }
         this.pulseCountDown.start();
+    }
+
+    private boolean hasActivePulseCycle() {
+        TrainProgram program = getTrainProgram();
+        if (com.isaigu.gymapp.utils.PulseModeUtil.isAlternateImpulseMode(program)) {
+            return com.isaigu.gymapp.utils.PulseModeUtil.getPhaseDurationSeconds(program, true) > 0
+                    && com.isaigu.gymapp.utils.PulseModeUtil.getPhaseDurationSeconds(program, false) > 0;
+        }
+        ProgramDataBean active = program.matchProgram();
+        return active.pulseContinue > 0 || active.pulsePause > 0;
+    }
+
+    private int resolveNextPhaseDuration() {
+        return com.isaigu.gymapp.utils.PulseModeUtil.getPhaseDurationSeconds(getTrainProgram(), this.data.inStart);
     }
 
     public void onParamsChange() {
@@ -139,10 +150,12 @@ public class TrainItem {
         if (!this.data.connected) {
             return;
         }
-        if (this.data.inStart) {
-            this.sender.sendDuration(getTrainProgram().matchProgram(), this.partsDisabled, this.workLength);
+        TrainProgram trainProgram = getTrainProgram();
+        ProgramDataBean activeBean = com.isaigu.gymapp.utils.PulseModeUtil.getActivePhaseBean(trainProgram, this.data.inStart);
+        if (this.data.inStart || com.isaigu.gymapp.utils.PulseModeUtil.isAlternateImpulseMode(trainProgram)) {
+            this.sender.sendDuration(activeBean, this.partsDisabled, this.workLength);
         } else {
-            this.sender.sendPause(getTrainProgram().matchProgram(), this.workLength);
+            this.sender.sendPause(activeBean, this.workLength);
         }
     }
 

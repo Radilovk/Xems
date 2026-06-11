@@ -44,6 +44,7 @@ import com.isaigu.gymapp.utils.LanguageUtils;
 import com.isaigu.gymapp.utils.Logger;
 import com.isaigu.gymapp.utils.NetworkUtils;
 import com.isaigu.gymapp.utils.OKHttpUtils;
+import com.isaigu.gymapp.utils.PulseModeUtil;
 import com.isaigu.gymapp.utils.StrengthAdjustUtil;
 import com.isaigu.gymapp.utils.TimerUtils;
 import com.isaigu.gymapp.widget.NoDoubleClickListener;
@@ -100,6 +101,9 @@ public class SettingFragment extends BaseFragment {
     private Button rassia;
     private TextView softwareVersion;
     private SwitchButton switchButton;
+    private SwitchButton alternateImpulseSwitch;
+    private Button alternatePhaseMuscleButton;
+    private Button alternatePhaseAerobicButton;
     private TextView time;
     private TextView timelength;
     private Timer timer;
@@ -144,6 +148,9 @@ public class SettingFragment extends BaseFragment {
         this.pulseContinueValue = (TextView) view.findViewById(R.id.pulseContinueValue);
         this.pulsePauseValue = (TextView) view.findViewById(R.id.pulsePauseValue);
         this.channelCalibrationContainer = (LinearLayout) view.findViewById(R.id.channelCalibrationContainer);
+        this.alternateImpulseSwitch = (SwitchButton) view.findViewById(R.id.alternateImpulseSwitch);
+        this.alternatePhaseMuscleButton = (Button) view.findViewById(R.id.alternatePhaseMuscleButton);
+        this.alternatePhaseAerobicButton = (Button) view.findViewById(R.id.alternatePhaseAerobicButton);
         if (!TextUtils.isEmpty(UserData.getInstance().logoPath)) {
             Glide.with((FragmentActivity) getParentActivity()).load(UserData.getInstance().logoPath).into(this.logoImage);
             Glide.with((FragmentActivity) getParentActivity()).load(UserData.getInstance().logoPath).into(this.logoImage2);
@@ -157,7 +164,7 @@ public class SettingFragment extends BaseFragment {
         TextView textView = (TextView) view.findViewById(R.id.softwareVersion);
         this.softwareVersion = textView;
         textView.setText(AndroidUtils.getVersionName(getParentActivity()));
-        this.time = (TextView) view.findViewById(2131296682);
+        this.time = (TextView) view.findViewById(R.id.time);
         this.timelength = (TextView) view.findViewById(R.id.timelength);
         this.switchButton = (SwitchButton) view.findViewById(R.id.switch_button);
         this.logout = (Button) view.findViewById(R.id.logout);
@@ -317,6 +324,53 @@ public class SettingFragment extends BaseFragment {
                 }
             });
         }
+        initAlternateImpulseControls();
+    }
+
+    private void initAlternateImpulseControls() {
+        if (this.alternateImpulseSwitch == null) {
+            return;
+        }
+        this.alternateImpulseSwitch.setCheck(UserData.getInstance().alternateImpulseMode);
+        updateAlternatePhaseButtons();
+        this.alternateImpulseSwitch.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton buttonView, boolean isChecked) {
+                UserData.getInstance().alternateImpulseMode = isChecked;
+                FileUtils.saveData(UserData.getInstance());
+            }
+        });
+        if (this.alternatePhaseMuscleButton != null) {
+            this.alternatePhaseMuscleButton.setOnClickListener(new NoDoubleClickListener() {
+                @Override
+                public void onNoDoubleClick(View v) {
+                    UserData.getInstance().alternatePhaseType = PulseModeUtil.PHASE_MUSCLE;
+                    SettingFragment.this.updateAlternatePhaseButtons();
+                    FileUtils.saveData(UserData.getInstance());
+                }
+            });
+        }
+        if (this.alternatePhaseAerobicButton != null) {
+            this.alternatePhaseAerobicButton.setOnClickListener(new NoDoubleClickListener() {
+                @Override
+                public void onNoDoubleClick(View v) {
+                    UserData.getInstance().alternatePhaseType = PulseModeUtil.PHASE_AEROBIC;
+                    SettingFragment.this.updateAlternatePhaseButtons();
+                    FileUtils.saveData(UserData.getInstance());
+                }
+            });
+        }
+    }
+
+    private void updateAlternatePhaseButtons() {
+        if (this.alternatePhaseMuscleButton == null || this.alternatePhaseAerobicButton == null) {
+            return;
+        }
+        boolean muscleSelected = UserData.getInstance().alternatePhaseType != PulseModeUtil.PHASE_AEROBIC;
+        this.alternatePhaseMuscleButton.setBackgroundResource(muscleSelected ? R.drawable.round_circle_drawable_r20_red : R.drawable.round_circle_drawable_r20_white);
+        this.alternatePhaseMuscleButton.setTextColor(getResources().getColor(muscleSelected ? R.color.white_color : R.color.light_black_color));
+        this.alternatePhaseAerobicButton.setBackgroundResource(muscleSelected ? R.drawable.round_circle_drawable_r20_white : R.drawable.round_circle_drawable_r20_red);
+        this.alternatePhaseAerobicButton.setTextColor(getResources().getColor(muscleSelected ? R.color.light_black_color : R.color.white_color));
     }
 
     private String formatStepMa(int tenths) {
@@ -368,7 +422,7 @@ public class SettingFragment extends BaseFragment {
             });
             final TextView pulseValue = new TextView(getParentActivity());
             int pulse = UserData.getInstance().channelPulseWidthUs[channelIndex];
-            pulseValue.setText(pulse > 0 ? pulse + " us" : getString(0x7f0d0105));
+            pulseValue.setText(pulse > 0 ? pulse + " us" : getString(R.string.channelPulseGlobal));
             pulseValue.setTextSize(16.0f);
             pulseValue.setLayoutParams(new LinearLayout.LayoutParams(100, LinearLayout.LayoutParams.WRAP_CONTENT));
             RangeSeekBar pulseSeekBar = new RangeSeekBar(getParentActivity());
@@ -380,7 +434,7 @@ public class SettingFragment extends BaseFragment {
                 public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
                     int value = Math.round(leftValue);
                     UserData.getInstance().channelPulseWidthUs[channelIndex] = value;
-                    pulseValue.setText(value > 0 ? value + " us" : getString(0x7f0d0105));
+                    pulseValue.setText(value > 0 ? value + " us" : getString(R.string.channelPulseGlobal));
                 }
 
                 @Override
@@ -516,7 +570,7 @@ public class SettingFragment extends BaseFragment {
         });
         String language = LanguageUtils.getLang(getParentActivity());
         if (!UserData.english.equals(language) && !UserData.bulgarian.equals(language)) {
-            language = UserData.bulgarian;
+            language = UserData.english;
         }
         updateLanguageSelection(language);
         this.english.setOnClickListener(new NoDoubleClickListener() {
@@ -700,7 +754,7 @@ public class SettingFragment extends BaseFragment {
 
     public void switchToLanguage(String language, boolean restart) {
         if (!UserData.english.equals(language) && !UserData.bulgarian.equals(language)) {
-            language = UserData.bulgarian;
+            language = UserData.english;
         }
         updateLanguageSelection(language);
         LanguageUtils.setLang(getParentActivity(), language);

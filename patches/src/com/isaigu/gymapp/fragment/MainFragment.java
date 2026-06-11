@@ -60,6 +60,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
     private List<TextView> tv_list;
     UserFragment userFragment;
     VideoListFragment videoListFragment;
+    CalendarFragment calendarFragment;
     private Fragment fragment_now = null;
     final int[] imageSelected = {R.mipmap.selectplan, R.mipmap.users, R.mipmap.setting2, R.mipmap.video2, R.mipmap.selectprogran};
     final int[] imageUnselect = {R.mipmap.unselectexister, R.mipmap.unselectuser, R.mipmap.programset, R.mipmap.video1, R.mipmap.progranplan};
@@ -97,6 +98,9 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
             }
             if (this.newTrainFragment != null) {
                 transaction.remove(this.newTrainFragment);
+            }
+            if (this.calendarFragment != null) {
+                transaction.remove(this.calendarFragment);
             }
             transaction.commitAllowingStateLoss();
         } catch (Exception e) {
@@ -151,12 +155,13 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void initData() {
+        ensureDataListsInitialized();
         this.title[0] = getString(R.string.train);
         this.title[1] = getString(R.string.user);
         this.title[2] = getString(R.string.setting);
         this.title[3] = getString(R.string.video);
         if (this.li5 != null) {
-            this.li5.setVisibility(View.GONE);
+            this.li5.setVisibility(View.VISIBLE);
         }
         if (!NetworkUtils.isNetworkConnected(getParentActivity())) {
             DataMgr.getInstance().deviceBeanList = (List) FileUtils.getDataList(Constants.file_name_device_data, DeviceBean.class);
@@ -410,6 +415,25 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
                 changePageSelect(3);
                 switchFragment(this.fragment_now, this.videoListFragment);
                 break;
+            case R.id.ll_tab5 /* 2131296496 */:
+                if (this.calendarFragment == null) {
+                    this.calendarFragment = new CalendarFragment();
+                }
+                changePageSelect(4);
+                switchFragment(this.fragment_now, this.calendarFragment);
+                break;
+        }
+    }
+
+    private void ensureDataListsInitialized() {
+        if (DataMgr.getInstance().trainUsers == null) {
+            DataMgr.getInstance().trainUsers = new ArrayList<>();
+        }
+        if (DataMgr.getInstance().trainData == null) {
+            DataMgr.getInstance().trainData = new ArrayList<>();
+        }
+        if (DataMgr.getInstance().deviceBeanList == null) {
+            DataMgr.getInstance().deviceBeanList = new ArrayList<>();
         }
     }
 

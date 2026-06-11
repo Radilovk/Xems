@@ -90,10 +90,13 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_skip_window_feature
+
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/app/Dialog;->requestWindowFeature(I)Z
 
+    :cond_skip_window_feature
     .line 29
     invoke-super {p0, p1, p2, p3}, Lcom/isaigu/gymapp/BaseDialogFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
