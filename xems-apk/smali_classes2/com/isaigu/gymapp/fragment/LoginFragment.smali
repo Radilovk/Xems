@@ -44,6 +44,16 @@
     return-object v0
 .end method
 
+.method static synthetic access$100(Lcom/isaigu/gymapp/fragment/LoginFragment;)Landroid/widget/EditText;
+    .registers 2
+
+    .prologue
+    .line 34
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->password:Landroid/widget/EditText;
+
+    return-object v0
+.end method
+
 .method private initView()V
     .registers 4
 
@@ -97,8 +107,6 @@
     .registers 8
 
     .prologue
-    const/16 v2, 0x8
-
     .line 48
     invoke-super {p0, p1, p2, p3}, Lcom/isaigu/gymapp/BaseFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
@@ -126,32 +134,7 @@
 
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->password:Landroid/widget/EditText;
 
-    .line 51
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->password:Landroid/widget/EditText;
-
-    if-eqz v0, :cond_25
-
-    .line 52
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->password:Landroid/widget/EditText;
-
-    invoke-virtual {v0, v2}, Landroid/widget/EditText;->setVisibility(I)V
-
-    .line 54
-    :cond_25
-    const v0, 0x7f090203
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    .line 55
-    if-eqz v0, :cond_31
-
-    .line 56
-    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
-
     .line 58
-    :cond_31
     const v0, 0x7f090045
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -173,18 +156,7 @@
 
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->rememberPassword:Landroid/support/v7/widget/AppCompatCheckBox;
 
-    .line 60
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->rememberPassword:Landroid/support/v7/widget/AppCompatCheckBox;
-
-    if-eqz v0, :cond_50
-
-    .line 61
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->rememberPassword:Landroid/support/v7/widget/AppCompatCheckBox;
-
-    invoke-virtual {v0, v2}, Landroid/support/v7/widget/AppCompatCheckBox;->setVisibility(I)V
-
     .line 63
-    :cond_50
     const v0, 0x7f0900f5
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -207,15 +179,15 @@
     .line 65
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v2, v2, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
+    iget-object v3, v3, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
 
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_85
+    if-nez v3, :cond_85
 
     .line 66
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/LoginFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
