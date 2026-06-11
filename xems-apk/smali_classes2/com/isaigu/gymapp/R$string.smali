@@ -137,15 +137,15 @@
 
 .field public static final channelCalibrationTitle:I = 0x7f0d0104
 
-.field public static final channelPulseGlobal:I = 0x7f0d0104
+.field public static final channelPulseGlobal:I = 0x7f0d0105
 
-.field public static final alternateImpulseModeHint:I = 0x7f0d00fc
+.field public static final alternateImpulseModeHint:I = 0x7f0d0107
 
-.field public static final alternateImpulseModeTitle:I = 0x7f0d00fd
+.field public static final alternateImpulseModeTitle:I = 0x7f0d0106
 
-.field public static final alternatePhaseAerobic:I = 0x7f0d00fe
+.field public static final alternatePhaseAerobic:I = 0x7f0d0109
 
-.field public static final alternatePhaseMuscle:I = 0x7f0d00ff
+.field public static final alternatePhaseMuscle:I = 0x7f0d0108
 
 .field public static final character_counter_pattern:I = 0x7f0d0039
 

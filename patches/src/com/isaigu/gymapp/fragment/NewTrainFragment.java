@@ -2,6 +2,7 @@ package com.isaigu.gymapp.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -74,7 +75,10 @@ public class NewTrainFragment extends Fragment {
     OnTrainListListener trainListListener = new OnTrainListListener() { // from class: com.isaigu.gymapp.fragment.NewTrainFragment.2
         @Override // com.isaigu.gymapp.train.listener.OnTrainListListener
         public void onEmptyItemClick(TrainItem item) {
-            NewTrainFragment.this.getBaseActivity().showDialogFragment(new NewUserProgramDeviceConnectDialogFragment());
+            BaseActivity activity = NewTrainFragment.this.getBaseActivity();
+            if (activity != null) {
+                activity.showDialogFragment(new NewUserProgramDeviceConnectDialogFragment());
+            }
         }
 
         @Override // com.isaigu.gymapp.train.listener.OnTrainListListener
@@ -113,7 +117,7 @@ public class NewTrainFragment extends Fragment {
             DataMgr.getInstance().removeTrainingUser(item.data.macAddress);
         }
     };
-    TrainRecordManager recordManager = new TrainRecordManager(getBaseActivity());
+    TrainRecordManager recordManager;
 
     public NewTrainFragment() {
         boolean[] zArr = new boolean[10];
@@ -131,9 +135,16 @@ public class NewTrainFragment extends Fragment {
         return fragment;
     }
 
+    private TrainRecordManager getRecordManager() {
+        if (this.recordManager == null) {
+            this.recordManager = new TrainRecordManager(getBaseActivity());
+        }
+        return this.recordManager;
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onDeviceConnected(TrainUserSelectedEvent event) {
-        event.getTrainItem().setRecordManager(this.recordManager);
+        event.getTrainItem().setRecordManager(getRecordManager());
         this.manager.addTrainItem(event.getTrainItem());
         this.adapter.notifyDataSetChanged();
     }
@@ -356,7 +367,11 @@ public class NewTrainFragment extends Fragment {
     }
 
     public BaseActivity getBaseActivity() {
-        return (BaseActivity) getActivity();
+        FragmentActivity activity = getActivity();
+        if (activity instanceof BaseActivity) {
+            return (BaseActivity) activity;
+        }
+        return null;
     }
 
     public void startScan() {

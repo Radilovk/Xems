@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 205
+    .line 214
     iput-object p1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$11;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .registers 4
 
     .prologue
-    .line 208
+    .line 217
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$11;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/train/TrainViewHolder;->listener:Lcom/isaigu/gymapp/train/listener/OnTrainListListener;
@@ -51,6 +51,6 @@
 
     invoke-interface {v0, v1}, Lcom/isaigu/gymapp/train/listener/OnTrainListListener;->onEmptyItemClick(Lcom/isaigu/gymapp/train/model/TrainItem;)V
 
-    .line 209
+    .line 218
     return-void
 .end method

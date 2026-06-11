@@ -2129,6 +2129,20 @@
     <public type="string" name="xiongbu" id="0x7f0d00f9" />
     <public type="string" name="yaobu" id="0x7f0d00fa" />
     <public type="string" name="youyangyundong" id="0x7f0d00fb" />
+    <public type="string" name="language_bulgarian" id="0x7f0d00fc" />
+    <public type="string" name="brandingTitle" id="0x7f0d00fd" />
+    <public type="string" name="changeIconText" id="0x7f0d00fe" />
+    <public type="string" name="changeSplashText" id="0x7f0d00ff" />
+    <public type="string" name="currentIncreaseStep" id="0x7f0d0100" />
+    <public type="string" name="currentDecreaseStep" id="0x7f0d0101" />
+    <public type="string" name="defaultPulseContinue" id="0x7f0d0102" />
+    <public type="string" name="defaultPulsePause" id="0x7f0d0103" />
+    <public type="string" name="channelCalibrationTitle" id="0x7f0d0104" />
+    <public type="string" name="channelPulseGlobal" id="0x7f0d0105" />
+    <public type="string" name="alternateImpulseModeTitle" id="0x7f0d0106" />
+    <public type="string" name="alternateImpulseModeHint" id="0x7f0d0107" />
+    <public type="string" name="alternatePhaseMuscle" id="0x7f0d0108" />
+    <public type="string" name="alternatePhaseAerobic" id="0x7f0d0109" />
     <public type="style" name="AlertDialog.AppCompat" id="0x7f0e0000" />
     <public type="style" name="AlertDialog.AppCompat.Light" id="0x7f0e0001" />
     <public type="style" name="Animation.AppCompat.Dialog" id="0x7f0e0002" />

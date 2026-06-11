@@ -23,12 +23,12 @@
     .registers 2
 
     .prologue
-    .line 175
+    .line 184
     iput-object p1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
 
-    .line 176
+    .line 185
     return-void
 .end method
 
@@ -38,7 +38,7 @@
     .registers 6
 
     .prologue
-    .line 180
+    .line 189
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
@@ -49,24 +49,24 @@
 
     if-nez v0, :cond_3d
 
-    .line 181
+    .line 190
     new-instance v0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;-><init>()V
 
-    .line 182
+    .line 191
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 183
+    .line 192
     const-string v2, "editProgram"
 
     const/4 v3, 0x0
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 184
+    .line 193
     const-string v2, "data"
 
     iget-object v3, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
@@ -77,21 +77,21 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V
 
-    .line 185
+    .line 194
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->setArguments(Landroid/os/Bundle;)V
 
-    .line 186
+    .line 195
     new-instance v1, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1;
 
     invoke-direct {v1, p0}, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1;-><init>(Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1;)V
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->setSaveProgramListener(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;)V
 
-    .line 199
+    .line 208
     iget-object v1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     # getter for: Lcom/isaigu/gymapp/train/TrainViewHolder;->fragment:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
-    invoke-static {v1}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$400(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/fragment/NewTrainFragment;
+    invoke-static {v1}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$500(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     move-result-object v1
 
@@ -101,7 +101,7 @@
 
     invoke-virtual {v1, v0}, Lcom/isaigu/gymapp/BaseActivity;->showDialogFragment(Lcom/isaigu/gymapp/BaseDialogFragment;)V
 
-    .line 201
+    .line 210
     :cond_3d
     return-void
 .end method

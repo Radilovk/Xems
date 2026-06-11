@@ -23,7 +23,7 @@
     .registers 2
 
     .prologue
-    .line 158
+    .line 167
     iput-object p1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$9;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
@@ -37,7 +37,7 @@
     .registers 4
 
     .prologue
-    .line 161
+    .line 170
     const-string v0, "wwww"
 
     iget-object v1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$9;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
@@ -54,11 +54,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 162
+    .line 171
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$9;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     # invokes: Lcom/isaigu/gymapp/train/TrainViewHolder;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
-    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$300(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/BaseActivity;
+    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$400(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
 
@@ -72,6 +72,6 @@
 
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/train/utils/OperationUtil;->save(Lcom/isaigu/gymapp/BaseActivity;Lcom/isaigu/gymapp/bean/TrainProgram;)V
 
-    .line 163
+    .line 172
     return-void
 .end method

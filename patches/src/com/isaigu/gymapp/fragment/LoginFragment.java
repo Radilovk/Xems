@@ -100,6 +100,11 @@ public class LoginFragment extends BaseFragment {
                 if (username.equals(UserData.getInstance().userName) && pwd.equals(UserData.getInstance().password)) {
                     DataMgr.singleMode = true;
                     DataMgr.getInstance().loginUser = (TrainUser) FileUtils.getData(Constants.file_name_login_user, TrainUser.class);
+                    if (DataMgr.getInstance().loginUser == null) {
+                        MessageDispatcher.dispatchEventMessage((short) 104);
+                        LoginFragment.this.getParentActivity().showTips(LoginFragment.this.getString(R.string.username_password_error));
+                        return;
+                    }
                     UserData.getInstance().useTime = DataMgr.getInstance().loginUser.useTime;
                     if (Constants.role_coach.equals(UserData.getInstance().roleName)) {
                         DataMgr.singleMode = false;

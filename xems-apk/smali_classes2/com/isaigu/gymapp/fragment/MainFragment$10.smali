@@ -34,7 +34,7 @@
     .registers 2
 
     .prologue
-    .line 359
+    .line 365
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/MainFragment$10;->this$0:Lcom/isaigu/gymapp/fragment/MainFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;-><init>()V
@@ -58,10 +58,10 @@
     .end annotation
 
     .prologue
-    .line 362
+    .line 368
     invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/MainFragment$10;->httpResponse2(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
 
-    .line 363
+    .line 369
     return-void
 .end method
 
@@ -69,7 +69,7 @@
     .registers 4
 
     .prologue
-    .line 359
+    .line 365
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/MainFragment$10;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
@@ -81,7 +81,7 @@
     .registers 6
 
     .prologue
-    .line 367
+    .line 373
     if-eqz p1, :cond_11
 
     if-eqz p3, :cond_11
@@ -92,14 +92,14 @@
 
     if-eqz v0, :cond_11
 
-    .line 368
+    .line 374
     const-string v0, "file_name_offline_train_record_data"
 
     const-class v1, Lcom/isaigu/gymapp/bean/dto/TrainRecordDTO;
 
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/utils/FileUtils;->removeData(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 370
+    .line 376
     :cond_11
     return-void
 .end method

@@ -96,6 +96,11 @@ public class SplashFragment extends BaseFragment {
                                 && !TextUtils.isEmpty(UserData.getInstance().password)) {
                             DataMgr.singleMode = true;
                             DataMgr.getInstance().loginUser = (TrainUser) FileUtils.getData(Constants.file_name_login_user, TrainUser.class);
+                            if (DataMgr.getInstance().loginUser == null) {
+                                MessageDispatcher.dispatchEventMessage((short) 104);
+                                SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new LoginFragment());
+                                return;
+                            }
                             UserData.getInstance().useTime = DataMgr.getInstance().loginUser.useTime;
                             if (Constants.role_coach.equals(UserData.getInstance().roleName)) {
                                 DataMgr.singleMode = false;

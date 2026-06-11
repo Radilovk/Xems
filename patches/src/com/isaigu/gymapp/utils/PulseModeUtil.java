@@ -46,7 +46,15 @@ public final class PulseModeUtil {
         if (secondary != null && secondary.pulseContinue > 0) {
             return secondary.pulseContinue;
         }
-        return primary.pulsePause > 0 ? primary.pulsePause : UserData.getInstance().defaultPulsePause;
+        if (primary.pulseContinue > 0) {
+            return primary.pulseContinue;
+        }
+        return UserData.getInstance().defaultPulseContinue;
+    }
+
+    /** Program bean used for UI edits and BLE — matches the active impulse phase. */
+    public static ProgramDataBean getEditableBean(TrainProgram trainProgram, boolean phaseA) {
+        return getActivePhaseBean(trainProgram, phaseA);
     }
 
     public static void applyProgramDefaults(ProgramDataBean bean) {
@@ -74,12 +82,6 @@ public final class PulseModeUtil {
         applyProgramDefaults(trainProgram.muscleTrainingProgramDataBean);
         applyProgramDefaults(trainProgram.aerobicTrainingProgramDataBean);
         applyProgramDefaults(trainProgram.massageModeProgramDataBean);
-        if (trainProgram.programDataBean != null && trainProgram.programDataBean.alternateImpulseMode) {
-            return;
-        }
-        if (UserData.getInstance().alternateImpulseMode && trainProgram.programDataBean != null) {
-            trainProgram.programDataBean.alternateImpulseMode = true;
-        }
     }
 
     private static ProgramDataBean resolveSecondaryBean(TrainProgram trainProgram) {

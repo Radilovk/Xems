@@ -2208,11 +2208,11 @@ public final class R {
         public static final int defaultPulseContinue = 0x7f0d0102;
         public static final int defaultPulsePause = 0x7f0d0103;
         public static final int channelCalibrationTitle = 0x7f0d0104;
-        public static final int channelPulseGlobal = 0x7f0d0104;
-        public static final int alternateImpulseModeTitle = 0x7f0d00fd;
-        public static final int alternateImpulseModeHint = 0x7f0d00fc;
-        public static final int alternatePhaseMuscle = 0x7f0d00ff;
-        public static final int alternatePhaseAerobic = 0x7f0d00fe;
+        public static final int channelPulseGlobal = 0x7f0d0105;
+        public static final int alternateImpulseModeTitle = 0x7f0d0106;
+        public static final int alternateImpulseModeHint = 0x7f0d0107;
+        public static final int alternatePhaseMuscle = 0x7f0d0108;
+        public static final int alternatePhaseAerobic = 0x7f0d0109;
 
         private string() {
         }

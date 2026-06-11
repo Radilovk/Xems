@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 105
+    .line 109
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,15 +40,15 @@
     .registers 4
 
     .prologue
-    .line 108
+    .line 112
     invoke-virtual {p1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuBridge;->closeMenu()V
 
-    .line 109
+    .line 113
     invoke-virtual {p1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuBridge;->getAdapterPosition()I
 
     move-result v0
 
-    .line 110
+    .line 114
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
@@ -63,14 +63,14 @@
 
     check-cast v0, Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    .line 111
+    .line 115
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
 
     invoke-virtual {v1, v0}, Lcom/isaigu/gymapp/train/TrainItemManager;->removeTrainItem(Lcom/isaigu/gymapp/train/model/TrainItem;)V
 
-    .line 112
+    .line 116
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$4;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
@@ -80,7 +80,7 @@
 
     invoke-virtual {v1}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 113
+    .line 117
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v1
@@ -91,6 +91,6 @@
 
     invoke-virtual {v1, v0}, Lcom/isaigu/gymapp/mgr/DataMgr;->removeTrainingUser(Ljava/lang/String;)V
 
-    .line 114
+    .line 118
     return-void
 .end method

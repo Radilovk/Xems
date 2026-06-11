@@ -40,75 +40,64 @@
     .registers 4
 
     .prologue
-    const/16 v2, 0xa
+    const/16 v1, 0xa
 
-    .line 118
+    .line 122
     invoke-direct {p0}, Landroid/support/v4/app/Fragment;-><init>()V
 
-    .line 50
+    .line 51
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->allStart:Z
 
-    .line 51
+    .line 52
     new-instance v0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;
 
     invoke-direct {v0, p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment$1;-><init>(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)V
 
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->itemTouchListener:Landroid/support/v7/widget/RecyclerView$SimpleOnItemTouchListener;
 
-    .line 74
+    .line 75
     new-instance v0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;
 
     invoke-direct {v0, p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;-><init>(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)V
 
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->trainListListener:Lcom/isaigu/gymapp/train/listener/OnTrainListListener;
 
-    .line 98
+    .line 102
     new-instance v0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$3;
 
     invoke-direct {v0, p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment$3;-><init>(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)V
 
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->swipeMenuCreator:Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuCreator;
 
-    .line 105
+    .line 109
     new-instance v0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$4;
 
     invoke-direct {v0, p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment$4;-><init>(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)V
 
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->mMenuItemClickListener:Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItemClickListener;
 
-    .line 116
-    new-instance v0, Lcom/isaigu/gymapp/train/utils/TrainRecordManager;
+    .line 123
+    new-array v0, v1, [Z
 
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getBaseActivity()Lcom/isaigu/gymapp/BaseActivity;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Lcom/isaigu/gymapp/train/utils/TrainRecordManager;-><init>(Lcom/isaigu/gymapp/BaseActivity;)V
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->recordManager:Lcom/isaigu/gymapp/train/utils/TrainRecordManager;
-
-    .line 119
-    new-array v0, v2, [Z
-
-    .line 120
+    .line 124
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->partsDisabled:[Z
 
-    .line 121
-    new-array v1, v2, [Z
+    .line 125
+    new-array v1, v1, [Z
 
-    .line 122
+    .line 126
     iput-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->partsControl:[Z
 
-    .line 123
+    .line 127
     new-instance v2, Lcom/isaigu/gymapp/train/TrainItemManager;
 
     invoke-direct {v2, v0, v1}, Lcom/isaigu/gymapp/train/TrainItemManager;-><init>([Z[Z)V
 
     iput-object v2, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
 
-    .line 124
+    .line 128
     return-void
 .end method
 
@@ -116,7 +105,7 @@
     .registers 2
 
     .prologue
-    .line 41
+    .line 42
     iget-boolean v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->selecting:Z
 
     return v0
@@ -126,7 +115,7 @@
     .registers 2
 
     .prologue
-    .line 41
+    .line 42
     iput-boolean p1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->selecting:Z
 
     return p1
@@ -136,7 +125,7 @@
     .registers 2
 
     .prologue
-    .line 41
+    .line 42
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
 
     return-object v0
@@ -146,7 +135,7 @@
     .registers 4
 
     .prologue
-    .line 325
+    .line 336
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->partsControl:[Z
 
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->partsControl:[Z
@@ -160,15 +149,15 @@
     :goto_9
     aput-boolean v0, v1, p1
 
-    .line 326
+    .line 337
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 327
+    .line 338
     return-void
 
-    .line 325
+    .line 336
     :cond_11
     const/4 v0, 0x0
 
@@ -179,7 +168,7 @@
     .registers 4
 
     .prologue
-    .line 330
+    .line 341
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->partsDisabled:[Z
 
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->partsDisabled:[Z
@@ -193,34 +182,61 @@
     :goto_9
     aput-boolean v0, v1, p1
 
-    .line 331
+    .line 342
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 332
+    .line 343
     return-void
 
-    .line 330
+    .line 341
     :cond_11
     const/4 v0, 0x0
 
     goto :goto_9
 .end method
 
+.method private getRecordManager()Lcom/isaigu/gymapp/train/utils/TrainRecordManager;
+    .registers 3
+
+    .prologue
+    .line 139
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->recordManager:Lcom/isaigu/gymapp/train/utils/TrainRecordManager;
+
+    if-nez v0, :cond_f
+
+    .line 140
+    new-instance v0, Lcom/isaigu/gymapp/train/utils/TrainRecordManager;
+
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getBaseActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/isaigu/gymapp/train/utils/TrainRecordManager;-><init>(Lcom/isaigu/gymapp/BaseActivity;)V
+
+    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->recordManager:Lcom/isaigu/gymapp/train/utils/TrainRecordManager;
+
+    .line 142
+    :cond_f
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->recordManager:Lcom/isaigu/gymapp/train/utils/TrainRecordManager;
+
+    return-object v0
+.end method
+
 .method static lambda$settingAllUser$15(Ljava/util/ArrayList;Ljava/util/List;Lcom/isaigu/gymapp/train/model/TrainItem;)V
     .registers 4
 
     .prologue
-    .line 354
+    .line 365
     iget-object v0, p2, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 355
+    .line 366
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 356
+    .line 367
     return-void
 .end method
 
@@ -228,25 +244,25 @@
     .registers 4
 
     .prologue
-    .line 127
+    .line 131
     new-instance v0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;-><init>()V
 
-    .line 128
+    .line 132
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 129
+    .line 133
     const-string v2, "param1"
 
     invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 130
+    .line 134
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 131
+    .line 135
     return-object v0
 .end method
 
@@ -254,17 +270,17 @@
     .registers 5
 
     .prologue
-    .line 335
+    .line 346
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 336
+    .line 347
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 337
+    .line 348
     iget-object v2, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
 
     invoke-virtual {v2}, Lcom/isaigu/gymapp/train/TrainItemManager;->notEmptyItems()Ljava/util/stream/Stream;
@@ -277,7 +293,7 @@
 
     invoke-interface {v2, v3}, Ljava/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
 
-    .line 343
+    .line 354
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getBaseActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v2
@@ -288,7 +304,7 @@
 
     invoke-static {v2, v0, v3}, Lcom/isaigu/gymapp/train/utils/OperationUtil;->settingAllUser(Lcom/isaigu/gymapp/BaseActivity;Ljava/util/ArrayList;Ljava/lang/Runnable;)V
 
-    .line 351
+    .line 362
     return-void
 .end method
 
@@ -301,37 +317,50 @@
     .end annotation
 
     .prologue
-    .line 378
+    .line 393
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainItemManager;->closeAll()V
 
-    .line 379
+    .line 394
     return-void
 .end method
 
 .method public getBaseActivity()Lcom/isaigu/gymapp/BaseActivity;
-    .registers 2
+    .registers 3
 
     .prologue
-    .line 359
+    .line 370
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
+    .line 371
+    instance-of v1, v0, Lcom/isaigu/gymapp/BaseActivity;
+
+    if-eqz v1, :cond_b
+
+    .line 372
     check-cast v0, Lcom/isaigu/gymapp/BaseActivity;
 
+    .line 374
+    :goto_a
     return-object v0
+
+    :cond_b
+    const/4 v0, 0x0
+
+    goto :goto_a
 .end method
 
 .method public lambda$onCreateView$0$NewTrainFragment(Landroid/view/View;)V
     .registers 2
 
     .prologue
-    .line 263
+    .line 274
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->startOrStopAll()V
 
-    .line 264
+    .line 275
     return-void
 .end method
 
@@ -339,17 +368,17 @@
     .registers 4
 
     .prologue
-    .line 267
+    .line 278
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainItemManager;->resetAll()V
 
-    .line 268
+    .line 279
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->allStart:Z
 
-    .line 269
+    .line 280
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->allStartPause:Lcom/isaigu/gymapp/widget/MyButton;
@@ -358,7 +387,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/MyButton;->setBackgroundResource(I)V
 
-    .line 270
+    .line 281
     return-void
 .end method
 
@@ -366,12 +395,12 @@
     .registers 3
 
     .prologue
-    .line 305
+    .line 316
     const/4 v0, 0x5
 
     invoke-direct {p0, v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->changePartControl(I)V
 
-    .line 306
+    .line 317
     return-void
 .end method
 
@@ -379,12 +408,12 @@
     .registers 3
 
     .prologue
-    .line 309
+    .line 320
     const/4 v0, 0x6
 
     invoke-direct {p0, v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->changePartControl(I)V
 
-    .line 310
+    .line 321
     return-void
 .end method
 
@@ -392,12 +421,12 @@
     .registers 3
 
     .prologue
-    .line 313
+    .line 324
     const/4 v0, 0x7
 
     invoke-direct {p0, v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->changePartControl(I)V
 
-    .line 314
+    .line 325
     return-void
 .end method
 
@@ -405,12 +434,12 @@
     .registers 3
 
     .prologue
-    .line 317
+    .line 328
     const/16 v0, 0x8
 
     invoke-direct {p0, v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->changePartControl(I)V
 
-    .line 318
+    .line 329
     return-void
 .end method
 
@@ -418,12 +447,12 @@
     .registers 3
 
     .prologue
-    .line 321
+    .line 332
     const/16 v0, 0x9
 
     invoke-direct {p0, v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->changePartControl(I)V
 
-    .line 322
+    .line 333
     return-void
 .end method
 
@@ -431,7 +460,7 @@
     .registers 4
 
     .prologue
-    .line 273
+    .line 284
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
 
     invoke-static {}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->getIncreaseStepTenths()I
@@ -440,7 +469,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/train/TrainItemManager;->addAllPartValue(I)V
 
-    .line 274
+    .line 285
     return-void
 .end method
 
@@ -448,7 +477,7 @@
     .registers 4
 
     .prologue
-    .line 277
+    .line 288
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
 
     invoke-static {}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->getDecreaseStepTenths()I
@@ -459,7 +488,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/train/TrainItemManager;->addAllPartValue(I)V
 
-    .line 278
+    .line 289
     return-void
 .end method
 
@@ -467,10 +496,10 @@
     .registers 2
 
     .prologue
-    .line 281
+    .line 292
     invoke-direct {p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->settingAllUser()V
 
-    .line 282
+    .line 293
     return-void
 .end method
 
@@ -478,12 +507,12 @@
     .registers 3
 
     .prologue
-    .line 285
+    .line 296
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->changePartControl(I)V
 
-    .line 286
+    .line 297
     return-void
 .end method
 
@@ -491,12 +520,12 @@
     .registers 3
 
     .prologue
-    .line 289
+    .line 300
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->changePartControl(I)V
 
-    .line 290
+    .line 301
     return-void
 .end method
 
@@ -504,12 +533,12 @@
     .registers 3
 
     .prologue
-    .line 293
+    .line 304
     const/4 v0, 0x2
 
     invoke-direct {p0, v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->changePartControl(I)V
 
-    .line 294
+    .line 305
     return-void
 .end method
 
@@ -517,12 +546,12 @@
     .registers 3
 
     .prologue
-    .line 297
+    .line 308
     const/4 v0, 0x3
 
     invoke-direct {p0, v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->changePartControl(I)V
 
-    .line 298
+    .line 309
     return-void
 .end method
 
@@ -530,12 +559,12 @@
     .registers 3
 
     .prologue
-    .line 301
+    .line 312
     const/4 v0, 0x4
 
     invoke-direct {p0, v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->changePartControl(I)V
 
-    .line 302
+    .line 313
     return-void
 .end method
 
@@ -543,17 +572,17 @@
     .registers 4
 
     .prologue
-    .line 148
+    .line 159
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 149
+    .line 160
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
     if-eqz v0, :cond_15
 
-    .line 150
+    .line 161
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
@@ -566,7 +595,7 @@
 
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->mParam1:Ljava/lang/String;
 
-    .line 152
+    .line 163
     :cond_15
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
@@ -578,14 +607,14 @@
 
     invoke-static {v0}, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->init(Landroid/app/Application;)V
 
-    .line 153
+    .line 164
     invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->getDefault()Lorg/greenrobot/eventbus/EventBus;
 
     move-result-object v0
 
     invoke-virtual {v0, p0}, Lorg/greenrobot/eventbus/EventBus;->register(Ljava/lang/Object;)V
 
-    .line 154
+    .line 165
     return-void
 .end method
 
@@ -593,20 +622,20 @@
     .registers 10
 
     .prologue
-    .line 158
+    .line 169
     invoke-static {p1}, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     move-result-object v0
 
-    .line 159
+    .line 170
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
-    .line 160
+    .line 171
     invoke-virtual {v0}, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->getRoot()Landroid/widget/LinearLayout;
 
     move-result-object v0
 
-    .line 161
+    .line 172
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->allStartPause:Lcom/isaigu/gymapp/widget/MyButton;
@@ -617,7 +646,7 @@
 
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 167
+    .line 178
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->allStop:Lcom/isaigu/gymapp/widget/MyButton;
@@ -628,7 +657,7 @@
 
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 173
+    .line 184
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->allAdd:Lcom/isaigu/gymapp/widget/MyButton;
@@ -639,7 +668,7 @@
 
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 179
+    .line 190
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->allminus:Lcom/isaigu/gymapp/widget/MyButton;
@@ -650,7 +679,7 @@
 
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 185
+    .line 196
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->allPerson:Lcom/isaigu/gymapp/widget/MyButton;
@@ -661,7 +690,7 @@
 
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 191
+    .line 202
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->buwei1:Landroid/widget/LinearLayout;
@@ -672,7 +701,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 197
+    .line 208
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->buwei2:Landroid/widget/LinearLayout;
@@ -683,7 +712,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 203
+    .line 214
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->buwei3:Landroid/widget/LinearLayout;
@@ -694,7 +723,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 209
+    .line 220
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->buwei4:Landroid/widget/LinearLayout;
@@ -705,7 +734,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 215
+    .line 226
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->buwei5:Landroid/widget/LinearLayout;
@@ -716,7 +745,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 221
+    .line 232
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->buwei6:Landroid/widget/LinearLayout;
@@ -727,7 +756,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 227
+    .line 238
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->buwei7:Landroid/widget/LinearLayout;
@@ -738,7 +767,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 233
+    .line 244
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->buwei8:Landroid/widget/LinearLayout;
@@ -749,7 +778,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 239
+    .line 250
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->buwei9:Landroid/widget/LinearLayout;
@@ -760,7 +789,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 245
+    .line 256
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->buwei10:Landroid/widget/LinearLayout;
@@ -771,7 +800,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 251
+    .line 262
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->recyclerView:Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;
@@ -780,7 +809,7 @@
 
     invoke-virtual {v1, v2}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;->setSwipeMenuCreator(Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuCreator;)V
 
-    .line 252
+    .line 263
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->recyclerView:Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;
@@ -789,7 +818,7 @@
 
     invoke-virtual {v1, v2}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;->setSwipeMenuItemClickListener(Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItemClickListener;)V
 
-    .line 253
+    .line 264
     new-instance v1, Lcom/isaigu/gymapp/train/TrainAdapter;
 
     iget-object v2, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
@@ -804,7 +833,7 @@
 
     iput-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
 
-    .line 254
+    .line 265
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->recyclerView:Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;
@@ -823,7 +852,7 @@
 
     invoke-virtual {v1, v2}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
 
-    .line 255
+    .line 266
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->recyclerView:Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;
@@ -832,7 +861,7 @@
 
     invoke-virtual {v1, v2}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
 
-    .line 256
+    .line 267
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->recyclerView:Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;
@@ -841,17 +870,17 @@
 
     invoke-virtual {v1, v2}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;->addOnItemTouchListener(Landroid/support/v7/widget/RecyclerView$OnItemTouchListener;)V
 
-    .line 257
+    .line 268
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->startScan()V
 
-    .line 258
+    .line 269
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getBaseActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
 
     invoke-static {v1}, Lcom/isaigu/gymapp/train/utils/OperationUtil;->requestPermission(Lcom/isaigu/gymapp/BaseActivity;)V
 
-    .line 259
+    .line 270
     return-object v0
 .end method
 
@@ -859,17 +888,17 @@
     .registers 2
 
     .prologue
-    .line 372
+    .line 387
     invoke-super {p0}, Landroid/support/v4/app/Fragment;->onDestroy()V
 
-    .line 373
+    .line 388
     invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->getDefault()Lorg/greenrobot/eventbus/EventBus;
 
     move-result-object v0
 
     invoke-virtual {v0, p0}, Lorg/greenrobot/eventbus/EventBus;->unregister(Ljava/lang/Object;)V
 
-    .line 374
+    .line 389
     return-void
 .end method
 
@@ -877,10 +906,10 @@
     .registers 1
 
     .prologue
-    .line 367
+    .line 382
     invoke-super {p0}, Landroid/support/v4/app/Fragment;->onDetach()V
 
-    .line 368
+    .line 383
     return-void
 .end method
 
@@ -891,16 +920,18 @@
     .end annotation
 
     .prologue
-    .line 136
+    .line 147
     invoke-virtual {p1}, Lcom/isaigu/gymapp/train/events/TrainUserSelectedEvent;->getTrainItem()Lcom/isaigu/gymapp/train/model/TrainItem;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->recordManager:Lcom/isaigu/gymapp/train/utils/TrainRecordManager;
+    invoke-direct {p0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getRecordManager()Lcom/isaigu/gymapp/train/utils/TrainRecordManager;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/train/model/TrainItem;->setRecordManager(Lcom/isaigu/gymapp/train/utils/TrainRecordManager;)V
 
-    .line 137
+    .line 148
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
 
     invoke-virtual {p1}, Lcom/isaigu/gymapp/train/events/TrainUserSelectedEvent;->getTrainItem()Lcom/isaigu/gymapp/train/model/TrainItem;
@@ -909,12 +940,12 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/train/TrainItemManager;->addTrainItem(Lcom/isaigu/gymapp/train/model/TrainItem;)V
 
-    .line 138
+    .line 149
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 139
+    .line 150
     return-void
 .end method
 
@@ -925,7 +956,7 @@
     .end annotation
 
     .prologue
-    .line 143
+    .line 154
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
 
     invoke-virtual {p1}, Lcom/isaigu/gymapp/train/events/DeviceDisConnectedEvent;->getDevice()Lcom/clj/fastble/data/BleDevice;
@@ -938,7 +969,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/train/TrainItemManager;->disConnected(Ljava/lang/String;)V
 
-    .line 144
+    .line 155
     return-void
 .end method
 
@@ -946,7 +977,7 @@
     .registers 3
 
     .prologue
-    .line 382
+    .line 397
     iget-boolean v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->allStart:Z
 
     if-nez v0, :cond_1f
@@ -956,7 +987,7 @@
     :goto_5
     iput-boolean v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->allStart:Z
 
-    .line 383
+    .line 398
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->binding:Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;
 
     iget-object v1, v0, Lcom/isaigu/gymapp/databinding/NewTrainFragmentLayoutBinding;->allStartPause:Lcom/isaigu/gymapp/widget/MyButton;
@@ -970,33 +1001,33 @@
     :goto_12
     invoke-virtual {v1, v0}, Lcom/isaigu/gymapp/widget/MyButton;->setBackgroundResource(I)V
 
-    .line 384
+    .line 399
     iget-boolean v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->allStart:Z
 
     if-eqz v0, :cond_25
 
-    .line 385
+    .line 400
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainItemManager;->startAll()V
 
-    .line 389
+    .line 404
     :goto_1e
     return-void
 
-    .line 382
+    .line 397
     :cond_1f
     const/4 v0, 0x0
 
     goto :goto_5
 
-    .line 383
+    .line 398
     :cond_21
     const v0, 0x7f0c0069
 
     goto :goto_12
 
-    .line 387
+    .line 402
     :cond_25
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->manager:Lcom/isaigu/gymapp/train/TrainItemManager;
 
@@ -1009,6 +1040,6 @@
     .registers 1
 
     .prologue
-    .line 363
+    .line 378
     return-void
 .end method

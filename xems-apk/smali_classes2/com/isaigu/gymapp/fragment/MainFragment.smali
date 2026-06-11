@@ -158,7 +158,7 @@
     .registers 3
 
     .prologue
-    .line 429
+    .line 435
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v0
@@ -166,48 +166,6 @@
     iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
 
     if-nez v0, :cond_13
-
-    .line 430
-    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
-
-    move-result-object v0
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v1, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
-
-    .line 432
-    :cond_13
-    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
-
-    move-result-object v0
-
-    iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
-
-    if-nez v0, :cond_26
-
-    .line 433
-    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
-
-    move-result-object v0
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v1, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
-
-    .line 435
-    :cond_26
-    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
-
-    move-result-object v0
-
-    iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->deviceBeanList:Ljava/util/List;
-
-    if-nez v0, :cond_39
 
     .line 436
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -218,9 +176,51 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v1, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->deviceBeanList:Ljava/util/List;
+    iput-object v1, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
 
     .line 438
+    :cond_13
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
+
+    if-nez v0, :cond_26
+
+    .line 439
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v1, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainData:Ljava/util/List;
+
+    .line 441
+    :cond_26
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->deviceBeanList:Ljava/util/List;
+
+    if-nez v0, :cond_39
+
+    .line 442
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v1, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->deviceBeanList:Ljava/util/List;
+
+    .line 444
     :cond_39
     return-void
 .end method
@@ -467,12 +467,49 @@
 
     iput-object v0, v1, Lcom/isaigu/gymapp/mgr/DataMgr;->registerProtocolVO:Lcom/isaigu/gymapp/bean/vo/RegisterProtocolVO;
 
-    .line 214
+    .line 220
+    :cond_da
     :goto_da
     return-void
 
     .line 186
     :cond_db
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
+
+    if-nez v0, :cond_f3
+
+    .line 187
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v1
+
+    const-string v0, "file_name_login_user"
+
+    const-class v2, Lcom/isaigu/gymapp/bean/TrainUser;
+
+    invoke-static {v0, v2}, Lcom/isaigu/gymapp/utils/FileUtils;->getData(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/isaigu/gymapp/bean/TrainUser;
+
+    iput-object v0, v1, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
+
+    .line 189
+    :cond_f3
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
+
+    if-eqz v0, :cond_da
+
+    .line 192
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v0
@@ -487,7 +524,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/mgr/ApiMgr;->getUserBindMachine(JLcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    .line 199
+    .line 205
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
@@ -500,13 +537,13 @@
 
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/mgr/ApiMgr;->getCurrentProtocol(Ljava/lang/String;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    .line 211
+    .line 217
     invoke-direct {p0}, Lcom/isaigu/gymapp/fragment/MainFragment;->initOfflineAddUser()V
 
-    .line 212
+    .line 218
     invoke-direct {p0}, Lcom/isaigu/gymapp/fragment/MainFragment;->initOfflineDeleteTrainProgram()V
 
-    .line 213
+    .line 219
     invoke-direct {p0}, Lcom/isaigu/gymapp/fragment/MainFragment;->initOfflineAddTrainRecord()V
 
     goto :goto_da
@@ -516,7 +553,7 @@
     .registers 3
 
     .prologue
-    .line 357
+    .line 363
     const-string v0, "file_name_offline_train_record_data"
 
     const-class v1, Lcom/isaigu/gymapp/bean/dto/TrainRecordDTO;
@@ -527,7 +564,7 @@
 
     check-cast v0, Ljava/util/List;
 
-    .line 358
+    .line 364
     if-eqz v0, :cond_1a
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -536,14 +573,14 @@
 
     if-lez v1, :cond_1a
 
-    .line 359
+    .line 365
     new-instance v1, Lcom/isaigu/gymapp/fragment/MainFragment$10;
 
     invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/MainFragment$10;-><init>(Lcom/isaigu/gymapp/fragment/MainFragment;)V
 
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/mgr/ApiMgr;->addTrainRecordList(Ljava/util/List;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    .line 373
+    .line 379
     :cond_1a
     return-void
 .end method
@@ -552,7 +589,7 @@
     .registers 6
 
     .prologue
-    .line 217
+    .line 223
     const-string v0, "file_name_offline_user_data"
 
     const-class v1, Lcom/isaigu/gymapp/bean/TrainUser;
@@ -563,7 +600,7 @@
 
     check-cast v0, Ljava/util/List;
 
-    .line 218
+    .line 224
     if-eqz v0, :cond_3d
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -572,12 +609,12 @@
 
     if-lez v1, :cond_3d
 
-    .line 219
+    .line 225
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 220
+    .line 226
     const/4 v1, 0x0
 
     move v2, v1
@@ -589,7 +626,7 @@
 
     if-ge v2, v1, :cond_34
 
-    .line 221
+    .line 227
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v4
@@ -606,14 +643,14 @@
 
     invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 220
+    .line 226
     add-int/lit8 v1, v2, 0x1
 
     move v2, v1
 
     goto :goto_19
 
-    .line 223
+    .line 229
     :cond_34
     new-instance v0, Lcom/isaigu/gymapp/fragment/MainFragment$3;
 
@@ -621,11 +658,11 @@
 
     invoke-static {v3, v0}, Lcom/isaigu/gymapp/mgr/ApiMgr;->submitUserDataList(Ljava/util/List;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    .line 235
+    .line 241
     :goto_3c
     return-void
 
-    .line 234
+    .line 240
     :cond_3d
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/MainFragment;->initOfflineUpdateUsers()V
 
@@ -636,7 +673,7 @@
     .registers 5
 
     .prologue
-    .line 277
+    .line 283
     const-string v0, "file_name_offline_delete_train_program_data"
 
     const-class v1, Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -647,7 +684,7 @@
 
     check-cast v0, Ljava/util/List;
 
-    .line 278
+    .line 284
     if-eqz v0, :cond_3e
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -656,12 +693,12 @@
 
     if-lez v1, :cond_3e
 
-    .line 279
+    .line 285
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 280
+    .line 286
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -679,14 +716,14 @@
 
     check-cast v0, Lcom/isaigu/gymapp/bean/TrainProgram;
 
-    .line 281
+    .line 287
     iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainProgram;->id:Ljava/lang/Long;
 
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1b
 
-    .line 283
+    .line 289
     :cond_2d
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
@@ -702,11 +739,11 @@
 
     invoke-static {v2, v3, v1, v0}, Lcom/isaigu/gymapp/mgr/ApiMgr;->deleteProgramTrainDataList(JLjava/util/List;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    .line 295
+    .line 301
     :goto_3d
     return-void
 
-    .line 294
+    .line 300
     :cond_3e
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/MainFragment;->initOfflineAddTrainPrograms()V
 
@@ -1051,33 +1088,33 @@
     .registers 4
 
     .prologue
-    .line 389
+    .line 395
     packed-switch p1, :pswitch_data_78
 
-    .line 426
+    .line 432
     :goto_3
     return-void
 
-    .line 391
+    .line 397
     :pswitch_4
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->newTrainFragment:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     if-nez v0, :cond_f
 
-    .line 392
+    .line 398
     new-instance v0, Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;-><init>()V
 
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->newTrainFragment:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
-    .line 394
+    .line 400
     :cond_f
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/fragment/MainFragment;->changePageSelect(I)V
 
-    .line 395
+    .line 401
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->fragment_now:Landroid/support/v4/app/Fragment;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->newTrainFragment:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
@@ -1086,26 +1123,26 @@
 
     goto :goto_3
 
-    .line 398
+    .line 404
     :pswitch_1b
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->userFragment:Lcom/isaigu/gymapp/fragment/UserFragment;
 
     if-nez v0, :cond_26
 
-    .line 399
+    .line 405
     new-instance v0, Lcom/isaigu/gymapp/fragment/UserFragment;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/fragment/UserFragment;-><init>()V
 
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->userFragment:Lcom/isaigu/gymapp/fragment/UserFragment;
 
-    .line 401
+    .line 407
     :cond_26
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/fragment/MainFragment;->changePageSelect(I)V
 
-    .line 402
+    .line 408
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->fragment_now:Landroid/support/v4/app/Fragment;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->userFragment:Lcom/isaigu/gymapp/fragment/UserFragment;
@@ -1114,26 +1151,26 @@
 
     goto :goto_3
 
-    .line 405
+    .line 411
     :pswitch_32
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->settingFragment:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     if-nez v0, :cond_3d
 
-    .line 406
+    .line 412
     new-instance v0, Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;-><init>()V
 
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->settingFragment:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    .line 408
+    .line 414
     :cond_3d
     const/4 v0, 0x2
 
     invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/fragment/MainFragment;->changePageSelect(I)V
 
-    .line 409
+    .line 415
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->fragment_now:Landroid/support/v4/app/Fragment;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->settingFragment:Lcom/isaigu/gymapp/fragment/SettingFragment;
@@ -1142,26 +1179,26 @@
 
     goto :goto_3
 
-    .line 412
+    .line 418
     :pswitch_49
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->videoListFragment:Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
     if-nez v0, :cond_54
 
-    .line 413
+    .line 419
     new-instance v0, Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/fragment/VideoListFragment;-><init>()V
 
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->videoListFragment:Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
-    .line 415
+    .line 421
     :cond_54
     const/4 v0, 0x3
 
     invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/fragment/MainFragment;->changePageSelect(I)V
 
-    .line 416
+    .line 422
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->fragment_now:Landroid/support/v4/app/Fragment;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->videoListFragment:Lcom/isaigu/gymapp/fragment/VideoListFragment;
@@ -1170,26 +1207,26 @@
 
     goto :goto_3
 
-    .line 419
+    .line 425
     :pswitch_60
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->calendarFragment:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
     if-nez v0, :cond_6b
 
-    .line 420
+    .line 426
     new-instance v0, Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;-><init>()V
 
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->calendarFragment:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
-    .line 422
+    .line 428
     :cond_6b
     const/4 v0, 0x4
 
     invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/fragment/MainFragment;->changePageSelect(I)V
 
-    .line 423
+    .line 429
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->fragment_now:Landroid/support/v4/app/Fragment;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->calendarFragment:Lcom/isaigu/gymapp/fragment/CalendarFragment;
@@ -1198,7 +1235,7 @@
 
     goto :goto_3
 
-    .line 389
+    .line 395
     nop
 
     :pswitch_data_78
@@ -1217,7 +1254,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 456
+    .line 462
     move v1, v2
 
     :goto_2
@@ -1229,10 +1266,10 @@
 
     if-ge v1, v0, :cond_8e
 
-    .line 457
+    .line 463
     if-ne p1, v1, :cond_4e
 
-    .line 458
+    .line 464
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->ll_list:Ljava/util/List;
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1243,7 +1280,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setEnabled(Z)V
 
-    .line 459
+    .line 465
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->ll_list:Ljava/util/List;
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1256,7 +1293,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
-    .line 460
+    .line 466
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->iv_list:Ljava/util/List;
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1271,7 +1308,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    .line 461
+    .line 467
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->tv_list:Ljava/util/List;
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1292,7 +1329,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 456
+    .line 462
     :goto_4a
     add-int/lit8 v0, v1, 0x1
 
@@ -1300,7 +1337,7 @@
 
     goto :goto_2
 
-    .line 463
+    .line 469
     :cond_4e
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->ll_list:Ljava/util/List;
 
@@ -1314,7 +1351,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setEnabled(Z)V
 
-    .line 464
+    .line 470
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->ll_list:Ljava/util/List;
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1327,7 +1364,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
-    .line 465
+    .line 471
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->iv_list:Ljava/util/List;
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1342,7 +1379,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    .line 466
+    .line 472
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->tv_list:Ljava/util/List;
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1365,7 +1402,7 @@
 
     goto :goto_4a
 
-    .line 469
+    .line 475
     :cond_8e
     return-void
 .end method
@@ -1374,7 +1411,7 @@
     .registers 7
 
     .prologue
-    .line 299
+    .line 305
     const-string v0, "file_name_offline_train_program_data"
 
     const-class v1, Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -1385,7 +1422,7 @@
 
     check-cast v0, Ljava/util/List;
 
-    .line 300
+    .line 306
     if-eqz v0, :cond_42
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -1394,7 +1431,7 @@
 
     if-lez v1, :cond_42
 
-    .line 301
+    .line 307
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -1412,7 +1449,7 @@
 
     check-cast v1, Lcom/isaigu/gymapp/bean/TrainProgram;
 
-    .line 302
+    .line 308
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v3
@@ -1429,7 +1466,7 @@
 
     goto :goto_16
 
-    .line 304
+    .line 310
     :cond_31
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
@@ -1445,11 +1482,11 @@
 
     invoke-static {v2, v3, v0, v1}, Lcom/isaigu/gymapp/mgr/ApiMgr;->addProgramTrainDataList(JLjava/util/List;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    .line 316
+    .line 322
     :goto_41
     return-void
 
-    .line 315
+    .line 321
     :cond_42
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/MainFragment;->initOfflineUpdateTrainPrograms()V
 
@@ -1460,7 +1497,7 @@
     .registers 7
 
     .prologue
-    .line 320
+    .line 326
     const-string v0, "file_name_offline_update_train_program_data"
 
     const-class v1, Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -1471,7 +1508,7 @@
 
     check-cast v0, Ljava/util/List;
 
-    .line 321
+    .line 327
     if-eqz v0, :cond_42
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -1480,7 +1517,7 @@
 
     if-lez v1, :cond_42
 
-    .line 322
+    .line 328
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -1498,7 +1535,7 @@
 
     check-cast v1, Lcom/isaigu/gymapp/bean/TrainProgram;
 
-    .line 323
+    .line 329
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v3
@@ -1515,7 +1552,7 @@
 
     goto :goto_16
 
-    .line 325
+    .line 331
     :cond_31
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
@@ -1531,11 +1568,11 @@
 
     invoke-static {v2, v3, v0, v1}, Lcom/isaigu/gymapp/mgr/ApiMgr;->updateProgramTrainDataList(JLjava/util/List;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    .line 337
+    .line 343
     :goto_41
     return-void
 
-    .line 336
+    .line 342
     :cond_42
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/MainFragment;->initTrainPrograms()V
 
@@ -1546,7 +1583,7 @@
     .registers 5
 
     .prologue
-    .line 239
+    .line 245
     const-string v0, "file_name_offline_update_user_data"
 
     const-class v1, Lcom/isaigu/gymapp/bean/TrainUser;
@@ -1557,7 +1594,7 @@
 
     check-cast v0, Ljava/util/List;
 
-    .line 240
+    .line 246
     if-eqz v0, :cond_3c
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -1566,12 +1603,12 @@
 
     if-lez v1, :cond_3c
 
-    .line 241
+    .line 247
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 242
+    .line 248
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -1589,7 +1626,7 @@
 
     check-cast v0, Lcom/isaigu/gymapp/bean/TrainUser;
 
-    .line 243
+    .line 249
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v3
@@ -1602,7 +1639,7 @@
 
     goto :goto_1b
 
-    .line 245
+    .line 251
     :cond_33
     new-instance v0, Lcom/isaigu/gymapp/fragment/MainFragment$4;
 
@@ -1610,11 +1647,11 @@
 
     invoke-static {v1, v0}, Lcom/isaigu/gymapp/mgr/ApiMgr;->updateUserDataList(Ljava/util/List;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    .line 257
+    .line 263
     :goto_3b
     return-void
 
-    .line 256
+    .line 262
     :cond_3c
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/MainFragment;->initUsers()V
 
@@ -1625,7 +1662,7 @@
     .registers 4
 
     .prologue
-    .line 341
+    .line 347
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v0
@@ -1640,7 +1677,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/mgr/ApiMgr;->getUserProgramTrainDataList(JLcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    .line 354
+    .line 360
     return-void
 .end method
 
@@ -1648,7 +1685,7 @@
     .registers 4
 
     .prologue
-    .line 261
+    .line 267
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v0
@@ -1663,7 +1700,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/mgr/ApiMgr;->getUserCustomers(JLcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    .line 274
+    .line 280
     return-void
 .end method
 
@@ -1671,18 +1708,18 @@
     .registers 3
 
     .prologue
-    .line 377
+    .line 383
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_10
 
-    .line 386
+    .line 392
     :goto_7
     return-void
 
-    .line 383
+    .line 389
     :pswitch_8
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -1692,7 +1729,7 @@
 
     goto :goto_7
 
-    .line 377
+    .line 383
     :pswitch_data_10
     .packed-switch 0x7f0900ec
         :pswitch_8
@@ -1839,14 +1876,14 @@
     .prologue
     const v2, 0x7f0900a3
 
-    .line 441
+    .line 447
     if-nez p2, :cond_6
 
-    .line 453
+    .line 459
     :goto_5
     return-void
 
-    .line 444
+    .line 450
     :cond_6
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/MainFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
@@ -1860,14 +1897,14 @@
 
     move-result-object v0
 
-    .line 445
+    .line 451
     invoke-virtual {p2}, Landroid/support/v4/app/Fragment;->isAdded()Z
 
     move-result v1
 
     if-eqz v1, :cond_26
 
-    .line 446
+    .line 452
     invoke-virtual {v0, p1}, Landroid/support/v4/app/FragmentTransaction;->hide(Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
 
     move-result-object v0
@@ -1878,17 +1915,17 @@
 
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    .line 452
+    .line 458
     :goto_23
     iput-object p2, p0, Lcom/isaigu/gymapp/fragment/MainFragment;->fragment_now:Landroid/support/v4/app/Fragment;
 
     goto :goto_5
 
-    .line 447
+    .line 453
     :cond_26
     if-eqz p1, :cond_38
 
-    .line 448
+    .line 454
     invoke-virtual {v0, p1}, Landroid/support/v4/app/FragmentTransaction;->hide(Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
 
     move-result-object v0
@@ -1905,7 +1942,7 @@
 
     goto :goto_23
 
-    .line 450
+    .line 456
     :cond_38
     invoke-virtual {v0, v2, p2}, Landroid/support/v4/app/FragmentTransaction;->add(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
 
