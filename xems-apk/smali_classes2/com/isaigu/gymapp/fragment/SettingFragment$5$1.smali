@@ -1,9 +1,6 @@
 .class Lcom/isaigu/gymapp/fragment/SettingFragment$5$1;
-.super Ljava/lang/Object;
+.super Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
 .source "SettingFragment.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -16,6 +13,15 @@
     name = null
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback<",
+        "Lcom/isaigu/gymapp/bean/vo/ResponseData<",
+        "Ljava/lang/Object;",
+        ">;>;"
+    }
+.end annotation
+
 
 # instance fields
 .field final synthetic this$1:Lcom/isaigu/gymapp/fragment/SettingFragment$5;
@@ -24,46 +30,93 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment$5;)V
     .registers 2
+    .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/SettingFragment$5;
 
-    .prologue
-    .line 310
+    .line 284
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$5$1;->this$1:Lcom/isaigu/gymapp/fragment/SettingFragment$5;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .registers 4
+.method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
+    .registers 7
+    .param p1, "httpSuccess"    # Z
+    .param p2, "message"    # Ljava/lang/String;
+    .param p3, "result"    # Lcom/isaigu/gymapp/bean/vo/ResponseData;
 
-    .prologue
-    .line 313
+    .line 287
+    if-eqz p1, :cond_18
+
+    if-eqz p3, :cond_18
+
+    :try_start_4
+    invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
+
+    move-result v0
+
+    if-nez v0, :cond_18
+
+    .line 288
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
+
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v1
+
+    iget-wide v1, v1, Lcom/isaigu/gymapp/bean/UserData;->useTime:J
+
+    iput-wide v1, v0, Lcom/isaigu/gymapp/bean/TrainUser;->useTime:J
+
+    .line 290
+    :cond_18
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$5$1;->this$1:Lcom/isaigu/gymapp/fragment/SettingFragment$5;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SettingFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->time:Landroid/widget/TextView;
-    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$100(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/TextView;
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$5$1;->this$1:Lcom/isaigu/gymapp/fragment/SettingFragment$5;
+    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$5$1$1;
 
-    iget-object v1, v1, Lcom/isaigu/gymapp/fragment/SettingFragment$5;->val$dateFormat:Ljava/text/SimpleDateFormat;
+    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$5$1$1;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment$5$1;)V
 
-    new-instance v2, Ljava/util/Date;
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
+    :try_end_28
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_28} :catch_29
 
-    invoke-direct {v2}, Ljava/util/Date;-><init>()V
+    .line 297
+    goto :goto_2d
 
-    invoke-virtual {v1, v2}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    .line 295
+    :catch_29
+    move-exception v0
 
-    move-result-object v1
+    .line 296
+    .local v0, "e":Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    .line 298
+    .end local v0    # "e":Ljava/lang/Exception;
+    :goto_2d
+    return-void
+.end method
 
-    .line 314
+.method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
+    .registers 4
+
+    .line 284
+    check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/SettingFragment$5$1;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
+
     return-void
 .end method

@@ -284,6 +284,4 @@ Setup path: Apps->%3$s->Permissions"</string>
     <string name="yaobu">"腰部
 (下背)"</string>
     <string name="youyangyundong">有氧运动</string>
-    <string name="channelPulseDepthTitle">Per-channel impulse depth (μs, 0 = global)</string>
-    <string name="channelPulseGlobal">Global</string>
 </resources>

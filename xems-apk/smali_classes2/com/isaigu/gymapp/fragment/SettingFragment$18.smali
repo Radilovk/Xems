@@ -21,9 +21,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    .prologue
-    .line 433
+    .line 416
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$18;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
@@ -34,10 +34,10 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .registers 6
+    .registers 5
+    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 436
+    .line 418
     invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->getDefault()Lorg/greenrobot/eventbus/EventBus;
 
     move-result-object v0
@@ -48,35 +48,35 @@
 
     invoke-virtual {v0, v1}, Lorg/greenrobot/eventbus/EventBus;->post(Ljava/lang/Object;)V
 
-    .line 437
+    .line 419
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$18;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
 
-    const v1, 0x7f0900a4
+    new-instance v1, Lcom/isaigu/gymapp/fragment/LoginFragment;
 
-    new-instance v2, Lcom/isaigu/gymapp/fragment/LoginFragment;
+    invoke-direct {v1}, Lcom/isaigu/gymapp/fragment/LoginFragment;-><init>()V
 
-    invoke-direct {v2}, Lcom/isaigu/gymapp/fragment/LoginFragment;-><init>()V
+    const v2, 0x7f0900a4
 
-    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
+    invoke-virtual {v0, v2, v1}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
 
-    .line 438
+    .line 420
     const/16 v0, 0x67
 
     invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
 
-    .line 439
+    .line 421
     new-instance v0, Lcom/isaigu/gymapp/fragment/SettingFragment$18$1;
 
     invoke-direct {v0, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$18$1;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment$18;)V
 
-    const-wide/16 v2, 0x7d0
+    const-wide/16 v1, 0x7d0
 
-    invoke-static {v0, v2, v3}, Lcom/isaigu/gymapp/utils/TimerUtils;->delayCallback(Ljava/lang/Runnable;J)Ljava/util/Timer;
+    invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/utils/TimerUtils;->delayCallback(Ljava/lang/Runnable;J)Ljava/util/Timer;
 
-    .line 447
+    .line 428
     return-void
 .end method

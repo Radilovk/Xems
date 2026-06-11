@@ -3,24 +3,12 @@
 .source "SettingFragment.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5;,
-        Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;,
-        Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass20;
-    }
-.end annotation
-
-
 # static fields
 .field private static final REQUEST_CODE_WRITE_SETTINGS:I = 0x2
 
 
 # instance fields
 .field private changeLogo:Landroid/widget/Button;
-
-.field private channelCalibrationContainer:Landroid/widget/LinearLayout;
 
 .field private chinese:Landroid/widget/Button;
 
@@ -77,8 +65,7 @@
 .method public constructor <init>()V
     .registers 1
 
-    .prologue
-    .line 61
+    .line 71
     invoke-direct {p0}, Lcom/isaigu/gymapp/BaseFragment;-><init>()V
 
     return-void
@@ -86,9 +73,9 @@
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/TextView;
     .registers 2
+    .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    .prologue
-    .line 61
+    .line 71
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->range:Landroid/widget/TextView;
 
     return-object v0
@@ -96,1346 +83,134 @@
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/TextView;
     .registers 2
+    .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    .prologue
-    .line 61
+    .line 71
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->time:Landroid/widget/TextView;
 
     return-object v0
 .end method
 
-.method static synthetic access$200(Lcom/isaigu/gymapp/fragment/SettingFragment;)Ljava/io/File;
+.method static synthetic access$200(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/TextView;
     .registers 2
+    .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    .prologue
-    .line 61
+    .line 71
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->timelength:Landroid/widget/TextView;
+
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lcom/isaigu/gymapp/fragment/SettingFragment;Ljava/lang/String;Z)V
+    .registers 3
+    .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
+    .param p1, "x1"    # Ljava/lang/String;
+    .param p2, "x2"    # Z
+
+    .line 71
+    invoke-direct {p0, p1, p2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->switchToLanguage(Ljava/lang/String;Z)V
+
+    return-void
+.end method
+
+.method static synthetic access$400(Lcom/isaigu/gymapp/fragment/SettingFragment;)Ljava/io/File;
+    .registers 2
+    .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
+
+    .line 71
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->originalFile:Ljava/io/File;
 
     return-object v0
 .end method
 
-.method static synthetic access$202(Lcom/isaigu/gymapp/fragment/SettingFragment;Ljava/io/File;)Ljava/io/File;
+.method static synthetic access$402(Lcom/isaigu/gymapp/fragment/SettingFragment;Ljava/io/File;)Ljava/io/File;
     .registers 2
+    .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
+    .param p1, "x1"    # Ljava/io/File;
 
-    .prologue
-    .line 61
+    .line 71
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->originalFile:Ljava/io/File;
 
     return-object p1
 .end method
 
-.method static synthetic access$302(Lcom/isaigu/gymapp/fragment/SettingFragment;Landroid/net/Uri;)Landroid/net/Uri;
-    .registers 2
-
-    .prologue
-    .line 61
-    iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->imageUri:Landroid/net/Uri;
-
-    return-object p1
-.end method
-
-.method static synthetic access$400(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/TextView;
-    .registers 2
-
-    .prologue
-    .line 61
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->timelength:Landroid/widget/TextView;
-
-    return-object v0
-.end method
-
-.method static synthetic access$500(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
-    .registers 2
-
-    .prologue
-    .line 61
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage:Landroid/widget/ImageView;
-
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
-    .registers 2
-
-    .prologue
-    .line 61
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage2:Landroid/widget/ImageView;
-
-    return-object v0
-.end method
-
-.method private handleGetFirmwareVersion(Lcom/isaigu/gymapp/message/DataBundle;)V
-    .registers 6
-
-    .prologue
-    .line 151
-    invoke-virtual {p1}, Lcom/isaigu/gymapp/message/DataBundle;->getContent()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, [B
-
-    .line 152
-    new-instance v2, Ljava/lang/StringBuffer;
-
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
-
-    .line 153
-    const/4 v1, 0x0
-
-    :goto_c
-    array-length v3, v0
-
-    if-ge v1, v3, :cond_21
-
-    .line 154
-    aget-byte v3, v0, v1
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
-
-    .line 155
-    array-length v3, v0
-
-    add-int/lit8 v3, v3, -0x1
-
-    if-ge v1, v3, :cond_1e
-
-    .line 156
-    const-string v3, "."
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 153
-    :cond_1e
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_c
-
-    .line 159
-    :cond_21
-    new-instance v0, Lcom/isaigu/gymapp/fragment/SettingFragment$1;
-
-    invoke-direct {v0, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$1;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->runOnUiThread(Ljava/lang/Runnable;)V
-
-    .line 164
-    return-void
-.end method
-
-.method private handleGetHardwareVersion(Lcom/isaigu/gymapp/message/DataBundle;)V
-    .registers 6
-
-    .prologue
-    .line 167
-    invoke-virtual {p1}, Lcom/isaigu/gymapp/message/DataBundle;->getContent()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, [B
-
-    .line 168
-    new-instance v2, Ljava/lang/StringBuffer;
-
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
-
-    .line 169
-    const/4 v1, 0x0
-
-    :goto_c
-    array-length v3, v0
-
-    if-ge v1, v3, :cond_21
-
-    .line 170
-    aget-byte v3, v0, v1
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
-
-    .line 171
-    array-length v3, v0
-
-    add-int/lit8 v3, v3, -0x1
-
-    if-ge v1, v3, :cond_1e
-
-    .line 172
-    const-string v3, "."
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 169
-    :cond_1e
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_c
-
-    .line 175
-    :cond_21
-    new-instance v0, Lcom/isaigu/gymapp/fragment/SettingFragment$2;
-
-    invoke-direct {v0, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$2;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->runOnUiThread(Ljava/lang/Runnable;)V
-
-    .line 180
-    return-void
-.end method
-
-.method private initChannelPulseRows()V
-    .registers 14
-
-    .prologue
-    const/16 v12, 0x14
-
-    const/4 v11, 0x6
-
-    const/4 v10, -0x2
-
-    const/4 v1, 0x0
-
-    .line 183
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->channelCalibrationContainer:Landroid/widget/LinearLayout;
-
-    if-nez v0, :cond_a
-
-    .line 241
-    :cond_9
-    return-void
-
-    .line 186
-    :cond_a
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/isaigu/gymapp/bean/UserData;->ensureChannelPulseWidths(Lcom/isaigu/gymapp/bean/UserData;)V
-
-    .line 187
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->channelCalibrationContainer:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v0}, Landroid/widget/LinearLayout;->removeAllViews()V
-
-    .line 188
-    const/16 v0, 0xa
-
-    new-array v3, v0, [Ljava/lang/String;
-
-    const v0, 0x7f0d00f9
-
-    .line 189
-    invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v3, v1
-
-    const/4 v0, 0x1
-
-    const v2, 0x7f0d0055
-
-    .line 190
-    invoke-virtual {p0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v3, v0
-
-    const/4 v0, 0x2
-
-    const v2, 0x7f0d002d
-
-    .line 191
-    invoke-virtual {p0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v3, v0
-
-    const/4 v0, 0x3
-
-    const v2, 0x7f0d00fa
-
-    .line 192
-    invoke-virtual {p0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v3, v0
-
-    const/4 v0, 0x4
-
-    const v2, 0x7f0d002e
-
-    .line 193
-    invoke-virtual {p0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v3, v0
-
-    const/4 v0, 0x5
-
-    const v2, 0x7f0d00d4
-
-    .line 194
-    invoke-virtual {p0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v3, v0
-
-    const v0, 0x7f0d00ea
-
-    .line 195
-    invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v3, v11
-
-    const/4 v0, 0x7
-
-    const v2, 0x7f0d00f7
-
-    .line 196
-    invoke-virtual {p0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v3, v0
-
-    const/16 v0, 0x8
-
-    const v2, 0x7f0d005d
-
-    .line 197
-    invoke-virtual {p0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v3, v0
-
-    const/16 v0, 0x9
-
-    const v2, 0x7f0d00f8
-
-    .line 198
-    invoke-virtual {p0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v3, v0
-
-    move v0, v1
-
-    .line 200
-    :goto_7f
-    array-length v2, v3
-
-    if-ge v0, v2, :cond_9
-
-    .line 202
-    new-instance v4, Landroid/widget/LinearLayout;
-
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
-
-    move-result-object v2
-
-    invoke-direct {v4, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
-
-    .line 203
-    invoke-virtual {v4, v1}, Landroid/widget/LinearLayout;->setOrientation(I)V
-
-    .line 204
-    const/16 v2, 0x10
-
-    invoke-virtual {v4, v2}, Landroid/widget/LinearLayout;->setGravity(I)V
-
-    .line 205
-    invoke-virtual {v4, v12, v11, v12, v11}, Landroid/widget/LinearLayout;->setPadding(IIII)V
-
-    .line 206
-    new-instance v5, Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
-
-    move-result-object v2
-
-    invoke-direct {v5, v2}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
-
-    .line 207
-    aget-object v2, v3, v0
-
-    invoke-virtual {v5, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 208
-    const/high16 v2, 0x41900000    # 18.0f
-
-    invoke-virtual {v5, v2}, Landroid/widget/TextView;->setTextSize(F)V
-
-    .line 209
-    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
-
-    const/16 v6, 0xdc
-
-    invoke-direct {v2, v6, v10}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v5, v2}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 210
-    new-instance v6, Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
-
-    move-result-object v2
-
-    invoke-direct {v6, v2}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
-
-    .line 211
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v2
-
-    iget-object v2, v2, Lcom/isaigu/gymapp/bean/UserData;->channelPulseWidthUs:[I
-
-    aget v7, v2, v0
-
-    .line 212
-    if-lez v7, :cond_124
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v8, " \u03bcs"
-
-    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    :goto_d9
-    invoke-virtual {v6, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 213
-    const/high16 v2, 0x41800000    # 16.0f
-
-    invoke-virtual {v6, v2}, Landroid/widget/TextView;->setTextSize(F)V
-
-    .line 214
-    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
-
-    const/16 v8, 0x64
-
-    invoke-direct {v2, v8, v10}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v6, v2}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 215
-    new-instance v8, Lcom/isaigu/gymapp/widget/RangeSeekBar;
-
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
-
-    move-result-object v2
-
-    invoke-direct {v8, v2}, Lcom/isaigu/gymapp/widget/RangeSeekBar;-><init>(Landroid/content/Context;)V
-
-    .line 216
-    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
-
-    const/high16 v9, 0x3f800000    # 1.0f
-
-    invoke-direct {v2, v1, v10, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
-
-    invoke-virtual {v8, v2}, Lcom/isaigu/gymapp/widget/RangeSeekBar;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 217
-    const/4 v2, 0x0
-
-    const/high16 v9, 0x43c80000    # 400.0f
-
-    invoke-virtual {v8, v2, v9}, Lcom/isaigu/gymapp/widget/RangeSeekBar;->setRange(FF)V
-
-    .line 218
-    if-lez v7, :cond_12c
-
-    int-to-float v2, v7
-
-    :goto_107
-    invoke-virtual {v8, v2}, Lcom/isaigu/gymapp/widget/RangeSeekBar;->setValue(F)V
-
-    .line 219
-    new-instance v2, Lcom/isaigu/gymapp/fragment/SettingFragment$3;
-
-    invoke-direct {v2, p0, v0, v6}, Lcom/isaigu/gymapp/fragment/SettingFragment$3;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;ILandroid/widget/TextView;)V
-
-    invoke-virtual {v8, v2}, Lcom/isaigu/gymapp/widget/RangeSeekBar;->setOnRangeChangedListener(Lcom/isaigu/gymapp/widget/OnRangeChangedListener;)V
-
-    .line 236
-    invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    .line 237
-    invoke-virtual {v4, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    .line 238
-    invoke-virtual {v4, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    .line 239
-    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->channelCalibrationContainer:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v2, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    .line 200
-    add-int/lit8 v0, v0, 0x1
-
-    goto/16 :goto_7f
-
-    .line 212
-    :cond_124
-    const v2, 0x7f0d0105
-
-    invoke-virtual {p0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    goto :goto_d9
-
-    .line 218
-    :cond_12c
-    const/high16 v2, 0x43af0000    # 350.0f
-
-    goto :goto_107
-.end method
-
-.method private initSet()V
-    .registers 13
-
-    .prologue
-    const-wide/32 v10, 0xea60
-
-    const v8, 0x7f0d0064
-
-    const/4 v7, 0x1
-
-    const/4 v6, 0x0
-
-    .line 245
-    :try_start_8
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v0
-
-    iget v0, v0, Lcom/isaigu/gymapp/bean/UserData;->light:I
-
-    if-nez v0, :cond_7d
-
-    .line 246
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/BaseActivity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "screen_brightness"
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    .line 247
-    add-int/lit8 v0, v0, -0x28
-
-    int-to-float v0, v0
-
-    const/high16 v1, 0x43570000    # 215.0f
-
-    div-float/2addr v0, v1
-
-    const/high16 v1, 0x42c80000    # 100.0f
-
-    mul-float/2addr v0, v1
-
-    float-to-int v0, v0
-
-    .line 248
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v1
-
-    iput v0, v1, Lcom/isaigu/gymapp/bean/UserData;->light:I
-
-    .line 249
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v0
-
-    iget v0, v0, Lcom/isaigu/gymapp/bean/UserData;->light:I
-
-    if-gez v0, :cond_3e
-
-    .line 250
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    iput v1, v0, Lcom/isaigu/gymapp/bean/UserData;->light:I
-
-    .line 252
-    :cond_3e
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->lightSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
-
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v1
-
-    iget v1, v1, Lcom/isaigu/gymapp/bean/UserData;->light:I
-
-    int-to-float v1, v1
-
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/RangeSeekBar;->setValue(F)V
-
-    .line 253
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->range:Landroid/widget/TextView;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const v2, 0x7f0d0064
-
-    invoke-virtual {p0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v5
-
-    iget v5, v5, Lcom/isaigu/gymapp/bean/UserData;->light:I
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    aput-object v5, v3, v4
-
-    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, "%"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-    :try_end_7d
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_7d} :catch_21e
-
-    .line 258
-    :cond_7d
-    :goto_7d
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->lightSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
-
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v1
-
-    iget v1, v1, Lcom/isaigu/gymapp/bean/UserData;->light:I
-
-    int-to-float v1, v1
-
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/RangeSeekBar;->setValue(F)V
-
-    .line 259
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->range:Landroid/widget/TextView;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {p0, v8}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    new-array v3, v7, [Ljava/lang/Object;
-
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v4
-
-    iget v4, v4, Lcom/isaigu/gymapp/bean/UserData;->light:I
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    aput-object v4, v3, v6
-
-    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, "%"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 260
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->lightSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$4;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$4;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/RangeSeekBar;->setOnRangeChangedListener(Lcom/isaigu/gymapp/widget/OnRangeChangedListener;)V
-
-    .line 305
-    new-instance v0, Ljava/text/SimpleDateFormat;
-
-    const-string v1, "yyyy-MM-dd HH:mm:ss"
-
-    invoke-direct {v0, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
-
-    .line 306
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->timer:Ljava/util/Timer;
-
-    invoke-static {v1}, Lcom/isaigu/gymapp/utils/TimerUtils;->stopTimer(Ljava/util/Timer;)V
-
-    .line 307
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$5;
-
-    invoke-direct {v1, p0, v0}, Lcom/isaigu/gymapp/fragment/SettingFragment$5;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;Ljava/text/SimpleDateFormat;)V
-
-    const-wide/16 v2, 0x0
-
-    const-wide/16 v4, 0x3e8
-
-    invoke-static {v1, v2, v3, v4, v5}, Lcom/isaigu/gymapp/utils/TimerUtils;->scheduleTimer(Ljava/lang/Runnable;JJ)Ljava/util/Timer;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->timer:Ljava/util/Timer;
-
-    .line 318
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->useTimer:Ljava/util/Timer;
-
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/TimerUtils;->stopTimer(Ljava/util/Timer;)V
-
-    .line 319
-    new-instance v0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5;
-
-    invoke-direct {v0, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-static {v0, v10, v11, v10, v11}, Lcom/isaigu/gymapp/utils/TimerUtils;->scheduleTimer(Ljava/lang/Runnable;JJ)Ljava/util/Timer;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->useTimer:Ljava/util/Timer;
-
-    .line 320
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->timelength:Landroid/widget/TextView;
-
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v1
-
-    iget-wide v2, v1, Lcom/isaigu/gymapp/bean/UserData;->useTime:J
-
-    invoke-static {v2, v3}, Lcom/isaigu/gymapp/mgr/CommonUtils;->formatTime2(J)Ljava/lang/String;
-
-    move-result-object v1
-
-    const/4 v2, 0x3
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const v3, 0x7f0d0041
-
-    invoke-virtual {p0, v3}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    aput-object v3, v2, v6
-
-    const v3, 0x7f0d005c
-
-    invoke-virtual {p0, v3}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    aput-object v3, v2, v7
-
-    const/4 v3, 0x2
-
-    const v4, 0x7f0d0075
-
-    invoke-virtual {p0, v4}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    aput-object v4, v2, v3
-
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 321
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->switchButton:Lcom/isaigu/gymapp/widget/SwitchButton;
-
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v1
-
-    iget-boolean v1, v1, Lcom/isaigu/gymapp/bean/UserData;->leftMode:Z
-
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/SwitchButton;->setCheck(Z)V
-
-    .line 322
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->switchButton:Lcom/isaigu/gymapp/widget/SwitchButton;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$6;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$6;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/SwitchButton;->setOnCheckedChangeListener(Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;)V
-
-    .line 330
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/LanguageUtils;->getLang(Landroid/app/Activity;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 331
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->chinese:Landroid/widget/Button;
-
-    const v2, 0x7f0c000c
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 332
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
-
-    const v2, 0x7f0c0011
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 333
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->espanol:Landroid/widget/Button;
-
-    const v2, 0x7f0c0013
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 334
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->rassia:Landroid/widget/Button;
-
-    const v2, 0x7f0c0058
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 335
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->portugues:Landroid/widget/Button;
-
-    const v2, 0x7f0c0051
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 336
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->french:Landroid/widget/Button;
-
-    const v2, 0x7f0c0015
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 337
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->poland:Landroid/widget/Button;
-
-    const v2, 0x7f0c004f
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 338
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->german:Landroid/widget/Button;
-
-    const v2, 0x7f0c0018
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 339
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->italian:Landroid/widget/Button;
-
-    const v2, 0x7f0c0024
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 340
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->turk:Landroid/widget/Button;
-
-    const v2, 0x7f0c0077
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 341
-    const-string v1, "zh"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_224
-
-    .line 342
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->chinese:Landroid/widget/Button;
-
-    const v1, 0x7f0c000b
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 362
-    :cond_19b
-    :goto_19b
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->chinese:Landroid/widget/Button;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$7;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$7;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 368
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$8;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$8;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 374
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->espanol:Landroid/widget/Button;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$9;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$9;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 380
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->rassia:Landroid/widget/Button;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$10;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$10;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 386
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->portugues:Landroid/widget/Button;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$11;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$11;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 392
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->french:Landroid/widget/Button;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$12;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$12;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 398
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->poland:Landroid/widget/Button;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$13;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$13;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 404
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->german:Landroid/widget/Button;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$14;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$14;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 410
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->italian:Landroid/widget/Button;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$15;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$15;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 416
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->turk:Landroid/widget/Button;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$16;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$16;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 422
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->changeLogo:Landroid/widget/Button;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$17;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$17;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 433
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logout:Landroid/widget/Button;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$18;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$18;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 449
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->defaultLogo:Landroid/widget/Button;
-
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;
-
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 450
-    return-void
-
-    .line 255
-    :catch_21e
-    move-exception v0
-
-    .line 256
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto/16 :goto_7d
-
-    .line 343
-    :cond_224
-    const-string v1, "en"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_236
-
-    .line 344
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
-
-    const v1, 0x7f0c0010
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_19b
-
-    .line 345
-    :cond_236
-    const-string v1, "es"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_248
-
-    .line 346
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->espanol:Landroid/widget/Button;
-
-    const v1, 0x7f0c0012
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_19b
-
-    .line 347
-    :cond_248
-    const-string v1, "ru"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_25a
-
-    .line 348
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->rassia:Landroid/widget/Button;
-
-    const v1, 0x7f0c0057
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_19b
-
-    .line 349
-    :cond_25a
-    const-string v1, "pt"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_26c
-
-    .line 350
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->portugues:Landroid/widget/Button;
-
-    const v1, 0x7f0c0050
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_19b
-
-    .line 351
-    :cond_26c
-    const-string v1, "fr"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_27e
-
-    .line 352
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->french:Landroid/widget/Button;
-
-    const v1, 0x7f0c0014
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_19b
-
-    .line 353
-    :cond_27e
-    const-string v1, "pl"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_290
-
-    .line 354
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->poland:Landroid/widget/Button;
-
-    const v1, 0x7f0c004e
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_19b
-
-    .line 355
-    :cond_290
-    const-string v1, "de"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2a2
-
-    .line 356
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->german:Landroid/widget/Button;
-
-    const v1, 0x7f0c0017
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_19b
-
-    .line 357
-    :cond_2a2
-    const-string v1, "it"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2b4
-
-    .line 358
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->italian:Landroid/widget/Button;
-
-    const v1, 0x7f0c0023
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_19b
-
-    .line 359
-    :cond_2b4
-    const-string v1, "tu"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_19b
-
-    .line 360
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->turk:Landroid/widget/Button;
-
-    const v1, 0x7f0c0076
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_19b
-.end method
-
-.method private requestWriteSettings()V
-    .registers 4
-
-    .prologue
-    .line 724
-    :try_start_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_3d
-
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/provider/Settings$System;->canWrite(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3d
-
-    .line 725
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v1, "android.settings.action.MANAGE_WRITE_SETTINGS"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 726
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "package:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/isaigu/gymapp/BaseActivity;->getPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
-
-    .line 727
-    const/4 v1, 0x2
-
-    invoke-virtual {p0, v0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->startActivityForResult(Landroid/content/Intent;I)V
-    :try_end_3d
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_3d} :catch_3e
-
-    .line 732
-    :cond_3d
-    :goto_3d
-    return-void
-
-    .line 729
-    :catch_3e
-    move-exception v0
-
-    .line 730
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_3d
-.end method
-
-
-# virtual methods
-.method public createCropImageFile(Landroid/content/Context;)Ljava/io/File;
-    .registers 6
+.method static synthetic access$500(Lcom/isaigu/gymapp/fragment/SettingFragment;Landroid/content/Context;)Ljava/io/File;
+    .registers 3
+    .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
+    .param p1, "x1"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 610
+    .line 71
+    invoke-direct {p0, p1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->createOriImageFile(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$602(Lcom/isaigu/gymapp/fragment/SettingFragment;Landroid/net/Uri;)Landroid/net/Uri;
+    .registers 2
+    .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
+    .param p1, "x1"    # Landroid/net/Uri;
+
+    .line 71
+    iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->imageUri:Landroid/net/Uri;
+
+    return-object p1
+.end method
+
+.method static synthetic access$700(Lcom/isaigu/gymapp/fragment/SettingFragment;Landroid/content/Context;)Ljava/io/File;
+    .registers 3
+    .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
+    .param p1, "x1"    # Landroid/content/Context;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 71
+    invoke-direct {p0, p1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->createCropImageFile(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$800(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
+    .registers 2
+    .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
+
+    .line 71
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage:Landroid/widget/ImageView;
+
+    return-object v0
+.end method
+
+.method static synthetic access$900(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
+    .registers 2
+    .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
+
+    .line 71
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage2:Landroid/widget/ImageView;
+
+    return-object v0
+.end method
+
+.method private createCropImageFile(Landroid/content/Context;)Ljava/io/File;
+    .registers 7
+    .param p1, "context"    # Landroid/content/Context;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 545
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1443,8 +218,6 @@
     const-string v1, "LogoPic_"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
 
     new-instance v1, Ljava/text/SimpleDateFormat;
 
@@ -1462,13 +235,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
-
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 611
+    .line 546
+    .local v0, "imgNameCrop":Ljava/lang/String;
     new-instance v1, Ljava/io/File;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1485,13 +257,17 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
-
-    const-string v3, "/com.isaigu.gymapp25/CropPicture"
+    const-string v3, "/"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    const-string v3, "com.isaigu.gymapp25"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "/CropPicture"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1499,63 +275,61 @@
 
     invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 612
+    .line 547
+    .local v1, "pictureDirCrop":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v2
 
-    if-nez v2, :cond_4c
+    if-nez v2, :cond_52
 
-    .line 613
+    .line 548
     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
-    .line 615
-    :cond_4c
+    .line 550
+    :cond_52
     const-string v2, ".png"
 
     invoke-static {v0, v2, v1}, Ljava/io/File;->createTempFile(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object v2
 
-    .line 616
-    new-instance v1, Ljava/lang/StringBuilder;
+    .line 555
+    .local v2, "image":Ljava/io/File;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "temp image exist : "
+    const-string v4, "temp image exist : "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    move-result v4
 
-    move-result v2
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v3}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
 
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
-
-    .line 617
-    return-object v0
+    .line 556
+    return-object v2
 .end method
 
-.method public createOriImageFile(Landroid/content/Context;)Ljava/io/File;
+.method private createOriImageFile(Landroid/content/Context;)Ljava/io/File;
     .registers 6
+    .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 599
+    .line 526
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1563,8 +337,6 @@
     const-string v1, "LogoPic_"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
 
     new-instance v1, Ljava/text/SimpleDateFormat;
 
@@ -1582,13 +354,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
-
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 600
+    .line 527
+    .local v0, "imgNameOri":Ljava/lang/String;
     new-instance v1, Ljava/io/File;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1607,13 +378,9 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
-
     const-string v3, "/OriPicture"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1621,80 +388,1331 @@
 
     invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 601
+    .line 528
+    .local v1, "pictureDirOri":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v2
 
-    if-nez v2, :cond_4e
+    if-nez v2, :cond_4a
 
-    .line 602
+    .line 529
     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
-    .line 604
-    :cond_4e
+    .line 531
+    :cond_4a
     const-string v2, ".png"
 
     invoke-static {v0, v2, v1}, Ljava/io/File;->createTempFile(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object v2
 
-    .line 605
-    return-object v0
+    .line 536
+    .local v2, "image":Ljava/io/File;
+    return-object v2
 .end method
 
-.method public handleEvent(Lcom/isaigu/gymapp/message/DataBundle;)V
+.method private handleGetFirmwareVersion(Lcom/isaigu/gymapp/message/DataBundle;)V
+    .registers 6
+    .param p1, "bundle"    # Lcom/isaigu/gymapp/message/DataBundle;
+
+    .line 168
+    invoke-virtual {p1}, Lcom/isaigu/gymapp/message/DataBundle;->getContent()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [B
+
+    .line 169
+    .local v0, "content":[B
+    new-instance v1, Ljava/lang/StringBuffer;
+
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+
+    .line 170
+    .local v1, "buffer":Ljava/lang/StringBuffer;
+    const/4 v2, 0x0
+
+    .local v2, "i":I
+    :goto_c
+    array-length v3, v0
+
+    if-ge v2, v3, :cond_21
+
+    .line 171
+    aget-byte v3, v0, v2
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+
+    .line 172
+    array-length v3, v0
+
+    add-int/lit8 v3, v3, -0x1
+
+    if-ge v2, v3, :cond_1e
+
+    .line 173
+    const-string v3, "."
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 170
+    :cond_1e
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_c
+
+    .line 176
+    .end local v2    # "i":I
+    :cond_21
+    new-instance v2, Lcom/isaigu/gymapp/fragment/SettingFragment$1;
+
+    invoke-direct {v2, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$1;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {p0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->runOnUiThread(Ljava/lang/Runnable;)V
+
+    .line 181
+    return-void
+.end method
+
+.method private handleGetHardwareVersion(Lcom/isaigu/gymapp/message/DataBundle;)V
+    .registers 6
+    .param p1, "bundle"    # Lcom/isaigu/gymapp/message/DataBundle;
+
+    .line 184
+    invoke-virtual {p1}, Lcom/isaigu/gymapp/message/DataBundle;->getContent()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [B
+
+    .line 185
+    .local v0, "content":[B
+    new-instance v1, Ljava/lang/StringBuffer;
+
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+
+    .line 186
+    .local v1, "buffer":Ljava/lang/StringBuffer;
+    const/4 v2, 0x0
+
+    .local v2, "i":I
+    :goto_c
+    array-length v3, v0
+
+    if-ge v2, v3, :cond_21
+
+    .line 187
+    aget-byte v3, v0, v2
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+
+    .line 188
+    array-length v3, v0
+
+    add-int/lit8 v3, v3, -0x1
+
+    if-ge v2, v3, :cond_1e
+
+    .line 189
+    const-string v3, "."
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 186
+    :cond_1e
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_c
+
+    .line 192
+    .end local v2    # "i":I
+    :cond_21
+    new-instance v2, Lcom/isaigu/gymapp/fragment/SettingFragment$2;
+
+    invoke-direct {v2, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$2;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {p0, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->runOnUiThread(Ljava/lang/Runnable;)V
+
+    .line 197
+    return-void
+.end method
+
+.method private initSet()V
+    .registers 12
+
+    .line 202
+    const-string v0, "%"
+
+    const v1, 0x7f0d0064
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    :try_start_7
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v4
+
+    iget v4, v4, Lcom/isaigu/gymapp/bean/UserData;->light:I
+
+    if-nez v4, :cond_72
+
+    .line 203
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/isaigu/gymapp/BaseActivity;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "screen_brightness"
+
+    invoke-static {v4, v5, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    .line 205
+    .local v4, "value":I
+    add-int/lit8 v5, v4, -0x28
+
+    int-to-float v5, v5
+
+    const/high16 v6, 0x43570000    # 215.0f
+
+    div-float/2addr v5, v6
+
+    const/high16 v6, 0x42c80000    # 100.0f
+
+    mul-float v5, v5, v6
+
+    float-to-int v5, v5
+
+    .line 206
+    .local v5, "progress":I
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v6
+
+    iput v5, v6, Lcom/isaigu/gymapp/bean/UserData;->light:I
+
+    .line 207
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v6
+
+    iget v6, v6, Lcom/isaigu/gymapp/bean/UserData;->light:I
+
+    if-gez v6, :cond_3c
+
+    .line 208
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v6
+
+    iput v3, v6, Lcom/isaigu/gymapp/bean/UserData;->light:I
+
+    .line 210
+    :cond_3c
+    iget-object v6, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->lightSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
+
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v7
+
+    iget v7, v7, Lcom/isaigu/gymapp/bean/UserData;->light:I
+
+    int-to-float v7, v7
+
+    invoke-virtual {v6, v7}, Lcom/isaigu/gymapp/widget/RangeSeekBar;->setValue(F)V
+
+    .line 211
+    iget-object v6, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->range:Landroid/widget/TextView;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    new-array v9, v2, [Ljava/lang/Object;
+
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v10
+
+    iget v10, v10, Lcom/isaigu/gymapp/bean/UserData;->light:I
+
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v10
+
+    aput-object v10, v9, v3
+
+    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    :try_end_72
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_72} :catch_73
+
+    .line 215
+    .end local v4    # "value":I
+    .end local v5    # "progress":I
+    :cond_72
+    goto :goto_77
+
+    .line 213
+    :catch_73
+    move-exception v4
+
+    .line 214
+    .local v4, "e":Ljava/lang/Exception;
+    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
+
+    .line 217
+    .end local v4    # "e":Ljava/lang/Exception;
+    :goto_77
+    iget-object v4, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->lightSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
+
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v5
+
+    iget v5, v5, Lcom/isaigu/gymapp/bean/UserData;->light:I
+
+    int-to-float v5, v5
+
+    invoke-virtual {v4, v5}, Lcom/isaigu/gymapp/widget/RangeSeekBar;->setValue(F)V
+
+    .line 218
+    iget-object v4, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->range:Landroid/widget/TextView;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    new-array v6, v2, [Ljava/lang/Object;
+
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v7
+
+    iget v7, v7, Lcom/isaigu/gymapp/bean/UserData;->light:I
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    aput-object v7, v6, v3
+
+    invoke-static {v1, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v4, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 219
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->lightSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
+
+    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$3;
+
+    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$3;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/RangeSeekBar;->setOnRangeChangedListener(Lcom/isaigu/gymapp/widget/OnRangeChangedListener;)V
+
+    .line 263
+    new-instance v0, Ljava/text/SimpleDateFormat;
+
+    const-string v1, "yyyy-MM-dd HH:mm:ss"
+
+    invoke-direct {v0, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+
+    .line 264
+    .local v0, "dateFormat":Ljava/text/SimpleDateFormat;
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->timer:Ljava/util/Timer;
+
+    invoke-static {v1}, Lcom/isaigu/gymapp/utils/TimerUtils;->stopTimer(Ljava/util/Timer;)V
+
+    .line 265
+    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$4;
+
+    invoke-direct {v1, p0, v0}, Lcom/isaigu/gymapp/fragment/SettingFragment$4;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;Ljava/text/SimpleDateFormat;)V
+
+    const-wide/16 v4, 0x0
+
+    const-wide/16 v6, 0x3e8
+
+    invoke-static {v1, v4, v5, v6, v7}, Lcom/isaigu/gymapp/utils/TimerUtils;->scheduleTimer(Ljava/lang/Runnable;JJ)Ljava/util/Timer;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->timer:Ljava/util/Timer;
+
+    .line 275
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->useTimer:Ljava/util/Timer;
+
+    invoke-static {v1}, Lcom/isaigu/gymapp/utils/TimerUtils;->stopTimer(Ljava/util/Timer;)V
+
+    .line 276
+    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$5;
+
+    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$5;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    const-wide/32 v4, 0xea60
+
+    invoke-static {v1, v4, v5, v4, v5}, Lcom/isaigu/gymapp/utils/TimerUtils;->scheduleTimer(Ljava/lang/Runnable;JJ)Ljava/util/Timer;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->useTimer:Ljava/util/Timer;
+
+    .line 305
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->timelength:Landroid/widget/TextView;
+
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v4
+
+    iget-wide v4, v4, Lcom/isaigu/gymapp/bean/UserData;->useTime:J
+
+    invoke-static {v4, v5}, Lcom/isaigu/gymapp/mgr/CommonUtils;->formatTime2(J)Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x3
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const v6, 0x7f0d0041
+
+    invoke-virtual {p0, v6}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    aput-object v6, v5, v3
+
+    const v3, 0x7f0d005c
+
+    invoke-virtual {p0, v3}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    aput-object v3, v5, v2
+
+    const/4 v2, 0x2
+
+    const v3, 0x7f0d0075
+
+    invoke-virtual {p0, v3}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    aput-object v3, v5, v2
+
+    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 307
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->switchButton:Lcom/isaigu/gymapp/widget/SwitchButton;
+
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v2
+
+    iget-boolean v2, v2, Lcom/isaigu/gymapp/bean/UserData;->leftMode:Z
+
+    invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/widget/SwitchButton;->setCheck(Z)V
+
+    .line 308
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->switchButton:Lcom/isaigu/gymapp/widget/SwitchButton;
+
+    new-instance v2, Lcom/isaigu/gymapp/fragment/SettingFragment$6;
+
+    invoke-direct {v2, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$6;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/widget/SwitchButton;->setOnCheckedChangeListener(Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;)V
+
+    .line 318
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/isaigu/gymapp/utils/LanguageUtils;->getLang(Landroid/app/Activity;)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 319
+    .local v1, "language":Ljava/lang/String;
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->chinese:Landroid/widget/Button;
+
+    const v3, 0x7f0c000c
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 320
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
+
+    const v3, 0x7f0c0011
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 321
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->espanol:Landroid/widget/Button;
+
+    const v3, 0x7f0c0013
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 322
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->rassia:Landroid/widget/Button;
+
+    const v3, 0x7f0c0058
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 323
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->portugues:Landroid/widget/Button;
+
+    const v3, 0x7f0c0051
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 324
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->french:Landroid/widget/Button;
+
+    const v3, 0x7f0c0015
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 325
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->poland:Landroid/widget/Button;
+
+    const v3, 0x7f0c004f
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 326
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->german:Landroid/widget/Button;
+
+    const v3, 0x7f0c0018
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 327
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->italian:Landroid/widget/Button;
+
+    const v3, 0x7f0c0024
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 328
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->turk:Landroid/widget/Button;
+
+    const v3, 0x7f0c0077
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 330
+    const-string v2, "zh"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_196
+
+    .line 331
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->chinese:Landroid/widget/Button;
+
+    const v3, 0x7f0c000b
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto/16 :goto_230
+
+    .line 332
+    :cond_196
+    const-string v2, "en"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1a8
+
+    .line 333
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
+
+    const v3, 0x7f0c0010
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto/16 :goto_230
+
+    .line 334
+    :cond_1a8
+    const-string v2, "es"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1ba
+
+    .line 335
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->espanol:Landroid/widget/Button;
+
+    const v3, 0x7f0c0012
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto/16 :goto_230
+
+    .line 336
+    :cond_1ba
+    const-string v2, "ru"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1cb
+
+    .line 337
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->rassia:Landroid/widget/Button;
+
+    const v3, 0x7f0c0057
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto :goto_230
+
+    .line 338
+    :cond_1cb
+    const-string v2, "pt"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1dc
+
+    .line 339
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->portugues:Landroid/widget/Button;
+
+    const v3, 0x7f0c0050
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto :goto_230
+
+    .line 340
+    :cond_1dc
+    const-string v2, "fr"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1ed
+
+    .line 341
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->french:Landroid/widget/Button;
+
+    const v3, 0x7f0c0014
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto :goto_230
+
+    .line 342
+    :cond_1ed
+    const-string v2, "pl"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1fe
+
+    .line 343
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->poland:Landroid/widget/Button;
+
+    const v3, 0x7f0c004e
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto :goto_230
+
+    .line 344
+    :cond_1fe
+    const-string v2, "de"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_20f
+
+    .line 345
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->german:Landroid/widget/Button;
+
+    const v3, 0x7f0c0017
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto :goto_230
+
+    .line 346
+    :cond_20f
+    const-string v2, "it"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_220
+
+    .line 347
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->italian:Landroid/widget/Button;
+
+    const v3, 0x7f0c0023
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto :goto_230
+
+    .line 348
+    :cond_220
+    const-string v2, "tu"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_230
+
+    .line 349
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->turk:Landroid/widget/Button;
+
+    const v3, 0x7f0c0076
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 353
+    :cond_230
+    :goto_230
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->chinese:Landroid/widget/Button;
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$7;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$7;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 358
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$8;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$8;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 363
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->espanol:Landroid/widget/Button;
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$9;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$9;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 368
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->rassia:Landroid/widget/Button;
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$10;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$10;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 373
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->portugues:Landroid/widget/Button;
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$11;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$11;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 378
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->french:Landroid/widget/Button;
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$12;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$12;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 383
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->poland:Landroid/widget/Button;
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$13;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$13;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 388
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->german:Landroid/widget/Button;
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$14;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$14;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 393
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->italian:Landroid/widget/Button;
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$15;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$15;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 398
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->turk:Landroid/widget/Button;
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$16;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$16;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 405
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->changeLogo:Landroid/widget/Button;
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$17;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$17;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 416
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logout:Landroid/widget/Button;
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$18;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$18;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 431
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->defaultLogo:Landroid/widget/Button;
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$19;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$19;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 472
+    return-void
+.end method
+
+.method private requestWriteSettings()V
     .registers 4
 
-    .prologue
-    .line 141
+    .line 672
+    :try_start_0
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x17
+
+    if-lt v0, v1, :cond_3b
+
+    .line 673
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/provider/Settings$System;->canWrite(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3b
+
+    .line 674
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.settings.action.MANAGE_WRITE_SETTINGS"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 675
+    .local v0, "intent":Landroid/content/Intent;
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "package:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/isaigu/gymapp/BaseActivity;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+
+    .line 676
+    const/4 v1, 0x2
+
+    invoke-virtual {p0, v0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->startActivityForResult(Landroid/content/Intent;I)V
+    :try_end_3b
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_3b} :catch_3c
+
+    .line 681
+    .end local v0    # "intent":Landroid/content/Intent;
+    :cond_3b
+    goto :goto_40
+
+    .line 679
+    :catch_3c
+    move-exception v0
+
+    .line 680
+    .local v0, "e":Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    .line 682
+    .end local v0    # "e":Ljava/lang/Exception;
+    :goto_40
+    return-void
+.end method
+
+.method private switchToLanguage(Ljava/lang/String;Z)V
+    .registers 5
+    .param p1, "language"    # Ljava/lang/String;
+    .param p2, "restart"    # Z
+
+    .line 475
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->chinese:Landroid/widget/Button;
+
+    const v1, 0x7f0c000c
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 476
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
+
+    const v1, 0x7f0c0011
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 477
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->espanol:Landroid/widget/Button;
+
+    const v1, 0x7f0c0013
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 478
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->rassia:Landroid/widget/Button;
+
+    const v1, 0x7f0c0058
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 479
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->portugues:Landroid/widget/Button;
+
+    const v1, 0x7f0c0051
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 480
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->french:Landroid/widget/Button;
+
+    const v1, 0x7f0c0015
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 481
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->poland:Landroid/widget/Button;
+
+    const v1, 0x7f0c004f
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 482
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->german:Landroid/widget/Button;
+
+    const v1, 0x7f0c0018
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 483
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->italian:Landroid/widget/Button;
+
+    const v1, 0x7f0c0024
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 484
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->turk:Landroid/widget/Button;
+
+    const v1, 0x7f0c0077
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 486
+    const-string v0, "zh"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_62
+
+    .line 487
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->chinese:Landroid/widget/Button;
+
+    const v1, 0x7f0c000b
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto/16 :goto_fc
+
+    .line 488
+    :cond_62
+    const-string v0, "en"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_74
+
+    .line 489
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
+
+    const v1, 0x7f0c0010
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto/16 :goto_fc
+
+    .line 490
+    :cond_74
+    const-string v0, "es"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_86
+
+    .line 491
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->espanol:Landroid/widget/Button;
+
+    const v1, 0x7f0c0012
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto/16 :goto_fc
+
+    .line 492
+    :cond_86
+    const-string v0, "ru"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_97
+
+    .line 493
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->rassia:Landroid/widget/Button;
+
+    const v1, 0x7f0c0057
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto :goto_fc
+
+    .line 494
+    :cond_97
+    const-string v0, "pt"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a8
+
+    .line 495
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->portugues:Landroid/widget/Button;
+
+    const v1, 0x7f0c0050
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto :goto_fc
+
+    .line 496
+    :cond_a8
+    const-string v0, "fr"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b9
+
+    .line 497
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->french:Landroid/widget/Button;
+
+    const v1, 0x7f0c0014
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto :goto_fc
+
+    .line 498
+    :cond_b9
+    const-string v0, "pl"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_ca
+
+    .line 499
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->poland:Landroid/widget/Button;
+
+    const v1, 0x7f0c004e
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto :goto_fc
+
+    .line 500
+    :cond_ca
+    const-string v0, "de"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_db
+
+    .line 501
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->german:Landroid/widget/Button;
+
+    const v1, 0x7f0c0017
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto :goto_fc
+
+    .line 502
+    :cond_db
+    const-string v0, "it"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_ec
+
+    .line 503
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->italian:Landroid/widget/Button;
+
+    const v1, 0x7f0c0023
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto :goto_fc
+
+    .line 504
+    :cond_ec
+    const-string v0, "tu"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_fc
+
+    .line 505
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->turk:Landroid/widget/Button;
+
+    const v1, 0x7f0c0076
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    .line 507
+    :cond_fc
+    :goto_fc
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v0
+
+    invoke-static {v0, p1}, Lcom/isaigu/gymapp/utils/LanguageUtils;->setLang(Landroid/app/Activity;Ljava/lang/String;)V
+
+    .line 509
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v0
+
+    iput-object p1, v0, Lcom/isaigu/gymapp/bean/UserData;->language:Ljava/lang/String;
+
+    .line 510
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
+
+    .line 512
+    invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->getDefault()Lorg/greenrobot/eventbus/EventBus;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/isaigu/gymapp/train/events/ApplicationExitEvent;
+
+    invoke-direct {v1}, Lcom/isaigu/gymapp/train/events/ApplicationExitEvent;-><init>()V
+
+    invoke-virtual {v0, v1}, Lorg/greenrobot/eventbus/EventBus;->post(Ljava/lang/Object;)V
+
+    .line 513
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->clear()V
+
+    .line 516
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/isaigu/gymapp/utils/LanguageUtils;->applyChange(Landroid/app/Activity;)V
+
+    .line 518
+    return-void
+.end method
+
+
+# virtual methods
+.method public handleEvent(Lcom/isaigu/gymapp/message/DataBundle;)V
+    .registers 4
+    .param p1, "bundle"    # Lcom/isaigu/gymapp/message/DataBundle;
+
+    .line 154
     invoke-super {p0, p1}, Lcom/isaigu/gymapp/BaseFragment;->handleEvent(Lcom/isaigu/gymapp/message/DataBundle;)V
 
-    .line 142
+    .line 156
     invoke-virtual {p1}, Lcom/isaigu/gymapp/message/DataBundle;->getEvent()S
 
     move-result v0
 
-    .line 143
+    .line 157
+    .local v0, "event":S
     const/16 v1, 0x8
 
-    if-ne v0, v1, :cond_f
+    if-eq v0, v1, :cond_14
 
-    .line 144
-    invoke-direct {p0, p1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->handleGetFirmwareVersion(Lcom/isaigu/gymapp/message/DataBundle;)V
-
-    .line 148
-    :cond_e
-    :goto_e
-    return-void
-
-    .line 145
-    :cond_f
     const/16 v1, 0xa
 
-    if-ne v0, v1, :cond_e
+    if-eq v0, v1, :cond_10
 
-    .line 146
+    goto :goto_18
+
+    .line 162
+    :cond_10
     invoke-direct {p0, p1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->handleGetHardwareVersion(Lcom/isaigu/gymapp/message/DataBundle;)V
 
-    goto :goto_e
+    goto :goto_18
+
+    .line 159
+    :cond_14
+    invoke-direct {p0, p1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->handleGetFirmwareVersion(Lcom/isaigu/gymapp/message/DataBundle;)V
+
+    .line 160
+    nop
+
+    .line 165
+    :goto_18
+    return-void
 .end method
 
 .method public onActivityResult(IILandroid/content/Intent;)V
-    .registers 8
+    .registers 9
+    .param p1, "requestCode"    # I
+    .param p2, "resultCode"    # I
+    .param p3, "data"    # Landroid/content/Intent;
 
-    .prologue
-    .line 621
+    .line 580
     const/4 v0, -0x1
 
-    if-ne p2, v0, :cond_44
+    if-ne p2, v0, :cond_d8
 
-    .line 622
+    .line 581
     const/16 v0, 0x3eb
 
-    if-ne p1, v0, :cond_4e
+    if-ne p1, v0, :cond_55
 
-    .line 623
+    .line 582
     invoke-virtual {p3}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v0
@@ -1707,209 +1725,240 @@
 
     move-result-object v0
 
-    .line 624
-    if-eqz v0, :cond_44
+    .line 583
+    .local v0, "file":Ljava/io/File;
+    if-eqz v0, :cond_53
 
-    .line 626
+    .line 585
     :try_start_15
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
 
-    invoke-virtual {p0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->createCropImageFile(Landroid/content/Context;)Ljava/io/File;
+    invoke-direct {p0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->createCropImageFile(Landroid/content/Context;)Ljava/io/File;
 
     move-result-object v1
 
-    .line 627
+    .line 586
+    .local v1, "cropPhotoFile":Ljava/io/File;
     invoke-static {v1}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->cropImageUri:Landroid/net/Uri;
-
-    .line 628
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x18
-
-    if-lt v1, v2, :cond_45
-
-    .line 629
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    const-string v2, "com.isaigu.gymapp25.provider"
-
-    invoke-static {v1, v2, v0}, Landroid/support/v4/content/FileProvider;->getUriForFile(Landroid/content/Context;Ljava/lang/String;Ljava/io/File;)Landroid/net/Uri;
-
-    .line 633
-    :goto_32
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v1
-
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v2
 
-    iput-object v2, v1, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
+    iput-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->cropImageUri:Landroid/net/Uri;
 
-    .line 634
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass20;
+    .line 587
+    const/4 v2, 0x0
 
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass20;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+    .line 588
+    .local v2, "uri":Landroid/net/Uri;
+    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    invoke-static {v0, v1}, Lcom/isaigu/gymapp/mgr/ApiMgr;->uploadFile(Ljava/io/File;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
+    const/16 v4, 0x18
 
-    .line 680
-    :cond_44
-    :goto_44
-    return-void
+    if-lt v3, v4, :cond_37
 
-    .line 631
-    :cond_45
+    .line 589
+    nop
+
+    .line 590
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    const-string v4, "com.isaigu.gymapp25.provider"
+
+    .line 589
+    invoke-static {v3, v4, v0}, Landroid/support/v4/content/FileProvider;->getUriForFile(Landroid/content/Context;Ljava/lang/String;Ljava/io/File;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    move-object v2, v3
+
+    goto :goto_3c
+
+    .line 594
+    :cond_37
     invoke-static {v0}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
-    :try_end_48
-    .catch Ljava/lang/Exception; {:try_start_15 .. :try_end_48} :catch_49
 
-    goto :goto_32
+    move-result-object v3
 
-    .line 636
-    :catch_49
-    move-exception v0
+    move-object v2, v3
 
-    .line 637
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    .line 598
+    :goto_3c
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
-    goto :goto_44
+    move-result-object v3
 
-    .line 643
-    :cond_4e
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v4
+
+    iput-object v4, v3, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
+
+    .line 599
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SettingFragment$20;
+
+    invoke-direct {v3, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$20;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-static {v0, v3}, Lcom/isaigu/gymapp/mgr/ApiMgr;->uploadFile(Ljava/io/File;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
+    :try_end_4e
+    .catch Ljava/lang/Exception; {:try_start_15 .. :try_end_4e} :catch_4f
+
+    .line 624
+    .end local v1    # "cropPhotoFile":Ljava/io/File;
+    .end local v2    # "uri":Landroid/net/Uri;
+    goto :goto_53
+
+    .line 622
+    :catch_4f
+    move-exception v1
+
+    .line 623
+    .local v1, "e":Ljava/lang/Exception;
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
+    .line 626
+    .end local v0    # "file":Ljava/io/File;
+    .end local v1    # "e":Ljava/lang/Exception;
+    :cond_53
+    :goto_53
+    goto/16 :goto_d8
+
+    :cond_55
     const/16 v0, 0x3ea
 
-    if-ne p1, v0, :cond_b1
+    if-ne p1, v0, :cond_b8
 
-    .line 645
-    :try_start_52
+    .line 628
+    :try_start_59
     invoke-virtual {p3}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v0
 
-    .line 646
-    if-nez v0, :cond_a6
+    .line 629
+    .local v0, "bundle":Landroid/net/Uri;
+    if-nez v0, :cond_95
 
-    .line 647
+    .line 630
     invoke-virtual {p3}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    const-string v1, "data"
-
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/graphics/Bitmap;
-
-    .line 648
-    new-instance v1, Ljava/io/FileOutputStream;
-
-    new-instance v2, Ljava/io/File;
-
-    iget-object v3, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->cropImageUri:Landroid/net/Uri;
-
-    invoke-virtual {v3}, Landroid/net/Uri;->getPath()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-direct {v1, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
-
-    .line 649
-    sget-object v2, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
-
-    const/16 v3, 0x64
-
-    invoke-virtual {v0, v2, v3, v1}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
-
-    .line 650
-    invoke-virtual {v1}, Ljava/io/FileOutputStream;->flush()V
-
-    .line 651
-    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
-
-    .line 652
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->cropImageUri:Landroid/net/Uri;
-
-    invoke-virtual {v1}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
     move-result-object v1
 
-    iput-object v1, v0, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
+    const-string v2, "data"
 
-    .line 656
-    :goto_8d
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/graphics/Bitmap;
+
+    .line 631
+    .local v1, "face":Landroid/graphics/Bitmap;
+    new-instance v2, Ljava/io/FileOutputStream;
+
+    new-instance v3, Ljava/io/File;
+
+    iget-object v4, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->cropImageUri:Landroid/net/Uri;
+
+    invoke-virtual {v4}, Landroid/net/Uri;->getPath()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-direct {v2, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+
+    .line 632
+    .local v2, "fileOutputStream":Ljava/io/FileOutputStream;
+    sget-object v3, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
+
+    const/16 v4, 0x64
+
+    invoke-virtual {v1, v3, v4, v2}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
+
+    .line 633
+    invoke-virtual {v2}, Ljava/io/FileOutputStream;->flush()V
+
+    .line 634
+    invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
+
+    .line 635
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
+    iget-object v4, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->cropImageUri:Landroid/net/Uri;
 
-    .line 657
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+    invoke-virtual {v4}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$19;
+    iput-object v4, v3, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
 
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$19;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+    .line 636
+    .end local v1    # "face":Landroid/graphics/Bitmap;
+    .end local v2    # "fileOutputStream":Ljava/io/FileOutputStream;
+    goto :goto_9f
 
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
-    :try_end_a0
-    .catch Ljava/lang/Exception; {:try_start_52 .. :try_end_a0} :catch_a1
-
-    goto :goto_44
-
-    .line 665
-    :catch_a1
-    move-exception v0
-
-    .line 666
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_44
-
-    .line 654
-    :cond_a6
-    :try_start_a6
+    .line 637
+    :cond_95
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v1
 
     invoke-virtual {v0}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, v1, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
-    :try_end_b0
-    .catch Ljava/lang/Exception; {:try_start_a6 .. :try_end_b0} :catch_a1
+    iput-object v2, v1, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
 
-    goto :goto_8d
+    .line 640
+    :goto_9f
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
-    .line 670
-    :cond_b1
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
+
+    .line 641
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/isaigu/gymapp/fragment/SettingFragment$21;
+
+    invoke-direct {v2, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$21;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+
+    invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
+    :try_end_b2
+    .catch Ljava/lang/Exception; {:try_start_59 .. :try_end_b2} :catch_b3
+
+    .end local v0    # "bundle":Landroid/net/Uri;
+    goto :goto_b7
+
+    .line 647
+    :catch_b3
+    move-exception v0
+
+    .line 648
+    .local v0, "e":Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    .line 649
+    .end local v0    # "e":Ljava/lang/Exception;
+    :goto_b7
+    goto :goto_d8
+
+    .line 650
+    :cond_b8
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_44
+    if-ne p1, v0, :cond_d8
 
-    .line 672
-    :try_start_b4
+    .line 652
+    :try_start_bb
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
@@ -1918,9 +1967,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_44
+    if-nez v0, :cond_d3
 
-    .line 673
+    .line 653
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
@@ -1932,216 +1981,226 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->showTips(Ljava/lang/String;)V
-    :try_end_cc
-    .catch Ljava/lang/Exception; {:try_start_b4 .. :try_end_cc} :catch_ce
+    :try_end_d3
+    .catch Ljava/lang/Exception; {:try_start_bb .. :try_end_d3} :catch_d4
 
-    goto/16 :goto_44
+    .line 657
+    :cond_d3
+    goto :goto_d8
 
-    .line 675
-    :catch_ce
+    .line 655
+    :catch_d4
     move-exception v0
 
-    .line 676
+    .line 656
+    .restart local v0    # "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto/16 :goto_44
+    .line 660
+    .end local v0    # "e":Ljava/lang/Exception;
+    :cond_d8
+    :goto_d8
+    return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .registers 7
+    .param p1, "inflater"    # Landroid/view/LayoutInflater;
+    .param p2, "container"    # Landroid/view/ViewGroup;
+    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 98
+    .line 103
     invoke-super {p0, p1, p2, p3}, Lcom/isaigu/gymapp/BaseFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 105
+    .local v0, "view":Landroid/view/View;
+    const v1, 0x7f090170
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 99
-    const v0, 0x7f090170
+    check-cast v1, Lcom/isaigu/gymapp/widget/RangeSeekBar;
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/isaigu/gymapp/widget/RangeSeekBar;
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->lightSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
-
-    .line 100
-    const v0, 0x7f090132
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->range:Landroid/widget/TextView;
-
-    .line 101
-    const v0, 0x7f090071
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/Button;
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->chinese:Landroid/widget/Button;
-
-    .line 102
-    const v0, 0x7f090098
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/Button;
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
-
-    .line 103
-    const v0, 0x7f09009b
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/Button;
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->espanol:Landroid/widget/Button;
-
-    .line 104
-    const v0, 0x7f090158
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/Button;
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->rassia:Landroid/widget/Button;
-
-    .line 105
-    const v0, 0x7f09013a
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/Button;
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->portugues:Landroid/widget/Button;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->lightSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
 
     .line 106
-    const v0, 0x7f0900a5
+    const v1, 0x7f090132
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v1, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->french:Landroid/widget/Button;
-
-    .line 107
-    const v0, 0x7f090139
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/Button;
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->poland:Landroid/widget/Button;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->range:Landroid/widget/TextView;
 
     .line 108
-    const v0, 0x7f0900ab
+    const v1, 0x7f090071
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v1, Landroid/widget/Button;
 
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->german:Landroid/widget/Button;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->chinese:Landroid/widget/Button;
 
     .line 109
-    const v0, 0x7f0900c4
+    const v1, 0x7f090098
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v1, Landroid/widget/Button;
 
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->italian:Landroid/widget/Button;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
 
     .line 110
-    const v0, 0x7f0901bd
+    const v1, 0x7f09009b
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v1, Landroid/widget/Button;
 
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->turk:Landroid/widget/Button;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->espanol:Landroid/widget/Button;
 
     .line 111
-    const v0, 0x7f090069
+    const v1, 0x7f090158
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v1, Landroid/widget/Button;
 
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->changeLogo:Landroid/widget/Button;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->rassia:Landroid/widget/Button;
 
     .line 112
-    const v0, 0x7f0900f6
+    const v1, 0x7f09013a
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/ImageView;
+    check-cast v1, Landroid/widget/Button;
 
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage:Landroid/widget/ImageView;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->portugues:Landroid/widget/Button;
 
     .line 113
-    const v0, 0x7f0900f8
+    const v1, 0x7f0900a5
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/ImageView;
+    check-cast v1, Landroid/widget/Button;
 
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage2:Landroid/widget/ImageView;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->french:Landroid/widget/Button;
 
     .line 114
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+    const v1, 0x7f090139
 
-    move-result-object v0
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    iget-object v0, v0, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
+    move-result-object v1
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    check-cast v1, Landroid/widget/Button;
 
-    move-result v0
-
-    if-nez v0, :cond_e3
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->poland:Landroid/widget/Button;
 
     .line 115
+    const v1, 0x7f0900ab
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/Button;
+
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->german:Landroid/widget/Button;
+
+    .line 116
+    const v1, 0x7f0900c4
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/Button;
+
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->italian:Landroid/widget/Button;
+
+    .line 117
+    const v1, 0x7f0901bd
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/Button;
+
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->turk:Landroid/widget/Button;
+
+    .line 119
+    const v1, 0x7f090069
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/Button;
+
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->changeLogo:Landroid/widget/Button;
+
+    .line 120
+    const v1, 0x7f0900f6
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/ImageView;
+
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage:Landroid/widget/ImageView;
+
+    .line 121
+    const v1, 0x7f0900f8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/ImageView;
+
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage2:Landroid/widget/ImageView;
+
+    .line 122
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v1
+
+    iget-object v1, v1, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_e3
+
+    .line 123
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v0}, Lcom/bumptech/glide/Glide;->with(Landroid/support/v4/app/FragmentActivity;)Lcom/bumptech/glide/RequestManager;
+    invoke-static {v1}, Lcom/bumptech/glide/Glide;->with(Landroid/support/v4/app/FragmentActivity;)Lcom/bumptech/glide/RequestManager;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
@@ -2149,22 +2208,22 @@
 
     iget-object v2, v2, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Lcom/bumptech/glide/RequestManager;->load(Ljava/lang/String;)Lcom/bumptech/glide/DrawableTypeRequest;
+    invoke-virtual {v1, v2}, Lcom/bumptech/glide/RequestManager;->load(Ljava/lang/String;)Lcom/bumptech/glide/DrawableTypeRequest;
 
-    move-result-object v0
+    move-result-object v1
 
     iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v2}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
+    invoke-virtual {v1, v2}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    .line 116
+    .line 124
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v0}, Lcom/bumptech/glide/Glide;->with(Landroid/support/v4/app/FragmentActivity;)Lcom/bumptech/glide/RequestManager;
+    invoke-static {v1}, Lcom/bumptech/glide/Glide;->with(Landroid/support/v4/app/FragmentActivity;)Lcom/bumptech/glide/RequestManager;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
@@ -2172,28 +2231,27 @@
 
     iget-object v2, v2, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Lcom/bumptech/glide/RequestManager;->load(Ljava/lang/String;)Lcom/bumptech/glide/DrawableTypeRequest;
+    invoke-virtual {v1, v2}, Lcom/bumptech/glide/RequestManager;->load(Ljava/lang/String;)Lcom/bumptech/glide/DrawableTypeRequest;
 
-    move-result-object v0
+    move-result-object v1
 
     iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage2:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v2}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
+    invoke-virtual {v1, v2}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    .line 118
+    .line 127
     :cond_e3
-    const v0, 0x7f090180
+    const v1, 0x7f090180
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/TextView;
+    check-cast v1, Landroid/widget/TextView;
 
-    .line 119
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->softwareVersion:Landroid/widget/TextView;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->softwareVersion:Landroid/widget/TextView;
 
-    .line 120
+    .line 128
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v2
@@ -2202,449 +2260,117 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 121
-    const v0, 0x7f0901aa
+    .line 132
+    const v1, 0x7f0901aa
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/TextView;
+    check-cast v1, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->time:Landroid/widget/TextView;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->time:Landroid/widget/TextView;
 
-    .line 122
-    const v0, 0x7f0901ac
+    .line 133
+    const v1, 0x7f0901ac
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/TextView;
+    check-cast v1, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->timelength:Landroid/widget/TextView;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->timelength:Landroid/widget/TextView;
 
-    .line 123
-    const v0, 0x7f090195
+    .line 134
+    const v1, 0x7f090195
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/isaigu/gymapp/widget/SwitchButton;
+    check-cast v1, Lcom/isaigu/gymapp/widget/SwitchButton;
 
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->switchButton:Lcom/isaigu/gymapp/widget/SwitchButton;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->switchButton:Lcom/isaigu/gymapp/widget/SwitchButton;
 
-    .line 124
-    const v0, 0x7f0900f9
+    .line 135
+    const v1, 0x7f0900f9
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v1, Landroid/widget/Button;
 
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logout:Landroid/widget/Button;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->logout:Landroid/widget/Button;
 
-    .line 125
-    const v0, 0x7f090083
+    .line 137
+    const v1, 0x7f090083
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v1, Landroid/widget/Button;
 
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->defaultLogo:Landroid/widget/Button;
+    iput-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->defaultLogo:Landroid/widget/Button;
 
-    .line 126
-    const v0, 0x7f090206
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/LinearLayout;
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->channelCalibrationContainer:Landroid/widget/LinearLayout;
-
-    .line 127
-    invoke-direct {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->initChannelPulseRows()V
-
-    .line 128
+    .line 139
     invoke-direct {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->requestWriteSettings()V
 
-    .line 129
-    const/16 v0, 0xa
+    .line 141
+    const/16 v1, 0xa
 
-    invoke-static {v0, p0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->attachEventListener(SLcom/isaigu/gymapp/message/EventListener;)V
+    invoke-static {v1, p0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->attachEventListener(SLcom/isaigu/gymapp/message/EventListener;)V
 
-    .line 130
-    const/16 v0, 0x8
+    .line 142
+    const/16 v1, 0x8
 
-    invoke-static {v0, p0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->attachEventListener(SLcom/isaigu/gymapp/message/EventListener;)V
+    invoke-static {v1, p0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->attachEventListener(SLcom/isaigu/gymapp/message/EventListener;)V
 
-    .line 131
-    return-object v1
+    .line 143
+    return-object v0
 .end method
 
 .method public onDestroyView()V
     .registers 2
 
-    .prologue
-    .line 717
+    .line 664
     invoke-super {p0}, Lcom/isaigu/gymapp/BaseFragment;->onDestroyView()V
 
-    .line 718
+    .line 665
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->timer:Ljava/util/Timer;
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/TimerUtils;->stopTimer(Ljava/util/Timer;)V
 
-    .line 719
+    .line 666
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->useTimer:Ljava/util/Timer;
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/TimerUtils;->stopTimer(Ljava/util/Timer;)V
 
-    .line 720
+    .line 667
     return-void
 .end method
 
 .method public onStart()V
     .registers 1
 
-    .prologue
-    .line 135
+    .line 148
     invoke-super {p0}, Lcom/isaigu/gymapp/BaseFragment;->onStart()V
 
-    .line 136
+    .line 149
     invoke-direct {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->initSet()V
 
-    .line 137
+    .line 150
     return-void
-.end method
-
-.method public switchToLanguage(Ljava/lang/String;Z)V
-    .registers 5
-
-    .prologue
-    .line 558
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->chinese:Landroid/widget/Button;
-
-    const v1, 0x7f0c000c
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 559
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
-
-    const v1, 0x7f0c0011
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 560
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->espanol:Landroid/widget/Button;
-
-    const v1, 0x7f0c0013
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 561
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->rassia:Landroid/widget/Button;
-
-    const v1, 0x7f0c0058
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 562
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->portugues:Landroid/widget/Button;
-
-    const v1, 0x7f0c0051
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 563
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->french:Landroid/widget/Button;
-
-    const v1, 0x7f0c0015
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 564
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->poland:Landroid/widget/Button;
-
-    const v1, 0x7f0c004f
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 565
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->german:Landroid/widget/Button;
-
-    const v1, 0x7f0c0018
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 566
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->italian:Landroid/widget/Button;
-
-    const v1, 0x7f0c0024
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 567
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->turk:Landroid/widget/Button;
-
-    const v1, 0x7f0c0077
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 568
-    const-string v0, "zh"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_91
-
-    .line 569
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->chinese:Landroid/widget/Button;
-
-    const v1, 0x7f0c000b
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    .line 589
-    :cond_60
-    :goto_60
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
-
-    move-result-object v0
-
-    invoke-static {v0, p1}, Lcom/isaigu/gymapp/utils/LanguageUtils;->setLang(Landroid/app/Activity;Ljava/lang/String;)V
-
-    .line 590
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v0
-
-    iput-object p1, v0, Lcom/isaigu/gymapp/bean/UserData;->language:Ljava/lang/String;
-
-    .line 591
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
-
-    .line 592
-    invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->getDefault()Lorg/greenrobot/eventbus/EventBus;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/isaigu/gymapp/train/events/ApplicationExitEvent;
-
-    invoke-direct {v1}, Lcom/isaigu/gymapp/train/events/ApplicationExitEvent;-><init>()V
-
-    invoke-virtual {v0, v1}, Lorg/greenrobot/eventbus/EventBus;->post(Ljava/lang/Object;)V
-
-    .line 593
-    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
-
-    move-result-object v0
-
-    iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->clear()V
-
-    .line 594
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/LanguageUtils;->applyChange(Landroid/app/Activity;)V
-
-    .line 595
-    return-void
-
-    .line 570
-    :cond_91
-    const-string v0, "en"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_a2
-
-    .line 571
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
-
-    const v1, 0x7f0c0010
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto :goto_60
-
-    .line 572
-    :cond_a2
-    const-string v0, "es"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_b3
-
-    .line 573
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->espanol:Landroid/widget/Button;
-
-    const v1, 0x7f0c0012
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto :goto_60
-
-    .line 574
-    :cond_b3
-    const-string v0, "ru"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_c4
-
-    .line 575
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->rassia:Landroid/widget/Button;
-
-    const v1, 0x7f0c0057
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto :goto_60
-
-    .line 576
-    :cond_c4
-    const-string v0, "pt"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_d5
-
-    .line 577
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->portugues:Landroid/widget/Button;
-
-    const v1, 0x7f0c0050
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto :goto_60
-
-    .line 578
-    :cond_d5
-    const-string v0, "fr"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_e7
-
-    .line 579
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->french:Landroid/widget/Button;
-
-    const v1, 0x7f0c0014
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_60
-
-    .line 580
-    :cond_e7
-    const-string v0, "pl"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_f9
-
-    .line 581
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->poland:Landroid/widget/Button;
-
-    const v1, 0x7f0c004e
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_60
-
-    .line 582
-    :cond_f9
-    const-string v0, "de"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_10b
-
-    .line 583
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->german:Landroid/widget/Button;
-
-    const v1, 0x7f0c0017
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_60
-
-    .line 584
-    :cond_10b
-    const-string v0, "it"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_11d
-
-    .line 585
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->italian:Landroid/widget/Button;
-
-    const v1, 0x7f0c0023
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_60
-
-    .line 586
-    :cond_11d
-    const-string v0, "tu"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_60
-
-    .line 587
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->turk:Landroid/widget/Button;
-
-    const v1, 0x7f0c0076
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
-
-    goto/16 :goto_60
 .end method
 
 .method protected viewId()I
     .registers 2
 
-    .prologue
-    .line 93
+    .line 97
     const v0, 0x7f0b0066
 
     return v0

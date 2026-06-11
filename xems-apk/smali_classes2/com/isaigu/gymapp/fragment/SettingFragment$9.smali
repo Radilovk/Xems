@@ -21,9 +21,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    .prologue
-    .line 374
+    .line 363
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$9;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
@@ -35,17 +35,18 @@
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
     .registers 5
+    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 377
+    .line 365
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$9;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     const-string v1, "es"
 
     const/4 v2, 0x1
 
-    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->switchToLanguage(Ljava/lang/String;Z)V
+    # invokes: Lcom/isaigu/gymapp/fragment/SettingFragment;->switchToLanguage(Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$300(Lcom/isaigu/gymapp/fragment/SettingFragment;Ljava/lang/String;Z)V
 
-    .line 378
+    .line 366
     return-void
 .end method

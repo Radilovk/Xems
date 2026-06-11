@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment$18;)V
     .registers 2
+    .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/SettingFragment$18;
 
-    .prologue
-    .line 439
+    .line 421
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$18$1;->this$1:Lcom/isaigu/gymapp/fragment/SettingFragment$18;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,26 +39,25 @@
 .method public run()V
     .registers 2
 
-    .prologue
-    .line 442
+    .line 423
     invoke-static {}, Lcom/isaigu/gymapp/mgr/BleMgr;->getController()Lcom/isaigu/gymapp/ble/AndroidBleController;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/ble/AndroidBleController;->disconnectAll()V
 
-    .line 443
+    .line 424
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/mgr/DataMgr;->removeAllTrainingUser()V
 
-    .line 444
+    .line 425
     const/16 v0, 0x68
 
     invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
 
-    .line 445
+    .line 426
     return-void
 .end method
