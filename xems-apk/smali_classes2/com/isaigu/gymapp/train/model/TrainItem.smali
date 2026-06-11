@@ -253,12 +253,12 @@
     .registers 3
 
     .prologue
-    .line 202
+    .line 204
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->addAllPartValue(IZ)V
 
-    .line 203
+    .line 205
     return-void
 .end method
 
@@ -266,80 +266,92 @@
     .registers 6
 
     .prologue
-    .line 206
+    .line 208
+    .line 209
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/model/TrainItem;->getTrainProgram()Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/bean/TrainProgram;->matchProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
+    iget-object v1, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    iget-boolean v1, v1, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->inStart:Z
+
+    .line 208
+    invoke-static {v0, v1}, Lcom/isaigu/gymapp/utils/PulseModeUtil;->getEditableBean(Lcom/isaigu/gymapp/bean/TrainProgram;Z)Lcom/isaigu/gymapp/bean/ProgramDataBean;
 
     move-result-object v1
 
-    .line 207
+    .line 210
     const/4 v0, 0x0
 
-    :goto_9
+    :goto_d
     iget-object v2, v1, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
 
     iget-object v2, v2, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
     array-length v2, v2
 
-    if-ge v0, v2, :cond_1e
+    if-ge v0, v2, :cond_22
 
-    .line 208
-    if-nez p2, :cond_18
+    .line 211
+    if-nez p2, :cond_1c
 
     iget-object v2, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->partsControl:[Z
 
     aget-boolean v2, v2, v0
 
-    if-eqz v2, :cond_1b
-
-    .line 209
-    :cond_18
-    invoke-static {v1, v0, p1}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->adjustChannelMa(Lcom/isaigu/gymapp/bean/ProgramDataBean;II)V
-
-    .line 207
-    :cond_1b
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_9
+    if-eqz v2, :cond_1f
 
     .line 212
-    :cond_1e
+    :cond_1c
+    invoke-static {v1, v0, p1}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->adjustChannelMa(Lcom/isaigu/gymapp/bean/ProgramDataBean;II)V
+
+    .line 210
+    :cond_1f
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_d
+
+    .line 215
+    :cond_22
     invoke-direct {p0}, Lcom/isaigu/gymapp/train/model/TrainItem;->sendPulse()V
 
-    .line 213
+    .line 216
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/model/TrainItem;->onTrainItemChange()V
 
-    .line 214
+    .line 217
     return-void
 .end method
 
 .method public addStrenth(I)V
-    .registers 3
+    .registers 4
 
     .prologue
-    .line 217
+    .line 220
+    .line 221
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/model/TrainItem;->getTrainProgram()Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/bean/TrainProgram;->matchProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
+    iget-object v1, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    iget-boolean v1, v1, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->inStart:Z
+
+    .line 220
+    invoke-static {v0, v1}, Lcom/isaigu/gymapp/utils/PulseModeUtil;->getEditableBean(Lcom/isaigu/gymapp/bean/TrainProgram;Z)Lcom/isaigu/gymapp/bean/ProgramDataBean;
 
     move-result-object v0
 
-    .line 218
+    .line 222
     invoke-static {v0, p1}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->adjustOverallMa(Lcom/isaigu/gymapp/bean/ProgramDataBean;I)V
 
-    .line 219
+    .line 223
     invoke-direct {p0}, Lcom/isaigu/gymapp/train/model/TrainItem;->sendPulse()V
 
-    .line 220
+    .line 224
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/model/TrainItem;->onTrainItemChange()V
 
-    .line 221
+    .line 225
     return-void
 .end method
 
@@ -347,34 +359,34 @@
     .registers 5
 
     .prologue
-    .line 181
+    .line 183
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     iget-boolean v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->connected:Z
 
     if-nez v0, :cond_7
 
-    .line 195
+    .line 197
     :goto_6
     return-void
 
-    .line 184
+    .line 186
     :cond_7
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/model/TrainItem;->stop()V
 
-    .line 185
+    .line 187
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->receiver:Lcom/isaigu/gymapp/train/model/CommandReceiver;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/model/CommandReceiver;->close()V
 
-    .line 186
+    .line 188
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     const/4 v1, 0x0
 
     iput-boolean v1, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->connected:Z
 
-    .line 187
+    .line 189
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
@@ -387,10 +399,10 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 193
+    .line 195
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/model/TrainItem;->onTrainItemChange()V
 
-    .line 194
+    .line 196
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->recordManager:Lcom/isaigu/gymapp/train/utils/TrainRecordManager;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
@@ -461,7 +473,7 @@
     .registers 2
 
     .prologue
-    .line 236
+    .line 240
     iget-boolean v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->isEmpty:Z
 
     return v0
@@ -471,7 +483,7 @@
     .registers 2
 
     .prologue
-    .line 248
+    .line 252
     iget-boolean v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->maSelected:Z
 
     return v0
@@ -481,7 +493,7 @@
     .registers 2
 
     .prologue
-    .line 240
+    .line 244
     iget-boolean v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->selected:Z
 
     return v0
@@ -491,12 +503,12 @@
     .registers 2
 
     .prologue
-    .line 198
+    .line 200
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->device:Lcom/clj/fastble/data/BleDevice;
 
     invoke-static {v0}, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->disconnect(Lcom/clj/fastble/data/BleDevice;)V
 
-    .line 199
+    .line 201
     return-void
 .end method
 
@@ -538,16 +550,16 @@
     .registers 2
 
     .prologue
-    .line 225
+    .line 229
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->trainItemListener:Lcom/isaigu/gymapp/train/listener/OnTrainItemListener;
 
-    .line 226
+    .line 230
     if-eqz v0, :cond_7
 
-    .line 227
+    .line 231
     invoke-interface {v0}, Lcom/isaigu/gymapp/train/listener/OnTrainItemListener;->onTrainItemChange()V
 
-    .line 229
+    .line 233
     :cond_7
     return-void
 .end method
@@ -602,10 +614,10 @@
     .registers 2
 
     .prologue
-    .line 256
+    .line 260
     iput-object p1, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->device:Lcom/clj/fastble/data/BleDevice;
 
-    .line 257
+    .line 261
     return-void
 .end method
 
@@ -613,10 +625,10 @@
     .registers 2
 
     .prologue
-    .line 252
+    .line 256
     iput-boolean p1, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->maSelected:Z
 
-    .line 253
+    .line 257
     return-void
 .end method
 
@@ -635,10 +647,10 @@
     .registers 2
 
     .prologue
-    .line 244
+    .line 248
     iput-boolean p1, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->selected:Z
 
-    .line 245
+    .line 249
     return-void
 .end method
 
@@ -646,10 +658,10 @@
     .registers 2
 
     .prologue
-    .line 232
+    .line 236
     iput-object p1, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->trainItemListener:Lcom/isaigu/gymapp/train/listener/OnTrainItemListener;
 
-    .line 233
+    .line 237
     return-void
 .end method
 
@@ -657,15 +669,15 @@
     .registers 3
 
     .prologue
-    .line 260
+    .line 264
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     iput-object p1, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
-    .line 261
+    .line 265
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/model/TrainItem;->reset()V
 
-    .line 262
+    .line 266
     return-void
 .end method
 
@@ -866,13 +878,13 @@
 
     iget-boolean v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->connected:Z
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_37
 
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     iget-boolean v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->start:Z
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_37
 
     .line 171
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
@@ -894,36 +906,42 @@
     .line 174
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->sender:Lcom/isaigu/gymapp/train/model/CommandSender;
 
+    .line 175
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/model/TrainItem;->getTrainProgram()Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/isaigu/gymapp/bean/TrainProgram;->matchProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
+    iget-object v2, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    iget-boolean v2, v2, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->inStart:Z
+
+    invoke-static {v1, v2}, Lcom/isaigu/gymapp/utils/PulseModeUtil;->getActivePhaseBean(Lcom/isaigu/gymapp/bean/TrainProgram;Z)Lcom/isaigu/gymapp/bean/ProgramDataBean;
 
     move-result-object v1
 
     iget v2, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->workLength:I
 
+    .line 174
     invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/train/model/CommandSender;->sendPause(Lcom/isaigu/gymapp/bean/ProgramDataBean;I)V
 
-    .line 175
+    .line 177
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem;->sender:Lcom/isaigu/gymapp/train/model/CommandSender;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/model/CommandSender;->sendStop()V
 
-    .line 176
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/train/model/TrainItem;->onTrainItemChange()V
-    :try_end_33
-    .catchall {:try_start_1 .. :try_end_33} :catchall_35
-
     .line 178
-    :cond_33
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/train/model/TrainItem;->onTrainItemChange()V
+    :try_end_37
+    .catchall {:try_start_1 .. :try_end_37} :catchall_39
+
+    .line 180
+    :cond_37
     monitor-exit p0
 
     return-void
 
     .line 170
-    :catchall_35
+    :catchall_39
     move-exception v0
 
     monitor-exit p0

@@ -33,7 +33,7 @@
     .end annotation
 
     .prologue
-    .line 111
+    .line 116
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1$1;->this$1:Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;
 
     iput-object p2, p0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1$1;->val$fragment1:Lcom/isaigu/gymapp/BaseFragment;
@@ -49,12 +49,12 @@
     .registers 4
 
     .prologue
-    .line 114
+    .line 119
     const/16 v0, 0x68
 
     invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
 
-    .line 115
+    .line 120
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1$1;->this$1:Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/fragment/LoginFragment;
@@ -69,6 +69,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
 
-    .line 116
+    .line 121
     return-void
 .end method

@@ -183,6 +183,12 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
             DataMgr.getInstance().registerProtocolVO = (RegisterProtocolVO) FileUtils.getData(Constants.file_name_register_protocol_data, RegisterProtocolVO.class);
             return;
         }
+        if (DataMgr.getInstance().loginUser == null) {
+            DataMgr.getInstance().loginUser = (TrainUser) FileUtils.getData(Constants.file_name_login_user, TrainUser.class);
+        }
+        if (DataMgr.getInstance().loginUser == null) {
+            return;
+        }
         ApiMgr.getUserBindMachine(DataMgr.getInstance().loginUser.id, new OKHttpUtils.HttpResponseCallback<ResponseData<List<DeviceBean>>>() { // from class: com.isaigu.gymapp.fragment.MainFragment.1
             @Override // com.isaigu.gymapp.utils.OKHttpUtils.HttpResponseCallback
             public void httpResponse(boolean httpSuccess, String message, ResponseData<List<DeviceBean>> result) {

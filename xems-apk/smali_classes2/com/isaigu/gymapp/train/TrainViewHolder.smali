@@ -38,43 +38,43 @@
     .registers 6
 
     .prologue
-    .line 52
+    .line 53
     invoke-direct {p0, p2}, Landroid/support/v7/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
 
-    .line 53
+    .line 54
     new-instance v0, Lcom/isaigu/gymapp/train/TrainViewHolder$1;
 
     invoke-direct {v0, p0}, Lcom/isaigu/gymapp/train/TrainViewHolder$1;-><init>(Lcom/isaigu/gymapp/train/TrainViewHolder;)V
 
     iput-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->circleSeekBarListener:Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;
 
-    .line 77
+    .line 78
     invoke-virtual {p2}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
 
-    .line 78
+    .line 79
     iput-boolean p1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->isEmpty:Z
 
-    .line 79
+    .line 80
     iput-object p3, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->fragment:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
-    .line 80
+    .line 81
     if-eqz p1, :cond_3e
 
-    .line 81
+    .line 82
     invoke-static {p2}, Lcom/isaigu/gymapp/databinding/TrainEmptyItemLayoutBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/TrainEmptyItemLayoutBinding;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->eBinding:Lcom/isaigu/gymapp/databinding/TrainEmptyItemLayoutBinding;
 
-    .line 82
+    .line 83
     invoke-direct {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->bindEmptyListener()V
 
-    .line 88
+    .line 89
     :goto_1f
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->itemView:Landroid/view/View;
 
@@ -82,12 +82,12 @@
 
     move-result-object v0
 
-    .line 89
+    .line 90
     const/4 v1, -0x1
 
     iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 90
+    .line 91
     iget-object v1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->itemView:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
@@ -104,15 +104,15 @@
 
     iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 91
+    .line 92
     iget-object v1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->itemView:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 92
+    .line 93
     return-void
 
-    .line 84
+    .line 85
     :cond_3e
     invoke-static {p2}, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
@@ -120,10 +120,10 @@
 
     iput-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
-    .line 85
+    .line 86
     invoke-direct {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->init()V
 
-    .line 86
+    .line 87
     invoke-direct {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->bindListener()V
 
     goto :goto_1f
@@ -133,7 +133,7 @@
     .registers 2
 
     .prologue
-    .line 35
+    .line 36
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
 
     return-object v0
@@ -143,27 +143,39 @@
     .registers 2
 
     .prologue
-    .line 35
+    .line 36
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     return-object v0
 .end method
 
-.method static synthetic access$200(Lcom/isaigu/gymapp/train/TrainViewHolder;)V
+.method static synthetic access$200(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/bean/ProgramDataBean;
+    .registers 2
+
+    .prologue
+    .line 36
+    invoke-direct {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getEditableProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lcom/isaigu/gymapp/train/TrainViewHolder;)V
     .registers 1
 
     .prologue
-    .line 35
+    .line 36
     invoke-direct {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->onItemChange()V
 
     return-void
 .end method
 
-.method static synthetic access$300(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/BaseActivity;
+.method static synthetic access$400(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/BaseActivity;
     .registers 2
 
     .prologue
-    .line 35
+    .line 36
     invoke-direct {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
@@ -171,21 +183,21 @@
     return-object v0
 .end method
 
-.method static synthetic access$400(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/fragment/NewTrainFragment;
+.method static synthetic access$500(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/fragment/NewTrainFragment;
     .registers 2
 
     .prologue
-    .line 35
+    .line 36
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->fragment:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     return-object v0
 .end method
 
-.method static synthetic access$500(Lcom/isaigu/gymapp/train/TrainViewHolder;)[Landroid/widget/TextView;
+.method static synthetic access$600(Lcom/isaigu/gymapp/train/TrainViewHolder;)[Landroid/widget/TextView;
     .registers 2
 
     .prologue
-    .line 35
+    .line 36
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->texts:[Landroid/widget/TextView;
 
     return-object v0
@@ -195,7 +207,7 @@
     .registers 3
 
     .prologue
-    .line 205
+    .line 214
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->itemView:Landroid/view/View;
 
     new-instance v1, Lcom/isaigu/gymapp/train/TrainViewHolder$11;
@@ -204,7 +216,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 211
+    .line 220
     return-void
 .end method
 
@@ -212,7 +224,7 @@
     .registers 3
 
     .prologue
-    .line 101
+    .line 102
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->strenthExist:Lcom/isaigu/gymapp/widget/MyButton;
@@ -223,7 +235,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 107
+    .line 108
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->youyangyundong:Lcom/isaigu/gymapp/widget/MyButton;
@@ -234,7 +246,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 113
+    .line 114
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->anmo:Lcom/isaigu/gymapp/widget/MyButton;
@@ -245,7 +257,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 119
+    .line 120
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->stop:Lcom/isaigu/gymapp/widget/MyButton;
@@ -256,7 +268,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 126
+    .line 127
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->startpaulse:Lcom/isaigu/gymapp/widget/MyButton;
@@ -267,7 +279,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 137
+    .line 138
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsecontinue:Lcom/isaigu/gymapp/widget/AmountView2;
@@ -278,7 +290,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/AmountView2;->setOnAmountChangeListener(Lcom/isaigu/gymapp/widget/AmountView2$OnAmountChangeListener;)V
 
-    .line 145
+    .line 146
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsestop:Lcom/isaigu/gymapp/widget/AmountView2;
@@ -289,7 +301,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/AmountView2;->setOnAmountChangeListener(Lcom/isaigu/gymapp/widget/AmountView2$OnAmountChangeListener;)V
 
-    .line 153
+    .line 162
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->circleSeekBar:Lcom/isaigu/gymapp/widget/CircleSeekBar;
@@ -298,7 +310,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->setOnSeekBarChangeListener(Lcom/isaigu/gymapp/widget/CircleSeekBar$OnSeekBarChangeListener;)V
 
-    .line 154
+    .line 163
     const/4 v0, 0x0
 
     :goto_5e
@@ -308,15 +320,15 @@
 
     if-ge v0, v1, :cond_69
 
-    .line 155
+    .line 164
     invoke-direct {p0, v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->setBarsListener(I)V
 
-    .line 154
+    .line 163
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_5e
 
-    .line 157
+    .line 166
     :cond_69
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
@@ -328,7 +340,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 158
+    .line 167
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->save:Lcom/isaigu/gymapp/widget/MyButton;
@@ -339,7 +351,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/MyButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 165
+    .line 174
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->ma:Landroid/widget/TextView;
@@ -350,7 +362,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 172
+    .line 181
     return-void
 .end method
 
@@ -358,10 +370,10 @@
     .registers 3
 
     .prologue
-    .line 222
+    .line 231
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->lambda$bindNotEmpty$9$TrainViewHolder()V
 
-    .line 223
+    .line 232
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->item:Lcom/isaigu/gymapp/train/model/TrainItem;
 
     new-instance v1, Lcom/isaigu/gymapp/train/TrainViewHolder$12;
@@ -370,20 +382,44 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/train/model/TrainItem;->setTrainItemListener(Lcom/isaigu/gymapp/train/listener/OnTrainItemListener;)V
 
-    .line 229
+    .line 238
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->item:Lcom/isaigu/gymapp/train/model/TrainItem;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->isSelected()Z
 
-    .line 230
+    .line 239
     return-void
+.end method
+
+.method private getEditableProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
+    .registers 3
+
+    .prologue
+    .line 358
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
+
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    move-result-object v1
+
+    iget-boolean v1, v1, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->inStart:Z
+
+    invoke-static {v0, v1}, Lcom/isaigu/gymapp/utils/PulseModeUtil;->getEditableBean(Lcom/isaigu/gymapp/bean/TrainProgram;Z)Lcom/isaigu/gymapp/bean/ProgramDataBean;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method private getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
     .registers 2
 
     .prologue
-    .line 344
+    .line 362
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->fragment:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getBaseActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -407,7 +443,7 @@
 
     const/4 v4, 0x0
 
-    .line 95
+    .line 96
     const/16 v0, 0xa
 
     new-array v0, v0, [Landroid/widget/TextView;
@@ -484,7 +520,7 @@
 
     iput-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->texts:[Landroid/widget/TextView;
 
-    .line 96
+    .line 97
     const/16 v0, 0xa
 
     new-array v0, v0, [Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
@@ -561,7 +597,7 @@
 
     iput-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->bars:[Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
 
-    .line 97
+    .line 98
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
@@ -602,7 +638,7 @@
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    .line 98
+    .line 99
     return-void
 .end method
 
@@ -610,19 +646,19 @@
     .registers 3
 
     .prologue
-    .line 348
+    .line 366
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->item:Lcom/isaigu/gymapp/train/model/TrainItem;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->onParamsChange()V
 
-    .line 349
+    .line 367
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->listener:Lcom/isaigu/gymapp/train/listener/OnTrainListListener;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->item:Lcom/isaigu/gymapp/train/model/TrainItem;
 
     invoke-interface {v0, v1}, Lcom/isaigu/gymapp/train/listener/OnTrainListListener;->onItemChange(Lcom/isaigu/gymapp/train/model/TrainItem;)V
 
-    .line 350
+    .line 368
     return-void
 .end method
 
@@ -632,7 +668,7 @@
     .prologue
     const v3, 0x7f06006f
 
-    .line 321
+    .line 335
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->bars:[Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
 
     aget-object v0, v0, p1
@@ -665,7 +701,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->setColorArray(III)V
 
-    .line 322
+    .line 336
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->bars:[Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
 
     aget-object v0, v0, p1
@@ -676,7 +712,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->setOnStateChangeListener(Lcom/isaigu/gymapp/widget/VerticalColorSeekBar$OnStateChangeListener;)V
 
-    .line 341
+    .line 355
     return-void
 .end method
 
@@ -686,101 +722,107 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 298
+    .line 314
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     move-result-object v0
 
     iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/bean/TrainProgram;->matchProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
-
-    move-result-object v0
-
-    .line 299
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
-
-    move-result-object v2
-
-    iget v2, v2, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->secondValue:I
-
-    add-int/lit8 v3, v2, 0x1
-
-    .line 301
+    .line 315
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     move-result-object v2
 
     iget-boolean v2, v2, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->inStart:Z
 
-    if-eqz v2, :cond_69
+    invoke-static {v0, v2}, Lcom/isaigu/gymapp/utils/PulseModeUtil;->getPhaseDurationSeconds(Lcom/isaigu/gymapp/bean/TrainProgram;Z)I
 
-    .line 302
-    iget-object v2, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
+    move-result v3
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    .line 316
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    move-result-object v2
+    move-result-object v0
 
-    const v4, 0x7f0600bb
+    iget v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->secondValue:I
 
-    invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getColor(I)I
+    add-int/lit8 v4, v0, 0x1
 
-    move-result v2
+    .line 318
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    .line 303
-    iget v4, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseContinue:I
+    move-result-object v0
 
-    if-lez v4, :cond_81
+    iget-boolean v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->inStart:Z
 
-    .line 304
-    mul-int/lit8 v4, v3, 0x1e
+    if-eqz v0, :cond_6b
 
-    iget v0, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseContinue:I
+    .line 319
+    iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
 
-    div-int v0, v4, v0
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    .line 312
-    :goto_32
-    iget-object v4, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
+    move-result-object v0
 
-    iget-object v4, v4, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->waveBallProgressValue:Landroid/widget/TextView;
+    const v2, 0x7f0600bb
 
-    invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
 
-    move-result-object v3
+    move-result v0
 
-    invoke-virtual {v4, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    move v2, v0
 
-    .line 313
+    .line 323
+    :goto_2f
+    if-lez v3, :cond_7a
+
+    .line 324
+    mul-int/lit8 v0, v4, 0x1e
+
+    div-int/2addr v0, v3
+
+    .line 326
+    :goto_34
+    iget-object v3, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
+
+    iget-object v3, v3, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->waveBallProgressValue:Landroid/widget/TextView;
+
+    invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 327
     iget-object v3, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v3, v3, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->waveBallProgressValue:Landroid/widget/TextView;
 
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 314
+    .line 328
     iget-object v3, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v3, v3, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->waveBallProgressActView:Lcom/isaigu/gymapp/widget/WaveBallProgress;
 
     invoke-virtual {v3, v1}, Lcom/isaigu/gymapp/widget/WaveBallProgress;->setVisibility(I)V
 
-    .line 315
+    .line 329
     iget-object v1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->waveBallProgressActView:Lcom/isaigu/gymapp/widget/WaveBallProgress;
 
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/widget/WaveBallProgress;->setWaveColor(I)V
 
-    .line 316
+    .line 330
     iget-object v1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->waveBallProgressActView:Lcom/isaigu/gymapp/widget/WaveBallProgress;
 
     invoke-virtual {v1, v0}, Lcom/isaigu/gymapp/widget/WaveBallProgress;->setProgress(I)V
 
-    .line 317
+    .line 331
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->time:Landroid/widget/TextView;
@@ -795,41 +837,31 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 318
+    .line 332
     return-void
 
-    .line 307
-    :cond_69
-    iget-object v2, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
+    .line 321
+    :cond_6b
+    iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v0
 
-    const v4, 0x7f0600bc
+    const v2, 0x7f0600bc
 
-    invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
 
-    move-result v2
+    move-result v0
 
-    .line 308
-    iget v4, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulsePause:I
+    move v2, v0
 
-    if-lez v4, :cond_81
+    goto :goto_2f
 
-    .line 309
-    mul-int/lit8 v4, v3, 0x1e
-
-    iget v0, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulsePause:I
-
-    div-int v0, v4, v0
-
-    goto :goto_32
-
-    :cond_81
+    :cond_7a
     move v0, v1
 
-    goto :goto_32
+    goto :goto_34
 .end method
 
 
@@ -838,21 +870,21 @@
     .registers 4
 
     .prologue
-    .line 214
+    .line 223
     iput-object p1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->item:Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    .line 215
+    .line 224
     iput-object p2, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->listener:Lcom/isaigu/gymapp/train/listener/OnTrainListListener;
 
-    .line 216
+    .line 225
     iget-boolean v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->isEmpty:Z
 
     if-nez v0, :cond_b
 
-    .line 217
+    .line 226
     invoke-direct {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->bindNotEmpty()V
 
-    .line 219
+    .line 228
     :cond_b
     return-void
 .end method
@@ -861,7 +893,7 @@
     .registers 2
 
     .prologue
-    .line 48
+    .line 49
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->item:Lcom/isaigu/gymapp/train/model/TrainItem;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
@@ -870,117 +902,61 @@
 .end method
 
 .method public lambda$bindNotEmpty$9$TrainViewHolder()V
-    .registers 12
+    .registers 13
 
     .prologue
-    const v10, 0x7f0d006e
+    const v11, 0x7f0d006e
 
-    const/16 v9, 0x3c
+    const/16 v10, 0x3c
 
-    const v8, 0x7f0800c3
+    const v9, 0x7f0800c3
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     const/4 v1, 0x0
 
-    .line 233
+    .line 242
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
+    iget-object v2, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/bean/TrainProgram;->matchProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
+    .line 243
+    invoke-direct {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getEditableProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
 
-    move-result-object v2
+    move-result-object v3
 
-    .line 234
-    invoke-static {v2}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->migrate(Lcom/isaigu/gymapp/bean/ProgramDataBean;)V
+    .line 244
+    invoke-static {v3}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->migrate(Lcom/isaigu/gymapp/bean/ProgramDataBean;)V
 
-    .line 235
+    .line 245
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->circleSeekBar:Lcom/isaigu/gymapp/widget/CircleSeekBar;
 
-    iget v3, v2, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
+    iget v4, v3, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenth:I
 
-    mul-int/lit8 v3, v3, 0x4b
+    mul-int/lit8 v4, v4, 0x4b
 
-    div-int/lit8 v3, v3, 0x64
+    div-int/lit8 v4, v4, 0x64
 
-    invoke-virtual {v0, v3}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->setCurProcess(I)V
+    invoke-virtual {v0, v4}, Lcom/isaigu/gymapp/widget/CircleSeekBar;->setCurProcess(I)V
 
-    .line 236
+    .line 246
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->ma:Landroid/widget/TextView;
 
-    iget-object v3, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
-
-    invoke-virtual {v3, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    new-array v4, v7, [Ljava/lang/Object;
-
-    invoke-static {v2}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->getStrengthMa(Lcom/isaigu/gymapp/bean/ProgramDataBean;)F
-
-    move-result v5
-
-    invoke-static {v5}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->formatMa(F)Ljava/lang/String;
-
-    move-result-object v5
-
-    aput-object v5, v4, v1
-
-    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    move v0, v1
-
-    .line 237
-    :goto_42
-    iget-object v3, v2, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
-
-    iget-object v3, v3, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
-
-    array-length v3, v3
-
-    if-ge v0, v3, :cond_ba
-
-    .line 238
-    iget-object v3, v2, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
-
-    iget-object v3, v3, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
-
-    aget v3, v3, v0
-
-    .line 239
-    iget-object v4, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->bars:[Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
-
-    aget-object v4, v4, v0
-
-    int-to-float v3, v3
-
-    invoke-virtual {v4, v3}, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->setProgress(F)V
-
-    .line 240
-    iget-object v3, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->texts:[Landroid/widget/TextView;
-
-    aget-object v3, v3, v0
-
     iget-object v4, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
 
-    invoke-virtual {v4, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v4, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    new-array v5, v7, [Ljava/lang/Object;
+    new-array v5, v8, [Ljava/lang/Object;
 
-    invoke-static {v2, v0}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->getChannelMa(Lcom/isaigu/gymapp/bean/ProgramDataBean;I)F
+    invoke-static {v3}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->getStrengthMa(Lcom/isaigu/gymapp/bean/ProgramDataBean;)F
 
     move-result v6
 
@@ -994,83 +970,140 @@
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 241
-    iget-object v3, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->item:Lcom/isaigu/gymapp/train/model/TrainItem;
+    move v0, v1
 
-    iget-object v3, v3, Lcom/isaigu/gymapp/train/model/TrainItem;->partsControl:[Z
+    .line 247
+    :goto_42
+    iget-object v4, v3, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
 
-    aget-boolean v3, v3, v0
+    iget-object v4, v4, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
-    if-eqz v3, :cond_9c
+    array-length v4, v4
 
-    .line 242
-    iget-object v3, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->texts:[Landroid/widget/TextView;
+    if-ge v0, v4, :cond_ba
 
-    aget-object v3, v3, v0
+    .line 248
+    iget-object v4, v3, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
+
+    iget-object v4, v4, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
+
+    aget v4, v4, v0
+
+    .line 249
+    iget-object v5, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->bars:[Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;
+
+    aget-object v5, v5, v0
+
+    int-to-float v4, v4
+
+    invoke-virtual {v5, v4}, Lcom/isaigu/gymapp/widget/VerticalColorSeekBar;->setProgress(F)V
+
+    .line 250
+    iget-object v4, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->texts:[Landroid/widget/TextView;
+
+    aget-object v4, v4, v0
+
+    iget-object v5, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
+
+    invoke-virtual {v5, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    new-array v6, v8, [Ljava/lang/Object;
+
+    invoke-static {v3, v0}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->getChannelMa(Lcom/isaigu/gymapp/bean/ProgramDataBean;I)F
+
+    move-result v7
+
+    invoke-static {v7}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->formatMa(F)Ljava/lang/String;
+
+    move-result-object v7
+
+    aput-object v7, v6, v1
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 251
+    iget-object v4, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->item:Lcom/isaigu/gymapp/train/model/TrainItem;
+
+    iget-object v4, v4, Lcom/isaigu/gymapp/train/model/TrainItem;->partsControl:[Z
+
+    aget-boolean v4, v4, v0
+
+    if-eqz v4, :cond_9c
+
+    .line 252
+    iget-object v4, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->texts:[Landroid/widget/TextView;
+
+    aget-object v4, v4, v0
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
+    move-result-object v5
+
+    const v6, 0x7f06005b
+
+    invoke-virtual {v5, v6}, Lcom/isaigu/gymapp/BaseActivity;->getColor(I)I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setTextColor(I)V
+
+    .line 253
+    iget-object v4, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->texts:[Landroid/widget/TextView;
+
+    aget-object v4, v4, v0
+
+    invoke-virtual {v4}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
+
     move-result-object v4
 
-    const v5, 0x7f06005b
+    invoke-virtual {v4, v8}, Landroid/text/TextPaint;->setFakeBoldText(Z)V
 
-    invoke-virtual {v4, v5}, Lcom/isaigu/gymapp/BaseActivity;->getColor(I)I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setTextColor(I)V
-
-    .line 243
-    iget-object v3, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->texts:[Landroid/widget/TextView;
-
-    aget-object v3, v3, v0
-
-    invoke-virtual {v3}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v7}, Landroid/text/TextPaint;->setFakeBoldText(Z)V
-
-    .line 237
+    .line 247
     :goto_99
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_42
 
-    .line 245
+    .line 255
     :cond_9c
-    iget-object v3, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->texts:[Landroid/widget/TextView;
+    iget-object v4, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->texts:[Landroid/widget/TextView;
 
-    aget-object v3, v3, v0
+    aget-object v4, v4, v0
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
+    move-result-object v5
+
+    const v6, 0x7f060025
+
+    invoke-virtual {v5, v6}, Lcom/isaigu/gymapp/BaseActivity;->getColor(I)I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setTextColor(I)V
+
+    .line 256
+    iget-object v4, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->texts:[Landroid/widget/TextView;
+
+    aget-object v4, v4, v0
+
+    invoke-virtual {v4}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
+
     move-result-object v4
 
-    const v5, 0x7f060025
-
-    invoke-virtual {v4, v5}, Lcom/isaigu/gymapp/BaseActivity;->getColor(I)I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setTextColor(I)V
-
-    .line 246
-    iget-object v3, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->texts:[Landroid/widget/TextView;
-
-    aget-object v3, v3, v0
-
-    invoke-virtual {v3}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Landroid/text/TextPaint;->setFakeBoldText(Z)V
+    invoke-virtual {v4, v1}, Landroid/text/TextPaint;->setFakeBoldText(Z)V
 
     goto :goto_99
 
-    .line 249
+    .line 259
     :cond_ba
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
@@ -1078,9 +1111,9 @@
 
     iget-boolean v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->start:Z
 
-    if-eqz v0, :cond_20f
+    if-eqz v0, :cond_21f
 
-    .line 250
+    .line 260
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->startpaulse:Lcom/isaigu/gymapp/widget/MyButton;
@@ -1089,7 +1122,7 @@
 
     invoke-virtual {v0, v3}, Lcom/isaigu/gymapp/widget/MyButton;->setBackgroundResource(I)V
 
-    .line 254
+    .line 264
     :goto_cc
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
@@ -1105,7 +1138,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 255
+    .line 265
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->address:Landroid/widget/TextView;
@@ -1118,28 +1151,28 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 256
+    .line 266
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->strenthExist:Lcom/isaigu/gymapp/widget/MyButton;
 
-    invoke-virtual {v0, v8}, Lcom/isaigu/gymapp/widget/MyButton;->setBackgroundResource(I)V
+    invoke-virtual {v0, v9}, Lcom/isaigu/gymapp/widget/MyButton;->setBackgroundResource(I)V
 
-    .line 257
+    .line 267
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->youyangyundong:Lcom/isaigu/gymapp/widget/MyButton;
 
-    invoke-virtual {v0, v8}, Lcom/isaigu/gymapp/widget/MyButton;->setBackgroundResource(I)V
+    invoke-virtual {v0, v9}, Lcom/isaigu/gymapp/widget/MyButton;->setBackgroundResource(I)V
 
-    .line 258
+    .line 268
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->anmo:Lcom/isaigu/gymapp/widget/MyButton;
 
-    invoke-virtual {v0, v8}, Lcom/isaigu/gymapp/widget/MyButton;->setBackgroundResource(I)V
+    invoke-virtual {v0, v9}, Lcom/isaigu/gymapp/widget/MyButton;->setBackgroundResource(I)V
 
-    .line 259
+    .line 269
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     move-result-object v0
@@ -1148,9 +1181,9 @@
 
     iget v0, v0, Lcom/isaigu/gymapp/bean/TrainProgram;->useType:I
 
-    if-ne v0, v7, :cond_21b
+    if-ne v0, v8, :cond_22b
 
-    .line 260
+    .line 270
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->strenthExist:Lcom/isaigu/gymapp/widget/MyButton;
@@ -1159,7 +1192,7 @@
 
     invoke-virtual {v0, v3}, Lcom/isaigu/gymapp/widget/MyButton;->setBackgroundResource(I)V
 
-    .line 266
+    .line 276
     :cond_111
     :goto_111
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
@@ -1170,77 +1203,99 @@
 
     invoke-virtual {v0, v3}, Lcom/isaigu/gymapp/widget/AmountView2;->setAmountUnit(Ljava/lang/String;)V
 
-    .line 267
+    .line 277
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsecontinue:Lcom/isaigu/gymapp/widget/AmountView2;
 
-    invoke-virtual {v0, v7}, Lcom/isaigu/gymapp/widget/AmountView2;->setMinValue(I)V
+    invoke-virtual {v0, v8}, Lcom/isaigu/gymapp/widget/AmountView2;->setMinValue(I)V
 
-    .line 268
+    .line 278
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsecontinue:Lcom/isaigu/gymapp/widget/AmountView2;
 
-    invoke-virtual {v0, v9}, Lcom/isaigu/gymapp/widget/AmountView2;->setGoods_storage(I)V
+    invoke-virtual {v0, v10}, Lcom/isaigu/gymapp/widget/AmountView2;->setGoods_storage(I)V
 
-    .line 269
+    .line 279
+    iget-object v3, v2, Lcom/isaigu/gymapp/bean/TrainProgram;->programDataBean:Lcom/isaigu/gymapp/bean/ProgramDataBean;
+
+    .line 280
+    iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
+
+    iget-object v4, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsecontinue:Lcom/isaigu/gymapp/widget/AmountView2;
+
+    if-eqz v3, :cond_259
+
+    iget v0, v3, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseContinue:I
+
+    :goto_132
+    invoke-virtual {v4, v0}, Lcom/isaigu/gymapp/widget/AmountView2;->setAmount(I)V
+
+    .line 281
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsecontinue:Lcom/isaigu/gymapp/widget/AmountView2;
 
-    iget v3, v2, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseContinue:I
+    iget-object v4, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
 
-    invoke-virtual {v0, v3}, Lcom/isaigu/gymapp/widget/AmountView2;->setAmount(I)V
+    const v5, 0x7f0600bb
 
-    .line 270
-    iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getColor(I)I
 
-    iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsecontinue:Lcom/isaigu/gymapp/widget/AmountView2;
+    move-result v4
 
-    iget-object v3, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
+    invoke-virtual {v0, v4}, Lcom/isaigu/gymapp/widget/AmountView2;->setAmountColor(I)V
 
-    const v4, 0x7f0600bb
-
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getColor(I)I
-
-    move-result v3
-
-    invoke-virtual {v0, v3}, Lcom/isaigu/gymapp/widget/AmountView2;->setAmountColor(I)V
-
-    .line 271
+    .line 282
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsestop:Lcom/isaigu/gymapp/widget/AmountView2;
 
-    const-string v3, " s"
+    const-string v4, " s"
 
-    invoke-virtual {v0, v3}, Lcom/isaigu/gymapp/widget/AmountView2;->setAmountUnit(Ljava/lang/String;)V
+    invoke-virtual {v0, v4}, Lcom/isaigu/gymapp/widget/AmountView2;->setAmountUnit(Ljava/lang/String;)V
 
-    .line 272
+    .line 283
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsestop:Lcom/isaigu/gymapp/widget/AmountView2;
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/AmountView2;->setMinValue(I)V
 
-    .line 273
+    .line 284
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsestop:Lcom/isaigu/gymapp/widget/AmountView2;
 
-    invoke-virtual {v0, v9}, Lcom/isaigu/gymapp/widget/AmountView2;->setGoods_storage(I)V
+    invoke-virtual {v0, v10}, Lcom/isaigu/gymapp/widget/AmountView2;->setGoods_storage(I)V
 
-    .line 274
-    iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
+    .line 285
+    invoke-static {v2}, Lcom/isaigu/gymapp/utils/PulseModeUtil;->isAlternateImpulseMode(Lcom/isaigu/gymapp/bean/TrainProgram;)Z
 
-    iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsestop:Lcom/isaigu/gymapp/widget/AmountView2;
+    move-result v0
 
-    iget v2, v2, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulsePause:I
+    if-eqz v0, :cond_25f
 
-    invoke-virtual {v0, v2}, Lcom/isaigu/gymapp/widget/AmountView2;->setAmount(I)V
+    .line 286
+    invoke-static {v2, v1}, Lcom/isaigu/gymapp/utils/PulseModeUtil;->getActivePhaseBean(Lcom/isaigu/gymapp/bean/TrainProgram;Z)Lcom/isaigu/gymapp/bean/ProgramDataBean;
 
-    .line 275
+    move-result-object v0
+
+    .line 287
+    iget-object v2, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
+
+    iget-object v2, v2, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsestop:Lcom/isaigu/gymapp/widget/AmountView2;
+
+    if-eqz v0, :cond_25c
+
+    iget v0, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseContinue:I
+
+    :goto_16e
+    invoke-virtual {v2, v0}, Lcom/isaigu/gymapp/widget/AmountView2;->setAmount(I)V
+
+    .line 291
+    :goto_171
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsestop:Lcom/isaigu/gymapp/widget/AmountView2;
@@ -1255,7 +1310,7 @@
 
     invoke-virtual {v0, v2}, Lcom/isaigu/gymapp/widget/AmountView2;->setAmountColor(I)V
 
-    .line 276
+    .line 292
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->MyBatterView:Lcom/isaigu/gymapp/widget/BatterView;
@@ -1268,7 +1323,7 @@
 
     invoke-virtual {v0, v2}, Lcom/isaigu/gymapp/widget/BatterView;->setProgress(I)V
 
-    .line 277
+    .line 293
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->batteryValueTextView:Landroid/widget/TextView;
@@ -1299,16 +1354,16 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 278
+    .line 294
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     move-result-object v0
 
     iget-boolean v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->connected:Z
 
-    if-nez v0, :cond_249
+    if-nez v0, :cond_26e
 
-    .line 279
+    .line 295
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->signalImage:Landroid/widget/ImageView;
@@ -1317,17 +1372,17 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    .line 283
-    :goto_1b0
+    .line 299
+    :goto_1c0
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->item:Lcom/isaigu/gymapp/train/model/TrainItem;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->isMaSelected()Z
 
     move-result v0
 
-    if-eqz v0, :cond_255
+    if-eqz v0, :cond_27a
 
-    .line 284
+    .line 300
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->ma:Landroid/widget/TextView;
@@ -1336,8 +1391,8 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
-    .line 288
-    :goto_1c2
+    .line 304
+    :goto_1d2
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     move-result-object v0
@@ -1350,7 +1405,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1e0
+    if-nez v0, :cond_1f0
 
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
@@ -1366,10 +1421,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_261
+    if-eqz v0, :cond_286
 
-    .line 289
-    :cond_1e0
+    .line 305
+    :cond_1f0
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
@@ -1390,7 +1445,7 @@
 
     move-result-object v0
 
-    new-array v2, v7, [Lcom/bumptech/glide/load/resource/bitmap/BitmapTransformation;
+    new-array v2, v8, [Lcom/bumptech/glide/load/resource/bitmap/BitmapTransformation;
 
     new-instance v3, Lcom/isaigu/gymapp/widget/GlideCircleTransform;
 
@@ -1410,15 +1465,15 @@
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    .line 293
-    :goto_20b
+    .line 309
+    :goto_21b
     invoke-direct {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->updateTime()V
 
-    .line 294
+    .line 310
     return-void
 
-    .line 252
-    :cond_20f
+    .line 262
+    :cond_21f
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->startpaulse:Lcom/isaigu/gymapp/widget/MyButton;
@@ -1429,8 +1484,8 @@
 
     goto/16 :goto_cc
 
-    .line 261
-    :cond_21b
+    .line 271
+    :cond_22b
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     move-result-object v0
@@ -1441,9 +1496,9 @@
 
     const/4 v3, 0x2
 
-    if-ne v0, v3, :cond_232
+    if-ne v0, v3, :cond_242
 
-    .line 262
+    .line 272
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->youyangyundong:Lcom/isaigu/gymapp/widget/MyButton;
@@ -1454,8 +1509,8 @@
 
     goto/16 :goto_111
 
-    .line 263
-    :cond_232
+    .line 273
+    :cond_242
     invoke-virtual {p0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     move-result-object v0
@@ -1468,7 +1523,7 @@
 
     if-ne v0, v3, :cond_111
 
-    .line 264
+    .line 274
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->anmo:Lcom/isaigu/gymapp/widget/MyButton;
@@ -1479,8 +1534,40 @@
 
     goto/16 :goto_111
 
-    .line 281
-    :cond_249
+    :cond_259
+    move v0, v1
+
+    .line 280
+    goto/16 :goto_132
+
+    :cond_25c
+    move v0, v1
+
+    .line 287
+    goto/16 :goto_16e
+
+    .line 289
+    :cond_25f
+    iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
+
+    iget-object v2, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->paulsestop:Lcom/isaigu/gymapp/widget/AmountView2;
+
+    if-eqz v3, :cond_26c
+
+    iget v0, v3, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulsePause:I
+
+    :goto_267
+    invoke-virtual {v2, v0}, Lcom/isaigu/gymapp/widget/AmountView2;->setAmount(I)V
+
+    goto/16 :goto_171
+
+    :cond_26c
+    move v0, v1
+
+    goto :goto_267
+
+    .line 297
+    :cond_26e
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->signalImage:Landroid/widget/ImageView;
@@ -1489,10 +1576,10 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    goto/16 :goto_1b0
+    goto/16 :goto_1c0
 
-    .line 286
-    :cond_255
+    .line 302
+    :cond_27a
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->binding:Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/databinding/NewUserTrainControlItemLayoutBinding;->ma:Landroid/widget/TextView;
@@ -1501,10 +1588,10 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
-    goto/16 :goto_1c2
+    goto/16 :goto_1d2
 
-    .line 291
-    :cond_261
+    .line 307
+    :cond_286
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
@@ -1527,7 +1614,7 @@
 
     move-result-object v0
 
-    new-array v2, v7, [Lcom/bumptech/glide/load/resource/bitmap/BitmapTransformation;
+    new-array v2, v8, [Lcom/bumptech/glide/load/resource/bitmap/BitmapTransformation;
 
     new-instance v3, Lcom/isaigu/gymapp/widget/GlideCircleTransform;
 
@@ -1547,5 +1634,5 @@
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    goto/16 :goto_20b
+    goto/16 :goto_21b
 .end method

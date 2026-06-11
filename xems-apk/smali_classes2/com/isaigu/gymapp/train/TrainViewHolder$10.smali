@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 165
+    .line 174
     iput-object p1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$10;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .registers 4
 
     .prologue
-    .line 168
+    .line 177
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$10;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     iget-object v1, v0, Lcom/isaigu/gymapp/train/TrainViewHolder;->item:Lcom/isaigu/gymapp/train/model/TrainItem;
@@ -60,15 +60,15 @@
     :goto_f
     invoke-virtual {v1, v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->setMaSelected(Z)V
 
-    .line 169
+    .line 178
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$10;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->lambda$bindNotEmpty$9$TrainViewHolder()V
 
-    .line 170
+    .line 179
     return-void
 
-    .line 168
+    .line 177
     :cond_18
     const/4 v0, 0x0
 

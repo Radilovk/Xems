@@ -58,31 +58,31 @@
     .registers 4
 
     .prologue
-    .line 172
+    .line 177
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
-    .line 173
+    .line 178
     iget-boolean v1, v0, Lcom/isaigu/gymapp/bean/UserData;->rememberPassword:Z
 
     if-eqz v1, :cond_16
 
-    .line 174
+    .line 179
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->userName:Landroid/widget/EditText;
 
     iget-object v2, v0, Lcom/isaigu/gymapp/bean/UserData;->userName:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 175
+    .line 180
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->password:Landroid/widget/EditText;
 
     iget-object v2, v0, Lcom/isaigu/gymapp/bean/UserData;->password:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 177
+    .line 182
     :cond_16
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->rememberPassword:Landroid/support/v7/widget/AppCompatCheckBox;
 
@@ -90,14 +90,14 @@
 
     invoke-virtual {v1, v2}, Landroid/support/v7/widget/AppCompatCheckBox;->setChecked(Z)V
 
-    .line 178
+    .line 183
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment;->autoLogin:Landroid/support/v7/widget/AppCompatCheckBox;
 
     iget-boolean v0, v0, Lcom/isaigu/gymapp/bean/UserData;->autoLogin:Z
 
     invoke-virtual {v1, v0}, Landroid/support/v7/widget/AppCompatCheckBox;->setChecked(Z)V
 
-    .line 179
+    .line 184
     return-void
 .end method
 

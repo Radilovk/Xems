@@ -33,7 +33,7 @@
     .end annotation
 
     .prologue
-    .line 189
+    .line 198
     iput-object p1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1$1;->this$2:Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1;
 
     iput-object p2, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1$1;->val$trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -49,7 +49,7 @@
     .registers 3
 
     .prologue
-    .line 192
+    .line 201
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1$1;->this$2:Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1;->this$1:Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1;
@@ -62,7 +62,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/train/model/TrainItem;->setTrainProgram(Lcom/isaigu/gymapp/bean/TrainProgram;)V
 
-    .line 193
+    .line 202
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1$1;->this$2:Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1;->this$1:Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1;
@@ -71,7 +71,7 @@
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->lambda$bindNotEmpty$9$TrainViewHolder()V
 
-    .line 194
+    .line 203
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1$1;->this$2:Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1$1;->this$1:Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1;
@@ -79,8 +79,8 @@
     iget-object v0, v0, Lcom/isaigu/gymapp/train/TrainViewHolder$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     # invokes: Lcom/isaigu/gymapp/train/TrainViewHolder;->onItemChange()V
-    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$200(Lcom/isaigu/gymapp/train/TrainViewHolder;)V
+    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$300(Lcom/isaigu/gymapp/train/TrainViewHolder;)V
 
-    .line 195
+    .line 204
     return-void
 .end method

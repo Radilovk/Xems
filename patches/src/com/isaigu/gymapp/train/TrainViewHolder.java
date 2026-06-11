@@ -24,6 +24,7 @@ import com.isaigu.gymapp.train.listener.OnTrainItemListener;
 import com.isaigu.gymapp.train.listener.OnTrainListListener;
 import com.isaigu.gymapp.train.model.TrainItem;
 import com.isaigu.gymapp.train.utils.OperationUtil;
+import com.isaigu.gymapp.utils.PulseModeUtil;
 import com.isaigu.gymapp.utils.StrengthAdjustUtil;
 import com.isaigu.gymapp.widget.AmountView2;
 import com.isaigu.gymapp.widget.CircleSeekBar;
@@ -61,7 +62,7 @@ public class TrainViewHolder extends RecyclerView.ViewHolder {
 
             @Override
             public void onChangedEnd(CircleSeekBar seekbar, int curValue) {
-                ProgramDataBean program = TrainViewHolder.this.getData().trainProgram.matchProgram();
+                ProgramDataBean program = TrainViewHolder.this.getEditableProgram();
                 StrengthAdjustUtil.migrate(program);
                 int strenth = (curValue * 100) / 75;
                 int oldStrenth = program.strenth;
@@ -137,7 +138,7 @@ public class TrainViewHolder extends RecyclerView.ViewHolder {
         this.binding.paulsecontinue.setOnAmountChangeListener(new AmountView2.OnAmountChangeListener() {
             @Override
             public void onAmountChange(View view, int amount) {
-                getData().trainProgram.matchProgram().pulseContinue = amount;
+                getData().trainProgram.programDataBean.pulseContinue = amount;
                 TrainViewHolder.this.lambda$bindNotEmpty$9$TrainViewHolder();
                 TrainViewHolder.this.onItemChange();
             }
@@ -145,7 +146,15 @@ public class TrainViewHolder extends RecyclerView.ViewHolder {
         this.binding.paulsestop.setOnAmountChangeListener(new AmountView2.OnAmountChangeListener() {
             @Override
             public void onAmountChange(View view, int amount) {
-                getData().trainProgram.matchProgram().pulsePause = amount;
+                TrainProgram trainProgram = getData().trainProgram;
+                if (PulseModeUtil.isAlternateImpulseMode(trainProgram)) {
+                    ProgramDataBean secondary = PulseModeUtil.getActivePhaseBean(trainProgram, false);
+                    if (secondary != null) {
+                        secondary.pulseContinue = amount;
+                    }
+                } else {
+                    trainProgram.matchProgram().pulsePause = amount;
+                }
                 TrainViewHolder.this.lambda$bindNotEmpty$9$TrainViewHolder();
                 TrainViewHolder.this.onItemChange();
             }
@@ -230,7 +239,8 @@ public class TrainViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void lambda$bindNotEmpty$9$TrainViewHolder() {
-        ProgramDataBean programDataBean = getData().trainProgram.matchProgram();
+        TrainProgram trainProgram = getData().trainProgram;
+        ProgramDataBean programDataBean = getEditableProgram();
         StrengthAdjustUtil.migrate(programDataBean);
         this.binding.circleSeekBar.setCurProcess((programDataBean.strenth * 75) / 100);
         this.binding.ma.setText(String.format(this.context.getString(R.string.maValue), StrengthAdjustUtil.formatMa(StrengthAdjustUtil.getStrengthMa(programDataBean))));
@@ -266,12 +276,18 @@ public class TrainViewHolder extends RecyclerView.ViewHolder {
         this.binding.paulsecontinue.setAmountUnit(" s");
         this.binding.paulsecontinue.setMinValue(1);
         this.binding.paulsecontinue.setGoods_storage(60);
-        this.binding.paulsecontinue.setAmount(programDataBean.pulseContinue);
+        ProgramDataBean primary = trainProgram.programDataBean;
+        this.binding.paulsecontinue.setAmount(primary != null ? primary.pulseContinue : 0);
         this.binding.paulsecontinue.setAmountColor(this.context.getColor(R.color.wave_color_green));
         this.binding.paulsestop.setAmountUnit(" s");
         this.binding.paulsestop.setMinValue(0);
         this.binding.paulsestop.setGoods_storage(60);
-        this.binding.paulsestop.setAmount(programDataBean.pulsePause);
+        if (PulseModeUtil.isAlternateImpulseMode(trainProgram)) {
+            ProgramDataBean secondary = PulseModeUtil.getActivePhaseBean(trainProgram, false);
+            this.binding.paulsestop.setAmount(secondary != null ? secondary.pulseContinue : 0);
+        } else {
+            this.binding.paulsestop.setAmount(primary != null ? primary.pulsePause : 0);
+        }
         this.binding.paulsestop.setAmountColor(this.context.getColor(R.color.wave_color_red));
         this.binding.MyBatterView.setProgress(getData().batteryValue);
         this.binding.batteryValueTextView.setText(getData().batteryValue + "");
@@ -295,19 +311,17 @@ public class TrainViewHolder extends RecyclerView.ViewHolder {
 
     private void updateTime() {
         int waveColor;
-        ProgramDataBean programDataBean = getData().trainProgram.matchProgram();
+        TrainProgram trainProgram = getData().trainProgram;
+        int phaseDuration = PulseModeUtil.getPhaseDurationSeconds(trainProgram, getData().inStart);
         int waveValue = getData().secondValue + 1;
         int waveProgress = 0;
         if (getData().inStart) {
             waveColor = this.context.getResources().getColor(R.color.wave_color_green);
-            if (programDataBean.pulseContinue > 0) {
-                waveProgress = (waveValue * 30) / programDataBean.pulseContinue;
-            }
         } else {
             waveColor = this.context.getResources().getColor(R.color.wave_color_red);
-            if (programDataBean.pulsePause > 0) {
-                waveProgress = (waveValue * 30) / programDataBean.pulsePause;
-            }
+        }
+        if (phaseDuration > 0) {
+            waveProgress = (waveValue * 30) / phaseDuration;
         }
         this.binding.waveBallProgressValue.setText(String.valueOf(waveValue));
         this.binding.waveBallProgressValue.setTextColor(waveColor);
@@ -322,7 +336,7 @@ public class TrainViewHolder extends RecyclerView.ViewHolder {
         this.bars[index].setOnStateChangeListener(new VerticalColorSeekBar.OnStateChangeListener() {
             @Override
             public void OnStateChangeListener(View view, float p) {
-                ProgramDataBean programDataBean = TrainViewHolder.this.getData().trainProgram.matchProgram();
+                ProgramDataBean programDataBean = TrainViewHolder.this.getEditableProgram();
                 StrengthAdjustUtil.migrate(programDataBean);
                 TrainViewHolder.this.texts[index].setText(String.format(
                         TrainViewHolder.this.context.getString(R.string.maValue),
@@ -331,13 +345,17 @@ public class TrainViewHolder extends RecyclerView.ViewHolder {
 
             @Override
             public void onStopTrackingTouch(View view, float p) {
-                ProgramDataBean programDataBean = TrainViewHolder.this.getData().trainProgram.matchProgram();
+                ProgramDataBean programDataBean = TrainViewHolder.this.getEditableProgram();
                 programDataBean.strenthBean.buwei[index] = (int) p;
                 programDataBean.strenthBean.buweiFloat[index] = p;
                 TrainViewHolder.this.lambda$bindNotEmpty$9$TrainViewHolder();
                 TrainViewHolder.this.onItemChange();
             }
         });
+    }
+
+    private ProgramDataBean getEditableProgram() {
+        return PulseModeUtil.getEditableBean(getData().trainProgram, getData().inStart);
     }
 
     private BaseActivity getParentActivity() {

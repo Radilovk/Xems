@@ -171,7 +171,9 @@ public class TrainItem {
             this.data.start = false;
             this.workCountDown.cancel();
             this.pulseCountDown.cancel();
-            this.sender.sendPause(getTrainProgram().matchProgram(), this.workLength);
+            this.sender.sendPause(
+                    com.isaigu.gymapp.utils.PulseModeUtil.getActivePhaseBean(getTrainProgram(), this.data.inStart),
+                    this.workLength);
             this.sender.sendStop();
             onTrainItemChange();
         }
@@ -203,7 +205,8 @@ public class TrainItem {
     }
 
     public void addAllPartValue(int deltaTenths, boolean ignoreControl) {
-        ProgramDataBean program = getTrainProgram().matchProgram();
+        ProgramDataBean program = com.isaigu.gymapp.utils.PulseModeUtil.getEditableBean(
+                getTrainProgram(), this.data.inStart);
         for (int i = 0; i < program.strenthBean.buwei.length; i++) {
             if (ignoreControl || this.partsControl[i]) {
                 com.isaigu.gymapp.utils.StrengthAdjustUtil.adjustChannelMa(program, i, deltaTenths);
@@ -214,7 +217,8 @@ public class TrainItem {
     }
 
     public void addStrenth(int deltaTenths) {
-        ProgramDataBean program = getTrainProgram().matchProgram();
+        ProgramDataBean program = com.isaigu.gymapp.utils.PulseModeUtil.getEditableBean(
+                getTrainProgram(), this.data.inStart);
         com.isaigu.gymapp.utils.StrengthAdjustUtil.adjustOverallMa(program, deltaTenths);
         sendPulse();
         onTrainItemChange();

@@ -38,7 +38,7 @@
     .registers 4
 
     .prologue
-    .line 128
+    .line 133
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1$2;->this$1:Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;
 
     iput-object p2, p0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1$2;->val$username:Ljava/lang/String;
@@ -68,7 +68,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 132
+    .line 137
     if-eqz p1, :cond_aa
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
@@ -77,7 +77,7 @@
 
     if-nez v0, :cond_aa
 
-    .line 133
+    .line 138
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v1
@@ -90,7 +90,7 @@
 
     iput-object v0, v1, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
-    .line 134
+    .line 139
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getData()Ljava/lang/Object;
 
     move-result-object v0
@@ -105,7 +105,7 @@
 
     if-nez v0, :cond_31
 
-    .line 135
+    .line 140
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v1
@@ -120,7 +120,7 @@
 
     iput-object v0, v1, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
 
-    .line 137
+    .line 142
     :cond_31
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
@@ -136,7 +136,7 @@
 
     iput-wide v2, v0, Lcom/isaigu/gymapp/bean/UserData;->useTime:J
 
-    .line 138
+    .line 143
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
@@ -145,7 +145,7 @@
 
     iput-object v1, v0, Lcom/isaigu/gymapp/bean/UserData;->userName:Ljava/lang/String;
 
-    .line 139
+    .line 144
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
@@ -154,7 +154,7 @@
 
     iput-object v1, v0, Lcom/isaigu/gymapp/bean/UserData;->password:Ljava/lang/String;
 
-    .line 140
+    .line 145
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
@@ -169,7 +169,7 @@
 
     iput-object v1, v0, Lcom/isaigu/gymapp/bean/UserData;->roleName:Ljava/lang/String;
 
-    .line 141
+    .line 146
     const-string v0, "file_name_login_user"
 
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -180,19 +180,19 @@
 
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 142
+    .line 147
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
 
-    .line 143
+    .line 148
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/isaigu/gymapp/mgr/DataMgr;->singleMode:Z
 
-    .line 144
+    .line 149
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getData()Ljava/lang/Object;
 
     move-result-object v0
@@ -203,7 +203,7 @@
 
     sput-object v0, Lcom/isaigu/gymapp/mgr/ApiMgr;->token:Ljava/lang/String;
 
-    .line 145
+    .line 150
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v0
@@ -220,15 +220,15 @@
 
     if-eqz v0, :cond_a4
 
-    .line 146
+    .line 151
     sput-boolean v4, Lcom/isaigu/gymapp/mgr/DataMgr;->singleMode:Z
 
-    .line 147
+    .line 152
     new-instance v0, Lcom/isaigu/gymapp/fragment/MainFragment;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/fragment/MainFragment;-><init>()V
 
-    .line 152
+    .line 157
     :goto_93
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1$2;->this$1:Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;
 
@@ -244,11 +244,11 @@
 
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 166
+    .line 171
     :goto_a3
     return-void
 
-    .line 149
+    .line 154
     :cond_a4
     new-instance v0, Lcom/isaigu/gymapp/fragment/StartFragment;
 
@@ -256,7 +256,7 @@
 
     goto :goto_93
 
-    .line 161
+    .line 166
     :cond_aa
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -288,7 +288,7 @@
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
 
-    .line 162
+    .line 167
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1$2;->this$1:Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/fragment/LoginFragment;
@@ -299,21 +299,21 @@
 
     invoke-static {v0, p2, p3}, Lcom/isaigu/gymapp/mgr/CommonUtils;->showErrorTips(Lcom/isaigu/gymapp/BaseActivity;Ljava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
 
-    .line 163
+    .line 168
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
     iput-boolean v4, v0, Lcom/isaigu/gymapp/bean/UserData;->autoLogin:Z
 
-    .line 164
+    .line 169
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
     iput-boolean v4, v0, Lcom/isaigu/gymapp/bean/UserData;->rememberPassword:Z
 
-    .line 165
+    .line 170
     const/16 v0, 0x68
 
     invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
@@ -325,7 +325,7 @@
     .registers 4
 
     .prologue
-    .line 128
+    .line 133
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1$2;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V

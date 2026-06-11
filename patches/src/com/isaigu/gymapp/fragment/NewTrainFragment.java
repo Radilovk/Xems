@@ -117,7 +117,7 @@ public class NewTrainFragment extends Fragment {
             DataMgr.getInstance().removeTrainingUser(item.data.macAddress);
         }
     };
-    TrainRecordManager recordManager = new TrainRecordManager(getBaseActivity());
+    TrainRecordManager recordManager;
 
     public NewTrainFragment() {
         boolean[] zArr = new boolean[10];
@@ -135,9 +135,16 @@ public class NewTrainFragment extends Fragment {
         return fragment;
     }
 
+    private TrainRecordManager getRecordManager() {
+        if (this.recordManager == null) {
+            this.recordManager = new TrainRecordManager(getBaseActivity());
+        }
+        return this.recordManager;
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onDeviceConnected(TrainUserSelectedEvent event) {
-        event.getTrainItem().setRecordManager(this.recordManager);
+        event.getTrainItem().setRecordManager(getRecordManager());
         this.manager.addTrainItem(event.getTrainItem());
         this.adapter.notifyDataSetChanged();
     }

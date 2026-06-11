@@ -33,7 +33,7 @@
     .end annotation
 
     .prologue
-    .line 322
+    .line 336
     iput-object p1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$13;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     iput p2, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$13;->val$index:I
@@ -49,27 +49,22 @@
     .registers 9
 
     .prologue
-    .line 325
+    .line 339
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$13;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+    # invokes: Lcom/isaigu/gymapp/train/TrainViewHolder;->getEditableProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
+    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$200(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/bean/ProgramDataBean;
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
-
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/bean/TrainProgram;->matchProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
-
-    move-result-object v0
-
-    .line 326
+    .line 340
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->migrate(Lcom/isaigu/gymapp/bean/ProgramDataBean;)V
 
-    .line 327
+    .line 341
     iget-object v1, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$13;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     # getter for: Lcom/isaigu/gymapp/train/TrainViewHolder;->texts:[Landroid/widget/TextView;
-    invoke-static {v1}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$500(Lcom/isaigu/gymapp/train/TrainViewHolder;)[Landroid/widget/TextView;
+    invoke-static {v1}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$600(Lcom/isaigu/gymapp/train/TrainViewHolder;)[Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -79,7 +74,7 @@
 
     iget-object v2, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$13;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
-    .line 328
+    .line 342
     # getter for: Lcom/isaigu/gymapp/train/TrainViewHolder;->context:Landroid/content/Context;
     invoke-static {v2}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$000(Lcom/isaigu/gymapp/train/TrainViewHolder;)Landroid/content/Context;
 
@@ -101,7 +96,7 @@
 
     div-float v5, p2, v5
 
-    .line 329
+    .line 343
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->getStrengthMa(Lcom/isaigu/gymapp/bean/ProgramDataBean;)F
 
     move-result v0
@@ -114,14 +109,14 @@
 
     aput-object v0, v3, v4
 
-    .line 327
+    .line 341
     invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 330
+    .line 344
     return-void
 .end method
 
@@ -129,20 +124,15 @@
     .registers 7
 
     .prologue
-    .line 334
+    .line 348
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$13;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->getData()Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+    # invokes: Lcom/isaigu/gymapp/train/TrainViewHolder;->getEditableProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
+    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$200(Lcom/isaigu/gymapp/train/TrainViewHolder;)Lcom/isaigu/gymapp/bean/ProgramDataBean;
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
-
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/bean/TrainProgram;->matchProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
-
-    move-result-object v0
-
-    .line 335
+    .line 349
     iget-object v1, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
@@ -153,7 +143,7 @@
 
     aput v3, v1, v2
 
-    .line 336
+    .line 350
     iget-object v0, v0, Lcom/isaigu/gymapp/bean/ProgramDataBean;->strenthBean:Lcom/isaigu/gymapp/bean/PartStrenthBean;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
@@ -162,17 +152,17 @@
 
     aput p2, v0, v1
 
-    .line 337
+    .line 351
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$13;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->lambda$bindNotEmpty$9$TrainViewHolder()V
 
-    .line 338
+    .line 352
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainViewHolder$13;->this$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 
     # invokes: Lcom/isaigu/gymapp/train/TrainViewHolder;->onItemChange()V
-    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$200(Lcom/isaigu/gymapp/train/TrainViewHolder;)V
+    invoke-static {v0}, Lcom/isaigu/gymapp/train/TrainViewHolder;->access$300(Lcom/isaigu/gymapp/train/TrainViewHolder;)V
 
-    .line 339
+    .line 353
     return-void
 .end method

@@ -1080,7 +1080,7 @@
 
     .line 425
     :cond_133
-    const v1, 0x7f0d0104
+    const v1, 0x7f0d0105
 
     invoke-virtual {p0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getString(I)Ljava/lang/String;
 

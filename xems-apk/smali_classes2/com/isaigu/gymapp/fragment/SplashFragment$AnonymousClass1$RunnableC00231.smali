@@ -41,7 +41,9 @@
     .registers 7
 
     .prologue
-    const v2, 0x7f0900a4
+    const/16 v4, 0x68
+
+    const v3, 0x7f0900a4
 
     .line 92
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
@@ -52,7 +54,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_db
+    if-eqz v0, :cond_f8
 
     .line 93
     const/16 v0, 0x67
@@ -72,7 +74,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_9e
+    if-nez v0, :cond_ba
 
     .line 95
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
@@ -85,7 +87,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_88
+    if-nez v0, :cond_a6
 
     .line 96
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
@@ -98,7 +100,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_88
+    if-nez v0, :cond_a6
 
     .line 97
     const/4 v0, 0x1
@@ -123,6 +125,38 @@
     iput-object v0, v1, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
     .line 99
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
+
+    if-nez v0, :cond_69
+
+    .line 100
+    invoke-static {v4}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
+
+    .line 101
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1;
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
+
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SplashFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/isaigu/gymapp/fragment/LoginFragment;
+
+    invoke-direct {v1}, Lcom/isaigu/gymapp/fragment/LoginFragment;-><init>()V
+
+    invoke-virtual {v0, v3, v1}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
+
+    .line 167
+    :goto_68
+    return-void
+
+    .line 104
+    :cond_69
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
@@ -137,7 +171,7 @@
 
     iput-wide v2, v0, Lcom/isaigu/gymapp/bean/UserData;->useTime:J
 
-    .line 100
+    .line 105
     const-string v0, "ROLE_COACH"
 
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
@@ -150,20 +184,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_82
+    if-eqz v0, :cond_a0
 
-    .line 101
+    .line 106
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/isaigu/gymapp/mgr/DataMgr;->singleMode:Z
 
-    .line 102
+    .line 107
     new-instance v0, Lcom/isaigu/gymapp/fragment/MainFragment;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/fragment/MainFragment;-><init>()V
 
-    .line 107
-    :goto_6f
+    .line 112
+    :goto_8d
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
@@ -180,25 +214,21 @@
 
     invoke-virtual {v1, v2, v4, v5}, Lcom/isaigu/gymapp/BaseActivity;->runDelay(Ljava/lang/Runnable;J)V
 
-    .line 162
-    :goto_81
-    return-void
+    goto :goto_68
 
-    .line 104
-    :cond_82
+    .line 109
+    :cond_a0
     new-instance v0, Lcom/isaigu/gymapp/fragment/StartFragment;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/fragment/StartFragment;-><init>()V
 
-    goto :goto_6f
+    goto :goto_8d
 
-    .line 116
-    :cond_88
-    const/16 v0, 0x68
+    .line 121
+    :cond_a6
+    invoke-static {v4}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
-
-    .line 117
+    .line 122
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
@@ -211,17 +241,17 @@
 
     invoke-direct {v1}, Lcom/isaigu/gymapp/fragment/LoginFragment;-><init>()V
 
-    invoke-virtual {v0, v2, v1}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
+    invoke-virtual {v0, v3, v1}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
 
-    goto :goto_81
+    goto :goto_68
 
-    .line 120
-    :cond_9e
+    .line 125
+    :cond_ba
     new-instance v0, Lcom/isaigu/gymapp/bean/dto/LoginDTO;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/bean/dto/LoginDTO;-><init>()V
 
-    .line 121
+    .line 126
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v1
@@ -230,7 +260,7 @@
 
     iput-object v1, v0, Lcom/isaigu/gymapp/bean/dto/LoginDTO;->username:Ljava/lang/String;
 
-    .line 122
+    .line 127
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v1
@@ -243,7 +273,7 @@
 
     iput-object v1, v0, Lcom/isaigu/gymapp/bean/dto/LoginDTO;->password:Ljava/lang/String;
 
-    .line 123
+    .line 128
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -270,17 +300,17 @@
 
     iput-object v1, v0, Lcom/isaigu/gymapp/bean/dto/LoginDTO;->md5Password:Ljava/lang/String;
 
-    .line 124
+    .line 129
     new-instance v1, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231$2;
 
     invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231$2;-><init>(Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;)V
 
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/mgr/ApiMgr;->login(Lcom/isaigu/gymapp/bean/dto/LoginDTO;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
-    goto :goto_81
+    goto/16 :goto_68
 
-    .line 161
-    :cond_db
+    .line 166
+    :cond_f8
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
@@ -293,7 +323,7 @@
 
     invoke-direct {v1}, Lcom/isaigu/gymapp/fragment/LoginFragment;-><init>()V
 
-    invoke-virtual {v0, v2, v1}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
+    invoke-virtual {v0, v3, v1}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
 
-    goto :goto_81
+    goto/16 :goto_68
 .end method

@@ -47,7 +47,7 @@
     .registers 3
 
     .prologue
-    .line 167
+    .line 172
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
 
     new-instance v1, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;
@@ -56,6 +56,6 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/SplashFragment;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 168
+    .line 173
     return-void
 .end method
