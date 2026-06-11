@@ -20,18 +20,14 @@
 # instance fields
 .field final synthetic this$0:Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;
 
-.field final synthetic val$bundle:Lcom/isaigu/gymapp/message/DataBundle;
-
 
 # direct methods
-.method constructor <init>(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;Lcom/isaigu/gymapp/message/DataBundle;)V
-    .locals 0
-    .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;
+.method constructor <init>(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;)V
+    .registers 2
 
-    .line 703
+    .prologue
+    .line 720
     iput-object p1, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$15;->this$0:Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;
-
-    iput-object p2, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$15;->val$bundle:Lcom/isaigu/gymapp/message/DataBundle;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,15 +37,41 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 4
 
-    .line 705
+    .prologue
+    .line 723
+    const/16 v0, 0x68
+
+    invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
+
+    .line 725
+    :try_start_5
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$15;->this$0:Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;
 
-    iget-object v1, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$15;->val$bundle:Lcom/isaigu/gymapp/message/DataBundle;
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
-    invoke-static {v0, v1}, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;->access$1000(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;Lcom/isaigu/gymapp/message/DataBundle;)V
+    move-result-object v0
 
-    .line 706
+    iget-object v1, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$15;->this$0:Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;
+
+    const v2, 0x7f0d003c
+
+    invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->showTips(Ljava/lang/String;)V
+    :try_end_17
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_17} :catch_18
+
+    .line 728
+    :goto_17
     return-void
+
+    .line 726
+    :catch_18
+    move-exception v0
+
+    goto :goto_17
 .end method
