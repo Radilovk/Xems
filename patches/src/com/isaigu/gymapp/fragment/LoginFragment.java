@@ -48,46 +48,41 @@ public class LoginFragment extends BaseFragment {
         View view = super.onCreateView(inflater, container, savedInstanceState);
         this.userName = (EditText) view.findViewById(R.id.username);
         this.password = (EditText) view.findViewById(R.id.password);
-        View passwordRow = view.findViewById(R.id.password_row);
-        if (passwordRow != null) {
-            passwordRow.setVisibility(View.VISIBLE);
-        }
-        if (this.password != null) {
-            this.password.setVisibility(View.VISIBLE);
-        }
         this.autoLogin = (AppCompatCheckBox) view.findViewById(R.id.autologin);
         this.rememberPassword = (AppCompatCheckBox) view.findViewById(R.id.rememberpassword);
-        if (this.rememberPassword != null) {
-            this.rememberPassword.setVisibility(View.VISIBLE);
-        }
         this.login = (MyButton) view.findViewById(R.id.login);
         ImageView logoImage = (ImageView) view.findViewById(R.id.logoImage);
         if (!TextUtils.isEmpty(UserData.getInstance().logoPath)) {
             Glide.with((FragmentActivity) getParentActivity()).load(UserData.getInstance().logoPath).into(logoImage);
         }
-        this.login.setOnClickListener(new AnonymousClass1());
-        this.autoLogin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.isaigu.gymapp.fragment.LoginFragment.2
-            @Override // android.widget.CompoundButton.OnCheckedChangeListener
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                UserData.getInstance().autoLogin = b;
-            }
-        });
-        this.rememberPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.isaigu.gymapp.fragment.LoginFragment.3
-            @Override // android.widget.CompoundButton.OnCheckedChangeListener
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                UserData.getInstance().rememberPassword = b;
-            }
-        });
+        if (this.login != null) {
+            this.login.setOnClickListener(new AnonymousClass1());
+        }
+        if (this.autoLogin != null) {
+            this.autoLogin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    UserData.getInstance().autoLogin = b;
+                }
+            });
+        }
+        if (this.rememberPassword != null) {
+            this.rememberPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    UserData.getInstance().rememberPassword = b;
+                }
+            });
+        }
         initView();
         return view;
     }
 
-    /* renamed from: com.isaigu.gymapp.fragment.LoginFragment$1, reason: invalid class name */
     class AnonymousClass1 extends NoDoubleClickListener {
         AnonymousClass1() {
         }
 
-        @Override // com.isaigu.gymapp.widget.NoDoubleClickListener
+        @Override
         public void onNoDoubleClick(View v) {
             BaseFragment fragment;
             final String username = LoginFragment.this.userName.getText().toString();
@@ -109,6 +104,11 @@ public class LoginFragment extends BaseFragment {
                 if (username.equals(UserData.getInstance().userName) && pwd.equals(UserData.getInstance().password)) {
                     DataMgr.singleMode = true;
                     DataMgr.getInstance().loginUser = (TrainUser) FileUtils.getData(Constants.file_name_login_user, TrainUser.class);
+                    if (DataMgr.getInstance().loginUser == null) {
+                        MessageDispatcher.dispatchEventMessage((short) 104);
+                        LoginFragment.this.getParentActivity().showTips(LoginFragment.this.getString(R.string.username_password_error));
+                        return;
+                    }
                     UserData.getInstance().useTime = DataMgr.getInstance().loginUser.useTime;
                     if (Constants.role_coach.equals(UserData.getInstance().roleName)) {
                         DataMgr.singleMode = false;
@@ -117,8 +117,8 @@ public class LoginFragment extends BaseFragment {
                         fragment = new StartFragment();
                     }
                     final BaseFragment fragment1 = fragment;
-                    LoginFragment.this.getParentActivity().runDelay(new Runnable() { // from class: com.isaigu.gymapp.fragment.LoginFragment.1.1
-                        @Override // java.lang.Runnable
+                    LoginFragment.this.getParentActivity().runDelay(new Runnable() {
+                        @Override
                         public void run() {
                             MessageDispatcher.dispatchEventMessage((short) 104);
                             LoginFragment.this.getParentActivity().replace(R.id.frameContainer, fragment1);
@@ -134,11 +134,11 @@ public class LoginFragment extends BaseFragment {
             dto.username = username;
             dto.password = MD5Utils.getMD5(pwd);
             dto.md5Password = MD5Utils.getMD5(dto.password + ApiMgr.Password_Salt);
-            ApiMgr.login(dto, new OKHttpUtils.HttpResponseCallback<ResponseData<TrainUser>>() { // from class: com.isaigu.gymapp.fragment.LoginFragment.1.2
-                @Override // com.isaigu.gymapp.utils.OKHttpUtils.HttpResponseCallback
+            ApiMgr.login(dto, new OKHttpUtils.HttpResponseCallback<ResponseData<TrainUser>>() {
+                @Override
                 public void httpResponse(boolean httpSuccess, String message, ResponseData<TrainUser> result) {
                     BaseFragment fragment2;
-                    if (httpSuccess && result.getCode() == 0) {
+                    if (httpSuccess && result != null && result.getCode() == 0) {
                         DataMgr.getInstance().loginUser = result.getData();
                         if (!TextUtils.isEmpty(result.getData().appLogoUrl)) {
                             UserData.getInstance().logoPath = result.getData().appLogoUrl;
@@ -158,8 +158,8 @@ public class LoginFragment extends BaseFragment {
                             fragment2 = new StartFragment();
                         }
                         final BaseFragment fragment3 = fragment2;
-                        LoginFragment.this.getParentActivity().runOnUiThread(new Runnable() { // from class: com.isaigu.gymapp.fragment.LoginFragment.1.2.1
-                            @Override // java.lang.Runnable
+                        LoginFragment.this.getParentActivity().runOnUiThread(new Runnable() {
+                            @Override
                             public void run() {
                                 LoginFragment.this.getParentActivity().replace(R.id.frameContainer, fragment3);
                                 MessageDispatcher.dispatchEventMessage((short) 104);
@@ -180,10 +180,18 @@ public class LoginFragment extends BaseFragment {
     private void initView() {
         UserData userData = UserData.getInstance();
         if (userData.rememberPassword) {
-            this.userName.setText(userData.userName);
-            this.password.setText(userData.password);
+            if (this.userName != null) {
+                this.userName.setText(userData.userName);
+            }
+            if (this.password != null) {
+                this.password.setText(userData.password);
+            }
         }
-        this.rememberPassword.setChecked(userData.rememberPassword);
-        this.autoLogin.setChecked(userData.autoLogin);
+        if (this.rememberPassword != null) {
+            this.rememberPassword.setChecked(userData.rememberPassword);
+        }
+        if (this.autoLogin != null) {
+            this.autoLogin.setChecked(userData.autoLogin);
+        }
     }
 }

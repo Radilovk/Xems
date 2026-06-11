@@ -54,31 +54,6 @@
 
     if-eqz v0, :cond_cf
 
-    .line 92
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v0
-
-    iget-object v0, v0, Lcom/isaigu/gymapp/bean/UserData;->userName:Ljava/lang/String;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_invalidate_autologin
-
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v0
-
-    iget-object v0, v0, Lcom/isaigu/gymapp/bean/UserData;->password:Ljava/lang/String;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_invalidate_autologin
-
     .line 93
     const/16 v0, 0x67
 
@@ -118,21 +93,19 @@
     sput-boolean v0, Lcom/isaigu/gymapp/mgr/DataMgr;->singleMode:Z
 
     .line 97
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v1
+
     const-string v0, "file_name_login_user"
 
-    const-class v1, Lcom/isaigu/gymapp/bean/TrainUser;
+    const-class v2, Lcom/isaigu/gymapp/bean/TrainUser;
 
-    invoke-static {v0, v1}, Lcom/isaigu/gymapp/utils/FileUtils;->getData(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {v0, v2}, Lcom/isaigu/gymapp/utils/FileUtils;->getData(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/isaigu/gymapp/bean/TrainUser;
-
-    if-eqz v0, :cond_cf
-
-    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
-
-    move-result-object v1
 
     iput-object v0, v1, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
@@ -251,6 +224,12 @@
 
     iget-object v1, v1, Lcom/isaigu/gymapp/bean/UserData;->password:Ljava/lang/String;
 
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_cf
+
     invoke-static {v1}, Lcom/isaigu/gymapp/utils/MD5Utils;->getMD5(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -294,19 +273,6 @@
     goto :goto_75
 
     .line 160
-    :cond_invalidate_autologin
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    iput-boolean v1, v0, Lcom/isaigu/gymapp/bean/UserData;->autoLogin:Z
-
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
-
-    goto :cond_cf
-
     :cond_cf
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1$RunnableC00231;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$AnonymousClass1;
 

@@ -1636,7 +1636,7 @@ public final class R {
         public static final int wrap_content = 0x7f090200;
         public static final int year = 0x7f090201;
         public static final int youyangyundong = 0x7f090202;
-        public static final int password_row = 0x7f090203;
+        public static final int password_row = 0x7f09020c;
         public static final int bulgarian = 0x7f090204;
         public static final int changeIcon = 0x7f090205;
         public static final int changeSplash = 0x7f090206;
