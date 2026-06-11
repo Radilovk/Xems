@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Patched builds only (apktool recompile). For faithful vendor APK use build-original-apk.sh.
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
