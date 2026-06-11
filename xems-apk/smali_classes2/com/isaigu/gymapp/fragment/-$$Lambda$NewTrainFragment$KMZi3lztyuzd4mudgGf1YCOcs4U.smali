@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/ArrayList;Ljava/util/List;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
 
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/-$$Lambda$NewTrainFragment$KMZi3lztyuzd4mudgGf1YCOcs4U;->f$0:Ljava/util/ArrayList;
 

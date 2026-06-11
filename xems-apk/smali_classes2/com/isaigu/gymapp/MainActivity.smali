@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 46
     invoke-direct {p0}, Lcom/isaigu/gymapp/BaseActivity;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method public static getInstance()Lcom/isaigu/gymapp/MainActivity;
-    .locals 1
+    .registers 1
 
     .line 108
     sget-object v0, Lcom/isaigu/gymapp/MainActivity;->instance:Lcom/isaigu/gymapp/MainActivity;
@@ -42,12 +42,12 @@
 .end method
 
 .method public static getProxy()Lcom/danikula/videocache/HttpProxyCacheServer;
-    .locals 1
+    .registers 1
 
     .line 114
     sget-object v0, Lcom/isaigu/gymapp/MainActivity;->proxy:Lcom/danikula/videocache/HttpProxyCacheServer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 115
     invoke-static {}, Lcom/isaigu/gymapp/MainActivity;->newProxy()Lcom/danikula/videocache/HttpProxyCacheServer;
@@ -57,18 +57,18 @@
     sput-object v0, Lcom/isaigu/gymapp/MainActivity;->proxy:Lcom/danikula/videocache/HttpProxyCacheServer;
 
     .line 117
-    :cond_0
+    :cond_a
     sget-object v0, Lcom/isaigu/gymapp/MainActivity;->proxy:Lcom/danikula/videocache/HttpProxyCacheServer;
 
     return-object v0
 .end method
 
 .method private hideSoftInput(Landroid/os/IBinder;)V
-    .locals 2
+    .registers 4
     .param p1, "token"    # Landroid/os/IBinder;
 
     .line 226
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     .line 227
     const-string v0, "input_method"
@@ -87,30 +87,30 @@
 
     .line 231
     .end local v0    # "manager":Landroid/view/inputmethod/InputMethodManager;
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method private isHideInput(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 9
+    .registers 12
     .param p1, "v"    # Landroid/view/View;
     .param p2, "ev"    # Landroid/view/MotionEvent;
 
     .line 210
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_45
 
     instance-of v1, p1, Landroid/widget/EditText;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_45
 
     .line 211
     const/4 v1, 0x2
 
     new-array v1, v1, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_46
 
     .line 212
     .local v1, "l":[I
@@ -149,7 +149,7 @@
 
     cmpl-float v7, v7, v8
 
-    if-lez v7, :cond_0
+    if-lez v7, :cond_44
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
@@ -159,7 +159,7 @@
 
     cmpg-float v7, v7, v8
 
-    if-gez v7, :cond_0
+    if-gez v7, :cond_44
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
@@ -169,7 +169,7 @@
 
     cmpl-float v7, v7, v8
 
-    if-lez v7, :cond_0
+    if-lez v7, :cond_44
 
     .line 216
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
@@ -180,13 +180,13 @@
 
     cmpg-float v7, v7, v8
 
-    if-gez v7, :cond_0
+    if-gez v7, :cond_44
 
     .line 217
     return v0
 
     .line 219
-    :cond_0
+    :cond_44
     return v3
 
     .line 222
@@ -195,10 +195,10 @@
     .end local v4    # "top":I
     .end local v5    # "bottom":I
     .end local v6    # "right":I
-    :cond_1
+    :cond_45
     return v0
 
-    :array_0
+    :array_46
     .array-data 4
         0x0
         0x0
@@ -206,7 +206,7 @@
 .end method
 
 .method private static newProxy()Lcom/danikula/videocache/HttpProxyCacheServer;
-    .locals 4
+    .registers 4
 
     .line 121
     new-instance v0, Ljava/io/File;
@@ -227,13 +227,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_16
 
     .line 123
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
     .line 125
-    :cond_0
+    :cond_16
     new-instance v1, Lcom/danikula/videocache/HttpProxyCacheServer$Builder;
 
     sget-object v2, Lcom/isaigu/gymapp/MainActivity;->instance:Lcom/isaigu/gymapp/MainActivity;
@@ -269,21 +269,21 @@
 .end method
 
 .method private requestWriteSettings()V
-    .locals 3
+    .registers 4
 
     .line 146
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_33
 
     .line 147
     invoke-static {p0}, Landroid/provider/Settings$System;->canWrite(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_33
 
     .line 148
     new-instance v0, Landroid/content/Intent;
@@ -325,24 +325,24 @@
 
     .line 153
     .end local v0    # "intent":Landroid/content/Intent;
-    :cond_0
+    :cond_33
     return-void
 .end method
 
 .method private requestlLocationPermission()V
-    .locals 1
+    .registers 2
 
     .line 157
     :try_start_0
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_2} :catch_3
 
     .line 171
-    goto :goto_0
+    goto :goto_7
 
     .line 169
-    :catch_0
+    :catch_3
     move-exception v0
 
     .line 170
@@ -351,14 +351,14 @@
 
     .line 172
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_7
     return-void
 .end method
 
 
 # virtual methods
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 2
+    .registers 4
     .param p1, "ev"    # Landroid/view/MotionEvent;
 
     .line 200
@@ -366,7 +366,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 201
     invoke-virtual {p0}, Lcom/isaigu/gymapp/MainActivity;->getCurrentFocus()Landroid/view/View;
@@ -379,7 +379,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 203
     invoke-virtual {v0}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
@@ -390,7 +390,7 @@
 
     .line 206
     .end local v0    # "view":Landroid/view/View;
-    :cond_0
+    :cond_17
     invoke-super {p0, p1}, Lcom/isaigu/gymapp/BaseActivity;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -399,7 +399,7 @@
 .end method
 
 .method public getResources()Landroid/content/res/Resources;
-    .locals 1
+    .registers 2
 
     .line 190
     invoke-super {p0}, Lcom/isaigu/gymapp/BaseActivity;->getResources()Landroid/content/res/Resources;
@@ -415,7 +415,7 @@
 .end method
 
 .method public handleEvent(Lcom/isaigu/gymapp/message/DataBundle;)V
-    .locals 3
+    .registers 5
     .param p1, "bundle"    # Lcom/isaigu/gymapp/message/DataBundle;
 
     .line 265
@@ -427,16 +427,16 @@
     .local v0, "event":S
     const/16 v1, 0x67
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1b
 
     const/16 v1, 0x68
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_d
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 288
-    :cond_0
+    :cond_d
     iget-object v1, p0, Lcom/isaigu/gymapp/MainActivity;->loadingTimer:Ljava/util/Timer;
 
     invoke-static {v1}, Lcom/isaigu/gymapp/utils/TimerUtils;->stopTimer(Ljava/util/Timer;)V
@@ -448,10 +448,10 @@
 
     invoke-virtual {p0, v1}, Lcom/isaigu/gymapp/MainActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 268
-    :cond_1
+    :cond_1b
     const/4 v1, 0x0
 
     const-string v2, "content"
@@ -473,12 +473,12 @@
 
     .line 296
     .end local v1    # "hold":Z
-    :goto_0
+    :goto_2b
     return-void
 .end method
 
 .method public onBackPressed()V
-    .locals 2
+    .registers 3
 
     .line 246
     const v0, 0x7f0d00dd
@@ -498,7 +498,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .registers 6
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 55
@@ -627,7 +627,7 @@
 .end method
 
 .method protected onDestroy()V
-    .locals 1
+    .registers 2
 
     .line 235
     invoke-super {p0}, Lcom/isaigu/gymapp/BaseActivity;->onDestroy()V
@@ -655,7 +655,7 @@
 .end method
 
 .method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
-    .locals 0
+    .registers 4
     .param p1, "requestCode"    # I
     .param p2, "permissions"    # [Ljava/lang/String;
     .param p3, "grantResults"    # [I
@@ -674,7 +674,7 @@
 .end method
 
 .method protected onStart()V
-    .locals 0
+    .registers 1
 
     .line 134
     invoke-super {p0}, Lcom/isaigu/gymapp/BaseActivity;->onStart()V

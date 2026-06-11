@@ -1,6 +1,9 @@
 .class Lcom/isaigu/gymapp/fragment/SplashFragment$1;
-.super Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
+.super Ljava/lang/Object;
 .source "SplashFragment.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -13,17 +16,6 @@
     name = null
 .end annotation
 
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback",
-        "<",
-        "Lcom/isaigu/gymapp/bean/vo/ResponseData",
-        "<",
-        "Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;",
-        ">;>;"
-    }
-.end annotation
-
 
 # instance fields
 .field final synthetic this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
@@ -32,81 +24,30 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SplashFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/SplashFragment;
 
-    .prologue
-    .line 60
+    .line 70
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
 
-    invoke-direct {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .registers 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(Z",
-            "Ljava/lang/String;",
-            "Lcom/isaigu/gymapp/bean/vo/ResponseData",
-            "<",
-            "Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;",
-            ">;)V"
-        }
-    .end annotation
+.method public run()V
+    .registers 3
 
-    .prologue
-    .line 64
-    if-eqz p1, :cond_24
+    .line 72
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
 
-    if-eqz p3, :cond_24
+    new-instance v1, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;
 
-    invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->isSuccess()Z
+    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;-><init>(Lcom/isaigu/gymapp/fragment/SplashFragment$1;)V
 
-    move-result v0
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/SplashFragment;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    if-eqz v0, :cond_24
-
-    invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getData()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;
-
-    if-eqz v0, :cond_24
-
-    iget-object v1, v0, Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;->imageUrl:Ljava/lang/String;
-
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_24
-
-    .line 65
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
-
-    new-instance v2, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;
-
-    invoke-direct {v2, p0, v0}, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;-><init>(Lcom/isaigu/gymapp/fragment/SplashFragment$1;Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;)V
-
-    invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/fragment/SplashFragment;->runOnUiThread(Ljava/lang/Runnable;)V
-
-    .line 74
-    :cond_24
-    return-void
-.end method
-
-.method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .registers 4
-
-    .prologue
-    .line 60
-    check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
-
-    invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/SplashFragment$1;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-
+    .line 146
     return-void
 .end method

@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Type;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
-    .locals 0
+    .registers 6
     .param p1, "clazz"    # Ljava/lang/reflect/Type;
 
     .line 410
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 4
+    .registers 8
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -74,9 +74,9 @@
 
     const-string v2, "httpResponse "
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2d
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_2d
 
     .line 413
     new-instance v3, Ljava/lang/StringBuilder;
@@ -105,10 +105,10 @@
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 415
-    :cond_0
+    :cond_2d
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -132,10 +132,10 @@
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
 
     .line 417
-    :goto_0
-    if-eqz p1, :cond_2
+    :goto_4b
+    if-eqz p1, :cond_9f
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_9f
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
@@ -143,7 +143,7 @@
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_64
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
@@ -151,7 +151,7 @@
 
     const/4 v1, 0x6
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_64
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
@@ -159,10 +159,10 @@
 
     const/4 v1, 0x7
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_9f
 
     .line 418
-    :cond_1
+    :cond_64
     new-instance v0, Lcom/isaigu/gymapp/bean/dto/LoginDTO;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/bean/dto/LoginDTO;-><init>()V
@@ -222,25 +222,25 @@
 
     .line 436
     .end local v0    # "dto":Lcom/isaigu/gymapp/bean/dto/LoginDTO;
-    goto :goto_1
+    goto :goto_a6
 
     .line 437
-    :cond_2
+    :cond_9f
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/ApiMgr$3;->val$callback:Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_a6
 
     .line 438
     invoke-virtual {v0, p1, p2, p3}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;->httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
 
     .line 441
-    :cond_3
-    :goto_1
+    :cond_a6
+    :goto_a6
     return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 410
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -86,7 +86,7 @@
 .end method
 
 .method private getRangeValue(Ljava/lang/Integer;)Ljava/lang/Integer;
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/Integer;
 
     .line 121
@@ -96,27 +96,27 @@
 
     const/16 v1, 0x64
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_9
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_9
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_11
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_1
+    :cond_11
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    :goto_0
+    :goto_15
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -127,7 +127,7 @@
 
 # virtual methods
 .method public addAllValue(Ljava/lang/Integer;)V
-    .locals 2
+    .registers 4
     .param p1, "value"    # Ljava/lang/Integer;
 
     .line 125
@@ -325,7 +325,7 @@
 .end method
 
 .method public getAbdomen()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 36
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/PartsParams;->abdomen:Ljava/lang/Integer;
@@ -334,7 +334,7 @@
 .end method
 
 .method public getArm()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 60
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/PartsParams;->arm:Ljava/lang/Integer;
@@ -343,7 +343,7 @@
 .end method
 
 .method public getBack()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 76
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/PartsParams;->back:Ljava/lang/Integer;
@@ -352,7 +352,7 @@
 .end method
 
 .method public getCalf()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/PartsParams;->calf:Ljava/lang/Integer;
@@ -361,7 +361,7 @@
 .end method
 
 .method public getChest()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 28
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/PartsParams;->chest:Ljava/lang/Integer;
@@ -370,7 +370,7 @@
 .end method
 
 .method public getHip()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 92
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/PartsParams;->hip:Ljava/lang/Integer;
@@ -379,7 +379,7 @@
 .end method
 
 .method public getShoulder()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 68
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/PartsParams;->shoulder:Ljava/lang/Integer;
@@ -388,7 +388,7 @@
 .end method
 
 .method public getThighBack()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 100
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/PartsParams;->thighBack:Ljava/lang/Integer;
@@ -397,7 +397,7 @@
 .end method
 
 .method public getThighFront()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 44
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/PartsParams;->thighFront:Ljava/lang/Integer;
@@ -406,7 +406,7 @@
 .end method
 
 .method public getWaist()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 84
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/PartsParams;->waist:Ljava/lang/Integer;
@@ -415,7 +415,7 @@
 .end method
 
 .method public setAbdomen(Ljava/lang/Integer;)V
-    .locals 1
+    .registers 3
     .param p1, "abdomen"    # Ljava/lang/Integer;
 
     .line 40
@@ -430,7 +430,7 @@
 .end method
 
 .method public setAllValue(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
     .param p1, "value"    # Ljava/lang/Integer;
 
     .line 108
@@ -468,7 +468,7 @@
 .end method
 
 .method public setArm(Ljava/lang/Integer;)V
-    .locals 1
+    .registers 3
     .param p1, "arm"    # Ljava/lang/Integer;
 
     .line 64
@@ -483,7 +483,7 @@
 .end method
 
 .method public setBack(Ljava/lang/Integer;)V
-    .locals 1
+    .registers 3
     .param p1, "back"    # Ljava/lang/Integer;
 
     .line 80
@@ -498,7 +498,7 @@
 .end method
 
 .method public setCalf(Ljava/lang/Integer;)V
-    .locals 1
+    .registers 3
     .param p1, "calf"    # Ljava/lang/Integer;
 
     .line 56
@@ -513,7 +513,7 @@
 .end method
 
 .method public setChest(Ljava/lang/Integer;)V
-    .locals 1
+    .registers 3
     .param p1, "chest"    # Ljava/lang/Integer;
 
     .line 32
@@ -528,7 +528,7 @@
 .end method
 
 .method public setHip(Ljava/lang/Integer;)V
-    .locals 1
+    .registers 3
     .param p1, "hip"    # Ljava/lang/Integer;
 
     .line 96
@@ -543,7 +543,7 @@
 .end method
 
 .method public setShoulder(Ljava/lang/Integer;)V
-    .locals 1
+    .registers 3
     .param p1, "shoulder"    # Ljava/lang/Integer;
 
     .line 72
@@ -558,7 +558,7 @@
 .end method
 
 .method public setThighBack(Ljava/lang/Integer;)V
-    .locals 1
+    .registers 3
     .param p1, "thighBack"    # Ljava/lang/Integer;
 
     .line 104
@@ -573,7 +573,7 @@
 .end method
 
 .method public setThighFront(Ljava/lang/Integer;)V
-    .locals 1
+    .registers 3
     .param p1, "thighFront"    # Ljava/lang/Integer;
 
     .line 48
@@ -588,7 +588,7 @@
 .end method
 
 .method public setWaist(Ljava/lang/Integer;)V
-    .locals 1
+    .registers 3
     .param p1, "waist"    # Ljava/lang/Integer;
 
     .line 88

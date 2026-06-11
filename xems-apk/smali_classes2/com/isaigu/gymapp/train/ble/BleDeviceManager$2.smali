@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 214
     iput-object p1, p0, Lcom/isaigu/gymapp/train/ble/BleDeviceManager$2;->val$mac:Ljava/lang/String;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onConnectFail(Lcom/clj/fastble/data/BleDevice;Lcom/clj/fastble/exception/BleException;)V
-    .locals 3
+    .registers 6
     .param p1, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
     .param p2, "exception"    # Lcom/clj/fastble/exception/BleException;
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public onConnectSuccess(Lcom/clj/fastble/data/BleDevice;Landroid/bluetooth/BluetoothGatt;I)V
-    .locals 2
+    .registers 6
     .param p1, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
     .param p2, "gatt"    # Landroid/bluetooth/BluetoothGatt;
     .param p3, "status"    # I
@@ -102,7 +102,7 @@
 .end method
 
 .method public onDisConnected(ZLcom/clj/fastble/data/BleDevice;Landroid/bluetooth/BluetoothGatt;I)V
-    .locals 2
+    .registers 7
     .param p1, "isActiveDisConnected"    # Z
     .param p2, "device"    # Lcom/clj/fastble/data/BleDevice;
     .param p3, "gatt"    # Landroid/bluetooth/BluetoothGatt;
@@ -147,7 +147,7 @@
 .end method
 
 .method public onStartConnect()V
-    .locals 0
+    .registers 1
 
     .line 218
     return-void

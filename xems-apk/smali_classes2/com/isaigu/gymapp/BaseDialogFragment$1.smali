@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/BaseDialogFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/BaseDialogFragment;
 
-    .prologue
-    .line 56
+    .line 34
     iput-object p1, p0, Lcom/isaigu/gymapp/BaseDialogFragment$1;->this$0:Lcom/isaigu/gymapp/BaseDialogFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,9 +38,9 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .registers 4
+    .param p1, "view"    # Landroid/view/View;
 
-    .prologue
-    .line 59
+    .line 36
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseDialogFragment$1;->this$0:Lcom/isaigu/gymapp/BaseDialogFragment;
 
     invoke-virtual {p1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
@@ -49,6 +49,6 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseDialogFragment;->hideSoftInput(Landroid/os/IBinder;)V
 
-    .line 60
+    .line 37
     return-void
 .end method

@@ -154,7 +154,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 93
@@ -167,7 +167,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -181,7 +181,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 11
+    .registers 15
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -552,7 +552,7 @@
     .line 137
     const/high16 v0, 0x7f030000
 
-    :try_start_0
+    :try_start_14d
     invoke-virtual {v1, v10, v0}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v0
@@ -579,10 +579,10 @@
     const/4 v6, 0x0
 
     .local v6, "i":I
-    :goto_0
+    :goto_15f
     array-length v7, v5
 
-    if-ge v6, v7, :cond_0
+    if-ge v6, v7, :cond_16c
 
     .line 141
     iget-object v7, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->mCurrentBgDashPath:[F
@@ -592,23 +592,23 @@
     int-to-float v9, v9
 
     aput v9, v7, v6
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_169
+    .catch Ljava/lang/Exception; {:try_start_14d .. :try_end_169} :catch_16d
 
     .line 140
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_15f
 
     .line 146
     .end local v0    # "dashPathId":I
     .end local v5    # "array":[I
     .end local v6    # "i":I
-    :cond_0
-    goto :goto_1
+    :cond_16c
+    goto :goto_178
 
     .line 143
-    :catch_0
+    :catch_16d
     move-exception v0
 
     .line 144
@@ -618,13 +618,13 @@
     .line 145
     new-array v5, v8, [F
 
-    fill-array-data v5, :array_0
+    fill-array-data v5, :array_1c2
 
     iput-object v5, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->mCurrentBgDashPath:[F
 
     .line 147
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_178
     const/16 v0, 0xd
 
     invoke-virtual {v1, v0, v4}, Landroid/content/res/TypedArray;->getColor(II)I
@@ -706,7 +706,7 @@
 
     nop
 
-    :array_0
+    :array_1c2
     .array-data 4
         0x40000000    # 2.0f
         0x40400000    # 3.0f
@@ -716,7 +716,7 @@
 .end method
 
 .method private drawDayAndPre(Landroid/graphics/Canvas;)V
-    .locals 9
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 303
@@ -731,13 +731,13 @@
     const/4 v1, 0x0
 
     .local v1, "line":I
-    :goto_0
+    :goto_6
     iget v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->lineNum:I
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_47
 
     .line 306
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     .line 308
     iget v5, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->firstLineNum:I
@@ -754,13 +754,13 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/isaigu/gymapp/widget/CustomCalendar;->drawDayAndPre(Landroid/graphics/Canvas;FIII)V
 
-    goto :goto_1
+    goto :goto_44
 
     .line 309
-    :cond_0
+    :cond_18
     add-int/lit8 v2, v2, -0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_31
 
     .line 311
     iget v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->oneHeight:F
@@ -788,10 +788,10 @@
 
     invoke-direct/range {v3 .. v8}, Lcom/isaigu/gymapp/widget/CustomCalendar;->drawDayAndPre(Landroid/graphics/Canvas;FIII)V
 
-    goto :goto_1
+    goto :goto_44
 
     .line 315
-    :cond_1
+    :cond_31
     iget v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->oneHeight:F
 
     add-float/2addr v0, v2
@@ -818,19 +818,19 @@
     invoke-direct/range {v3 .. v8}, Lcom/isaigu/gymapp/widget/CustomCalendar;->drawDayAndPre(Landroid/graphics/Canvas;FIII)V
 
     .line 305
-    :goto_1
+    :goto_44
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 319
     .end local v1    # "line":I
-    :cond_2
+    :cond_47
     return-void
 .end method
 
 .method private drawDayAndPre(Landroid/graphics/Canvas;FIII)V
-    .locals 21
+    .registers 27
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "top"    # F
     .param p3, "count"    # I
@@ -983,10 +983,10 @@
     const/4 v10, 0x0
 
     .local v10, "i":I
-    :goto_0
+    :goto_7a
     move/from16 v11, p3
 
-    if-ge v10, v11, :cond_3
+    if-ge v10, v11, :cond_20b
 
     .line 358
     iget-object v12, v0, Lcom/isaigu/gymapp/widget/CustomCalendar;->bgPaint:Landroid/graphics/Paint;
@@ -1134,7 +1134,7 @@
     .line 382
     iget v3, v0, Lcom/isaigu/gymapp/widget/CustomCalendar;->selectDay:I
 
-    if-ne v3, v14, :cond_0
+    if-ne v3, v14, :cond_16c
 
     .line 385
     iget-object v3, v0, Lcom/isaigu/gymapp/widget/CustomCalendar;->bgPaint:Landroid/graphics/Paint;
@@ -1257,12 +1257,12 @@
 
     move-object/from16 v5, v18
 
-    goto :goto_1
+    goto :goto_177
 
     .line 400
     .end local v19    # "style":Landroid/graphics/Paint$Style;
     .restart local v6    # "style":Landroid/graphics/Paint$Style;
-    :cond_0
+    :cond_16c
     move-object/from16 v19, v6
 
     .end local v6    # "style":Landroid/graphics/Paint$Style;
@@ -1278,7 +1278,7 @@
     .line 403
     .end local v18    # "rect":Landroid/graphics/RectF;
     .restart local v5    # "rect":Landroid/graphics/RectF;
-    :goto_1
+    :goto_177
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1312,11 +1312,11 @@
     .line 406
     iget-boolean v3, v0, Lcom/isaigu/gymapp/widget/CustomCalendar;->isCurrentMonth:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1d1
 
     iget v3, v0, Lcom/isaigu/gymapp/widget/CustomCalendar;->currentDay:I
 
-    if-ne v3, v14, :cond_1
+    if-ne v3, v14, :cond_1d1
 
     .line 417
     iget-object v3, v0, Lcom/isaigu/gymapp/widget/CustomCalendar;->mPaint:Landroid/graphics/Paint;
@@ -1375,7 +1375,7 @@
     invoke-virtual {v3, v6}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 424
-    :cond_1
+    :cond_1d1
     iget-object v3, v0, Lcom/isaigu/gymapp/widget/CustomCalendar;->map:Ljava/util/Map;
 
     invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1390,7 +1390,7 @@
 
     .line 425
     .local v3, "finish":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_200
 
     .line 426
     iget-object v6, v0, Lcom/isaigu/gymapp/widget/CustomCalendar;->alertIconBitmap:Landroid/graphics/Bitmap;
@@ -1437,7 +1437,7 @@
     .end local v13    # "len":I
     .end local v14    # "day":I
     .end local v15    # "x":I
-    :cond_2
+    :cond_200
     add-int/lit8 v10, v10, 0x1
 
     move/from16 v2, p2
@@ -1448,7 +1448,7 @@
 
     const/4 v7, 0x0
 
-    goto/16 :goto_0
+    goto/16 :goto_7a
 
     .line 473
     .end local v10    # "i":I
@@ -1456,12 +1456,12 @@
     .end local v19    # "style":Landroid/graphics/Paint$Style;
     .local v3, "topp":F
     .restart local v6    # "style":Landroid/graphics/Paint$Style;
-    :cond_3
+    :cond_20b
     return-void
 .end method
 
 .method private drawMonth(Landroid/graphics/Canvas;)V
-    .locals 9
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 256
@@ -1660,7 +1660,7 @@
 .end method
 
 .method private drawWeek(Landroid/graphics/Canvas;)V
-    .locals 8
+    .registers 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 280
@@ -1708,21 +1708,21 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_26
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->WEEK_STR:[Ljava/lang/String;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_7b
 
     .line 287
     iget v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->todayWeekIndex:I
 
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_3b
 
     iget-boolean v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->isCurrentMonth:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3b
 
     .line 288
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->mPaint:Landroid/graphics/Paint;
@@ -1731,10 +1731,10 @@
 
     invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setColor(I)V
 
-    goto :goto_1
+    goto :goto_42
 
     .line 290
-    :cond_0
+    :cond_3b
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->mPaint:Landroid/graphics/Paint;
 
     iget v3, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->mTextColorWeek:I
@@ -1742,8 +1742,8 @@
     invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 292
-    :goto_1
-    if-eqz v1, :cond_1
+    :goto_42
+    if-eqz v1, :cond_4b
 
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->WEEK_STR:[Ljava/lang/String;
 
@@ -1751,10 +1751,10 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_52
 
     .line 293
-    :cond_1
+    :cond_4b
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->mPaint:Landroid/graphics/Paint;
 
     iget v3, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->mTextColorWeekend:I
@@ -1762,7 +1762,7 @@
     invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 295
-    :cond_2
+    :cond_52
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->mPaint:Landroid/graphics/Paint;
 
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->WEEK_STR:[Ljava/lang/String;
@@ -1814,16 +1814,16 @@
     .end local v4    # "x":I
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 299
     .end local v1    # "i":I
-    :cond_3
+    :cond_7b
     return-void
 .end method
 
 .method private getMonthStr(Ljava/util/Date;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "month"    # Ljava/util/Date;
 
     .line 477
@@ -1851,7 +1851,7 @@
 .end method
 
 .method private initCompute()V
-    .locals 3
+    .registers 4
 
     .line 161
     new-instance v0, Landroid/graphics/Paint;
@@ -1991,7 +1991,7 @@
 .end method
 
 .method private setMonth(Ljava/lang/String;)V
-    .locals 11
+    .registers 13
     .param p1, "Month"    # Ljava/lang/String;
 
     .line 192
@@ -2065,7 +2065,7 @@
 
     cmp-long v10, v5, v7
 
-    if-nez v10, :cond_0
+    if-nez v10, :cond_45
 
     .line 203
     iput-boolean v4, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->isCurrentMonth:Z
@@ -2075,17 +2075,17 @@
 
     iput v5, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->selectDay:I
 
-    goto :goto_0
+    goto :goto_49
 
     .line 206
-    :cond_0
+    :cond_45
     iput-boolean v9, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->isCurrentMonth:Z
 
     .line 207
     iput v9, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->selectDay:I
 
     .line 209
-    :goto_0
+    :goto_49
     iget-object v5, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->TAG:Ljava/lang/String;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -2161,8 +2161,8 @@
 
     .line 219
     .local v5, "shengyu":I
-    :goto_1
-    if-le v5, v2, :cond_1
+    :goto_92
+    if-le v5, v2, :cond_9c
 
     .line 220
     iget v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->lineNum:I
@@ -2174,11 +2174,11 @@
     .line 221
     add-int/lit8 v5, v5, -0x7
 
-    goto :goto_1
+    goto :goto_92
 
     .line 223
-    :cond_1
-    if-lez v5, :cond_2
+    :cond_9c
+    if-lez v5, :cond_a5
 
     .line 224
     iget v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->lineNum:I
@@ -2191,7 +2191,7 @@
     iput v5, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->lastLineNum:I
 
     .line 227
-    :cond_2
+    :cond_a5
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2261,7 +2261,7 @@
 .end method
 
 .method private setSelectedDay(IIILandroid/graphics/PointF;Z)V
-    .locals 10
+    .registers 16
     .param p1, "day"    # I
     .param p2, "xIndex"    # I
     .param p3, "yIndex"    # I
@@ -2375,7 +2375,7 @@
 
     cmpl-float v4, v4, v5
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_93
 
     iget v4, p4, Landroid/graphics/PointF;->x:F
 
@@ -2385,7 +2385,7 @@
 
     cmpg-float v4, v4, v5
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_93
 
     iget v4, p4, Landroid/graphics/PointF;->y:F
 
@@ -2393,7 +2393,7 @@
 
     cmpl-float v4, v4, v5
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_93
 
     iget v4, p4, Landroid/graphics/PointF;->y:F
 
@@ -2403,14 +2403,14 @@
 
     cmpg-float v4, v4, v5
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_93
 
     .line 620
     iget-object v4, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->listener:Lcom/isaigu/gymapp/widget/CustomCalendar$onClickListener;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_92
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_92
 
     .line 622
     iget-object v5, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->month:Ljava/util/Date;
@@ -2434,20 +2434,20 @@
     invoke-interface {v4, v5, v6, v7}, Lcom/isaigu/gymapp/widget/CustomCalendar$onClickListener;->onAddClick(III)V
 
     .line 624
-    :cond_0
+    :cond_92
     return-void
 
     .line 627
-    :cond_1
+    :cond_93
     iget-object v4, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->listener:Lcom/isaigu/gymapp/widget/CustomCalendar$onClickListener;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_c2
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_c2
 
     iget-boolean v5, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->responseWhenEnd:Z
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_c2
 
     .line 628
     iget v5, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->selectDay:I
@@ -2488,7 +2488,7 @@
     invoke-interface {v4, v5, v6, v7, v8}, Lcom/isaigu/gymapp/widget/CustomCalendar$onClickListener;->onDayClick(IIILcom/isaigu/gymapp/bean/ProgramPlanBean;)V
 
     .line 632
-    :cond_2
+    :cond_c2
     xor-int/lit8 v4, p5, 0x1
 
     iput-boolean v4, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->responseWhenEnd:Z
@@ -2498,7 +2498,7 @@
 .end method
 
 .method private str2Date(Ljava/lang/String;)Ljava/util/Date;
-    .locals 3
+    .registers 5
     .param p1, "str"    # Ljava/lang/String;
 
     .line 482
@@ -2522,14 +2522,14 @@
     invoke-virtual {v0, p1}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_14} :catch_15
 
     return-object v1
 
     .line 484
     .end local v0    # "df":Ljava/text/SimpleDateFormat;
-    :catch_0
+    :catch_15
     move-exception v0
 
     .line 485
@@ -2543,7 +2543,7 @@
 .end method
 
 .method private touchDay(Landroid/graphics/PointF;Z)V
-    .locals 10
+    .registers 13
     .param p1, "point"    # Landroid/graphics/PointF;
     .param p2, "eventEnd"    # Z
 
@@ -2570,26 +2570,26 @@
 
     .line 564
     .local v8, "foucsLine":I
-    :goto_0
+    :goto_b
     iget v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->lineNum:I
 
-    if-gt v8, v2, :cond_1
+    if-gt v8, v2, :cond_1d
 
     .line 565
     iget v2, p1, Landroid/graphics/PointF;->y:F
 
     cmpl-float v2, v1, v2
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_17
 
     .line 566
     const/4 v0, 0x1
 
     .line 567
-    goto :goto_1
+    goto :goto_1d
 
     .line 569
-    :cond_0
+    :cond_17
     iget v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->oneHeight:F
 
     add-float/2addr v1, v2
@@ -2597,12 +2597,12 @@
     .line 570
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 572
-    :cond_1
-    :goto_1
-    if-eqz v0, :cond_9
+    :cond_1d
+    :goto_1d
+    if-eqz v0, :cond_a0
 
     .line 574
     iget v2, p1, Landroid/graphics/PointF;->x:F
@@ -2631,47 +2631,47 @@
 
     cmpl-float v3, v3, v4
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_34
 
     .line 576
     add-int/lit8 v2, v2, 0x1
 
     .line 579
-    :cond_2
-    if-gtz v2, :cond_3
+    :cond_34
+    if-gtz v2, :cond_37
 
     .line 580
     const/4 v2, 0x1
 
     .line 581
-    :cond_3
+    :cond_37
     const/4 v3, 0x7
 
-    if-le v2, v3, :cond_4
+    if-le v2, v3, :cond_3d
 
     .line 582
     const/4 v2, 0x7
 
     move v9, v2
 
-    goto :goto_2
+    goto :goto_3e
 
     .line 581
-    :cond_4
+    :cond_3d
     move v9, v2
 
     .line 584
     .end local v2    # "xIndex":I
     .local v9, "xIndex":I
-    :goto_2
+    :goto_3e
     const/4 v2, 0x1
 
-    if-ne v8, v2, :cond_6
+    if-ne v8, v2, :cond_62
 
     .line 586
     iget v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->firstIndex:I
 
-    if-gt v9, v2, :cond_5
+    if-gt v9, v2, :cond_57
 
     .line 587
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->TAG:Ljava/lang/String;
@@ -2695,10 +2695,10 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/isaigu/gymapp/widget/CustomCalendar;->setSelectedDay(IIILandroid/graphics/PointF;Z)V
 
-    goto :goto_3
+    goto :goto_9f
 
     .line 590
-    :cond_5
+    :cond_57
     sub-int v3, v9, v2
 
     move-object v2, p0
@@ -2713,18 +2713,18 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/isaigu/gymapp/widget/CustomCalendar;->setSelectedDay(IIILandroid/graphics/PointF;Z)V
 
-    goto :goto_3
+    goto :goto_9f
 
     .line 592
-    :cond_6
+    :cond_62
     iget v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->lineNum:I
 
-    if-ne v8, v2, :cond_8
+    if-ne v8, v2, :cond_8e
 
     .line 594
     iget v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->lastLineNum:I
 
-    if-le v9, v2, :cond_7
+    if-le v9, v2, :cond_7c
 
     .line 595
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->TAG:Ljava/lang/String;
@@ -2748,10 +2748,10 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/isaigu/gymapp/widget/CustomCalendar;->setSelectedDay(IIILandroid/graphics/PointF;Z)V
 
-    goto :goto_3
+    goto :goto_9f
 
     .line 598
-    :cond_7
+    :cond_7c
     iget v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->firstLineNum:I
 
     add-int/lit8 v4, v8, -0x2
@@ -2774,10 +2774,10 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/isaigu/gymapp/widget/CustomCalendar;->setSelectedDay(IIILandroid/graphics/PointF;Z)V
 
-    goto :goto_3
+    goto :goto_9f
 
     .line 601
-    :cond_8
+    :cond_8e
     iget v2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->firstLineNum:I
 
     add-int/lit8 v4, v8, -0x2
@@ -2802,11 +2802,11 @@
 
     .line 603
     .end local v9    # "xIndex":I
-    :goto_3
-    goto :goto_4
+    :goto_9f
+    goto :goto_ab
 
     .line 605
-    :cond_9
+    :cond_a0
     iget v3, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->selectDay:I
 
     iget v4, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->lastSelectXIndex:I
@@ -2822,14 +2822,14 @@
     invoke-direct/range {v2 .. v7}, Lcom/isaigu/gymapp/widget/CustomCalendar;->setSelectedDay(IIILandroid/graphics/PointF;Z)V
 
     .line 607
-    :goto_4
+    :goto_ab
     return-void
 .end method
 
 
 # virtual methods
 .method public addDayTask(Lcom/isaigu/gymapp/bean/ProgramPlanBean;)V
-    .locals 2
+    .registers 4
     .param p1, "bean"    # Lcom/isaigu/gymapp/bean/ProgramPlanBean;
 
     .line 705
@@ -2856,21 +2856,21 @@
 .end method
 
 .method public getDayTask(Ljava/lang/String;)Lcom/isaigu/gymapp/bean/ProgramPlanBean;
-    .locals 2
+    .registers 4
     .param p1, "day"    # Ljava/lang/String;
 
     .line 675
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->list:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_25
 
     .line 676
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->list:Ljava/util/List;
@@ -2887,7 +2887,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_22
 
     .line 677
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->list:Ljava/util/List;
@@ -2901,21 +2901,21 @@
     return-object v1
 
     .line 675
-    :cond_0
+    :cond_22
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 680
     .end local v0    # "i":I
-    :cond_1
+    :cond_25
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public getDayTaskList()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2932,7 +2932,7 @@
 .end method
 
 .method public getMonth()Ljava/util/Date;
-    .locals 1
+    .registers 2
 
     .line 721
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->month:Ljava/util/Date;
@@ -2941,7 +2941,7 @@
 .end method
 
 .method public invalidate()V
-    .locals 0
+    .registers 1
 
     .line 640
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CustomCalendar;->requestLayout()V
@@ -2954,7 +2954,7 @@
 .end method
 
 .method public monthChange(I)V
-    .locals 2
+    .registers 4
     .param p1, "change"    # I
 
     .line 712
@@ -2997,7 +2997,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 0
+    .registers 2
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 247
@@ -3014,7 +3014,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 5
+    .registers 8
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -3116,7 +3116,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 6
+    .registers 8
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 497
@@ -3132,26 +3132,26 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3c
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_29
 
     const/4 v3, 0x2
 
-    if-eq v0, v3, :cond_0
+    if-eq v0, v3, :cond_16
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_29
 
     const/4 v1, 0x4
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_29
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 504
-    :cond_0
+    :cond_16
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->focusPoint:Landroid/graphics/PointF;
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -3170,10 +3170,10 @@
     invoke-virtual {p0, v3, v1}, Lcom/isaigu/gymapp/widget/CustomCalendar;->touchFocusMove(Landroid/graphics/PointF;Z)V
 
     .line 506
-    goto :goto_0
+    goto :goto_4f
 
     .line 510
-    :cond_1
+    :cond_29
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->focusPoint:Landroid/graphics/PointF;
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -3191,10 +3191,10 @@
 
     invoke-virtual {p0, v1, v2}, Lcom/isaigu/gymapp/widget/CustomCalendar;->touchFocusMove(Landroid/graphics/PointF;Z)V
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 500
-    :cond_2
+    :cond_3c
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->focusPoint:Landroid/graphics/PointF;
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -3216,12 +3216,12 @@
     nop
 
     .line 514
-    :goto_0
+    :goto_4f
     return v2
 .end method
 
 .method public removeDayPlan(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "dayString"    # Ljava/lang/String;
     .param p2, "time"    # Ljava/lang/String;
 
@@ -3235,8 +3235,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_8
+    if-ltz v0, :cond_2e
 
     .line 695
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->list:Ljava/util/List;
@@ -3253,7 +3253,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2b
 
     .line 696
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->list:Ljava/util/List;
@@ -3270,26 +3270,26 @@
 
     .line 697
     .local v1, "remove":Z
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2b
 
     .line 698
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CustomCalendar;->invalidate()V
 
     .line 694
     .end local v1    # "remove":Z
-    :cond_0
+    :cond_2b
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 702
     .end local v0    # "i":I
-    :cond_1
+    :cond_2e
     return-void
 .end method
 
 .method public removeDayTask(ILjava/lang/String;)V
-    .locals 3
+    .registers 6
     .param p1, "day"    # I
     .param p2, "dayString"    # Ljava/lang/String;
 
@@ -3303,8 +3303,8 @@
     add-int/lit8 v0, v0, -0x1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_8
+    if-ltz v0, :cond_2e
 
     .line 685
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->list:Ljava/util/List;
@@ -3321,7 +3321,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2b
 
     .line 686
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->list:Ljava/util/List;
@@ -3341,19 +3341,19 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CustomCalendar;->invalidate()V
 
     .line 684
-    :cond_0
+    :cond_2b
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 691
     .end local v0    # "i":I
-    :cond_1
+    :cond_2e
     return-void
 .end method
 
 .method public setDayTask(Ljava/lang/String;Ljava/util/List;)V
-    .locals 4
+    .registers 7
     .param p1, "month"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3370,7 +3370,7 @@
     invoke-direct {p0, p1}, Lcom/isaigu/gymapp/widget/CustomCalendar;->setMonth(Ljava/lang/String;)V
 
     .line 650
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_28
 
     .line 651
     iput-object p2, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->list:Ljava/util/List;
@@ -3385,12 +3385,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_10
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3412,10 +3412,10 @@
 
     .line 655
     .end local v1    # "finish":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
-    goto :goto_0
+    goto :goto_10
 
     .line 657
-    :cond_0
+    :cond_28
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CustomCalendar;->invalidate()V
 
     .line 658
@@ -3423,7 +3423,7 @@
 .end method
 
 .method public setDayTask(Ljava/util/List;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3435,7 +3435,7 @@
 
     .line 660
     .local p1, "list":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/ProgramPlanBean;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_25
 
     .line 661
     iput-object p1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->list:Ljava/util/List;
@@ -3450,12 +3450,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_d
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3477,10 +3477,10 @@
 
     .line 665
     .end local v1    # "finish":Lcom/isaigu/gymapp/bean/ProgramPlanBean;
-    goto :goto_0
+    goto :goto_d
 
     .line 667
-    :cond_0
+    :cond_25
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/CustomCalendar;->invalidate()V
 
     .line 668
@@ -3488,7 +3488,7 @@
 .end method
 
 .method public setOnClickListener(Lcom/isaigu/gymapp/widget/CustomCalendar$onClickListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/isaigu/gymapp/widget/CustomCalendar$onClickListener;
 
     .line 726
@@ -3499,7 +3499,7 @@
 .end method
 
 .method public touchFocusMove(Landroid/graphics/PointF;Z)V
-    .locals 5
+    .registers 8
     .param p1, "point"    # Landroid/graphics/PointF;
     .param p2, "eventEnd"    # Z
 
@@ -3553,14 +3553,14 @@
 
     cmpg-float v0, v0, v1
 
-    if-gtz v0, :cond_2
+    if-gtz v0, :cond_b6
 
     .line 525
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_115
 
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->listener:Lcom/isaigu/gymapp/widget/CustomCalendar$onClickListener;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_115
 
     .line 526
     iget v0, p1, Landroid/graphics/PointF;->x:F
@@ -3573,7 +3573,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_6d
 
     iget v0, p1, Landroid/graphics/PointF;->x:F
 
@@ -3595,7 +3595,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_6d
 
     .line 527
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->TAG:Ljava/lang/String;
@@ -3609,10 +3609,10 @@
 
     invoke-interface {v0}, Lcom/isaigu/gymapp/widget/CustomCalendar$onClickListener;->onLeftRowClick()V
 
-    goto/16 :goto_0
+    goto/16 :goto_115
 
     .line 529
-    :cond_0
+    :cond_6d
     iget v0, p1, Landroid/graphics/PointF;->x:F
 
     iget v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->rowRStart:I
@@ -3621,7 +3621,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_96
 
     iget v0, p1, Landroid/graphics/PointF;->x:F
 
@@ -3643,7 +3643,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_96
 
     .line 530
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->TAG:Ljava/lang/String;
@@ -3657,10 +3657,10 @@
 
     invoke-interface {v0}, Lcom/isaigu/gymapp/widget/CustomCalendar$onClickListener;->onRightRowClick()V
 
-    goto/16 :goto_0
+    goto/16 :goto_115
 
     .line 532
-    :cond_1
+    :cond_96
     iget v0, p1, Landroid/graphics/PointF;->x:F
 
     iget v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->rowLStart:I
@@ -3669,7 +3669,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_6
+    if-lez v0, :cond_115
 
     iget v0, p1, Landroid/graphics/PointF;->x:F
 
@@ -3679,7 +3679,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_6
+    if-gez v0, :cond_115
 
     .line 533
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->listener:Lcom/isaigu/gymapp/widget/CustomCalendar$onClickListener;
@@ -3694,10 +3694,10 @@
 
     invoke-interface {v0, v1, v2}, Lcom/isaigu/gymapp/widget/CustomCalendar$onClickListener;->onTitleClick(Ljava/lang/String;Ljava/util/Date;)V
 
-    goto :goto_0
+    goto :goto_115
 
     .line 536
-    :cond_2
+    :cond_b6
     iget v0, p1, Landroid/graphics/PointF;->y:F
 
     iget v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->titleHeight:F
@@ -3708,14 +3708,14 @@
 
     cmpg-float v0, v0, v1
 
-    if-gtz v0, :cond_5
+    if-gtz v0, :cond_112
 
     .line 538
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_115
 
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->listener:Lcom/isaigu/gymapp/widget/CustomCalendar$onClickListener;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_115
 
     .line 540
     iget v0, p1, Landroid/graphics/PointF;->x:F
@@ -3779,16 +3779,16 @@
 
     cmpl-float v1, v1, v2
 
-    if-lez v1, :cond_3
+    if-lez v1, :cond_102
 
     .line 543
     add-int/lit8 v0, v0, 0x1
 
     .line 545
-    :cond_3
+    :cond_102
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/CustomCalendar;->listener:Lcom/isaigu/gymapp/widget/CustomCalendar$onClickListener;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_111
 
     .line 546
     add-int/lit8 v2, v0, -0x1
@@ -3803,15 +3803,15 @@
 
     .line 548
     .end local v0    # "xIndex":I
-    :cond_4
-    goto :goto_0
+    :cond_111
+    goto :goto_115
 
     .line 551
-    :cond_5
+    :cond_112
     invoke-direct {p0, p1, p2}, Lcom/isaigu/gymapp/widget/CustomCalendar;->touchDay(Landroid/graphics/PointF;Z)V
 
     .line 553
-    :cond_6
-    :goto_0
+    :cond_115
+    :goto_115
     return-void
 .end method

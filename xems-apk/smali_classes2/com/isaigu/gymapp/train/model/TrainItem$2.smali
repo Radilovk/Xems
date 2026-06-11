@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/isaigu/gymapp/train/model/TrainItem;->start()V
+    value = Lcom/isaigu/gymapp/train/model/TrainItem;->startPulse()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -21,9 +21,11 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/train/model/TrainItem;JJ)V
     .registers 6
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/train/model/TrainItem;
+    .param p2, "x0"    # J
+    .param p4, "x1"    # J
 
-    .prologue
-    .line 81
+    .line 104
     iput-object p1, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
 
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
@@ -36,56 +38,109 @@
 .method public onFinish()V
     .registers 3
 
-    .prologue
-    .line 90
-    const-string v0, "www"
-
-    const-string v1, "\u5de5\u4f5c\u7ed3\u675f"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 91
+    .line 113
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->recordManager:Lcom/isaigu/gymapp/train/utils/TrainRecordManager;
+    # invokes: Lcom/isaigu/gymapp/train/model/TrainItem;->onTrainItemChange()V
+    invoke-static {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->access$000(Lcom/isaigu/gymapp/train/model/TrainItem;)V
+
+    .line 114
+    iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    iget-object v1, v1, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->macAddress:Ljava/lang/String;
+    iget-boolean v1, v1, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->inStart:Z
 
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/train/utils/TrainRecordManager;->saveTrainRecord(Ljava/lang/String;)V
+    xor-int/lit8 v1, v1, 0x1
 
-    .line 92
+    iput-boolean v1, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->inStart:Z
+
+    .line 115
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->reset()V
+    iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    .line 93
+    iget-boolean v0, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->inStart:Z
+
+    if-eqz v0, :cond_2e
+
+    .line 116
+    iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    iget-object v1, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
+
+    invoke-virtual {v1}, Lcom/isaigu/gymapp/train/model/TrainItem;->getTrainProgram()Lcom/isaigu/gymapp/bean/TrainProgram;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/isaigu/gymapp/bean/TrainProgram;->matchProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
+
+    move-result-object v1
+
+    iget v1, v1, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulseContinue:I
+
+    iput v1, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->secondValue:I
+
+    goto :goto_40
+
+    .line 118
+    :cond_2e
+    iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
+
+    iget-object v1, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
+
+    invoke-virtual {v1}, Lcom/isaigu/gymapp/train/model/TrainItem;->getTrainProgram()Lcom/isaigu/gymapp/bean/TrainProgram;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/isaigu/gymapp/bean/TrainProgram;->matchProgram()Lcom/isaigu/gymapp/bean/ProgramDataBean;
+
+    move-result-object v1
+
+    iget v1, v1, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulsePause:I
+
+    iput v1, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->secondValue:I
+
+    .line 120
+    :goto_40
+    iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
+
+    # invokes: Lcom/isaigu/gymapp/train/model/TrainItem;->startPulse()V
+    invoke-static {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->access$100(Lcom/isaigu/gymapp/train/model/TrainItem;)V
+
+    .line 121
     return-void
 .end method
 
 .method public onTick(J)V
-    .registers 8
+    .registers 5
+    .param p1, "millisUntilFinished"    # J
 
-    .prologue
-    .line 84
+    .line 107
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    const-wide/16 v2, 0x3e8
+    iget-object v0, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->data:Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;
 
-    div-long v2, p1, v2
+    long-to-int v1, p1
 
-    long-to-int v1, v2
+    div-int/lit16 v1, v1, 0x3e8
 
-    iput v1, v0, Lcom/isaigu/gymapp/train/model/TrainItem;->workLength:I
+    iput v1, v0, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->secondValue:I
 
-    .line 85
+    .line 108
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/TrainItem$2;->this$0:Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->onTrainItemChange()V
+    # invokes: Lcom/isaigu/gymapp/train/model/TrainItem;->onTrainItemChange()V
+    invoke-static {v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->access$000(Lcom/isaigu/gymapp/train/model/TrainItem;)V
 
-    .line 86
+    .line 109
     return-void
 .end method

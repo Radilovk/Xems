@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/isaigu/gymapp/fragment/SplashFragment$1;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
+    value = Lcom/isaigu/gymapp/fragment/SplashFragment$1;->run()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,23 +20,14 @@
 # instance fields
 .field final synthetic this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$1;
 
-.field final synthetic val$splashScreenVO:Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;
-
 
 # direct methods
-.method constructor <init>(Lcom/isaigu/gymapp/fragment/SplashFragment$1;Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;)V
-    .registers 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
+.method constructor <init>(Lcom/isaigu/gymapp/fragment/SplashFragment$1;)V
+    .registers 2
+    .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/SplashFragment$1;
 
-    .prologue
-    .line 65
+    .line 72
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$1;
-
-    iput-object p2, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;->val$splashScreenVO:Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,38 +37,27 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .registers 7
 
-    .prologue
-    .line 68
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$1;
-
-    iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SplashFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
-
-    # getter for: Lcom/isaigu/gymapp/fragment/SplashFragment;->logoImage:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/SplashFragment;->access$000(Lcom/isaigu/gymapp/fragment/SplashFragment;)Landroid/widget/ImageView;
+    .line 74
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
-    const/4 v1, 0x4
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/bean/UserData;->isLogin()Z
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+    move-result v0
 
-    .line 69
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$1;
+    const v1, 0x7f0900a4
 
-    iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SplashFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
+    if-eqz v0, :cond_dd
 
-    # getter for: Lcom/isaigu/gymapp/fragment/SplashFragment;->splashImage:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/SplashFragment;->access$100(Lcom/isaigu/gymapp/fragment/SplashFragment;)Landroid/widget/ImageView;
+    .line 75
+    const/16 v0, 0x67
 
-    move-result-object v0
+    invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
 
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    .line 70
+    .line 77
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SplashFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
@@ -86,35 +66,245 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/bumptech/glide/Glide;->with(Landroid/support/v4/app/FragmentActivity;)Lcom/bumptech/glide/RequestManager;
+    invoke-static {v0}, Lcom/isaigu/gymapp/utils/NetworkUtils;->isNetworkConnected(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_a2
+
+    .line 78
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;->val$splashScreenVO:Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;
+    iget-object v0, v0, Lcom/isaigu/gymapp/bean/UserData;->userName:Ljava/lang/String;
 
-    iget-object v1, v1, Lcom/isaigu/gymapp/bean/vo/SplashScreenVO;->imageUrl:Ljava/lang/String;
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v0, v1}, Lcom/bumptech/glide/RequestManager;->load(Ljava/lang/String;)Lcom/bumptech/glide/DrawableTypeRequest;
+    move-result v0
 
-    move-result-object v0
+    if-nez v0, :cond_8c
 
-    sget-object v1, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->SOURCE:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
-
-    invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->diskCacheStrategy(Lcom/bumptech/glide/load/engine/DiskCacheStrategy;)Lcom/bumptech/glide/DrawableRequestBuilder;
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$1;
+    iget-object v0, v0, Lcom/isaigu/gymapp/bean/UserData;->password:Ljava/lang/String;
 
-    iget-object v1, v1, Lcom/isaigu/gymapp/fragment/SplashFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    # getter for: Lcom/isaigu/gymapp/fragment/SplashFragment;->splashImage:Landroid/widget/ImageView;
-    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SplashFragment;->access$100(Lcom/isaigu/gymapp/fragment/SplashFragment;)Landroid/widget/ImageView;
+    move-result v0
+
+    if-nez v0, :cond_8c
+
+    .line 79
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/isaigu/gymapp/mgr/DataMgr;->singleMode:Z
+
+    .line 80
+    const/4 v0, 0x0
+
+    .line 81
+    .local v0, "fragment":Lcom/isaigu/gymapp/BaseFragment;
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
+    const-class v2, Lcom/isaigu/gymapp/bean/TrainUser;
 
-    .line 71
+    const-string v3, "file_name_login_user"
+
+    invoke-static {v3, v2}, Lcom/isaigu/gymapp/utils/FileUtils;->getData(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/isaigu/gymapp/bean/TrainUser;
+
+    iput-object v2, v1, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
+
+    .line 82
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v1
+
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v2
+
+    iget-object v2, v2, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
+
+    iget-wide v2, v2, Lcom/isaigu/gymapp/bean/TrainUser;->useTime:J
+
+    iput-wide v2, v1, Lcom/isaigu/gymapp/bean/UserData;->useTime:J
+
+    .line 83
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v1
+
+    iget-object v1, v1, Lcom/isaigu/gymapp/bean/UserData;->roleName:Ljava/lang/String;
+
+    const-string v2, "ROLE_COACH"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_72
+
+    .line 84
+    const/4 v1, 0x0
+
+    sput-boolean v1, Lcom/isaigu/gymapp/mgr/DataMgr;->singleMode:Z
+
+    .line 85
+    new-instance v1, Lcom/isaigu/gymapp/fragment/MainFragment;
+
+    invoke-direct {v1}, Lcom/isaigu/gymapp/fragment/MainFragment;-><init>()V
+
+    move-object v0, v1
+
+    goto :goto_78
+
+    .line 87
+    :cond_72
+    new-instance v1, Lcom/isaigu/gymapp/fragment/StartFragment;
+
+    invoke-direct {v1}, Lcom/isaigu/gymapp/fragment/StartFragment;-><init>()V
+
+    move-object v0, v1
+
+    .line 89
+    :goto_78
+    move-object v1, v0
+
+    .line 90
+    .local v1, "fragment1":Lcom/isaigu/gymapp/BaseFragment;
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$1;
+
+    iget-object v2, v2, Lcom/isaigu/gymapp/fragment/SplashFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
+
+    invoke-virtual {v2}, Lcom/isaigu/gymapp/fragment/SplashFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1$1;
+
+    invoke-direct {v3, p0, v1}, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1$1;-><init>(Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;Lcom/isaigu/gymapp/BaseFragment;)V
+
+    const-wide/16 v4, 0x640
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/isaigu/gymapp/BaseActivity;->runDelay(Ljava/lang/Runnable;J)V
+
+    .line 96
+    .end local v0    # "fragment":Lcom/isaigu/gymapp/BaseFragment;
+    .end local v1    # "fragment1":Lcom/isaigu/gymapp/BaseFragment;
+    goto :goto_ed
+
+    .line 97
+    :cond_8c
+    const/16 v0, 0x68
+
+    invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
+
+    .line 98
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$1;
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SplashFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
+
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SplashFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v0
+
+    new-instance v2, Lcom/isaigu/gymapp/fragment/LoginFragment;
+
+    invoke-direct {v2}, Lcom/isaigu/gymapp/fragment/LoginFragment;-><init>()V
+
+    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
+
+    goto :goto_ed
+
+    .line 101
+    :cond_a2
+    new-instance v0, Lcom/isaigu/gymapp/bean/dto/LoginDTO;
+
+    invoke-direct {v0}, Lcom/isaigu/gymapp/bean/dto/LoginDTO;-><init>()V
+
+    .line 102
+    .local v0, "dto":Lcom/isaigu/gymapp/bean/dto/LoginDTO;
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v1
+
+    iget-object v1, v1, Lcom/isaigu/gymapp/bean/UserData;->userName:Ljava/lang/String;
+
+    iput-object v1, v0, Lcom/isaigu/gymapp/bean/dto/LoginDTO;->username:Ljava/lang/String;
+
+    .line 103
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v1
+
+    iget-object v1, v1, Lcom/isaigu/gymapp/bean/UserData;->password:Ljava/lang/String;
+
+    invoke-static {v1}, Lcom/isaigu/gymapp/utils/MD5Utils;->getMD5(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/isaigu/gymapp/bean/dto/LoginDTO;->password:Ljava/lang/String;
+
+    .line 104
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v2, v0, Lcom/isaigu/gymapp/bean/dto/LoginDTO;->password:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "ffklggergmlgekrp86ffdfeef562fd5ffssdfehjktt"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/isaigu/gymapp/utils/MD5Utils;->getMD5(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/isaigu/gymapp/bean/dto/LoginDTO;->md5Password:Ljava/lang/String;
+
+    .line 106
+    new-instance v1, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1$2;
+
+    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1$2;-><init>(Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;)V
+
+    invoke-static {v0, v1}, Lcom/isaigu/gymapp/mgr/ApiMgr;->login(Lcom/isaigu/gymapp/bean/dto/LoginDTO;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
+
+    .line 140
+    .end local v0    # "dto":Lcom/isaigu/gymapp/bean/dto/LoginDTO;
+    goto :goto_ed
+
+    .line 142
+    :cond_dd
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SplashFragment$1$1;->this$1:Lcom/isaigu/gymapp/fragment/SplashFragment$1;
+
+    iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SplashFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/SplashFragment;
+
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SplashFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v0
+
+    new-instance v2, Lcom/isaigu/gymapp/fragment/LoginFragment;
+
+    invoke-direct {v2}, Lcom/isaigu/gymapp/fragment/LoginFragment;-><init>()V
+
+    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/BaseActivity;->replace(ILcom/isaigu/gymapp/BaseFragment;)V
+
+    .line 144
+    :goto_ed
     return-void
 .end method

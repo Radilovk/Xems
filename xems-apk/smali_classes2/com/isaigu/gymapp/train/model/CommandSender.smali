@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/clj/fastble/data/BleDevice;)V
-    .locals 2
+    .registers 4
     .param p1, "device"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 30
@@ -60,7 +60,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/isaigu/gymapp/train/model/CommandSender;Z)Z
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/train/model/CommandSender;
     .param p1, "x1"    # Z
 
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/train/model/CommandSender;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/isaigu/gymapp/train/model/CommandSender;
 
     .line 24
@@ -81,19 +81,19 @@
 .end method
 
 .method private declared-synchronized postWrite()V
-    .locals 5
+    .registers 6
 
     monitor-enter p0
 
     .line 77
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lcom/isaigu/gymapp/train/model/CommandSender;->writing:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_2f
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     .line 78
     monitor-exit p0
@@ -101,8 +101,8 @@
     return-void
 
     .line 80
-    :cond_0
-    :try_start_1
+    :cond_8
+    :try_start_8
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/CommandSender;->commandQueue:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
     invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentLinkedQueue;->poll()Ljava/lang/Object;
@@ -110,12 +110,12 @@
     move-result-object v0
 
     check-cast v0, Lcom/isaigu/gymapp/train/ble/BleDeviceCommend;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_10
+    .catchall {:try_start_8 .. :try_end_10} :catchall_2f
 
     .line 81
     .local v0, "deviceCommend":Lcom/isaigu/gymapp/train/ble/BleDeviceCommend;
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     .line 82
     monitor-exit p0
@@ -123,8 +123,8 @@
     return-void
 
     .line 84
-    :cond_1
-    :try_start_2
+    :cond_14
+    :try_start_14
     iput-boolean v1, p0, Lcom/isaigu/gymapp/train/model/CommandSender;->writing:Z
 
     .line 85
@@ -140,19 +140,19 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_28
 
     const-wide/16 v3, 0x3e8
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_2
+    :cond_28
     const-wide/16 v3, 0x64
 
-    :goto_0
+    :goto_2a
     invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_2d
+    .catchall {:try_start_14 .. :try_end_2d} :catchall_2f
 
     .line 86
     monitor-exit p0
@@ -162,7 +162,7 @@
     .line 76
     .end local v0    # "deviceCommend":Lcom/isaigu/gymapp/train/ble/BleDeviceCommend;
     .end local p0    # "this":Lcom/isaigu/gymapp/train/model/CommandSender;
-    :catchall_0
+    :catchall_2f
     move-exception v0
 
     monitor-exit p0
@@ -171,7 +171,7 @@
 .end method
 
 .method private writeCommend(Lcom/isaigu/gymapp/train/ble/BleDeviceCommend;)V
-    .locals 3
+    .registers 5
     .param p1, "deviceCommend"    # Lcom/isaigu/gymapp/train/ble/BleDeviceCommend;
 
     .line 89
@@ -219,7 +219,7 @@
 
 # virtual methods
 .method public synthetic lambda$postWrite$0$CommandSender(Lcom/isaigu/gymapp/train/ble/BleDeviceCommend;)V
-    .locals 0
+    .registers 2
     .param p1, "deviceCommend"    # Lcom/isaigu/gymapp/train/ble/BleDeviceCommend;
 
     .line 85
@@ -229,7 +229,7 @@
 .end method
 
 .method public sendBattery()V
-    .locals 2
+    .registers 3
 
     .line 51
     const/4 v0, 0x0
@@ -247,7 +247,7 @@
 .end method
 
 .method public sendCommend(B[B)V
-    .locals 2
+    .registers 5
     .param p1, "commend"    # B
     .param p2, "pdu"    # [B
 
@@ -270,19 +270,19 @@
 .end method
 
 .method public sendDuration(Lcom/isaigu/gymapp/bean/ProgramDataBean;[ZI)V
-    .locals 2
+    .registers 6
     .param p1, "programDataBean"    # Lcom/isaigu/gymapp/bean/ProgramDataBean;
     .param p2, "partsDisabled"    # [Z
     .param p3, "workLength"    # I
 
     .line 58
-    if-nez p3, :cond_0
+    if-nez p3, :cond_3
 
     .line 59
     return-void
 
     .line 61
-    :cond_0
+    :cond_3
     invoke-static {p1, p2}, Lcom/isaigu/gymapp/train/utils/CommandUtil;->getPartsParamsPdu(Lcom/isaigu/gymapp/bean/ProgramDataBean;[Z)[B
 
     move-result-object v0
@@ -305,7 +305,7 @@
 .end method
 
 .method public sendPause(Lcom/isaigu/gymapp/bean/ProgramDataBean;I)V
-    .locals 2
+    .registers 5
     .param p1, "programDataBean"    # Lcom/isaigu/gymapp/bean/ProgramDataBean;
     .param p2, "workLength"    # I
 
@@ -325,7 +325,7 @@
 .end method
 
 .method public sendStart()V
-    .locals 2
+    .registers 3
 
     .line 43
     const/4 v0, 0x1
@@ -348,7 +348,7 @@
 .end method
 
 .method public sendStop()V
-    .locals 2
+    .registers 3
 
     .line 36
     const/4 v0, 0x1

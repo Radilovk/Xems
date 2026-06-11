@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 25
     new-instance v0, Lcom/isaigu/gymapp/utils/DateNullAdapter$1;
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 23
     invoke-direct {p0}, Lcom/google/gson/TypeAdapter;-><init>()V
@@ -70,21 +70,21 @@
 .end method
 
 .method private declared-synchronized deserializeToDate(Ljava/lang/String;)Ljava/util/Date;
-    .locals 2
+    .registers 4
     .param p1, "json"    # Ljava/lang/String;
 
     monitor-enter p0
 
     .line 53
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/isaigu/gymapp/utils/DateNullAdapter;->localFormat:Ljava/text/DateFormat;
 
     invoke-virtual {v0, p1}, Ljava/text/DateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catch Ljava/text/ParseException; {:try_start_1 .. :try_end_7} :catch_b
+    .catchall {:try_start_1 .. :try_end_7} :catchall_9
 
     monitor-exit p0
 
@@ -93,37 +93,37 @@
     .line 52
     .end local p0    # "this":Lcom/isaigu/gymapp/utils/DateNullAdapter;
     .end local p1    # "json":Ljava/lang/String;
-    :catchall_0
+    :catchall_9
     move-exception p1
 
-    goto :goto_0
+    goto :goto_28
 
     .line 54
     .restart local p1    # "json":Ljava/lang/String;
-    :catch_0
+    :catch_b
     move-exception v0
 
     .line 57
-    :try_start_1
+    :try_start_c
     iget-object v0, p0, Lcom/isaigu/gymapp/utils/DateNullAdapter;->enUsFormat:Ljava/text/DateFormat;
 
     invoke-virtual {v0, p1}, Ljava/text/DateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v0
-    :try_end_1
-    .catch Ljava/text/ParseException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_12
+    .catch Ljava/text/ParseException; {:try_start_c .. :try_end_12} :catch_14
+    .catchall {:try_start_c .. :try_end_12} :catchall_9
 
     monitor-exit p0
 
     return-object v0
 
     .line 58
-    :catch_1
+    :catch_14
     move-exception v0
 
     .line 61
-    :try_start_2
+    :try_start_15
     new-instance v0, Ljava/text/ParsePosition;
 
     const/4 v1, 0x0
@@ -133,33 +133,33 @@
     invoke-static {p1, v0}, Lcom/google/gson/internal/bind/util/ISO8601Utils;->parse(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/util/Date;
 
     move-result-object v0
-    :try_end_2
-    .catch Ljava/text/ParseException; {:try_start_2 .. :try_end_2} :catch_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_1f
+    .catch Ljava/text/ParseException; {:try_start_15 .. :try_end_1f} :catch_21
+    .catchall {:try_start_15 .. :try_end_1f} :catchall_9
 
     monitor-exit p0
 
     return-object v0
 
     .line 62
-    :catch_2
+    :catch_21
     move-exception v0
 
     .line 63
     .local v0, "e":Ljava/text/ParseException;
-    :try_start_3
+    :try_start_22
     new-instance v1, Lcom/google/gson/JsonSyntaxException;
 
     invoke-direct {v1, p1, v0}, Lcom/google/gson/JsonSyntaxException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_28
+    .catchall {:try_start_22 .. :try_end_28} :catchall_9
 
     .line 52
     .end local v0    # "e":Ljava/text/ParseException;
     .end local p1    # "json":Ljava/lang/String;
-    :goto_0
+    :goto_28
     monitor-exit p0
 
     throw p1
@@ -168,7 +168,7 @@
 
 # virtual methods
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -184,7 +184,7 @@
 .end method
 
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/util/Date;
-    .locals 3
+    .registers 5
     .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -201,7 +201,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 40
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
@@ -210,7 +210,7 @@
     return-object v2
 
     .line 43
-    :cond_0
+    :cond_d
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextString()Ljava/lang/String;
 
     move-result-object v0
@@ -221,13 +221,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_18
 
     .line 45
     return-object v2
 
     .line 47
-    :cond_1
+    :cond_18
     invoke-direct {p0, v0}, Lcom/isaigu/gymapp/utils/DateNullAdapter;->deserializeToDate(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v1
@@ -236,7 +236,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -252,7 +252,7 @@
 .end method
 
 .method public declared-synchronized write(Lcom/google/gson/stream/JsonWriter;Ljava/util/Date;)V
-    .locals 1
+    .registers 4
     .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
     .param p2, "value"    # Ljava/util/Date;
     .annotation system Ldalvik/annotation/Throws;
@@ -264,13 +264,13 @@
     monitor-enter p0
 
     .line 68
-    if-nez p2, :cond_0
+    if-nez p2, :cond_8
 
     .line 69
-    :try_start_0
+    :try_start_3
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonWriter;->nullValue()Lcom/google/gson/stream/JsonWriter;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_3 .. :try_end_6} :catchall_13
 
     .line 70
     monitor-exit p0
@@ -279,8 +279,8 @@
 
     .line 72
     .end local p0    # "this":Lcom/isaigu/gymapp/utils/DateNullAdapter;
-    :cond_0
-    :try_start_1
+    :cond_8
+    :try_start_8
     iget-object v0, p0, Lcom/isaigu/gymapp/utils/DateNullAdapter;->enUsFormat:Ljava/text/DateFormat;
 
     invoke-virtual {v0, p2}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
@@ -290,8 +290,8 @@
     .line 73
     .local v0, "dateFormatAsString":Ljava/lang/String;
     invoke-virtual {p1, v0}, Lcom/google/gson/stream/JsonWriter;->value(Ljava/lang/String;)Lcom/google/gson/stream/JsonWriter;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_11
+    .catchall {:try_start_8 .. :try_end_11} :catchall_13
 
     .line 74
     monitor-exit p0
@@ -302,7 +302,7 @@
     .end local v0    # "dateFormatAsString":Ljava/lang/String;
     .end local p1    # "out":Lcom/google/gson/stream/JsonWriter;
     .end local p2    # "value":Ljava/util/Date;
-    :catchall_0
+    :catchall_13
     move-exception p1
 
     monitor-exit p0

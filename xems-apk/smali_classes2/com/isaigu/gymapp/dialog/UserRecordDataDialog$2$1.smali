@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$2;Ljava/util/List;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$2;
 
     .line 133
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 135
     new-instance v0, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter;
@@ -60,6 +60,7 @@
 
     iget-object v1, v1, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$2;->this$0:Lcom/isaigu/gymapp/dialog/UserRecordDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserRecordDataDialog;->recyclerView:Landroid/support/v7/widget/RecyclerView;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog;->access$000(Lcom/isaigu/gymapp/dialog/UserRecordDataDialog;)Landroid/support/v7/widget/RecyclerView;
 
     move-result-object v1

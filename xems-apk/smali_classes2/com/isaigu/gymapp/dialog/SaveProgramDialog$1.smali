@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/SaveProgramDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
 
     .line 48
@@ -34,13 +34,14 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p1, "v"    # Landroid/view/View;
 
     .line 51
     :try_start_0
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/SaveProgramDialog$1;->this$0:Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/SaveProgramDialog;->nameEditText:Landroid/widget/EditText;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/SaveProgramDialog;->access$000(Lcom/isaigu/gymapp/dialog/SaveProgramDialog;)Landroid/widget/EditText;
 
     move-result-object v0
@@ -59,7 +60,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     .line 53
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/SaveProgramDialog$1;->this$0:Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
@@ -82,14 +83,14 @@
     return-void
 
     .line 56
-    :cond_0
+    :cond_27
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/SaveProgramDialog$1;->this$0:Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
 
     invoke-virtual {v1}, Lcom/isaigu/gymapp/dialog/SaveProgramDialog;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_5e
 
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/SaveProgramDialog$1;->this$0:Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
 
@@ -101,7 +102,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_5e
 
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/SaveProgramDialog$1;->this$0:Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
 
@@ -117,7 +118,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_5e
 
     .line 57
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/SaveProgramDialog$1;->this$0:Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
@@ -136,10 +137,11 @@
 
     move-result-object v2
 
+    # invokes: Lcom/isaigu/gymapp/dialog/SaveProgramDialog;->hideSoftInput(Landroid/os/IBinder;)V
     invoke-static {v1, v2}, Lcom/isaigu/gymapp/dialog/SaveProgramDialog;->access$100(Lcom/isaigu/gymapp/dialog/SaveProgramDialog;Landroid/os/IBinder;)V
 
     .line 59
-    :cond_1
+    :cond_5e
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/SaveProgramDialog$1;->this$0:Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
 
     invoke-virtual {v1}, Lcom/isaigu/gymapp/dialog/SaveProgramDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -153,30 +155,32 @@
     .line 60
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/SaveProgramDialog$1;->this$0:Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/SaveProgramDialog;->listener:Lcom/isaigu/gymapp/dialog/SaveProgramDialog$SaveProgramListener;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/SaveProgramDialog;->access$200(Lcom/isaigu/gymapp/dialog/SaveProgramDialog;)Lcom/isaigu/gymapp/dialog/SaveProgramDialog$SaveProgramListener;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_7a
 
     .line 61
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/SaveProgramDialog$1;->this$0:Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/SaveProgramDialog;->listener:Lcom/isaigu/gymapp/dialog/SaveProgramDialog$SaveProgramListener;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/SaveProgramDialog;->access$200(Lcom/isaigu/gymapp/dialog/SaveProgramDialog;)Lcom/isaigu/gymapp/dialog/SaveProgramDialog$SaveProgramListener;
 
     move-result-object v1
 
     invoke-interface {v1, v0}, Lcom/isaigu/gymapp/dialog/SaveProgramDialog$SaveProgramListener;->onSaveProgram(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7a
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_7a} :catch_7b
 
     .line 65
     .end local v0    # "name":Ljava/lang/String;
-    :cond_2
-    goto :goto_0
+    :cond_7a
+    goto :goto_7f
 
     .line 63
-    :catch_0
+    :catch_7b
     move-exception v0
 
     .line 64
@@ -185,6 +189,6 @@
 
     .line 67
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_7f
     return-void
 .end method

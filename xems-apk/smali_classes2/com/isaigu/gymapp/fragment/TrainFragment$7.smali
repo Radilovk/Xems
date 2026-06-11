@@ -21,9 +21,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    .prologue
-    .line 257
+    .line 307
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$7;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
@@ -35,28 +35,14 @@
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
     .registers 4
+    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 260
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$7;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
-
-    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
-    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->isSomeoneStart()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_29
-
-    .line 261
-    const-string v0, "\u6309\u4e86\u5f00\u59cb/\u6682\u505c\u6240\u6709\u8bbe\u5907\u6309\u94ae1"
+    .line 309
+    const-string v0, "\u6309\u4e86\u505c\u6b62\u6240\u6709\u8bbe\u5907\u6309\u94ae"
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
 
-    .line 262
+    .line 310
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$7;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
@@ -64,15 +50,11 @@
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->handleStopAllUser()V
 
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->handleStartPauseAllUser(Z)V
-
-    .line 267
-    :goto_1b
+    .line 311
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$7;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    .line 268
     # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
@@ -82,26 +64,9 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/TrainFragment;->updateAllStartPauseUI(Z)V
+    # invokes: Lcom/isaigu/gymapp/fragment/TrainFragment;->updateAllStartPauseUI(Z)V
+    invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$300(Lcom/isaigu/gymapp/fragment/TrainFragment;Z)V
 
-    .line 269
+    .line 312
     return-void
-
-    .line 264
-    :cond_29
-    const-string v0, "\u6309\u4e86\u5f00\u59cb/\u6682\u505c\u6240\u6709\u8bbe\u5907\u6309\u94ae2"
-
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
-
-    .line 265
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$7;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
-
-    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
-    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->handleStartPauseAllUser()V
-
-    goto :goto_1b
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$6;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$6;
 
     .line 411
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onSaveProgram(Lcom/isaigu/gymapp/bean/TrainProgram;Ljava/util/List;)V
-    .locals 2
+    .registers 5
     .param p1, "trainProgram"    # Lcom/isaigu/gymapp/bean/TrainProgram;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,6 +55,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$6;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->programAdapter:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$ProgramAdapter;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$100(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$ProgramAdapter;
 
     move-result-object v0

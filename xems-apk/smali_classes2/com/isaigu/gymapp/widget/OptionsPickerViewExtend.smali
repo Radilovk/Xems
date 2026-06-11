@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bigkoo/pickerview/configure/PickerOptions;)V
-    .locals 0
+    .registers 2
     .param p1, "pickerOptions"    # Lcom/bigkoo/pickerview/configure/PickerOptions;
 
     .line 12
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public createDialog()V
-    .locals 2
+    .registers 3
 
     .line 17
     invoke-super {p0}, Lcom/bigkoo/pickerview/view/OptionsPickerView;->createDialog()V

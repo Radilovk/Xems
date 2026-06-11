@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "mac"    # Ljava/lang/String;
 
     .line 10
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public getMac()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 7
     iget-object v0, p0, Lcom/isaigu/gymapp/train/events/DeviceConnectFailEvent;->mac:Ljava/lang/String;

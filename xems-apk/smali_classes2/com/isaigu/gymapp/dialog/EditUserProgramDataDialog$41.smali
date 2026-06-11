@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 895
@@ -37,13 +37,14 @@
 
 # virtual methods
 .method public onAmountChange(Landroid/view/View;I)V
-    .locals 2
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
     .param p2, "amount"    # I
 
     .line 897
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$41;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v0

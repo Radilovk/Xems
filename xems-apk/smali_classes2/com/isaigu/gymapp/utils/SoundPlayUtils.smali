@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 15
     const/4 v0, 0x0
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,13 +44,13 @@
 .end method
 
 .method public static init(Landroid/content/Context;)Lcom/isaigu/gymapp/utils/SoundPlayUtils;
-    .locals 4
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
 
     .line 29
     sget-object v0, Lcom/isaigu/gymapp/utils/SoundPlayUtils;->soundPlayUtils:Lcom/isaigu/gymapp/utils/SoundPlayUtils;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     .line 30
     new-instance v0, Lcom/isaigu/gymapp/utils/SoundPlayUtils;
@@ -83,14 +83,14 @@
     sput-object v0, Lcom/isaigu/gymapp/utils/SoundPlayUtils;->loadedMap:Ljava/util/HashMap;
 
     .line 36
-    :cond_0
+    :cond_1f
     sget-object v0, Lcom/isaigu/gymapp/utils/SoundPlayUtils;->soundPlayUtils:Lcom/isaigu/gymapp/utils/SoundPlayUtils;
 
     return-object v0
 .end method
 
 .method public static load(I)V
-    .locals 4
+    .registers 5
     .param p0, "resId"    # I
 
     .line 66
@@ -104,7 +104,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     .line 67
     sget-object v0, Lcom/isaigu/gymapp/utils/SoundPlayUtils;->mSoundPlayer:Landroid/media/SoundPool;
@@ -133,12 +133,12 @@
 
     .line 70
     .end local v0    # "soundId":I
-    :cond_0
+    :cond_22
     return-void
 .end method
 
 .method public static load(Ljava/lang/String;)V
-    .locals 3
+    .registers 4
     .param p0, "path"    # Ljava/lang/String;
 
     .line 82
@@ -148,7 +148,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 83
     sget-object v0, Lcom/isaigu/gymapp/utils/SoundPlayUtils;->mSoundPlayer:Landroid/media/SoundPool;
@@ -171,12 +171,12 @@
 
     .line 86
     .end local v0    # "soundId":I
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public static varargs load([I)V
-    .locals 7
+    .registers 8
     .param p0, "resId"    # [I
 
     .line 57
@@ -184,8 +184,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_2
+    if-ge v1, v0, :cond_2b
 
     aget v2, p0, v1
 
@@ -201,7 +201,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_28
 
     .line 59
     sget-object v3, Lcom/isaigu/gymapp/utils/SoundPlayUtils;->mSoundPlayer:Landroid/media/SoundPool;
@@ -231,18 +231,18 @@
     .line 57
     .end local v2    # "res":I
     .end local v3    # "soundId":I
-    :cond_0
+    :cond_28
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 63
-    :cond_1
+    :cond_2b
     return-void
 .end method
 
 .method public static varargs load([Ljava/lang/String;)V
-    .locals 6
+    .registers 7
     .param p0, "resId"    # [Ljava/lang/String;
 
     .line 73
@@ -250,8 +250,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_2
+    if-ge v1, v0, :cond_21
 
     aget-object v2, p0, v1
 
@@ -263,7 +263,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1e
 
     .line 75
     sget-object v3, Lcom/isaigu/gymapp/utils/SoundPlayUtils;->mSoundPlayer:Landroid/media/SoundPool;
@@ -287,18 +287,18 @@
     .line 73
     .end local v2    # "res":Ljava/lang/String;
     .end local v3    # "soundId":I
-    :cond_0
+    :cond_1e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 79
-    :cond_1
+    :cond_21
     return-void
 .end method
 
 .method public static play(I)V
-    .locals 8
+    .registers 9
     .param p0, "resId"    # I
 
     .line 45
@@ -312,7 +312,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 46
     sget-object v1, Lcom/isaigu/gymapp/utils/SoundPlayUtils;->mSoundPlayer:Landroid/media/SoundPool;
@@ -346,12 +346,12 @@
     invoke-virtual/range {v1 .. v7}, Landroid/media/SoundPool;->play(IFFIIF)I
 
     .line 48
-    :cond_0
+    :cond_29
     return-void
 .end method
 
 .method public static play(Ljava/lang/String;)V
-    .locals 8
+    .registers 9
     .param p0, "path"    # Ljava/lang/String;
 
     .line 51
@@ -361,7 +361,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 52
     sget-object v1, Lcom/isaigu/gymapp/utils/SoundPlayUtils;->mSoundPlayer:Landroid/media/SoundPool;
@@ -391,12 +391,12 @@
     invoke-virtual/range {v1 .. v7}, Landroid/media/SoundPool;->play(IFFIIF)I
 
     .line 54
-    :cond_0
+    :cond_21
     return-void
 .end method
 
 .method public static unload(I)V
-    .locals 3
+    .registers 4
     .param p0, "resId"    # I
 
     .line 89
@@ -410,7 +410,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 90
     sget-object v0, Lcom/isaigu/gymapp/utils/SoundPlayUtils;->mSoundPlayer:Landroid/media/SoundPool;
@@ -434,12 +434,12 @@
     invoke-virtual {v0, v1}, Landroid/media/SoundPool;->unload(I)Z
 
     .line 92
-    :cond_0
+    :cond_21
     return-void
 .end method
 
 .method public static unload(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "path"    # Ljava/lang/String;
 
     .line 95
@@ -449,7 +449,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 96
     sget-object v0, Lcom/isaigu/gymapp/utils/SoundPlayUtils;->mSoundPlayer:Landroid/media/SoundPool;
@@ -469,12 +469,12 @@
     invoke-virtual {v0, v1}, Landroid/media/SoundPool;->unload(I)Z
 
     .line 98
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public static unloadAll()V
-    .locals 4
+    .registers 4
 
     .line 101
     sget-object v0, Lcom/isaigu/gymapp/utils/SoundPlayUtils;->loadedMap:Ljava/util/HashMap;
@@ -487,12 +487,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -518,10 +518,10 @@
 
     .line 103
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Integer;>;"
-    goto :goto_0
+    goto :goto_a
 
     .line 104
-    :cond_0
+    :cond_26
     sget-object v0, Lcom/isaigu/gymapp/utils/SoundPlayUtils;->loadedMap:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->clear()V

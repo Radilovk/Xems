@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 680
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAmountClick(Landroid/view/View;I)V
-    .locals 6
+    .registers 9
     .param p1, "view"    # Landroid/view/View;
     .param p2, "amount"    # I
 
@@ -58,18 +58,21 @@
 
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$16;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->pickerViewDatas:Ljava/util/List;
     invoke-static {v2}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2900(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Ljava/util/List;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$16;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->pickerViewDatas:Ljava/util/List;
     invoke-static {v3}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2900(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Ljava/util/List;
 
     move-result-object v4
 
     iget-object v5, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$16;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v5}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v5
@@ -78,6 +81,7 @@
 
     iget v5, v5, Lcom/isaigu/gymapp/bean/ProgramDataBean;->hz:I
 
+    # invokes: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getSelected(Ljava/util/List;I)I
     invoke-static {v3, v4, v5}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$300(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;Ljava/util/List;I)I
 
     move-result v3

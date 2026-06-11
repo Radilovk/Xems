@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 36
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 8
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -191,7 +191,7 @@
     invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 56
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_7b
 
     .line 57
     iget-object v6, p0, Lcom/isaigu/gymapp/widget/AmountView;->btnDecrease:Landroid/widget/Button;
@@ -208,8 +208,8 @@
     invoke-virtual {v6, v1, v7}, Landroid/widget/Button;->setTextSize(IF)V
 
     .line 61
-    :cond_0
-    if-eqz v4, :cond_1
+    :cond_7b
+    if-eqz v4, :cond_83
 
     .line 62
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/AmountView;->etAmount:Lcom/isaigu/gymapp/widget/ShapeCornerBgView;
@@ -219,14 +219,14 @@
     invoke-virtual {v1, v6}, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->setTextSize(F)V
 
     .line 64
-    :cond_1
+    :cond_83
     return-void
 .end method
 
 
 # virtual methods
 .method public getAmount()I
-    .locals 1
+    .registers 2
 
     .line 99
     iget v0, p0, Lcom/isaigu/gymapp/widget/AmountView;->amount:I
@@ -235,7 +235,7 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .registers 7
     .param p1, "v"    # Landroid/view/View;
 
     .line 107
@@ -247,7 +247,7 @@
     .local v0, "i":I
     const v1, 0x7f090052
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_3c
 
     .line 109
     iget v1, p0, Lcom/isaigu/gymapp/widget/AmountView;->amount:I
@@ -258,7 +258,7 @@
 
     iget v4, p0, Lcom/isaigu/gymapp/widget/AmountView;->min:I
 
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_32
 
     .line 110
     sub-int/2addr v1, v2
@@ -291,23 +291,23 @@
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->setText(Ljava/lang/CharSequence;)V
 
     .line 113
-    :cond_0
+    :cond_32
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/AmountView;->mListener:Lcom/isaigu/gymapp/widget/AmountView$OnAmountChangeListener;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_82
 
     .line 114
     iget v2, p0, Lcom/isaigu/gymapp/widget/AmountView;->amount:I
 
     invoke-interface {v1, p0, v2}, Lcom/isaigu/gymapp/widget/AmountView$OnAmountChangeListener;->onAmountChange(Landroid/view/View;I)V
 
-    goto :goto_0
+    goto :goto_82
 
     .line 116
-    :cond_1
+    :cond_3c
     const v1, 0x7f090053
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_74
 
     .line 117
     iget v1, p0, Lcom/isaigu/gymapp/widget/AmountView;->amount:I
@@ -318,7 +318,7 @@
 
     iget v4, p0, Lcom/isaigu/gymapp/widget/AmountView;->goods_storage:I
 
-    if-gt v3, v4, :cond_2
+    if-gt v3, v4, :cond_6a
 
     .line 118
     add-int/2addr v1, v2
@@ -351,28 +351,28 @@
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->setText(Ljava/lang/CharSequence;)V
 
     .line 121
-    :cond_2
+    :cond_6a
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/AmountView;->mListener:Lcom/isaigu/gymapp/widget/AmountView$OnAmountChangeListener;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_82
 
     .line 122
     iget v2, p0, Lcom/isaigu/gymapp/widget/AmountView;->amount:I
 
     invoke-interface {v1, p0, v2}, Lcom/isaigu/gymapp/widget/AmountView$OnAmountChangeListener;->onAmountChange(Landroid/view/View;I)V
 
-    goto :goto_0
+    goto :goto_82
 
     .line 124
-    :cond_3
+    :cond_74
     const v1, 0x7f090197
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_82
 
     .line 125
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/AmountView;->amountClickListener:Lcom/isaigu/gymapp/widget/AmountView$OnAmountClickListener;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_82
 
     .line 126
     iget v2, p0, Lcom/isaigu/gymapp/widget/AmountView;->amount:I
@@ -380,13 +380,13 @@
     invoke-interface {v1, p0, v2}, Lcom/isaigu/gymapp/widget/AmountView$OnAmountClickListener;->onAmountClick(Landroid/view/View;I)V
 
     .line 129
-    :cond_4
-    :goto_0
+    :cond_82
+    :goto_82
     return-void
 .end method
 
 .method public setAmount(I)V
-    .locals 4
+    .registers 6
     .param p1, "amount"    # I
 
     .line 94
@@ -422,7 +422,7 @@
 .end method
 
 .method public setAmountClickListener(Lcom/isaigu/gymapp/widget/AmountView$OnAmountClickListener;)V
-    .locals 0
+    .registers 2
     .param p1, "amountClickListener"    # Lcom/isaigu/gymapp/widget/AmountView$OnAmountClickListener;
 
     .line 78
@@ -433,7 +433,7 @@
 .end method
 
 .method public setAmountTextPadding(IIII)V
-    .locals 1
+    .registers 6
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "right"    # I
@@ -449,7 +449,7 @@
 .end method
 
 .method public setAmountTextPaddingTop(I)V
-    .locals 2
+    .registers 4
     .param p1, "top"    # I
 
     .line 71
@@ -464,7 +464,7 @@
 .end method
 
 .method public setAmountUnit(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "unit"    # Ljava/lang/String;
 
     .line 103
@@ -475,7 +475,7 @@
 .end method
 
 .method public setGoods_storage(I)V
-    .locals 0
+    .registers 2
     .param p1, "goods_storage"    # I
 
     .line 82
@@ -486,7 +486,7 @@
 .end method
 
 .method public setMin(I)V
-    .locals 0
+    .registers 2
     .param p1, "min"    # I
 
     .line 86
@@ -497,7 +497,7 @@
 .end method
 
 .method public setOnAmountChangeListener(Lcom/isaigu/gymapp/widget/AmountView$OnAmountChangeListener;)V
-    .locals 0
+    .registers 2
     .param p1, "onAmountChangeListener"    # Lcom/isaigu/gymapp/widget/AmountView$OnAmountChangeListener;
 
     .line 74
@@ -508,7 +508,7 @@
 .end method
 
 .method public setScale(I)V
-    .locals 0
+    .registers 2
     .param p1, "scale"    # I
 
     .line 132
@@ -519,7 +519,7 @@
 .end method
 
 .method public setStep(I)V
-    .locals 0
+    .registers 2
     .param p1, "step"    # I
 
     .line 90

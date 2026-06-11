@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/train/model/CommandReceiver;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/train/model/CommandReceiver;
 
     .line 40
@@ -37,24 +37,26 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 43
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/CommandReceiver$1;->this$0:Lcom/isaigu/gymapp/train/model/CommandReceiver;
 
+    # getter for: Lcom/isaigu/gymapp/train/model/CommandReceiver;->closed:Z
     invoke-static {v0}, Lcom/isaigu/gymapp/train/model/CommandReceiver;->access$000(Lcom/isaigu/gymapp/train/model/CommandReceiver;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 44
     return-void
 
     .line 46
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/CommandReceiver$1;->this$0:Lcom/isaigu/gymapp/train/model/CommandReceiver;
 
+    # getter for: Lcom/isaigu/gymapp/train/model/CommandReceiver;->sender:Lcom/isaigu/gymapp/train/model/CommandSender;
     invoke-static {v0}, Lcom/isaigu/gymapp/train/model/CommandReceiver;->access$100(Lcom/isaigu/gymapp/train/model/CommandReceiver;)Lcom/isaigu/gymapp/train/model/CommandSender;
 
     move-result-object v0
@@ -64,12 +66,14 @@
     .line 47
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/CommandReceiver$1;->this$0:Lcom/isaigu/gymapp/train/model/CommandReceiver;
 
+    # getter for: Lcom/isaigu/gymapp/train/model/CommandReceiver;->handler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/isaigu/gymapp/train/model/CommandReceiver;->access$300(Lcom/isaigu/gymapp/train/model/CommandReceiver;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/isaigu/gymapp/train/model/CommandReceiver$1;->this$0:Lcom/isaigu/gymapp/train/model/CommandReceiver;
 
+    # getter for: Lcom/isaigu/gymapp/train/model/CommandReceiver;->batteryRunnable:Ljava/lang/Runnable;
     invoke-static {v1}, Lcom/isaigu/gymapp/train/model/CommandReceiver;->access$200(Lcom/isaigu/gymapp/train/model/CommandReceiver;)Ljava/lang/Runnable;
 
     move-result-object v1

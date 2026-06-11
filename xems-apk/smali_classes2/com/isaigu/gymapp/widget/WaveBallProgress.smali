@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 68
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -106,7 +106,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 1
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -133,7 +133,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/widget/WaveBallProgress;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/WaveBallProgress;
 
     .line 25
@@ -143,7 +143,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/isaigu/gymapp/widget/WaveBallProgress;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/WaveBallProgress;
     .param p1, "x1"    # I
 
@@ -154,7 +154,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/widget/WaveBallProgress;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/WaveBallProgress;
 
     .line 25
@@ -164,7 +164,7 @@
 .end method
 
 .method private getWaveY(IIIF)D
-    .locals 6
+    .registers 11
     .param p1, "x"    # I
     .param p2, "offset"    # I
     .param p3, "waveHeight"    # I
@@ -213,7 +213,7 @@
 .end method
 
 .method private init()V
-    .locals 2
+    .registers 3
 
     .line 90
     new-instance v0, Landroid/graphics/Paint;
@@ -241,7 +241,7 @@
 
 # virtual methods
 .method public getProgress()I
-    .locals 1
+    .registers 2
 
     .line 100
     iget v0, p0, Lcom/isaigu/gymapp/widget/WaveBallProgress;->mProgress:I
@@ -250,7 +250,7 @@
 .end method
 
 .method public getWaveHeightA()I
-    .locals 1
+    .registers 2
 
     .line 113
     iget v0, p0, Lcom/isaigu/gymapp/widget/WaveBallProgress;->mWaveHeightA:I
@@ -259,7 +259,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 12
+    .registers 14
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 209
@@ -270,13 +270,13 @@
 
     move-result v0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_bb
 
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/WaveBallProgress;->getWidth()I
 
     move-result v0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_bb
 
     .line 212
     new-instance v0, Landroid/graphics/Paint;
@@ -350,18 +350,18 @@
     .local v2, "sc":I
     iget-boolean v3, p0, Lcom/isaigu/gymapp/widget/WaveBallProgress;->isWaveMoving:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_6e
 
     .line 225
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_4b
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/WaveBallProgress;->getWidth()I
 
     move-result v5
 
-    if-ge v3, v5, :cond_0
+    if-ge v3, v5, :cond_6d
 
     .line 226
     int-to-float v7, v3
@@ -397,14 +397,14 @@
     .line 225
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_4b
 
     .end local v3    # "i":I
-    :cond_0
-    goto :goto_1
+    :cond_6d
+    goto :goto_9f
 
     .line 233
-    :cond_1
+    :cond_6e
     const/high16 v3, 0x3f800000    # 1.0f
 
     iget v5, p0, Lcom/isaigu/gymapp/widget/WaveBallProgress;->mProgress:I
@@ -468,7 +468,7 @@
 
     .line 238
     .end local v3    # "height":F
-    :goto_1
+    :goto_9f
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/WaveBallProgress;->mWavePaint:Landroid/graphics/Paint;
 
     new-instance v5, Landroid/graphics/PorterDuffXfermode;
@@ -500,12 +500,12 @@
     .end local v0    # "paint":Landroid/graphics/Paint;
     .end local v1    # "edge":Landroid/graphics/RectF;
     .end local v2    # "sc":I
-    :cond_2
+    :cond_bb
     return-void
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 6
+    .registers 11
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I
@@ -515,9 +515,9 @@
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
 
     .line 172
-    if-lez p1, :cond_1
+    if-lez p1, :cond_44
 
-    if-lez p2, :cond_1
+    if-lez p2, :cond_44
 
     .line 179
     div-int/lit8 v0, p1, 0xa
@@ -540,7 +540,7 @@
     .line 181
     div-int/lit8 v2, p2, 0xa
 
-    if-ge v2, v0, :cond_0
+    if-ge v2, v0, :cond_1e
 
     .line 182
     div-int/lit8 v0, p2, 0xa
@@ -548,7 +548,7 @@
     iput v0, p0, Lcom/isaigu/gymapp/widget/WaveBallProgress;->mWaveHeightA:I
 
     .line 184
-    :cond_0
+    :cond_1e
     const-wide v2, 0x4022d97c7f3321d2L    # 9.42477796076938
 
     int-to-double v4, p1
@@ -596,12 +596,12 @@
     .line 199
     .end local v0    # "canvas":Landroid/graphics/Canvas;
     .end local v1    # "ball":Landroid/graphics/RectF;
-    :cond_1
+    :cond_44
     return-void
 .end method
 
 .method public setProgress(I)V
-    .locals 0
+    .registers 2
     .param p1, "progress"    # I
 
     .line 108
@@ -615,7 +615,7 @@
 .end method
 
 .method public setWaveColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "mWaveColor"    # I
 
     .line 202
@@ -634,7 +634,7 @@
 .end method
 
 .method public setWaveHeightA(I)V
-    .locals 0
+    .registers 2
     .param p1, "waveHeightA"    # I
 
     .line 117
@@ -645,7 +645,7 @@
 .end method
 
 .method public startProgress(I)V
-    .locals 6
+    .registers 8
     .param p1, "progress"    # I
 
     .line 122
@@ -664,7 +664,7 @@
 .end method
 
 .method public startProgress(IJJ)V
-    .locals 2
+    .registers 8
     .param p1, "progress"    # I
     .param p2, "duration"    # J
     .param p4, "delay"    # J
@@ -677,13 +677,13 @@
     .line 133
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/WaveBallProgress;->mProgressAnimator:Landroid/animation/ObjectAnimator;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     invoke-virtual {v1}, Landroid/animation/ObjectAnimator;->isRunning()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 134
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/WaveBallProgress;->mProgressAnimator:Landroid/animation/ObjectAnimator;
@@ -691,7 +691,7 @@
     invoke-virtual {v1}, Landroid/animation/ObjectAnimator;->cancel()V
 
     .line 136
-    :cond_0
+    :cond_13
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/isaigu/gymapp/widget/WaveBallProgress;->isWaveMoving:Z

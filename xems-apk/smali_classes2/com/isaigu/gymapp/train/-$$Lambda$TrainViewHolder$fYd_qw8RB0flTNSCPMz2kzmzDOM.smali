@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lcom/isaigu/gymapp/train/TrainViewHolder;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final onAmountChange(Landroid/view/View;I)V
-    .locals 1
+    .registers 4
 
     iget-object v0, p0, Lcom/isaigu/gymapp/train/-$$Lambda$TrainViewHolder$fYd_qw8RB0flTNSCPMz2kzmzDOM;->f$0:Lcom/isaigu/gymapp/train/TrainViewHolder;
 

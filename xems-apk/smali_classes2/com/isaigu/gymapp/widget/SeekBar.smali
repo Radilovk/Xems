@@ -97,7 +97,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/widget/RangeSeekBar;Landroid/util/AttributeSet;Z)V
-    .locals 2
+    .registers 6
     .param p1, "rangeSeekBar"    # Lcom/isaigu/gymapp/widget/RangeSeekBar;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "isLeft"    # Z
@@ -165,7 +165,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/widget/SeekBar;)Lcom/isaigu/gymapp/widget/RangeSeekBar;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/SeekBar;
 
     .line 27
@@ -175,7 +175,7 @@
 .end method
 
 .method private drawIndicator(Landroid/graphics/Canvas;Ljava/lang/String;)V
-    .locals 10
+    .registers 13
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "text2Draw"    # Ljava/lang/String;
 
@@ -212,33 +212,33 @@
     .local v0, "contentWidth":I
     iget v1, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorWidth:I
 
-    if-gtz v1, :cond_0
+    if-gtz v1, :cond_20
 
     .line 172
     move v1, v0
 
     .local v1, "realIndicatorWidth":I
-    goto :goto_0
+    goto :goto_26
 
     .line 173
     .end local v1    # "realIndicatorWidth":I
-    :cond_0
-    if-ge v1, v0, :cond_1
+    :cond_20
+    if-ge v1, v0, :cond_24
 
     .line 174
     move v1, v0
 
     .restart local v1    # "realIndicatorWidth":I
-    goto :goto_0
+    goto :goto_26
 
     .line 176
     .end local v1    # "realIndicatorWidth":I
-    :cond_1
+    :cond_24
     iget v1, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorWidth:I
 
     .line 179
     .restart local v1    # "realIndicatorWidth":I
-    :goto_0
+    :goto_26
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorRect:Landroid/graphics/Rect;
 
     iget v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->thumbSize:I
@@ -293,7 +293,7 @@
     .line 184
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorBitmap:Landroid/graphics/Bitmap;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_9d
 
     .line 188
     iget v2, p0, Lcom/isaigu/gymapp/widget/SeekBar;->thumbSize:I
@@ -397,7 +397,7 @@
     .end local v4    # "ay":I
     .end local v5    # "bx":I
     .end local v6    # "by":I
-    :cond_2
+    :cond_9d
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/SeekBar;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -476,7 +476,7 @@
 
     .line 207
     .local v5, "rightOffset":I
-    if-lez v4, :cond_3
+    if-lez v4, :cond_eb
 
     .line 208
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorRect:Landroid/graphics/Rect;
@@ -496,11 +496,11 @@
 
     iput v6, v3, Landroid/graphics/Rect;->right:I
 
-    goto :goto_1
+    goto :goto_fb
 
     .line 210
-    :cond_3
-    if-lez v5, :cond_4
+    :cond_eb
+    if-lez v5, :cond_fb
 
     .line 211
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorRect:Landroid/graphics/Rect;
@@ -521,28 +521,28 @@
     iput v6, v3, Landroid/graphics/Rect;->right:I
 
     .line 216
-    :cond_4
-    :goto_1
+    :cond_fb
+    :goto_fb
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_105
 
     .line 217
     iget-object v6, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorRect:Landroid/graphics/Rect;
 
     invoke-static {p1, v3, v6}, Lcom/isaigu/gymapp/widget/Utils;->drawNinePath(Landroid/graphics/Canvas;Landroid/graphics/Bitmap;Landroid/graphics/Rect;)V
 
-    goto :goto_2
+    goto :goto_122
 
     .line 218
-    :cond_5
+    :cond_105
     iget v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorRadius:F
 
     const/4 v6, 0x0
 
     cmpl-float v3, v3, v6
 
-    if-lez v3, :cond_6
+    if-lez v3, :cond_11b
 
     .line 219
     new-instance v3, Landroid/graphics/RectF;
@@ -557,10 +557,10 @@
 
     invoke-virtual {p1, v3, v6, v6, v7}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
-    goto :goto_2
+    goto :goto_122
 
     .line 221
-    :cond_6
+    :cond_11b
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorRect:Landroid/graphics/Rect;
 
     iget-object v6, p0, Lcom/isaigu/gymapp/widget/SeekBar;->paint:Landroid/graphics/Paint;
@@ -568,10 +568,10 @@
     invoke-virtual {p1, v3, v6}, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
     .line 226
-    :goto_2
+    :goto_122
     iget v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorPaddingLeft:I
 
-    if-lez v3, :cond_7
+    if-lez v3, :cond_12e
 
     .line 227
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorRect:Landroid/graphics/Rect;
@@ -583,14 +583,14 @@
     add-int/2addr v3, v6
 
     .local v3, "tx":I
-    goto :goto_3
+    goto :goto_150
 
     .line 228
     .end local v3    # "tx":I
-    :cond_7
+    :cond_12e
     iget v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorPaddingRight:I
 
-    if-lez v3, :cond_8
+    if-lez v3, :cond_141
 
     .line 229
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorRect:Landroid/graphics/Rect;
@@ -610,11 +610,11 @@
     sub-int/2addr v3, v6
 
     .restart local v3    # "tx":I
-    goto :goto_3
+    goto :goto_150
 
     .line 231
     .end local v3    # "tx":I
-    :cond_8
+    :cond_141
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorRect:Landroid/graphics/Rect;
 
     iget v3, v3, Landroid/graphics/Rect;->left:I
@@ -633,10 +633,10 @@
 
     .line 234
     .restart local v3    # "tx":I
-    :goto_3
+    :goto_150
     iget v6, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorPaddingTop:I
 
-    if-lez v6, :cond_9
+    if-lez v6, :cond_163
 
     .line 235
     iget-object v6, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorRect:Landroid/graphics/Rect;
@@ -656,14 +656,14 @@
     add-int/2addr v6, v7
 
     .local v6, "ty":I
-    goto :goto_4
+    goto :goto_188
 
     .line 236
     .end local v6    # "ty":I
-    :cond_9
+    :cond_163
     iget v6, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorPaddingBottom:I
 
-    if-lez v6, :cond_a
+    if-lez v6, :cond_176
 
     .line 237
     iget-object v6, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorRect:Landroid/graphics/Rect;
@@ -683,11 +683,11 @@
     sub-int/2addr v6, v7
 
     .restart local v6    # "ty":I
-    goto :goto_4
+    goto :goto_188
 
     .line 239
     .end local v6    # "ty":I
-    :cond_a
+    :cond_176
     iget-object v6, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorRect:Landroid/graphics/Rect;
 
     iget v6, v6, Landroid/graphics/Rect;->bottom:I
@@ -710,7 +710,7 @@
 
     .line 243
     .restart local v6    # "ty":I
-    :goto_4
+    :goto_188
     iget-object v7, p0, Lcom/isaigu/gymapp/widget/SeekBar;->paint:Landroid/graphics/Paint;
 
     iget v8, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorTextColor:I
@@ -731,7 +731,7 @@
 .end method
 
 .method private drawThumb(Landroid/graphics/Canvas;)V
-    .locals 6
+    .registers 8
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 303
@@ -741,11 +741,11 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     iget-boolean v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->isActivate:Z
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_21
 
     .line 304
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->rangeSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
@@ -772,13 +772,13 @@
 
     invoke-virtual {p1, v0, v2, v3, v1}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 305
-    :cond_0
+    :cond_21
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->thumbBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3b
 
     .line 306
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/SeekBar;->rangeSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
@@ -806,13 +806,13 @@
     invoke-virtual {p1, v0, v2, v3, v1}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
     .line 308
-    :cond_1
-    :goto_0
+    :cond_3b
+    :goto_3b
     return-void
 .end method
 
 .method private getContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 123
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->rangeSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
@@ -825,14 +825,14 @@
 .end method
 
 .method private getResources()Landroid/content/res/Resources;
-    .locals 1
+    .registers 2
 
     .line 127
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/SeekBar;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/SeekBar;->getContext()Landroid/content/Context;
 
@@ -845,14 +845,14 @@
     return-object v0
 
     .line 128
-    :cond_0
+    :cond_f
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private initAttrs(Landroid/util/AttributeSet;)V
-    .locals 7
+    .registers 9
     .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .line 90
@@ -868,12 +868,12 @@
 
     .line 91
     .local v0, "t":Landroid/content/res/TypedArray;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     return-void
 
     .line 92
-    :cond_0
+    :cond_d
     const/4 v1, 0x4
 
     const/4 v2, 0x0
@@ -1105,7 +1105,7 @@
 .end method
 
 .method private initBitmap()V
-    .locals 1
+    .registers 2
 
     .line 135
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorDrawableId:I
@@ -1127,23 +1127,23 @@
 .end method
 
 .method private initVariables()V
-    .locals 2
+    .registers 3
 
     .line 114
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorHeight:I
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_12
 
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorShowMode:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
-    goto :goto_0
+    goto :goto_12
 
     .line 115
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "if you want to show indicator, the indicatorHeight must > 0"
@@ -1153,11 +1153,11 @@
     throw v0
 
     .line 117
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorArrowSize:I
 
-    if-gtz v0, :cond_2
+    if-gtz v0, :cond_1c
 
     .line 118
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->thumbSize:I
@@ -1167,14 +1167,14 @@
     iput v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorArrowSize:I
 
     .line 120
-    :cond_2
+    :cond_1c
     return-void
 .end method
 
 
 # virtual methods
 .method protected collide(FF)Z
-    .locals 2
+    .registers 5
     .param p1, "x"    # F
     .param p2, "y"    # F
 
@@ -1199,7 +1199,7 @@
 
     cmpl-float v1, p1, v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_28
 
     iget v1, p0, Lcom/isaigu/gymapp/widget/SeekBar;->right:I
 
@@ -1209,7 +1209,7 @@
 
     cmpg-float v1, p1, v1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_28
 
     iget v1, p0, Lcom/isaigu/gymapp/widget/SeekBar;->top:I
 
@@ -1217,7 +1217,7 @@
 
     cmpl-float v1, p2, v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_28
 
     iget v1, p0, Lcom/isaigu/gymapp/widget/SeekBar;->bottom:I
 
@@ -1225,21 +1225,21 @@
 
     cmpg-float v1, p2, v1
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_28
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_28
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_29
     return v1
 .end method
 
 .method protected draw(Landroid/graphics/Canvas;)V
-    .locals 9
+    .registers 11
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 254
@@ -1283,17 +1283,17 @@
 
     const/4 v6, 0x0
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_35
 
     .line 260
     iget-object v4, p0, Lcom/isaigu/gymapp/widget/SeekBar;->userText2Draw:Ljava/lang/String;
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_4b
 
     .line 261
     iget-object v4, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorTextDecimalFormat:Ljava/text/DecimalFormat;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_30
 
     .line 262
     aget-object v7, v1, v6
@@ -1306,26 +1306,26 @@
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 264
-    :cond_0
+    :cond_30
     aget-object v4, v1, v6
 
     iget-object v3, v4, Lcom/isaigu/gymapp/widget/SeekBarState;->indicatorText:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 268
-    :cond_1
+    :cond_35
     iget-object v4, p0, Lcom/isaigu/gymapp/widget/SeekBar;->userText2Draw:Ljava/lang/String;
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_4b
 
     .line 269
     iget-object v4, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorTextDecimalFormat:Ljava/text/DecimalFormat;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_47
 
     .line 270
     aget-object v7, v1, v5
@@ -1338,20 +1338,20 @@
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 272
-    :cond_2
+    :cond_47
     aget-object v4, v1, v5
 
     iget-object v3, v4, Lcom/isaigu/gymapp/widget/SeekBarState;->indicatorText:Ljava/lang/String;
 
     .line 276
-    :cond_3
-    :goto_0
+    :cond_4b
+    :goto_4b
     iget-object v4, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorTextStringFormat:Ljava/lang/String;
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_57
 
     .line 277
     new-array v7, v5, [Ljava/lang/Object;
@@ -1363,7 +1363,7 @@
     move-result-object v3
 
     .line 279
-    :cond_4
+    :cond_57
     iget-object v4, p0, Lcom/isaigu/gymapp/widget/SeekBar;->paint:Landroid/graphics/Paint;
 
     iget v7, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorTextSize:I
@@ -1395,22 +1395,22 @@
 
     const/4 v4, 0x3
 
-    if-ne v2, v4, :cond_5
+    if-ne v2, v4, :cond_78
 
     .line 284
     invoke-virtual {p0, v5}, Lcom/isaigu/gymapp/widget/SeekBar;->setShowIndicatorEnable(Z)V
 
     .line 286
-    :cond_5
+    :cond_78
     iget-boolean v2, p0, Lcom/isaigu/gymapp/widget/SeekBar;->isShowIndicator:Z
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7f
 
     .line 287
     invoke-direct {p0, p1, v3}, Lcom/isaigu/gymapp/widget/SeekBar;->drawIndicator(Landroid/graphics/Canvas;Ljava/lang/String;)V
 
     .line 289
-    :cond_6
+    :cond_7f
     invoke-direct {p0, p1}, Lcom/isaigu/gymapp/widget/SeekBar;->drawThumb(Landroid/graphics/Canvas;)V
 
     .line 290
@@ -1421,7 +1421,7 @@
 .end method
 
 .method protected getActivate()Z
-    .locals 1
+    .registers 2
 
     .line 516
     iget-boolean v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->isActivate:Z
@@ -1430,7 +1430,7 @@
 .end method
 
 .method public getIndicatorArrowSize()I
-    .locals 1
+    .registers 2
 
     .line 390
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorArrowSize:I
@@ -1439,7 +1439,7 @@
 .end method
 
 .method public getIndicatorBackgroundColor()I
-    .locals 1
+    .registers 2
 
     .line 478
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorBackgroundColor:I
@@ -1448,7 +1448,7 @@
 .end method
 
 .method public getIndicatorDrawableId()I
-    .locals 1
+    .registers 2
 
     .line 379
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorDrawableId:I
@@ -1457,7 +1457,7 @@
 .end method
 
 .method public getIndicatorHeight()I
-    .locals 1
+    .registers 2
 
     .line 446
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorHeight:I
@@ -1466,7 +1466,7 @@
 .end method
 
 .method public getIndicatorMargin()I
-    .locals 1
+    .registers 2
 
     .line 430
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorMargin:I
@@ -1475,7 +1475,7 @@
 .end method
 
 .method public getIndicatorPaddingBottom()I
-    .locals 1
+    .registers 2
 
     .line 422
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorPaddingBottom:I
@@ -1484,7 +1484,7 @@
 .end method
 
 .method public getIndicatorPaddingLeft()I
-    .locals 1
+    .registers 2
 
     .line 398
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorPaddingLeft:I
@@ -1493,7 +1493,7 @@
 .end method
 
 .method public getIndicatorPaddingRight()I
-    .locals 1
+    .registers 2
 
     .line 406
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorPaddingRight:I
@@ -1502,7 +1502,7 @@
 .end method
 
 .method public getIndicatorPaddingTop()I
-    .locals 1
+    .registers 2
 
     .line 414
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorPaddingTop:I
@@ -1511,7 +1511,7 @@
 .end method
 
 .method public getIndicatorShowMode()I
-    .locals 1
+    .registers 2
 
     .line 438
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorShowMode:I
@@ -1520,7 +1520,7 @@
 .end method
 
 .method public getIndicatorTextColor()I
-    .locals 1
+    .registers 2
 
     .line 470
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorTextColor:I
@@ -1529,7 +1529,7 @@
 .end method
 
 .method public getIndicatorTextDecimalFormat()Ljava/text/DecimalFormat;
-    .locals 1
+    .registers 2
 
     .line 371
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorTextDecimalFormat:Ljava/text/DecimalFormat;
@@ -1538,7 +1538,7 @@
 .end method
 
 .method public getIndicatorTextSize()I
-    .locals 1
+    .registers 2
 
     .line 462
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorTextSize:I
@@ -1547,7 +1547,7 @@
 .end method
 
 .method public getIndicatorWidth()I
-    .locals 1
+    .registers 2
 
     .line 454
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorWidth:I
@@ -1556,7 +1556,7 @@
 .end method
 
 .method public getThumbDrawableId()I
-    .locals 1
+    .registers 2
 
     .line 497
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->thumbDrawableId:I
@@ -1565,7 +1565,7 @@
 .end method
 
 .method public getThumbInactivatedDrawableId()I
-    .locals 1
+    .registers 2
 
     .line 486
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->thumbInactivatedDrawableId:I
@@ -1574,7 +1574,7 @@
 .end method
 
 .method public getThumbScaleRatio()F
-    .locals 1
+    .registers 2
 
     .line 533
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->thumbScaleRatio:F
@@ -1583,7 +1583,7 @@
 .end method
 
 .method public getThumbSize()I
-    .locals 1
+    .registers 2
 
     .line 508
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->thumbSize:I
@@ -1592,17 +1592,17 @@
 .end method
 
 .method public materialRestore()V
-    .locals 3
+    .registers 4
 
     .line 343
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->anim:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
     .line 344
-    :cond_0
+    :cond_7
     const/4 v0, 0x2
 
     new-array v0, v0, [F
@@ -1651,7 +1651,7 @@
 .end method
 
 .method protected onSizeChanged(III)V
-    .locals 2
+    .registers 6
     .param p1, "x"    # I
     .param p2, "y"    # I
     .param p3, "parentLineWidth"    # I
@@ -1700,7 +1700,7 @@
 .end method
 
 .method protected setActivate(Z)V
-    .locals 0
+    .registers 2
     .param p1, "activate"    # Z
 
     .line 520
@@ -1711,7 +1711,7 @@
 .end method
 
 .method public setIndicatorArrowSize(I)V
-    .locals 0
+    .registers 2
     .param p1, "indicatorArrowSize"    # I
 
     .line 394
@@ -1722,7 +1722,7 @@
 .end method
 
 .method public setIndicatorBackgroundColor(I)V
-    .locals 0
+    .registers 2
     .param p1, "indicatorBackgroundColor"    # I
 
     .line 482
@@ -1733,11 +1733,11 @@
 .end method
 
 .method public setIndicatorDrawableId(I)V
-    .locals 1
+    .registers 3
     .param p1, "indicatorDrawableId"    # I
 
     .line 383
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     .line 384
     iput p1, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorDrawableId:I
@@ -1754,12 +1754,12 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorBitmap:Landroid/graphics/Bitmap;
 
     .line 387
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public setIndicatorHeight(I)V
-    .locals 0
+    .registers 2
     .param p1, "indicatorHeight"    # I
 
     .line 450
@@ -1770,7 +1770,7 @@
 .end method
 
 .method public setIndicatorMargin(I)V
-    .locals 0
+    .registers 2
     .param p1, "indicatorMargin"    # I
 
     .line 434
@@ -1781,7 +1781,7 @@
 .end method
 
 .method public setIndicatorPaddingBottom(I)V
-    .locals 0
+    .registers 2
     .param p1, "indicatorPaddingBottom"    # I
 
     .line 426
@@ -1792,7 +1792,7 @@
 .end method
 
 .method public setIndicatorPaddingLeft(I)V
-    .locals 0
+    .registers 2
     .param p1, "indicatorPaddingLeft"    # I
 
     .line 402
@@ -1803,7 +1803,7 @@
 .end method
 
 .method public setIndicatorPaddingRight(I)V
-    .locals 0
+    .registers 2
     .param p1, "indicatorPaddingRight"    # I
 
     .line 410
@@ -1814,7 +1814,7 @@
 .end method
 
 .method public setIndicatorPaddingTop(I)V
-    .locals 0
+    .registers 2
     .param p1, "indicatorPaddingTop"    # I
 
     .line 418
@@ -1825,7 +1825,7 @@
 .end method
 
 .method public setIndicatorShowMode(I)V
-    .locals 0
+    .registers 2
     .param p1, "indicatorShowMode"    # I
 
     .line 442
@@ -1836,7 +1836,7 @@
 .end method
 
 .method public setIndicatorText(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "text"    # Ljava/lang/String;
 
     .line 363
@@ -1847,7 +1847,7 @@
 .end method
 
 .method public setIndicatorTextColor(I)V
-    .locals 0
+    .registers 2
     .param p1, "indicatorTextColor"    # I
 
     .line 474
@@ -1858,7 +1858,7 @@
 .end method
 
 .method public setIndicatorTextDecimalFormat(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p1, "formatPattern"    # Ljava/lang/String;
 
     .line 367
@@ -1873,7 +1873,7 @@
 .end method
 
 .method public setIndicatorTextSize(I)V
-    .locals 0
+    .registers 2
     .param p1, "indicatorTextSize"    # I
 
     .line 466
@@ -1884,7 +1884,7 @@
 .end method
 
 .method public setIndicatorTextStringFormat(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "formatPattern"    # Ljava/lang/String;
 
     .line 375
@@ -1895,7 +1895,7 @@
 .end method
 
 .method public setIndicatorWidth(I)V
-    .locals 0
+    .registers 2
     .param p1, "indicatorWidth"    # I
 
     .line 458
@@ -1906,67 +1906,67 @@
 .end method
 
 .method protected setShowIndicatorEnable(Z)V
-    .locals 3
+    .registers 5
     .param p1, "isEnable"    # Z
 
     .line 328
     iget v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->indicatorShowMode:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_15
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_11
 
     const/4 v2, 0x2
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_e
 
     const/4 v2, 0x3
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_e
 
-    goto :goto_0
+    goto :goto_18
 
     .line 334
-    :cond_0
+    :cond_e
     iput-boolean v1, p0, Lcom/isaigu/gymapp/widget/SeekBar;->isShowIndicator:Z
 
     .line 335
-    goto :goto_0
+    goto :goto_18
 
     .line 337
-    :cond_1
+    :cond_11
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->isShowIndicator:Z
 
-    goto :goto_0
+    goto :goto_18
 
     .line 330
-    :cond_2
+    :cond_15
     iput-boolean p1, p0, Lcom/isaigu/gymapp/widget/SeekBar;->isShowIndicator:Z
 
     .line 331
     nop
 
     .line 340
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 .method public setThumbDrawableId(I)V
-    .locals 2
+    .registers 4
     .param p1, "thumbDrawableId"    # I
 
     .line 501
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1a
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/SeekBar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 502
     iput p1, p0, Lcom/isaigu/gymapp/widget/SeekBar;->thumbDrawableId:I
@@ -1989,22 +1989,22 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->thumbBitmap:Landroid/graphics/Bitmap;
 
     .line 505
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public setThumbInactivatedDrawableId(I)V
-    .locals 2
+    .registers 4
     .param p1, "thumbInactivatedDrawableId"    # I
 
     .line 490
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1a
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/SeekBar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 491
     iput p1, p0, Lcom/isaigu/gymapp/widget/SeekBar;->thumbInactivatedDrawableId:I
@@ -2027,12 +2027,12 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/widget/SeekBar;->thumbInactivatedBitmap:Landroid/graphics/Bitmap;
 
     .line 494
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public setThumbSize(I)V
-    .locals 0
+    .registers 2
     .param p1, "thumbSize"    # I
 
     .line 512
@@ -2043,7 +2043,7 @@
 .end method
 
 .method public setTypeface(Landroid/graphics/Typeface;)V
-    .locals 1
+    .registers 3
     .param p1, "typeFace"    # Landroid/graphics/Typeface;
 
     .line 524
@@ -2056,7 +2056,7 @@
 .end method
 
 .method protected slide(F)V
-    .locals 1
+    .registers 3
     .param p1, "percent"    # F
 
     .line 322
@@ -2064,25 +2064,25 @@
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_7
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 323
-    :cond_0
+    :cond_7
     const/high16 v0, 0x3f800000    # 1.0f
 
     cmpl-float v0, p1, v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_f
 
     const/high16 p1, 0x3f800000    # 1.0f
 
     .line 324
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     iput p1, p0, Lcom/isaigu/gymapp/widget/SeekBar;->currPercent:F
 
     .line 325

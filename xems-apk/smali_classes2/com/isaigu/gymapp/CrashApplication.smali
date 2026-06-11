@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Landroid/app/Application;-><init>()V
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method protected attachBaseContext(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "base"    # Landroid/content/Context;
 
     .line 26
@@ -38,7 +38,7 @@
 .end method
 
 .method public onCreate()V
-    .locals 2
+    .registers 3
 
     .line 38
     invoke-super {p0}, Landroid/app/Application;->onCreate()V
@@ -64,7 +64,7 @@
 .end method
 
 .method public onLowMemory()V
-    .locals 1
+    .registers 2
 
     .line 76
     invoke-super {p0}, Landroid/app/Application;->onLowMemory()V
@@ -81,7 +81,7 @@
 .end method
 
 .method public onTrimMemory(I)V
-    .locals 0
+    .registers 2
     .param p1, "level"    # I
 
     .line 82

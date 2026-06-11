@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/UserFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/UserFragment;
 
     .line 119
@@ -34,12 +34,13 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p1, "v"    # Landroid/view/View;
 
     .line 121
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/UserFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/UserFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/UserFragment;->searchuserEdittext:Landroid/widget/EditText;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/UserFragment;->access$100(Lcom/isaigu/gymapp/fragment/UserFragment;)Landroid/widget/EditText;
 
     move-result-object v0
@@ -62,7 +63,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1c
 
     .line 124
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -71,10 +72,10 @@
 
     iget-object v1, v2, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
 
-    goto :goto_1
+    goto :goto_53
 
     .line 126
-    :cond_0
+    :cond_1c
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
@@ -85,7 +86,7 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_23
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v3
@@ -96,7 +97,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_53
 
     .line 128
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -117,7 +118,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_50
 
     .line 129
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -133,17 +134,18 @@
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 127
-    :cond_1
+    :cond_50
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
     .line 133
     .end local v2    # "i":I
-    :cond_2
-    :goto_1
+    :cond_53
+    :goto_53
     iget-object v2, p0, Lcom/isaigu/gymapp/fragment/UserFragment$3;->this$0:Lcom/isaigu/gymapp/fragment/UserFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/UserFragment;->userAdapter:Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;
     invoke-static {v2}, Lcom/isaigu/gymapp/fragment/UserFragment;->access$000(Lcom/isaigu/gymapp/fragment/UserFragment;)Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;
 
     move-result-object v2

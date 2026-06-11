@@ -25,7 +25,7 @@
 
 # direct methods
 .method protected constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
 
     .line 30
@@ -39,7 +39,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;I)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "themeResId"    # I
 
@@ -54,7 +54,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V
-    .locals 0
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "cancelable"    # Z
     .param p3, "cancelListener"    # Landroid/content/DialogInterface$OnCancelListener;
@@ -70,7 +70,7 @@
 .end method
 
 .method private setupView()V
-    .locals 3
+    .registers 4
 
     .line 45
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->getLayoutInflater()Landroid/view/LayoutInflater;
@@ -165,7 +165,7 @@
 
 # virtual methods
 .method public setShowLoading()V
-    .locals 2
+    .registers 3
 
     .line 58
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->loadingTextView:Landroid/widget/TextView;
@@ -203,7 +203,7 @@
 .end method
 
 .method public setShowText(Ljava/lang/String;Z)V
-    .locals 2
+    .registers 5
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "loading"    # Z
 
@@ -213,7 +213,7 @@
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 86
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_18
 
     .line 87
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/StatusLoadingDialog;->circularProgressView:Lcom/isaigu/gymapp/widget/CircularProgressView;
@@ -235,12 +235,12 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 91
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public setShowWithProgressText(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "text"    # Ljava/lang/String;
 
     .line 76
@@ -284,7 +284,7 @@
 .end method
 
 .method public setShowWithProgressText(Ljava/lang/String;I)V
-    .locals 4
+    .registers 7
     .param p1, "text"    # Ljava/lang/String;
     .param p2, "progress"    # I
 
@@ -341,7 +341,7 @@
 .end method
 
 .method public setShowWithStatusImage(ILjava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "resId"    # I
     .param p2, "text"    # Ljava/lang/String;
 
@@ -391,7 +391,7 @@
 .end method
 
 .method public setShowWithStatusImageAndButton(ILjava/lang/String;Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 6
     .param p1, "resId"    # I
     .param p2, "text"    # Ljava/lang/String;
     .param p3, "runnable"    # Ljava/lang/Runnable;

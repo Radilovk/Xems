@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/fragment/UserFragment;Ljava/util/List;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/UserFragment;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -61,7 +61,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;
 
     .line 159
@@ -73,12 +73,12 @@
 
 # virtual methods
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 235
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;->mData:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 236
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -88,14 +88,14 @@
     return v0
 
     .line 238
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public onBindViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
-    .locals 11
+    .registers 14
     .param p1, "holder"    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
     .param p2, "position"    # I
 
@@ -129,14 +129,14 @@
 
     const/4 v3, 0x1
 
-    :try_start_0
+    :try_start_17
     iget-object v4, v1, Lcom/isaigu/gymapp/bean/TrainUser;->iconUrl:Ljava/lang/String;
 
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_57
 
     const-string v4, "sample"
 
@@ -146,12 +146,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2a
 
-    goto :goto_0
+    goto :goto_57
 
     .line 201
-    :cond_0
+    :cond_2a
     iget-object v4, p0, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;->this$0:Lcom/isaigu/gymapp/fragment/UserFragment;
 
     invoke-virtual {v4}, Lcom/isaigu/gymapp/fragment/UserFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -194,11 +194,11 @@
 
     invoke-virtual {v4, v5}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    goto :goto_1
+    goto :goto_88
 
     .line 199
-    :cond_1
-    :goto_0
+    :cond_57
+    :goto_57
     iget-object v4, p0, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;->this$0:Lcom/isaigu/gymapp/fragment/UserFragment;
 
     invoke-virtual {v4}, Lcom/isaigu/gymapp/fragment/UserFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -244,19 +244,19 @@
     iget-object v5, v0, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter$UserHolder;->usericon:Landroid/widget/ImageView;
 
     invoke-virtual {v4, v5}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_88
+    .catch Ljava/lang/Exception; {:try_start_17 .. :try_end_88} :catch_89
 
     .line 205
-    :goto_1
-    goto :goto_2
+    :goto_88
+    goto :goto_8a
 
     .line 203
-    :catch_0
+    :catch_89
     move-exception v4
 
     .line 206
-    :goto_2
+    :goto_8a
     iget-object v4, v0, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter$UserHolder;->sex:Landroid/widget/TextView;
 
     iget-object v5, p0, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;->this$0:Lcom/isaigu/gymapp/fragment/UserFragment;
@@ -288,18 +288,18 @@
 
     iget-object v6, v1, Lcom/isaigu/gymapp/bean/TrainUser;->createTime:Ljava/util/Date;
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_b0
 
     new-instance v6, Ljava/util/Date;
 
     invoke-direct {v6}, Ljava/util/Date;-><init>()V
 
-    goto :goto_3
+    goto :goto_b2
 
-    :cond_2
+    :cond_b0
     iget-object v6, v1, Lcom/isaigu/gymapp/bean/TrainUser;->createTime:Ljava/util/Date;
 
-    :goto_3
+    :goto_b2
     invoke-static {v4, v6}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;Ljava/util/Date;)Ljava/lang/CharSequence;
 
     move-result-object v6
@@ -368,6 +368,7 @@
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 213
+    # getter for: Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter$UserHolder;->orderText:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter$UserHolder;->access$300(Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter$UserHolder;)Landroid/widget/TextView;
 
     move-result-object v5
@@ -393,7 +394,7 @@
 
     .line 215
     .local v5, "dataBean":Lcom/isaigu/gymapp/bean/TrainProgram;
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_118
 
     .line 216
     iget-object v6, v0, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter$UserHolder;->trainname:Landroid/widget/TextView;
@@ -403,7 +404,7 @@
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 218
-    :cond_3
+    :cond_118
     iget-object v6, v0, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter$UserHolder;->recordImage:Landroid/widget/ImageView;
 
     new-instance v7, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter$2;
@@ -425,7 +426,7 @@
 
     .line 228
     .local v6, "programDataBean":Lcom/isaigu/gymapp/bean/ProgramDataBean;
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_167
 
     .line 229
     iget-object v7, v0, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter$UserHolder;->traindata:Landroid/widget/TextView;
@@ -487,12 +488,12 @@
     invoke-virtual {v7, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 231
-    :cond_4
+    :cond_167
     return-void
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .locals 3
+    .registers 6
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -525,7 +526,7 @@
 .end method
 
 .method public updateAdapter(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -539,7 +540,7 @@
     .local p1, "data":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainUser;>;"
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;->mData:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 169
     new-instance v0, Ljava/util/ArrayList;
@@ -549,8 +550,8 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;->mData:Ljava/util/List;
 
     .line 171
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_b
+    if-eqz p1, :cond_12
 
     .line 172
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;->mData:Ljava/util/List;
@@ -559,6 +560,6 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;->notifyDataSetChanged()V
 
     .line 175
-    :cond_1
+    :cond_12
     return-void
 .end method

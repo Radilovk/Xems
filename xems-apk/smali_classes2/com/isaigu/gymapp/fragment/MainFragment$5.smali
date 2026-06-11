@@ -15,12 +15,9 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback",
-        "<",
-        "Lcom/isaigu/gymapp/bean/vo/ResponseData",
-        "<",
-        "Ljava/util/List",
-        "<",
+        "Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback<",
+        "Lcom/isaigu/gymapp/bean/vo/ResponseData<",
+        "Ljava/util/List<",
         "Lcom/isaigu/gymapp/bean/TrainUser;",
         ">;>;>;"
     }
@@ -34,9 +31,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/MainFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/MainFragment;
 
-    .prologue
-    .line 267
+    .line 286
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/MainFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/MainFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;-><init>()V
@@ -48,45 +45,45 @@
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
     .registers 7
+    .param p1, "httpSuccess"    # Z
+    .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
             "Ljava/lang/String;",
-            "Lcom/isaigu/gymapp/bean/vo/ResponseData",
-            "<",
-            "Ljava/util/List",
-            "<",
+            "Lcom/isaigu/gymapp/bean/vo/ResponseData<",
+            "Ljava/util/List<",
             "Lcom/isaigu/gymapp/bean/TrainUser;",
             ">;>;)V"
         }
     .end annotation
 
-    .prologue
-    .line 270
-    if-eqz p1, :cond_27
+    .line 288
+    .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainUser;>;>;"
+    const-string v0, "file_name_user_data"
+
+    if-eqz p1, :cond_22
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_27
+    if-nez v1, :cond_22
 
-    .line 271
+    .line 289
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v1
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getData()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Ljava/util/List;
+    check-cast v2, Ljava/util/List;
 
-    iput-object v0, v1, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
+    iput-object v2, v1, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
 
-    .line 272
-    const-string v0, "file_name_user_data"
-
+    .line 290
     const-class v1, Lcom/isaigu/gymapp/bean/TrainUser;
 
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -97,31 +94,22 @@
 
     invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/utils/FileUtils;->saveListData(Ljava/lang/String;Ljava/lang/Class;Ljava/util/List;)V
 
-    .line 277
-    :goto_21
-    const/16 v0, 0x69
+    goto :goto_39
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
+    .line 292
+    :cond_22
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/MainFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/MainFragment;
 
-    .line 278
-    return-void
-
-    .line 274
-    :cond_27
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/MainFragment;
-
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/MainFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
-
-    move-result-object v0
-
-    invoke-static {v0, p2, p3}, Lcom/isaigu/gymapp/mgr/CommonUtils;->showErrorTips(Lcom/isaigu/gymapp/BaseActivity;Ljava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-
-    .line 275
-    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+    invoke-virtual {v1}, Lcom/isaigu/gymapp/fragment/MainFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
 
-    const-string v0, "file_name_user_data"
+    invoke-static {v1, p2, p3}, Lcom/isaigu/gymapp/mgr/CommonUtils;->showErrorTips(Lcom/isaigu/gymapp/BaseActivity;Ljava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
+
+    .line 293
+    invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
+
+    move-result-object v1
 
     const-class v2, Lcom/isaigu/gymapp/bean/TrainUser;
 
@@ -133,14 +121,20 @@
 
     iput-object v0, v1, Lcom/isaigu/gymapp/mgr/DataMgr;->trainUsers:Ljava/util/List;
 
-    goto :goto_21
+    .line 295
+    :goto_39
+    const/16 v0, 0x69
+
+    invoke-static {v0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->dispatchEventMessage(S)V
+
+    .line 296
+    return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
     .registers 4
 
-    .prologue
-    .line 267
+    .line 286
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/MainFragment$5;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V

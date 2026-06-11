@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 18
+    .registers 18
 
     .line 471
     const/4 v0, 0x0
@@ -36,7 +36,7 @@
     sput-object v0, Lcom/isaigu/gymapp/utils/OKHttpUtils$SSLSocketFactoryCompat;->cipherSuites:[Ljava/lang/String;
 
     .line 474
-    :try_start_0
+    :try_start_5
     invoke-static {}, Ljavax/net/ssl/SSLSocketFactory;->getDefault()Ljavax/net/SocketFactory;
 
     move-result-object v0
@@ -49,7 +49,7 @@
 
     .line 475
     .local v0, "socket":Ljavax/net/ssl/SSLSocket;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_99
 
     .line 479
     new-instance v1, Ljava/util/LinkedList;
@@ -66,8 +66,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_1
+    :goto_1c
+    if-ge v4, v3, :cond_32
 
     aget-object v5, v2, v4
 
@@ -83,20 +83,20 @@
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_2f
 
     .line 482
     invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 480
     .end local v5    # "protocol":Ljava/lang/String;
-    :cond_0
+    :cond_2f
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 483
-    :cond_1
+    :cond_32
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v2
@@ -116,7 +116,7 @@
 
     const/16 v3, 0x15
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_99
 
     .line 487
     const-string v4, "TLS_RSA_WITH_AES_256_GCM_SHA384"
@@ -208,8 +208,8 @@
     check-cast v6, [Ljava/lang/String;
 
     sput-object v6, Lcom/isaigu/gymapp/utils/OKHttpUtils$SSLSocketFactoryCompat;->cipherSuites:[Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_99
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_99} :catch_9b
 
     .line 521
     .end local v0    # "socket":Ljavax/net/ssl/SSLSocket;
@@ -218,14 +218,14 @@
     .end local v3    # "availableCiphers":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     .end local v4    # "preferredCiphers":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
     .end local v5    # "enabledCiphers":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
-    :cond_2
+    :cond_99
     nop
 
     .line 522
     return-void
 
     .line 519
-    :catch_0
+    :catch_9b
     move-exception v0
 
     .line 520
@@ -238,14 +238,14 @@
 .end method
 
 .method public constructor <init>(Ljavax/net/ssl/X509TrustManager;)V
-    .locals 4
+    .registers 6
     .param p1, "tm"    # Ljavax/net/ssl/X509TrustManager;
 
     .line 523
     invoke-direct {p0}, Ljavax/net/ssl/SSLSocketFactory;-><init>()V
 
     .line 525
-    :try_start_0
+    :try_start_3
     const-string v0, "TLS"
 
     invoke-static {v0}, Ljavax/net/ssl/SSLContext;->getInstance(Ljava/lang/String;)Ljavax/net/ssl/SSLContext;
@@ -256,7 +256,7 @@
     .local v0, "sslContext":Ljavax/net/ssl/SSLContext;
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     const/4 v2, 0x1
 
@@ -266,12 +266,12 @@
 
     aput-object p1, v2, v3
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     move-object v2, v1
 
-    :goto_0
+    :goto_14
     invoke-virtual {v0, v1, v2, v1}, Ljavax/net/ssl/SSLContext;->init([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V
 
     .line 527
@@ -280,8 +280,8 @@
     move-result-object v1
 
     iput-object v1, p0, Lcom/isaigu/gymapp/utils/OKHttpUtils$SSLSocketFactoryCompat;->defaultFactory:Ljavax/net/ssl/SSLSocketFactory;
-    :try_end_0
-    .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1d
+    .catch Ljava/security/GeneralSecurityException; {:try_start_3 .. :try_end_1d} :catch_1f
 
     .line 530
     .end local v0    # "sslContext":Ljavax/net/ssl/SSLContext;
@@ -291,7 +291,7 @@
     return-void
 
     .line 528
-    :catch_0
+    :catch_1f
     move-exception v0
 
     .line 529
@@ -304,41 +304,41 @@
 .end method
 
 .method private upgradeTLS(Ljavax/net/ssl/SSLSocket;)V
-    .locals 2
+    .registers 4
     .param p1, "ssl"    # Ljavax/net/ssl/SSLSocket;
 
     .line 536
     sget-object v0, Lcom/isaigu/gymapp/utils/OKHttpUtils$SSLSocketFactoryCompat;->protocols:[Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 537
     invoke-virtual {p1, v0}, Ljavax/net/ssl/SSLSocket;->setEnabledProtocols([Ljava/lang/String;)V
 
     .line 539
-    :cond_0
+    :cond_7
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_14
 
     sget-object v0, Lcom/isaigu/gymapp/utils/OKHttpUtils$SSLSocketFactoryCompat;->cipherSuites:[Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 540
     invoke-virtual {p1, v0}, Ljavax/net/ssl/SSLSocket;->setEnabledCipherSuites([Ljava/lang/String;)V
 
     .line 542
-    :cond_1
+    :cond_14
     return-void
 .end method
 
 
 # virtual methods
 .method public createSocket(Ljava/lang/String;I)Ljava/net/Socket;
-    .locals 2
+    .registers 5
     .param p1, "host"    # Ljava/lang/String;
     .param p2, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -359,7 +359,7 @@
     .local v0, "ssl":Ljava/net/Socket;
     instance-of v1, v0, Ljavax/net/ssl/SSLSocket;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 562
     move-object v1, v0
@@ -369,12 +369,12 @@
     invoke-direct {p0, v1}, Lcom/isaigu/gymapp/utils/OKHttpUtils$SSLSocketFactoryCompat;->upgradeTLS(Ljavax/net/ssl/SSLSocket;)V
 
     .line 563
-    :cond_0
+    :cond_10
     return-object v0
 .end method
 
 .method public createSocket(Ljava/lang/String;ILjava/net/InetAddress;I)Ljava/net/Socket;
-    .locals 2
+    .registers 7
     .param p1, "host"    # Ljava/lang/String;
     .param p2, "port"    # I
     .param p3, "localHost"    # Ljava/net/InetAddress;
@@ -397,7 +397,7 @@
     .local v0, "ssl":Ljava/net/Socket;
     instance-of v1, v0, Ljavax/net/ssl/SSLSocket;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 569
     move-object v1, v0
@@ -407,12 +407,12 @@
     invoke-direct {p0, v1}, Lcom/isaigu/gymapp/utils/OKHttpUtils$SSLSocketFactoryCompat;->upgradeTLS(Ljavax/net/ssl/SSLSocket;)V
 
     .line 570
-    :cond_0
+    :cond_10
     return-object v0
 .end method
 
 .method public createSocket(Ljava/net/InetAddress;I)Ljava/net/Socket;
-    .locals 2
+    .registers 5
     .param p1, "host"    # Ljava/net/InetAddress;
     .param p2, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
@@ -432,7 +432,7 @@
     .local v0, "ssl":Ljava/net/Socket;
     instance-of v1, v0, Ljavax/net/ssl/SSLSocket;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 576
     move-object v1, v0
@@ -442,12 +442,12 @@
     invoke-direct {p0, v1}, Lcom/isaigu/gymapp/utils/OKHttpUtils$SSLSocketFactoryCompat;->upgradeTLS(Ljavax/net/ssl/SSLSocket;)V
 
     .line 577
-    :cond_0
+    :cond_10
     return-object v0
 .end method
 
 .method public createSocket(Ljava/net/InetAddress;ILjava/net/InetAddress;I)Ljava/net/Socket;
-    .locals 2
+    .registers 7
     .param p1, "address"    # Ljava/net/InetAddress;
     .param p2, "port"    # I
     .param p3, "localAddress"    # Ljava/net/InetAddress;
@@ -469,7 +469,7 @@
     .local v0, "ssl":Ljava/net/Socket;
     instance-of v1, v0, Ljavax/net/ssl/SSLSocket;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 583
     move-object v1, v0
@@ -479,12 +479,12 @@
     invoke-direct {p0, v1}, Lcom/isaigu/gymapp/utils/OKHttpUtils$SSLSocketFactoryCompat;->upgradeTLS(Ljavax/net/ssl/SSLSocket;)V
 
     .line 584
-    :cond_0
+    :cond_10
     return-object v0
 .end method
 
 .method public createSocket(Ljava/net/Socket;Ljava/lang/String;IZ)Ljava/net/Socket;
-    .locals 2
+    .registers 7
     .param p1, "s"    # Ljava/net/Socket;
     .param p2, "host"    # Ljava/lang/String;
     .param p3, "port"    # I
@@ -506,7 +506,7 @@
     .local v0, "ssl":Ljava/net/Socket;
     instance-of v1, v0, Ljavax/net/ssl/SSLSocket;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 555
     move-object v1, v0
@@ -516,12 +516,12 @@
     invoke-direct {p0, v1}, Lcom/isaigu/gymapp/utils/OKHttpUtils$SSLSocketFactoryCompat;->upgradeTLS(Ljavax/net/ssl/SSLSocket;)V
 
     .line 556
-    :cond_0
+    :cond_10
     return-object v0
 .end method
 
 .method public getDefaultCipherSuites()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 545
     sget-object v0, Lcom/isaigu/gymapp/utils/OKHttpUtils$SSLSocketFactoryCompat;->cipherSuites:[Ljava/lang/String;
@@ -530,7 +530,7 @@
 .end method
 
 .method public getSupportedCipherSuites()[Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 549
     sget-object v0, Lcom/isaigu/gymapp/utils/OKHttpUtils$SSLSocketFactoryCompat;->cipherSuites:[Ljava/lang/String;

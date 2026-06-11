@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/isaigu/gymapp/fragment/VideoListFragment;Landroid/content/Context;Ljava/util/List;)V
-    .locals 0
+    .registers 4
     .param p2, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -74,18 +74,18 @@
     iput-object p2, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;->context:Landroid/content/Context;
 
     .line 203
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_15
 
     .line 204
     iput-object p3, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;->videoList:Ljava/util/List;
 
     .line 206
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/isaigu/gymapp/fragment/VideoListFragment;Landroid/content/Context;Ljava/util/List;Lcom/isaigu/gymapp/fragment/VideoListFragment$1;)V
-    .locals 0
+    .registers 5
     .param p1, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment;
     .param p2, "x1"    # Landroid/content/Context;
     .param p3, "x2"    # Ljava/util/List;
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public append(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -112,7 +112,7 @@
 
     .line 216
     .local p1, "list":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/vo/VideoVO;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     .line 217
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;->videoList:Ljava/util/List;
@@ -132,12 +132,12 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;->notifyDataSetChanged()V
 
     .line 245
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public clearData()V
-    .locals 1
+    .registers 2
 
     .line 248
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;->videoList:Ljava/util/List;
@@ -152,12 +152,12 @@
 .end method
 
 .method public getItemCount()I
-    .locals 2
+    .registers 3
 
     .line 284
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;->videoList:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 285
     const/4 v0, 0x0
@@ -165,7 +165,7 @@
     return v0
 
     .line 287
-    :cond_0
+    :cond_6
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
@@ -174,7 +174,7 @@
 
     rem-int/2addr v0, v1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_19
 
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;->videoList:Ljava/util/List;
 
@@ -186,9 +186,9 @@
 
     div-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_19
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;->videoList:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -201,12 +201,12 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    :goto_0
+    :goto_24
     return v0
 .end method
 
 .method public onBindViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
-    .locals 5
+    .registers 8
     .param p1, "holder"    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
     .param p2, "position"    # I
 
@@ -220,10 +220,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_4
     iget v2, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;->itemCount:I
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_74
 
     .line 262
     mul-int v2, v2, p2
@@ -236,9 +236,10 @@
 
     move-result v3
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_1e
 
     .line 263
+    # getter for: Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;->item:[Landroid/widget/RelativeLayout;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;->access$600(Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;)[Landroid/widget/RelativeLayout;
 
     move-result-object v2
@@ -250,10 +251,11 @@
     invoke-virtual {v2, v3}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
     .line 264
-    goto :goto_1
+    goto :goto_71
 
     .line 266
-    :cond_0
+    :cond_1e
+    # getter for: Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;->item:[Landroid/widget/RelativeLayout;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;->access$600(Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;)[Landroid/widget/RelativeLayout;
 
     move-result-object v2
@@ -281,7 +283,7 @@
 
     .line 268
     .local v2, "videoVO":Lcom/isaigu/gymapp/bean/vo/VideoVO;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_71
 
     iget-object v3, v2, Lcom/isaigu/gymapp/bean/vo/VideoVO;->url:Ljava/lang/String;
 
@@ -289,7 +291,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_71
 
     .line 271
     iget-object v3, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;->this$0:Lcom/isaigu/gymapp/fragment/VideoListFragment;
@@ -308,6 +310,7 @@
 
     move-result-object v3
 
+    # getter for: Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;->maskImage:[Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;->access$700(Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;)[Landroid/widget/ImageView;
 
     move-result-object v4
@@ -317,6 +320,7 @@
     invoke-virtual {v3, v4}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 272
+    # getter for: Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;->videoName:[Landroid/widget/TextView;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;->access$800(Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;)[Landroid/widget/TextView;
 
     move-result-object v3
@@ -328,6 +332,7 @@
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 273
+    # getter for: Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;->play:[Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;->access$1000(Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;)[Landroid/widget/ImageView;
 
     move-result-object v3
@@ -342,20 +347,20 @@
 
     .line 261
     .end local v2    # "videoVO":Lcom/isaigu/gymapp/bean/vo/VideoVO;
-    :cond_1
-    :goto_1
+    :cond_71
+    :goto_71
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 280
     .end local v1    # "i":I
-    :cond_2
+    :cond_74
     return-void
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .locals 3
+    .registers 6
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -380,7 +385,7 @@
 .end method
 
 .method public update(Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -392,7 +397,7 @@
 
     .line 209
     .local p1, "list":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/vo/VideoVO;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 210
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;->videoList:Ljava/util/List;
@@ -401,6 +406,6 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;->notifyDataSetChanged()V
 
     .line 213
-    :cond_0
+    :cond_7
     return-void
 .end method

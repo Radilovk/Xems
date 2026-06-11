@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 .end method
 
 .method static synthetic access$000()Lcom/isaigu/gymapp/widget/OptionsPickerViewExtend;
-    .locals 1
+    .registers 1
 
     .line 23
     sget-object v0, Lcom/isaigu/gymapp/UIFactory;->pvCustomOptions:Lcom/isaigu/gymapp/widget/OptionsPickerViewExtend;
@@ -38,7 +38,7 @@
 .end method
 
 .method static synthetic access$100()Lcom/isaigu/gymapp/widget/OptionsPickerViewExtend;
-    .locals 1
+    .registers 1
 
     .line 23
     sget-object v0, Lcom/isaigu/gymapp/UIFactory;->pvCustomOptions3:Lcom/isaigu/gymapp/widget/OptionsPickerViewExtend;
@@ -47,7 +47,7 @@
 .end method
 
 .method public static showOptionView(Landroid/content/Context;Ljava/lang/String;Ljava/util/List;ILcom/isaigu/gymapp/UIFactory$OptionSelectListener;)V
-    .locals 4
+    .registers 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "title"    # Ljava/lang/String;
     .param p3, "selected"    # I
@@ -138,7 +138,7 @@
 .end method
 
 .method public static showOptionView3(Landroid/content/Context;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lcom/isaigu/gymapp/UIFactory$OptionSelectListener3;)V
-    .locals 4
+    .registers 10
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "title"    # Ljava/lang/String;
     .param p5, "listener"    # Lcom/isaigu/gymapp/UIFactory$OptionSelectListener3;

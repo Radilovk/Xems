@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$ProgramAdapter;Landroid/view/View;)V
-    .locals 1
+    .registers 4
     .param p1, "this$1"    # Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$ProgramAdapter;
     .param p2, "itemView"    # Landroid/view/View;
 

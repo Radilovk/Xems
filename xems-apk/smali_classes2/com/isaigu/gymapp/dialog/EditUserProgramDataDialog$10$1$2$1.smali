@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1$2;)V
-    .locals 0
+    .registers 2
     .param p1, "this$3"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1$2;
 
     .line 562
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 3
+    .registers 7
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -60,16 +60,16 @@
 
     .line 565
     .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainProgram;>;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6c
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6c
 
-    :try_start_0
+    :try_start_4
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6c
 
     .line 566
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -135,11 +135,12 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->saveProgramListener:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2700(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_8a
 
     .line 571
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1$2$1;->this$3:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1$2;
@@ -150,6 +151,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->saveProgramListener:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2700(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;
 
     move-result-object v0
@@ -162,6 +164,7 @@
 
     iget-object v1, v1, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v1
@@ -170,10 +173,10 @@
 
     invoke-interface {v0, v1, v2}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$SaveProgramListener;->onSaveProgram(Lcom/isaigu/gymapp/bean/TrainProgram;Ljava/util/List;)V
 
-    goto :goto_0
+    goto :goto_8a
 
     .line 574
-    :cond_0
+    :cond_6c
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1$2$1;->this$3:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1$2;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1$2;->this$2:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1;
@@ -203,8 +206,8 @@
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->showTips(Ljava/lang/String;)V
 
     .line 576
-    :cond_1
-    :goto_0
+    :cond_8a
+    :goto_8a
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1$2$1;->this$3:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1$2;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1$2;->this$2:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10$1;
@@ -247,14 +250,14 @@
     iget-object v1, v1, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$10;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->closeDialogFragment(Lcom/isaigu/gymapp/BaseDialogFragment;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b6
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_b6} :catch_b7
 
     .line 580
-    goto :goto_1
+    goto :goto_bb
 
     .line 578
-    :catch_0
+    :catch_b7
     move-exception v0
 
     .line 579
@@ -263,12 +266,12 @@
 
     .line 581
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_bb
     return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 562
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

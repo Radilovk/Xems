@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;Landroid/view/View;)V
-    .locals 6
+    .registers 9
     .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;
     .param p2, "itemView"    # Landroid/view/View;
 
@@ -279,7 +279,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;)[Landroid/widget/ImageView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;
 
     .line 290
@@ -289,7 +289,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;)[Landroid/widget/RelativeLayout;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;
 
     .line 290
@@ -299,7 +299,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;)[Landroid/widget/ImageView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;
 
     .line 290
@@ -309,7 +309,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;)[Landroid/widget/TextView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter$VideoViewHolder;
 
     .line 290

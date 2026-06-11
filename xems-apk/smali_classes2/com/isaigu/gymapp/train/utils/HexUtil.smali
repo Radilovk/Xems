@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static bytesToHex([B)Ljava/lang/String;
-    .locals 7
+    .registers 8
     .param p0, "bytes"    # [B
 
     .line 5
@@ -30,8 +30,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_0
+    :goto_8
+    if-ge v3, v1, :cond_21
 
     aget-byte v4, p0, v3
 
@@ -59,10 +59,10 @@
     .end local v4    # "b":B
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 9
-    :cond_0
+    :cond_21
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -71,7 +71,7 @@
 .end method
 
 .method public static hexToBytes(Ljava/lang/String;)[B
-    .locals 4
+    .registers 5
     .param p0, "hex"    # Ljava/lang/String;
 
     .line 13
@@ -81,7 +81,7 @@
 
     rem-int/lit8 v0, v0, 0x2
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2b
 
     .line 16
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -97,10 +97,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_11
     array-length v2, v0
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_2a
 
     .line 18
     mul-int/lit8 v2, v1, 0x2
@@ -129,16 +129,16 @@
     .end local v2    # "hexValue":I
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 21
     .end local v1    # "i":I
-    :cond_0
+    :cond_2a
     return-object v0
 
     .line 14
     .end local v0    # "bytes":[B
-    :cond_1
+    :cond_2b
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Hex string must have an even length."

@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$6$2;)V
-    .locals 0
+    .registers 2
     .param p1, "this$2"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$6$2;
 
     .line 421
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 3
+    .registers 7
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -60,13 +60,13 @@
 
     .line 423
     .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainUser;>;>;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_23
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_23
 
     .line 424
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getData()Ljava/lang/Object;
@@ -77,7 +77,7 @@
 
     .line 425
     .local v0, "users":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainUser;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 426
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -100,11 +100,11 @@
 
     .line 430
     .end local v0    # "users":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainUser;>;"
-    :cond_0
-    goto :goto_0
+    :cond_22
+    goto :goto_30
 
     .line 431
-    :cond_1
+    :cond_23
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$6$2$2;->this$2:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$6$2;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$6$2;->this$1:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$6;
@@ -118,12 +118,12 @@
     invoke-static {v0, p2, p3}, Lcom/isaigu/gymapp/mgr/CommonUtils;->showErrorTips(Lcom/isaigu/gymapp/BaseActivity;Ljava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
 
     .line 433
-    :goto_0
+    :goto_30
     return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 421
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

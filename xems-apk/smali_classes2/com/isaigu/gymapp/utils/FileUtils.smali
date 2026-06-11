@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 20
     const-string v0, "54ef5df9a9ef5dfs630kddlfl"
@@ -43,7 +43,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
 .end method
 
 .method public static getData(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .param p0, "clazz"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -77,7 +77,7 @@
 .end method
 
 .method public static getData(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .param p0, "fileName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -118,7 +118,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     .line 67
     const/4 v2, 0x0
@@ -126,7 +126,7 @@
     return-object v2
 
     .line 70
-    :cond_0
+    :cond_19
     sget-object v2, Lcom/isaigu/gymapp/utils/FileUtils;->encryptKey:Ljava/lang/String;
 
     invoke-static {v1, v2}, Lcom/isaigu/gymapp/utils/XXTEATool;->Decrypt(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -146,7 +146,7 @@
 .end method
 
 .method public static getDataList(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 7
+    .registers 9
     .param p0, "fileName"    # Ljava/lang/String;
     .param p1, "clazz"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
@@ -187,14 +187,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_42
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1a
 
-    goto :goto_1
+    goto :goto_42
 
     .line 110
-    :cond_0
+    :cond_1a
     sget-object v2, Lcom/isaigu/gymapp/utils/FileUtils;->encryptKey:Ljava/lang/String;
 
     invoke-static {v1, v2}, Lcom/isaigu/gymapp/utils/XXTEATool;->Decrypt(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -230,8 +230,8 @@
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v4, :cond_1
+    :goto_37
+    if-ge v5, v4, :cond_41
 
     aget-object v6, v2, v5
 
@@ -243,17 +243,17 @@
     .end local v6    # "obj":Ljava/lang/Object;
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_37
 
     .line 116
-    :cond_1
+    :cond_41
     return-object v3
 
     .line 107
     .end local v2    # "object":[Ljava/lang/Object;
     .end local v3    # "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
-    :cond_2
-    :goto_1
+    :cond_42
+    :goto_42
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
@@ -262,7 +262,7 @@
 .end method
 
 .method public static initConext(Landroid/content/Context;)V
-    .locals 0
+    .registers 1
     .param p0, "con"    # Landroid/content/Context;
 
     .line 25
@@ -273,7 +273,7 @@
 .end method
 
 .method public static removeData(Ljava/lang/Class;)V
-    .locals 1
+    .registers 2
     .param p0, "clazz"    # Ljava/lang/Class;
 
     .line 146
@@ -288,23 +288,23 @@
 .end method
 
 .method public static removeData(Ljava/lang/String;Ljava/lang/Class;)V
-    .locals 3
+    .registers 5
     .param p0, "fileName"    # Ljava/lang/String;
     .param p1, "clazz"    # Ljava/lang/Class;
 
     .line 121
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_1f
 
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 140
-    :cond_0
+    :cond_9
     sget-object v0, Lcom/isaigu/gymapp/utils/FileUtils;->context:Landroid/content/Context;
 
     const/4 v1, 0x4
@@ -336,13 +336,13 @@
     .line 122
     .end local v0    # "preferences":Landroid/content/SharedPreferences;
     .end local v1    # "editor":Landroid/content/SharedPreferences$Editor;
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     return-void
 .end method
 
 .method public static saveData(Ljava/lang/Object;)V
-    .locals 1
+    .registers 2
     .param p0, "object"    # Ljava/lang/Object;
 
     .line 31
@@ -361,18 +361,18 @@
 .end method
 
 .method public static saveData(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 5
+    .registers 7
     .param p0, "fileName"    # Ljava/lang/String;
     .param p1, "object"    # Ljava/lang/Object;
 
     .line 35
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     .line 36
     return-void
 
     .line 38
-    :cond_0
+    :cond_3
     sget-object v0, Lcom/isaigu/gymapp/utils/FileUtils;->gson:Lcom/google/gson/Gson;
 
     invoke-virtual {v0, p1}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;)Ljava/lang/String;
@@ -423,7 +423,7 @@
 .end method
 
 .method public static saveListData(Ljava/lang/String;Ljava/lang/Class;Ljava/util/List;)V
-    .locals 1
+    .registers 4
     .param p0, "fileName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -452,7 +452,7 @@
 .end method
 
 .method public static saveListData(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
-    .locals 4
+    .registers 7
     .param p0, "fileName"    # Ljava/lang/String;
     .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -469,13 +469,13 @@
 
     .line 47
     .local p2, "data":Ljava/util/List;, "Ljava/util/List<TT;>;"
-    if-nez p2, :cond_0
+    if-nez p2, :cond_3
 
     .line 48
     return-void
 
     .line 50
-    :cond_0
+    :cond_3
     sget-object v0, Lcom/isaigu/gymapp/utils/FileUtils;->gson:Lcom/google/gson/Gson;
 
     invoke-virtual {v0, p2}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;)Ljava/lang/String;

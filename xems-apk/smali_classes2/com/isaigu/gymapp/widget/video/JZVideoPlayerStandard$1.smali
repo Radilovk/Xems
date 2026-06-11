@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;
 
     .line 77
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+    .registers 9
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
@@ -51,7 +51,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_34
 
     .line 81
     const/4 v1, 0x0
@@ -96,6 +96,7 @@
 
     iget-object v5, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard$1;->this$0:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;
 
+    # getter for: Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->battertReceiver:Landroid/content/BroadcastReceiver;
     invoke-static {v5}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->access$000(Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;)Landroid/content/BroadcastReceiver;
 
     move-result-object v5
@@ -106,6 +107,6 @@
     .end local v1    # "level":I
     .end local v2    # "scale":I
     .end local v3    # "percent":I
-    :cond_0
+    :cond_34
     return-void
 .end method

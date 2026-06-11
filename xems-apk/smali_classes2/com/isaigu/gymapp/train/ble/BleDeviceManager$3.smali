@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 248
     invoke-direct {p0}, Lcom/clj/fastble/callback/BleGattCallback;-><init>()V
@@ -27,11 +27,12 @@
 
 # virtual methods
 .method public onConnectFail(Lcom/clj/fastble/data/BleDevice;Lcom/clj/fastble/exception/BleException;)V
-    .locals 0
+    .registers 3
     .param p1, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
     .param p2, "exception"    # Lcom/clj/fastble/exception/BleException;
 
     .line 256
+    # invokes: Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->decreaseConnect()V
     invoke-static {}, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->access$200()V
 
     .line 259
@@ -39,7 +40,7 @@
 .end method
 
 .method public onConnectSuccess(Lcom/clj/fastble/data/BleDevice;Landroid/bluetooth/BluetoothGatt;I)V
-    .locals 6
+    .registers 10
     .param p1, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
     .param p2, "gatt"    # Landroid/bluetooth/BluetoothGatt;
     .param p3, "status"    # I
@@ -70,9 +71,11 @@
     .line 264
     const/4 v0, 0x0
 
+    # invokes: Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->deviceConnected(Lcom/clj/fastble/data/BleDevice;Ljava/lang/Integer;)V
     invoke-static {p1, v0}, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->access$300(Lcom/clj/fastble/data/BleDevice;Ljava/lang/Integer;)V
 
     .line 266
+    # invokes: Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->decreaseConnect()V
     invoke-static {}, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->access$200()V
 
     .line 267
@@ -84,12 +87,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_29
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_50
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -123,21 +126,22 @@
 
     .line 269
     .end local v3    # "sevice":Landroid/bluetooth/BluetoothGattService;
-    goto :goto_0
+    goto :goto_29
 
     .line 271
-    :cond_0
+    :cond_50
     return-void
 .end method
 
 .method public onDisConnected(ZLcom/clj/fastble/data/BleDevice;Landroid/bluetooth/BluetoothGatt;I)V
-    .locals 0
+    .registers 5
     .param p1, "isActiveDisConnected"    # Z
     .param p2, "device"    # Lcom/clj/fastble/data/BleDevice;
     .param p3, "gatt"    # Landroid/bluetooth/BluetoothGatt;
     .param p4, "status"    # I
 
     .line 276
+    # invokes: Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->removeDevice(Lcom/clj/fastble/data/BleDevice;)V
     invoke-static {p2}, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->access$400(Lcom/clj/fastble/data/BleDevice;)V
 
     .line 278
@@ -145,7 +149,7 @@
 .end method
 
 .method public onStartConnect()V
-    .locals 0
+    .registers 1
 
     .line 252
     return-void

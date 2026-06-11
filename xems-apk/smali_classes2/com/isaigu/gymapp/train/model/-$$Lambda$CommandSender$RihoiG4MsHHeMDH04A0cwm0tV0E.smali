@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lcom/isaigu/gymapp/train/model/CommandSender;Lcom/isaigu/gymapp/train/ble/BleDeviceCommend;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .registers 3
 
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/-$$Lambda$CommandSender$RihoiG4MsHHeMDH04A0cwm0tV0E;->f$0:Lcom/isaigu/gymapp/train/model/CommandSender;
 

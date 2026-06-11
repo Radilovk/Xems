@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;
 
     .line 114
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 116
     invoke-static {}, Lcom/isaigu/gymapp/mgr/BleMgr;->getController()Lcom/isaigu/gymapp/ble/AndroidBleController;
@@ -48,7 +48,7 @@
     .local v0, "controller":Lcom/isaigu/gymapp/ble/AndroidBleController;
     const/4 v1, 0x2
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3c
 
     .line 118
     iget-object v2, p0, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper$1;->this$0:Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;
@@ -101,7 +101,7 @@
     invoke-static {v2, v3}, Lcom/isaigu/gymapp/utils/Utils;->printByteArray(Ljava/lang/String;[B)V
 
     .line 121
-    :cond_0
+    :cond_3c
     iget-object v2, p0, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper$1;->this$0:Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;
 
     iget-object v2, v2, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;->timer:Ljava/util/Timer;
@@ -122,7 +122,7 @@
 
     iget v2, v2, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;->count:I
 
-    if-lt v2, v1, :cond_1
+    if-lt v2, v1, :cond_81
 
     .line 124
     iget-object v2, p0, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper$1;->this$0:Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;
@@ -166,15 +166,16 @@
 
     invoke-static {v1}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_86
 
     .line 127
-    :cond_1
+    :cond_81
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper$1;->this$0:Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;
 
+    # invokes: Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;->startScheduleAction()V
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;->access$200(Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;)V
 
     .line 129
-    :goto_0
+    :goto_86
     return-void
 .end method

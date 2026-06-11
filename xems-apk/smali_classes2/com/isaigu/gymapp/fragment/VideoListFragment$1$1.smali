@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/VideoListFragment$1;Ljava/util/List;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/VideoListFragment$1;
 
     .line 133
@@ -41,24 +41,25 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 135
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$1$1;->val$content:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_17
 
     .line 136
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$1$1;->this$1:Lcom/isaigu/gymapp/fragment/VideoListFragment$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/VideoListFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/VideoListFragment;->adapter:Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/VideoListFragment;->access$100(Lcom/isaigu/gymapp/fragment/VideoListFragment;)Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;
 
     move-result-object v0
@@ -68,11 +69,12 @@
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/VideoListFragment$VideoListAdapter;->append(Ljava/util/List;)V
 
     .line 138
-    :cond_0
+    :cond_17
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$1$1;->this$1:Lcom/isaigu/gymapp/fragment/VideoListFragment$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/VideoListFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/VideoListFragment;->mRecyclerView:Lcom/jcodecraeer/xrecyclerview/XRecyclerView;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/VideoListFragment;->access$200(Lcom/isaigu/gymapp/fragment/VideoListFragment;)Lcom/jcodecraeer/xrecyclerview/XRecyclerView;
 
     move-result-object v0
@@ -84,6 +86,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/VideoListFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/VideoListFragment;->mRecyclerView:Lcom/jcodecraeer/xrecyclerview/XRecyclerView;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/VideoListFragment;->access$200(Lcom/isaigu/gymapp/fragment/VideoListFragment;)Lcom/jcodecraeer/xrecyclerview/XRecyclerView;
 
     move-result-object v0
@@ -95,16 +98,18 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/VideoListFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/VideoListFragment;->pageResponseVO:Lcom/isaigu/gymapp/bean/vo/PageResponseVO;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/VideoListFragment;->access$000(Lcom/isaigu/gymapp/fragment/VideoListFragment;)Lcom/isaigu/gymapp/bean/vo/PageResponseVO;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_57
 
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$1$1;->this$1:Lcom/isaigu/gymapp/fragment/VideoListFragment$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/VideoListFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/VideoListFragment;->pageResponseVO:Lcom/isaigu/gymapp/bean/vo/PageResponseVO;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/VideoListFragment;->access$000(Lcom/isaigu/gymapp/fragment/VideoListFragment;)Lcom/isaigu/gymapp/bean/vo/PageResponseVO;
 
     move-result-object v0
@@ -115,17 +120,19 @@
 
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/VideoListFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/VideoListFragment;->page:I
     invoke-static {v1}, Lcom/isaigu/gymapp/fragment/VideoListFragment;->access$300(Lcom/isaigu/gymapp/fragment/VideoListFragment;)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_57
 
     .line 141
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/VideoListFragment$1$1;->this$1:Lcom/isaigu/gymapp/fragment/VideoListFragment$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/VideoListFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/VideoListFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/VideoListFragment;->mRecyclerView:Lcom/jcodecraeer/xrecyclerview/XRecyclerView;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/VideoListFragment;->access$200(Lcom/isaigu/gymapp/fragment/VideoListFragment;)Lcom/jcodecraeer/xrecyclerview/XRecyclerView;
 
     move-result-object v0
@@ -135,6 +142,6 @@
     invoke-virtual {v0, v1}, Lcom/jcodecraeer/xrecyclerview/XRecyclerView;->setNoMore(Z)V
 
     .line 143
-    :cond_1
+    :cond_57
     return-void
 .end method

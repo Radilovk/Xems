@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/util/ArrayList;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final onSaveProgram(Lcom/isaigu/gymapp/bean/TrainProgram;Ljava/util/List;)V
-    .locals 2
+    .registers 5
 
     iget-object v0, p0, Lcom/isaigu/gymapp/train/utils/-$$Lambda$OperationUtil$99fDtgBA0OnvOfah7stLVICo_PU;->f$0:Ljava/util/ArrayList;
 

@@ -1,11 +1,14 @@
 .class Lcom/isaigu/gymapp/fragment/SettingFragment$19;
-.super Lcom/isaigu/gymapp/widget/NoDoubleClickListener;
+.super Ljava/lang/Object;
 .source "SettingFragment.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/isaigu/gymapp/fragment/SettingFragment;->initSet()V
+    value = Lcom/isaigu/gymapp/fragment/SettingFragment;->onActivityResult(IILandroid/content/Intent;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -23,72 +26,80 @@
     .registers 2
 
     .prologue
-    .line 616
+    .line 657
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onNoDoubleClick(Landroid/view/View;)V
-    .registers 6
+.method public run()V
+    .registers 3
 
     .prologue
-    .line 620
-    :try_start_0
+    .line 660
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
-    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+    move-result-object v0
 
-    invoke-virtual {v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+    invoke-static {v0}, Lcom/bumptech/glide/Glide;->with(Landroid/support/v4/app/FragmentActivity;)Lcom/bumptech/glide/RequestManager;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->createOriImageFile(Landroid/content/Context;)Ljava/io/File;
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v1
 
-    # setter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->originalFile:Ljava/io/File;
-    invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$802(Lcom/isaigu/gymapp/fragment/SettingFragment;Ljava/io/File;)Ljava/io/File;
+    iget-object v1, v1, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
 
-    .line 621
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+    invoke-virtual {v0, v1}, Lcom/bumptech/glide/RequestManager;->load(Ljava/lang/String;)Lcom/bumptech/glide/DrawableTypeRequest;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    const/16 v2, 0x3eb
-
-    iget-object v3, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
-
-    # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->originalFile:Ljava/io/File;
-    invoke-static {v3}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$800(Lcom/isaigu/gymapp/fragment/SettingFragment;)Ljava/io/File;
-
-    move-result-object v3
-
-    invoke-static {v1, v2, v3}, Lcom/isaigu/gymapp/utils/AndroidUtils;->selectImageFromGallery(Landroid/support/v4/app/Fragment;ILjava/io/File;)Landroid/net/Uri;
+    # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage:Landroid/widget/ImageView;
+    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$500(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
 
     move-result-object v1
 
-    # setter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->imageUri:Landroid/net/Uri;
-    invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$902(Lcom/isaigu/gymapp/fragment/SettingFragment;Landroid/net/Uri;)Landroid/net/Uri;
-    :try_end_24
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_24} :catch_25
+    invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    .line 625
-    :goto_24
+    .line 661
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/bumptech/glide/Glide;->with(Landroid/support/v4/app/FragmentActivity;)Lcom/bumptech/glide/RequestManager;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v1
+
+    iget-object v1, v1, Lcom/isaigu/gymapp/bean/UserData;->logoPath:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/bumptech/glide/RequestManager;->load(Ljava/lang/String;)Lcom/bumptech/glide/DrawableTypeRequest;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$19;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+
+    # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->logoImage2:Landroid/widget/ImageView;
+    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$600(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/ImageView;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
+
+    .line 662
     return-void
-
-    .line 622
-    :catch_25
-    move-exception v0
-
-    .line 623
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
-
-    goto :goto_24
 .end method

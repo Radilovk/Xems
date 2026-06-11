@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/dialog/UserRecordDataDialog;Ljava/util/List;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/UserRecordDataDialog;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -63,12 +63,12 @@
 
 # virtual methods
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 191
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter;->mData:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 192
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -78,14 +78,14 @@
     return v0
 
     .line 194
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public onBindViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
-    .locals 9
+    .registers 12
     .param p1, "holder"    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
     .param p2, "position"    # I
 
@@ -109,15 +109,15 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_c
     iget-object v3, v0, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter$TrainRecordHolder;->textViews:[Landroid/widget/TextView;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_6
+    if-ge v2, v3, :cond_b9
 
     .line 173
-    if-nez v2, :cond_0
+    if-nez v2, :cond_22
 
     .line 174
     iget-object v3, v0, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter$TrainRecordHolder;->textViews:[Landroid/widget/TextView;
@@ -132,13 +132,13 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_b5
 
     .line 175
-    :cond_0
+    :cond_22
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_30
 
     .line 176
     iget-object v3, v0, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter$TrainRecordHolder;->textViews:[Landroid/widget/TextView;
@@ -149,13 +149,13 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_b5
 
     .line 177
-    :cond_1
+    :cond_30
     const/4 v4, 0x2
 
-    if-ne v2, v4, :cond_2
+    if-ne v2, v4, :cond_41
 
     .line 178
     iget-object v3, v0, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter$TrainRecordHolder;->textViews:[Landroid/widget/TextView;
@@ -170,13 +170,13 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_1
+    goto :goto_b5
 
     .line 179
-    :cond_2
+    :cond_41
     const/4 v4, 0x3
 
-    if-ne v2, v4, :cond_3
+    if-ne v2, v4, :cond_63
 
     .line 180
     iget-object v3, v0, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter$TrainRecordHolder;->textViews:[Landroid/widget/TextView;
@@ -205,13 +205,13 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_1
+    goto :goto_b5
 
     .line 181
-    :cond_3
+    :cond_63
     const/4 v4, 0x4
 
-    if-ne v2, v4, :cond_4
+    if-ne v2, v4, :cond_85
 
     .line 182
     iget-object v3, v0, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter$TrainRecordHolder;->textViews:[Landroid/widget/TextView;
@@ -240,13 +240,13 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_1
+    goto :goto_b5
 
     .line 183
-    :cond_4
+    :cond_85
     const/4 v4, 0x5
 
-    if-ne v2, v4, :cond_5
+    if-ne v2, v4, :cond_b5
 
     .line 184
     iget-object v4, v0, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter$TrainRecordHolder;->textViews:[Landroid/widget/TextView;
@@ -294,20 +294,20 @@
     invoke-virtual {v4, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 172
-    :cond_5
-    :goto_1
+    :cond_b5
+    :goto_b5
     add-int/lit8 v2, v2, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_c
 
     .line 187
     .end local v2    # "i":I
-    :cond_6
+    :cond_b9
     return-void
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .locals 3
+    .registers 6
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -340,7 +340,7 @@
 .end method
 
 .method public updateAdapter(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -354,7 +354,7 @@
     .local p1, "data":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/vo/TrainRecordVO;>;"
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter;->mData:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 155
     new-instance v0, Ljava/util/ArrayList;
@@ -364,8 +364,8 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter;->mData:Ljava/util/List;
 
     .line 157
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_b
+    if-eqz p1, :cond_12
 
     .line 158
     iput-object p1, p0, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter;->mData:Ljava/util/List;
@@ -374,6 +374,6 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter;->notifyDataSetChanged()V
 
     .line 161
-    :cond_1
+    :cond_12
     return-void
 .end method

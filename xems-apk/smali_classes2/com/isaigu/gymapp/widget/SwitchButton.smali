@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 40
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 6
+    .registers 10
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyleAttr"    # I
@@ -116,8 +116,8 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
-    if-ge v2, v1, :cond_2
+    :goto_15
+    if-ge v2, v1, :cond_33
 
     .line 52
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -128,16 +128,16 @@
     .local v3, "attr":I
     const/high16 v4, -0x1000000
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2a
 
     const/4 v5, 0x1
 
-    if-eq v3, v5, :cond_0
+    if-eq v3, v5, :cond_23
 
-    goto :goto_1
+    goto :goto_30
 
     .line 55
-    :cond_0
+    :cond_23
     invoke-virtual {v0, v3, v4}, Landroid/content/res/TypedArray;->getColor(II)I
 
     move-result v4
@@ -145,10 +145,10 @@
     iput v4, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->switchViewBgColor:I
 
     .line 56
-    goto :goto_1
+    goto :goto_30
 
     .line 58
-    :cond_1
+    :cond_2a
     invoke-virtual {v0, v3, v4}, Landroid/content/res/TypedArray;->getColor(II)I
 
     move-result v4
@@ -157,14 +157,14 @@
 
     .line 51
     .end local v3    # "attr":I
-    :goto_1
+    :goto_30
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 62
     .end local v2    # "i":I
-    :cond_2
+    :cond_33
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 63
@@ -175,7 +175,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/isaigu/gymapp/widget/SwitchButton;F)F
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/SwitchButton;
     .param p1, "x1"    # F
 
@@ -186,7 +186,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/widget/SwitchButton;)I
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/SwitchButton;
 
     .line 25
@@ -196,7 +196,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/isaigu/gymapp/widget/SwitchButton;I)I
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/SwitchButton;
     .param p1, "x1"    # I
 
@@ -207,7 +207,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/isaigu/gymapp/widget/SwitchButton;)Landroid/graphics/Paint;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/SwitchButton;
 
     .line 25
@@ -217,7 +217,7 @@
 .end method
 
 .method private animate(IIII)V
-    .locals 7
+    .registers 12
     .param p1, "from"    # I
     .param p2, "to"    # I
     .param p3, "startColor"    # I
@@ -243,7 +243,7 @@
 .end method
 
 .method private animate(IIIIJ)V
-    .locals 7
+    .registers 14
     .param p1, "from"    # I
     .param p2, "to"    # I
     .param p3, "startColor"    # I
@@ -343,7 +343,7 @@
 .end method
 
 .method private createPaint(IILandroid/graphics/Paint$Style;I)Landroid/graphics/Paint;
-    .locals 3
+    .registers 8
     .param p1, "paintColor"    # I
     .param p2, "textSize"    # I
     .param p3, "style"    # Landroid/graphics/Paint$Style;
@@ -391,7 +391,7 @@
 .end method
 
 .method private drawSwitchBall(Landroid/graphics/Canvas;)V
-    .locals 4
+    .registers 6
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 142
@@ -412,7 +412,7 @@
 .end method
 
 .method private drawSwitchBg(Landroid/graphics/Canvas;)V
-    .locals 4
+    .registers 6
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 146
@@ -433,7 +433,7 @@
 .end method
 
 .method private initData()V
-    .locals 3
+    .registers 4
 
     .line 70
     iget v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->switchViewBgColor:I
@@ -488,28 +488,28 @@
 
 # virtual methods
 .method public isCheck()Z
-    .locals 2
+    .registers 3
 
     .line 197
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mCurrentState:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
     sget-object v1, Lcom/isaigu/gymapp/widget/SwitchButton$State;->CLOSE:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p1, "v"    # Landroid/view/View;
 
     .line 179
@@ -517,22 +517,22 @@
 
     sget-object v1, Lcom/isaigu/gymapp/widget/SwitchButton$State;->CLOSE:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     sget-object v0, Lcom/isaigu/gymapp/widget/SwitchButton$State;->OPEN:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     sget-object v0, Lcom/isaigu/gymapp/widget/SwitchButton$State;->CLOSE:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
-    :goto_0
+    :goto_b
     iput-object v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mCurrentState:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
     .line 182
     sget-object v1, Lcom/isaigu/gymapp/widget/SwitchButton$State;->CLOSE:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1d
 
     .line 183
     iget v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->BALL_X_RIGHT:I
@@ -545,10 +545,10 @@
 
     invoke-direct {p0, v0, v1, v2, v3}, Lcom/isaigu/gymapp/widget/SwitchButton;->animate(IIII)V
 
-    goto :goto_1
+    goto :goto_28
 
     .line 185
-    :cond_1
+    :cond_1d
     iget v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mStrokeRadius:I
 
     iget v1, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->BALL_X_RIGHT:I
@@ -560,17 +560,17 @@
     invoke-direct {p0, v0, v1, v2, v3}, Lcom/isaigu/gymapp/widget/SwitchButton;->animate(IIII)V
 
     .line 187
-    :goto_1
+    :goto_28
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mOnCheckedChangeListener:Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3f
 
     .line 188
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mCurrentState:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
     sget-object v1, Lcom/isaigu/gymapp/widget/SwitchButton$State;->OPEN:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_39
 
     .line 189
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mOnCheckedChangeListener:Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;
@@ -579,10 +579,10 @@
 
     invoke-interface {v0, p0, v1}, Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;->onCheckedChanged(Lcom/isaigu/gymapp/widget/SwitchButton;Z)V
 
-    goto :goto_2
+    goto :goto_3f
 
     .line 191
-    :cond_2
+    :cond_39
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mOnCheckedChangeListener:Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;
 
     const/4 v1, 0x0
@@ -590,13 +590,13 @@
     invoke-interface {v0, p0, v1}, Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;->onCheckedChanged(Lcom/isaigu/gymapp/widget/SwitchButton;Z)V
 
     .line 194
-    :cond_3
-    :goto_2
+    :cond_3f
+    :goto_3f
     return-void
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 0
+    .registers 2
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 137
@@ -610,7 +610,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 7
+    .registers 10
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
@@ -636,14 +636,14 @@
 
     const/high16 v4, -0x80000000
 
-    if-eq v0, v4, :cond_0
+    if-eq v0, v4, :cond_15
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
-    goto :goto_0
+    goto :goto_29
 
     .line 115
-    :cond_0
+    :cond_15
     const/high16 v5, 0x42f00000    # 120.0f
 
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/SwitchButton;->getResources()Landroid/content/res/Resources;
@@ -671,15 +671,15 @@
 
     .line 122
     .end local v5    # "measureWidth":I
-    :goto_0
-    if-eq v1, v4, :cond_1
+    :goto_29
+    if-eq v1, v4, :cond_2e
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2e
 
-    goto :goto_1
+    goto :goto_42
 
     .line 125
-    :cond_1
+    :cond_2e
     const/high16 v4, 0x42700000    # 60.0f
 
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/SwitchButton;->getResources()Landroid/content/res/Resources;
@@ -707,7 +707,7 @@
 
     .line 132
     .end local v3    # "measureHeight":I
-    :goto_1
+    :goto_42
     invoke-super {p0, p1, p2}, Landroid/view/View;->onMeasure(II)V
 
     .line 133
@@ -715,7 +715,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 4
+    .registers 9
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I
@@ -790,16 +790,16 @@
 
     sget-object v1, Lcom/isaigu/gymapp/widget/SwitchButton$State;->CLOSE:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_38
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_0
+    :cond_38
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_39
     invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/widget/SwitchButton;->setCheck(Z)V
 
     .line 98
@@ -807,26 +807,26 @@
 .end method
 
 .method public setCheck(Z)V
-    .locals 2
+    .registers 4
     .param p1, "check"    # Z
 
     .line 201
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     sget-object v0, Lcom/isaigu/gymapp/widget/SwitchButton$State;->OPEN:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_5
     sget-object v0, Lcom/isaigu/gymapp/widget/SwitchButton$State;->CLOSE:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
-    :goto_0
+    :goto_7
     iput-object v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mCurrentState:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
     .line 204
     sget-object v1, Lcom/isaigu/gymapp/widget/SwitchButton$State;->CLOSE:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1c
 
     .line 205
     iget v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->greyColor:I
@@ -845,10 +845,10 @@
 
     iput v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mSwitchBallx:F
 
-    goto :goto_1
+    goto :goto_2a
 
     .line 209
-    :cond_1
+    :cond_1c
     iget v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->greenColor:I
 
     iput v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->switchViewBgColor:I
@@ -866,20 +866,20 @@
     iput v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mSwitchBallx:F
 
     .line 213
-    :goto_1
+    :goto_2a
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/SwitchButton;->postInvalidate()V
 
     .line 214
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mOnCheckedChangeListener:Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_44
 
     .line 215
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mCurrentState:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
     sget-object v1, Lcom/isaigu/gymapp/widget/SwitchButton$State;->OPEN:Lcom/isaigu/gymapp/widget/SwitchButton$State;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_3e
 
     .line 216
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mOnCheckedChangeListener:Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;
@@ -888,10 +888,10 @@
 
     invoke-interface {v0, p0, v1}, Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;->onCheckedChanged(Lcom/isaigu/gymapp/widget/SwitchButton;Z)V
 
-    goto :goto_2
+    goto :goto_44
 
     .line 218
-    :cond_2
+    :cond_3e
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SwitchButton;->mOnCheckedChangeListener:Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;
 
     const/4 v1, 0x0
@@ -899,13 +899,13 @@
     invoke-interface {v0, p0, v1}, Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;->onCheckedChanged(Lcom/isaigu/gymapp/widget/SwitchButton;Z)V
 
     .line 221
-    :cond_3
-    :goto_2
+    :cond_44
+    :goto_44
     return-void
 .end method
 
 .method public setOnCheckedChangeListener(Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;
 
     .line 174

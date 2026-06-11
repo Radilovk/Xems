@@ -23,9 +23,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$EmptyViewHolder;Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;)V
     .registers 3
+    .param p1, "this$2"    # Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$EmptyViewHolder;
 
-    .prologue
-    .line 1891
+    .line 1988
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$EmptyViewHolder$1;->this$2:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$EmptyViewHolder;
 
     iput-object p2, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$EmptyViewHolder$1;->val$this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
@@ -39,14 +39,15 @@
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
     .registers 4
+    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 1894
+    .line 1990
     new-instance v0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;-><init>()V
 
-    .line 1895
+    .line 1991
+    .local v0, "fragment":Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$EmptyViewHolder$1;->this$2:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$EmptyViewHolder;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$EmptyViewHolder;->this$1:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
@@ -55,6 +56,6 @@
 
     invoke-virtual {v1, v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->showDialogFragment(Lcom/isaigu/gymapp/BaseDialogFragment;)V
 
-    .line 1896
+    .line 1992
     return-void
 .end method

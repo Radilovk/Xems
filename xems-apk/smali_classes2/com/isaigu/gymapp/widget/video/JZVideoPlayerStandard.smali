@@ -85,7 +85,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 74
     const-wide/16 v0, 0x0
@@ -101,7 +101,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 92
@@ -119,7 +119,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -138,7 +138,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;)Landroid/content/BroadcastReceiver;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;
 
     .line 42
@@ -150,32 +150,32 @@
 
 # virtual methods
 .method public cancelDismissControlViewTimer()V
-    .locals 1
+    .registers 2
 
     .line 876
     sget-object v0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->DISMISS_CONTROL_VIEW_TIMER:Ljava/util/Timer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 877
     invoke-virtual {v0}, Ljava/util/Timer;->cancel()V
 
     .line 879
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mDismissControlViewTimerTask:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard$DismissControlViewTimerTask;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
     .line 880
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard$DismissControlViewTimerTask;->cancel()Z
 
     .line 883
-    :cond_1
+    :cond_e
     return-void
 .end method
 
 .method public changeStartButtonSize(I)V
-    .locals 2
+    .registers 4
     .param p1, "size"    # I
 
     .line 179
@@ -210,29 +210,29 @@
 .end method
 
 .method public changeUiToComplete()V
-    .locals 8
+    .registers 9
 
     .line 682
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentScreen:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_2c
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1d
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 695
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -254,10 +254,10 @@
     .line 697
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 690
-    :cond_1
+    :cond_1d
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -280,10 +280,10 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
     .line 693
-    goto :goto_0
+    goto :goto_3b
 
     .line 685
-    :cond_2
+    :cond_2c
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -309,34 +309,34 @@
     nop
 
     .line 701
-    :goto_0
+    :goto_3b
     return-void
 .end method
 
 .method public changeUiToError()V
-    .locals 8
+    .registers 9
 
     .line 704
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentScreen:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_2c
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1d
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 717
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -358,10 +358,10 @@
     .line 719
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 712
-    :cond_1
+    :cond_1d
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -384,10 +384,10 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
     .line 715
-    goto :goto_0
+    goto :goto_3b
 
     .line 707
-    :cond_2
+    :cond_2c
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -413,34 +413,34 @@
     nop
 
     .line 723
-    :goto_0
+    :goto_3b
     return-void
 .end method
 
 .method public changeUiToNormal()V
-    .locals 8
+    .registers 9
 
     .line 552
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentScreen:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_2c
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1d
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 565
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -462,10 +462,10 @@
     .line 567
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 560
-    :cond_1
+    :cond_1d
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -488,10 +488,10 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
     .line 563
-    goto :goto_0
+    goto :goto_3b
 
     .line 555
-    :cond_2
+    :cond_2c
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -517,34 +517,34 @@
     nop
 
     .line 575
-    :goto_0
+    :goto_3b
     return-void
 .end method
 
 .method public changeUiToPauseClear()V
-    .locals 8
+    .registers 9
 
     .line 662
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentScreen:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_29
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_29
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1d
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
-    goto :goto_0
+    goto :goto_35
 
     .line 673
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -566,10 +566,10 @@
     .line 675
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
-    goto :goto_0
+    goto :goto_35
 
     .line 669
-    :cond_1
+    :cond_1d
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -589,10 +589,10 @@
     invoke-virtual/range {v0 .. v7}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->setAllControlsVisiblity(IIIIIII)V
 
     .line 671
-    goto :goto_0
+    goto :goto_35
 
     .line 665
-    :cond_2
+    :cond_29
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -615,34 +615,34 @@
     nop
 
     .line 679
-    :goto_0
+    :goto_35
     return-void
 .end method
 
 .method public changeUiToPauseShow()V
-    .locals 8
+    .registers 9
 
     .line 641
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentScreen:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_2c
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1d
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 654
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -664,10 +664,10 @@
     .line 656
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 649
-    :cond_1
+    :cond_1d
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -690,10 +690,10 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
     .line 652
-    goto :goto_0
+    goto :goto_3b
 
     .line 644
-    :cond_2
+    :cond_2c
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -719,34 +719,34 @@
     nop
 
     .line 659
-    :goto_0
+    :goto_3b
     return-void
 .end method
 
 .method public changeUiToPlayingClear()V
-    .locals 8
+    .registers 9
 
     .line 622
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentScreen:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_26
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_26
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1a
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
-    goto :goto_0
+    goto :goto_32
 
     .line 633
-    :cond_0
+    :cond_e
     const/4 v1, 0x4
 
     const/4 v2, 0x4
@@ -765,10 +765,10 @@
 
     invoke-virtual/range {v0 .. v7}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->setAllControlsVisiblity(IIIIIII)V
 
-    goto :goto_0
+    goto :goto_32
 
     .line 629
-    :cond_1
+    :cond_1a
     const/4 v1, 0x4
 
     const/4 v2, 0x4
@@ -788,10 +788,10 @@
     invoke-virtual/range {v0 .. v7}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->setAllControlsVisiblity(IIIIIII)V
 
     .line 631
-    goto :goto_0
+    goto :goto_32
 
     .line 625
-    :cond_2
+    :cond_26
     const/4 v1, 0x4
 
     const/4 v2, 0x4
@@ -814,34 +814,34 @@
     nop
 
     .line 638
-    :goto_0
+    :goto_32
     return-void
 .end method
 
 .method public changeUiToPlayingShow()V
-    .locals 8
+    .registers 9
 
     .line 600
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentScreen:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_2c
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1d
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 613
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -863,10 +863,10 @@
     .line 615
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 608
-    :cond_1
+    :cond_1d
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -889,10 +889,10 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
     .line 611
-    goto :goto_0
+    goto :goto_3b
 
     .line 603
-    :cond_2
+    :cond_2c
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -918,34 +918,34 @@
     nop
 
     .line 619
-    :goto_0
+    :goto_3b
     return-void
 .end method
 
 .method public changeUiToPreparing()V
-    .locals 8
+    .registers 9
 
     .line 578
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentScreen:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_2c
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1d
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_e
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 591
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -967,10 +967,10 @@
     .line 593
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 586
-    :cond_1
+    :cond_1d
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -993,10 +993,10 @@
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
     .line 589
-    goto :goto_0
+    goto :goto_3b
 
     .line 581
-    :cond_2
+    :cond_2c
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -1022,12 +1022,12 @@
     nop
 
     .line 597
-    :goto_0
+    :goto_3b
     return-void
 .end method
 
 .method public createDialogWithView(Landroid/view/View;)Landroid/app/Dialog;
-    .locals 4
+    .registers 6
     .param p1, "localView"    # Landroid/view/View;
 
     .line 855
@@ -1090,7 +1090,7 @@
 .end method
 
 .method public dismissBrightnessDialog()V
-    .locals 1
+    .registers 2
 
     .line 848
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->dismissBrightnessDialog()V
@@ -1098,18 +1098,18 @@
     .line 849
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mBrightnessDialog:Landroid/app/Dialog;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 850
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
     .line 852
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public dismissProgressDialog()V
-    .locals 1
+    .registers 2
 
     .line 782
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->dismissProgressDialog()V
@@ -1117,18 +1117,18 @@
     .line 783
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mProgressDialog:Landroid/app/Dialog;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 784
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
     .line 786
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public dismissVolumeDialog()V
-    .locals 1
+    .registers 2
 
     .line 818
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->dismissVolumeDialog()V
@@ -1136,35 +1136,35 @@
     .line 819
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mVolumeDialog:Landroid/app/Dialog;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 820
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
     .line 822
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public dissmissControlView()V
-    .locals 2
+    .registers 3
 
     .line 901
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
     const/4 v1, 0x7
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_16
 
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
     const/4 v1, 0x6
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_16
 
     .line 904
     new-instance v0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard$6;
@@ -1174,12 +1174,12 @@
     invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->post(Ljava/lang/Runnable;)Z
 
     .line 919
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public getLayoutId()I
-    .locals 1
+    .registers 2
 
     .line 189
     const v0, 0x7f0b003b
@@ -1188,7 +1188,7 @@
 .end method
 
 .method public init(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1, "context"    # Landroid/content/Context;
 
     .line 101
@@ -1403,7 +1403,7 @@
 .end method
 
 .method public onAutoCompletion()V
-    .locals 0
+    .registers 1
 
     .line 887
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->onAutoCompletion()V
@@ -1416,14 +1416,14 @@
 .end method
 
 .method public onCLickUiToggleToClear()V
-    .locals 2
+    .registers 3
 
     .line 509
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     .line 510
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->bottomContainer:Landroid/view/ViewGroup;
@@ -1432,20 +1432,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_43
 
     .line 511
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->changeUiToPreparing()V
 
-    goto :goto_0
+    goto :goto_43
 
     .line 514
-    :cond_0
+    :cond_11
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_22
 
     .line 515
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->bottomContainer:Landroid/view/ViewGroup;
@@ -1454,20 +1454,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_43
 
     .line 516
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->changeUiToPlayingClear()V
 
-    goto :goto_0
+    goto :goto_43
 
     .line 519
-    :cond_1
+    :cond_22
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_33
 
     .line 520
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->bottomContainer:Landroid/view/ViewGroup;
@@ -1476,20 +1476,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_43
 
     .line 521
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->changeUiToPauseClear()V
 
-    goto :goto_0
+    goto :goto_43
 
     .line 524
-    :cond_2
+    :cond_33
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
     const/4 v1, 0x6
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_43
 
     .line 525
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->bottomContainer:Landroid/view/ViewGroup;
@@ -1498,19 +1498,19 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_43
 
     .line 526
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->changeUiToComplete()V
 
     .line 530
-    :cond_3
-    :goto_0
+    :cond_43
+    :goto_43
     return-void
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 13
+    .registers 15
     .param p1, "v"    # Landroid/view/View;
 
     .line 286
@@ -1533,12 +1533,12 @@
 
     const v5, 0x7f0901a9
 
-    if-ne v0, v5, :cond_4
+    if-ne v0, v5, :cond_85
 
     .line 289
     iget-object v5, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->dataSourceObjects:[Ljava/lang/Object;
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_71
 
     iget-object v5, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->dataSourceObjects:[Ljava/lang/Object;
 
@@ -1548,15 +1548,15 @@
 
     move-result-object v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_23
 
-    goto :goto_0
+    goto :goto_71
 
     .line 293
-    :cond_0
+    :cond_23
     iget v3, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_67
 
     .line 294
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->dataSourceObjects:[Ljava/lang/Object;
@@ -1575,7 +1575,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_5d
 
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->dataSourceObjects:[Ljava/lang/Object;
 
@@ -1594,7 +1594,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_5d
 
     .line 296
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->getContext()Landroid/content/Context;
@@ -1605,11 +1605,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_5d
 
     sget-boolean v1, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->WIFI_TIP_DIALOG_SHOWED:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_5d
 
     .line 297
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->showWifiDialog()V
@@ -1618,7 +1618,7 @@
     return-void
 
     .line 300
-    :cond_1
+    :cond_5d
     const/16 v1, 0x65
 
     invoke-virtual {p0, v1}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->onEvent(I)V
@@ -1626,24 +1626,24 @@
     .line 301
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->startVideo()V
 
-    goto/16 :goto_3
+    goto/16 :goto_1c9
 
     .line 302
-    :cond_2
+    :cond_67
     iget v1, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
     const/4 v2, 0x6
 
-    if-ne v1, v2, :cond_11
+    if-ne v1, v2, :cond_1c9
 
     .line 303
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->onClickUiToggle()V
 
-    goto/16 :goto_3
+    goto/16 :goto_1c9
 
     .line 290
-    :cond_3
-    :goto_0
+    :cond_71
+    :goto_71
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -1666,34 +1666,34 @@
     return-void
 
     .line 305
-    :cond_4
+    :cond_85
     const v5, 0x7f090191
 
-    if-ne v0, v5, :cond_5
+    if-ne v0, v5, :cond_8f
 
     .line 306
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->startDismissControlViewTimer()V
 
-    goto/16 :goto_3
+    goto/16 :goto_1c9
 
     .line 307
-    :cond_5
+    :cond_8f
     const v5, 0x7f090046
 
-    if-ne v0, v5, :cond_6
+    if-ne v0, v5, :cond_99
 
     .line 308
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->backPress()Z
 
-    goto/16 :goto_3
+    goto/16 :goto_1c9
 
     .line 309
-    :cond_6
+    :cond_99
     const v5, 0x7f090047
 
     const/4 v6, 0x1
 
-    if-ne v0, v5, :cond_8
+    if-ne v0, v5, :cond_b1
 
     .line 310
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerManager;->getFirstFloor()Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;
@@ -1702,24 +1702,24 @@
 
     iget v1, v1, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->currentScreen:I
 
-    if-ne v1, v6, :cond_7
+    if-ne v1, v6, :cond_ac
 
     .line 311
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->quitFullscreenOrTinyWindow()V
 
-    goto/16 :goto_3
+    goto/16 :goto_1c9
 
     .line 313
-    :cond_7
+    :cond_ac
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->backPress()Z
 
-    goto/16 :goto_3
+    goto/16 :goto_1c9
 
     .line 315
-    :cond_8
+    :cond_b1
     const v5, 0x7f090075
 
-    if-ne v0, v5, :cond_b
+    if-ne v0, v5, :cond_142
 
     .line 316
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->getContext()Landroid/content/Context;
@@ -1758,7 +1758,7 @@
     const/4 v7, 0x0
 
     .local v7, "j":I
-    :goto_1
+    :goto_d2
     iget-object v8, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->dataSourceObjects:[Ljava/lang/Object;
 
     aget-object v8, v8, v4
@@ -1769,7 +1769,7 @@
 
     move-result v8
 
-    if-ge v7, v8, :cond_a
+    if-ge v7, v8, :cond_111
 
     .line 339
     iget-object v8, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->dataSourceObjects:[Ljava/lang/Object;
@@ -1812,7 +1812,7 @@
     .line 345
     iget v10, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentUrlMapIndex:I
 
-    if-ne v7, v10, :cond_9
+    if-ne v7, v10, :cond_10e
 
     .line 346
     const-string v10, "#fff85959"
@@ -1826,14 +1826,14 @@
     .line 338
     .end local v8    # "key":Ljava/lang/String;
     .end local v9    # "clarityItem":Landroid/widget/TextView;
-    :cond_9
+    :cond_10e
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto :goto_d2
 
     .line 350
     .end local v7    # "j":I
-    :cond_a
+    :cond_111
     new-instance v3, Landroid/widget/PopupWindow;
 
     const/4 v7, -0x2
@@ -1886,17 +1886,17 @@
     .end local v1    # "inflater":Landroid/view/LayoutInflater;
     .end local v2    # "layout":Landroid/widget/LinearLayout;
     .end local v5    # "mQualityListener":Landroid/view/View$OnClickListener;
-    goto/16 :goto_3
+    goto/16 :goto_1c9
 
-    :cond_b
+    :cond_142
     const v5, 0x7f090152
 
-    if-ne v0, v5, :cond_f
+    if-ne v0, v5, :cond_1bd
 
     .line 356
     iget-object v5, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->dataSourceObjects:[Ljava/lang/Object;
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_1a9
 
     iget-object v5, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->dataSourceObjects:[Ljava/lang/Object;
 
@@ -1906,12 +1906,12 @@
 
     move-result-object v5
 
-    if-nez v5, :cond_c
+    if-nez v5, :cond_156
 
-    goto :goto_2
+    goto :goto_1a9
 
     .line 360
-    :cond_c
+    :cond_156
     iget-object v3, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->dataSourceObjects:[Ljava/lang/Object;
 
     iget v4, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentUrlMapIndex:I
@@ -1928,7 +1928,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_d
+    if-nez v2, :cond_18c
 
     iget-object v2, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->dataSourceObjects:[Ljava/lang/Object;
 
@@ -1947,7 +1947,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_18c
 
     .line 362
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->getContext()Landroid/content/Context;
@@ -1958,11 +1958,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_18c
 
     sget-boolean v1, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->WIFI_TIP_DIALOG_SHOWED:Z
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_18c
 
     .line 363
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->showWifiDialog()V
@@ -1971,7 +1971,7 @@
     return-void
 
     .line 366
-    :cond_d
+    :cond_18c
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->initTextureView()V
 
     .line 367
@@ -1999,11 +1999,11 @@
     .line 371
     invoke-virtual {p0, v6}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->onEvent(I)V
 
-    goto :goto_3
+    goto :goto_1c9
 
     .line 357
-    :cond_e
-    :goto_2
+    :cond_1a9
+    :goto_1a9
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -2026,10 +2026,10 @@
     return-void
 
     .line 372
-    :cond_f
+    :cond_1bd
     const v1, 0x7f090078
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_1c8
 
     .line 373
     iput-boolean v4, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->enlarge:Z
@@ -2037,27 +2037,27 @@
     .line 378
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->onClickClose()V
 
-    goto :goto_3
+    goto :goto_1c9
 
     .line 379
-    :cond_10
+    :cond_1c8
     nop
 
     .line 398
-    :cond_11
-    :goto_3
+    :cond_1c9
+    :goto_1c9
     return-void
 .end method
 
 .method protected onClickClose()V
-    .locals 0
+    .registers 1
 
     .line 402
     return-void
 .end method
 
 .method public onClickUiToggle()V
-    .locals 3
+    .registers 4
 
     .line 451
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->bottomContainer:Landroid/view/ViewGroup;
@@ -2066,7 +2066,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 453
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->clarity:Landroid/widget/TextView;
@@ -2082,12 +2082,12 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 455
-    :cond_0
+    :cond_15
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_24
 
     .line 456
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->changeUiToPreparing()V
@@ -2099,15 +2099,15 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_4d
 
     .line 461
-    :cond_1
+    :cond_24
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_39
 
     .line 462
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->startButton:Landroid/widget/ImageView;
@@ -2116,26 +2116,26 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_35
 
     .line 463
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->changeUiToPlayingClear()V
 
-    goto :goto_0
+    goto :goto_4d
 
     .line 465
-    :cond_2
+    :cond_35
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->changeUiToPlayingShow()V
 
-    goto :goto_0
+    goto :goto_4d
 
     .line 467
-    :cond_3
+    :cond_39
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_4d
 
     .line 468
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->bottomContainer:Landroid/view/ViewGroup;
@@ -2144,25 +2144,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_4a
 
     .line 469
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->changeUiToPauseClear()V
 
-    goto :goto_0
+    goto :goto_4d
 
     .line 471
-    :cond_4
+    :cond_4a
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->changeUiToPauseShow()V
 
     .line 474
-    :cond_5
-    :goto_0
+    :cond_4d
+    :goto_4d
     return-void
 .end method
 
 .method public onCompletion()V
-    .locals 1
+    .registers 2
 
     .line 893
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->onCompletion()V
@@ -2173,18 +2173,18 @@
     .line 895
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->clarityPopWindow:Landroid/widget/PopupWindow;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 896
     invoke-virtual {v0}, Landroid/widget/PopupWindow;->dismiss()V
 
     .line 898
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
-    .locals 0
+    .registers 2
     .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
     .line 435
@@ -2198,7 +2198,7 @@
 .end method
 
 .method public onStateAutoComplete()V
-    .locals 2
+    .registers 3
 
     .line 232
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->onStateAutoComplete()V
@@ -2221,7 +2221,7 @@
 .end method
 
 .method public onStateError()V
-    .locals 0
+    .registers 1
 
     .line 226
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->onStateError()V
@@ -2234,7 +2234,7 @@
 .end method
 
 .method public onStateNormal()V
-    .locals 0
+    .registers 1
 
     .line 194
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->onStateNormal()V
@@ -2247,7 +2247,7 @@
 .end method
 
 .method public onStatePause()V
-    .locals 0
+    .registers 1
 
     .line 219
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->onStatePause()V
@@ -2263,7 +2263,7 @@
 .end method
 
 .method public onStatePlaying()V
-    .locals 0
+    .registers 1
 
     .line 213
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->onStatePlaying()V
@@ -2276,7 +2276,7 @@
 .end method
 
 .method public onStatePreparing()V
-    .locals 0
+    .registers 1
 
     .line 200
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->onStatePreparing()V
@@ -2289,7 +2289,7 @@
 .end method
 
 .method public onStatePreparingChangingUrl(IJ)V
-    .locals 2
+    .registers 6
     .param p1, "urlMapIndex"    # I
     .param p2, "seekToInAdvance"    # J
 
@@ -2315,7 +2315,7 @@
 .end method
 
 .method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
-    .locals 0
+    .registers 2
     .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
     .line 441
@@ -2329,7 +2329,7 @@
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 15
+    .registers 18
     .param p1, "v"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/MotionEvent;
 
@@ -2346,21 +2346,21 @@
 
     const v3, 0x7f090191
 
-    if-ne v1, v3, :cond_5
+    if-ne v1, v3, :cond_77
 
     .line 243
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_69
 
-    if-eq v3, v2, :cond_0
+    if-eq v3, v2, :cond_14
 
-    goto :goto_1
+    goto :goto_76
 
     .line 251
-    :cond_0
+    :cond_14
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v2
@@ -2402,7 +2402,7 @@
     .line 258
     iget-boolean v8, v0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mChangePosition:Z
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_4e
 
     .line 259
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->getDuration()J
@@ -2421,16 +2421,16 @@
 
     cmp-long v14, v8, v12
 
-    if-nez v14, :cond_1
+    if-nez v14, :cond_46
 
     const-wide/16 v12, 0x1
 
-    goto :goto_0
+    goto :goto_47
 
-    :cond_1
+    :cond_46
     move-wide v12, v8
 
-    :goto_0
+    :goto_47
     div-long/2addr v10, v12
 
     long-to-int v11, v10
@@ -2444,14 +2444,14 @@
     .line 263
     .end local v8    # "duration":J
     .end local v11    # "progress":I
-    :cond_2
+    :cond_4e
     iget-boolean v8, v0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mChangePosition:Z
 
-    if-nez v8, :cond_4
+    if-nez v8, :cond_76
 
     iget-boolean v8, v0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mChangeVolume:Z
 
-    if-nez v8, :cond_4
+    if-nez v8, :cond_76
 
     .line 264
     const/16 v8, 0x66
@@ -2463,16 +2463,16 @@
 
     cmpg-float v9, v6, v8
 
-    if-gez v9, :cond_4
+    if-gez v9, :cond_76
 
     cmpg-float v8, v7, v8
 
-    if-gez v8, :cond_4
+    if-gez v8, :cond_76
 
     .line 266
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->onClickUiToggle()V
 
-    goto :goto_1
+    goto :goto_76
 
     .line 245
     .end local v2    # "x":F
@@ -2481,7 +2481,7 @@
     .end local v5    # "deltaY":F
     .end local v6    # "absDeltaX":F
     .end local v7    # "absDeltaY":F
-    :cond_3
+    :cond_69
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v2
@@ -2499,40 +2499,40 @@
     nop
 
     .line 269
-    :cond_4
-    :goto_1
-    goto :goto_2
+    :cond_76
+    :goto_76
+    goto :goto_8c
 
     .line 271
-    :cond_5
+    :cond_77
     const v3, 0x7f09004f
 
-    if-ne v1, v3, :cond_8
+    if-ne v1, v3, :cond_8c
 
     .line 272
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_89
 
-    if-eq v3, v2, :cond_6
+    if-eq v3, v2, :cond_85
 
-    goto :goto_2
+    goto :goto_8c
 
     .line 277
-    :cond_6
+    :cond_85
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->startDismissControlViewTimer()V
 
-    goto :goto_2
+    goto :goto_8c
 
     .line 274
-    :cond_7
+    :cond_89
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->cancelDismissControlViewTimer()V
 
     .line 281
-    :cond_8
-    :goto_2
+    :cond_8c
+    :goto_8c
     invoke-super/range {p0 .. p2}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
 
     move-result v2
@@ -2541,7 +2541,7 @@
 .end method
 
 .method public resetProgressAndTime()V
-    .locals 2
+    .registers 3
 
     .line 546
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->resetProgressAndTime()V
@@ -2563,7 +2563,7 @@
 .end method
 
 .method public setAllControlsVisiblity(IIIIIII)V
-    .locals 1
+    .registers 9
     .param p1, "topCon"    # I
     .param p2, "bottomCon"    # I
     .param p3, "startBtn"    # I
@@ -2612,7 +2612,7 @@
 .end method
 
 .method public setBatteryLevel()V
-    .locals 3
+    .registers 4
 
     .line 492
     sget v0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->LAST_GET_BATTERYLEVEL_PERCENT:I
@@ -2621,7 +2621,7 @@
     .local v0, "percent":I
     const/16 v1, 0xf
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_f
 
     .line 494
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->batteryLevel:Landroid/widget/ImageView;
@@ -2630,15 +2630,15 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    goto :goto_0
+    goto :goto_59
 
     .line 495
-    :cond_0
+    :cond_f
     const/16 v2, 0x28
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1e
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v2, :cond_1e
 
     .line 496
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->batteryLevel:Landroid/widget/ImageView;
@@ -2647,15 +2647,15 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    goto :goto_0
+    goto :goto_59
 
     .line 497
-    :cond_1
+    :cond_1e
     const/16 v1, 0x3c
 
-    if-lt v0, v2, :cond_2
+    if-lt v0, v2, :cond_2d
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_2d
 
     .line 498
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->batteryLevel:Landroid/widget/ImageView;
@@ -2664,15 +2664,15 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    goto :goto_0
+    goto :goto_59
 
     .line 499
-    :cond_2
+    :cond_2d
     const/16 v2, 0x50
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_3c
 
-    if-ge v0, v2, :cond_3
+    if-ge v0, v2, :cond_3c
 
     .line 500
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->batteryLevel:Landroid/widget/ImageView;
@@ -2681,15 +2681,15 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    goto :goto_0
+    goto :goto_59
 
     .line 501
-    :cond_3
+    :cond_3c
     const/16 v1, 0x5f
 
-    if-lt v0, v2, :cond_4
+    if-lt v0, v2, :cond_4b
 
-    if-ge v0, v1, :cond_4
+    if-ge v0, v1, :cond_4b
 
     .line 502
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->batteryLevel:Landroid/widget/ImageView;
@@ -2698,15 +2698,15 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    goto :goto_0
+    goto :goto_59
 
     .line 503
-    :cond_4
-    if-lt v0, v1, :cond_5
+    :cond_4b
+    if-lt v0, v1, :cond_59
 
     const/16 v1, 0x64
 
-    if-gt v0, v1, :cond_5
+    if-gt v0, v1, :cond_59
 
     .line 504
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->batteryLevel:Landroid/widget/ImageView;
@@ -2716,32 +2716,32 @@
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
     .line 506
-    :cond_5
-    :goto_0
+    :cond_59
+    :goto_59
     return-void
 .end method
 
 .method public setBufferProgress(I)V
-    .locals 1
+    .registers 3
     .param p1, "bufferProgress"    # I
 
     .line 540
     invoke-super {p0, p1}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->setBufferProgress(I)V
 
     .line 541
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->bottomProgressBar:Landroid/widget/ProgressBar;
 
     invoke-virtual {v0, p1}, Landroid/widget/ProgressBar;->setSecondaryProgress(I)V
 
     .line 542
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public setProgressAndText(IJJ)V
-    .locals 1
+    .registers 7
     .param p1, "progress"    # I
     .param p2, "position"    # J
     .param p4, "duration"    # J
@@ -2750,19 +2750,19 @@
     invoke-super/range {p0 .. p5}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->setProgressAndText(IJJ)V
 
     .line 535
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->bottomProgressBar:Landroid/widget/ProgressBar;
 
     invoke-virtual {v0, p1}, Landroid/widget/ProgressBar;->setProgress(I)V
 
     .line 536
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public setSystemTimeAndBattery()V
-    .locals 7
+    .registers 8
 
     .line 477
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -2800,7 +2800,7 @@
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_39
 
     .line 481
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -2824,19 +2824,19 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 487
-    :cond_0
+    :cond_39
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->setBatteryLevel()V
 
     .line 489
-    :goto_0
+    :goto_3c
     return-void
 .end method
 
 .method public varargs setUp([Ljava/lang/Object;II[Ljava/lang/Object;)V
-    .locals 14
+    .registers 19
     .param p1, "dataSourceObjects"    # [Ljava/lang/Object;
     .param p2, "defaultUrlMapIndex"    # I
     .param p3, "screen"    # I
@@ -2856,7 +2856,7 @@
 
     const/4 v11, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     iget-object v0, v8, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->titleTextView:Landroid/widget/TextView;
 
@@ -2869,7 +2869,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 133
-    :cond_0
+    :cond_16
     iget v0, v8, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentScreen:I
 
     const/4 v1, 0x2
@@ -2882,7 +2882,7 @@
 
     const/16 v13, 0x8
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_66
 
     .line 134
     iget-object v0, v8, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->fullscreenButton:Landroid/widget/ImageView;
@@ -2913,17 +2913,17 @@
 
     move-result v0
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_46
 
     .line 139
     iget-object v0, v8, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->clarity:Landroid/widget/TextView;
 
     invoke-virtual {v0, v13}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_56
 
     .line 141
-    :cond_1
+    :cond_46
     iget-object v0, v8, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->clarity:Landroid/widget/TextView;
 
     iget v1, v8, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentUrlMapIndex:I
@@ -2940,7 +2940,7 @@
     invoke-virtual {v0, v11}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 144
-    :goto_0
+    :goto_56
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -2955,27 +2955,27 @@
 
     invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->changeStartButtonSize(I)V
 
-    goto :goto_2
+    goto :goto_d7
 
     .line 145
-    :cond_2
+    :cond_66
     iget v0, v8, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentScreen:I
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_a4
 
     iget v0, v8, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentScreen:I
 
-    if-ne v0, v2, :cond_3
+    if-ne v0, v2, :cond_6f
 
-    goto :goto_1
+    goto :goto_a4
 
     .line 155
-    :cond_3
+    :cond_6f
     iget v0, v8, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentScreen:I
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_d7
 
     .line 157
     iget-object v0, v8, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->fullscreenButton:Landroid/widget/ImageView;
@@ -3031,11 +3031,11 @@
     .line 166
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->updateStartImage()V
 
-    goto :goto_2
+    goto :goto_d7
 
     .line 147
-    :cond_4
-    :goto_1
+    :cond_a4
+    :goto_a4
     iget-object v0, v8, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->fullscreenButton:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -3095,14 +3095,14 @@
     invoke-virtual/range {v0 .. v7}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->setAllControlsVisiblity(IIIIIII)V
 
     .line 168
-    :cond_5
-    :goto_2
+    :cond_d7
+    :goto_d7
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->setSystemTimeAndBattery()V
 
     .line 171
     iget-boolean v0, v8, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->tmp_test_back:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_e6
 
     .line 172
     iput-boolean v11, v8, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->tmp_test_back:Z
@@ -3114,12 +3114,12 @@
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->backPress()Z
 
     .line 176
-    :cond_6
+    :cond_e6
     return-void
 .end method
 
 .method public showBrightnessDialog(I)V
-    .locals 3
+    .registers 5
     .param p1, "brightnessPercent"    # I
 
     .line 826
@@ -3128,7 +3128,7 @@
     .line 827
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mBrightnessDialog:Landroid/app/Dialog;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_33
 
     .line 828
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->getContext()Landroid/content/Context;
@@ -3179,14 +3179,14 @@
 
     .line 833
     .end local v0    # "localView":Landroid/view/View;
-    :cond_0
+    :cond_33
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mBrightnessDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_40
 
     .line 834
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mBrightnessDialog:Landroid/app/Dialog;
@@ -3194,26 +3194,26 @@
     invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 836
-    :cond_1
+    :cond_40
     const/16 v0, 0x64
 
-    if-le p1, v0, :cond_2
+    if-le p1, v0, :cond_47
 
     .line 837
     const/16 p1, 0x64
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 838
-    :cond_2
-    if-gez p1, :cond_3
+    :cond_47
+    if-gez p1, :cond_4a
 
     .line 839
     const/4 p1, 0x0
 
     .line 841
-    :cond_3
-    :goto_0
+    :cond_4a
+    :goto_4a
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mDialogBrightnessTextView:Landroid/widget/TextView;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3245,7 +3245,7 @@
 .end method
 
 .method public showProgressDialog(FLjava/lang/String;JLjava/lang/String;J)V
-    .locals 4
+    .registers 12
     .param p1, "deltaX"    # F
     .param p2, "seekTime"    # Ljava/lang/String;
     .param p3, "seekTimePosition"    # J
@@ -3258,7 +3258,7 @@
     .line 757
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mProgressDialog:Landroid/app/Dialog;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_49
 
     .line 758
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->getContext()Landroid/content/Context;
@@ -3331,14 +3331,14 @@
 
     .line 765
     .end local v0    # "localView":Landroid/view/View;
-    :cond_0
+    :cond_49
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mProgressDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_56
 
     .line 766
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mProgressDialog:Landroid/app/Dialog;
@@ -3346,7 +3346,7 @@
     invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 769
-    :cond_1
+    :cond_56
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mDialogSeekTime:Landroid/widget/TextView;
 
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -3377,13 +3377,13 @@
 
     cmp-long v3, p6, v1
 
-    if-gtz v3, :cond_2
+    if-gtz v3, :cond_7b
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_81
 
-    :cond_2
+    :cond_7b
     const-wide/16 v1, 0x64
 
     mul-long v1, v1, p3
@@ -3392,7 +3392,7 @@
 
     long-to-int v1, v1
 
-    :goto_0
+    :goto_81
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
 
     .line 772
@@ -3400,7 +3400,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-lez v0, :cond_3
+    if-lez v0, :cond_92
 
     .line 773
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mDialogIcon:Landroid/widget/ImageView;
@@ -3409,10 +3409,10 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    goto :goto_1
+    goto :goto_9a
 
     .line 775
-    :cond_3
+    :cond_92
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mDialogIcon:Landroid/widget/ImageView;
 
     const v1, 0x7f0c0026
@@ -3420,7 +3420,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
     .line 777
-    :goto_1
+    :goto_9a
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->onCLickUiToggleToClear()V
 
     .line 778
@@ -3428,7 +3428,7 @@
 .end method
 
 .method public showVolumeDialog(FI)V
-    .locals 3
+    .registers 6
     .param p1, "deltaY"    # F
     .param p2, "volumePercent"    # I
 
@@ -3438,7 +3438,7 @@
     .line 791
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mVolumeDialog:Landroid/app/Dialog;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3e
 
     .line 792
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->getContext()Landroid/content/Context;
@@ -3500,14 +3500,14 @@
 
     .line 798
     .end local v0    # "localView":Landroid/view/View;
-    :cond_0
+    :cond_3e
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mVolumeDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_4b
 
     .line 799
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mVolumeDialog:Landroid/app/Dialog;
@@ -3515,8 +3515,8 @@
     invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 801
-    :cond_1
-    if-gtz p2, :cond_2
+    :cond_4b
+    if-gtz p2, :cond_56
 
     .line 802
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mDialogVolumeImageView:Landroid/widget/ImageView;
@@ -3525,10 +3525,10 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    goto :goto_0
+    goto :goto_5e
 
     .line 804
-    :cond_2
+    :cond_56
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mDialogVolumeImageView:Landroid/widget/ImageView;
 
     const v1, 0x7f0c0025
@@ -3536,26 +3536,26 @@
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
     .line 806
-    :goto_0
+    :goto_5e
     const/16 v0, 0x64
 
-    if-le p2, v0, :cond_3
+    if-le p2, v0, :cond_65
 
     .line 807
     const/16 p2, 0x64
 
-    goto :goto_1
+    goto :goto_68
 
     .line 808
-    :cond_3
-    if-gez p2, :cond_4
+    :cond_65
+    if-gez p2, :cond_68
 
     .line 809
     const/4 p2, 0x0
 
     .line 811
-    :cond_4
-    :goto_1
+    :cond_68
+    :goto_68
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->mDialogVolumeTextView:Landroid/widget/TextView;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3587,7 +3587,7 @@
 .end method
 
 .method public showWifiDialog()V
-    .locals 3
+    .registers 4
 
     .line 405
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->showWifiDialog()V
@@ -3668,7 +3668,7 @@
 .end method
 
 .method public startDismissControlViewTimer()V
-    .locals 4
+    .registers 5
 
     .line 869
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->cancelDismissControlViewTimer()V
@@ -3699,7 +3699,7 @@
 .end method
 
 .method public updateStartImage()V
-    .locals 4
+    .registers 5
 
     .line 737
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
@@ -3710,7 +3710,7 @@
 
     const/4 v3, 0x3
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_1a
 
     .line 738
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->startButton:Landroid/widget/ImageView;
@@ -3729,15 +3729,15 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 741
-    :cond_0
+    :cond_1a
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
     const/4 v3, 0x7
 
-    if-ne v0, v3, :cond_1
+    if-ne v0, v3, :cond_2a
 
     .line 742
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->startButton:Landroid/widget/ImageView;
@@ -3749,15 +3749,15 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 744
-    :cond_1
+    :cond_2a
     iget v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->currentState:I
 
     const/4 v3, 0x6
 
-    if-ne v0, v3, :cond_2
+    if-ne v0, v3, :cond_42
 
     .line 745
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->startButton:Landroid/widget/ImageView;
@@ -3776,10 +3776,10 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 749
-    :cond_2
+    :cond_42
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->startButton:Landroid/widget/ImageView;
 
     const v1, 0x7f08007d
@@ -3792,6 +3792,6 @@
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 752
-    :goto_0
+    :goto_4f
     return-void
 .end method

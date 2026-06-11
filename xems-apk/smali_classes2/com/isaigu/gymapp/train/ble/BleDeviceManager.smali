@@ -71,7 +71,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 54
     const/4 v0, 0x6
@@ -194,7 +194,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -203,7 +203,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/util/List;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Ljava/util/List;
 
     .line 32
@@ -213,7 +213,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/clj/fastble/data/BleDevice;)Z
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 32
@@ -225,7 +225,7 @@
 .end method
 
 .method static synthetic access$200()V
-    .locals 0
+    .registers 0
 
     .line 32
     invoke-static {}, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->decreaseConnect()V
@@ -234,7 +234,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/clj/fastble/data/BleDevice;Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/clj/fastble/data/BleDevice;
     .param p1, "x1"    # Ljava/lang/Integer;
 
@@ -245,7 +245,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/clj/fastble/data/BleDevice;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 32
@@ -255,7 +255,7 @@
 .end method
 
 .method private static addDevice(Lcom/clj/fastble/data/BleDevice;Ljava/lang/Integer;)V
-    .locals 1
+    .registers 3
     .param p0, "device"    # Lcom/clj/fastble/data/BleDevice;
     .param p1, "deviceId"    # Ljava/lang/Integer;
 
@@ -272,7 +272,7 @@
 .end method
 
 .method public static addDeviceListener(Lcom/isaigu/gymapp/train/ble/BleDeviceListener;)V
-    .locals 1
+    .registers 2
     .param p0, "deviceListener"    # Lcom/isaigu/gymapp/train/ble/BleDeviceListener;
 
     .line 110
@@ -285,7 +285,7 @@
 .end method
 
 .method public static cancelScan()V
-    .locals 1
+    .registers 1
 
     .line 203
     invoke-static {}, Lcom/clj/fastble/BleManager;->getInstance()Lcom/clj/fastble/BleManager;
@@ -299,7 +299,7 @@
 .end method
 
 .method public static connect(Lcom/clj/fastble/data/BleDevice;)V
-    .locals 2
+    .registers 3
     .param p0, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 207
@@ -346,7 +346,7 @@
 .end method
 
 .method public static connect(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "mac"    # Ljava/lang/String;
 
     .line 213
@@ -384,7 +384,7 @@
 .end method
 
 .method private static connectAll(Ljava/util/List;)V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -400,12 +400,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_4
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -419,23 +419,23 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     .line 161
     invoke-static {v1}, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->connect(Lcom/clj/fastble/data/BleDevice;)V
 
     .line 163
     .end local v1    # "bleDevice":Lcom/clj/fastble/data/BleDevice;
-    :cond_0
-    goto :goto_0
+    :cond_19
+    goto :goto_4
 
     .line 164
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method private static decreaseConnect()V
-    .locals 1
+    .registers 1
 
     .line 241
     sget v0, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->connectCount:I
@@ -445,32 +445,32 @@
     sput v0, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->connectCount:I
 
     .line 242
-    if-gez v0, :cond_0
+    if-gez v0, :cond_b
 
     const/4 v0, 0x0
 
     sput v0, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->connectCount:I
 
     .line 243
-    :cond_0
+    :cond_b
     sget v0, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->connectCount:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_16
 
     sget-boolean v0, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->started:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 244
     invoke-static {}, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->scan()V
 
     .line 246
-    :cond_1
+    :cond_16
     return-void
 .end method
 
 .method private static deviceConnected(Lcom/clj/fastble/data/BleDevice;Ljava/lang/Integer;)V
-    .locals 2
+    .registers 4
     .param p0, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
     .param p1, "deviceId"    # Ljava/lang/Integer;
 
@@ -493,7 +493,7 @@
 .end method
 
 .method public static disconnect(Lcom/clj/fastble/data/BleDevice;)V
-    .locals 1
+    .registers 2
     .param p0, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 290
@@ -503,23 +503,23 @@
     move-result-object v0
 
     invoke-virtual {v0, p0}, Lcom/clj/fastble/BleManager;->disconnect(Lcom/clj/fastble/data/BleDevice;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_7} :catch_8
 
     .line 293
-    goto :goto_0
+    goto :goto_9
 
     .line 291
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 294
-    :goto_0
+    :goto_9
     return-void
 .end method
 
 .method private static getConfig(Lcom/clj/fastble/data/BleDevice;)Lcom/isaigu/gymapp/train/ble/BleDeviceConfig;
-    .locals 6
+    .registers 7
     .param p0, "device"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 185
@@ -529,7 +529,7 @@
 
     .line 186
     .local v0, "name":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 187
     invoke-virtual {p0}, Lcom/clj/fastble/data/BleDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
@@ -541,16 +541,16 @@
     move-result-object v0
 
     .line 189
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_12
 
     .line 190
     return-object v1
 
     .line 192
-    :cond_1
+    :cond_12
     invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v0
@@ -562,12 +562,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_3c
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -595,7 +595,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3b
 
     .line 196
     return-object v3
@@ -603,16 +603,16 @@
     .line 198
     .end local v3    # "config":Lcom/isaigu/gymapp/train/ble/BleDeviceConfig;
     .end local v4    # "prefixName":Ljava/lang/String;
-    :cond_2
-    goto :goto_0
+    :cond_3b
+    goto :goto_1c
 
     .line 199
-    :cond_3
+    :cond_3c
     return-object v1
 .end method
 
 .method public static indicate(Lcom/clj/fastble/data/BleDevice;Lcom/clj/fastble/callback/BleIndicateCallback;)V
-    .locals 4
+    .registers 6
     .param p0, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
     .param p1, "callback"    # Lcom/clj/fastble/callback/BleIndicateCallback;
 
@@ -642,7 +642,7 @@
 .end method
 
 .method public static init(Landroid/app/Application;)V
-    .locals 4
+    .registers 5
     .param p0, "application"    # Landroid/app/Application;
 
     .line 70
@@ -700,7 +700,7 @@
 .end method
 
 .method private static initScan()V
-    .locals 3
+    .registers 3
 
     .line 81
     const/4 v0, 0x1
@@ -731,7 +731,7 @@
 .end method
 
 .method private static matchName(Lcom/clj/fastble/data/BleDevice;)Z
-    .locals 6
+    .registers 7
     .param p0, "device"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 167
@@ -741,7 +741,7 @@
 
     .line 168
     .local v0, "name":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 169
     invoke-virtual {p0}, Lcom/clj/fastble/data/BleDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
@@ -753,16 +753,16 @@
     move-result-object v0
 
     .line 171
-    :cond_0
+    :cond_e
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_12
 
     .line 172
     return v1
 
     .line 174
-    :cond_1
+    :cond_12
     invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v0
@@ -774,12 +774,12 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1c
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_39
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -803,7 +803,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_38
 
     .line 178
     const/4 v1, 0x1
@@ -813,16 +813,16 @@
     .line 180
     .end local v3    # "config":Lcom/isaigu/gymapp/train/ble/BleDeviceConfig;
     .end local v4    # "prefixName":Ljava/lang/String;
-    :cond_2
-    goto :goto_0
+    :cond_38
+    goto :goto_1c
 
     .line 181
-    :cond_3
+    :cond_39
     return v1
 .end method
 
 .method public static notify(Lcom/clj/fastble/data/BleDevice;Lcom/clj/fastble/callback/BleNotifyCallback;)V
-    .locals 4
+    .registers 6
     .param p0, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
     .param p1, "callback"    # Lcom/clj/fastble/callback/BleNotifyCallback;
 
@@ -852,7 +852,7 @@
 .end method
 
 .method private static onDeviceConnected(Lcom/clj/fastble/data/BleDevice;Ljava/lang/Integer;)V
-    .locals 2
+    .registers 4
     .param p0, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
     .param p1, "deviceId"    # Ljava/lang/Integer;
 
@@ -863,12 +863,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -882,15 +882,15 @@
 
     .line 323
     .end local v1    # "listener":Lcom/isaigu/gymapp/train/ble/BleDeviceListener;
-    goto :goto_0
+    goto :goto_6
 
     .line 324
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method private static onDeviceDisconnected(Lcom/clj/fastble/data/BleDevice;)V
-    .locals 2
+    .registers 3
     .param p0, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 327
@@ -900,12 +900,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -919,15 +919,15 @@
 
     .line 329
     .end local v1    # "listener":Lcom/isaigu/gymapp/train/ble/BleDeviceListener;
-    goto :goto_0
+    goto :goto_6
 
     .line 330
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public static read(Lcom/clj/fastble/data/BleDevice;Lcom/clj/fastble/callback/BleReadCallback;)V
-    .locals 4
+    .registers 6
     .param p0, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
     .param p1, "callback"    # Lcom/clj/fastble/callback/BleReadCallback;
 
@@ -957,7 +957,7 @@
 .end method
 
 .method private static removeDevice(Lcom/clj/fastble/data/BleDevice;)V
-    .locals 1
+    .registers 2
     .param p0, "device"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 123
@@ -973,7 +973,7 @@
 .end method
 
 .method public static removeDeviceListener(Lcom/isaigu/gymapp/train/ble/BleDeviceListener;)V
-    .locals 1
+    .registers 2
     .param p0, "deviceListener"    # Lcom/isaigu/gymapp/train/ble/BleDeviceListener;
 
     .line 114
@@ -986,7 +986,7 @@
 .end method
 
 .method public static removeNotify(Lcom/clj/fastble/data/BleDevice;)V
-    .locals 3
+    .registers 4
     .param p0, "bleDevice"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 301
@@ -1011,7 +1011,7 @@
 .end method
 
 .method public static scan()V
-    .locals 2
+    .registers 2
 
     .line 128
     const-string v0, "www"
@@ -1034,18 +1034,18 @@
 .end method
 
 .method public static start()V
-    .locals 1
+    .registers 1
 
     .line 94
     sget-boolean v0, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->started:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     .line 95
     return-void
 
     .line 97
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->started:Z
@@ -1058,18 +1058,18 @@
 .end method
 
 .method public static stop()V
-    .locals 1
+    .registers 1
 
     .line 102
     sget-boolean v0, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->started:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     .line 103
     return-void
 
     .line 105
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/isaigu/gymapp/train/ble/BleDeviceManager;->started:Z
@@ -1082,7 +1082,7 @@
 .end method
 
 .method public static write(Lcom/clj/fastble/data/BleDevice;[BLcom/clj/fastble/callback/BleWriteCallback;)V
-    .locals 7
+    .registers 10
     .param p0, "device"    # Lcom/clj/fastble/data/BleDevice;
     .param p1, "data"    # [B
     .param p2, "callback"    # Lcom/clj/fastble/callback/BleWriteCallback;

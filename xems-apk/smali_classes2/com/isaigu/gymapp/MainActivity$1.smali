@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/MainActivity;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/MainActivity;
 
     .line 83
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onClose()V
-    .locals 1
+    .registers 2
 
     .line 85
     const-string v0, "onClose"
@@ -49,7 +49,7 @@
 .end method
 
 .method public onDeny(Ljava/lang/String;I)V
-    .locals 2
+    .registers 5
     .param p1, "permisson"    # Ljava/lang/String;
     .param p2, "position"    # I
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public onFinish()V
-    .locals 1
+    .registers 2
 
     .line 88
     const-string v0, "onFinish"
@@ -104,7 +104,7 @@
 .end method
 
 .method public onGuarantee(Ljava/lang/String;I)V
-    .locals 2
+    .registers 5
     .param p1, "permisson"    # Ljava/lang/String;
     .param p2, "position"    # I
 

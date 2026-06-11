@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 7
     new-instance v0, Lcom/isaigu/gymapp/bean/Gender;
@@ -68,7 +68,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .param p3, "gender"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -87,7 +87,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/isaigu/gymapp/bean/Gender;
-    .locals 1
+    .registers 2
     .param p0, "name"    # Ljava/lang/String;
 
     .line 6
@@ -103,7 +103,7 @@
 .end method
 
 .method public static values()[Lcom/isaigu/gymapp/bean/Gender;
-    .locals 1
+    .registers 1
 
     .line 6
     sget-object v0, Lcom/isaigu/gymapp/bean/Gender;->$VALUES:[Lcom/isaigu/gymapp/bean/Gender;
@@ -120,7 +120,7 @@
 
 # virtual methods
 .method public getType()I
-    .locals 1
+    .registers 2
 
     .line 16
     iget v0, p0, Lcom/isaigu/gymapp/bean/Gender;->gender:I

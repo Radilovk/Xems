@@ -1,14 +1,11 @@
 .class Lcom/isaigu/gymapp/fragment/SettingFragment$7;
-.super Ljava/lang/Object;
+.super Lcom/isaigu/gymapp/widget/NoDoubleClickListener;
 .source "SettingFragment.java"
-
-# interfaces
-.implements Lcom/isaigu/gymapp/widget/SwitchButton$OnCheckedChangeListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/isaigu/gymapp/fragment/SettingFragment;->initAlternateImpulseControls()V
+    value = Lcom/isaigu/gymapp/fragment/SettingFragment;->initSet()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -26,34 +23,29 @@
     .registers 2
 
     .prologue
-    .line 336
+    .line 362
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$7;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onCheckedChanged(Lcom/isaigu/gymapp/widget/SwitchButton;Z)V
-    .registers 4
+.method public onNoDoubleClick(Landroid/view/View;)V
+    .registers 5
 
     .prologue
-    .line 339
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+    .line 365
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$7;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    move-result-object v0
+    const-string v1, "zh"
 
-    iput-boolean p2, v0, Lcom/isaigu/gymapp/bean/UserData;->alternateImpulseMode:Z
+    const/4 v2, 0x1
 
-    .line 340
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->switchToLanguage(Ljava/lang/String;Z)V
 
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
-
-    .line 341
+    .line 366
     return-void
 .end method

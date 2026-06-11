@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
 
     .line 15
@@ -16,19 +16,19 @@
 .end method
 
 .method private static circleCrop(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-    .locals 10
+    .registers 12
     .param p0, "pool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
     .param p1, "source"    # Landroid/graphics/Bitmap;
 
     .line 24
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 v0, 0x0
 
     return-object v0
 
     .line 26
-    :cond_0
+    :cond_4
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
@@ -77,7 +77,7 @@
 
     .line 33
     .local v4, "result":Landroid/graphics/Bitmap;
-    if-nez v4, :cond_1
+    if-nez v4, :cond_30
 
     .line 34
     sget-object v5, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
@@ -87,7 +87,7 @@
     move-result-object v4
 
     .line 37
-    :cond_1
+    :cond_30
     new-instance v5, Landroid/graphics/Canvas;
 
     invoke-direct {v5, v4}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public getId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 48
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -148,7 +148,7 @@
 .end method
 
 .method protected transform(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
-    .locals 1
+    .registers 6
     .param p1, "pool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
     .param p2, "toTransform"    # Landroid/graphics/Bitmap;
     .param p3, "outWidth"    # I

@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 9
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
@@ -51,7 +51,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public static attachActionListener(SLcom/isaigu/gymapp/message/ActionListener;)V
-    .locals 4
+    .registers 6
     .param p0, "action"    # S
     .param p1, "listener"    # Lcom/isaigu/gymapp/message/ActionListener;
 
@@ -80,7 +80,7 @@
 
     .line 86
     .local v0, "arrayList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/isaigu/gymapp/message/ActionCallback;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     .line 87
     new-instance v1, Ljava/util/ArrayList;
@@ -99,16 +99,16 @@
     invoke-virtual {v1, v2, v0}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 90
-    :cond_0
+    :cond_1d
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_1e
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_36
 
     .line 91
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -121,25 +121,25 @@
     .local v2, "callback":Lcom/isaigu/gymapp/message/ActionCallback;
     iget-object v3, v2, Lcom/isaigu/gymapp/message/ActionCallback;->listener:Lcom/isaigu/gymapp/message/ActionListener;
 
-    if-ne v3, p1, :cond_1
+    if-ne v3, p1, :cond_33
 
     iget-short v3, v2, Lcom/isaigu/gymapp/message/ActionCallback;->action:S
 
-    if-ne v3, p0, :cond_1
+    if-ne v3, p0, :cond_33
 
     .line 93
     return-void
 
     .line 90
     .end local v2    # "callback":Lcom/isaigu/gymapp/message/ActionCallback;
-    :cond_1
+    :cond_33
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 96
     .end local v1    # "i":I
-    :cond_2
+    :cond_36
     new-instance v1, Lcom/isaigu/gymapp/message/ActionCallback;
 
     invoke-direct {v1, p0, p1}, Lcom/isaigu/gymapp/message/ActionCallback;-><init>(SLcom/isaigu/gymapp/message/ActionListener;)V
@@ -153,7 +153,7 @@
 .end method
 
 .method public static attachEventListener(SLcom/isaigu/gymapp/message/EventListener;)V
-    .locals 4
+    .registers 6
     .param p0, "event"    # S
     .param p1, "listener"    # Lcom/isaigu/gymapp/message/EventListener;
 
@@ -172,7 +172,7 @@
 
     .line 21
     .local v0, "arrayList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/isaigu/gymapp/message/EventCallback;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     .line 22
     new-instance v1, Ljava/util/ArrayList;
@@ -191,16 +191,16 @@
     invoke-virtual {v1, v2, v0}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 25
-    :cond_0
+    :cond_1d
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_1e
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_36
 
     .line 26
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -213,25 +213,25 @@
     .local v2, "callback":Lcom/isaigu/gymapp/message/EventCallback;
     iget-short v3, v2, Lcom/isaigu/gymapp/message/EventCallback;->event:S
 
-    if-ne v3, p0, :cond_1
+    if-ne v3, p0, :cond_33
 
     iget-object v3, v2, Lcom/isaigu/gymapp/message/EventCallback;->listener:Lcom/isaigu/gymapp/message/EventListener;
 
-    if-ne v3, p1, :cond_1
+    if-ne v3, p1, :cond_33
 
     .line 28
     return-void
 
     .line 25
     .end local v2    # "callback":Lcom/isaigu/gymapp/message/EventCallback;
-    :cond_1
+    :cond_33
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 31
     .end local v1    # "i":I
-    :cond_2
+    :cond_36
     new-instance v1, Lcom/isaigu/gymapp/message/EventCallback;
 
     invoke-direct {v1, p0, p1}, Lcom/isaigu/gymapp/message/EventCallback;-><init>(SLcom/isaigu/gymapp/message/EventListener;)V
@@ -245,7 +245,7 @@
 .end method
 
 .method public static detachActionListener(Lcom/isaigu/gymapp/message/ActionListener;)V
-    .locals 6
+    .registers 7
     .param p0, "listener"    # Lcom/isaigu/gymapp/message/ActionListener;
 
     .line 102
@@ -259,12 +259,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_35
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -289,8 +289,8 @@
     add-int/lit8 v3, v3, -0x1
 
     .local v3, "i":I
-    :goto_1
-    if-ltz v3, :cond_1
+    :goto_22
+    if-ltz v3, :cond_34
 
     .line 105
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -303,32 +303,32 @@
     .local v4, "functionCallback":Lcom/isaigu/gymapp/message/ActionCallback;
     iget-object v5, v4, Lcom/isaigu/gymapp/message/ActionCallback;->listener:Lcom/isaigu/gymapp/message/ActionListener;
 
-    if-ne v5, p0, :cond_0
+    if-ne v5, p0, :cond_31
 
     .line 107
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
     .line 104
     .end local v4    # "functionCallback":Lcom/isaigu/gymapp/message/ActionCallback;
-    :cond_0
+    :cond_31
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_1
+    goto :goto_22
 
     .line 110
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Short;Ljava/util/ArrayList<Lcom/isaigu/gymapp/message/ActionCallback;>;>;"
     .end local v2    # "array":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/isaigu/gymapp/message/ActionCallback;>;"
     .end local v3    # "i":I
-    :cond_1
-    goto :goto_0
+    :cond_34
+    goto :goto_a
 
     .line 111
-    :cond_2
+    :cond_35
     return-void
 .end method
 
 .method public static detachAll()V
-    .locals 1
+    .registers 1
 
     .line 136
     sget-object v0, Lcom/isaigu/gymapp/message/MessageDispatcher;->eventMap:Ljava/util/concurrent/ConcurrentHashMap;
@@ -345,7 +345,7 @@
 .end method
 
 .method public static detachAllAction()V
-    .locals 1
+    .registers 1
 
     .line 131
     sget-object v0, Lcom/isaigu/gymapp/message/MessageDispatcher;->actionMap:Ljava/util/concurrent/ConcurrentHashMap;
@@ -357,7 +357,7 @@
 .end method
 
 .method public static detachAllEvent()V
-    .locals 1
+    .registers 1
 
     .line 126
     sget-object v0, Lcom/isaigu/gymapp/message/MessageDispatcher;->eventMap:Ljava/util/concurrent/ConcurrentHashMap;
@@ -369,7 +369,7 @@
 .end method
 
 .method public static detachEventListener(Lcom/isaigu/gymapp/message/EventListener;)V
-    .locals 6
+    .registers 7
     .param p0, "listener"    # Lcom/isaigu/gymapp/message/EventListener;
 
     .line 37
@@ -383,12 +383,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_35
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -413,8 +413,8 @@
     add-int/lit8 v3, v3, -0x1
 
     .local v3, "i":I
-    :goto_1
-    if-ltz v3, :cond_1
+    :goto_22
+    if-ltz v3, :cond_34
 
     .line 40
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -427,32 +427,32 @@
     .local v4, "functionCallback":Lcom/isaigu/gymapp/message/EventCallback;
     iget-object v5, v4, Lcom/isaigu/gymapp/message/EventCallback;->listener:Lcom/isaigu/gymapp/message/EventListener;
 
-    if-ne v5, p0, :cond_0
+    if-ne v5, p0, :cond_31
 
     .line 42
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
     .line 39
     .end local v4    # "functionCallback":Lcom/isaigu/gymapp/message/EventCallback;
-    :cond_0
+    :cond_31
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_1
+    goto :goto_22
 
     .line 45
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Short;Ljava/util/ArrayList<Lcom/isaigu/gymapp/message/EventCallback;>;>;"
     .end local v2    # "array":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/isaigu/gymapp/message/EventCallback;>;"
     .end local v3    # "i":I
-    :cond_1
-    goto :goto_0
+    :cond_34
+    goto :goto_a
 
     .line 46
-    :cond_2
+    :cond_35
     return-void
 .end method
 
 .method public static detachEventListener(Lcom/isaigu/gymapp/message/EventListener;S)V
-    .locals 6
+    .registers 8
     .param p0, "listener"    # Lcom/isaigu/gymapp/message/EventListener;
     .param p1, "event"    # S
 
@@ -467,12 +467,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_a
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_45
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -492,7 +492,7 @@
 
     move-result v2
 
-    if-ne p1, v2, :cond_1
+    if-ne p1, v2, :cond_44
 
     .line 52
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -510,8 +510,8 @@
     add-int/lit8 v3, v3, -0x1
 
     .local v3, "i":I
-    :goto_1
-    if-ltz v3, :cond_1
+    :goto_2e
+    if-ltz v3, :cond_44
 
     .line 54
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -524,36 +524,36 @@
     .local v4, "functionCallback":Lcom/isaigu/gymapp/message/EventCallback;
     iget-object v5, v4, Lcom/isaigu/gymapp/message/EventCallback;->listener:Lcom/isaigu/gymapp/message/EventListener;
 
-    if-ne v5, p0, :cond_0
+    if-ne v5, p0, :cond_41
 
     iget-short v5, v4, Lcom/isaigu/gymapp/message/EventCallback;->event:S
 
-    if-ne v5, p1, :cond_0
+    if-ne v5, p1, :cond_41
 
     .line 56
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
     .line 53
     .end local v4    # "functionCallback":Lcom/isaigu/gymapp/message/EventCallback;
-    :cond_0
+    :cond_41
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 60
     .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Short;Ljava/util/ArrayList<Lcom/isaigu/gymapp/message/EventCallback;>;>;"
     .end local v2    # "array":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/isaigu/gymapp/message/EventCallback;>;"
     .end local v3    # "i":I
-    :cond_1
-    goto :goto_0
+    :cond_44
+    goto :goto_a
 
     .line 61
-    :cond_2
+    :cond_45
     return-void
 .end method
 
 .method public static dispatchActionMessage(Lcom/isaigu/gymapp/message/DataDecoder;)V
-    .locals 4
+    .registers 5
     .param p0, "decoder"    # Lcom/isaigu/gymapp/message/DataDecoder;
 
     .line 115
@@ -577,18 +577,18 @@
 
     .line 118
     .local v1, "array":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/isaigu/gymapp/message/ActionCallback;>;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 119
     const/4 v2, 0x0
 
     .local v2, "i":I
-    :goto_0
+    :goto_13
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_25
 
     .line 120
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -602,16 +602,16 @@
     .line 119
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 123
     .end local v2    # "i":I
-    :cond_0
+    :cond_25
     return-void
 .end method
 
 .method public static dispatchEventMessage(Lcom/isaigu/gymapp/message/DataBundle;)V
-    .locals 3
+    .registers 4
     .param p0, "dataBundle"    # Lcom/isaigu/gymapp/message/DataBundle;
 
     .line 71
@@ -633,25 +633,25 @@
 
     .line 72
     .local v0, "array":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/isaigu/gymapp/message/EventCallback;>;"
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 73
     monitor-enter v0
 
     .line 74
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .line 75
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
-    :try_start_0
+    :goto_16
+    :try_start_16
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_28
 
     .line 76
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -665,32 +665,32 @@
     .line 75
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 79
     .end local v1    # "i":I
-    :cond_0
+    :cond_28
     monitor-exit v0
 
-    goto :goto_1
+    goto :goto_2d
 
-    :catchall_0
+    :catchall_2a
     move-exception v1
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2c
+    .catchall {:try_start_16 .. :try_end_2c} :catchall_2a
 
     throw v1
 
     .line 81
-    :cond_1
-    :goto_1
+    :cond_2d
+    :goto_2d
     return-void
 .end method
 
 .method public static dispatchEventMessage(S)V
-    .locals 2
+    .registers 3
     .param p0, "event"    # S
 
     .line 65

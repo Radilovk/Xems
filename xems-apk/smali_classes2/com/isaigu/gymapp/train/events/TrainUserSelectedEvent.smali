@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/train/model/TrainItem;)V
-    .locals 0
+    .registers 2
     .param p1, "trainItem"    # Lcom/isaigu/gymapp/train/model/TrainItem;
 
     .line 8
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public getTrainItem()Lcom/isaigu/gymapp/train/model/TrainItem;
-    .locals 1
+    .registers 2
 
     .line 13
     iget-object v0, p0, Lcom/isaigu/gymapp/train/events/TrainUserSelectedEvent;->trainItem:Lcom/isaigu/gymapp/train/model/TrainItem;
@@ -34,7 +34,7 @@
 .end method
 
 .method public setTrainItem(Lcom/isaigu/gymapp/train/model/TrainItem;)V
-    .locals 0
+    .registers 2
     .param p1, "trainItem"    # Lcom/isaigu/gymapp/train/model/TrainItem;
 
     .line 17

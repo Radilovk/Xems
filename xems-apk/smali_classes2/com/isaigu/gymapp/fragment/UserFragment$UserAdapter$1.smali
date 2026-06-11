@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;I)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;
 
     .line 186
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 4
+    .registers 6
     .param p1, "v"    # Landroid/view/View;
 
     .line 188
@@ -56,6 +56,7 @@
     .local v1, "bundle":Landroid/os/Bundle;
     iget-object v2, p0, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter$1;->this$1:Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;->mData:Ljava/util/List;
     invoke-static {v2}, Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;->access$200(Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;)Ljava/util/List;
 
     move-result-object v2

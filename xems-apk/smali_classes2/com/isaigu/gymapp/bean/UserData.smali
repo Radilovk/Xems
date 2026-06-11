@@ -4,8 +4,6 @@
 
 
 # static fields
-.field public static final bulgarian:Ljava/lang/String; = "bg"
-
 .field public static final chinese:Ljava/lang/String; = "zh"
 
 .field public static final english:Ljava/lang/String; = "en"
@@ -30,35 +28,9 @@
 
 
 # instance fields
-.field public alternateImpulseMode:Z
-
-.field public alternatePhaseType:I
-
 .field public autoLogin:Z
 
 .field public channelPulseWidthUs:[I
-
-.field public channelStepMultiplier:[F
-
-.field public currentDecreaseStep:I
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
-.field public currentDecreaseStepTenths:I
-
-.field public currentIncreaseStep:I
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
-.field public currentIncreaseStepTenths:I
-
-.field public defaultPulseContinue:I
-
-.field public defaultPulsePause:I
-
-.field public iconPath:Ljava/lang/String;
 
 .field public language:Ljava/lang/String;
 
@@ -74,8 +46,6 @@
 
 .field public roleName:Ljava/lang/String;
 
-.field public splashPath:Ljava/lang/String;
-
 .field public useTime:J
 
 .field public userName:Ljava/lang/String;
@@ -86,7 +56,7 @@
     .registers 1
 
     .prologue
-    .line 14
+    .line 13
     const/4 v0, 0x0
 
     sput-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
@@ -95,30 +65,40 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .registers 1
 
     .prologue
-    const/4 v0, 0x1
-
-    .line 8
+    .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
-    iput v0, p0, Lcom/isaigu/gymapp/bean/UserData;->currentIncreaseStepTenths:I
+    return-void
+.end method
 
-    .line 34
-    iput v0, p0, Lcom/isaigu/gymapp/bean/UserData;->currentDecreaseStepTenths:I
+.method public static ensureChannelPulseWidths(Lcom/isaigu/gymapp/bean/UserData;)V
+    .registers 3
 
-    .line 41
-    const/4 v0, 0x4
+    .prologue
+    const/16 v1, 0xa
 
-    iput v0, p0, Lcom/isaigu/gymapp/bean/UserData;->defaultPulseContinue:I
+    .line 50
+    iget-object v0, p0, Lcom/isaigu/gymapp/bean/UserData;->channelPulseWidthUs:[I
 
-    .line 42
-    const/4 v0, 0x3
+    if-eqz v0, :cond_b
 
-    iput v0, p0, Lcom/isaigu/gymapp/bean/UserData;->defaultPulsePause:I
+    iget-object v0, p0, Lcom/isaigu/gymapp/bean/UserData;->channelPulseWidthUs:[I
 
+    array-length v0, v0
+
+    if-eq v0, v1, :cond_f
+
+    .line 51
+    :cond_b
+    new-array v0, v1, [I
+
+    iput-object v0, p0, Lcom/isaigu/gymapp/bean/UserData;->channelPulseWidthUs:[I
+
+    .line 53
+    :cond_f
     return-void
 .end method
 
@@ -126,12 +106,12 @@
     .registers 2
 
     .prologue
-    .line 47
+    .line 33
     sget-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
     if-nez v0, :cond_35
 
-    .line 48
+    .line 34
     const-class v0, Lcom/isaigu/gymapp/bean/UserData;
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->getData(Ljava/lang/Class;)Ljava/lang/Object;
@@ -140,24 +120,24 @@
 
     check-cast v0, Lcom/isaigu/gymapp/bean/UserData;
 
-    .line 49
+    .line 35
     sput-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
-    .line 50
+    .line 36
     if-nez v0, :cond_1a
 
-    .line 51
+    .line 37
     new-instance v0, Lcom/isaigu/gymapp/bean/UserData;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/bean/UserData;-><init>()V
 
-    .line 52
+    .line 38
     sput-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
-    .line 53
+    .line 39
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
 
-    .line 55
+    .line 41
     :cond_1a
     sget-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
@@ -169,7 +149,7 @@
 
     if-eqz v0, :cond_30
 
-    .line 56
+    .line 42
     sget-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -182,82 +162,17 @@
 
     iput-object v1, v0, Lcom/isaigu/gymapp/bean/UserData;->language:Ljava/lang/String;
 
-    .line 58
+    .line 44
     :cond_30
     sget-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/bean/UserData;->migrateLegacyTrainingSettings(Lcom/isaigu/gymapp/bean/UserData;)V
+    invoke-static {v0}, Lcom/isaigu/gymapp/bean/UserData;->ensureChannelPulseWidths(Lcom/isaigu/gymapp/bean/UserData;)V
 
-    .line 60
+    .line 46
     :cond_35
     sget-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
     return-object v0
-.end method
-
-.method private static migrateLegacyTrainingSettings(Lcom/isaigu/gymapp/bean/UserData;)V
-    .registers 3
-
-    .prologue
-    const/4 v1, 0x1
-
-    .line 64
-    iget v0, p0, Lcom/isaigu/gymapp/bean/UserData;->currentIncreaseStepTenths:I
-
-    if-gtz v0, :cond_f
-
-    iget v0, p0, Lcom/isaigu/gymapp/bean/UserData;->currentIncreaseStep:I
-
-    if-lez v0, :cond_f
-
-    .line 65
-    iget v0, p0, Lcom/isaigu/gymapp/bean/UserData;->currentIncreaseStep:I
-
-    mul-int/lit8 v0, v0, 0xa
-
-    iput v0, p0, Lcom/isaigu/gymapp/bean/UserData;->currentIncreaseStepTenths:I
-
-    .line 67
-    :cond_f
-    iget v0, p0, Lcom/isaigu/gymapp/bean/UserData;->currentDecreaseStepTenths:I
-
-    if-gtz v0, :cond_1d
-
-    iget v0, p0, Lcom/isaigu/gymapp/bean/UserData;->currentDecreaseStep:I
-
-    if-lez v0, :cond_1d
-
-    .line 68
-    iget v0, p0, Lcom/isaigu/gymapp/bean/UserData;->currentDecreaseStep:I
-
-    mul-int/lit8 v0, v0, 0xa
-
-    iput v0, p0, Lcom/isaigu/gymapp/bean/UserData;->currentDecreaseStepTenths:I
-
-    .line 70
-    :cond_1d
-    iget v0, p0, Lcom/isaigu/gymapp/bean/UserData;->currentIncreaseStepTenths:I
-
-    if-gtz v0, :cond_23
-
-    .line 71
-    iput v1, p0, Lcom/isaigu/gymapp/bean/UserData;->currentIncreaseStepTenths:I
-
-    .line 73
-    :cond_23
-    iget v0, p0, Lcom/isaigu/gymapp/bean/UserData;->currentDecreaseStepTenths:I
-
-    if-gtz v0, :cond_29
-
-    .line 74
-    iput v1, p0, Lcom/isaigu/gymapp/bean/UserData;->currentDecreaseStepTenths:I
-
-    .line 76
-    :cond_29
-    invoke-static {}, Lcom/isaigu/gymapp/utils/StrengthAdjustUtil;->ensureDefaults()V
-
-    .line 77
-    return-void
 .end method
 
 
@@ -266,7 +181,7 @@
     .registers 2
 
     .prologue
-    .line 80
+    .line 56
     iget-boolean v0, p0, Lcom/isaigu/gymapp/bean/UserData;->autoLogin:Z
 
     return v0

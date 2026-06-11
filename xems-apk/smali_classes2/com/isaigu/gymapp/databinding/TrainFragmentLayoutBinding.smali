@@ -50,7 +50,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/ImageView;Landroid/widget/LinearLayout;Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;)V
-    .locals 16
+    .registers 37
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "allAdd"    # Lcom/isaigu/gymapp/widget/MyButton;
     .param p3, "allPerson"    # Lcom/isaigu/gymapp/widget/MyButton;
@@ -182,7 +182,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/TrainFragmentLayoutBinding;
-    .locals 43
+    .registers 44
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 137
@@ -200,7 +200,7 @@
 
     .line 139
     .local v2, "allAdd":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_139
 
     .line 143
     const v1, 0x7f09003a
@@ -216,7 +216,7 @@
 
     .line 145
     .local v24, "allPerson":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v24, :cond_11
+    if-eqz v24, :cond_138
 
     .line 149
     const v1, 0x7f09003b
@@ -232,7 +232,7 @@
 
     .line 151
     .local v25, "allStartPause":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v25, :cond_10
+    if-eqz v25, :cond_137
 
     .line 155
     const v1, 0x7f09003c
@@ -248,7 +248,7 @@
 
     .line 157
     .local v26, "allStop":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v26, :cond_f
+    if-eqz v26, :cond_136
 
     .line 161
     const v1, 0x7f09003d
@@ -264,7 +264,7 @@
 
     .line 163
     .local v27, "allminus":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v27, :cond_e
+    if-eqz v27, :cond_135
 
     .line 167
     const v1, 0x7f090057
@@ -280,7 +280,7 @@
 
     .line 169
     .local v28, "buwei1":Landroid/widget/LinearLayout;
-    if-eqz v28, :cond_d
+    if-eqz v28, :cond_134
 
     .line 173
     const v1, 0x7f090058
@@ -296,7 +296,7 @@
 
     .line 175
     .local v29, "buwei10":Landroid/widget/LinearLayout;
-    if-eqz v29, :cond_c
+    if-eqz v29, :cond_133
 
     .line 179
     const v1, 0x7f090059
@@ -312,7 +312,7 @@
 
     .line 181
     .local v30, "buwei2":Landroid/widget/LinearLayout;
-    if-eqz v30, :cond_b
+    if-eqz v30, :cond_132
 
     .line 185
     const v1, 0x7f09005a
@@ -328,7 +328,7 @@
 
     .line 187
     .local v31, "buwei3":Landroid/widget/LinearLayout;
-    if-eqz v31, :cond_a
+    if-eqz v31, :cond_131
 
     .line 191
     const v1, 0x7f09005b
@@ -344,7 +344,7 @@
 
     .line 193
     .local v32, "buwei4":Landroid/widget/LinearLayout;
-    if-eqz v32, :cond_9
+    if-eqz v32, :cond_130
 
     .line 197
     const v1, 0x7f09005c
@@ -360,7 +360,7 @@
 
     .line 199
     .local v33, "buwei5":Landroid/widget/LinearLayout;
-    if-eqz v33, :cond_8
+    if-eqz v33, :cond_12f
 
     .line 203
     const v1, 0x7f09005d
@@ -376,7 +376,7 @@
 
     .line 205
     .local v34, "buwei6":Landroid/widget/LinearLayout;
-    if-eqz v34, :cond_7
+    if-eqz v34, :cond_12e
 
     .line 209
     const v1, 0x7f09005e
@@ -392,7 +392,7 @@
 
     .line 211
     .local v35, "buwei7":Landroid/widget/LinearLayout;
-    if-eqz v35, :cond_6
+    if-eqz v35, :cond_12d
 
     .line 215
     const v1, 0x7f09005f
@@ -408,7 +408,7 @@
 
     .line 217
     .local v36, "buwei8":Landroid/widget/LinearLayout;
-    if-eqz v36, :cond_5
+    if-eqz v36, :cond_12c
 
     .line 221
     const v1, 0x7f090060
@@ -424,7 +424,7 @@
 
     .line 223
     .local v37, "buwei9":Landroid/widget/LinearLayout;
-    if-eqz v37, :cond_4
+    if-eqz v37, :cond_12b
 
     .line 227
     const v1, 0x7f0900dd
@@ -440,7 +440,7 @@
 
     .line 229
     .local v38, "leftLayout":Landroid/widget/LinearLayout;
-    if-eqz v38, :cond_3
+    if-eqz v38, :cond_12a
 
     .line 233
     const v1, 0x7f0900f6
@@ -456,7 +456,7 @@
 
     .line 235
     .local v39, "logoImage":Landroid/widget/ImageView;
-    if-eqz v39, :cond_2
+    if-eqz v39, :cond_129
 
     .line 239
     const v1, 0x7f090155
@@ -472,7 +472,7 @@
 
     .line 241
     .local v40, "rightLayout":Landroid/widget/LinearLayout;
-    if-eqz v40, :cond_1
+    if-eqz v40, :cond_128
 
     .line 245
     const v1, 0x7f0901b7
@@ -488,7 +488,7 @@
 
     .line 247
     .local v41, "trainUserlistview":Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;
-    if-eqz v41, :cond_0
+    if-eqz v41, :cond_127
 
     .line 251
     new-instance v42, Lcom/isaigu/gymapp/databinding/TrainFragmentLayoutBinding;
@@ -542,102 +542,102 @@
     return-object v42
 
     .line 248
-    :cond_0
-    goto :goto_0
+    :cond_127
+    goto :goto_13a
 
     .line 242
     .end local v41    # "trainUserlistview":Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;
-    :cond_1
-    goto :goto_0
+    :cond_128
+    goto :goto_13a
 
     .line 236
     .end local v40    # "rightLayout":Landroid/widget/LinearLayout;
-    :cond_2
-    goto :goto_0
+    :cond_129
+    goto :goto_13a
 
     .line 230
     .end local v39    # "logoImage":Landroid/widget/ImageView;
-    :cond_3
-    goto :goto_0
+    :cond_12a
+    goto :goto_13a
 
     .line 224
     .end local v38    # "leftLayout":Landroid/widget/LinearLayout;
-    :cond_4
-    goto :goto_0
+    :cond_12b
+    goto :goto_13a
 
     .line 218
     .end local v37    # "buwei9":Landroid/widget/LinearLayout;
-    :cond_5
-    goto :goto_0
+    :cond_12c
+    goto :goto_13a
 
     .line 212
     .end local v36    # "buwei8":Landroid/widget/LinearLayout;
-    :cond_6
-    goto :goto_0
+    :cond_12d
+    goto :goto_13a
 
     .line 206
     .end local v35    # "buwei7":Landroid/widget/LinearLayout;
-    :cond_7
-    goto :goto_0
+    :cond_12e
+    goto :goto_13a
 
     .line 200
     .end local v34    # "buwei6":Landroid/widget/LinearLayout;
-    :cond_8
-    goto :goto_0
+    :cond_12f
+    goto :goto_13a
 
     .line 194
     .end local v33    # "buwei5":Landroid/widget/LinearLayout;
-    :cond_9
-    goto :goto_0
+    :cond_130
+    goto :goto_13a
 
     .line 188
     .end local v32    # "buwei4":Landroid/widget/LinearLayout;
-    :cond_a
-    goto :goto_0
+    :cond_131
+    goto :goto_13a
 
     .line 182
     .end local v31    # "buwei3":Landroid/widget/LinearLayout;
-    :cond_b
-    goto :goto_0
+    :cond_132
+    goto :goto_13a
 
     .line 176
     .end local v30    # "buwei2":Landroid/widget/LinearLayout;
-    :cond_c
-    goto :goto_0
+    :cond_133
+    goto :goto_13a
 
     .line 170
     .end local v29    # "buwei10":Landroid/widget/LinearLayout;
-    :cond_d
-    goto :goto_0
+    :cond_134
+    goto :goto_13a
 
     .line 164
     .end local v28    # "buwei1":Landroid/widget/LinearLayout;
-    :cond_e
-    goto :goto_0
+    :cond_135
+    goto :goto_13a
 
     .line 158
     .end local v27    # "allminus":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_f
-    goto :goto_0
+    :cond_136
+    goto :goto_13a
 
     .line 152
     .end local v26    # "allStop":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_10
-    goto :goto_0
+    :cond_137
+    goto :goto_13a
 
     .line 146
     .end local v25    # "allStartPause":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_11
-    goto :goto_0
+    :cond_138
+    goto :goto_13a
 
     .line 140
     .end local v24    # "allPerson":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_12
+    :cond_139
     nop
 
     .line 255
     .end local v2    # "allAdd":Lcom/isaigu/gymapp/widget/MyButton;
-    :goto_0
+    :goto_13a
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -662,7 +662,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/TrainFragmentLayoutBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 118
@@ -678,7 +678,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/TrainFragmentLayoutBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -694,13 +694,13 @@
 
     .line 125
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 126
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 128
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/TrainFragmentLayoutBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/TrainFragmentLayoutBinding;
 
     move-result-object v1
@@ -711,7 +711,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/TrainFragmentLayoutBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -722,7 +722,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 113
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/TrainFragmentLayoutBinding;->rootView:Landroid/widget/LinearLayout;

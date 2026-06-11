@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 2
 
     .line 343
     iput-object p1, p0, Lcom/isaigu/gymapp/utils/ReflectionUtils$4;->val$methods:Ljava/util/ArrayList;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public doWith(Ljava/lang/reflect/Method;)V
-    .locals 1
+    .registers 3
     .param p1, "method"    # Ljava/lang/reflect/Method;
 
     .line 345

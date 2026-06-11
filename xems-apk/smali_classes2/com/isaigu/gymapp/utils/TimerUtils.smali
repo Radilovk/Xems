@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,12 +14,12 @@
 .end method
 
 .method public static delayCallback(Ljava/lang/Runnable;J)Ljava/util/Timer;
-    .locals 2
+    .registers 5
     .param p0, "runnable"    # Ljava/lang/Runnable;
     .param p1, "timeInMill"    # J
 
     .line 12
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 13
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
     return-object v0
 
     .line 15
-    :cond_0
+    :cond_4
     new-instance v0, Ljava/util/Timer;
 
     invoke-direct {v0}, Ljava/util/Timer;-><init>()V
@@ -45,13 +45,13 @@
 .end method
 
 .method public static scheduleTimer(Ljava/lang/Runnable;JJ)Ljava/util/Timer;
-    .locals 7
+    .registers 12
     .param p0, "runnable"    # Ljava/lang/Runnable;
     .param p1, "delay"    # J
     .param p3, "interval"    # J
 
     .line 36
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 37
     const/4 v0, 0x0
@@ -59,7 +59,7 @@
     return-object v0
 
     .line 39
-    :cond_0
+    :cond_4
     new-instance v0, Ljava/util/Timer;
 
     invoke-direct {v0}, Ljava/util/Timer;-><init>()V
@@ -83,17 +83,17 @@
 .end method
 
 .method public static stopTimer(Ljava/util/Timer;)V
-    .locals 0
+    .registers 1
     .param p0, "timer"    # Ljava/util/Timer;
 
     .line 29
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     .line 30
     invoke-virtual {p0}, Ljava/util/Timer;->cancel()V
 
     .line 32
-    :cond_0
+    :cond_5
     const/4 p0, 0x0
 
     .line 33

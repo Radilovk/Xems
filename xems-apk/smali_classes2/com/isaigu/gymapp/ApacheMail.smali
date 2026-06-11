@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 12
     const-string v0, "smtp.mxhichina.com"
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,7 +65,7 @@
 .end method
 
 .method public static sendHtmlEmail(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 10
+    .registers 12
     .param p0, "subject"    # Ljava/lang/String;
     .param p1, "content"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -77,7 +77,7 @@
     .line 46
     const-string v0, "utf-8"
 
-    :try_start_0
+    :try_start_2
     const-string v1, "org.apache.commons.mail.HtmlEmail"
 
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -288,18 +288,18 @@
     new-array v3, v7, [Ljava/lang/Object;
 
     invoke-virtual {v0, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_ce
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_ce} :catch_d0
 
     .line 58
     nop
 
     .end local v1    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v2    # "email":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_d4
 
     .line 56
-    :catch_0
+    :catch_d0
     move-exception v0
 
     .line 57
@@ -308,19 +308,19 @@
 
     .line 59
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_d4
     return-void
 .end method
 
 .method public static sendSimpleEmail(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 10
+    .registers 12
     .param p0, "subject"    # Ljava/lang/String;
     .param p1, "content"    # Ljava/lang/String;
 
     .line 27
     const-string v0, "utf-8"
 
-    :try_start_0
+    :try_start_2
     const-string v1, "org.apache.commons.mail.SimpleEmail"
 
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -531,18 +531,18 @@
     new-array v3, v7, [Ljava/lang/Object;
 
     invoke-virtual {v0, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_ce
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_ce} :catch_d0
 
     .line 39
     nop
 
     .end local v1    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v2    # "email":Ljava/lang/Object;
-    goto :goto_0
+    goto :goto_d4
 
     .line 37
-    :catch_0
+    :catch_d0
     move-exception v0
 
     .line 38
@@ -551,14 +551,14 @@
 
     .line 40
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_d4
     return-void
 .end method
 
 
 # virtual methods
 .method public sendMultiPartEmail(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;)V
-    .locals 11
+    .registers 15
     .param p1, "subject"    # Ljava/lang/String;
     .param p2, "content"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -582,7 +582,7 @@
     .local p3, "attachmentArrayList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     const-string v0, "utf-8"
 
-    :try_start_0
+    :try_start_2
     const-string v1, "org.apache.commons.mail.MultiPartEmail"
 
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -782,24 +782,24 @@
     invoke-virtual {v0, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 74
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_190
 
     invoke-virtual {p3}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_190
 
     .line 75
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_ca
     invoke-virtual {p3}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
-    if-ge v0, v3, :cond_2
+    if-ge v0, v3, :cond_190
 
     .line 76
     invoke-virtual {p3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -810,7 +810,7 @@
 
     .line 77
     .local v3, "attachmentPath":Ljava/lang/String;
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_18c
 
     const-string v5, ""
 
@@ -818,7 +818,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_18c
 
     .line 78
     const-string v5, "org.apache.commons.mail.EmailAttachment"
@@ -839,7 +839,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_10f
 
     .line 80
     invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -868,10 +868,10 @@
 
     invoke-virtual {v6, v5, v8}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_126
 
     .line 82
-    :cond_0
+    :cond_10f
     invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v6
@@ -895,7 +895,7 @@
     invoke-virtual {v6, v5, v8}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 84
-    :goto_1
+    :goto_126
     invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v6
@@ -1000,14 +1000,14 @@
     .line 75
     .end local v3    # "attachmentPath":Ljava/lang/String;
     .end local v5    # "attachment":Ljava/lang/Object;
-    :cond_1
+    :cond_18c
     add-int/lit8 v0, v0, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_ca
 
     .line 94
     .end local v0    # "i":I
-    :cond_2
+    :cond_190
     const-string v0, "send"
 
     new-array v3, v7, [Ljava/lang/Class;
@@ -1019,18 +1019,18 @@
     new-array v3, v7, [Ljava/lang/Object;
 
     invoke-virtual {v0, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19d
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_19d} :catch_19f
 
     .line 97
     nop
 
     .end local v1    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     .end local v2    # "email":Ljava/lang/Object;
-    goto :goto_2
+    goto :goto_1a3
 
     .line 95
-    :catch_0
+    :catch_19f
     move-exception v0
 
     .line 96
@@ -1039,6 +1039,6 @@
 
     .line 98
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_2
+    :goto_1a3
     return-void
 .end method

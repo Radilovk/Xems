@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method public static getPrintString([B)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0, "data"    # [B
 
     .line 37
@@ -31,10 +31,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_6
     array-length v2, p0
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_26
 
     .line 39
     new-instance v2, Ljava/lang/StringBuilder;
@@ -62,11 +62,11 @@
     .line 38
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 41
     .end local v1    # "i":I
-    :cond_0
+    :cond_26
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -75,7 +75,7 @@
 .end method
 
 .method public static initContext(Landroid/content/Context;)V
-    .locals 0
+    .registers 1
     .param p0, "context"    # Landroid/content/Context;
 
     .line 11
@@ -86,11 +86,11 @@
 .end method
 
 .method public static isNumber(Ljava/lang/String;)Z
-    .locals 2
+    .registers 3
     .param p0, "str"    # Ljava/lang/String;
 
     .line 20
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_12
 
     const-string v0, ""
 
@@ -98,12 +98,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
-    goto :goto_0
+    goto :goto_12
 
     .line 23
-    :cond_0
+    :cond_b
     const-string v0, "\\d+(\\.\\d+)?"
 
     .line 24
@@ -116,15 +116,15 @@
 
     .line 21
     .end local v0    # "reg":Ljava/lang/String;
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public static final printByteArray(Ljava/lang/String;[B)V
-    .locals 3
+    .registers 5
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "data"    # [B
 
@@ -149,10 +149,10 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_15
     array-length v1, p1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_35
 
     .line 31
     new-instance v1, Ljava/lang/StringBuilder;
@@ -180,11 +180,11 @@
     .line 30
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 33
     .end local v0    # "i":I
-    :cond_0
+    :cond_35
     const-string v0, ""
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
@@ -194,12 +194,12 @@
 .end method
 
 .method public static retainAccuracy(FI)F
-    .locals 4
+    .registers 6
     .param p0, "value"    # F
     .param p1, "retainCount"    # I
 
     .line 51
-    if-gtz p1, :cond_0
+    if-gtz p1, :cond_4
 
     .line 52
     const/4 v0, 0x0
@@ -207,7 +207,7 @@
     return v0
 
     .line 54
-    :cond_0
+    :cond_4
     const-wide/high16 v0, 0x4024000000000000L    # 10.0
 
     int-to-double v2, p1
@@ -236,7 +236,7 @@
 .end method
 
 .method public static final toHex(B)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0, "b"    # B
 
     .line 15

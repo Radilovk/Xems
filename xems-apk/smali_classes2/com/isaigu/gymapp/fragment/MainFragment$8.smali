@@ -15,10 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback",
-        "<",
-        "Lcom/isaigu/gymapp/bean/vo/ResponseData",
-        "<",
+        "Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback<",
+        "Lcom/isaigu/gymapp/bean/vo/ResponseData<",
         "Lcom/isaigu/gymapp/bean/TrainProgram;",
         ">;>;"
     }
@@ -32,9 +30,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/MainFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/MainFragment;
 
-    .prologue
-    .line 331
+    .line 347
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/MainFragment$8;->this$0:Lcom/isaigu/gymapp/fragment/MainFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;-><init>()V
@@ -46,19 +44,20 @@
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
     .registers 6
+    .param p1, "httpSuccess"    # Z
+    .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
             "Ljava/lang/String;",
-            "Lcom/isaigu/gymapp/bean/vo/ResponseData",
-            "<",
+            "Lcom/isaigu/gymapp/bean/vo/ResponseData<",
             "Lcom/isaigu/gymapp/bean/TrainProgram;",
             ">;)V"
         }
     .end annotation
 
-    .prologue
-    .line 334
+    .line 349
+    .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Lcom/isaigu/gymapp/bean/TrainProgram;>;"
     if-eqz p1, :cond_11
 
     if-eqz p3, :cond_11
@@ -69,28 +68,28 @@
 
     if-nez v0, :cond_11
 
-    .line 335
-    const-string v0, "file_name_offline_update_train_program_data"
+    .line 350
+    const-class v0, Lcom/isaigu/gymapp/bean/TrainProgram;
 
-    const-class v1, Lcom/isaigu/gymapp/bean/TrainProgram;
+    const-string v1, "file_name_offline_update_train_program_data"
 
-    invoke-static {v0, v1}, Lcom/isaigu/gymapp/utils/FileUtils;->removeData(Ljava/lang/String;Ljava/lang/Class;)V
+    invoke-static {v1, v0}, Lcom/isaigu/gymapp/utils/FileUtils;->removeData(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 337
+    .line 352
     :cond_11
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/MainFragment$8;->this$0:Lcom/isaigu/gymapp/fragment/MainFragment;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/MainFragment;->initTrainPrograms()V
+    # invokes: Lcom/isaigu/gymapp/fragment/MainFragment;->initTrainPrograms()V
+    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/MainFragment;->access$400(Lcom/isaigu/gymapp/fragment/MainFragment;)V
 
-    .line 338
+    .line 353
     return-void
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
     .registers 4
 
-    .prologue
-    .line 331
+    .line 347
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/MainFragment$8;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V

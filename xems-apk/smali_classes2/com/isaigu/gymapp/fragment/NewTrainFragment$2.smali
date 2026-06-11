@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/NewTrainFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
-    .prologue
-    .line 75
+    .line 175
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,9 +38,9 @@
 # virtual methods
 .method public onDeleteButtonClick(Lcom/isaigu/gymapp/train/model/TrainItem;)V
     .registers 3
+    .param p1, "item"    # Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    .prologue
-    .line 94
+    .line 192
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
@@ -50,41 +50,36 @@
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 95
+    .line 193
     return-void
 .end method
 
 .method public onEmptyItemClick(Lcom/isaigu/gymapp/train/model/TrainItem;)V
     .registers 4
+    .param p1, "item"    # Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    .prologue
-    .line 78
+    .line 178
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/NewTrainFragment;->getBaseActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
 
-    .line 79
-    if-eqz v0, :cond_10
-
-    .line 80
     new-instance v1, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;
 
     invoke-direct {v1}, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;-><init>()V
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->showDialogFragment(Lcom/isaigu/gymapp/BaseDialogFragment;)V
 
-    .line 82
-    :cond_10
+    .line 179
     return-void
 .end method
 
 .method public onItemChange(Lcom/isaigu/gymapp/train/model/TrainItem;)V
     .registers 3
+    .param p1, "item"    # Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    .prologue
-    .line 99
+    .line 197
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
@@ -94,15 +89,15 @@
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 100
+    .line 198
     return-void
 .end method
 
 .method public onItemClick(Lcom/isaigu/gymapp/train/model/TrainItem;)V
     .registers 3
+    .param p1, "item"    # Lcom/isaigu/gymapp/train/model/TrainItem;
 
-    .prologue
-    .line 86
+    .line 183
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->selecting:Z
@@ -110,21 +105,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_1a
 
-    .line 87
+    .line 184
     invoke-virtual {p1}, Lcom/isaigu/gymapp/train/model/TrainItem;->isSelected()Z
 
     move-result v0
 
-    if-nez v0, :cond_1c
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x1
-
-    :goto_f
     invoke-virtual {p1, v0}, Lcom/isaigu/gymapp/train/model/TrainItem;->setSelected(Z)V
 
-    .line 88
+    .line 185
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/NewTrainFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/NewTrainFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/NewTrainFragment;->adapter:Lcom/isaigu/gymapp/train/TrainAdapter;
@@ -134,13 +126,7 @@
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/train/TrainAdapter;->notifyDataSetChanged()V
 
-    .line 90
-    :cond_1b
+    .line 187
+    :cond_1a
     return-void
-
-    .line 87
-    :cond_1c
-    const/4 v0, 0x0
-
-    goto :goto_f
 .end method

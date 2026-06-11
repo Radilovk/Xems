@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;Ljava/util/List;)V
-    .locals 0
+    .registers 4
     .param p1, "day"    # I
     .param p2, "dayFullString"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -75,13 +75,13 @@
 
 # virtual methods
 .method public removePlan(Ljava/lang/String;)Z
-    .locals 3
+    .registers 5
     .param p1, "time"    # Ljava/lang/String;
 
     .line 27
     iget-object v0, p0, Lcom/isaigu/gymapp/bean/ProgramPlanBean;->planList:Ljava/util/List;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     .line 28
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -93,8 +93,8 @@
     sub-int/2addr v0, v1
 
     .local v0, "i":I
-    :goto_0
-    if-ltz v0, :cond_1
+    :goto_a
+    if-ltz v0, :cond_25
 
     .line 29
     iget-object v2, p0, Lcom/isaigu/gymapp/bean/ProgramPlanBean;->planList:Ljava/util/List;
@@ -111,7 +111,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     .line 30
     iget-object v2, p0, Lcom/isaigu/gymapp/bean/ProgramPlanBean;->planList:Ljava/util/List;
@@ -122,14 +122,14 @@
     return v1
 
     .line 28
-    :cond_0
+    :cond_22
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 35
     .end local v0    # "i":I
-    :cond_1
+    :cond_25
     const/4 v0, 0x0
 
     return v0

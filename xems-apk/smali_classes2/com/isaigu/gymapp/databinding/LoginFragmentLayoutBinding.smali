@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/RelativeLayout;Landroid/support/v7/widget/AppCompatCheckBox;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/EditText;Landroid/support/v7/widget/AppCompatCheckBox;Landroid/widget/EditText;)V
-    .locals 0
+    .registers 9
     .param p1, "rootView"    # Landroid/widget/RelativeLayout;
     .param p2, "autologin"    # Landroid/support/v7/widget/AppCompatCheckBox;
     .param p3, "login"    # Lcom/isaigu/gymapp/widget/MyButton;
@@ -68,7 +68,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/LoginFragmentLayoutBinding;
-    .locals 19
+    .registers 20
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 86
@@ -86,7 +86,7 @@
 
     .line 88
     .local v2, "autologin":Landroid/support/v7/widget/AppCompatCheckBox;
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_71
 
     .line 92
     const v1, 0x7f0900f5
@@ -102,7 +102,7 @@
 
     .line 94
     .local v12, "login":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v12, :cond_5
+    if-eqz v12, :cond_70
 
     .line 98
     const v1, 0x7f0900f6
@@ -118,7 +118,7 @@
 
     .line 100
     .local v13, "logoImage":Landroid/widget/ImageView;
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_6f
 
     .line 104
     const v1, 0x7f0900f7
@@ -134,7 +134,7 @@
 
     .line 106
     .local v14, "logoImage1":Landroid/widget/ImageView;
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_6e
 
     .line 110
     const v1, 0x7f09011d
@@ -150,7 +150,7 @@
 
     .line 112
     .local v15, "password":Landroid/widget/EditText;
-    if-eqz v15, :cond_2
+    if-eqz v15, :cond_6d
 
     .line 116
     const v1, 0x7f09014d
@@ -166,7 +166,7 @@
 
     .line 118
     .local v16, "rememberpassword":Landroid/support/v7/widget/AppCompatCheckBox;
-    if-eqz v16, :cond_1
+    if-eqz v16, :cond_6c
 
     .line 122
     const v1, 0x7f0901d9
@@ -182,7 +182,7 @@
 
     .line 124
     .local v17, "username":Landroid/widget/EditText;
-    if-eqz v17, :cond_0
+    if-eqz v17, :cond_6b
 
     .line 128
     new-instance v18, Lcom/isaigu/gymapp/databinding/LoginFragmentLayoutBinding;
@@ -212,42 +212,42 @@
     return-object v18
 
     .line 125
-    :cond_0
-    goto :goto_0
+    :cond_6b
+    goto :goto_72
 
     .line 119
     .end local v17    # "username":Landroid/widget/EditText;
-    :cond_1
-    goto :goto_0
+    :cond_6c
+    goto :goto_72
 
     .line 113
     .end local v16    # "rememberpassword":Landroid/support/v7/widget/AppCompatCheckBox;
-    :cond_2
-    goto :goto_0
+    :cond_6d
+    goto :goto_72
 
     .line 107
     .end local v15    # "password":Landroid/widget/EditText;
-    :cond_3
-    goto :goto_0
+    :cond_6e
+    goto :goto_72
 
     .line 101
     .end local v14    # "logoImage1":Landroid/widget/ImageView;
-    :cond_4
-    goto :goto_0
+    :cond_6f
+    goto :goto_72
 
     .line 95
     .end local v13    # "logoImage":Landroid/widget/ImageView;
-    :cond_5
-    goto :goto_0
+    :cond_70
+    goto :goto_72
 
     .line 89
     .end local v12    # "login":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_6
+    :cond_71
     nop
 
     .line 131
     .end local v2    # "autologin":Landroid/support/v7/widget/AppCompatCheckBox;
-    :goto_0
+    :goto_72
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -272,7 +272,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/LoginFragmentLayoutBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 67
@@ -288,7 +288,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/LoginFragmentLayoutBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -304,13 +304,13 @@
 
     .line 74
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 75
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 77
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/LoginFragmentLayoutBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/LoginFragmentLayoutBinding;
 
     move-result-object v1
@@ -321,7 +321,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 20
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/LoginFragmentLayoutBinding;->getRoot()Landroid/widget/RelativeLayout;
@@ -332,7 +332,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/RelativeLayout;
-    .locals 1
+    .registers 2
 
     .line 62
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/LoginFragmentLayoutBinding;->rootView:Landroid/widget/RelativeLayout;

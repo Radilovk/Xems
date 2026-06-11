@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 496
     iput-object p1, p0, Lcom/isaigu/gymapp/utils/ReflectionUtils$6;->val$src:Ljava/lang/Object;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public doWith(Ljava/lang/reflect/Field;)V
-    .locals 2
+    .registers 4
     .param p1, "field"    # Ljava/lang/reflect/Field;
     .annotation system Ldalvik/annotation/Throws;
         value = {

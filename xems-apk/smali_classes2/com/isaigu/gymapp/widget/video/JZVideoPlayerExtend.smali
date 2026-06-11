@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
 
     .line 18
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method protected onClickClose()V
-    .locals 1
+    .registers 2
 
     .line 88
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->onClickClose()V
@@ -61,13 +61,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 90
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->releaseAllVideos()V
 
     .line 92
-    :cond_0
+    :cond_c
     const/4 v0, 0x4
 
     invoke-virtual {p0, v0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;->setVisibility(I)V
@@ -77,7 +77,7 @@
 .end method
 
 .method public onStateAutoComplete()V
-    .locals 1
+    .registers 2
 
     .line 71
     invoke-super {p0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerStandard;->onStateAutoComplete()V
@@ -85,18 +85,18 @@
     .line 72
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend;->onPlayComplete:Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend$OnPlayComplete;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 73
     invoke-interface {v0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend$OnPlayComplete;->onComplete()V
 
     .line 75
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public setPlayCompleteCallback(Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend$OnPlayComplete;)V
-    .locals 0
+    .registers 2
     .param p1, "onPlayComplete"    # Lcom/isaigu/gymapp/widget/video/JZVideoPlayerExtend$OnPlayComplete;
 
     .line 78

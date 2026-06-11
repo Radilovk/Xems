@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$11$1$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$4"    # Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$11$1$1;
 
     .line 1589
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 3
+    .registers 7
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -60,15 +60,15 @@
 
     .line 1591
     .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainProgram;>;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_46
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_46
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_46
 
     .line 1592
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -129,10 +129,10 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->showTips(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_68
 
     .line 1597
-    :cond_0
+    :cond_46
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$11$1$1$1;->this$4:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$11$1$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$11$1$1;->this$3:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$11$1;
@@ -166,7 +166,7 @@
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->showTips(Ljava/lang/String;)V
 
     .line 1599
-    :goto_0
+    :goto_68
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$11$1$1$1;->this$4:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$11$1$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$11$1$1;->this$3:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter$11$1;
@@ -194,7 +194,7 @@
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 1589
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

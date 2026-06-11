@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static bitToByte([B)B
-    .locals 3
+    .registers 4
     .param p0, "bit"    # [B
 
     .line 76
@@ -25,10 +25,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_2
     array-length v2, p0
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_d
 
     .line 78
     aget-byte v2, p0, v1
@@ -42,16 +42,16 @@
     .line 77
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 80
     .end local v1    # "i":I
-    :cond_0
+    :cond_d
     return v0
 .end method
 
 .method public static boolToByte([BZI)V
-    .locals 1
+    .registers 4
     .param p0, "buffer"    # [B
     .param p1, "b"    # Z
     .param p2, "index"    # I
@@ -66,7 +66,7 @@
 .end method
 
 .method public static byteToBit(B)[B
-    .locals 3
+    .registers 4
     .param p0, "b"    # B
 
     .line 84
@@ -79,10 +79,10 @@
     const/4 v1, 0x0
 
     .local v1, "i":I
-    :goto_0
+    :goto_5
     array-length v2, v0
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_12
 
     .line 86
     shr-int v2, p0, v1
@@ -96,16 +96,16 @@
     .line 85
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 88
     .end local v1    # "i":I
-    :cond_0
+    :cond_12
     return-object v0
 .end method
 
 .method public static byteToBool([BI)Z
-    .locals 2
+    .registers 4
     .param p0, "buffer"    # [B
     .param p1, "index"    # I
 
@@ -114,19 +114,19 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_7
     return v1
 .end method
 
 .method public static bytesToInt([BI)I
-    .locals 2
+    .registers 4
     .param p0, "buffer"    # [B
     .param p1, "index"    # I
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public static bytesToLong([BI)J
-    .locals 2
+    .registers 4
     .param p0, "buffer"    # [B
     .param p1, "index"    # I
 
@@ -254,7 +254,7 @@
 .end method
 
 .method public static bytesToShort([BI)S
-    .locals 2
+    .registers 4
     .param p0, "buffer"    # [B
     .param p1, "index"    # I
 
@@ -281,7 +281,7 @@
 .end method
 
 .method public static bytesToString([BII)Ljava/lang/String;
-    .locals 1
+    .registers 4
     .param p0, "b"    # [B
     .param p1, "index"    # I
     .param p2, "length"    # I
@@ -295,7 +295,7 @@
 .end method
 
 .method public static intToBytes([BII)V
-    .locals 2
+    .registers 5
     .param p0, "buffer"    # [B
     .param p1, "i"    # I
     .param p2, "index"    # I
@@ -345,7 +345,7 @@
 .end method
 
 .method public static longToBytes([BJI)V
-    .locals 6
+    .registers 10
     .param p0, "buffer"    # [B
     .param p1, "l"    # J
     .param p3, "index"    # I
@@ -471,7 +471,7 @@
 .end method
 
 .method public static shortToBytes([BSI)V
-    .locals 2
+    .registers 5
     .param p0, "buffer"    # [B
     .param p1, "s"    # S
     .param p2, "index"    # I
@@ -499,7 +499,7 @@
 .end method
 
 .method public static stringToBytes(Ljava/lang/String;)[B
-    .locals 1
+    .registers 2
     .param p0, "s"    # Ljava/lang/String;
 
     .line 72

@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout;Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/TextView;Landroid/widget/TextView;)V
-    .locals 0
+    .registers 7
     .param p1, "rootView"    # Landroid/widget/RelativeLayout;
     .param p2, "layout"    # Landroid/widget/RelativeLayout;
     .param p3, "programPlanListView"    # Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;
@@ -56,7 +56,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/ProgramPlanDialogViewBinding;
-    .locals 14
+    .registers 15
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 76
@@ -72,7 +72,7 @@
 
     .line 78
     .local v1, "layout":Landroid/widget/RelativeLayout;
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_4e
 
     .line 82
     const v0, 0x7f09013b
@@ -88,7 +88,7 @@
 
     .line 84
     .local v9, "programPlanListView":Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_4d
 
     .line 88
     const v0, 0x7f090190
@@ -104,7 +104,7 @@
 
     .line 90
     .local v10, "sureButton":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_4c
 
     .line 94
     const v0, 0x7f0901ab
@@ -120,7 +120,7 @@
 
     .line 96
     .local v11, "timeView":Landroid/widget/TextView;
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_4b
 
     .line 100
     const v0, 0x7f0901b1
@@ -136,7 +136,7 @@
 
     .line 102
     .local v12, "titleTextView":Landroid/widget/TextView;
-    if-eqz v12, :cond_0
+    if-eqz v12, :cond_4a
 
     .line 106
     new-instance v13, Lcom/isaigu/gymapp/databinding/ProgramPlanDialogViewBinding;
@@ -162,32 +162,32 @@
     return-object v13
 
     .line 103
-    :cond_0
-    goto :goto_0
+    :cond_4a
+    goto :goto_4f
 
     .line 97
     .end local v12    # "titleTextView":Landroid/widget/TextView;
-    :cond_1
-    goto :goto_0
+    :cond_4b
+    goto :goto_4f
 
     .line 91
     .end local v11    # "timeView":Landroid/widget/TextView;
-    :cond_2
-    goto :goto_0
+    :cond_4c
+    goto :goto_4f
 
     .line 85
     .end local v10    # "sureButton":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_3
-    goto :goto_0
+    :cond_4d
+    goto :goto_4f
 
     .line 79
     .end local v9    # "programPlanListView":Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;
-    :cond_4
+    :cond_4e
     nop
 
     .line 109
     .end local v1    # "layout":Landroid/widget/RelativeLayout;
-    :goto_0
+    :goto_4f
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -212,7 +212,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/ProgramPlanDialogViewBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 57
@@ -228,7 +228,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/ProgramPlanDialogViewBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -244,13 +244,13 @@
 
     .line 64
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 65
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 67
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/ProgramPlanDialogViewBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/ProgramPlanDialogViewBinding;
 
     move-result-object v1
@@ -261,7 +261,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/ProgramPlanDialogViewBinding;->getRoot()Landroid/widget/RelativeLayout;
@@ -272,7 +272,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/RelativeLayout;
-    .locals 1
+    .registers 2
 
     .line 52
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/ProgramPlanDialogViewBinding;->rootView:Landroid/widget/RelativeLayout;

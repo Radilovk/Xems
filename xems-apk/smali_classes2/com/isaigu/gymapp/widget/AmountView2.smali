@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
 
     .line 35
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 8
+    .registers 11
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -178,7 +178,7 @@
     invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 54
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_74
 
     .line 55
     iget-object v6, p0, Lcom/isaigu/gymapp/widget/AmountView2;->btnDecrease:Landroid/widget/Button;
@@ -195,8 +195,8 @@
     invoke-virtual {v6, v1, v7}, Landroid/widget/Button;->setTextSize(IF)V
 
     .line 59
-    :cond_0
-    if-eqz v4, :cond_1
+    :cond_74
+    if-eqz v4, :cond_7c
 
     .line 60
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/AmountView2;->etAmount:Lcom/isaigu/gymapp/widget/ShapeCornerBgView;
@@ -206,14 +206,14 @@
     invoke-virtual {v1, v6}, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->setTextSize(F)V
 
     .line 62
-    :cond_1
+    :cond_7c
     return-void
 .end method
 
 
 # virtual methods
 .method public getAmount()I
-    .locals 1
+    .registers 2
 
     .line 99
     iget v0, p0, Lcom/isaigu/gymapp/widget/AmountView2;->amount:I
@@ -222,7 +222,7 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .registers 7
     .param p1, "v"    # Landroid/view/View;
 
     .line 108
@@ -234,7 +234,7 @@
     .local v0, "i":I
     const v1, 0x7f090052
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_38
 
     .line 110
     iget v1, p0, Lcom/isaigu/gymapp/widget/AmountView2;->amount:I
@@ -245,7 +245,7 @@
 
     iget v4, p0, Lcom/isaigu/gymapp/widget/AmountView2;->minValue:I
 
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_2e
 
     .line 111
     sub-int/2addr v1, v2
@@ -274,23 +274,23 @@
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->setText(Ljava/lang/CharSequence;)V
 
     .line 114
-    :cond_0
+    :cond_2e
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/AmountView2;->mListener:Lcom/isaigu/gymapp/widget/AmountView2$OnAmountChangeListener;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_6b
 
     .line 115
     iget v2, p0, Lcom/isaigu/gymapp/widget/AmountView2;->amount:I
 
     invoke-interface {v1, p0, v2}, Lcom/isaigu/gymapp/widget/AmountView2$OnAmountChangeListener;->onAmountChange(Landroid/view/View;I)V
 
-    goto :goto_0
+    goto :goto_6b
 
     .line 117
-    :cond_1
+    :cond_38
     const v1, 0x7f090053
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_6b
 
     .line 118
     iget v1, p0, Lcom/isaigu/gymapp/widget/AmountView2;->amount:I
@@ -301,7 +301,7 @@
 
     iget v4, p0, Lcom/isaigu/gymapp/widget/AmountView2;->goods_storage:I
 
-    if-gt v3, v4, :cond_2
+    if-gt v3, v4, :cond_62
 
     .line 119
     add-int/2addr v1, v2
@@ -330,10 +330,10 @@
     invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->setText(Ljava/lang/CharSequence;)V
 
     .line 122
-    :cond_2
+    :cond_62
     iget-object v1, p0, Lcom/isaigu/gymapp/widget/AmountView2;->mListener:Lcom/isaigu/gymapp/widget/AmountView2$OnAmountChangeListener;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_6b
 
     .line 123
     iget v2, p0, Lcom/isaigu/gymapp/widget/AmountView2;->amount:I
@@ -341,13 +341,13 @@
     invoke-interface {v1, p0, v2}, Lcom/isaigu/gymapp/widget/AmountView2$OnAmountChangeListener;->onAmountChange(Landroid/view/View;I)V
 
     .line 126
-    :cond_3
-    :goto_0
+    :cond_6b
+    :goto_6b
     return-void
 .end method
 
 .method public setAmount(I)V
-    .locals 3
+    .registers 5
     .param p1, "amount"    # I
 
     .line 90
@@ -379,24 +379,24 @@
 .end method
 
 .method public setAmountColor(I)V
-    .locals 1
+    .registers 3
     .param p1, "color"    # I
 
     .line 76
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/AmountView2;->etAmount:Lcom/isaigu/gymapp/widget/ShapeCornerBgView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 77
     invoke-virtual {v0, p1}, Lcom/isaigu/gymapp/widget/ShapeCornerBgView;->setTextColor(I)V
 
     .line 79
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public setAmountTextPadding(IIII)V
-    .locals 1
+    .registers 6
     .param p1, "left"    # I
     .param p2, "top"    # I
     .param p3, "right"    # I
@@ -412,7 +412,7 @@
 .end method
 
 .method public setAmountTextPaddingTop(I)V
-    .locals 2
+    .registers 4
     .param p1, "top"    # I
 
     .line 69
@@ -427,7 +427,7 @@
 .end method
 
 .method public setAmountUnit(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "unit"    # Ljava/lang/String;
 
     .line 103
@@ -438,7 +438,7 @@
 .end method
 
 .method public setGoods_storage(I)V
-    .locals 0
+    .registers 2
     .param p1, "goods_storage"    # I
 
     .line 82
@@ -449,7 +449,7 @@
 .end method
 
 .method public setMinValue(I)V
-    .locals 0
+    .registers 2
     .param p1, "minValue"    # I
 
     .line 95
@@ -460,7 +460,7 @@
 .end method
 
 .method public setOnAmountChangeListener(Lcom/isaigu/gymapp/widget/AmountView2$OnAmountChangeListener;)V
-    .locals 0
+    .registers 2
     .param p1, "onAmountChangeListener"    # Lcom/isaigu/gymapp/widget/AmountView2$OnAmountChangeListener;
 
     .line 72
@@ -471,7 +471,7 @@
 .end method
 
 .method public setStep(I)V
-    .locals 0
+    .registers 2
     .param p1, "step"    # I
 
     .line 86

@@ -14,8 +14,7 @@
 .method public constructor <init>()V
     .registers 1
 
-    .prologue
-    .line 18
+    .line 17
     invoke-direct {p0}, Landroid/support/v4/app/Fragment;-><init>()V
 
     return-void
@@ -25,46 +24,28 @@
 # virtual methods
 .method public closeDialogFragment(Lcom/isaigu/gymapp/BaseDialogFragment;)V
     .registers 3
+    .param p1, "baseDialogFragment"    # Lcom/isaigu/gymapp/BaseDialogFragment;
 
-    .prologue
-    .line 113
+    .line 86
     invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
 
-    .line 114
-    if-eqz v0, :cond_b
-
-    if-eqz p1, :cond_b
-
-    .line 115
     invoke-virtual {v0, p1}, Lcom/isaigu/gymapp/BaseActivity;->closeDialogFragment(Lcom/isaigu/gymapp/BaseDialogFragment;)V
 
-    .line 117
-    :cond_b
+    .line 87
     return-void
 .end method
 
 .method public getColor(I)I
     .registers 3
+    .param p1, "resId"    # I
 
-    .prologue
-    .line 90
+    .line 69
     invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
 
-    .line 91
-    if-nez v0, :cond_8
-
-    .line 92
-    const/4 v0, 0x0
-
-    .line 94
-    :goto_7
-    return v0
-
-    :cond_8
     invoke-virtual {v0}, Lcom/isaigu/gymapp/BaseActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -73,29 +54,18 @@
 
     move-result v0
 
-    goto :goto_7
+    return v0
 .end method
 
 .method public getDimension(I)F
     .registers 3
+    .param p1, "resId"    # I
 
-    .prologue
-    .line 98
+    .line 73
     invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
 
-    .line 99
-    if-nez v0, :cond_8
-
-    .line 100
-    const/4 v0, 0x0
-
-    .line 102
-    :goto_7
-    return v0
-
-    :cond_8
     invoke-virtual {v0}, Lcom/isaigu/gymapp/BaseActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -104,121 +74,73 @@
 
     move-result v0
 
-    goto :goto_7
+    return v0
 .end method
 
 .method public getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
-    .registers 3
+    .registers 2
 
-    .prologue
-    .line 41
-    iget-object v0, p0, Lcom/isaigu/gymapp/BaseFragment;->parentActivity:Lcom/isaigu/gymapp/BaseActivity;
-
-    if-nez v0, :cond_10
-
-    .line 42
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    .line 43
-    instance-of v1, v0, Lcom/isaigu/gymapp/BaseActivity;
-
-    if-eqz v1, :cond_10
-
-    .line 44
-    check-cast v0, Lcom/isaigu/gymapp/BaseActivity;
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/BaseFragment;->parentActivity:Lcom/isaigu/gymapp/BaseActivity;
-
-    .line 47
-    :cond_10
+    .line 63
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseFragment;->parentActivity:Lcom/isaigu/gymapp/BaseActivity;
 
     return-object v0
 .end method
 
 .method public handleEvent(Lcom/isaigu/gymapp/message/DataBundle;)V
-    .registers 2
+    .registers 3
+    .param p1, "bundle"    # Lcom/isaigu/gymapp/message/DataBundle;
 
-    .prologue
-    .line 52
+    .line 33
+    invoke-virtual {p1}, Lcom/isaigu/gymapp/message/DataBundle;->getEvent()S
+
+    move-result v0
+
+    .line 34
+    .local v0, "event":S
+    nop
+
+    .line 37
     return-void
 .end method
 
 .method public onActivityCreated(Landroid/os/Bundle;)V
     .registers 2
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 61
+    .line 59
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 62
+    .line 60
     return-void
 .end method
 
 .method public onAttach(Landroid/app/Activity;)V
     .registers 3
+    .param p1, "activity"    # Landroid/app/Activity;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 34
+    .line 27
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onAttach(Landroid/app/Activity;)V
 
-    .line 35
-    instance-of v0, p1, Lcom/isaigu/gymapp/BaseActivity;
+    .line 28
+    move-object v0, p1
 
-    if-eqz v0, :cond_b
+    check-cast v0, Lcom/isaigu/gymapp/BaseActivity;
 
-    .line 36
-    check-cast p1, Lcom/isaigu/gymapp/BaseActivity;
-
-    iput-object p1, p0, Lcom/isaigu/gymapp/BaseFragment;->parentActivity:Lcom/isaigu/gymapp/BaseActivity;
-
-    .line 38
-    :cond_b
-    return-void
-.end method
-
-.method public onAttach(Landroid/content/Context;)V
-    .registers 3
-
-    .prologue
-    .line 25
-    invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onAttach(Landroid/content/Context;)V
-
-    .line 26
-    instance-of v0, p1, Lcom/isaigu/gymapp/BaseActivity;
-
-    if-eqz v0, :cond_b
-
-    .line 27
-    check-cast p1, Lcom/isaigu/gymapp/BaseActivity;
-
-    iput-object p1, p0, Lcom/isaigu/gymapp/BaseFragment;->parentActivity:Lcom/isaigu/gymapp/BaseActivity;
+    iput-object v0, p0, Lcom/isaigu/gymapp/BaseFragment;->parentActivity:Lcom/isaigu/gymapp/BaseActivity;
 
     .line 29
-    :cond_b
-    return-void
-.end method
-
-.method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 2
-
-    .prologue
-    .line 66
-    invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
-
-    .line 67
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .registers 6
+    .param p1, "inflater"    # Landroid/view/LayoutInflater;
+    .param p2, "container"    # Landroid/view/ViewGroup;
+    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 56
+    .line 44
     invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseFragment;->viewId()I
 
     move-result v0
@@ -229,42 +151,64 @@
 
     move-result-object v0
 
+    .line 45
+    .local v0, "view":Landroid/view/View;
     return-object v0
 .end method
 
 .method public onDestroyView()V
     .registers 4
 
-    .prologue
-    .line 71
+    .line 50
     invoke-super {p0}, Landroid/support/v4/app/Fragment;->onDestroyView()V
 
-    .line 72
+    .line 51
     invoke-static {p0}, Lcom/isaigu/gymapp/message/MessageDispatcher;->detachEventListener(Lcom/isaigu/gymapp/message/EventListener;)V
 
-    .line 73
+    .line 52
     invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
 
-    .line 74
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_38
 
-    .line 75
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v0
+
     invoke-virtual {v0}, Lcom/isaigu/gymapp/BaseActivity;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_38
+
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/BaseActivity;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_38
+
+    .line 53
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v1
 
-    .line 76
-    if-eqz v1, :cond_20
+    invoke-virtual {v1}, Lcom/isaigu/gymapp/BaseActivity;->getWindow()Landroid/view/Window;
 
-    invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+    move-result-object v1
 
-    move-result-object v2
-
-    if-eqz v2, :cond_20
-
-    .line 77
     invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
     move-result-object v1
@@ -273,52 +217,38 @@
 
     invoke-static {v0, v1, v2}, Lcom/isaigu/gymapp/utils/AndroidUtils;->setKeyBoardVisible(Landroid/app/Activity;Landroid/view/View;Z)V
 
-    .line 80
-    :cond_20
+    .line 55
+    :cond_38
     return-void
 .end method
 
 .method public runOnUiThread(Ljava/lang/Runnable;)V
     .registers 3
+    .param p1, "runnable"    # Ljava/lang/Runnable;
 
-    .prologue
-    .line 83
+    .line 78
     invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
 
-    .line 84
-    if-eqz v0, :cond_b
-
-    if-eqz p1, :cond_b
-
-    .line 85
     invoke-virtual {v0, p1}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 87
-    :cond_b
+    .line 79
     return-void
 .end method
 
 .method public showDialogFragment(Lcom/isaigu/gymapp/BaseDialogFragment;)V
     .registers 3
+    .param p1, "baseDialogFragment"    # Lcom/isaigu/gymapp/BaseDialogFragment;
 
-    .prologue
-    .line 106
+    .line 82
     invoke-virtual {p0}, Lcom/isaigu/gymapp/BaseFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
 
-    .line 107
-    if-eqz v0, :cond_b
-
-    if-eqz p1, :cond_b
-
-    .line 108
     invoke-virtual {v0, p1}, Lcom/isaigu/gymapp/BaseActivity;->showDialogFragment(Lcom/isaigu/gymapp/BaseDialogFragment;)V
 
-    .line 110
-    :cond_b
+    .line 83
     return-void
 .end method
 

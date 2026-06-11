@@ -1,6 +1,5 @@
 .class public final Lcom/isaigu/gymapp/R$id;
 .super Ljava/lang/Object;
-.source "R.java"
 
 
 # annotations
@@ -185,8 +184,6 @@
 
 .field public static final btnSubmit:I = 0x7f090054
 
-.field public static final bulgarian:I = 0x7f090203
-
 .field public static final buttonLayout:I = 0x7f090055
 
 .field public static final buttonPanel:I = 0x7f090056
@@ -227,13 +224,7 @@
 
 .field public static final center_vertical:I = 0x7f090068
 
-.field public static final changeIcon:I = 0x7f090204
-
 .field public static final changeLogo:I = 0x7f090069
-
-.field public static final changeSplash:I = 0x7f090205
-
-.field public static final channelCalibrationContainer:I = 0x7f090206
 
 .field public static final check1:I = 0x7f09006a
 
@@ -274,14 +265,6 @@
 .field public static final content_container:I = 0x7f09007c
 
 .field public static final current:I = 0x7f09007d
-
-.field public static final currentDecreaseSeekBar:I = 0x7f090207
-
-.field public static final currentDecreaseValue:I = 0x7f090208
-
-.field public static final currentIncreaseSeekBar:I = 0x7f090209
-
-.field public static final currentIncreaseValue:I = 0x7f09020a
 
 .field public static final custom:I = 0x7f09007e
 
@@ -402,8 +385,6 @@
 .field public static final hour:I = 0x7f0900b8
 
 .field public static final icon:I = 0x7f0900b9
-
-.field public static final iconPreview:I = 0x7f09020b
 
 .field public static final icon_group:I = 0x7f0900ba
 
@@ -605,8 +586,6 @@
 
 .field public static final password:I = 0x7f09011d
 
-.field public static final password_row:I = 0x7f09020c
-
 .field public static final paulseContinue:I = 0x7f09011e
 
 .field public static final paulseContinue1:I = 0x7f09011f
@@ -686,14 +665,6 @@
 .field public static final progress_view:I = 0x7f090144
 
 .field public static final protocolContent:I = 0x7f090145
-
-.field public static final pulseContinueSeekBar:I = 0x7f09020d
-
-.field public static final pulseContinueValue:I = 0x7f09020e
-
-.field public static final pulsePauseSeekBar:I = 0x7f09020f
-
-.field public static final pulsePauseValue:I = 0x7f090210
 
 .field public static final radio:I = 0x7f090146
 
@@ -816,14 +787,6 @@
 .field public static final spacer:I = 0x7f090181
 
 .field public static final splashImage:I = 0x7f090182
-
-.field public static final splashPreview:I = 0x7f090211
-
-.field public static final alternateImpulseSwitch:I = 0x7f090212
-
-.field public static final alternatePhaseAerobicButton:I = 0x7f090213
-
-.field public static final alternatePhaseMuscleButton:I = 0x7f090214
 
 .field public static final split_action_bar:I = 0x7f090183
 
@@ -1086,10 +1049,7 @@
 .method private constructor <init>()V
     .registers 1
 
-    .prologue
-    .line 1655
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1656
     return-void
 .end method

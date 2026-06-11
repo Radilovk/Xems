@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,13 +14,13 @@
 .end method
 
 .method public static isEthernetConnected(Landroid/content/Context;)Z
-    .locals 4
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
 
     .line 40
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_22
 
     .line 41
     nop
@@ -45,41 +45,41 @@
 
     .line 45
     .local v2, "mMobileNetworkInfo":Landroid/net/NetworkInfo;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_22
 
     .line 46
     invoke-virtual {v2}, Landroid/net/NetworkInfo;->isAvailable()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_21
 
     invoke-virtual {v2}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_21
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_21
     return v0
 
     .line 49
     .end local v1    # "mConnectivityManager":Landroid/net/ConnectivityManager;
     .end local v2    # "mMobileNetworkInfo":Landroid/net/NetworkInfo;
-    :cond_1
+    :cond_22
     return v0
 .end method
 
 .method public static isMobileConnected(Landroid/content/Context;)Z
-    .locals 4
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
 
     .line 27
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_21
 
     .line 28
     nop
@@ -104,35 +104,35 @@
 
     .line 32
     .local v2, "mMobileNetworkInfo":Landroid/net/NetworkInfo;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     .line 33
     invoke-virtual {v2}, Landroid/net/NetworkInfo;->isAvailable()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_20
 
     invoke-virtual {v2}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_20
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_20
     return v0
 
     .line 36
     .end local v1    # "mConnectivityManager":Landroid/net/ConnectivityManager;
     .end local v2    # "mMobileNetworkInfo":Landroid/net/NetworkInfo;
-    :cond_1
+    :cond_21
     return v0
 .end method
 
 .method public static isNetworkConnected(Landroid/content/Context;)Z
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
 
     .line 53
@@ -140,44 +140,44 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
     invoke-static {p0}, Lcom/isaigu/gymapp/utils/NetworkUtils;->isWifiConnected(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
     invoke-static {p0}, Lcom/isaigu/gymapp/utils/NetworkUtils;->isMobileConnected(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
-    goto :goto_0
+    goto :goto_15
 
     .line 56
-    :cond_0
+    :cond_13
     const/4 v0, 0x0
 
     return v0
 
     .line 54
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public static isWifiConnected(Landroid/content/Context;)Z
-    .locals 5
+    .registers 6
     .param p0, "context"    # Landroid/content/Context;
 
     .line 13
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_22
 
     .line 14
     nop
@@ -204,29 +204,29 @@
 
     .line 18
     .local v3, "mWiFiNetworkInfo":Landroid/net/NetworkInfo;
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_22
 
     .line 19
     invoke-virtual {v3}, Landroid/net/NetworkInfo;->isAvailable()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_21
 
     invoke-virtual {v3}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_21
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_21
     return v0
 
     .line 22
     .end local v1    # "mConnectivityManager":Landroid/net/ConnectivityManager;
     .end local v3    # "mWiFiNetworkInfo":Landroid/net/NetworkInfo;
-    :cond_1
+    :cond_22
     return v0
 .end method

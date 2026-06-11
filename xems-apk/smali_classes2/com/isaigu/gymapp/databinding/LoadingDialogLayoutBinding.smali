@@ -18,7 +18,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/ProgressBar;Landroid/widget/TextView;)V
-    .locals 0
+    .registers 5
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "dialogLoadingView"    # Landroid/widget/LinearLayout;
     .param p3, "progressBar1"    # Landroid/widget/ProgressBar;
@@ -44,7 +44,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/LoadingDialogLayoutBinding;
-    .locals 6
+    .registers 7
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 67
@@ -66,7 +66,7 @@
 
     .line 71
     .local v2, "progressBar1":Landroid/widget/ProgressBar;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_23
 
     .line 75
     const v1, 0x7f0901ae
@@ -80,7 +80,7 @@
 
     .line 77
     .local v3, "tipTextView":Landroid/widget/TextView;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_22
 
     .line 81
     new-instance v4, Lcom/isaigu/gymapp/databinding/LoadingDialogLayoutBinding;
@@ -94,18 +94,18 @@
     return-object v4
 
     .line 78
-    :cond_0
-    goto :goto_0
+    :cond_22
+    goto :goto_24
 
     .line 72
     .end local v3    # "tipTextView":Landroid/widget/TextView;
-    :cond_1
+    :cond_23
     nop
 
     .line 84
     .end local v0    # "dialogLoadingView":Landroid/widget/LinearLayout;
     .end local v2    # "progressBar1":Landroid/widget/ProgressBar;
-    :goto_0
+    :goto_24
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -130,7 +130,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/LoadingDialogLayoutBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 48
@@ -146,7 +146,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/LoadingDialogLayoutBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -162,13 +162,13 @@
 
     .line 55
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 56
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 58
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/LoadingDialogLayoutBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/LoadingDialogLayoutBinding;
 
     move-result-object v1
@@ -179,7 +179,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 18
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/LoadingDialogLayoutBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -190,7 +190,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 43
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/LoadingDialogLayoutBinding;->rootView:Landroid/widget/LinearLayout;

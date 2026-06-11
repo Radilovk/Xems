@@ -52,7 +52,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/MyButton;Landroid/support/v7/widget/RecyclerView;Landroid/widget/TextView;Landroid/widget/TextView;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/TextView;Landroid/widget/ImageView;Lcom/isaigu/gymapp/widget/MyButton;Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/EditText;Landroid/widget/EditText;Landroid/widget/EditText;Landroid/widget/ImageView;Landroid/support/v7/widget/RecyclerView;Landroid/widget/TextView;Landroid/widget/TextView;)V
-    .locals 16
+    .registers 38
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "addprogram"    # Lcom/isaigu/gymapp/widget/MyButton;
     .param p3, "agevalue"    # Landroid/widget/TextView;
@@ -190,7 +190,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/UserDeviceProgramConnectLayoutBinding;
-    .locals 45
+    .registers 46
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 146
@@ -208,7 +208,7 @@
 
     .line 148
     .local v2, "addprogram":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_149
 
     .line 152
     const v1, 0x7f090036
@@ -224,7 +224,7 @@
 
     .line 154
     .local v25, "agevalue":Landroid/widget/TextView;
-    if-eqz v25, :cond_12
+    if-eqz v25, :cond_148
 
     .line 158
     const v1, 0x7f090046
@@ -240,7 +240,7 @@
 
     .line 160
     .local v26, "back":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v26, :cond_11
+    if-eqz v26, :cond_147
 
     .line 164
     const v1, 0x7f09008c
@@ -256,7 +256,7 @@
 
     .line 166
     .local v27, "devicelistview":Landroid/support/v7/widget/RecyclerView;
-    if-eqz v27, :cond_10
+    if-eqz v27, :cond_146
 
     .line 170
     const v1, 0x7f09008d
@@ -272,7 +272,7 @@
 
     .line 172
     .local v28, "devicename":Landroid/widget/TextView;
-    if-eqz v28, :cond_f
+    if-eqz v28, :cond_145
 
     .line 176
     const v1, 0x7f09008e
@@ -288,7 +288,7 @@
 
     .line 178
     .local v29, "devicevalue":Landroid/widget/TextView;
-    if-eqz v29, :cond_e
+    if-eqz v29, :cond_144
 
     .line 182
     const v1, 0x7f090094
@@ -304,7 +304,7 @@
 
     .line 184
     .local v30, "editprogramdata":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v30, :cond_d
+    if-eqz v30, :cond_143
 
     .line 188
     const v1, 0x7f0900b5
@@ -320,7 +320,7 @@
 
     .line 190
     .local v31, "heightvalue":Landroid/widget/TextView;
-    if-eqz v31, :cond_c
+    if-eqz v31, :cond_142
 
     .line 194
     const v1, 0x7f0900f6
@@ -336,7 +336,7 @@
 
     .line 196
     .local v32, "logoImage":Landroid/widget/ImageView;
-    if-eqz v32, :cond_b
+    if-eqz v32, :cond_141
 
     .line 200
     const v1, 0x7f090112
@@ -352,7 +352,7 @@
 
     .line 202
     .local v33, "ok":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v33, :cond_a
+    if-eqz v33, :cond_140
 
     .line 206
     const v1, 0x7f09013d
@@ -368,7 +368,7 @@
 
     .line 208
     .local v34, "programlistview":Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;
-    if-eqz v34, :cond_9
+    if-eqz v34, :cond_13f
 
     .line 212
     const v1, 0x7f09013e
@@ -384,7 +384,7 @@
 
     .line 214
     .local v35, "programname":Landroid/widget/TextView;
-    if-eqz v35, :cond_8
+    if-eqz v35, :cond_13e
 
     .line 218
     const v1, 0x7f09013f
@@ -400,7 +400,7 @@
 
     .line 220
     .local v36, "programvalue":Landroid/widget/TextView;
-    if-eqz v36, :cond_7
+    if-eqz v36, :cond_13d
 
     .line 224
     const v1, 0x7f09016b
@@ -416,7 +416,7 @@
 
     .line 226
     .local v37, "searchdeviceEdittext":Landroid/widget/EditText;
-    if-eqz v37, :cond_6
+    if-eqz v37, :cond_13c
 
     .line 230
     const v1, 0x7f09016c
@@ -432,7 +432,7 @@
 
     .line 232
     .local v38, "searchprogramEdittext":Landroid/widget/EditText;
-    if-eqz v38, :cond_5
+    if-eqz v38, :cond_13b
 
     .line 236
     const v1, 0x7f09016e
@@ -448,7 +448,7 @@
 
     .line 238
     .local v39, "searchuserEdittext":Landroid/widget/EditText;
-    if-eqz v39, :cond_4
+    if-eqz v39, :cond_13a
 
     .line 242
     const v1, 0x7f0901cf
@@ -464,7 +464,7 @@
 
     .line 244
     .local v40, "usericon":Landroid/widget/ImageView;
-    if-eqz v40, :cond_3
+    if-eqz v40, :cond_139
 
     .line 248
     const v1, 0x7f0901d8
@@ -480,7 +480,7 @@
 
     .line 250
     .local v41, "userlistview":Landroid/support/v7/widget/RecyclerView;
-    if-eqz v41, :cond_2
+    if-eqz v41, :cond_138
 
     .line 254
     const v1, 0x7f0901d9
@@ -496,7 +496,7 @@
 
     .line 256
     .local v42, "username":Landroid/widget/TextView;
-    if-eqz v42, :cond_1
+    if-eqz v42, :cond_137
 
     .line 260
     const v1, 0x7f0901fa
@@ -512,7 +512,7 @@
 
     .line 262
     .local v43, "weightvalue":Landroid/widget/TextView;
-    if-eqz v43, :cond_0
+    if-eqz v43, :cond_136
 
     .line 266
     new-instance v44, Lcom/isaigu/gymapp/databinding/UserDeviceProgramConnectLayoutBinding;
@@ -568,107 +568,107 @@
     return-object v44
 
     .line 263
-    :cond_0
-    goto :goto_0
+    :cond_136
+    goto :goto_14a
 
     .line 257
     .end local v43    # "weightvalue":Landroid/widget/TextView;
-    :cond_1
-    goto :goto_0
+    :cond_137
+    goto :goto_14a
 
     .line 251
     .end local v42    # "username":Landroid/widget/TextView;
-    :cond_2
-    goto :goto_0
+    :cond_138
+    goto :goto_14a
 
     .line 245
     .end local v41    # "userlistview":Landroid/support/v7/widget/RecyclerView;
-    :cond_3
-    goto :goto_0
+    :cond_139
+    goto :goto_14a
 
     .line 239
     .end local v40    # "usericon":Landroid/widget/ImageView;
-    :cond_4
-    goto :goto_0
+    :cond_13a
+    goto :goto_14a
 
     .line 233
     .end local v39    # "searchuserEdittext":Landroid/widget/EditText;
-    :cond_5
-    goto :goto_0
+    :cond_13b
+    goto :goto_14a
 
     .line 227
     .end local v38    # "searchprogramEdittext":Landroid/widget/EditText;
-    :cond_6
-    goto :goto_0
+    :cond_13c
+    goto :goto_14a
 
     .line 221
     .end local v37    # "searchdeviceEdittext":Landroid/widget/EditText;
-    :cond_7
-    goto :goto_0
+    :cond_13d
+    goto :goto_14a
 
     .line 215
     .end local v36    # "programvalue":Landroid/widget/TextView;
-    :cond_8
-    goto :goto_0
+    :cond_13e
+    goto :goto_14a
 
     .line 209
     .end local v35    # "programname":Landroid/widget/TextView;
-    :cond_9
-    goto :goto_0
+    :cond_13f
+    goto :goto_14a
 
     .line 203
     .end local v34    # "programlistview":Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuRecyclerView;
-    :cond_a
-    goto :goto_0
+    :cond_140
+    goto :goto_14a
 
     .line 197
     .end local v33    # "ok":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_b
-    goto :goto_0
+    :cond_141
+    goto :goto_14a
 
     .line 191
     .end local v32    # "logoImage":Landroid/widget/ImageView;
-    :cond_c
-    goto :goto_0
+    :cond_142
+    goto :goto_14a
 
     .line 185
     .end local v31    # "heightvalue":Landroid/widget/TextView;
-    :cond_d
-    goto :goto_0
+    :cond_143
+    goto :goto_14a
 
     .line 179
     .end local v30    # "editprogramdata":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_e
-    goto :goto_0
+    :cond_144
+    goto :goto_14a
 
     .line 173
     .end local v29    # "devicevalue":Landroid/widget/TextView;
-    :cond_f
-    goto :goto_0
+    :cond_145
+    goto :goto_14a
 
     .line 167
     .end local v28    # "devicename":Landroid/widget/TextView;
-    :cond_10
-    goto :goto_0
+    :cond_146
+    goto :goto_14a
 
     .line 161
     .end local v27    # "devicelistview":Landroid/support/v7/widget/RecyclerView;
-    :cond_11
-    goto :goto_0
+    :cond_147
+    goto :goto_14a
 
     .line 155
     .end local v26    # "back":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_12
-    goto :goto_0
+    :cond_148
+    goto :goto_14a
 
     .line 149
     .end local v25    # "agevalue":Landroid/widget/TextView;
-    :cond_13
+    :cond_149
     nop
 
     .line 271
     .end local v2    # "addprogram":Lcom/isaigu/gymapp/widget/MyButton;
-    :goto_0
+    :goto_14a
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -693,7 +693,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/UserDeviceProgramConnectLayoutBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 127
@@ -709,7 +709,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/UserDeviceProgramConnectLayoutBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -725,13 +725,13 @@
 
     .line 134
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 135
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 137
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/UserDeviceProgramConnectLayoutBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/UserDeviceProgramConnectLayoutBinding;
 
     move-result-object v1
@@ -742,7 +742,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/UserDeviceProgramConnectLayoutBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -753,7 +753,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 122
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/UserDeviceProgramConnectLayoutBinding;->rootView:Landroid/widget/LinearLayout;

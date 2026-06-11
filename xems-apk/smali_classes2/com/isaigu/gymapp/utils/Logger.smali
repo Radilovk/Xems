@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method private static checkAndGetLogFile(Landroid/content/Context;)V
-    .locals 4
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
 
     .line 54
@@ -38,14 +38,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     sget-object v0, Lcom/isaigu/gymapp/utils/Logger;->fileOutputStream:Ljava/io/FileOutputStream;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_5c
 
     .line 55
-    :cond_0
+    :cond_10
     invoke-static {}, Lcom/isaigu/gymapp/utils/TimeUtils;->getCurrentDateyyyy_MM_dd()Ljava/lang/String;
 
     move-result-object v0
@@ -53,7 +53,7 @@
     sput-object v0, Lcom/isaigu/gymapp/utils/Logger;->currentDate:Ljava/lang/String;
 
     .line 57
-    :try_start_0
+    :try_start_16
     invoke-virtual {p0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
 
     move-result-object v0
@@ -73,13 +73,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2b
 
     .line 60
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
     .line 62
-    :cond_1
+    :cond_2b
     new-instance v1, Ljava/io/File;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -109,13 +109,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4f
 
     .line 64
     invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
 
     .line 66
-    :cond_2
+    :cond_4f
     new-instance v1, Ljava/io/FileOutputStream;
 
     const/4 v2, 0x1
@@ -123,15 +123,15 @@
     invoke-direct {v1, v0, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;Z)V
 
     sput-object v1, Lcom/isaigu/gymapp/utils/Logger;->fileOutputStream:Ljava/io/FileOutputStream;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_57
+    .catch Ljava/lang/Exception; {:try_start_16 .. :try_end_57} :catch_58
 
     .line 69
     .end local v0    # "file":Ljava/io/File;
-    goto :goto_0
+    goto :goto_5c
 
     .line 67
-    :catch_0
+    :catch_58
     move-exception v0
 
     .line 68
@@ -140,13 +140,13 @@
 
     .line 71
     .end local v0    # "e":Ljava/lang/Exception;
-    :cond_3
-    :goto_0
+    :cond_5c
+    :goto_5c
     return-void
 .end method
 
 .method public static debug(Ljava/lang/String;)V
-    .locals 1
+    .registers 2
     .param p0, "content"    # Ljava/lang/String;
 
     .line 108
@@ -159,7 +159,7 @@
 .end method
 
 .method public static error(Ljava/lang/String;)V
-    .locals 1
+    .registers 2
     .param p0, "content"    # Ljava/lang/String;
 
     .line 92
@@ -172,7 +172,7 @@
 .end method
 
 .method public static error(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "content"    # Ljava/lang/String;
 
@@ -202,7 +202,7 @@
 .end method
 
 .method public static error(Ljava/lang/String;[B)V
-    .locals 2
+    .registers 4
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "data"    # [B
 
@@ -236,7 +236,7 @@
 .end method
 
 .method public static error([B)V
-    .locals 1
+    .registers 2
     .param p0, "data"    # [B
 
     .line 104
@@ -251,7 +251,7 @@
 .end method
 
 .method private static generateLogContent(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "content"    # Ljava/lang/String;
 
@@ -308,7 +308,7 @@
 .end method
 
 .method public static info(Ljava/lang/String;)V
-    .locals 1
+    .registers 2
     .param p0, "content"    # Ljava/lang/String;
 
     .line 88
@@ -321,7 +321,7 @@
 .end method
 
 .method public static initContext(Landroid/content/Context;Z)V
-    .locals 0
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "dd"    # Z
 
@@ -342,7 +342,7 @@
 .end method
 
 .method private static log(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "content"    # Ljava/lang/String;
 
@@ -371,15 +371,15 @@
     sget-object v1, Lcom/isaigu/gymapp/utils/Logger;->fileOutputStream:Ljava/io/FileOutputStream;
 
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->flush()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_17} :catch_18
 
     .line 119
     .end local v0    # "writeContent":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_1c
 
     .line 117
-    :catch_0
+    :catch_18
     move-exception v0
 
     .line 118
@@ -388,18 +388,18 @@
 
     .line 120
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 .method public static logConsole(Ljava/lang/String;)V
-    .locals 1
+    .registers 2
     .param p0, "content"    # Ljava/lang/String;
 
     .line 129
     sget-boolean v0, Lcom/isaigu/gymapp/utils/Logger;->debug:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 130
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -407,19 +407,19 @@
     invoke-virtual {v0, p0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 133
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static logConsole(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p0, "tag"    # Ljava/lang/String;
     .param p1, "content"    # Ljava/lang/String;
 
     .line 136
     sget-boolean v0, Lcom/isaigu/gymapp/utils/Logger;->debug:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 137
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -443,18 +443,18 @@
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 139
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method public static logConsolet(Ljava/lang/String;)V
-    .locals 1
+    .registers 2
     .param p0, "content"    # Ljava/lang/String;
 
     .line 123
     sget-boolean v0, Lcom/isaigu/gymapp/utils/Logger;->debug:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 124
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -462,12 +462,12 @@
     invoke-virtual {v0, p0}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
 
     .line 126
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private static shrinkFileLogData()V
-    .locals 17
+    .registers 17
 
     .line 28
     sget-object v0, Lcom/isaigu/gymapp/utils/Logger;->context:Landroid/content/Context;
@@ -500,13 +500,13 @@
     sub-int/2addr v2, v3
 
     .local v2, "i":I
-    :goto_0
-    if-ltz v2, :cond_2
+    :goto_15
+    if-ltz v2, :cond_9f
 
     .line 32
     aget-object v4, v1, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_99
 
     aget-object v4, v1, v2
 
@@ -514,7 +514,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_99
 
     .line 33
     aget-object v4, v1, v2
@@ -632,7 +632,7 @@
 
     const/4 v11, 0x1
 
-    if-lt v10, v11, :cond_1
+    if-lt v10, v11, :cond_9a
 
     .line 46
     new-instance v10, Ljava/lang/StringBuilder;
@@ -662,7 +662,7 @@
 
     invoke-virtual {v10}, Ljava/io/File;->delete()Z
 
-    goto :goto_1
+    goto :goto_9a
 
     .line 32
     .end local v3    # "calendar":Ljava/util/Calendar;
@@ -674,37 +674,37 @@
     .end local v9    # "cal":Ljava/util/Calendar;
     .end local v14    # "month":I
     .end local v15    # "day":I
-    :cond_0
+    :cond_99
     const/4 v11, 0x1
 
     .line 31
-    :cond_1
-    :goto_1
+    :cond_9a
+    :goto_9a
     add-int/lit8 v2, v2, -0x1
 
     const/4 v3, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_15
 
     .line 51
     .end local v2    # "i":I
-    :cond_2
+    :cond_9f
     return-void
 .end method
 
 .method public static unInit()V
-    .locals 2
+    .registers 2
 
     .line 143
     const/4 v0, 0x0
 
-    :try_start_0
+    :try_start_1
     sput-object v0, Lcom/isaigu/gymapp/utils/Logger;->context:Landroid/content/Context;
 
     .line 144
     sget-object v1, Lcom/isaigu/gymapp/utils/Logger;->fileOutputStream:Ljava/io/FileOutputStream;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     .line 145
     sget-object v1, Lcom/isaigu/gymapp/utils/Logger;->fileOutputStream:Ljava/io/FileOutputStream;
@@ -712,16 +712,16 @@
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
 
     .line 147
-    :cond_0
+    :cond_c
     sput-object v0, Lcom/isaigu/gymapp/utils/Logger;->fileOutputStream:Ljava/io/FileOutputStream;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_e} :catch_f
 
     .line 150
-    goto :goto_0
+    goto :goto_13
 
     .line 148
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 149
@@ -730,6 +730,6 @@
 
     .line 151
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_0
+    :goto_13
     return-void
 .end method

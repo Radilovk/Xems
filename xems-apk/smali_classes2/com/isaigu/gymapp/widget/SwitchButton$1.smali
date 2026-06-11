@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/SwitchButton;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/SwitchButton;
 
     .line 225
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 227
@@ -53,6 +53,7 @@
 
     move-result v1
 
+    # setter for: Lcom/isaigu/gymapp/widget/SwitchButton;->mSwitchBallx:F
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/widget/SwitchButton;->access$002(Lcom/isaigu/gymapp/widget/SwitchButton;F)F
 
     .line 228

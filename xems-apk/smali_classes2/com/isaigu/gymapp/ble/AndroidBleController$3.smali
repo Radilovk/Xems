@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/ble/AndroidBleController;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/ble/AndroidBleController;
 
     .line 178
@@ -34,28 +34,31 @@
 
 # virtual methods
 .method public onCharacteristicChanged(Landroid/bluetooth/BluetoothGatt;Landroid/bluetooth/BluetoothGattCharacteristic;)V
-    .locals 4
+    .registers 7
     .param p1, "gatt"    # Landroid/bluetooth/BluetoothGatt;
     .param p2, "characteristic"    # Landroid/bluetooth/BluetoothGattCharacteristic;
 
     .line 251
     iget-object v0, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->delegate:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
     invoke-static {v0}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$000(Lcom/isaigu/gymapp/ble/AndroidBleController;)Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 252
     iget-object v0, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->delegate:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
     invoke-static {v0}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$000(Lcom/isaigu/gymapp/ble/AndroidBleController;)Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mGattMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$300(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -81,37 +84,40 @@
     invoke-interface {v0, v1, v2, v3}, Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;->onDataAvailable(Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;Ljava/lang/String;[B)V
 
     .line 254
-    :cond_0
+    :cond_29
     return-void
 .end method
 
 .method public onCharacteristicRead(Landroid/bluetooth/BluetoothGatt;Landroid/bluetooth/BluetoothGattCharacteristic;I)V
-    .locals 4
+    .registers 8
     .param p1, "gatt"    # Landroid/bluetooth/BluetoothGatt;
     .param p2, "characteristic"    # Landroid/bluetooth/BluetoothGattCharacteristic;
     .param p3, "status"    # I
 
     .line 243
-    if-nez p3, :cond_0
+    if-nez p3, :cond_2b
 
     .line 244
     iget-object v0, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->delegate:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
     invoke-static {v0}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$000(Lcom/isaigu/gymapp/ble/AndroidBleController;)Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 245
     iget-object v0, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->delegate:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
     invoke-static {v0}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$000(Lcom/isaigu/gymapp/ble/AndroidBleController;)Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mGattMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$300(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -137,12 +143,12 @@
     invoke-interface {v0, v1, v2, v3}, Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;->onDataAvailable(Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;Ljava/lang/String;[B)V
 
     .line 248
-    :cond_0
+    :cond_2b
     return-void
 .end method
 
 .method public onConnectionStateChange(Landroid/bluetooth/BluetoothGatt;II)V
-    .locals 5
+    .registers 9
     .param p1, "gatt"    # Landroid/bluetooth/BluetoothGatt;
     .param p2, "status"    # I
     .param p3, "newState"    # I
@@ -150,11 +156,12 @@
     .line 180
     const/4 v0, 0x2
 
-    if-ne p3, v0, :cond_0
+    if-ne p3, v0, :cond_1e
 
     .line 181
     iget-object v0, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mGattMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$300(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -163,7 +170,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_eb
 
     .line 182
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothGatt;->discoverServices()Z
@@ -178,15 +185,16 @@
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_eb
 
     .line 186
-    :cond_0
-    if-nez p3, :cond_6
+    :cond_1e
+    if-nez p3, :cond_eb
 
     .line 187
     iget-object v0, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mGattMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$300(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -199,11 +207,12 @@
 
     .line 188
     .local v0, "model":Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
-    if-nez v0, :cond_3
+    if-nez v0, :cond_73
 
     .line 189
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mDisConnectedGattMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$400(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -216,12 +225,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_3c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_72
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -249,7 +258,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_71
 
     .line 191
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -263,6 +272,7 @@
     .line 192
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mDisConnectedGattMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$400(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -274,21 +284,22 @@
     invoke-virtual {v1, v3}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 193
-    goto :goto_1
+    goto :goto_72
 
     .line 195
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;>;"
-    :cond_1
-    goto :goto_0
+    :cond_71
+    goto :goto_3c
 
-    :cond_2
-    :goto_1
-    goto :goto_2
+    :cond_72
+    :goto_72
+    goto :goto_7e
 
     .line 197
-    :cond_3
+    :cond_73
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mDisConnectedGattMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$400(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -298,7 +309,7 @@
     invoke-virtual {v1, v2, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 199
-    :goto_2
+    :goto_7e
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -322,17 +333,18 @@
     invoke-static {v1}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
 
     .line 200
-    if-nez v0, :cond_4
+    if-nez v0, :cond_b3
 
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothGatt;->getDevice()Landroid/bluetooth/BluetoothDevice;
 
     move-result-object v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_b3
 
     .line 201
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->scanDevice:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$100(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -350,23 +362,26 @@
     check-cast v0, Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
 
     .line 203
-    :cond_4
+    :cond_b3
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # invokes: Lcom/isaigu/gymapp/ble/AndroidBleController;->close(Landroid/bluetooth/BluetoothGatt;)V
     invoke-static {v1, p1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$500(Lcom/isaigu/gymapp/ble/AndroidBleController;Landroid/bluetooth/BluetoothGatt;)V
 
     .line 204
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->delegate:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$000(Lcom/isaigu/gymapp/ble/AndroidBleController;)Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
 
     move-result-object v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_ca
 
     .line 205
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->delegate:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$000(Lcom/isaigu/gymapp/ble/AndroidBleController;)Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
 
     move-result-object v1
@@ -376,7 +391,7 @@
     invoke-interface {v1, v0, v2}, Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;->onDeviceDisconnected(Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;I)V
 
     .line 207
-    :cond_5
+    :cond_ca
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -407,38 +422,41 @@
 
     .line 209
     .end local v0    # "model":Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
-    :cond_6
-    :goto_3
+    :cond_eb
+    :goto_eb
     return-void
 .end method
 
 .method public onReadRemoteRssi(Landroid/bluetooth/BluetoothGatt;II)V
-    .locals 2
+    .registers 6
     .param p1, "gatt"    # Landroid/bluetooth/BluetoothGatt;
     .param p2, "rssi"    # I
     .param p3, "status"    # I
 
     .line 256
-    if-nez p3, :cond_0
+    if-nez p3, :cond_1f
 
     .line 257
     iget-object v0, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->delegate:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
     invoke-static {v0}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$000(Lcom/isaigu/gymapp/ble/AndroidBleController;)Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 258
     iget-object v0, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->delegate:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
     invoke-static {v0}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$000(Lcom/isaigu/gymapp/ble/AndroidBleController;)Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mGattMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$300(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -452,7 +470,7 @@
     invoke-interface {v0, v1, p2}, Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;->onReadRemoteRSSI(Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;I)V
 
     .line 261
-    :cond_0
+    :cond_1f
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -494,12 +512,12 @@
 .end method
 
 .method public onServicesDiscovered(Landroid/bluetooth/BluetoothGatt;I)V
-    .locals 5
+    .registers 8
     .param p1, "gatt"    # Landroid/bluetooth/BluetoothGatt;
     .param p2, "status"    # I
 
     .line 211
-    if-nez p2, :cond_5
+    if-nez p2, :cond_fd
 
     .line 212
     new-instance v0, Ljava/lang/StringBuilder;
@@ -512,6 +530,7 @@
 
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mGattMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$300(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -528,6 +547,7 @@
 
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mDisConnectedGattMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$400(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -551,6 +571,7 @@
     .local v0, "model":Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mGattMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$300(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -559,11 +580,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_c4
 
     .line 215
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->scanDevice:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$100(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -581,11 +603,12 @@
     check-cast v0, Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
 
     .line 216
-    if-nez v0, :cond_1
+    if-nez v0, :cond_96
 
     .line 217
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mDisConnectedGattMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$400(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -598,12 +621,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_60
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_96
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -631,7 +654,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_95
 
     .line 219
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -645,6 +668,7 @@
     .line 220
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mDisConnectedGattMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$400(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -656,17 +680,17 @@
     invoke-virtual {v1, v3}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 221
-    goto :goto_1
+    goto :goto_96
 
     .line 223
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;>;"
-    :cond_0
-    goto :goto_0
+    :cond_95
+    goto :goto_60
 
     .line 225
-    :cond_1
-    :goto_1
-    if-nez v0, :cond_2
+    :cond_96
+    :goto_96
+    if-nez v0, :cond_bb
 
     .line 226
     const-string v1, "onServicesDiscovered  model null"
@@ -705,9 +729,10 @@
     move-object v0, v1
 
     .line 229
-    :cond_2
+    :cond_bb
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->mGattMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$300(Lcom/isaigu/gymapp/ble/AndroidBleController;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -715,9 +740,10 @@
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 231
-    :cond_3
+    :cond_c4
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # invokes: Lcom/isaigu/gymapp/ble/AndroidBleController;->enableTXNotification(Landroid/bluetooth/BluetoothGatt;)V
     invoke-static {v1, p1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$600(Lcom/isaigu/gymapp/ble/AndroidBleController;Landroid/bluetooth/BluetoothGatt;)V
 
     .line 232
@@ -731,6 +757,7 @@
 
     iget-object v2, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->delegate:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
     invoke-static {v2}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$000(Lcom/isaigu/gymapp/ble/AndroidBleController;)Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
 
     move-result-object v2
@@ -752,15 +779,17 @@
     .line 233
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->delegate:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$000(Lcom/isaigu/gymapp/ble/AndroidBleController;)Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
 
     move-result-object v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_fc
 
     .line 234
     iget-object v1, p0, Lcom/isaigu/gymapp/ble/AndroidBleController$3;->this$0:Lcom/isaigu/gymapp/ble/AndroidBleController;
 
+    # getter for: Lcom/isaigu/gymapp/ble/AndroidBleController;->delegate:Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
     invoke-static {v1}, Lcom/isaigu/gymapp/ble/AndroidBleController;->access$000(Lcom/isaigu/gymapp/ble/AndroidBleController;)Lcom/isaigu/gymapp/ble/BleInterface$BluetoothCallback;
 
     move-result-object v1
@@ -769,11 +798,11 @@
 
     .line 236
     .end local v0    # "model":Lcom/isaigu/gymapp/ble/BleInterface$BluetoothDeviceModel;
-    :cond_4
-    goto :goto_2
+    :cond_fc
+    goto :goto_111
 
     .line 237
-    :cond_5
+    :cond_fd
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -791,6 +820,6 @@
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/Logger;->logConsole(Ljava/lang/String;)V
 
     .line 239
-    :goto_2
+    :goto_111
     return-void
 .end method

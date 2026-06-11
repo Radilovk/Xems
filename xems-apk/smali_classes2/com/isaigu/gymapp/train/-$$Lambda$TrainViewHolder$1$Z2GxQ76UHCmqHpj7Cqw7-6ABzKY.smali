@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lcom/isaigu/gymapp/train/TrainViewHolder$1;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final onSaveProgram(Lcom/isaigu/gymapp/bean/TrainProgram;Ljava/util/List;)V
-    .locals 1
+    .registers 4
 
     iget-object v0, p0, Lcom/isaigu/gymapp/train/-$$Lambda$TrainViewHolder$1$Z2GxQ76UHCmqHpj7Cqw7-6ABzKY;->f$0:Lcom/isaigu/gymapp/train/TrainViewHolder$1;
 

@@ -9,234 +9,169 @@
 # instance fields
 .field public buwei:[I
 
-.field public buweiFloat:[F
-
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .registers 2
 
-    .prologue
-    const/16 v1, 0xa
-
-    .line 6
+    .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 7
-    new-array v0, v1, [I
+    .line 14
+    const/16 v0, 0xa
+
+    new-array v0, v0, [I
 
     iput-object v0, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
-    .line 8
-    new-array v0, v1, [F
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
-
+    .line 15
     return-void
 .end method
 
 
 # virtual methods
 .method public getMaxBodyStrenth()I
-    .registers 4
+    .registers 5
 
-    .prologue
-    const/4 v1, 0x0
+    .line 25
+    iget-object v0, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
+
+    if-eqz v0, :cond_19
+
+    array-length v0, v0
+
+    if-gtz v0, :cond_8
+
+    goto :goto_19
+
+    .line 28
+    :cond_8
+    const/4 v0, 0x0
 
     .line 29
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/bean/PartStrenthBean;->migrateIfNeeded()V
+    .local v0, "max":I
+    const/4 v1, 0x0
 
-    move v0, v1
+    .local v1, "i":I
+    :goto_a
+    iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
-    move v2, v1
+    array-length v3, v2
 
-    .line 31
-    :goto_6
-    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
+    if-ge v1, v3, :cond_18
 
-    array-length v1, v1
+    .line 30
+    aget v3, v2, v1
 
-    if-ge v0, v1, :cond_19
-
-    .line 32
-    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
-
-    aget v1, v1, v0
-
-    if-le v1, v2, :cond_1a
-
-    .line 33
-    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
-
-    aget v1, v1, v0
+    if-le v3, v0, :cond_15
 
     .line 31
-    :goto_15
-    add-int/lit8 v0, v0, 0x1
+    aget v0, v2, v1
 
-    move v2, v1
+    .line 29
+    :cond_15
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_6
+    goto :goto_a
 
-    .line 36
+    .line 34
+    .end local v1    # "i":I
+    :cond_18
+    return v0
+
+    .line 26
+    .end local v0    # "max":I
     :cond_19
-    return v2
+    :goto_19
+    const/4 v0, 0x0
 
-    :cond_1a
-    move v1, v2
-
-    goto :goto_15
+    return v0
 .end method
 
 .method public getMinBodyStrenth()I
-    .registers 4
-
-    .prologue
-    .line 40
-    invoke-virtual {p0}, Lcom/isaigu/gymapp/bean/PartStrenthBean;->migrateIfNeeded()V
-
-    .line 41
-    const/16 v1, 0x7d0
-
-    .line 42
-    const/4 v0, 0x0
-
-    :goto_6
-    iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
-
-    array-length v2, v2
-
-    if-ge v0, v2, :cond_18
-
-    .line 43
-    iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
-
-    aget v2, v2, v0
-
-    if-ge v2, v1, :cond_15
-
-    .line 44
-    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
-
-    aget v1, v1, v0
-
-    .line 42
-    :cond_15
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_6
-
-    .line 47
-    :cond_18
-    return v1
-.end method
-
-.method public migrateIfNeeded()V
     .registers 5
 
-    .prologue
-    const/4 v3, 0x0
+    .line 38
+    iget-object v0, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
-    .line 11
-    const/4 v0, 0x0
+    if-eqz v0, :cond_1a
 
-    :goto_2
-    const/16 v1, 0xa
+    array-length v0, v0
 
-    if-ge v0, v1, :cond_34
+    if-gtz v0, :cond_8
 
-    .line 12
-    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
+    goto :goto_1a
 
-    aget v1, v1, v0
+    .line 41
+    :cond_8
+    const/16 v0, 0x7d0
 
-    cmpg-float v1, v1, v3
+    .line 42
+    .local v0, "min":I
+    const/4 v1, 0x0
 
-    if-gtz v1, :cond_1d
-
-    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
-
-    aget v1, v1, v0
-
-    if-lez v1, :cond_1d
-
-    .line 13
-    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
-
+    .local v1, "i":I
+    :goto_b
     iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
-    aget v2, v2, v0
+    array-length v3, v2
 
-    int-to-float v2, v2
+    if-ge v1, v3, :cond_19
 
-    aput v2, v1, v0
+    .line 43
+    aget v3, v2, v1
 
-    .line 15
-    :cond_1d
-    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
+    if-ge v3, v0, :cond_16
 
-    aget v1, v1, v0
+    .line 44
+    aget v0, v2, v1
 
-    cmpl-float v1, v1, v3
+    .line 42
+    :cond_16
+    add-int/lit8 v1, v1, 0x1
 
-    if-lez v1, :cond_31
+    goto :goto_b
 
-    .line 16
-    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
+    .line 47
+    .end local v1    # "i":I
+    :cond_19
+    return v0
 
-    iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
+    .line 39
+    .end local v0    # "min":I
+    :cond_1a
+    :goto_1a
+    const/4 v0, 0x0
 
-    aget v2, v2, v0
-
-    invoke-static {v2}, Ljava/lang/Math;->round(F)I
-
-    move-result v2
-
-    aput v2, v1, v0
-
-    .line 11
-    :cond_31
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_2
-
-    .line 19
-    :cond_34
-    return-void
+    return v0
 .end method
 
 .method public reset()V
-    .registers 5
+    .registers 4
 
-    .prologue
-    const/4 v1, 0x0
+    .line 19
+    const/4 v0, 0x0
 
-    .line 22
-    move v0, v1
+    .local v0, "i":I
+    :goto_1
+    iget-object v1, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
 
-    :goto_2
-    const/16 v2, 0xa
+    array-length v2, v1
 
-    if-ge v0, v2, :cond_12
+    if-ge v0, v2, :cond_c
 
-    .line 23
-    iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buwei:[I
+    .line 20
+    const/4 v2, 0x0
 
-    aput v1, v2, v0
+    aput v2, v1, v0
 
-    .line 24
-    iget-object v2, p0, Lcom/isaigu/gymapp/bean/PartStrenthBean;->buweiFloat:[F
-
-    const/4 v3, 0x0
-
-    aput v3, v2, v0
-
-    .line 22
+    .line 19
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 26
-    :cond_12
+    .line 22
+    .end local v0    # "i":I
+    :cond_c
     return-void
 .end method

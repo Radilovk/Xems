@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$13;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$13;
 
     .line 652
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 654
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$13$2;->this$1:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$13;
@@ -56,6 +56,7 @@
 
     iget-object v1, v1, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$13;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v1
@@ -70,6 +71,7 @@
 
     iget-object v1, v1, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$13;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->userIcon:Landroid/widget/ImageView;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$1400(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/widget/ImageView;
 
     move-result-object v1
@@ -81,6 +83,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$13;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->cameraIcon:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$1500(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/widget/ImageView;
 
     move-result-object v0

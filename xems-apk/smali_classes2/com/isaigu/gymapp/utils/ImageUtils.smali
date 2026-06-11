@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method private static calculateInSampleSize(Landroid/graphics/BitmapFactory$Options;II)I
-    .locals 6
+    .registers 9
     .param p0, "options"    # Landroid/graphics/BitmapFactory$Options;
     .param p1, "requiredWidth"    # I
     .param p2, "requiredHeight"    # I
@@ -32,12 +32,12 @@
 
     .line 161
     .local v2, "inSampleSize":I
-    if-gt v0, p1, :cond_0
+    if-gt v0, p1, :cond_9
 
-    if-le v1, p2, :cond_2
+    if-le v1, p2, :cond_1d
 
     .line 163
-    :cond_0
+    :cond_9
     int-to-float v3, v0
 
     int-to-float v4, p1
@@ -62,27 +62,27 @@
 
     .line 168
     .local v4, "heightRatio":I
-    if-ge v3, v4, :cond_1
+    if-ge v3, v4, :cond_1b
 
     move v5, v3
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     move v5, v4
 
-    :goto_0
+    :goto_1c
     move v2, v5
 
     .line 170
     .end local v3    # "widthRatio":I
     .end local v4    # "heightRatio":I
-    :cond_2
+    :cond_1d
     return v2
 .end method
 
 .method private static createTemporalFileFrom(Landroid/content/Context;Ljava/io/InputStream;Ljava/lang/String;)Ljava/io/File;
-    .locals 7
+    .registers 10
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "inputStream"    # Ljava/io/InputStream;
     .param p2, "fileName"    # Ljava/lang/String;
@@ -97,7 +97,7 @@
 
     .line 383
     .local v0, "targetFile":Ljava/io/File;
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_6b
 
     .line 385
     const/16 v1, 0x2000
@@ -146,13 +146,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_38
 
     .line 389
     invoke-virtual {v2}, Ljava/io/File;->mkdirs()Z
 
     .line 391
-    :cond_0
+    :cond_38
     new-instance v3, Ljava/text/SimpleDateFormat;
 
     const-string v4, "yyyyMMdd_HHmmss"
@@ -182,7 +182,7 @@
 
     .line 406
     .local v3, "outputStream":Ljava/io/OutputStream;
-    :goto_0
+    :goto_53
     invoke-virtual {p1, v1}, Ljava/io/InputStream;->read([B)I
 
     move-result v4
@@ -192,30 +192,30 @@
     .local v5, "read":I
     const/4 v6, -0x1
 
-    if-eq v4, v6, :cond_1
+    if-eq v4, v6, :cond_60
 
     .line 407
     const/4 v4, 0x0
 
     invoke-virtual {v3, v1, v4, v5}, Ljava/io/OutputStream;->write([BII)V
 
-    goto :goto_0
+    goto :goto_53
 
     .line 409
-    :cond_1
+    :cond_60
     invoke-virtual {v3}, Ljava/io/OutputStream;->flush()V
 
     .line 412
-    :try_start_0
+    :try_start_63
     invoke-virtual {v3}, Ljava/io/OutputStream;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_66
+    .catch Ljava/io/IOException; {:try_start_63 .. :try_end_66} :catch_67
 
     .line 415
-    goto :goto_1
+    goto :goto_6b
 
     .line 413
-    :catch_0
+    :catch_67
     move-exception v4
 
     .line 414
@@ -228,13 +228,13 @@
     .end local v3    # "outputStream":Ljava/io/OutputStream;
     .end local v4    # "e":Ljava/io/IOException;
     .end local v5    # "read":I
-    :cond_2
-    :goto_1
+    :cond_6b
+    :goto_6b
     return-object v0
 .end method
 
 .method public static createVideoThumbnail(Ljava/lang/String;II)Landroid/graphics/Bitmap;
-    .locals 5
+    .registers 8
     .param p0, "url"    # Ljava/lang/String;
     .param p1, "width"    # I
     .param p2, "height"    # I
@@ -254,12 +254,12 @@
 
     .line 65
     .local v2, "kind":I
-    :try_start_0
+    :try_start_7
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v4, 0xe
 
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_16
 
     .line 66
     new-instance v3, Ljava/util/HashMap;
@@ -268,90 +268,90 @@
 
     invoke-virtual {v1, p0, v3}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/lang/String;Ljava/util/Map;)V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 68
-    :cond_0
+    :cond_16
     invoke-virtual {v1, p0}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/lang/String;)V
 
     .line 70
-    :goto_0
+    :goto_19
     invoke-virtual {v1}, Landroid/media/MediaMetadataRetriever;->getFrameAtTime()Landroid/graphics/Bitmap;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_2
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_7 .. :try_end_1d} :catch_30
+    .catch Ljava/lang/RuntimeException; {:try_start_7 .. :try_end_1d} :catch_2b
+    .catchall {:try_start_7 .. :try_end_1d} :catchall_24
 
     move-object v0, v3
 
     .line 77
-    :try_start_1
+    :try_start_1e
     invoke-virtual {v1}, Landroid/media/MediaMetadataRetriever;->release()V
-    :try_end_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_21
+    .catch Ljava/lang/RuntimeException; {:try_start_1e .. :try_end_21} :catch_22
 
     .line 80
-    :goto_1
-    goto :goto_3
+    :goto_21
+    goto :goto_35
 
     .line 78
-    :catch_0
+    :catch_22
     move-exception v3
 
     .line 81
-    goto :goto_3
+    goto :goto_35
 
     .line 76
-    :catchall_0
+    :catchall_24
     move-exception v3
 
     .line 77
-    :try_start_2
+    :try_start_25
     invoke-virtual {v1}, Landroid/media/MediaMetadataRetriever;->release()V
-    :try_end_2
-    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_28
+    .catch Ljava/lang/RuntimeException; {:try_start_25 .. :try_end_28} :catch_29
 
     .line 80
-    goto :goto_2
+    goto :goto_2a
 
     .line 78
-    :catch_1
+    :catch_29
     move-exception v4
 
     .line 81
-    :goto_2
+    :goto_2a
     throw v3
 
     .line 73
-    :catch_2
+    :catch_2b
     move-exception v3
 
     .line 77
-    :try_start_3
+    :try_start_2c
     invoke-virtual {v1}, Landroid/media/MediaMetadataRetriever;->release()V
 
-    goto :goto_1
+    goto :goto_21
 
     .line 71
-    :catch_3
+    :catch_30
     move-exception v3
 
     .line 77
     invoke-virtual {v1}, Landroid/media/MediaMetadataRetriever;->release()V
-    :try_end_3
-    .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_34
+    .catch Ljava/lang/RuntimeException; {:try_start_2c .. :try_end_34} :catch_22
 
-    goto :goto_1
+    goto :goto_21
 
     .line 82
-    :goto_3
+    :goto_35
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_3f
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3f
 
     .line 83
     const/4 v3, 0x2
@@ -361,12 +361,12 @@
     move-result-object v0
 
     .line 86
-    :cond_1
+    :cond_3f
     return-object v0
 .end method
 
 .method public static createVideoThumbnailBytes(Ljava/lang/String;II)[B
-    .locals 4
+    .registers 7
     .param p0, "url"    # Ljava/lang/String;
     .param p1, "width"    # I
     .param p2, "height"    # I
@@ -401,7 +401,7 @@
 .end method
 
 .method public static decodeSampledBitmap(Ljava/io/FileInputStream;II)Landroid/graphics/Bitmap;
-    .locals 3
+    .registers 6
     .param p0, "is"    # Ljava/io/FileInputStream;
     .param p1, "requiredWidth"    # I
     .param p2, "requiredHeight"    # I
@@ -443,7 +443,7 @@
 .end method
 
 .method public static decodeSampledBitmapFromDisk(Ljava/io/FileDescriptor;II)Landroid/graphics/Bitmap;
-    .locals 4
+    .registers 7
     .param p0, "descriptor"    # Ljava/io/FileDescriptor;
     .param p1, "requiredWidth"    # I
     .param p2, "requiredHeight"    # I
@@ -489,7 +489,7 @@
 .end method
 
 .method public static decodeSampledBitmapFromDisk(Ljava/lang/String;II)Landroid/graphics/Bitmap;
-    .locals 2
+    .registers 5
     .param p0, "imagePath"    # Ljava/lang/String;
     .param p1, "requiredWidth"    # I
     .param p2, "requiredHeight"    # I
@@ -529,7 +529,7 @@
 .end method
 
 .method public static decodeSampledBitmapFromResource(Landroid/content/res/Resources;III)Landroid/graphics/Bitmap;
-    .locals 2
+    .registers 6
     .param p0, "res"    # Landroid/content/res/Resources;
     .param p1, "resId"    # I
     .param p2, "requiredWidth"    # I
@@ -570,7 +570,7 @@
 .end method
 
 .method private static getDataColumn(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
-    .locals 8
+    .registers 12
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "uri"    # Landroid/net/Uri;
     .param p2, "selection"    # Ljava/lang/String;
@@ -613,13 +613,13 @@
 
     .line 242
     .local v1, "cursor":Landroid/database/Cursor;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_4e
 
     invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_4e
 
     .line 243
     nop
@@ -671,7 +671,7 @@
     .line 248
     .end local v2    # "id":I
     .end local v3    # "baseUri":Landroid/net/Uri;
-    :cond_0
+    :cond_4e
     new-instance v2, Landroid/content/ContentValues;
 
     invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
@@ -703,12 +703,12 @@
 .end method
 
 .method private static getFileFromContentUri(Landroid/net/Uri;Landroid/content/Context;)Ljava/io/File;
-    .locals 11
+    .registers 13
     .param p0, "contentUri"    # Landroid/net/Uri;
     .param p1, "context"    # Landroid/content/Context;
 
     .line 319
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 320
     const/4 v0, 0x0
@@ -716,7 +716,7 @@
     return-object v0
 
     .line 322
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
     .line 325
@@ -755,7 +755,7 @@
 
     .line 329
     .local v2, "cursor":Landroid/database/Cursor;
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_6d
 
     .line 330
     invoke-interface {v2}, Landroid/database/Cursor;->moveToFirst()Z
@@ -796,7 +796,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_45
 
     .line 335
     new-instance v5, Ljava/io/File;
@@ -806,14 +806,14 @@
     move-object v0, v5
 
     .line 337
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_45
+    if-eqz v0, :cond_5d
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_5d
 
     invoke-virtual {v0}, Ljava/io/File;->length()J
 
@@ -823,27 +823,27 @@
 
     cmp-long v7, v5, v9
 
-    if-lez v7, :cond_2
+    if-lez v7, :cond_5d
 
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_61
 
     .line 338
-    :cond_2
+    :cond_5d
     invoke-static {p1, p0, v4}, Lcom/isaigu/gymapp/utils/ImageUtils;->getPathFromInputStreamUri(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
     .line 340
-    :cond_3
+    :cond_61
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_6d
 
     .line 341
     new-instance v5, Ljava/io/File;
@@ -855,25 +855,25 @@
     .line 344
     .end local v3    # "filePath":Ljava/lang/String;
     .end local v4    # "fileName":Ljava/lang/String;
-    :cond_4
+    :cond_6d
     return-object v0
 .end method
 
 .method public static getFileFromUri(Landroid/net/Uri;Landroid/content/Context;)Ljava/io/File;
-    .locals 3
+    .registers 5
     .param p0, "uri"    # Landroid/net/Uri;
     .param p1, "context"    # Landroid/content/Context;
 
     .line 298
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 299
     return-object v0
 
     .line 301
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
     move-result-object v1
@@ -886,7 +886,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_15
 
     .line 303
     invoke-static {p0, p1}, Lcom/isaigu/gymapp/utils/ImageUtils;->getFileFromContentUri(Landroid/net/Uri;Landroid/content/Context;)Ljava/io/File;
@@ -896,14 +896,14 @@
     return-object v0
 
     .line 304
-    :cond_1
+    :cond_15
     const-string v2, "file"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_27
 
     .line 305
     new-instance v0, Ljava/io/File;
@@ -917,12 +917,12 @@
     return-object v0
 
     .line 307
-    :cond_2
+    :cond_27
     return-object v0
 .end method
 
 .method public static getPathFromInputStreamUri(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "uri"    # Landroid/net/Uri;
     .param p2, "fileName"    # Ljava/lang/String;
@@ -940,10 +940,10 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_39
 
     .line 360
-    :try_start_0
+    :try_start_8
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -964,100 +964,100 @@
     invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v3
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_19} :catch_25
+    .catchall {:try_start_8 .. :try_end_19} :catchall_23
 
     move-object v1, v3
 
     .line 368
     .end local v2    # "file":Ljava/io/File;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 369
-    :try_start_1
+    :try_start_1c
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_1f
+    .catch Ljava/lang/Exception; {:try_start_1c .. :try_end_1f} :catch_20
 
-    goto :goto_0
+    goto :goto_22
 
     .line 371
-    :catch_0
+    :catch_20
     move-exception v2
 
     .line 373
-    goto :goto_4
+    goto :goto_39
 
     .line 372
-    :cond_0
-    :goto_0
-    goto :goto_4
+    :cond_22
+    :goto_22
+    goto :goto_39
 
     .line 367
-    :catchall_0
+    :catchall_23
     move-exception v2
 
-    goto :goto_1
+    goto :goto_2f
 
     .line 364
-    :catch_1
+    :catch_25
     move-exception v2
 
     .line 365
     .local v2, "e":Ljava/lang/Exception;
-    :try_start_2
+    :try_start_26
     invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_29
+    .catchall {:try_start_26 .. :try_end_29} :catchall_23
 
     .line 368
     .end local v2    # "e":Ljava/lang/Exception;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 369
-    :try_start_3
+    :try_start_2b
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_2e
+    .catch Ljava/lang/Exception; {:try_start_2b .. :try_end_2e} :catch_20
 
-    goto :goto_0
+    goto :goto_22
 
     .line 368
-    :goto_1
-    if-eqz v0, :cond_1
+    :goto_2f
+    if-eqz v0, :cond_37
 
     .line 369
-    :try_start_4
+    :try_start_31
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
+    :try_end_34
+    .catch Ljava/lang/Exception; {:try_start_31 .. :try_end_34} :catch_35
 
-    goto :goto_2
+    goto :goto_37
 
     .line 371
-    :catch_2
+    :catch_35
     move-exception v3
 
-    goto :goto_3
+    goto :goto_38
 
     .line 372
-    :cond_1
-    :goto_2
+    :cond_37
+    :goto_37
     nop
 
     .line 373
-    :goto_3
+    :goto_38
     throw v2
 
     .line 376
-    :cond_2
-    :goto_4
+    :cond_39
+    :goto_39
     return-object v1
 .end method
 
 .method public static getRealPathFromUri(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "uri"    # Landroid/net/Uri;
 
@@ -1068,7 +1068,7 @@
     .local v0, "sdkVersion":I
     const/16 v1, 0x13
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 183
     invoke-static {p0, p1}, Lcom/isaigu/gymapp/utils/ImageUtils;->getRealPathFromUriAboveApi19(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
@@ -1078,7 +1078,7 @@
     return-object v1
 
     .line 185
-    :cond_0
+    :cond_b
     invoke-static {p0, p1}, Lcom/isaigu/gymapp/utils/ImageUtils;->getRealPathFromUriBelowAPI19(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v1
@@ -1087,7 +1087,7 @@
 .end method
 
 .method private static getRealPathFromUriAboveApi19(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
-    .locals 6
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "uri"    # Landroid/net/Uri;
 
@@ -1102,7 +1102,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_48
 
     .line 212
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
@@ -1115,7 +1115,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_29
 
     .line 215
     const-string v2, ":"
@@ -1151,15 +1151,15 @@
     .end local v2    # "id":Ljava/lang/String;
     .end local v3    # "selectionArgs":[Ljava/lang/String;
     .end local v4    # "selection":Ljava/lang/String;
-    goto :goto_0
+    goto :goto_46
 
     .line 220
-    :cond_0
+    :cond_29
     invoke-static {p1}, Lcom/isaigu/gymapp/utils/ImageUtils;->isDownloadsDocument(Landroid/net/Uri;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_46
 
     .line 221
     const-string v3, "content://downloads/public_downloads"
@@ -1186,20 +1186,20 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_47
 
     .line 220
     .end local v3    # "contentUri":Landroid/net/Uri;
-    :cond_1
-    :goto_0
+    :cond_46
+    :goto_46
     nop
 
     .line 224
     .end local v1    # "documentId":Ljava/lang/String;
-    :goto_1
-    goto :goto_2
+    :goto_47
+    goto :goto_69
 
-    :cond_2
+    :cond_48
     invoke-virtual {p1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
     move-result-object v1
@@ -1210,17 +1210,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_59
 
     .line 226
     invoke-static {p0, p1, v2, v2}, Lcom/isaigu/gymapp/utils/ImageUtils;->getDataColumn(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_69
 
     .line 227
-    :cond_3
+    :cond_59
     invoke-virtual {p1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
     move-result-object v1
@@ -1231,7 +1231,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_69
 
     .line 229
     invoke-virtual {p1}, Landroid/net/Uri;->getPath()Ljava/lang/String;
@@ -1239,13 +1239,13 @@
     move-result-object v0
 
     .line 231
-    :cond_4
-    :goto_2
+    :cond_69
+    :goto_69
     return-object v0
 .end method
 
 .method private static getRealPathFromUriBelowAPI19(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "uri"    # Landroid/net/Uri;
 
@@ -1260,7 +1260,7 @@
 .end method
 
 .method public static getVideoSize(Ljava/lang/String;)Landroid/graphics/Point;
-    .locals 6
+    .registers 7
     .param p0, "url"    # Ljava/lang/String;
 
     .line 44
@@ -1309,7 +1309,7 @@
 .end method
 
 .method private static isDownloadsDocument(Landroid/net/Uri;)Z
-    .locals 2
+    .registers 3
     .param p0, "uri"    # Landroid/net/Uri;
 
     .line 292
@@ -1327,7 +1327,7 @@
 .end method
 
 .method private static isMediaDocument(Landroid/net/Uri;)Z
-    .locals 2
+    .registers 3
     .param p0, "uri"    # Landroid/net/Uri;
 
     .line 284

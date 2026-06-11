@@ -1,6 +1,5 @@
 .class public final Lcom/isaigu/gymapp/R$string;
 .super Ljava/lang/Object;
-.source "R.java"
 
 
 # annotations
@@ -119,33 +118,15 @@
 
 .field public static final bottom_sheet_behavior:I = 0x7f0d0033
 
-.field public static final brandingTitle:I = 0x7f0d00fd
-
 .field public static final calendarreject:I = 0x7f0d0034
 
 .field public static final camera:I = 0x7f0d0035
 
 .field public static final cancel:I = 0x7f0d0036
 
-.field public static final changeIconText:I = 0x7f0d00fe
-
 .field public static final changeLogo:I = 0x7f0d0037
 
 .field public static final changeLogoText:I = 0x7f0d0038
-
-.field public static final changeSplashText:I = 0x7f0d00ff
-
-.field public static final channelCalibrationTitle:I = 0x7f0d0104
-
-.field public static final channelPulseGlobal:I = 0x7f0d0105
-
-.field public static final alternateImpulseModeHint:I = 0x7f0d0107
-
-.field public static final alternateImpulseModeTitle:I = 0x7f0d0106
-
-.field public static final alternatePhaseAerobic:I = 0x7f0d0109
-
-.field public static final alternatePhaseMuscle:I = 0x7f0d0108
 
 .field public static final character_counter_pattern:I = 0x7f0d0039
 
@@ -157,10 +138,6 @@
 
 .field public static final count:I = 0x7f0d003d
 
-.field public static final currentDecreaseStep:I = 0x7f0d0101
-
-.field public static final currentIncreaseStep:I = 0x7f0d0100
-
 .field public static final customerdata:I = 0x7f0d003e
 
 .field public static final customerrecorddata:I = 0x7f0d003f
@@ -170,10 +147,6 @@
 .field public static final day:I = 0x7f0d0041
 
 .field public static final defaultLogoText:I = 0x7f0d0042
-
-.field public static final defaultPulseContinue:I = 0x7f0d0102
-
-.field public static final defaultPulsePause:I = 0x7f0d0103
 
 .field public static final delete:I = 0x7f0d0043
 
@@ -240,8 +213,6 @@
 .field public static final inputramperror:I = 0x7f0d0062
 
 .field public static final inputworktimelengtherror:I = 0x7f0d0063
-
-.field public static final language_bulgarian:I = 0x7f0d00fc
 
 .field public static final lightValue:I = 0x7f0d0064
 
@@ -552,10 +523,7 @@
 .method private constructor <init>()V
     .registers 1
 
-    .prologue
-    .line 2210
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2211
     return-void
 .end method

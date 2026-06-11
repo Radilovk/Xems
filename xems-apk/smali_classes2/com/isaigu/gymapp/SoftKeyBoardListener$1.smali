@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/SoftKeyBoardListener;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/SoftKeyBoardListener;
 
     .line 35
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 5
+    .registers 15
     .param p1, "v"    # Landroid/view/View;
     .param p2, "left"    # I
     .param p3, "top"    # I
@@ -57,6 +57,7 @@
     .local v0, "rect":Landroid/graphics/Rect;
     iget-object v1, p0, Lcom/isaigu/gymapp/SoftKeyBoardListener$1;->this$0:Lcom/isaigu/gymapp/SoftKeyBoardListener;
 
+    # getter for: Lcom/isaigu/gymapp/SoftKeyBoardListener;->rootView:Landroid/view/View;
     invoke-static {v1}, Lcom/isaigu/gymapp/SoftKeyBoardListener;->access$000(Lcom/isaigu/gymapp/SoftKeyBoardListener;)Landroid/view/View;
 
     move-result-object v1
@@ -66,6 +67,7 @@
     .line 41
     iget-object v1, p0, Lcom/isaigu/gymapp/SoftKeyBoardListener$1;->this$0:Lcom/isaigu/gymapp/SoftKeyBoardListener;
 
+    # getter for: Lcom/isaigu/gymapp/SoftKeyBoardListener;->screenHeight:I
     invoke-static {v1}, Lcom/isaigu/gymapp/SoftKeyBoardListener;->access$100(Lcom/isaigu/gymapp/SoftKeyBoardListener;)I
 
     move-result v1
@@ -74,11 +76,12 @@
 
     move-result v2
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_43
 
     .line 43
     iget-object v1, p0, Lcom/isaigu/gymapp/SoftKeyBoardListener$1;->this$0:Lcom/isaigu/gymapp/SoftKeyBoardListener;
 
+    # getter for: Lcom/isaigu/gymapp/SoftKeyBoardListener;->screenHeight:I
     invoke-static {v1}, Lcom/isaigu/gymapp/SoftKeyBoardListener;->access$100(Lcom/isaigu/gymapp/SoftKeyBoardListener;)I
 
     move-result v1
@@ -93,23 +96,23 @@
     .local v1, "screenKeyboardHeight":I
     const/16 v2, 0x32
 
-    if-le v1, v2, :cond_0
+    if-le v1, v2, :cond_2b
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_0
+    :cond_2b
     const/4 v2, 0x0
 
     .line 46
     .local v2, "isKeyboardShow":Z
-    :goto_0
+    :goto_2c
     const/4 v3, 0x0
 
     .line 47
     .local v3, "yValue":I
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_32
 
     .line 48
     neg-int v4, v1
@@ -117,18 +120,20 @@
     div-int/lit8 v3, v4, 0x2
 
     .line 57
-    :cond_1
+    :cond_32
     iget-object v4, p0, Lcom/isaigu/gymapp/SoftKeyBoardListener$1;->this$0:Lcom/isaigu/gymapp/SoftKeyBoardListener;
 
+    # getter for: Lcom/isaigu/gymapp/SoftKeyBoardListener;->onSoftKeyBoardChangeListener:Lcom/isaigu/gymapp/SoftKeyBoardListener$OnKeyboardChangeListener;
     invoke-static {v4}, Lcom/isaigu/gymapp/SoftKeyBoardListener;->access$200(Lcom/isaigu/gymapp/SoftKeyBoardListener;)Lcom/isaigu/gymapp/SoftKeyBoardListener$OnKeyboardChangeListener;
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_43
 
     .line 58
     iget-object v4, p0, Lcom/isaigu/gymapp/SoftKeyBoardListener$1;->this$0:Lcom/isaigu/gymapp/SoftKeyBoardListener;
 
+    # getter for: Lcom/isaigu/gymapp/SoftKeyBoardListener;->onSoftKeyBoardChangeListener:Lcom/isaigu/gymapp/SoftKeyBoardListener$OnKeyboardChangeListener;
     invoke-static {v4}, Lcom/isaigu/gymapp/SoftKeyBoardListener;->access$200(Lcom/isaigu/gymapp/SoftKeyBoardListener;)Lcom/isaigu/gymapp/SoftKeyBoardListener$OnKeyboardChangeListener;
 
     move-result-object v4
@@ -139,6 +144,6 @@
     .end local v1    # "screenKeyboardHeight":I
     .end local v2    # "isKeyboardShow":Z
     .end local v3    # "yValue":I
-    :cond_2
+    :cond_43
     return-void
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/BaseActivity;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/BaseActivity;
 
     .line 152
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 154
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity$3;->this$0:Lcom/isaigu/gymapp/BaseActivity;
@@ -51,12 +51,12 @@
     .line 155
     iget-object v0, p0, Lcom/isaigu/gymapp/BaseActivity$3;->val$calllback:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 156
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     .line 158
-    :cond_0
+    :cond_c
     return-void
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Lcom/isaigu/gymapp/BaseDialogFragment;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/dialog/UserRecordDataDialog;)Landroid/support/v7/widget/RecyclerView;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/UserRecordDataDialog;
 
     .line 39
@@ -44,7 +44,7 @@
 .end method
 
 .method private initData(Lcom/isaigu/gymapp/bean/TrainUser;)V
-    .locals 3
+    .registers 5
     .param p1, "trainUser"    # Lcom/isaigu/gymapp/bean/TrainUser;
 
     .line 123
@@ -54,7 +54,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2d
 
     iget-object v0, p1, Lcom/isaigu/gymapp/bean/TrainUser;->iconUrl:Ljava/lang/String;
 
@@ -64,12 +64,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 126
-    :cond_0
+    :cond_13
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
@@ -94,11 +94,11 @@
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    goto :goto_1
+    goto :goto_45
 
     .line 124
-    :cond_1
-    :goto_0
+    :cond_2d
+    :goto_2d
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
@@ -122,7 +122,7 @@
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableTypeRequest;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 129
-    :goto_1
+    :goto_45
     iget-wide v0, p1, Lcom/isaigu/gymapp/bean/TrainUser;->id:J
 
     new-instance v2, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$2;
@@ -136,7 +136,7 @@
 .end method
 
 .method private initListener()V
-    .locals 2
+    .registers 3
 
     .line 114
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog;->close:Landroid/widget/Button;
@@ -152,7 +152,7 @@
 .end method
 
 .method private initView(Landroid/view/View;)V
-    .locals 3
+    .registers 5
     .param p1, "view"    # Landroid/view/View;
 
     .line 99
@@ -243,7 +243,7 @@
 
 # virtual methods
 .method public getViewIid()I
-    .locals 1
+    .registers 2
 
     .line 51
     const v0, 0x7f0b0074
@@ -252,7 +252,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 3
+    .registers 7
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -276,7 +276,7 @@
 
     .line 65
     .local v1, "bundle":Landroid/os/Bundle;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 66
     const-string v2, "user"
@@ -293,12 +293,12 @@
     invoke-direct {p0, v2}, Lcom/isaigu/gymapp/dialog/UserRecordDataDialog;->initData(Lcom/isaigu/gymapp/bean/TrainUser;)V
 
     .line 70
-    :cond_0
+    :cond_1d
     return-object v0
 .end method
 
 .method public onDestroyView()V
-    .locals 0
+    .registers 1
 
     .line 93
     invoke-super {p0}, Lcom/isaigu/gymapp/BaseDialogFragment;->onDestroyView()V
@@ -308,7 +308,7 @@
 .end method
 
 .method public onStart()V
-    .locals 6
+    .registers 7
 
     .line 75
     invoke-super {p0}, Lcom/isaigu/gymapp/BaseDialogFragment;->onStart()V

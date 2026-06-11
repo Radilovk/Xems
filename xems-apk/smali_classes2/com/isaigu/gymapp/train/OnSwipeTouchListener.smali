@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/isaigu/gymapp/train/OnSwipeTouchListener$SwipeListener;)V
-    .locals 2
+    .registers 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "swipeListener"    # Lcom/isaigu/gymapp/train/OnSwipeTouchListener$SwipeListener;
 
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/MotionEvent;
 

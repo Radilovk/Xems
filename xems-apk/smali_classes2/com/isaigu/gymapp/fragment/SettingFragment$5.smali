@@ -3,12 +3,12 @@
 .source "SettingFragment.java"
 
 # interfaces
-.implements Lcom/isaigu/gymapp/widget/OnRangeChangedListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/isaigu/gymapp/fragment/SettingFragment;->initTrainingPreferenceSeekBars()V
+    value = Lcom/isaigu/gymapp/fragment/SettingFragment;->initSet()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,14 +20,23 @@
 # instance fields
 .field final synthetic this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
+.field final synthetic val$dateFormat:Ljava/text/SimpleDateFormat;
+
 
 # direct methods
-.method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
-    .registers 2
+.method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment;Ljava/text/SimpleDateFormat;)V
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()V"
+        }
+    .end annotation
 
     .prologue
-    .line 287
+    .line 307
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
+
+    iput-object p2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$5;->val$dateFormat:Ljava/text/SimpleDateFormat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,79 +45,23 @@
 
 
 # virtual methods
-.method public onRangeChanged(Lcom/isaigu/gymapp/widget/RangeSeekBar;FFZ)V
-    .registers 8
-
-    .prologue
-    .line 290
-    const/4 v0, 0x1
-
-    invoke-static {p2}, Ljava/lang/Math;->round(F)I
-
-    move-result v1
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
-
-    move-result v0
-
-    .line 291
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v1
-
-    iput v0, v1, Lcom/isaigu/gymapp/bean/UserData;->defaultPulseContinue:I
-
-    .line 292
-    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
-
-    # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->pulseContinueValue:Landroid/widget/TextView;
-    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$300(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/TextView;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v2, " s"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 293
-    return-void
-.end method
-
-.method public onStartTrackingTouch(Lcom/isaigu/gymapp/widget/RangeSeekBar;Z)V
+.method public run()V
     .registers 3
 
     .prologue
-    .line 297
-    return-void
-.end method
+    .line 310
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$5;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-.method public onStopTrackingTouch(Lcom/isaigu/gymapp/widget/RangeSeekBar;Z)V
-    .registers 4
-
-    .prologue
-    .line 301
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
+    new-instance v1, Lcom/isaigu/gymapp/fragment/SettingFragment$5$1;
 
-    .line 302
+    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/SettingFragment$5$1;-><init>(Lcom/isaigu/gymapp/fragment/SettingFragment$5;)V
+
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
+
+    .line 316
     return-void
 .end method

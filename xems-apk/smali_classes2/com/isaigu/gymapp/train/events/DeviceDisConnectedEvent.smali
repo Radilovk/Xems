@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/clj/fastble/data/BleDevice;)V
-    .locals 0
+    .registers 2
     .param p1, "device"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 9
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(Lcom/clj/fastble/data/BleDevice;Ljava/lang/Integer;)V
-    .locals 0
+    .registers 3
     .param p1, "device"    # Lcom/clj/fastble/data/BleDevice;
     .param p2, "deviceId"    # Ljava/lang/Integer;
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getDevice()Lcom/clj/fastble/data/BleDevice;
-    .locals 1
+    .registers 2
 
     .line 17
     iget-object v0, p0, Lcom/isaigu/gymapp/train/events/DeviceDisConnectedEvent;->device:Lcom/clj/fastble/data/BleDevice;
@@ -54,7 +54,7 @@
 .end method
 
 .method public getDeviceId()Ljava/lang/Integer;
-    .locals 1
+    .registers 2
 
     .line 25
     iget-object v0, p0, Lcom/isaigu/gymapp/train/events/DeviceDisConnectedEvent;->deviceId:Ljava/lang/Integer;
@@ -63,7 +63,7 @@
 .end method
 
 .method public setDevice(Lcom/clj/fastble/data/BleDevice;)V
-    .locals 0
+    .registers 2
     .param p1, "device"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 21
@@ -74,7 +74,7 @@
 .end method
 
 .method public setDeviceId(Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
     .param p1, "deviceId"    # Ljava/lang/Integer;
 
     .line 29

@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;Lcom/isaigu/gymapp/fragment/NewTrainFragment;Lcom/isaigu/gymapp/train/listener/OnTrainListListener;)V
-    .locals 0
+    .registers 4
     .param p2, "fragment"    # Lcom/isaigu/gymapp/fragment/NewTrainFragment;
     .param p3, "listener"    # Lcom/isaigu/gymapp/train/listener/OnTrainListListener;
     .annotation system Ldalvik/annotation/Signature;
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 55
     iget-object v0, p0, Lcom/isaigu/gymapp/train/TrainAdapter;->itemList:Ljava/util/List;
@@ -85,7 +85,7 @@
 .end method
 
 .method public getItemViewType(I)I
-    .locals 1
+    .registers 3
     .param p1, "position"    # I
 
     .line 50
@@ -107,7 +107,7 @@
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
-    .locals 0
+    .registers 3
 
     .line 16
     check-cast p1, Lcom/isaigu/gymapp/train/TrainViewHolder;
@@ -118,7 +118,7 @@
 .end method
 
 .method public onBindViewHolder(Lcom/isaigu/gymapp/train/TrainViewHolder;I)V
-    .locals 2
+    .registers 5
     .param p1, "holder"    # Lcom/isaigu/gymapp/train/TrainViewHolder;
     .param p2, "position"    # I
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .locals 0
+    .registers 3
 
     .line 16
     invoke-virtual {p0, p1, p2}, Lcom/isaigu/gymapp/train/TrainAdapter;->onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/isaigu/gymapp/train/TrainViewHolder;
@@ -153,14 +153,14 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/isaigu/gymapp/train/TrainViewHolder;
-    .locals 4
+    .registers 7
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
     .line 33
     const/4 v0, 0x0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_1b
 
     .line 34
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
@@ -191,7 +191,7 @@
 
     .line 37
     .end local v0    # "view":Landroid/view/View;
-    :cond_0
+    :cond_1b
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object v1

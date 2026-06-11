@@ -23,7 +23,7 @@
     .registers 2
 
     .prologue
-    .line 576
+    .line 410
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$15;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
@@ -37,15 +37,15 @@
     .registers 5
 
     .prologue
-    .line 579
+    .line 413
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$15;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    const-string v1, "en"
+    const-string v1, "it"
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->switchToLanguage(Ljava/lang/String;Z)V
 
-    .line 580
+    .line 414
     return-void
 .end method

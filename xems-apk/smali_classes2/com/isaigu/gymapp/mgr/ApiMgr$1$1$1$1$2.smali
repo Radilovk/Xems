@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$3"    # Lcom/isaigu/gymapp/mgr/ApiMgr$1$1$1$1;
 
     .line 303
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .registers 5
     .param p1, "dialog"    # Landroid/content/DialogInterface;
     .param p2, "which"    # I
 

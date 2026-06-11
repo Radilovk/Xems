@@ -12,7 +12,7 @@
 
 # direct methods
 .method static synthetic constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lcom/isaigu/gymapp/train/-$$Lambda$TrainItemManager$Kosc8Ha0r48eyhMxskX_v4sFLfU;
 
@@ -24,7 +24,7 @@
 .end method
 
 .method private synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     check-cast p1, Lcom/isaigu/gymapp/train/model/TrainItem;
 

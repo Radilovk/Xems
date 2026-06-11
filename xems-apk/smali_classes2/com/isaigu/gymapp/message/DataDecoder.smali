@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>([B)V
-    .locals 1
+    .registers 3
     .param p1, "buf"    # [B
 
     .line 8
@@ -28,13 +28,13 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/message/DataDecoder;->buffer:[B
 
     .line 9
-    if-nez p1, :cond_0
+    if-nez p1, :cond_c
 
     .line 10
     return-void
 
     .line 12
-    :cond_0
+    :cond_c
     iput-object p1, p0, Lcom/isaigu/gymapp/message/DataDecoder;->buffer:[B
 
     .line 13
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method protected clone()Lcom/isaigu/gymapp/message/DataDecoder;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -62,7 +62,7 @@
 .end method
 
 .method protected bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -78,7 +78,7 @@
 .end method
 
 .method public getBoolean()Z
-    .locals 2
+    .registers 3
 
     .line 59
     iget-object v0, p0, Lcom/isaigu/gymapp/message/DataDecoder;->buffer:[B
@@ -102,7 +102,7 @@
 .end method
 
 .method public getByte()B
-    .locals 3
+    .registers 4
 
     .line 47
     iget-object v0, p0, Lcom/isaigu/gymapp/message/DataDecoder;->buffer:[B
@@ -119,7 +119,7 @@
 .end method
 
 .method public getDouble()D
-    .locals 2
+    .registers 3
 
     .line 70
     invoke-virtual {p0}, Lcom/isaigu/gymapp/message/DataDecoder;->getLong()J
@@ -134,7 +134,7 @@
 .end method
 
 .method public getFloat()F
-    .locals 1
+    .registers 2
 
     .line 74
     invoke-virtual {p0}, Lcom/isaigu/gymapp/message/DataDecoder;->getInt()I
@@ -149,7 +149,7 @@
 .end method
 
 .method public getInt()I
-    .locals 2
+    .registers 3
 
     .line 33
     iget-object v0, p0, Lcom/isaigu/gymapp/message/DataDecoder;->buffer:[B
@@ -173,7 +173,7 @@
 .end method
 
 .method public getLong()J
-    .locals 3
+    .registers 4
 
     .line 52
     iget-object v0, p0, Lcom/isaigu/gymapp/message/DataDecoder;->buffer:[B
@@ -197,7 +197,7 @@
 .end method
 
 .method public getShort()S
-    .locals 2
+    .registers 3
 
     .line 40
     iget-object v0, p0, Lcom/isaigu/gymapp/message/DataDecoder;->buffer:[B
@@ -221,7 +221,7 @@
 .end method
 
 .method public getString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 21
     invoke-virtual {p0}, Lcom/isaigu/gymapp/message/DataDecoder;->getInt()I
@@ -236,7 +236,7 @@
 .end method
 
 .method public getString(I)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "length"    # I
 
     .line 26
@@ -261,7 +261,7 @@
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
 
     .line 66
     const/4 v0, 0x0

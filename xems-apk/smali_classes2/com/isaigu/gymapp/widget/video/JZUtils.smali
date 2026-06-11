@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method public static clearSavedProgress(Landroid/content/Context;Ljava/lang/Object;)V
-    .locals 5
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "url"    # Ljava/lang/Object;
 
@@ -27,7 +27,7 @@
 
     const-string v1, "JZVD_PROGRESS"
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_15
 
     .line 139
     invoke-virtual {p0, v1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
@@ -48,10 +48,10 @@
 
     .line 142
     .end local v0    # "spn":Landroid/content/SharedPreferences;
-    goto :goto_0
+    goto :goto_3b
 
     .line 143
-    :cond_0
+    :cond_15
     invoke-virtual {p0, v1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v0
@@ -90,12 +90,12 @@
 
     .line 147
     .end local v0    # "spn":Landroid/content/SharedPreferences;
-    :goto_0
+    :goto_3b
     return-void
 .end method
 
 .method public static dataSourceObjectsContainsUri([Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
     .param p0, "dataSourceObjects"    # [Ljava/lang/Object;
     .param p1, "object"    # Ljava/lang/Object;
 
@@ -108,7 +108,7 @@
 
     .line 171
     .local v1, "map":Ljava/util/LinkedHashMap;, "Ljava/util/LinkedHashMap<Ljava/lang/String;Ljava/lang/Object;>;"
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     .line 172
     invoke-virtual {v1, p1}, Ljava/util/LinkedHashMap;->containsValue(Ljava/lang/Object;)Z
@@ -118,12 +118,12 @@
     return v0
 
     .line 174
-    :cond_0
+    :cond_c
     return v0
 .end method
 
 .method public static dip2px(Landroid/content/Context;F)I
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "dpValue"    # F
 
@@ -152,21 +152,21 @@
 .end method
 
 .method public static getAppCompActivity(Landroid/content/Context;)Landroid/support/v7/app/AppCompatActivity;
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 80
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     return-object v0
 
     .line 81
-    :cond_0
+    :cond_4
     instance-of v1, p0, Landroid/support/v7/app/AppCompatActivity;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_c
 
     .line 82
     move-object v0, p0
@@ -176,10 +176,10 @@
     return-object v0
 
     .line 83
-    :cond_1
+    :cond_c
     instance-of v1, p0, Landroid/support/v7/view/ContextThemeWrapper;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1c
 
     .line 84
     move-object v0, p0
@@ -197,12 +197,12 @@
     return-object v0
 
     .line 86
-    :cond_2
+    :cond_1c
     return-object v0
 .end method
 
 .method public static getCurrentFromDataSource([Ljava/lang/Object;I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .param p0, "dataSourceObjects"    # [Ljava/lang/Object;
     .param p1, "index"    # I
 
@@ -215,13 +215,13 @@
 
     .line 151
     .local v0, "map":Ljava/util/LinkedHashMap;, "Ljava/util/LinkedHashMap<Ljava/lang/String;Ljava/lang/Object;>;"
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     invoke-virtual {v0}, Ljava/util/LinkedHashMap;->size()I
 
     move-result v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_12
 
     .line 152
     invoke-static {v0, p1}, Lcom/isaigu/gymapp/widget/video/JZUtils;->getValueFromLinkedMap(Ljava/util/LinkedHashMap;I)Ljava/lang/Object;
@@ -231,14 +231,14 @@
     return-object v1
 
     .line 154
-    :cond_0
+    :cond_12
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public static getKeyFromDataSource([Ljava/lang/Object;I)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p0, "dataSourceObjects"    # [Ljava/lang/Object;
     .param p1, "index"    # I
 
@@ -264,12 +264,12 @@
     move-result-object v2
 
     .local v2, "it":Ljava/util/Iterator;
-    :goto_0
+    :goto_e
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_23
 
     .line 181
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -278,7 +278,7 @@
 
     .line 182
     .local v3, "key":Ljava/lang/Object;
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_1f
 
     .line 183
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -288,25 +288,25 @@
     return-object v4
 
     .line 185
-    :cond_0
+    :cond_1f
     nop
 
     .end local v3    # "key":Ljava/lang/Object;
     add-int/lit8 v1, v1, 0x1
 
     .line 186
-    goto :goto_0
+    goto :goto_e
 
     .line 187
     .end local v2    # "it":Ljava/util/Iterator;
-    :cond_1
+    :cond_23
     const/4 v2, 0x0
 
     return-object v2
 .end method
 
 .method public static getSavedProgress(Landroid/content/Context;Ljava/lang/Object;)J
-    .locals 5
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "url"    # Ljava/lang/Object;
 
@@ -315,12 +315,12 @@
 
     const-wide/16 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     return-wide v1
 
     .line 126
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     const-string v3, "JZVD_PROGRESS"
@@ -357,7 +357,7 @@
 .end method
 
 .method public static getValueFromLinkedMap(Ljava/util/LinkedHashMap;I)Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -385,12 +385,12 @@
     move-result-object v1
 
     .local v1, "it":Ljava/util/Iterator;
-    :goto_0
+    :goto_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1e
 
     .line 160
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -399,7 +399,7 @@
 
     .line 161
     .local v2, "key":Ljava/lang/Object;
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_1a
 
     .line 162
     invoke-virtual {p0, v2}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -409,25 +409,25 @@
     return-object v3
 
     .line 164
-    :cond_0
+    :cond_1a
     nop
 
     .end local v2    # "key":Ljava/lang/Object;
     add-int/lit8 v0, v0, 0x1
 
     .line 165
-    goto :goto_0
+    goto :goto_9
 
     .line 166
     .end local v1    # "it":Ljava/util/Iterator;
-    :cond_1
+    :cond_1e
     const/4 v1, 0x0
 
     return-object v1
 .end method
 
 .method public static getWindow(Landroid/content/Context;)Landroid/view/Window;
-    .locals 1
+    .registers 2
     .param p0, "context"    # Landroid/content/Context;
 
     .line 100
@@ -435,7 +435,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 101
     invoke-static {p0}, Lcom/isaigu/gymapp/widget/video/JZUtils;->getAppCompActivity(Landroid/content/Context;)Landroid/support/v7/app/AppCompatActivity;
@@ -449,7 +449,7 @@
     return-object v0
 
     .line 103
-    :cond_0
+    :cond_f
     invoke-static {p0}, Lcom/isaigu/gymapp/widget/video/JZUtils;->scanForActivity(Landroid/content/Context;)Landroid/app/Activity;
 
     move-result-object v0
@@ -462,7 +462,7 @@
 .end method
 
 .method public static isWifiConnected(Landroid/content/Context;)Z
-    .locals 4
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
 
     .line 50
@@ -484,25 +484,25 @@
     .local v1, "networkInfo":Landroid/net/NetworkInfo;
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->getType()I
 
     move-result v3
 
-    if-ne v3, v2, :cond_0
+    if-ne v3, v2, :cond_16
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_17
     return v2
 .end method
 
 .method public static saveProgress(Landroid/content/Context;Ljava/lang/Object;J)V
-    .locals 4
+    .registers 8
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "url"    # Ljava/lang/Object;
     .param p2, "progress"    # J
@@ -510,12 +510,12 @@
     .line 113
     sget-boolean v0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->SAVE_PROGRESS:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 114
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -539,13 +539,13 @@
 
     cmp-long v2, p2, v0
 
-    if-gez v2, :cond_1
+    if-gez v2, :cond_23
 
     .line 116
     const-wide/16 p2, 0x0
 
     .line 118
-    :cond_1
+    :cond_23
     const/4 v0, 0x0
 
     const-string v1, "JZVD_PROGRESS"
@@ -591,21 +591,21 @@
 .end method
 
 .method public static scanForActivity(Landroid/content/Context;)Landroid/app/Activity;
-    .locals 2
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
     .line 62
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     return-object v0
 
     .line 64
-    :cond_0
+    :cond_4
     instance-of v1, p0, Landroid/app/Activity;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_c
 
     .line 65
     move-object v0, p0
@@ -615,10 +615,10 @@
     return-object v0
 
     .line 66
-    :cond_1
+    :cond_c
     instance-of v1, p0, Landroid/content/ContextWrapper;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1c
 
     .line 67
     move-object v0, p0
@@ -636,12 +636,12 @@
     return-object v0
 
     .line 70
-    :cond_2
+    :cond_1c
     return-object v0
 .end method
 
 .method public static setRequestedOrientation(Landroid/content/Context;I)V
-    .locals 1
+    .registers 3
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "orientation"    # I
 
@@ -650,7 +650,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 91
     invoke-static {p0}, Lcom/isaigu/gymapp/widget/video/JZUtils;->getAppCompActivity(Landroid/content/Context;)Landroid/support/v7/app/AppCompatActivity;
@@ -659,10 +659,10 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AppCompatActivity;->setRequestedOrientation(I)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 94
-    :cond_0
+    :cond_e
     invoke-static {p0}, Lcom/isaigu/gymapp/widget/video/JZUtils;->scanForActivity(Landroid/content/Context;)Landroid/app/Activity;
 
     move-result-object v0
@@ -670,12 +670,12 @@
     invoke-virtual {v0, p1}, Landroid/app/Activity;->setRequestedOrientation(I)V
 
     .line 97
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method public static stringForTime(J)Ljava/lang/String;
-    .locals 12
+    .registers 14
     .param p0, "timeMs"    # J
 
     .line 27
@@ -683,18 +683,18 @@
 
     cmp-long v2, p0, v0
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_6c
 
     const-wide/32 v0, 0x5265c00
 
     cmp-long v2, p0, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_e
 
-    goto :goto_0
+    goto :goto_6c
 
     .line 30
-    :cond_0
+    :cond_e
     const-wide/16 v0, 0x3e8
 
     div-long v0, p0, v0
@@ -747,7 +747,7 @@
 
     const/4 v9, 0x2
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_53
 
     .line 37
     const/4 v10, 0x3
@@ -785,7 +785,7 @@
     return-object v7
 
     .line 39
-    :cond_1
+    :cond_53
     new-array v9, v9, [Ljava/lang/Object;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -819,8 +819,8 @@
     .end local v4    # "hours":I
     .end local v5    # "seconds":I
     .end local v6    # "mFormatter":Ljava/util/Formatter;
-    :cond_2
-    :goto_0
+    :cond_6c
+    :goto_6c
     const-string v0, "00:00"
 
     return-object v0

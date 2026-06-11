@@ -2207,6 +2207,7 @@ public final class R {
         public static final int currentDecreaseStep = 0x7f0d0101;
         public static final int defaultPulseContinue = 0x7f0d0102;
         public static final int defaultPulsePause = 0x7f0d0103;
+        public static final int channelPulseDepthTitle = 0x7f0d0104;
         public static final int channelCalibrationTitle = 0x7f0d0104;
         public static final int channelPulseGlobal = 0x7f0d0105;
         public static final int alternateImpulseModeTitle = 0x7f0d0106;

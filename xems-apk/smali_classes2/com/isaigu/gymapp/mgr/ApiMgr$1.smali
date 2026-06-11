@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/BaseActivity;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 275
     iput-object p1, p0, Lcom/isaigu/gymapp/mgr/ApiMgr$1;->val$parent:Lcom/isaigu/gymapp/BaseActivity;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onDownloadFailed()V
-    .locals 2
+    .registers 3
 
     .line 345
     iget-object v0, p0, Lcom/isaigu/gymapp/mgr/ApiMgr$1;->val$parent:Lcom/isaigu/gymapp/BaseActivity;
@@ -56,7 +56,7 @@
 .end method
 
 .method public onDownloadSuccess(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p1, "path"    # Ljava/lang/String;
 
     .line 277
@@ -73,7 +73,7 @@
 .end method
 
 .method public onDownloading(I)V
-    .locals 2
+    .registers 4
     .param p1, "progress"    # I
 
     .line 338

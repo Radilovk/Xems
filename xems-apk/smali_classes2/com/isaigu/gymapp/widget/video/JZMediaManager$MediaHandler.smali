@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/widget/video/JZMediaManager;Landroid/os/Looper;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/video/JZMediaManager;
     .param p2, "looper"    # Landroid/os/Looper;
 
@@ -37,31 +37,31 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 2
+    .registers 4
     .param p1, "msg"    # Landroid/os/Message;
 
     .line 162
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
     .line 164
-    :try_start_0
+    :try_start_3
     iget v0, p1, Landroid/os/Message;->what:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_b
 
-    goto :goto_0
+    goto :goto_54
 
     .line 183
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaManager$MediaHandler;->this$0:Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_54
 
     .line 184
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaManager$MediaHandler;->this$0:Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -70,10 +70,10 @@
 
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/video/JZMediaInterface;->release()V
 
-    goto :goto_0
+    goto :goto_54
 
     .line 166
-    :cond_1
+    :cond_19
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaManager$MediaHandler;->this$0:Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
     const/4 v1, 0x0
@@ -90,7 +90,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
     .line 169
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaManager$MediaHandler;->this$0:Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -100,15 +100,15 @@
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/video/JZMediaInterface;->prepare()V
 
     .line 172
-    :cond_2
+    :cond_2f
     sget-object v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->savedSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_54
 
     .line 173
     sget-object v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->surface:Landroid/view/Surface;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3c
 
     .line 174
     sget-object v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->surface:Landroid/view/Surface;
@@ -116,7 +116,7 @@
     invoke-virtual {v0}, Landroid/view/Surface;->release()V
 
     .line 176
-    :cond_3
+    :cond_3c
     new-instance v0, Landroid/view/Surface;
 
     sget-object v1, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->savedSurfaceTexture:Landroid/graphics/SurfaceTexture;
@@ -130,7 +130,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_54
 
     .line 178
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaManager$MediaHandler;->this$0:Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -140,16 +140,16 @@
     sget-object v1, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->surface:Landroid/view/Surface;
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/widget/video/JZMediaInterface;->setSurface(Landroid/view/Surface;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_54
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_54} :catch_55
 
     .line 190
-    :cond_4
-    :goto_0
-    goto :goto_1
+    :cond_54
+    :goto_54
+    goto :goto_59
 
     .line 188
-    :catch_0
+    :catch_55
     move-exception v0
 
     .line 189
@@ -158,6 +158,6 @@
 
     .line 191
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_59
     return-void
 .end method

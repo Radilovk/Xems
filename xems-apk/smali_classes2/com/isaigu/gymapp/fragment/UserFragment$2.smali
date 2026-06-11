@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/UserFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/UserFragment;
 
     .line 113
@@ -34,12 +34,13 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 2
+    .registers 4
     .param p1, "v"    # Landroid/view/View;
 
     .line 115
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/UserFragment$2;->this$0:Lcom/isaigu/gymapp/fragment/UserFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/UserFragment;->userAdapter:Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/UserFragment;->access$000(Lcom/isaigu/gymapp/fragment/UserFragment;)Lcom/isaigu/gymapp/fragment/UserFragment$UserAdapter;
 
     move-result-object v0

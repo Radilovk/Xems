@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
     .line 849
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAmountClick(Landroid/view/View;I)V
-    .locals 5
+    .registers 8
     .param p1, "view"    # Landroid/view/View;
     .param p2, "amount"    # I
 
@@ -52,6 +52,7 @@
 
     const-string v4, "s"
 
+    # invokes: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getPickerViewData(IIILjava/lang/String;)Ljava/util/List;
     invoke-static {v0, v1, v2, v3, v4}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;IIILjava/lang/String;)Ljava/util/List;
 
     move-result-object v0
@@ -74,6 +75,7 @@
 
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$36;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v3}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v4
@@ -82,6 +84,7 @@
 
     iget v4, v4, Lcom/isaigu/gymapp/bean/ProgramDataBean;->pulsePause:I
 
+    # invokes: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->getSelected(Ljava/util/List;I)I
     invoke-static {v3, v0, v4}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$300(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;Ljava/util/List;I)I
 
     move-result v3

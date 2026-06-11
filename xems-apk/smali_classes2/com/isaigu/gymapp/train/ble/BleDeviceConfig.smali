@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 5
     .param p1, "prefixName"    # Ljava/lang/String;
     .param p2, "serviceUuid"    # Ljava/lang/String;
     .param p3, "readUuid"    # Ljava/lang/String;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public getPrefixName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 17
     iget-object v0, p0, Lcom/isaigu/gymapp/train/ble/BleDeviceConfig;->prefixName:Ljava/lang/String;
@@ -52,7 +52,7 @@
 .end method
 
 .method public getReadUuid()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 33
     iget-object v0, p0, Lcom/isaigu/gymapp/train/ble/BleDeviceConfig;->readUuid:Ljava/lang/String;
@@ -61,7 +61,7 @@
 .end method
 
 .method public getServiceUuid()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 25
     iget-object v0, p0, Lcom/isaigu/gymapp/train/ble/BleDeviceConfig;->serviceUuid:Ljava/lang/String;
@@ -70,7 +70,7 @@
 .end method
 
 .method public getWriteUuid()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 41
     iget-object v0, p0, Lcom/isaigu/gymapp/train/ble/BleDeviceConfig;->writeUuid:Ljava/lang/String;
@@ -79,7 +79,7 @@
 .end method
 
 .method public setPrefixName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "prefixName"    # Ljava/lang/String;
 
     .line 21
@@ -90,7 +90,7 @@
 .end method
 
 .method public setReadUuid(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "readUuid"    # Ljava/lang/String;
 
     .line 37
@@ -101,7 +101,7 @@
 .end method
 
 .method public setServiceUuid(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "serviceUuid"    # Ljava/lang/String;
 
     .line 29
@@ -112,7 +112,7 @@
 .end method
 
 .method public setWriteUuid(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1, "writeUuid"    # Ljava/lang/String;
 
     .line 45

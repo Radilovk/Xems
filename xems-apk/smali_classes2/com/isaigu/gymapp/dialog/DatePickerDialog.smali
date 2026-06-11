@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Lcom/isaigu/gymapp/BaseDialogFragment;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/dialog/DatePickerDialog;)Lcom/isaigu/gymapp/dialog/DatePickerDialog$OnDateSelectedCallback;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/DatePickerDialog;
 
     .line 24
@@ -40,7 +40,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/dialog/DatePickerDialog;)Landroid/widget/DatePicker;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/DatePickerDialog;
 
     .line 24
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public getViewIid()I
-    .locals 1
+    .registers 2
 
     .line 33
     const v0, 0x7f0b0022
@@ -61,7 +61,7 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 3
+    .registers 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 77
@@ -93,7 +93,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 7
+    .registers 11
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -163,7 +163,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_53
 
     .line 52
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/DatePickerDialog;->getArguments()Landroid/os/Bundle;
@@ -199,7 +199,7 @@
     move-result v4
 
     .line 58
-    :cond_0
+    :cond_53
     iget-object v5, p0, Lcom/isaigu/gymapp/dialog/DatePickerDialog;->datePicker:Landroid/widget/DatePicker;
 
     new-instance v6, Lcom/isaigu/gymapp/dialog/DatePickerDialog$1;
@@ -222,7 +222,7 @@
 .end method
 
 .method public setCallback(Lcom/isaigu/gymapp/dialog/DatePickerDialog$OnDateSelectedCallback;)V
-    .locals 0
+    .registers 2
     .param p1, "callback"    # Lcom/isaigu/gymapp/dialog/DatePickerDialog$OnDateSelectedCallback;
 
     .line 84

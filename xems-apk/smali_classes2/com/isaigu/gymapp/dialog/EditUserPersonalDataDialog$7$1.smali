@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$7;Lcom/isaigu/gymapp/dialog/DatePickerDialog;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$7;
 
     .line 500
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onDateSelected(III)V
-    .locals 4
+    .registers 8
     .param p1, "year"    # I
     .param p2, "month"    # I
     .param p3, "day"    # I
@@ -77,6 +77,7 @@
 
     iget-object v1, v1, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$7;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v1
@@ -104,6 +105,7 @@
 
     iget-object v2, v2, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$7;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->birthday:Landroid/widget/TextView;
     invoke-static {v2}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$1100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/widget/TextView;
 
     move-result-object v2
@@ -112,6 +114,7 @@
 
     iget-object v3, v3, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$7;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
     invoke-static {v3}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$100(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Lcom/isaigu/gymapp/bean/TrainUser;
 
     move-result-object v3

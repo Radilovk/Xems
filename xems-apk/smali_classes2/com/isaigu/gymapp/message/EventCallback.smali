@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(SLcom/isaigu/gymapp/message/EventListener;)V
-    .locals 0
+    .registers 3
     .param p1, "event"    # S
     .param p2, "listener"    # Lcom/isaigu/gymapp/message/EventListener;
 
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getEvent()S
-    .locals 1
+    .registers 2
 
     .line 31
     iget-short v0, p0, Lcom/isaigu/gymapp/message/EventCallback;->event:S
@@ -40,7 +40,7 @@
 .end method
 
 .method public getListener()Lcom/isaigu/gymapp/message/EventListener;
-    .locals 1
+    .registers 2
 
     .line 23
     iget-object v0, p0, Lcom/isaigu/gymapp/message/EventCallback;->listener:Lcom/isaigu/gymapp/message/EventListener;
@@ -49,24 +49,24 @@
 .end method
 
 .method public handleEventMessage(Lcom/isaigu/gymapp/message/DataBundle;)V
-    .locals 1
+    .registers 3
     .param p1, "bundle"    # Lcom/isaigu/gymapp/message/DataBundle;
 
     .line 17
     iget-object v0, p0, Lcom/isaigu/gymapp/message/EventCallback;->listener:Lcom/isaigu/gymapp/message/EventListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 18
     invoke-interface {v0, p1}, Lcom/isaigu/gymapp/message/EventListener;->handleEvent(Lcom/isaigu/gymapp/message/DataBundle;)V
 
     .line 20
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public setEvent(S)V
-    .locals 0
+    .registers 2
     .param p1, "event"    # S
 
     .line 35
@@ -77,7 +77,7 @@
 .end method
 
 .method public setListener(Lcom/isaigu/gymapp/message/EventListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/isaigu/gymapp/message/EventListener;
 
     .line 27

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/train/OnSwipeTouchListener$SwipeListener;)V
-    .locals 0
+    .registers 2
     .param p1, "swipeListener"    # Lcom/isaigu/gymapp/train/OnSwipeTouchListener$SwipeListener;
 
     .line 34
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onDown(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "e"    # Landroid/view/MotionEvent;
 
     .line 40
@@ -55,7 +55,7 @@
 .end method
 
 .method public onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .locals 5
+    .registers 10
     .param p1, "e1"    # Landroid/view/MotionEvent;
     .param p2, "e2"    # Landroid/view/MotionEvent;
     .param p3, "velocityX"    # F
@@ -66,7 +66,7 @@
 
     .line 62
     .local v0, "result":Z
-    :try_start_0
+    :try_start_1
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
     move-result v1
@@ -101,7 +101,7 @@
 
     cmpl-float v3, v3, v4
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_42
 
     .line 65
     invoke-static {v2}, Ljava/lang/Math;->abs(F)F
@@ -112,7 +112,7 @@
 
     cmpl-float v3, v3, v4
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_42
 
     invoke-static {p3}, Ljava/lang/Math;->abs(F)F
 
@@ -120,42 +120,42 @@
 
     cmpl-float v3, v3, v4
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_42
 
     .line 66
     const/4 v3, 0x0
 
     cmpl-float v3, v2, v3
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_3c
 
     .line 67
     iget-object v3, p0, Lcom/isaigu/gymapp/train/OnSwipeTouchListener$GestureListener;->swipeListener:Lcom/isaigu/gymapp/train/OnSwipeTouchListener$SwipeListener;
 
     invoke-interface {v3}, Lcom/isaigu/gymapp/train/OnSwipeTouchListener$SwipeListener;->onSwipeRight()V
 
-    goto :goto_0
+    goto :goto_41
 
     .line 69
-    :cond_0
+    :cond_3c
     iget-object v3, p0, Lcom/isaigu/gymapp/train/OnSwipeTouchListener$GestureListener;->swipeListener:Lcom/isaigu/gymapp/train/OnSwipeTouchListener$SwipeListener;
 
     invoke-interface {v3}, Lcom/isaigu/gymapp/train/OnSwipeTouchListener$SwipeListener;->onSwipeLeft()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_41
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_41} :catch_43
 
     .line 71
-    :goto_0
+    :goto_41
     const/4 v0, 0x1
 
     .line 76
     .end local v1    # "diffY":F
     .end local v2    # "diffX":F
-    :cond_1
-    goto :goto_1
+    :cond_42
+    goto :goto_47
 
     .line 74
-    :catch_0
+    :catch_43
     move-exception v1
 
     .line 75
@@ -164,12 +164,12 @@
 
     .line 77
     .end local v1    # "exception":Ljava/lang/Exception;
-    :goto_1
+    :goto_47
     return v0
 .end method
 
 .method public onLongPress(Landroid/view/MotionEvent;)V
-    .locals 0
+    .registers 2
     .param p1, "e"    # Landroid/view/MotionEvent;
 
     .line 51
@@ -177,7 +177,7 @@
 .end method
 
 .method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .locals 1
+    .registers 6
     .param p1, "e1"    # Landroid/view/MotionEvent;
     .param p2, "e2"    # Landroid/view/MotionEvent;
     .param p3, "distanceX"    # F
@@ -190,7 +190,7 @@
 .end method
 
 .method public onShowPress(Landroid/view/MotionEvent;)V
-    .locals 0
+    .registers 2
     .param p1, "e"    # Landroid/view/MotionEvent;
 
     .line 46
@@ -198,7 +198,7 @@
 .end method
 
 .method public onSingleTapUp(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
     .param p1, "e"    # Landroid/view/MotionEvent;
 
     .line 82

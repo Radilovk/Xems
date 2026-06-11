@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/SeekBar;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/SeekBar;
 
     .line 345
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 4
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
     .line 348
@@ -58,14 +58,16 @@
     .line 349
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SeekBar$1;->this$0:Lcom/isaigu/gymapp/widget/SeekBar;
 
+    # getter for: Lcom/isaigu/gymapp/widget/SeekBar;->rangeSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
     invoke-static {v0}, Lcom/isaigu/gymapp/widget/SeekBar;->access$000(Lcom/isaigu/gymapp/widget/SeekBar;)Lcom/isaigu/gymapp/widget/RangeSeekBar;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/SeekBar$1;->this$0:Lcom/isaigu/gymapp/widget/SeekBar;
 
+    # getter for: Lcom/isaigu/gymapp/widget/SeekBar;->rangeSeekBar:Lcom/isaigu/gymapp/widget/RangeSeekBar;
     invoke-static {v0}, Lcom/isaigu/gymapp/widget/SeekBar;->access$000(Lcom/isaigu/gymapp/widget/SeekBar;)Lcom/isaigu/gymapp/widget/RangeSeekBar;
 
     move-result-object v0
@@ -73,6 +75,6 @@
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/RangeSeekBar;->invalidate()V
 
     .line 350
-    :cond_0
+    :cond_1f
     return-void
 .end method

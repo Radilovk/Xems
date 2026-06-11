@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>([Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TV;)V"
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public destroyItem(Landroid/view/View;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
     .param p1, "arg0"    # Landroid/view/View;
     .param p2, "arg1"    # I
     .param p3, "arg2"    # Ljava/lang/Object;
@@ -59,7 +59,7 @@
 .end method
 
 .method public finishUpdate(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "arg0"    # Landroid/view/View;
 
     .line 18
@@ -68,7 +68,7 @@
 .end method
 
 .method public getAllItems()[Landroid/view/View;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()[TV;"
@@ -83,7 +83,7 @@
 .end method
 
 .method public getCount()I
-    .locals 1
+    .registers 2
 
     .line 27
     .local p0, "this":Lcom/isaigu/gymapp/widget/CustomViewPagerAdapter;, "Lcom/isaigu/gymapp/widget/CustomViewPagerAdapter<TV;>;"
@@ -93,7 +93,7 @@
 .end method
 
 .method public instantiateItem(Landroid/view/View;I)Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .param p1, "arg0"    # Landroid/view/View;
     .param p2, "arg1"    # I
 
@@ -111,7 +111,7 @@
 
     array-length v2, v1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_17
 
     .line 33
     move-object v0, p1
@@ -127,7 +127,7 @@
     invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->removeView(Landroid/view/View;)V
 
     .line 35
-    :cond_0
+    :cond_17
     move-object v0, p1
 
     check-cast v0, Landroid/support/v4/view/ViewPager;
@@ -157,27 +157,27 @@
 .end method
 
 .method public isViewFromObject(Landroid/view/View;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 4
     .param p1, "arg0"    # Landroid/view/View;
     .param p2, "arg1"    # Ljava/lang/Object;
 
     .line 42
     .local p0, "this":Lcom/isaigu/gymapp/widget/CustomViewPagerAdapter;, "Lcom/isaigu/gymapp/widget/CustomViewPagerAdapter<TV;>;"
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_4
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_5
     return v0
 .end method
 
 .method public notifyDataSetChanged()V
-    .locals 0
+    .registers 1
 
     .line 22
     .local p0, "this":Lcom/isaigu/gymapp/widget/CustomViewPagerAdapter;, "Lcom/isaigu/gymapp/widget/CustomViewPagerAdapter<TV;>;"
@@ -188,7 +188,7 @@
 .end method
 
 .method public saveState()Landroid/os/Parcelable;
-    .locals 1
+    .registers 2
 
     .line 47
     .local p0, "this":Lcom/isaigu/gymapp/widget/CustomViewPagerAdapter;, "Lcom/isaigu/gymapp/widget/CustomViewPagerAdapter<TV;>;"
@@ -198,7 +198,7 @@
 .end method
 
 .method public startUpdate(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1, "arg0"    # Landroid/view/View;
 
     .line 58

@@ -48,7 +48,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -101,7 +101,7 @@
     .line 40
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_36
 
     .line 41
     new-instance v0, Lcom/isaigu/gymapp/widget/video/JZMediaSystem;
@@ -111,19 +111,19 @@
     iput-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
     .line 42
-    :cond_0
+    :cond_36
     return-void
 .end method
 
 .method public static getCurrentDataSource()Ljava/lang/Object;
-    .locals 1
+    .registers 1
 
     .line 64
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
@@ -131,7 +131,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 65
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -145,21 +145,21 @@
     return-object v0
 
     .line 67
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public static getCurrentPosition()J
-    .locals 2
+    .registers 2
 
     .line 77
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
@@ -167,7 +167,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 78
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -183,14 +183,14 @@
     return-wide v0
 
     .line 80
-    :cond_0
+    :cond_19
     const-wide/16 v0, 0x0
 
     return-wide v0
 .end method
 
 .method public static getDataSource()[Ljava/lang/Object;
-    .locals 1
+    .registers 1
 
     .line 52
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -205,14 +205,14 @@
 .end method
 
 .method public static getDuration()J
-    .locals 2
+    .registers 2
 
     .line 84
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
@@ -220,7 +220,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 85
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -236,19 +236,19 @@
     return-wide v0
 
     .line 87
-    :cond_0
+    :cond_19
     const-wide/16 v0, 0x0
 
     return-wide v0
 .end method
 
 .method public static instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
-    .locals 1
+    .registers 1
 
     .line 45
     sget-object v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaManager:Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 46
     new-instance v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -258,21 +258,21 @@
     sput-object v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaManager:Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
     .line 48
-    :cond_0
+    :cond_b
     sget-object v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaManager:Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
     return-object v0
 .end method
 
 .method public static isPlaying()Z
-    .locals 1
+    .registers 1
 
     .line 109
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
@@ -280,7 +280,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 110
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -296,21 +296,21 @@
     return v0
 
     .line 112
-    :cond_0
+    :cond_19
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public static pause()V
-    .locals 1
+    .registers 1
 
     .line 97
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
@@ -318,7 +318,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 98
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -330,12 +330,12 @@
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/video/JZMediaInterface;->pause()V
 
     .line 100
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public static seekTo(J)V
-    .locals 1
+    .registers 3
     .param p0, "time"    # J
 
     .line 91
@@ -343,7 +343,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
@@ -351,7 +351,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 92
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -363,12 +363,12 @@
     invoke-virtual {v0, p0, p1}, Lcom/isaigu/gymapp/widget/video/JZMediaInterface;->seekTo(J)V
 
     .line 94
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public static setCurrentDataSource(Ljava/lang/Object;)V
-    .locals 1
+    .registers 2
     .param p0, "currentDataSource"    # Ljava/lang/Object;
 
     .line 71
@@ -376,7 +376,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
@@ -384,7 +384,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 72
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -396,12 +396,12 @@
     iput-object p0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaInterface;->currentDataSource:Ljava/lang/Object;
 
     .line 74
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public static setDataSource([Ljava/lang/Object;)V
-    .locals 1
+    .registers 2
     .param p0, "dataSourceObjects"    # [Ljava/lang/Object;
 
     .line 57
@@ -409,7 +409,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
@@ -417,7 +417,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 58
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -429,19 +429,19 @@
     iput-object p0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaInterface;->dataSourceObjects:[Ljava/lang/Object;
 
     .line 60
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public static start()V
-    .locals 1
+    .registers 1
 
     .line 103
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
 
@@ -449,7 +449,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->jzMediaInterface:Lcom/isaigu/gymapp/widget/video/JZMediaInterface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 104
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->instance()Lcom/isaigu/gymapp/widget/video/JZMediaManager;
@@ -461,14 +461,14 @@
     invoke-virtual {v0}, Lcom/isaigu/gymapp/widget/video/JZMediaInterface;->start()V
 
     .line 106
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 
 # virtual methods
 .method public onSurfaceTextureAvailable(Landroid/graphics/SurfaceTexture;II)V
-    .locals 2
+    .registers 6
     .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
     .param p2, "i"    # I
     .param p3, "i1"    # I
@@ -507,7 +507,7 @@
     .line 132
     sget-object v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->savedSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2d
 
     .line 133
     sput-object p1, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->savedSurfaceTexture:Landroid/graphics/SurfaceTexture;
@@ -515,41 +515,41 @@
     .line 134
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->prepare()V
 
-    goto :goto_0
+    goto :goto_32
 
     .line 136
-    :cond_0
+    :cond_2d
     sget-object v1, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->textureView:Lcom/isaigu/gymapp/widget/video/JZResizeTextureView;
 
     invoke-virtual {v1, v0}, Lcom/isaigu/gymapp/widget/video/JZResizeTextureView;->setSurfaceTexture(Landroid/graphics/SurfaceTexture;)V
 
     .line 138
-    :goto_0
+    :goto_32
     return-void
 .end method
 
 .method public onSurfaceTextureDestroyed(Landroid/graphics/SurfaceTexture;)Z
-    .locals 1
+    .registers 3
     .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
     .line 147
     sget-object v0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->savedSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public onSurfaceTextureSizeChanged(Landroid/graphics/SurfaceTexture;II)V
-    .locals 0
+    .registers 4
     .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
     .param p2, "i"    # I
     .param p3, "i1"    # I
@@ -559,7 +559,7 @@
 .end method
 
 .method public onSurfaceTextureUpdated(Landroid/graphics/SurfaceTexture;)V
-    .locals 0
+    .registers 2
     .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
     .line 153
@@ -567,7 +567,7 @@
 .end method
 
 .method public prepare()V
-    .locals 2
+    .registers 3
 
     .line 123
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->releaseMediaPlayer()V
@@ -593,7 +593,7 @@
 .end method
 
 .method public releaseMediaPlayer()V
-    .locals 2
+    .registers 3
 
     .line 116
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZMediaManager;->mMediaHandler:Lcom/isaigu/gymapp/widget/video/JZMediaManager$MediaHandler;

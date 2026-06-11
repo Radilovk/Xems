@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/train/utils/OperationUtil$1$1;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/isaigu/gymapp/train/utils/OperationUtil$1$1;
 
     .line 75
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V
-    .locals 3
+    .registers 7
     .param p1, "httpSuccess"    # Z
     .param p2, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
@@ -60,15 +60,15 @@
 
     .line 77
     .local p3, "result":Lcom/isaigu/gymapp/bean/vo/ResponseData;, "Lcom/isaigu/gymapp/bean/vo/ResponseData<Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainProgram;>;>;"
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_30
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_30
 
     invoke-virtual {p3}, Lcom/isaigu/gymapp/bean/vo/ResponseData;->getCode()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_30
 
     .line 79
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -107,10 +107,10 @@
 
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/train/utils/OperationUtil;->showTips(Lcom/isaigu/gymapp/BaseActivity;I)V
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 83
-    :cond_0
+    :cond_30
     iget-object v0, p0, Lcom/isaigu/gymapp/train/utils/OperationUtil$1$1$1;->this$1:Lcom/isaigu/gymapp/train/utils/OperationUtil$1$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/train/utils/OperationUtil$1$1;->this$0:Lcom/isaigu/gymapp/train/utils/OperationUtil$1;
@@ -122,7 +122,7 @@
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/train/utils/OperationUtil;->showTips(Lcom/isaigu/gymapp/BaseActivity;I)V
 
     .line 85
-    :goto_0
+    :goto_3c
     iget-object v0, p0, Lcom/isaigu/gymapp/train/utils/OperationUtil$1$1$1;->this$1:Lcom/isaigu/gymapp/train/utils/OperationUtil$1$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/train/utils/OperationUtil$1$1;->this$0:Lcom/isaigu/gymapp/train/utils/OperationUtil$1;
@@ -142,7 +142,7 @@
 .end method
 
 .method public bridge synthetic httpResponse(ZLjava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 75
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;

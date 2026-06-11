@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/isaigu/gymapp/fragment/SettingFragment;->initAlternateImpulseControls()V
+    value = Lcom/isaigu/gymapp/fragment/SettingFragment;->initSet()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -23,7 +23,7 @@
     .registers 2
 
     .prologue
-    .line 354
+    .line 374
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$9;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
@@ -34,31 +34,18 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .registers 4
+    .registers 5
 
     .prologue
-    .line 357
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    iput v1, v0, Lcom/isaigu/gymapp/bean/UserData;->alternatePhaseType:I
-
-    .line 358
+    .line 377
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$9;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    # invokes: Lcom/isaigu/gymapp/fragment/SettingFragment;->updateAlternatePhaseButtons()V
-    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$500(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
+    const-string v1, "es"
 
-    .line 359
-    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+    const/4 v2, 0x1
 
-    move-result-object v0
+    invoke-virtual {v0, v1, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->switchToLanguage(Ljava/lang/String;Z)V
 
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
-
-    .line 360
+    .line 378
     return-void
 .end method

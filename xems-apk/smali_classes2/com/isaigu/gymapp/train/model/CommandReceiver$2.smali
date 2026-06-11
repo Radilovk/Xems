@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/train/model/CommandReceiver;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/train/model/CommandReceiver;
 
     .line 55
@@ -34,12 +34,13 @@
 
 # virtual methods
 .method public onCharacteristicChanged([B)V
-    .locals 1
+    .registers 3
     .param p1, "data"    # [B
 
     .line 68
     iget-object v0, p0, Lcom/isaigu/gymapp/train/model/CommandReceiver$2;->this$0:Lcom/isaigu/gymapp/train/model/CommandReceiver;
 
+    # invokes: Lcom/isaigu/gymapp/train/model/CommandReceiver;->onReceiveData([B)V
     invoke-static {v0, p1}, Lcom/isaigu/gymapp/train/model/CommandReceiver;->access$400(Lcom/isaigu/gymapp/train/model/CommandReceiver;[B)V
 
     .line 69
@@ -47,7 +48,7 @@
 .end method
 
 .method public onNotifyFailure(Lcom/clj/fastble/exception/BleException;)V
-    .locals 2
+    .registers 4
     .param p1, "exception"    # Lcom/clj/fastble/exception/BleException;
 
     .line 63
@@ -62,7 +63,7 @@
 .end method
 
 .method public onNotifySuccess()V
-    .locals 2
+    .registers 3
 
     .line 58
     const-string v0, "www"

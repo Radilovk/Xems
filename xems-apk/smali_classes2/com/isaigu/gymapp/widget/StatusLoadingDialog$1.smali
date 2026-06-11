@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/StatusLoadingDialog;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/StatusLoadingDialog;
 
     .line 101
@@ -38,18 +38,18 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1, "v"    # Landroid/view/View;
 
     .line 103
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/StatusLoadingDialog$1;->val$runnable:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 104
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     .line 106
-    :cond_0
+    :cond_7
     return-void
 .end method

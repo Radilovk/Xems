@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$46;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$46;
 
     .line 938
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onOptionSelect(Lcom/isaigu/gymapp/bean/PickerViewData;)V
-    .locals 2
+    .registers 4
     .param p1, "pickerViewData"    # Lcom/isaigu/gymapp/bean/PickerViewData;
 
     .line 940
@@ -45,6 +45,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$46;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->anmozhouqi:Lcom/isaigu/gymapp/widget/AmountView;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$2400(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/widget/AmountView;
 
     move-result-object v0
@@ -62,6 +63,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog$46;->this$0:Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->trainProgram:Lcom/isaigu/gymapp/bean/TrainProgram;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserProgramDataDialog;)Lcom/isaigu/gymapp/bean/TrainProgram;
 
     move-result-object v0

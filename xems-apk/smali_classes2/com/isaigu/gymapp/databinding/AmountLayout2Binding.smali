@@ -18,7 +18,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/RelativeLayout;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/MyButton;Lcom/isaigu/gymapp/widget/ShapeCornerBgView;)V
-    .locals 0
+    .registers 5
     .param p1, "rootView"    # Landroid/widget/RelativeLayout;
     .param p2, "btnDecrease"    # Lcom/isaigu/gymapp/widget/MyButton;
     .param p3, "btnIncrease"    # Lcom/isaigu/gymapp/widget/MyButton;
@@ -44,7 +44,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/AmountLayout2Binding;
-    .locals 6
+    .registers 7
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 66
@@ -60,7 +60,7 @@
 
     .line 68
     .local v1, "btnDecrease":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2c
 
     .line 72
     const v0, 0x7f090053
@@ -74,7 +74,7 @@
 
     .line 74
     .local v2, "btnIncrease":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2b
 
     .line 78
     const v0, 0x7f090197
@@ -88,7 +88,7 @@
 
     .line 80
     .local v3, "text":Lcom/isaigu/gymapp/widget/ShapeCornerBgView;
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2a
 
     .line 84
     new-instance v4, Lcom/isaigu/gymapp/databinding/AmountLayout2Binding;
@@ -102,22 +102,22 @@
     return-object v4
 
     .line 81
-    :cond_0
-    goto :goto_0
+    :cond_2a
+    goto :goto_2d
 
     .line 75
     .end local v3    # "text":Lcom/isaigu/gymapp/widget/ShapeCornerBgView;
-    :cond_1
-    goto :goto_0
+    :cond_2b
+    goto :goto_2d
 
     .line 69
     .end local v2    # "btnIncrease":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_2
+    :cond_2c
     nop
 
     .line 86
     .end local v1    # "btnDecrease":Lcom/isaigu/gymapp/widget/MyButton;
-    :goto_0
+    :goto_2d
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -142,7 +142,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/AmountLayout2Binding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 47
@@ -158,7 +158,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/AmountLayout2Binding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -174,13 +174,13 @@
 
     .line 54
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 55
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 57
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/AmountLayout2Binding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/AmountLayout2Binding;
 
     move-result-object v1
@@ -191,7 +191,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 18
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/AmountLayout2Binding;->getRoot()Landroid/widget/RelativeLayout;
@@ -202,7 +202,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/RelativeLayout;
-    .locals 1
+    .registers 2
 
     .line 42
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/AmountLayout2Binding;->rootView:Landroid/widget/RelativeLayout;

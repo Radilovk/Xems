@@ -3,12 +3,12 @@
 .source "TrainFragment.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuItemClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/isaigu/gymapp/fragment/TrainFragment;->startClearSelectedTimer()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/isaigu/gymapp/fragment/TrainFragment;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    .prologue
-    .line 516
+    .line 542
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$15;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,23 +36,27 @@
 
 
 # virtual methods
-.method public run()V
-    .registers 3
+.method public onItemClick(Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuBridge;)V
+    .registers 4
+    .param p1, "menuBridge"    # Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuBridge;
 
-    .prologue
-    .line 519
+    .line 546
+    invoke-virtual {p1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuBridge;->closeMenu()V
+
+    .line 548
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$15;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;
 
-    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+    # getter for: Lcom/isaigu/gymapp/fragment/TrainFragment;->userTrainAdapter:Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
+    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/TrainFragment;->access$000(Lcom/isaigu/gymapp/fragment/TrainFragment;)Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;
 
     move-result-object v0
 
-    new-instance v1, Lcom/isaigu/gymapp/fragment/TrainFragment$15$1;
+    invoke-virtual {p1}, Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuBridge;->getAdapterPosition()I
 
-    invoke-direct {v1, p0}, Lcom/isaigu/gymapp/fragment/TrainFragment$15$1;-><init>(Lcom/isaigu/gymapp/fragment/TrainFragment$15;)V
+    move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/fragment/TrainFragment$UserTrainAdapter;->removeUser(I)V
 
-    .line 526
+    .line 549
     return-void
 .end method

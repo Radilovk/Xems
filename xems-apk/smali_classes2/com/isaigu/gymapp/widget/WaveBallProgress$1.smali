@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/WaveBallProgress;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/widget/WaveBallProgress;
 
     .line 140
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 152
@@ -45,7 +45,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 148
@@ -53,7 +53,7 @@
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 156
@@ -61,7 +61,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 143

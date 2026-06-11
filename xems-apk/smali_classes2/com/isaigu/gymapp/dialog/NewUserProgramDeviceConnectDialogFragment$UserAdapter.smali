@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;Ljava/util/List;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$1600(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;
 
     .line 767
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$1700(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;Lcom/isaigu/gymapp/bean/TrainUser;)Z
-    .locals 1
+    .registers 3
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;
     .param p1, "x1"    # Lcom/isaigu/gymapp/bean/TrainUser;
 
@@ -94,7 +94,7 @@
 .end method
 
 .method static synthetic access$1800(Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;
 
     .line 767
@@ -104,7 +104,7 @@
 .end method
 
 .method private isUserTraining(Lcom/isaigu/gymapp/bean/TrainUser;)Z
-    .locals 2
+    .registers 4
     .param p1, "trainUser"    # Lcom/isaigu/gymapp/bean/TrainUser;
 
     .line 841
@@ -114,7 +114,7 @@
 
     iget-object v0, v0, Lcom/isaigu/gymapp/mgr/DataMgr;->trainingUsers:Ljava/util/List;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_56
 
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
@@ -126,13 +126,13 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_56
 
     .line 842
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_15
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v1
@@ -143,7 +143,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_56
 
     .line 843
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -156,7 +156,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_53
 
     .line 844
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -173,7 +173,7 @@
 
     iget-object v1, v1, Lcom/isaigu/gymapp/bean/TrainUserProgramDataWrapper;->trainUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_53
 
     .line 845
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -194,7 +194,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_53
 
     .line 846
     const/4 v1, 0x1
@@ -202,14 +202,14 @@
     return v1
 
     .line 842
-    :cond_0
+    :cond_53
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 850
     .end local v0    # "i":I
-    :cond_1
+    :cond_56
     const/4 v0, 0x0
 
     return v0
@@ -218,12 +218,12 @@
 
 # virtual methods
 .method public getItemCount()I
-    .locals 1
+    .registers 2
 
     .line 855
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;->trainUsers:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     .line 856
     const/4 v0, 0x0
@@ -231,7 +231,7 @@
     return v0
 
     .line 858
-    :cond_0
+    :cond_6
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
@@ -240,7 +240,7 @@
 .end method
 
 .method public onBindViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
-    .locals 7
+    .registers 10
     .param p1, "holder"    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
     .param p2, "position"    # I
 
@@ -268,7 +268,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 807
-    :try_start_0
+    :try_start_12
     iget-object v2, v1, Lcom/isaigu/gymapp/bean/TrainUser;->iconUrl:Ljava/lang/String;
 
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -279,7 +279,7 @@
 
     const/4 v4, 0x1
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_54
 
     const-string v2, "sample"
 
@@ -289,12 +289,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_27
 
-    goto :goto_0
+    goto :goto_54
 
     .line 810
-    :cond_0
+    :cond_27
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;->this$0:Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;
 
     invoke-virtual {v2}, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -337,11 +337,11 @@
 
     invoke-virtual {v2, v3}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
-    goto :goto_1
+    goto :goto_85
 
     .line 808
-    :cond_1
-    :goto_0
+    :cond_54
+    :goto_54
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;->this$0:Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;
 
     invoke-virtual {v2}, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -387,19 +387,19 @@
     iget-object v3, v0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter$UserHolder;->usericon:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v3}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_85
+    .catch Ljava/lang/Exception; {:try_start_12 .. :try_end_85} :catch_86
 
     .line 814
-    :goto_1
-    goto :goto_2
+    :goto_85
+    goto :goto_87
 
     .line 812
-    :catch_0
+    :catch_86
     move-exception v2
 
     .line 816
-    :goto_2
+    :goto_87
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;->selects:Ljava/util/List;
 
     invoke-interface {v2, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -412,7 +412,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_a8
 
     .line 817
     iget-object v2, v0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter$UserHolder;->itemView:Landroid/view/View;
@@ -431,10 +431,10 @@
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setBackgroundColor(I)V
 
-    goto :goto_3
+    goto :goto_ba
 
     .line 819
-    :cond_2
+    :cond_a8
     iget-object v2, v0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter$UserHolder;->itemView:Landroid/view/View;
 
     iget-object v3, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;->this$0:Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment;
@@ -452,7 +452,7 @@
     invoke-virtual {v2, v3}, Landroid/view/View;->setBackgroundColor(I)V
 
     .line 821
-    :goto_3
+    :goto_ba
     iget-object v2, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;->trainUsers:Ljava/util/List;
 
     invoke-interface {v2, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -465,7 +465,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_da
 
     .line 822
     iget-object v2, v0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter$UserHolder;->itemView:Landroid/view/View;
@@ -485,7 +485,7 @@
     invoke-virtual {v2, v3}, Landroid/view/View;->setBackgroundColor(I)V
 
     .line 824
-    :cond_3
+    :cond_da
     iget-object v2, v0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter$UserHolder;->itemView:Landroid/view/View;
 
     new-instance v3, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter$1;
@@ -499,7 +499,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .locals 4
+    .registers 7
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "viewType"    # I
 
@@ -532,14 +532,14 @@
 .end method
 
 .method public setUserSelected(IZ)V
-    .locals 2
+    .registers 5
     .param p1, "index"    # I
     .param p2, "selected"    # Z
 
     .line 788
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;->selects:Ljava/util/List;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -547,12 +547,12 @@
 
     add-int/lit8 v1, p1, -0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_d
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 791
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;->selects:Ljava/util/List;
 
     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -568,13 +568,13 @@
     return-void
 
     .line 789
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     return-void
 .end method
 
 .method public updateData(Ljava/util/List;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -586,7 +586,7 @@
 
     .line 777
     .local p1, "trainUsers":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainUser;>;"
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_24
 
     .line 778
     iput-object p1, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;->trainUsers:Ljava/util/List;
@@ -602,14 +602,14 @@
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_0
+    :goto_c
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;->trainUsers:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_21
 
     .line 781
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;->selects:Ljava/util/List;
@@ -625,14 +625,14 @@
     .line 780
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 783
     .end local v0    # "i":I
-    :cond_0
+    :cond_21
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/NewUserProgramDeviceConnectDialogFragment$UserAdapter;->notifyDataSetChanged()V
 
     .line 785
-    :cond_1
+    :cond_24
     return-void
 .end method

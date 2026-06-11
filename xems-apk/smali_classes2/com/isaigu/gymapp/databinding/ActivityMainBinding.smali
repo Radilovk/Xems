@@ -14,7 +14,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/RelativeLayout;Lcom/isaigu/gymapp/widget/CustomCalendar;)V
-    .locals 0
+    .registers 3
     .param p1, "rootView"    # Landroid/widget/RelativeLayout;
     .param p2, "cal"    # Lcom/isaigu/gymapp/widget/CustomCalendar;
 
@@ -32,7 +32,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/ActivityMainBinding;
-    .locals 4
+    .registers 5
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 56
@@ -48,7 +48,7 @@
 
     .line 58
     .local v1, "cal":Lcom/isaigu/gymapp/widget/CustomCalendar;
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 62
     new-instance v2, Lcom/isaigu/gymapp/databinding/ActivityMainBinding;
@@ -62,7 +62,7 @@
     return-object v2
 
     .line 59
-    :cond_0
+    :cond_14
     nop
 
     .line 64
@@ -91,7 +91,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/ActivityMainBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 37
@@ -107,7 +107,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/ActivityMainBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -123,13 +123,13 @@
 
     .line 44
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 45
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 47
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/ActivityMainBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/ActivityMainBinding;
 
     move-result-object v1
@@ -140,7 +140,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 17
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/ActivityMainBinding;->getRoot()Landroid/widget/RelativeLayout;
@@ -151,7 +151,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/RelativeLayout;
-    .locals 1
+    .registers 2
 
     .line 32
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/ActivityMainBinding;->rootView:Landroid/widget/RelativeLayout;

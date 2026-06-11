@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$3;Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuBridge;)V
-    .locals 0
+    .registers 3
     .param p1, "this$1"    # Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$3;
 
     .line 303
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .registers 8
 
     .line 305
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$3$1;->val$menuBridge:Lcom/yanzhenjie/recyclerview/swipe/SwipeMenuBridge;
@@ -78,7 +78,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_77
 
     .line 308
     iget-object v2, v1, Lcom/isaigu/gymapp/bean/TrainProgram;->id:Ljava/lang/Long;
@@ -91,7 +91,7 @@
 
     cmp-long v6, v2, v4
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_64
 
     .line 309
     const-class v2, Lcom/isaigu/gymapp/bean/TrainProgram;
@@ -113,8 +113,8 @@
     add-int/lit8 v4, v4, -0x1
 
     .local v4, "i":I
-    :goto_0
-    if-ltz v4, :cond_1
+    :goto_3c
+    if-ltz v4, :cond_5e
 
     .line 311
     invoke-interface {v2, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -125,7 +125,7 @@
 
     iget-object v5, v5, Lcom/isaigu/gymapp/bean/TrainProgram;->name:Ljava/lang/String;
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_5b
 
     invoke-interface {v2, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -141,30 +141,30 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_5b
 
     .line 312
     invoke-interface {v2, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     .line 310
-    :cond_0
+    :cond_5b
     add-int/lit8 v4, v4, -0x1
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 315
     .end local v4    # "i":I
-    :cond_1
+    :cond_5e
     const-class v4, Lcom/isaigu/gymapp/bean/TrainProgram;
 
     invoke-static {v3, v4, v2}, Lcom/isaigu/gymapp/utils/FileUtils;->saveListData(Ljava/lang/String;Ljava/lang/Class;Ljava/util/List;)V
 
     .line 316
     .end local v2    # "trainPrograms":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainProgram;>;"
-    goto :goto_1
+    goto :goto_8d
 
     .line 317
-    :cond_2
+    :cond_64
     const-class v2, Lcom/isaigu/gymapp/bean/TrainProgram;
 
     const-string v3, "file_name_offline_delete_train_program_data"
@@ -186,10 +186,10 @@
 
     .line 320
     .end local v2    # "trainPrograms":Ljava/util/List;, "Ljava/util/List<Lcom/isaigu/gymapp/bean/TrainProgram;>;"
-    goto :goto_1
+    goto :goto_8d
 
     .line 322
-    :cond_3
+    :cond_77
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v2
@@ -211,7 +211,7 @@
     invoke-static {v2, v3, v4, v5, v6}, Lcom/isaigu/gymapp/mgr/ApiMgr;->deleteProgramTrainData(JJLcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
     .line 330
-    :goto_1
+    :goto_8d
     const-class v2, Lcom/isaigu/gymapp/bean/TrainProgram;
 
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -241,6 +241,7 @@
 
     move-result-object v3
 
+    # setter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->programDatas:Ljava/util/List;
     invoke-static {v2, v3}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$002(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;Ljava/util/List;)Ljava/util/List;
 
     .line 332
@@ -248,6 +249,7 @@
 
     iget-object v2, v2, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$3;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->programAdapter:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$ProgramAdapter;
     invoke-static {v2}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$100(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$ProgramAdapter;
 
     move-result-object v2
@@ -256,6 +258,7 @@
 
     iget-object v3, v3, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$3;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->programDatas:Ljava/util/List;
     invoke-static {v3}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$000(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)Ljava/util/List;
 
     move-result-object v3

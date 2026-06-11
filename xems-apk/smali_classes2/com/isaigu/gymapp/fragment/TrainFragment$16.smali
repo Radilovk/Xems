@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/TrainFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/TrainFragment;
 
     .line 559
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 561
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/TrainFragment$16;->this$0:Lcom/isaigu/gymapp/fragment/TrainFragment;

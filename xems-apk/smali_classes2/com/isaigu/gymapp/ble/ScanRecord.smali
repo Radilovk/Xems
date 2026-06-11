@@ -72,7 +72,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/List;Landroid/util/SparseArray;Ljava/util/Map;IILjava/lang/String;[B)V
-    .locals 0
+    .registers 8
     .param p4, "advertiseFlags"    # I
     .param p5, "txPowerLevel"    # I
     .param p6, "localName"    # Ljava/lang/String;
@@ -125,7 +125,7 @@
 .end method
 
 .method private static extractBytes([BII)[B
-    .locals 2
+    .registers 5
     .param p0, "scanRecord"    # [B
     .param p1, "start"    # I
     .param p2, "length"    # I
@@ -144,13 +144,13 @@
 .end method
 
 .method public static parseFromBytes([B)Lcom/isaigu/gymapp/ble/ScanRecord;
-    .locals 18
+    .registers 19
     .param p0, "scanRecord"    # [B
 
     .line 153
     move-object/from16 v9, p0
 
-    if-nez v9, :cond_0
+    if-nez v9, :cond_6
 
     .line 154
     const/4 v0, 0x0
@@ -158,7 +158,7 @@
     return-object v0
 
     .line 157
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
     .line 158
@@ -212,23 +212,23 @@
     .local v12, "advertiseFlag":I
     .local v13, "localName":Ljava/lang/String;
     .local v14, "txPowerLevel":I
-    :goto_0
-    :try_start_0
+    :goto_20
+    :try_start_20
     array-length v0, v9
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_4
+    :try_end_21
+    .catch Ljava/lang/Exception; {:try_start_20 .. :try_end_21} :catch_c0
 
-    if-ge v1, v0, :cond_4
+    if-ge v1, v0, :cond_9d
 
     .line 169
     add-int/lit8 v3, v1, 0x1
 
     .end local v1    # "currentPos":I
     .local v3, "currentPos":I
-    :try_start_1
+    :try_start_25
     aget-byte v0, v9, v1
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_27
+    .catch Ljava/lang/Exception; {:try_start_25 .. :try_end_27} :catch_98
 
     const/16 v1, 0xff
 
@@ -236,15 +236,15 @@
 
     .line 170
     .local v0, "length":I
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2f
 
     .line 171
     move v15, v3
 
-    goto/16 :goto_2
+    goto/16 :goto_9e
 
     .line 174
-    :cond_1
+    :cond_2f
     add-int/lit8 v4, v0, -0x1
 
     .line 176
@@ -253,7 +253,7 @@
 
     .end local v3    # "currentPos":I
     .local v5, "currentPos":I
-    :try_start_2
+    :try_start_33
     aget-byte v3, v9, v3
 
     and-int/2addr v3, v1
@@ -262,16 +262,16 @@
     .local v3, "fieldType":I
     const/16 v6, 0x16
 
-    if-eq v3, v6, :cond_3
+    if-eq v3, v6, :cond_7b
 
-    if-eq v3, v1, :cond_2
+    if-eq v3, v1, :cond_64
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_f0
 
-    goto :goto_1
+    goto :goto_90
 
     .line 202
-    :pswitch_0
+    :pswitch_40
     aget-byte v1, v9, v5
 
     .line 203
@@ -279,12 +279,12 @@
     .local v1, "txPowerLevel":I
     move v14, v1
 
-    goto :goto_1
+    goto :goto_90
 
     .line 198
     .end local v1    # "txPowerLevel":I
     .restart local v14    # "txPowerLevel":I
-    :pswitch_1
+    :pswitch_44
     new-instance v1, Ljava/lang/String;
 
     .line 199
@@ -299,39 +299,39 @@
     .local v1, "localName":Ljava/lang/String;
     move-object v13, v1
 
-    goto :goto_1
+    goto :goto_90
 
     .line 193
     .end local v1    # "localName":Ljava/lang/String;
     .restart local v13    # "localName":Ljava/lang/String;
-    :pswitch_2
+    :pswitch_4f
     const/16 v1, 0x10
 
     invoke-static {v9, v5, v4, v1, v2}, Lcom/isaigu/gymapp/ble/ScanRecord;->parseServiceUuid([BIIILjava/util/List;)I
 
     .line 195
-    goto :goto_1
+    goto :goto_90
 
     .line 188
-    :pswitch_3
+    :pswitch_55
     const/4 v1, 0x4
 
     invoke-static {v9, v5, v4, v1, v2}, Lcom/isaigu/gymapp/ble/ScanRecord;->parseServiceUuid([BIIILjava/util/List;)I
 
     .line 190
-    goto :goto_1
+    goto :goto_90
 
     .line 183
-    :pswitch_4
+    :pswitch_5a
     const/4 v1, 0x2
 
     invoke-static {v9, v5, v4, v1, v2}, Lcom/isaigu/gymapp/ble/ScanRecord;->parseServiceUuid([BIIILjava/util/List;)I
 
     .line 185
-    goto :goto_1
+    goto :goto_90
 
     .line 179
-    :pswitch_5
+    :pswitch_5f
     aget-byte v6, v9, v5
 
     and-int/2addr v1, v6
@@ -341,12 +341,12 @@
     .local v1, "advertiseFlag":I
     move v12, v1
 
-    goto :goto_1
+    goto :goto_90
 
     .line 219
     .end local v1    # "advertiseFlag":I
     .restart local v12    # "advertiseFlag":I
-    :cond_2
+    :cond_64
     add-int/lit8 v6, v5, 0x1
 
     aget-byte v6, v9, v6
@@ -376,12 +376,12 @@
     invoke-virtual {v10, v6, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 224
-    goto :goto_1
+    goto :goto_90
 
     .line 207
     .end local v1    # "manufacturerDataBytes":[B
     .end local v6    # "manufacturerId":I
-    :cond_3
+    :cond_7b
     const/4 v1, 0x2
 
     .line 208
@@ -409,8 +409,8 @@
     .line 214
     .local v8, "serviceDataArray":[B
     invoke-interface {v11, v7, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_8f
+    .catch Ljava/lang/Exception; {:try_start_33 .. :try_end_8f} :catch_93
 
     .line 215
     nop
@@ -420,7 +420,7 @@
     .end local v6    # "serviceDataUuidBytes":[B
     .end local v7    # "serviceDataUuid":Landroid/os/ParcelUuid;
     .end local v8    # "serviceDataArray":[B
-    :goto_1
+    :goto_90
     add-int v1, v5, v4
 
     .line 230
@@ -429,66 +429,66 @@
     .end local v4    # "dataLength":I
     .end local v5    # "currentPos":I
     .local v1, "currentPos":I
-    goto :goto_0
+    goto :goto_20
 
     .line 237
     .end local v1    # "currentPos":I
     .restart local v5    # "currentPos":I
-    :catch_0
+    :catch_93
     move-exception v0
 
     move-object/from16 v16, v2
 
     move v15, v5
 
-    goto :goto_4
+    goto :goto_c4
 
     .end local v5    # "currentPos":I
     .local v3, "currentPos":I
-    :catch_1
+    :catch_98
     move-exception v0
 
     move-object/from16 v16, v2
 
     move v15, v3
 
-    goto :goto_4
+    goto :goto_c4
 
     .line 167
     .end local v3    # "currentPos":I
     .restart local v1    # "currentPos":I
-    :cond_4
+    :cond_9d
     move v15, v1
 
     .line 232
     .end local v1    # "currentPos":I
     .local v15, "currentPos":I
-    :goto_2
-    :try_start_3
+    :goto_9e
+    :try_start_9e
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_a2
+    .catch Ljava/lang/Exception; {:try_start_9e .. :try_end_a2} :catch_bc
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_a8
 
     .line 233
     const/4 v2, 0x0
 
     move-object/from16 v16, v2
 
-    goto :goto_3
+    goto :goto_aa
 
     .line 232
-    :cond_5
+    :cond_a8
     move-object/from16 v16, v2
 
     .line 235
     .end local v2    # "serviceUuids":Ljava/util/List;, "Ljava/util/List<Landroid/os/ParcelUuid;>;"
     .local v16, "serviceUuids":Ljava/util/List;, "Ljava/util/List<Landroid/os/ParcelUuid;>;"
-    :goto_3
-    :try_start_4
+    :goto_aa
+    :try_start_aa
     new-instance v0, Lcom/isaigu/gymapp/ble/ScanRecord;
 
     move-object v1, v0
@@ -508,29 +508,29 @@
     move-object/from16 v8, p0
 
     invoke-direct/range {v1 .. v8}, Lcom/isaigu/gymapp/ble/ScanRecord;-><init>(Ljava/util/List;Landroid/util/SparseArray;Ljava/util/Map;IILjava/lang/String;[B)V
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
+    :try_end_b9
+    .catch Ljava/lang/Exception; {:try_start_aa .. :try_end_b9} :catch_ba
 
     return-object v0
 
     .line 237
-    :catch_2
+    :catch_ba
     move-exception v0
 
-    goto :goto_4
+    goto :goto_c4
 
     .end local v16    # "serviceUuids":Ljava/util/List;, "Ljava/util/List<Landroid/os/ParcelUuid;>;"
     .restart local v2    # "serviceUuids":Ljava/util/List;, "Ljava/util/List<Landroid/os/ParcelUuid;>;"
-    :catch_3
+    :catch_bc
     move-exception v0
 
     move-object/from16 v16, v2
 
-    goto :goto_4
+    goto :goto_c4
 
     .end local v15    # "currentPos":I
     .restart local v1    # "currentPos":I
-    :catch_4
+    :catch_c0
     move-exception v0
 
     move v15, v1
@@ -543,7 +543,7 @@
     .local v0, "e":Ljava/lang/Exception;
     .restart local v15    # "currentPos":I
     .restart local v16    # "serviceUuids":Ljava/util/List;, "Ljava/util/List<Landroid/os/ParcelUuid;>;"
-    :goto_4
+    :goto_c4
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -591,23 +591,23 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_f0
     .packed-switch 0x1
-        :pswitch_5
-        :pswitch_4
-        :pswitch_4
-        :pswitch_3
-        :pswitch_3
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_5f
+        :pswitch_5a
+        :pswitch_5a
+        :pswitch_55
+        :pswitch_55
+        :pswitch_4f
+        :pswitch_4f
+        :pswitch_44
+        :pswitch_44
+        :pswitch_40
     .end packed-switch
 .end method
 
 .method private static parseServiceUuid([BIIILjava/util/List;)I
-    .locals 2
+    .registers 7
     .param p0, "scanRecord"    # [B
     .param p1, "currentPos"    # I
     .param p2, "dataLength"    # I
@@ -624,7 +624,7 @@
     .line 256
     .local p4, "serviceUuids":Ljava/util/List;, "Ljava/util/List<Landroid/os/ParcelUuid;>;"
     :goto_0
-    if-lez p2, :cond_0
+    if-lez p2, :cond_10
 
     .line 257
     invoke-static {p0, p1, p3}, Lcom/isaigu/gymapp/ble/ScanRecord;->extractBytes([BII)[B
@@ -650,14 +650,14 @@
     goto :goto_0
 
     .line 263
-    :cond_0
+    :cond_10
     return p1
 .end method
 
 
 # virtual methods
 .method public getAdvertiseFlags()I
-    .locals 1
+    .registers 2
 
     .line 58
     iget v0, p0, Lcom/isaigu/gymapp/ble/ScanRecord;->mAdvertiseFlags:I
@@ -666,7 +666,7 @@
 .end method
 
 .method public getBytes()[B
-    .locals 1
+    .registers 2
 
     .line 125
     iget-object v0, p0, Lcom/isaigu/gymapp/ble/ScanRecord;->mBytes:[B
@@ -675,7 +675,7 @@
 .end method
 
 .method public getDeviceName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 118
     iget-object v0, p0, Lcom/isaigu/gymapp/ble/ScanRecord;->mDeviceName:Ljava/lang/String;
@@ -684,7 +684,7 @@
 .end method
 
 .method public getManufacturerSpecificData()Landroid/util/SparseArray;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -700,7 +700,7 @@
 .end method
 
 .method public getManufacturerSpecificData(I)[B
-    .locals 1
+    .registers 3
     .param p1, "manufacturerId"    # I
 
     .line 82
@@ -716,7 +716,7 @@
 .end method
 
 .method public getServiceData()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -733,11 +733,11 @@
 .end method
 
 .method public getServiceData(Landroid/os/ParcelUuid;)[B
-    .locals 1
+    .registers 3
     .param p1, "serviceDataUuid"    # Landroid/os/ParcelUuid;
 
     .line 97
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     .line 98
     const/4 v0, 0x0
@@ -745,7 +745,7 @@
     return-object v0
 
     .line 100
-    :cond_0
+    :cond_4
     iget-object v0, p0, Lcom/isaigu/gymapp/ble/ScanRecord;->mServiceData:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -758,7 +758,7 @@
 .end method
 
 .method public getServiceUuids()Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -775,7 +775,7 @@
 .end method
 
 .method public getTxPowerLevel()I
-    .locals 1
+    .registers 2
 
     .line 111
     iget v0, p0, Lcom/isaigu/gymapp/ble/ScanRecord;->mTxPowerLevel:I
@@ -784,7 +784,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 247
     new-instance v0, Ljava/lang/StringBuilder;

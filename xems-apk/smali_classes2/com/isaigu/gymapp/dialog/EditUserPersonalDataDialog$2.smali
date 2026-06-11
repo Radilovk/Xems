@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$OnChooseCallback;)V
-    .locals 0
+    .registers 3
     .param p1, "this$0"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
     .line 260
@@ -41,13 +41,14 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+    .registers 4
     .param p1, "dialogInterface"    # Landroid/content/DialogInterface;
     .param p2, "i"    # I
 
     .line 263
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$2;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->alertDialog1:Landroid/support/v7/app/AlertDialog;
     invoke-static {v0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$200(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Landroid/support/v7/app/AlertDialog;
 
     move-result-object v0
@@ -57,12 +58,12 @@
     .line 264
     iget-object v0, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$2;->val$callback:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$OnChooseCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 265
     invoke-interface {v0, p2}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$OnChooseCallback;->onChoose(I)V
 
     .line 267
-    :cond_0
+    :cond_10
     return-void
 .end method

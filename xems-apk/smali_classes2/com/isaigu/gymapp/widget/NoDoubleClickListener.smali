@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 7
+    .registers 9
     .param p1, "v"    # Landroid/view/View;
 
     .line 15
@@ -50,7 +50,7 @@
 
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_13
 
     .line 17
     iput-wide v0, p0, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;->lastClickTime:J
@@ -59,7 +59,7 @@
     invoke-virtual {p0, p1}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;->onNoDoubleClick(Landroid/view/View;)V
 
     .line 20
-    :cond_0
+    :cond_13
     return-void
 .end method
 

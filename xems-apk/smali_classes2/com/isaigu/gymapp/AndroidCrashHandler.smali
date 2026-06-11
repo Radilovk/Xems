@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "context"    # Landroid/content/Context;
 
     .line 29
@@ -26,7 +26,7 @@
 .end method
 
 .method private getErrorInfo(Ljava/lang/Throwable;)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .param p1, "arg1"    # Ljava/lang/Throwable;
 
     .line 89
@@ -58,7 +58,7 @@
 .end method
 
 .method private getMobileInfo()Ljava/lang/String;
-    .locals 9
+    .registers 10
 
     .line 102
     new-instance v0, Ljava/lang/StringBuffer;
@@ -67,7 +67,7 @@
 
     .line 105
     .local v0, "sb":Ljava/lang/StringBuffer;
-    :try_start_0
+    :try_start_5
     const-class v1, Landroid/os/Build;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
@@ -80,8 +80,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_d
+    if-ge v3, v2, :cond_42
 
     aget-object v4, v1, v3
 
@@ -132,8 +132,8 @@
     const-string v7, "\n"
 
     invoke-virtual {v0, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3e
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_3e} :catch_43
 
     .line 106
     nop
@@ -143,15 +143,15 @@
     .end local v6    # "value":Ljava/lang/String;
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 116
     .end local v1    # "fields":[Ljava/lang/reflect/Field;
-    :cond_0
-    goto :goto_1
+    :cond_42
+    goto :goto_47
 
     .line 114
-    :catch_0
+    :catch_43
     move-exception v1
 
     .line 115
@@ -160,7 +160,7 @@
 
     .line 117
     .end local v1    # "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_47
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -169,7 +169,7 @@
 .end method
 
 .method private getVersionInfo()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 126
     :try_start_0
@@ -196,15 +196,15 @@
     .line 128
     .local v1, "info":Landroid/content/pm/PackageInfo;
     iget-object v2, v1, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_13} :catch_14
 
     return-object v2
 
     .line 129
     .end local v0    # "pm":Landroid/content/pm/PackageManager;
     .end local v1    # "info":Landroid/content/pm/PackageInfo;
-    :catch_0
+    :catch_14
     move-exception v0
 
     .line 130
@@ -218,7 +218,7 @@
 .end method
 
 .method private handleException(Ljava/lang/Throwable;)V
-    .locals 7
+    .registers 9
     .param p1, "ex"    # Ljava/lang/Throwable;
 
     .line 53
@@ -330,7 +330,7 @@
 
 # virtual methods
 .method public uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
-    .locals 7
+    .registers 10
     .param p1, "thread"    # Ljava/lang/Thread;
     .param p2, "ex"    # Ljava/lang/Throwable;
 

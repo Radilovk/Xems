@@ -34,7 +34,7 @@
     .registers 2
 
     .prologue
-    .line 722
+    .line 534
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1$1;->this$2:Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;-><init>()V
@@ -58,7 +58,7 @@
     .end annotation
 
     .prologue
-    .line 725
+    .line 537
     if-eqz p1, :cond_40
 
     if-eqz p3, :cond_40
@@ -75,7 +75,7 @@
 
     if-eqz v0, :cond_40
 
-    .line 726
+    .line 538
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
 
     move-result-object v1
@@ -88,14 +88,14 @@
 
     iput-object v0, v1, Lcom/isaigu/gymapp/mgr/DataMgr;->loginUser:Lcom/isaigu/gymapp/bean/TrainUser;
 
-    .line 727
+    .line 539
     invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
 
     move-result-object v0
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
 
-    .line 728
+    .line 540
     const-string v0, "file_name_login_user"
 
     invoke-static {}, Lcom/isaigu/gymapp/mgr/DataMgr;->getInstance()Lcom/isaigu/gymapp/mgr/DataMgr;
@@ -106,7 +106,7 @@
 
     invoke-static {v0, v1}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 729
+    .line 541
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1$1;->this$2:Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1;->this$1:Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19;
@@ -123,7 +123,7 @@
 
     invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 737
+    .line 549
     :cond_40
     return-void
 .end method
@@ -132,7 +132,7 @@
     .registers 4
 
     .prologue
-    .line 722
+    .line 534
     check-cast p3, Lcom/isaigu/gymapp/bean/vo/ResponseData;
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass19$AnonymousClass1$1;->httpResponse(ZLjava/lang/String;Lcom/isaigu/gymapp/bean/vo/ResponseData;)V

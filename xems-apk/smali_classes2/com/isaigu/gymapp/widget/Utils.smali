@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static compareFloat(FF)I
-    .locals 3
+    .registers 5
     .param p0, "a"    # F
     .param p1, "b"    # F
 
@@ -37,7 +37,7 @@
 
     .line 68
     .local v0, "tb":I
-    if-le v1, v0, :cond_0
+    if-le v1, v0, :cond_13
 
     .line 69
     const/4 v2, 0x1
@@ -45,8 +45,8 @@
     return v2
 
     .line 70
-    :cond_0
-    if-ge v1, v0, :cond_1
+    :cond_13
+    if-ge v1, v0, :cond_17
 
     .line 71
     const/4 v2, -0x1
@@ -54,19 +54,19 @@
     return v2
 
     .line 73
-    :cond_1
+    :cond_17
     const/4 v2, 0x0
 
     return v2
 .end method
 
 .method public static dp2px(Landroid/content/Context;F)I
-    .locals 3
+    .registers 5
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "dpValue"    # F
 
     .line 52
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_1b
 
     const/4 v0, 0x0
 
@@ -74,12 +74,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 53
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -104,15 +104,15 @@
 
     .line 52
     .end local v0    # "scale":F
-    :cond_1
-    :goto_0
+    :cond_1b
+    :goto_1b
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public static drawNinePath(Landroid/graphics/Canvas;Landroid/graphics/Bitmap;Landroid/graphics/Rect;)V
-    .locals 3
+    .registers 6
     .param p0, "canvas"    # Landroid/graphics/Canvas;
     .param p1, "bmp"    # Landroid/graphics/Bitmap;
     .param p2, "rect"    # Landroid/graphics/Rect;
@@ -137,7 +137,7 @@
 .end method
 
 .method public static drawableToBitmap(ILandroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
-    .locals 11
+    .registers 13
     .param p0, "size"    # I
     .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
@@ -148,7 +148,7 @@
     .local v0, "bitmap":Landroid/graphics/Bitmap;
     instance-of v1, p1, Landroid/graphics/drawable/BitmapDrawable;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3b
 
     .line 22
     move-object v1, p1
@@ -162,13 +162,13 @@
     move-result-object v0
 
     .line 24
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3b
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v2
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_3b
 
     .line 25
     new-instance v2, Landroid/graphics/Matrix;
@@ -227,7 +227,7 @@
     .end local v1    # "bitmapDrawable":Landroid/graphics/drawable/BitmapDrawable;
     .end local v9    # "matrix":Landroid/graphics/Matrix;
     .end local v10    # "scaleHeight":F
-    :cond_0
+    :cond_3b
     sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-static {p0, p0, v1}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;

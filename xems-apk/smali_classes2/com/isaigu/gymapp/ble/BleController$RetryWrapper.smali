@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/ble/BleController$WrapperData;)V
-    .locals 2
+    .registers 4
     .param p1, "data"    # Lcom/isaigu/gymapp/ble/BleController$WrapperData;
 
     .line 103
@@ -40,13 +40,13 @@
     iput v0, p0, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;->count:I
 
     .line 104
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     .line 105
     return-void
 
     .line 107
-    :cond_0
+    :cond_9
     iput-object p1, p0, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;->wrapperData:Lcom/isaigu/gymapp/ble/BleController$WrapperData;
 
     .line 108
@@ -77,7 +77,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;)V
-    .locals 0
+    .registers 1
     .param p0, "x0"    # Lcom/isaigu/gymapp/ble/BleController$RetryWrapper;
 
     .line 96
@@ -87,7 +87,7 @@
 .end method
 
 .method private startScheduleAction()V
-    .locals 3
+    .registers 4
 
     .line 114
     new-instance v0, Lcom/isaigu/gymapp/ble/BleController$RetryWrapper$1;
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 3
+    .registers 4
 
     .line 134
     new-instance v0, Ljava/lang/StringBuilder;

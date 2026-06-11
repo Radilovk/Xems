@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/bigkoo/pickerview/listener/OnOptionsSelectListener;)V
-    .locals 0
+    .registers 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "listener"    # Lcom/bigkoo/pickerview/listener/OnOptionsSelectListener;
 
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public build1()Lcom/isaigu/gymapp/widget/OptionsPickerViewExtend;
-    .locals 3
+    .registers 4
 
     .line 21
     :try_start_0
@@ -36,13 +36,13 @@
     check-cast v1, Lcom/bigkoo/pickerview/configure/PickerOptions;
 
     invoke-direct {v0, v1}, Lcom/isaigu/gymapp/widget/OptionsPickerViewExtend;-><init>(Lcom/bigkoo/pickerview/configure/PickerOptions;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_e} :catch_f
 
     return-object v0
 
     .line 22
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 23

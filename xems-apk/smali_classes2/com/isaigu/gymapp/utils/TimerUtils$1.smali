@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;Ljava/util/Timer;)V
-    .locals 0
+    .registers 3
 
     .line 16
     iput-object p1, p0, Lcom/isaigu/gymapp/utils/TimerUtils$1;->val$runnable:Ljava/lang/Runnable;
@@ -37,18 +37,18 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 19
     iget-object v0, p0, Lcom/isaigu/gymapp/utils/TimerUtils$1;->val$runnable:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 20
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     .line 22
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/isaigu/gymapp/utils/TimerUtils$1;->val$timer:Ljava/util/Timer;
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/TimerUtils;->stopTimer(Ljava/util/Timer;)V

@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/ImageView;Lcom/isaigu/gymapp/widget/MyButton;Landroid/widget/EditText;Lcom/isaigu/gymapp/widget/MyButton;Landroid/support/v7/widget/RecyclerView;)V
-    .locals 0
+    .registers 8
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "adduser"    # Lcom/isaigu/gymapp/widget/MyButton;
     .param p3, "logoImage"    # Landroid/widget/ImageView;
@@ -62,7 +62,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/UserFragmentLayoutBinding;
-    .locals 17
+    .registers 18
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 82
@@ -80,7 +80,7 @@
 
     .line 84
     .local v2, "adduser":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_5f
 
     .line 88
     const v1, 0x7f0900f6
@@ -96,7 +96,7 @@
 
     .line 90
     .local v11, "logoImage":Landroid/widget/ImageView;
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_5e
 
     .line 94
     const v1, 0x7f09016d
@@ -112,7 +112,7 @@
 
     .line 96
     .local v12, "searchuser":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v12, :cond_3
+    if-eqz v12, :cond_5d
 
     .line 100
     const v1, 0x7f09016e
@@ -128,7 +128,7 @@
 
     .line 102
     .local v13, "searchuserEdittext":Landroid/widget/EditText;
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_5c
 
     .line 106
     const v1, 0x7f0901cc
@@ -144,7 +144,7 @@
 
     .line 108
     .local v14, "updateuser":Lcom/isaigu/gymapp/widget/MyButton;
-    if-eqz v14, :cond_1
+    if-eqz v14, :cond_5b
 
     .line 112
     const v1, 0x7f0901d8
@@ -160,7 +160,7 @@
 
     .line 114
     .local v15, "userlistview":Landroid/support/v7/widget/RecyclerView;
-    if-eqz v15, :cond_0
+    if-eqz v15, :cond_5a
 
     .line 118
     new-instance v16, Lcom/isaigu/gymapp/databinding/UserFragmentLayoutBinding;
@@ -188,37 +188,37 @@
     return-object v16
 
     .line 115
-    :cond_0
-    goto :goto_0
+    :cond_5a
+    goto :goto_60
 
     .line 109
     .end local v15    # "userlistview":Landroid/support/v7/widget/RecyclerView;
-    :cond_1
-    goto :goto_0
+    :cond_5b
+    goto :goto_60
 
     .line 103
     .end local v14    # "updateuser":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_2
-    goto :goto_0
+    :cond_5c
+    goto :goto_60
 
     .line 97
     .end local v13    # "searchuserEdittext":Landroid/widget/EditText;
-    :cond_3
-    goto :goto_0
+    :cond_5d
+    goto :goto_60
 
     .line 91
     .end local v12    # "searchuser":Lcom/isaigu/gymapp/widget/MyButton;
-    :cond_4
-    goto :goto_0
+    :cond_5e
+    goto :goto_60
 
     .line 85
     .end local v11    # "logoImage":Landroid/widget/ImageView;
-    :cond_5
+    :cond_5f
     nop
 
     .line 121
     .end local v2    # "adduser":Lcom/isaigu/gymapp/widget/MyButton;
-    :goto_0
+    :goto_60
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -243,7 +243,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/UserFragmentLayoutBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 63
@@ -259,7 +259,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/UserFragmentLayoutBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -275,13 +275,13 @@
 
     .line 70
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 71
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 73
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/UserFragmentLayoutBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/UserFragmentLayoutBinding;
 
     move-result-object v1
@@ -292,7 +292,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 20
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/UserFragmentLayoutBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -303,7 +303,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 58
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/UserFragmentLayoutBinding;->rootView:Landroid/widget/LinearLayout;

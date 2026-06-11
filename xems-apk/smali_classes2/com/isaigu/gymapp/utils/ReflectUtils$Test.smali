@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 152
     const-string v0, "111"
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 151
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 .end method
 
 .method private getValueTest(Ljava/lang/Integer;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .param p1, "abc"    # Ljava/lang/Integer;
 
     .line 158
@@ -82,7 +82,7 @@
 .end method
 
 .method private static operateValue(Ljava/lang/String;)V
-    .locals 3
+    .registers 4
     .param p0, "value"    # Ljava/lang/String;
 
     .line 162
@@ -109,7 +109,7 @@
 .end method
 
 .method private static operateValue1()Ljava/lang/String;
-    .locals 2
+    .registers 2
 
     .line 166
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;

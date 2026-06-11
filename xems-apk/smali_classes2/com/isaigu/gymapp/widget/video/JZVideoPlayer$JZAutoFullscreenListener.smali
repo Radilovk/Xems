@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1208
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
-    .locals 0
+    .registers 3
     .param p1, "sensor"    # Landroid/hardware/Sensor;
     .param p2, "accuracy"    # I
 
@@ -39,7 +39,7 @@
 .end method
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
-    .locals 8
+    .registers 10
     .param p1, "event"    # Landroid/hardware/SensorEvent;
 
     .line 1211
@@ -71,28 +71,28 @@
 
     cmpl-float v3, v0, v3
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_1b
 
     const/high16 v3, -0x3ee00000    # -10.0f
 
     cmpg-float v3, v0, v3
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_27
 
-    :cond_0
+    :cond_1b
     const/high16 v3, 0x41700000    # 15.0f
 
     cmpg-float v3, v0, v3
 
-    if-gez v3, :cond_3
+    if-gez v3, :cond_52
 
     const/high16 v3, 0x41200000    # 10.0f
 
     cmpl-float v3, v0, v3
 
-    if-lez v3, :cond_3
+    if-lez v3, :cond_52
 
-    :cond_1
+    :cond_27
     invoke-static {v1}, Ljava/lang/Math;->abs(F)F
 
     move-result v3
@@ -103,7 +103,7 @@
 
     cmpg-double v7, v3, v5
 
-    if-gez v7, :cond_3
+    if-gez v7, :cond_52
 
     .line 1216
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -118,14 +118,14 @@
 
     cmp-long v7, v3, v5
 
-    if-lez v7, :cond_3
+    if-lez v7, :cond_52
 
     .line 1217
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerManager;->getCurrentJzvd()Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;
 
     move-result-object v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4c
 
     .line 1218
     invoke-static {}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayerManager;->getCurrentJzvd()Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;
@@ -135,7 +135,7 @@
     invoke-virtual {v3, v0}, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->autoFullscreen(F)V
 
     .line 1220
-    :cond_2
+    :cond_4c
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v3
@@ -143,6 +143,6 @@
     sput-wide v3, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer;->lastAutoFullscreenTime:J
 
     .line 1223
-    :cond_3
+    :cond_52
     return-void
 .end method

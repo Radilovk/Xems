@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/LinearLayout;Landroid/widget/ProgressBar;Landroid/widget/TextView;)V
-    .locals 0
+    .registers 4
     .param p1, "rootView"    # Landroid/widget/LinearLayout;
     .param p2, "brightnessProgressbar"    # Landroid/widget/ProgressBar;
     .param p3, "tvBrightness"    # Landroid/widget/TextView;
@@ -38,7 +38,7 @@
 .end method
 
 .method public static bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/JzDialogBrightnessBinding;
-    .locals 5
+    .registers 6
     .param p0, "rootView"    # Landroid/view/View;
 
     .line 62
@@ -54,7 +54,7 @@
 
     .line 64
     .local v1, "brightnessProgressbar":Landroid/widget/ProgressBar;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_20
 
     .line 68
     const v0, 0x7f0901c5
@@ -68,7 +68,7 @@
 
     .line 70
     .local v2, "tvBrightness":Landroid/widget/TextView;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1f
 
     .line 74
     new-instance v3, Lcom/isaigu/gymapp/databinding/JzDialogBrightnessBinding;
@@ -82,17 +82,17 @@
     return-object v3
 
     .line 71
-    :cond_0
-    goto :goto_0
+    :cond_1f
+    goto :goto_21
 
     .line 65
     .end local v2    # "tvBrightness":Landroid/widget/TextView;
-    :cond_1
+    :cond_20
     nop
 
     .line 77
     .end local v1    # "brightnessProgressbar":Landroid/widget/ProgressBar;
-    :goto_0
+    :goto_21
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -117,7 +117,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;)Lcom/isaigu/gymapp/databinding/JzDialogBrightnessBinding;
-    .locals 2
+    .registers 3
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
 
     .line 43
@@ -133,7 +133,7 @@
 .end method
 
 .method public static inflate(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Lcom/isaigu/gymapp/databinding/JzDialogBrightnessBinding;
-    .locals 2
+    .registers 5
     .param p0, "inflater"    # Landroid/view/LayoutInflater;
     .param p1, "parent"    # Landroid/view/ViewGroup;
     .param p2, "attachToParent"    # Z
@@ -149,13 +149,13 @@
 
     .line 50
     .local v0, "root":Landroid/view/View;
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 51
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 53
-    :cond_0
+    :cond_d
     invoke-static {v0}, Lcom/isaigu/gymapp/databinding/JzDialogBrightnessBinding;->bind(Landroid/view/View;)Lcom/isaigu/gymapp/databinding/JzDialogBrightnessBinding;
 
     move-result-object v1
@@ -166,7 +166,7 @@
 
 # virtual methods
 .method public bridge synthetic getRoot()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 18
     invoke-virtual {p0}, Lcom/isaigu/gymapp/databinding/JzDialogBrightnessBinding;->getRoot()Landroid/widget/LinearLayout;
@@ -177,7 +177,7 @@
 .end method
 
 .method public getRoot()Landroid/widget/LinearLayout;
-    .locals 1
+    .registers 2
 
     .line 38
     iget-object v0, p0, Lcom/isaigu/gymapp/databinding/JzDialogBrightnessBinding;->rootView:Landroid/widget/LinearLayout;

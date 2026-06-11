@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
     .param p1, "space"    # I
 
     .line 10
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public getItemOffsets(Landroid/graphics/Rect;Landroid/view/View;Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$State;)V
-    .locals 1
+    .registers 6
     .param p1, "outRect"    # Landroid/graphics/Rect;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/support/v7/widget/RecyclerView;
@@ -51,7 +51,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 23
     iget v0, p0, Lcom/isaigu/gymapp/widget/SpacesItemDecoration;->space:I
@@ -59,6 +59,6 @@
     iput v0, p1, Landroid/graphics/Rect;->top:I
 
     .line 24
-    :cond_0
+    :cond_16
     return-void
 .end method

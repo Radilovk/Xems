@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 6
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method protected getEventX(Landroid/view/MotionEvent;)F
-    .locals 2
+    .registers 4
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 45
@@ -59,7 +59,7 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
     .line 46
     invoke-virtual {p0}, Lcom/isaigu/gymapp/widget/VerticalRangeSeekBar;->getHeight()I
@@ -77,7 +77,7 @@
     return v0
 
     .line 48
-    :cond_0
+    :cond_10
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v0
@@ -86,7 +86,7 @@
 .end method
 
 .method protected getEventY(Landroid/view/MotionEvent;)F
-    .locals 2
+    .registers 4
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .line 54
@@ -94,7 +94,7 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     .line 55
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -104,7 +104,7 @@
     return v0
 
     .line 57
-    :cond_0
+    :cond_a
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
@@ -123,7 +123,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 3
+    .registers 5
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 32
@@ -133,7 +133,7 @@
 
     const/4 v2, -0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_15
 
     .line 33
     const/high16 v0, -0x3d4c0000    # -90.0f
@@ -151,10 +151,10 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 36
-    :cond_0
+    :cond_15
     const/high16 v0, 0x42b40000    # 90.0f
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->rotate(F)V
@@ -171,7 +171,7 @@
     invoke-virtual {p1, v1, v0}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 39
-    :goto_0
+    :goto_23
     invoke-super {p0, p1}, Lcom/isaigu/gymapp/widget/RangeSeekBar;->onDraw(Landroid/graphics/Canvas;)V
 
     .line 40
@@ -179,7 +179,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
     .param p1, "w"    # I
     .param p2, "h"    # I
     .param p3, "oldw"    # I

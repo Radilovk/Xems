@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/CalendarFragment;)V
-    .locals 0
+    .registers 2
     .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
     .line 65
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAddClick(III)V
-    .locals 7
+    .registers 11
     .param p1, "year"    # I
     .param p2, "month"    # I
     .param p3, "day"    # I
@@ -60,12 +60,14 @@
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
     .line 109
+    # invokes: Lcom/isaigu/gymapp/fragment/CalendarFragment;->getTrainPickerViewData()Ljava/util/List;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->access$200(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Ljava/util/List;
 
     move-result-object v3
 
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
+    # invokes: Lcom/isaigu/gymapp/fragment/CalendarFragment;->getTrainPickerViewDataHour()Ljava/util/List;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->access$300(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Ljava/util/List;
 
     move-result-object v4
@@ -73,6 +75,7 @@
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
     .line 110
+    # invokes: Lcom/isaigu/gymapp/fragment/CalendarFragment;->getTrainPickerViewDataMinute()Ljava/util/List;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->access$400(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Ljava/util/List;
 
     move-result-object v5
@@ -89,14 +92,14 @@
 .end method
 
 .method public onDayClick(IIILcom/isaigu/gymapp/bean/ProgramPlanBean;)V
-    .locals 3
+    .registers 8
     .param p1, "year"    # I
     .param p2, "month"    # I
     .param p3, "day"    # I
     .param p4, "finish"    # Lcom/isaigu/gymapp/bean/ProgramPlanBean;
 
     .line 87
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_25
 
     .line 88
     new-instance v0, Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;
@@ -137,16 +140,17 @@
     .line 106
     .end local v0    # "dialog":Lcom/isaigu/gymapp/dialog/ProgramPlanDialog;
     .end local v1    # "bundle":Landroid/os/Bundle;
-    :cond_0
+    :cond_25
     return-void
 .end method
 
 .method public onLeftRowClick()V
-    .locals 3
+    .registers 4
 
     .line 68
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/CalendarFragment;->calendar:Lcom/isaigu/gymapp/widget/CustomCalendar;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->access$000(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Lcom/isaigu/gymapp/widget/CustomCalendar;
 
     move-result-object v0
@@ -158,6 +162,7 @@
     .line 69
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/CalendarFragment;->calendar:Lcom/isaigu/gymapp/widget/CustomCalendar;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->access$000(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Lcom/isaigu/gymapp/widget/CustomCalendar;
 
     move-result-object v0
@@ -170,12 +175,14 @@
     .local v0, "month":Ljava/util/Date;
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/CalendarFragment;->calendar:Lcom/isaigu/gymapp/widget/CustomCalendar;
     invoke-static {v1}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->access$000(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Lcom/isaigu/gymapp/widget/CustomCalendar;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
+    # invokes: Lcom/isaigu/gymapp/fragment/CalendarFragment;->getDayTaskList(Ljava/util/Date;)Ljava/util/List;
     invoke-static {v2, v0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->access$100(Lcom/isaigu/gymapp/fragment/CalendarFragment;Ljava/util/Date;)Ljava/util/List;
 
     move-result-object v2
@@ -187,11 +194,12 @@
 .end method
 
 .method public onRightRowClick()V
-    .locals 3
+    .registers 4
 
     .line 74
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/CalendarFragment;->calendar:Lcom/isaigu/gymapp/widget/CustomCalendar;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->access$000(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Lcom/isaigu/gymapp/widget/CustomCalendar;
 
     move-result-object v0
@@ -203,6 +211,7 @@
     .line 75
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/CalendarFragment;->calendar:Lcom/isaigu/gymapp/widget/CustomCalendar;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->access$000(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Lcom/isaigu/gymapp/widget/CustomCalendar;
 
     move-result-object v0
@@ -215,12 +224,14 @@
     .local v0, "month":Ljava/util/Date;
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
+    # getter for: Lcom/isaigu/gymapp/fragment/CalendarFragment;->calendar:Lcom/isaigu/gymapp/widget/CustomCalendar;
     invoke-static {v1}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->access$000(Lcom/isaigu/gymapp/fragment/CalendarFragment;)Lcom/isaigu/gymapp/widget/CustomCalendar;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/isaigu/gymapp/fragment/CalendarFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/CalendarFragment;
 
+    # invokes: Lcom/isaigu/gymapp/fragment/CalendarFragment;->getDayTaskList(Ljava/util/Date;)Ljava/util/List;
     invoke-static {v2, v0}, Lcom/isaigu/gymapp/fragment/CalendarFragment;->access$100(Lcom/isaigu/gymapp/fragment/CalendarFragment;Ljava/util/Date;)Ljava/util/List;
 
     move-result-object v2
@@ -232,7 +243,7 @@
 .end method
 
 .method public onTitleClick(Ljava/lang/String;Ljava/util/Date;)V
-    .locals 2
+    .registers 5
     .param p1, "monthStr"    # Ljava/lang/String;
     .param p2, "month"    # Ljava/util/Date;
 
@@ -258,7 +269,7 @@
 .end method
 
 .method public onWeekClick(ILjava/lang/String;)V
-    .locals 2
+    .registers 5
     .param p1, "weekIndex"    # I
     .param p2, "weekStr"    # Ljava/lang/String;
 

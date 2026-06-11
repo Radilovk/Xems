@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Lcom/isaigu/gymapp/BaseDialogFragment;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/isaigu/gymapp/dialog/SaveProgramDialog;)Landroid/widget/EditText;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
 
     .line 24
@@ -40,7 +40,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/isaigu/gymapp/dialog/SaveProgramDialog;Landroid/os/IBinder;)V
-    .locals 0
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
     .param p1, "x1"    # Landroid/os/IBinder;
 
@@ -51,7 +51,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/isaigu/gymapp/dialog/SaveProgramDialog;)Lcom/isaigu/gymapp/dialog/SaveProgramDialog$SaveProgramListener;
-    .locals 1
+    .registers 2
     .param p0, "x0"    # Lcom/isaigu/gymapp/dialog/SaveProgramDialog;
 
     .line 24
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public getViewIid()I
-    .locals 1
+    .registers 2
 
     .line 32
     const v0, 0x7f0b0062
@@ -72,7 +72,7 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 4
+    .registers 6
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 76
@@ -101,7 +101,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 3
+    .registers 7
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
@@ -139,7 +139,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2f
 
     .line 44
     invoke-virtual {p0}, Lcom/isaigu/gymapp/dialog/SaveProgramDialog;->getArguments()Landroid/os/Bundle;
@@ -160,7 +160,7 @@
 
     .line 48
     .end local v1    # "name":Ljava/lang/String;
-    :cond_0
+    :cond_2f
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/SaveProgramDialog;->sureButton:Landroid/widget/Button;
 
     new-instance v2, Lcom/isaigu/gymapp/dialog/SaveProgramDialog$1;
@@ -174,7 +174,7 @@
 .end method
 
 .method public setListener(Lcom/isaigu/gymapp/dialog/SaveProgramDialog$SaveProgramListener;)V
-    .locals 0
+    .registers 2
     .param p1, "listener"    # Lcom/isaigu/gymapp/dialog/SaveProgramDialog$SaveProgramListener;
 
     .line 85

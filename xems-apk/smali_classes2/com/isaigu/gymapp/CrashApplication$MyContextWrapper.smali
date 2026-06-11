@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1, "base"    # Landroid/content/Context;
 
     .line 47
@@ -27,7 +27,7 @@
 .end method
 
 .method public static wrap(Landroid/content/Context;Ljava/util/Locale;)Landroid/content/ContextWrapper;
-    .locals 5
+    .registers 7
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "newLocale"    # Ljava/util/Locale;
 
@@ -48,7 +48,7 @@
 
     const/16 v3, 0x18
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_27
 
     .line 57
     invoke-virtual {v1, p1}, Landroid/content/res/Configuration;->setLocale(Ljava/util/Locale;)V
@@ -79,15 +79,15 @@
     move-result-object p0
 
     .end local v2    # "localeList":Landroid/os/LocaleList;
-    goto :goto_0
+    goto :goto_35
 
     .line 63
-    :cond_0
+    :cond_27
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x13
 
-    if-lt v2, v3, :cond_1
+    if-lt v2, v3, :cond_35
 
     .line 65
     invoke-virtual {v1, p1}, Landroid/content/res/Configuration;->setLocale(Ljava/util/Locale;)V
@@ -97,15 +97,15 @@
 
     move-result-object p0
 
-    goto :goto_1
+    goto :goto_36
 
     .line 63
-    :cond_1
-    :goto_0
+    :cond_35
+    :goto_35
     nop
 
     .line 70
-    :goto_1
+    :goto_36
     new-instance v2, Landroid/content/ContextWrapper;
 
     invoke-direct {v2, p0}, Landroid/content/ContextWrapper;-><init>(Landroid/content/Context;)V

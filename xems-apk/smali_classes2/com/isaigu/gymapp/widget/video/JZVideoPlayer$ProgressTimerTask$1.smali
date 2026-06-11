@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/widget/video/JZVideoPlayer$ProgressTimerTask;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/isaigu/gymapp/widget/video/JZVideoPlayer$ProgressTimerTask;
 
     .line 1235
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 12
+    .registers 13
 
     .line 1238
     iget-object v0, p0, Lcom/isaigu/gymapp/widget/video/JZVideoPlayer$ProgressTimerTask$1;->this$1:Lcom/isaigu/gymapp/widget/video/JZVideoPlayer$ProgressTimerTask;
@@ -68,16 +68,16 @@
 
     cmp-long v4, v9, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1d
 
     const-wide/16 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     move-wide v2, v9
 
-    :goto_0
+    :goto_1e
     div-long/2addr v0, v2
 
     long-to-int v11, v0

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3;)V
-    .locals 0
+    .registers 2
     .param p1, "this$1"    # Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3;
 
     .line 293
@@ -37,18 +37,18 @@
 
 # virtual methods
 .method public onChoose(I)V
-    .locals 5
+    .registers 7
     .param p1, "index"    # I
 
     .line 295
-    if-nez p1, :cond_0
+    if-nez p1, :cond_30
 
     .line 296
     const/4 v0, 0x0
 
     .line 298
     .local v0, "oriPhotoFile":Ljava/io/File;
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3$1;->this$1:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
@@ -61,19 +61,20 @@
 
     move-result-object v2
 
+    # invokes: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->createOriImageFile(Landroid/content/Context;)Ljava/io/File;
     invoke-static {v1, v2}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$300(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;Landroid/content/Context;)Ljava/io/File;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_13} :catch_15
 
     move-object v0, v1
 
     .line 301
-    goto :goto_0
+    goto :goto_19
 
     .line 299
-    :catch_0
+    :catch_15
     move-exception v1
 
     .line 300
@@ -82,11 +83,12 @@
 
     .line 302
     .end local v1    # "e":Ljava/io/IOException;
-    :goto_0
+    :goto_19
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3$1;->this$1:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # setter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->originalFile:Ljava/io/File;
     invoke-static {v1, v0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$402(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;Ljava/io/File;)Ljava/io/File;
 
     .line 303
@@ -102,19 +104,20 @@
 
     move-result-object v2
 
+    # setter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->imageUri:Landroid/net/Uri;
     invoke-static {v1, v2}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$502(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;Landroid/net/Uri;)Landroid/net/Uri;
 
     .line 304
     .end local v0    # "oriPhotoFile":Ljava/io/File;
-    goto :goto_2
+    goto :goto_67
 
     .line 305
-    :cond_0
+    :cond_30
     const/4 v0, 0x0
 
     .line 307
     .restart local v0    # "oriPhotoFile":Ljava/io/File;
-    :try_start_1
+    :try_start_31
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3$1;->this$1:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
@@ -127,19 +130,20 @@
 
     move-result-object v2
 
+    # invokes: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->createOriImageFile(Landroid/content/Context;)Ljava/io/File;
     invoke-static {v1, v2}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$300(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;Landroid/content/Context;)Ljava/io/File;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_41
+    .catch Ljava/io/IOException; {:try_start_31 .. :try_end_41} :catch_43
 
     move-object v0, v1
 
     .line 310
-    goto :goto_1
+    goto :goto_47
 
     .line 308
-    :catch_1
+    :catch_43
     move-exception v1
 
     .line 309
@@ -148,11 +152,12 @@
 
     .line 311
     .end local v1    # "e":Ljava/io/IOException;
-    :goto_1
+    :goto_47
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3$1;->this$1:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3;
 
     iget-object v1, v1, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # setter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->originalFile:Ljava/io/File;
     invoke-static {v1, v0}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$402(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;Ljava/io/File;)Ljava/io/File;
 
     .line 312
@@ -170,6 +175,7 @@
 
     iget-object v4, v4, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog$3;->this$0:Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->originalFile:Ljava/io/File;
     invoke-static {v4}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$400(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;)Ljava/io/File;
 
     move-result-object v4
@@ -178,10 +184,11 @@
 
     move-result-object v2
 
+    # setter for: Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->imageUri:Landroid/net/Uri;
     invoke-static {v1, v2}, Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;->access$502(Lcom/isaigu/gymapp/dialog/EditUserPersonalDataDialog;Landroid/net/Uri;)Landroid/net/Uri;
 
     .line 314
     .end local v0    # "oriPhotoFile":Ljava/io/File;
-    :goto_2
+    :goto_67
     return-void
 .end method

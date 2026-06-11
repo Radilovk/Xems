@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method private static declared-synchronized bleWrite(Ljava/lang/String;[B)V
-    .locals 6
+    .registers 8
     .param p0, "uuid"    # Ljava/lang/String;
     .param p1, "data"    # [B
 
@@ -23,7 +23,7 @@
     monitor-enter v0
 
     .line 11
-    :try_start_0
+    :try_start_3
     array-length v1, p1
 
     add-int/lit8 v1, v1, 0x3
@@ -62,12 +62,12 @@
     const/4 v3, 0x0
 
     .local v3, "i":I
-    :goto_0
+    :goto_19
     array-length v5, v1
 
     sub-int/2addr v5, v4
 
-    if-ge v3, v5, :cond_0
+    if-ge v3, v5, :cond_23
 
     .line 17
     aget-byte v5, v1, v3
@@ -77,11 +77,11 @@
     .line 16
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 20
     .end local v3    # "i":I
-    :cond_0
+    :cond_23
     array-length v3, v1
 
     sub-int/2addr v3, v4
@@ -92,35 +92,35 @@
 
     .line 21
     invoke-static {p0, v1}, Lcom/isaigu/gymapp/ble/BleController;->writeData(Ljava/lang/String;[B)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2b
+    .catchall {:try_start_3 .. :try_end_2b} :catchall_37
 
     .line 24
     const-wide/16 v3, 0x64
 
-    :try_start_1
+    :try_start_2d
     invoke-static {v3, v4}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_1
-    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_30
+    .catch Ljava/lang/InterruptedException; {:try_start_2d .. :try_end_30} :catch_31
+    .catchall {:try_start_2d .. :try_end_30} :catchall_37
 
     .line 27
-    goto :goto_1
+    goto :goto_35
 
     .line 25
-    :catch_0
+    :catch_31
     move-exception v3
 
     .line 26
     .local v3, "e":Ljava/lang/InterruptedException;
-    :try_start_2
+    :try_start_32
     invoke-virtual {v3}, Ljava/lang/InterruptedException;->printStackTrace()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_35
+    .catchall {:try_start_32 .. :try_end_35} :catchall_37
 
     .line 28
     .end local v3    # "e":Ljava/lang/InterruptedException;
-    :goto_1
+    :goto_35
     monitor-exit v0
 
     return-void
@@ -130,7 +130,7 @@
     .end local v2    # "sum":I
     .end local p0    # "uuid":Ljava/lang/String;
     .end local p1    # "data":[B
-    :catchall_0
+    :catchall_37
     move-exception p0
 
     monitor-exit v0
@@ -139,7 +139,7 @@
 .end method
 
 .method public static request_get_battery(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "uuid"    # Ljava/lang/String;
 
     .line 152
@@ -154,7 +154,7 @@
 .end method
 
 .method public static request_get_default_mode_other_parameter(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "uuid"    # Ljava/lang/String;
 
     .line 188
@@ -169,7 +169,7 @@
 .end method
 
 .method public static request_get_firmware_version(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "uuid"    # Ljava/lang/String;
 
     .line 159
@@ -184,7 +184,7 @@
 .end method
 
 .method public static request_get_hardware_version(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "uuid"    # Ljava/lang/String;
 
     .line 167
@@ -199,7 +199,7 @@
 .end method
 
 .method public static request_get_mode_10_part_parameter(Ljava/lang/String;I)V
-    .locals 3
+    .registers 5
     .param p0, "uuid"    # Ljava/lang/String;
     .param p1, "mode"    # I
 
@@ -226,7 +226,7 @@
 .end method
 
 .method public static request_get_other_mode_other_parameter(Ljava/lang/String;I)V
-    .locals 3
+    .registers 5
     .param p0, "uuid"    # Ljava/lang/String;
     .param p1, "mode"    # I
 
@@ -253,7 +253,7 @@
 .end method
 
 .method public static request_set_mode_10_part_parameter(Ljava/lang/String;IIIIIIIIIII)V
-    .locals 4
+    .registers 16
     .param p0, "uuid"    # Ljava/lang/String;
     .param p1, "mode"    # I
     .param p2, "part1"    # I
@@ -358,7 +358,7 @@
 .end method
 
 .method public static request_set_mode_other_parameter(Ljava/lang/String;IIIIIIIIIZ)V
-    .locals 4
+    .registers 15
     .param p0, "uuid"    # Ljava/lang/String;
     .param p1, "mode"    # I
     .param p2, "worklength"    # I
@@ -457,7 +457,7 @@
 .end method
 
 .method public static request_set_start(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "uuid"    # Ljava/lang/String;
 
     .line 51
@@ -500,7 +500,7 @@
 .end method
 
 .method public static request_set_stop(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
     .param p0, "uuid"    # Ljava/lang/String;
 
     .line 58
@@ -524,7 +524,7 @@
 .end method
 
 .method private static write(Ljava/lang/String;B[B)V
-    .locals 8
+    .registers 11
     .param p0, "uuid"    # Ljava/lang/String;
     .param p1, "protocol"    # B
     .param p2, "data"    # [B
@@ -557,16 +557,16 @@
 
     const/4 v3, 0x1
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2a
 
     array-length v4, p2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1f
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 38
-    :cond_0
+    :cond_1f
     array-length v4, p2
 
     add-int/2addr v4, v3
@@ -581,26 +581,26 @@
 
     invoke-static {p2, v2, v0, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 35
-    :cond_1
-    :goto_0
+    :cond_2a
+    :goto_2a
     new-array v0, v3, [B
 
     .line 36
     aput-byte p1, v0, v2
 
     .line 42
-    :goto_1
+    :goto_2e
     const-string v3, ""
 
     .line 43
     .local v3, "s":Ljava/lang/String;
     array-length v4, v0
 
-    :goto_2
-    if-ge v2, v4, :cond_2
+    :goto_31
+    if-ge v2, v4, :cond_4c
 
     aget-byte v5, v0, v2
 
@@ -626,10 +626,10 @@
     .end local v5    # "b":B
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_31
 
     .line 46
-    :cond_2
+    :cond_4c
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V

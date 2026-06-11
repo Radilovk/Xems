@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;[B)V
-    .locals 0
+    .registers 3
     .param p1, "address"    # Ljava/lang/String;
     .param p2, "data"    # [B
 

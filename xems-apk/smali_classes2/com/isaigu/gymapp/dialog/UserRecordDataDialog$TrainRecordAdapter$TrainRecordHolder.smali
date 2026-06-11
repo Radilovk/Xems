@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/isaigu/gymapp/dialog/UserRecordDataDialog$TrainRecordAdapter;Landroid/view/View;)V
-    .locals 2
+    .registers 5
     .param p2, "itemView"    # Landroid/view/View;
 
     .line 203

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/clj/fastble/data/BleDevice;)V
-    .locals 0
+    .registers 2
     .param p1, "device"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 8
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public getDevice()Lcom/clj/fastble/data/BleDevice;
-    .locals 1
+    .registers 2
 
     .line 13
     iget-object v0, p0, Lcom/isaigu/gymapp/train/events/DeviceScannedEvent;->device:Lcom/clj/fastble/data/BleDevice;
@@ -34,7 +34,7 @@
 .end method
 
 .method public setDevice(Lcom/clj/fastble/data/BleDevice;)V
-    .locals 0
+    .registers 2
     .param p1, "device"    # Lcom/clj/fastble/data/BleDevice;
 
     .line 17

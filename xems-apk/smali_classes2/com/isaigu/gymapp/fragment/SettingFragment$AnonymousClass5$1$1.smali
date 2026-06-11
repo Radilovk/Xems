@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 676
+    .line 484
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5$1$1;->this$2:Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .registers 7
 
     .prologue
-    .line 679
+    .line 487
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5$1$1;->this$2:Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5$1;
 
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5$1;->this$1:Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5;
@@ -48,7 +48,7 @@
     iget-object v0, v0, Lcom/isaigu/gymapp/fragment/SettingFragment$AnonymousClass5;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->timelength:Landroid/widget/TextView;
-    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$1000(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$400(Lcom/isaigu/gymapp/fragment/SettingFragment;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -120,6 +120,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 680
+    .line 488
     return-void
 .end method

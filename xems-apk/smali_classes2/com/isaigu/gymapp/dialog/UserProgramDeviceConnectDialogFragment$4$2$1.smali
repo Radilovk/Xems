@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4$2;)V
-    .locals 0
+    .registers 2
     .param p1, "this$2"    # Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4$2;
 
     .line 378
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 380
     invoke-static {}, Lcom/isaigu/gymapp/mgr/BleMgr;->getController()Lcom/isaigu/gymapp/ble/AndroidBleController;
@@ -50,6 +50,7 @@
 
     iget-object v1, v1, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4;->this$0:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;
 
+    # getter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->selectedDeviceBean:Lcom/isaigu/gymapp/bean/DeviceBean;
     invoke-static {v1}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$800(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;)Lcom/isaigu/gymapp/bean/DeviceBean;
 
     move-result-object v1
@@ -62,7 +63,7 @@
 
     .line 381
     .local v0, "success":Z
-    if-nez v0, :cond_0
+    if-nez v0, :cond_40
 
     .line 384
     iget-object v1, p0, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4$2$1;->this$2:Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment$4$2;
@@ -73,6 +74,7 @@
 
     const/4 v2, 0x0
 
+    # setter for: Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->connectingAddress:Ljava/lang/String;
     invoke-static {v1, v2}, Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;->access$702(Lcom/isaigu/gymapp/dialog/UserProgramDeviceConnectDialogFragment;Ljava/lang/String;)Ljava/lang/String;
 
     .line 385
@@ -109,6 +111,6 @@
     return-void
 
     .line 389
-    :cond_0
+    :cond_40
     return-void
 .end method
