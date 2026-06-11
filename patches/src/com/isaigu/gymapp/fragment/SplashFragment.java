@@ -118,7 +118,7 @@ public class SplashFragment extends BaseFragment {
                     }
                     LoginDTO dto = new LoginDTO();
                     dto.username = UserData.getInstance().userName;
-                    dto.password = MD5Utils.getMD5(UserData.getInstance().password);
+                    dto.password = MD5Utils.getMD5(UserData.getInstance().userName);
                     dto.md5Password = MD5Utils.getMD5(dto.password + ApiMgr.Password_Salt);
                     ApiMgr.login(dto, new OKHttpUtils.HttpResponseCallback<ResponseData<TrainUser>>() { // from class: com.isaigu.gymapp.fragment.SplashFragment.1.1.2
                         @Override // com.isaigu.gymapp.utils.OKHttpUtils.HttpResponseCallback
