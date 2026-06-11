@@ -1953,7 +1953,7 @@
 
     move-result-object v2
 
-    const-string v3, "com.isaigu.gymapp25.custom"
+    const-string v3, "com.isaigu.gymapp25"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2339,7 +2339,7 @@
 
     move-result-object v1
 
-    const-string v2, "com.isaigu.gymapp25.custom.provider"
+    const-string v2, "com.isaigu.gymapp25.provider"
 
     invoke-static {v1, v2, v0}, Landroid/support/v4/content/FileProvider;->getUriForFile(Landroid/content/Context;Ljava/lang/String;Ljava/io/File;)Landroid/net/Uri;
 

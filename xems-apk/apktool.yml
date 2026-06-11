@@ -7,13 +7,13 @@ usesFramework:
   tag: null
 sdkInfo:
   minSdkVersion: 21
-  targetSdkVersion: 30
+  targetSdkVersion: 33
 packageInfo:
   forcedPackageId: 127
   renameManifestPackage: null
 versionInfo:
-  versionCode: 2
-  versionName: 1.0.1-custom - 240704
+  versionCode: 3
+  versionName: 1.0.1-custom
 resourcesAreCompressed: false
 sharedLibrary: false
 sparseResources: false
@@ -26,5 +26,8 @@ unknownFiles:
   org/apache/poi/ss/formula/function/functionMetadata.txt: 8
   org/apache/poi/ss/formula/function/functionMetadata-asGenerated.txt: 8
 doNotCompress:
+- resources.arsc
+- dex
+- arsc
 - png
 - META-INF/androidx.databinding_viewbinding.version

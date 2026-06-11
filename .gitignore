@@ -2,5 +2,6 @@ xems-apk/build/
 xems-apk/original/
 decompiled/
 *.unsigned.apk
+xems-modified-raw.apk
 *.apk.idsig
 /tmp/
