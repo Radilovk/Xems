@@ -48,17 +48,17 @@ public class LoginFragment extends BaseFragment {
         View view = super.onCreateView(inflater, container, savedInstanceState);
         this.userName = (EditText) view.findViewById(R.id.username);
         this.password = (EditText) view.findViewById(R.id.password);
-        if (this.password != null) {
-            this.password.setVisibility(View.GONE);
-        }
-        View passwordRow = view.findViewById(0x7f090203);
+        View passwordRow = view.findViewById(R.id.password_row);
         if (passwordRow != null) {
-            passwordRow.setVisibility(View.GONE);
+            passwordRow.setVisibility(View.VISIBLE);
+        }
+        if (this.password != null) {
+            this.password.setVisibility(View.VISIBLE);
         }
         this.autoLogin = (AppCompatCheckBox) view.findViewById(R.id.autologin);
         this.rememberPassword = (AppCompatCheckBox) view.findViewById(R.id.rememberpassword);
         if (this.rememberPassword != null) {
-            this.rememberPassword.setVisibility(View.GONE);
+            this.rememberPassword.setVisibility(View.VISIBLE);
         }
         this.login = (MyButton) view.findViewById(R.id.login);
         ImageView logoImage = (ImageView) view.findViewById(R.id.logoImage);
@@ -91,9 +91,13 @@ public class LoginFragment extends BaseFragment {
         public void onNoDoubleClick(View v) {
             BaseFragment fragment;
             final String username = LoginFragment.this.userName.getText().toString();
-            final String pwd = username;
+            final String pwd = LoginFragment.this.password.getText().toString();
             if (TextUtils.isEmpty(username)) {
                 LoginFragment.this.getParentActivity().showTips(LoginFragment.this.getString(R.string.usernamenull));
+                return;
+            }
+            if (TextUtils.isEmpty(pwd)) {
+                LoginFragment.this.getParentActivity().showTips(LoginFragment.this.getString(R.string.passwordnull));
                 return;
             }
             if (!NetworkUtils.isNetworkConnected(LoginFragment.this.getParentActivity()) && !username.equals(UserData.getInstance().userName)) {
@@ -102,7 +106,7 @@ public class LoginFragment extends BaseFragment {
             }
             MessageDispatcher.dispatchEventMessage((short) 103);
             if (!NetworkUtils.isNetworkConnected(LoginFragment.this.getParentActivity())) {
-                if (username.equals(UserData.getInstance().userName)) {
+                if (username.equals(UserData.getInstance().userName) && pwd.equals(UserData.getInstance().password)) {
                     DataMgr.singleMode = true;
                     DataMgr.getInstance().loginUser = (TrainUser) FileUtils.getData(Constants.file_name_login_user, TrainUser.class);
                     UserData.getInstance().useTime = DataMgr.getInstance().loginUser.useTime;
