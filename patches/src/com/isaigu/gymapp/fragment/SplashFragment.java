@@ -90,18 +90,11 @@ public class SplashFragment extends BaseFragment {
             public void run() {
                 BaseFragment fragment;
                 if (UserData.getInstance().isLogin()) {
-                    if (TextUtils.isEmpty(UserData.getInstance().userName) || TextUtils.isEmpty(UserData.getInstance().password)) {
-                        UserData.getInstance().autoLogin = false;
-                        FileUtils.saveData(UserData.getInstance());
-                        SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new LoginFragment());
-                        return;
-                    }
                     MessageDispatcher.dispatchEventMessage((short) 103);
                     if (!NetworkUtils.isNetworkConnected(SplashFragment.this.getParentActivity())) {
-                        TrainUser cachedUser = (TrainUser) FileUtils.getData(Constants.file_name_login_user, TrainUser.class);
-                        if (cachedUser != null && !TextUtils.isEmpty(UserData.getInstance().userName)) {
+                        if (!TextUtils.isEmpty(UserData.getInstance().userName)) {
                             DataMgr.singleMode = true;
-                            DataMgr.getInstance().loginUser = cachedUser;
+                            DataMgr.getInstance().loginUser = (TrainUser) FileUtils.getData(Constants.file_name_login_user, TrainUser.class);
                             UserData.getInstance().useTime = DataMgr.getInstance().loginUser.useTime;
                             if (Constants.role_coach.equals(UserData.getInstance().roleName)) {
                                 DataMgr.singleMode = false;
@@ -125,7 +118,13 @@ public class SplashFragment extends BaseFragment {
                     }
                     LoginDTO dto = new LoginDTO();
                     dto.username = UserData.getInstance().userName;
-                    dto.password = MD5Utils.getMD5(UserData.getInstance().password);
+                    String savedPassword = UserData.getInstance().password;
+                    if (TextUtils.isEmpty(savedPassword)) {
+                        UserData.getInstance().autoLogin = false;
+                        SplashFragment.this.getParentActivity().replace(R.id.frameContainer, new LoginFragment());
+                        return;
+                    }
+                    dto.password = MD5Utils.getMD5(savedPassword);
                     dto.md5Password = MD5Utils.getMD5(dto.password + ApiMgr.Password_Salt);
                     ApiMgr.login(dto, new OKHttpUtils.HttpResponseCallback<ResponseData<TrainUser>>() { // from class: com.isaigu.gymapp.fragment.SplashFragment.1.1.2
                         @Override // com.isaigu.gymapp.utils.OKHttpUtils.HttpResponseCallback

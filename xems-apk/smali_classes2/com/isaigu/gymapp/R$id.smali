@@ -605,7 +605,7 @@
 
 .field public static final password:I = 0x7f09011d
 
-.field public static final password_row:I = 0x7f090203
+.field public static final password_row:I = 0x7f09020c
 
 .field public static final paulseContinue:I = 0x7f09011e
 
