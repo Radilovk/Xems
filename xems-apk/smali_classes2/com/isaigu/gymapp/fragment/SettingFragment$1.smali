@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    .prologue
-    .line 159
+    .line 176
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$1;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,6 @@
 .method public run()V
     .registers 1
 
-    .prologue
-    .line 162
+    .line 179
     return-void
 .end method

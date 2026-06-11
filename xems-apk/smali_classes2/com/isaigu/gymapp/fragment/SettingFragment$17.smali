@@ -21,9 +21,9 @@
 # direct methods
 .method constructor <init>(Lcom/isaigu/gymapp/fragment/SettingFragment;)V
     .registers 2
+    .param p1, "this$0"    # Lcom/isaigu/gymapp/fragment/SettingFragment;
 
-    .prologue
-    .line 422
+    .line 405
     iput-object p1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$17;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     invoke-direct {p0}, Lcom/isaigu/gymapp/widget/NoDoubleClickListener;-><init>()V
@@ -35,9 +35,9 @@
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
     .registers 6
+    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 426
+    .line 408
     :try_start_0
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$17;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
@@ -49,14 +49,15 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->createOriImageFile(Landroid/content/Context;)Ljava/io/File;
+    # invokes: Lcom/isaigu/gymapp/fragment/SettingFragment;->createOriImageFile(Landroid/content/Context;)Ljava/io/File;
+    invoke-static {v1, v2}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$500(Lcom/isaigu/gymapp/fragment/SettingFragment;Landroid/content/Context;)Ljava/io/File;
 
     move-result-object v1
 
     # setter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->originalFile:Ljava/io/File;
-    invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$202(Lcom/isaigu/gymapp/fragment/SettingFragment;Ljava/io/File;)Ljava/io/File;
+    invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$402(Lcom/isaigu/gymapp/fragment/SettingFragment;Ljava/io/File;)Ljava/io/File;
 
-    .line 427
+    .line 409
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$17;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$17;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
@@ -66,7 +67,7 @@
     iget-object v3, p0, Lcom/isaigu/gymapp/fragment/SettingFragment$17;->this$0:Lcom/isaigu/gymapp/fragment/SettingFragment;
 
     # getter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->originalFile:Ljava/io/File;
-    invoke-static {v3}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$200(Lcom/isaigu/gymapp/fragment/SettingFragment;)Ljava/io/File;
+    invoke-static {v3}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$400(Lcom/isaigu/gymapp/fragment/SettingFragment;)Ljava/io/File;
 
     move-result-object v3
 
@@ -75,20 +76,23 @@
     move-result-object v1
 
     # setter for: Lcom/isaigu/gymapp/fragment/SettingFragment;->imageUri:Landroid/net/Uri;
-    invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$302(Lcom/isaigu/gymapp/fragment/SettingFragment;Landroid/net/Uri;)Landroid/net/Uri;
+    invoke-static {v0, v1}, Lcom/isaigu/gymapp/fragment/SettingFragment;->access$602(Lcom/isaigu/gymapp/fragment/SettingFragment;Landroid/net/Uri;)Landroid/net/Uri;
     :try_end_24
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_24} :catch_25
 
-    .line 431
-    :goto_24
-    return-void
+    .line 412
+    goto :goto_29
 
-    .line 428
+    .line 410
     :catch_25
     move-exception v0
 
-    .line 429
+    .line 411
+    .local v0, "e":Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_24
+    .line 413
+    .end local v0    # "e":Ljava/io/IOException;
+    :goto_29
+    return-void
 .end method

@@ -30,8 +30,6 @@
 # instance fields
 .field public autoLogin:Z
 
-.field public channelPulseWidthUs:[I
-
 .field public language:Ljava/lang/String;
 
 .field public leftMode:Z
@@ -52,66 +50,24 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .registers 1
-
-    .prologue
-    .line 13
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .registers 1
 
-    .prologue
-    .line 7
+    .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return-void
-.end method
-
-.method public static ensureChannelPulseWidths(Lcom/isaigu/gymapp/bean/UserData;)V
-    .registers 3
-
-    .prologue
-    const/16 v1, 0xa
-
-    .line 50
-    iget-object v0, p0, Lcom/isaigu/gymapp/bean/UserData;->channelPulseWidthUs:[I
-
-    if-eqz v0, :cond_b
-
-    iget-object v0, p0, Lcom/isaigu/gymapp/bean/UserData;->channelPulseWidthUs:[I
-
-    array-length v0, v0
-
-    if-eq v0, v1, :cond_f
-
-    .line 51
-    :cond_b
-    new-array v0, v1, [I
-
-    iput-object v0, p0, Lcom/isaigu/gymapp/bean/UserData;->channelPulseWidthUs:[I
-
-    .line 53
-    :cond_f
     return-void
 .end method
 
 .method public static getInstance()Lcom/isaigu/gymapp/bean/UserData;
     .registers 2
 
-    .prologue
-    .line 33
+    .line 45
     sget-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
-    if-nez v0, :cond_35
+    if-nez v0, :cond_30
 
-    .line 34
+    .line 46
     const-class v0, Lcom/isaigu/gymapp/bean/UserData;
 
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->getData(Ljava/lang/Class;)Ljava/lang/Object;
@@ -120,24 +76,22 @@
 
     check-cast v0, Lcom/isaigu/gymapp/bean/UserData;
 
-    .line 35
     sput-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
-    .line 36
+    .line 47
     if-nez v0, :cond_1a
 
-    .line 37
+    .line 48
     new-instance v0, Lcom/isaigu/gymapp/bean/UserData;
 
     invoke-direct {v0}, Lcom/isaigu/gymapp/bean/UserData;-><init>()V
 
-    .line 38
     sput-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
-    .line 39
+    .line 50
     invoke-static {v0}, Lcom/isaigu/gymapp/utils/FileUtils;->saveData(Ljava/lang/Object;)V
 
-    .line 41
+    .line 52
     :cond_1a
     sget-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
@@ -149,7 +103,7 @@
 
     if-eqz v0, :cond_30
 
-    .line 42
+    .line 53
     sget-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -162,14 +116,8 @@
 
     iput-object v1, v0, Lcom/isaigu/gymapp/bean/UserData;->language:Ljava/lang/String;
 
-    .line 44
+    .line 56
     :cond_30
-    sget-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
-
-    invoke-static {v0}, Lcom/isaigu/gymapp/bean/UserData;->ensureChannelPulseWidths(Lcom/isaigu/gymapp/bean/UserData;)V
-
-    .line 46
-    :cond_35
     sget-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
     return-object v0
@@ -178,11 +126,20 @@
 
 # virtual methods
 .method public isLogin()Z
-    .registers 2
+    .registers 3
 
-    .prologue
-    .line 56
+    .line 60
     iget-boolean v0, p0, Lcom/isaigu/gymapp/bean/UserData;->autoLogin:Z
 
-    return v0
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_6
+
+    goto :goto_7
+
+    :cond_6
+    const/4 v1, 0x0
+
+    :goto_7
+    return v1
 .end method
