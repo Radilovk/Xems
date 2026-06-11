@@ -35,13 +35,12 @@
 
 # virtual methods
 .method public onNoDoubleClick(Landroid/view/View;)V
-    .registers 8
+    .registers 9
 
     .prologue
     .line 93
     iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/fragment/LoginFragment;
 
-    # getter for: Lcom/isaigu/gymapp/fragment/LoginFragment;->userName:Landroid/widget/EditText;
     invoke-static {v0}, Lcom/isaigu/gymapp/fragment/LoginFragment;->access$000(Lcom/isaigu/gymapp/fragment/LoginFragment;)Landroid/widget/EditText;
 
     move-result-object v0
@@ -53,6 +52,21 @@
     invoke-interface {v0}, Landroid/text/Editable;->toString()Ljava/lang/String;
 
     move-result-object v0
+
+    .line 94
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/fragment/LoginFragment;
+
+    invoke-static {v1}, Lcom/isaigu/gymapp/fragment/LoginFragment;->access$100(Lcom/isaigu/gymapp/fragment/LoginFragment;)Landroid/widget/EditText;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Landroid/text/Editable;->toString()Ljava/lang/String;
+
+    move-result-object v7
 
     .line 95
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -82,8 +96,35 @@
     :goto_26
     return-void
 
-    .line 99
+    .line 98
     :cond_27
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3f
+
+    .line 99
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/fragment/LoginFragment;
+
+    invoke-virtual {v0}, Lcom/isaigu/gymapp/fragment/LoginFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/fragment/LoginFragment;
+
+    const v2, 0x7f0d0087
+
+    invoke-virtual {v1, v2}, Lcom/isaigu/gymapp/fragment/LoginFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/isaigu/gymapp/BaseActivity;->showTips(Ljava/lang/String;)V
+
+    goto :goto_26
+
+    .line 103
+    :cond_3f
     iget-object v1, p0, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;->this$0:Lcom/isaigu/gymapp/fragment/LoginFragment;
 
     invoke-virtual {v1}, Lcom/isaigu/gymapp/fragment/LoginFragment;->getParentActivity()Lcom/isaigu/gymapp/BaseActivity;
@@ -155,9 +196,21 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_be
+    if-eqz v1, :cond_be
+
+    invoke-static {}, Lcom/isaigu/gymapp/bean/UserData;->getInstance()Lcom/isaigu/gymapp/bean/UserData;
+
+    move-result-object v1
+
+    iget-object v1, v1, Lcom/isaigu/gymapp/bean/UserData;->password:Ljava/lang/String;
+
+    invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_be
 
     .line 106
     const/4 v0, 0x1
@@ -282,7 +335,7 @@
     iput-object v0, v1, Lcom/isaigu/gymapp/bean/dto/LoginDTO;->username:Ljava/lang/String;
 
     .line 131
-    invoke-static {v0}, Lcom/isaigu/gymapp/utils/MD5Utils;->getMD5(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v7}, Lcom/isaigu/gymapp/utils/MD5Utils;->getMD5(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -318,7 +371,7 @@
     .line 133
     new-instance v2, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1$2;
 
-    invoke-direct {v2, p0, v0, v0}, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1$2;-><init>(Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v2, p0, v0, v7}, Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1$2;-><init>(Lcom/isaigu/gymapp/fragment/LoginFragment$AnonymousClass1;Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {v1, v2}, Lcom/isaigu/gymapp/mgr/ApiMgr;->login(Lcom/isaigu/gymapp/bean/dto/LoginDTO;Lcom/isaigu/gymapp/utils/OKHttpUtils$HttpResponseCallback;)V
 
