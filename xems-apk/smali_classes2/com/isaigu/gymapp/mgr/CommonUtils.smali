@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .registers 9
 
     .line 18
     new-instance v0, Ljava/util/HashMap;
@@ -271,6 +271,136 @@
     const-string v7, "fr"
 
     invoke-interface {v1, v7, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v7, Ljava/util/HashMap;
+
+    invoke-direct {v7}, Ljava/util/HashMap;-><init>()V
+
+    const-string v0, "1"
+
+    const-string v1, "\u0421\u0438\u0441\u0442\u0435\u043c\u043d\u0430 \u0433\u0440\u0435\u0448\u043a\u0430"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "2"
+
+    const-string v1, "\u041d\u044f\u043c\u0430 \u043f\u0440\u0430\u0432\u0430"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "3"
+
+    const-string v1, "\u0413\u0440\u0435\u0448\u043a\u0430 \u0432 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0438\u0442\u0435"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "4"
+
+    const-string v1, "\u0413\u0440\u0435\u0448\u043d\u043e \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u0441\u043a\u043e \u0438\u043c\u0435 \u0438\u043b\u0438 \u043f\u0430\u0440\u043e\u043b\u0430"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "5"
+
+    const-string v1, "\u041d\u0435\u0443\u0441\u043f\u0435\u0448\u043d\u0430 \u0437\u0430\u044f\u0432\u043a\u0430"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "6"
+
+    const-string v1, "\u0418\u0437\u0442\u0435\u043a\u044a\u043b token"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "7"
+
+    const-string v1, "\u0413\u0440\u0435\u0448\u043a\u0430 \u043f\u0440\u0438 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0430"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "51"
+
+    const-string v1, "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u044a\u0440\u044a\u0442 \u043d\u0435 \u0441\u044a\u0449\u0435\u0441\u0442\u0432\u0443\u0432\u0430"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "53"
+
+    const-string v1, "\u0412\u0435\u0447\u0435 \u0441\u044a\u0449\u0435\u0441\u0442\u0432\u0443\u0432\u0430"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "54"
+
+    const-string v1, "\u041d\u0435\u0432\u0430\u043b\u0438\u0434\u043d\u0438 \u0434\u0430\u043d\u043d\u0438"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "55"
+
+    const-string v1, "\u041e\u043f\u0435\u0440\u0430\u0446\u0438\u044f\u0442\u0430 \u043d\u0435 \u0441\u0435 \u043f\u043e\u0434\u0434\u044a\u0440\u0436\u0430"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "102"
+
+    const-string v1, "\u0413\u0440\u0435\u0448\u043a\u0430 \u0432 \u0434\u0430\u043d\u043d\u0438\u0442\u0435 \u0437\u0430 \u043f\u0430\u0440\u043e\u043b\u0430"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "108"
+
+    const-string v1, "\u0413\u0440\u0435\u0448\u043a\u0430 \u0432 \u043a\u043e\u0434\u0430 \u0437\u0430 \u0432\u0435\u0440\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044f"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "109"
+
+    const-string v1, "\u0413\u0440\u0435\u0448\u043a\u0430 \u043f\u0440\u0438 \u043e\u0431\u043d\u043e\u0432\u044f\u0432\u0430\u043d\u0435 \u043d\u0430 token"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "117"
+
+    const-string v1, "\u0418\u043c\u0430 \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u0438 \u0441 \u0442\u0430\u0437\u0438 \u0440\u043e\u043b\u044f, \u0440\u043e\u043b\u044f\u0442\u0430 \u043d\u0435 \u043c\u043e\u0436\u0435 \u0434\u0430 \u0441\u0435 \u0438\u0437\u0442\u0440\u0438\u0435"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "118"
+
+    const-string v1, "\u0413\u0440\u0435\u0448\u043d\u0430 \u0441\u0442\u0430\u0440\u0430 \u043f\u0430\u0440\u043e\u043b\u0430"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "801"
+
+    const-string v1, "\u0424\u0430\u0439\u043b\u044a\u0442 \u043d\u0435 \u043c\u043e\u0436\u0435 \u0434\u0430 \u0435 \u043f\u0440\u0430\u0437\u0435\u043d"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "802"
+
+    const-string v1, "\u0413\u0440\u0435\u0448\u043a\u0430 \u043f\u0440\u0438 \u043a\u0430\u0447\u0432\u0430\u043d\u0435 \u043d\u0430 \u0444\u0430\u0439\u043b"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "804"
+
+    const-string v1, "\u0424\u0430\u0439\u043b\u044a\u0442 \u0435 \u0442\u0432\u044a\u0440\u0434\u0435 \u0433\u043e\u043b\u044f\u043c"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "805"
+
+    const-string v1, "\u041d\u0435\u043f\u043e\u0434\u0434\u044a\u0440\u0436\u0430\u043d \u0444\u043e\u0440\u043c\u0430\u0442 \u043d\u0430 \u0444\u0430\u0439\u043b"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/isaigu/gymapp/mgr/CommonUtils;->stringMap:Ljava/util/Map;
+
+    const-string v1, "bg"
+
+    invoke-interface {v0, v1, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 64
     .end local v0    # "mapzh":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"

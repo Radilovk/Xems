@@ -969,14 +969,15 @@
 
     if-eqz v2, :cond_1a8
 
-    .line 333
-    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
+    const-string v2, "bg"
 
-    const v3, 0x7f0c0010
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+    move-result v2
 
-    goto/16 :goto_230
+    if-eqz v2, :cond_1a8
+
+    goto/16 :cond_en_sel
 
     .line 334
     :cond_1a8
@@ -1111,6 +1112,16 @@
 
     goto :goto_230
 
+    .line 333
+    :cond_en_sel
+    iget-object v2, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
+
+    const v3, 0x7f0c0010
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto/16 :goto_230
+
     .line 348
     :cond_220
     const-string v2, "tu"
@@ -1127,6 +1138,8 @@
     const v3, 0x7f0c0076
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto :goto_230
 
     .line 353
     :cond_230
@@ -1439,14 +1452,15 @@
 
     if-eqz v0, :cond_74
 
-    .line 489
-    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
+    const-string v0, "bg"
 
-    const v1, 0x7f0c0010
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+    move-result v0
 
-    goto/16 :goto_fc
+    if-eqz v0, :cond_74
+
+    goto/16 :cond_en_sel2
 
     .line 490
     :cond_74
@@ -1580,6 +1594,16 @@
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
 
     goto :goto_fc
+
+    .line 489
+    :cond_en_sel2
+    iget-object v0, p0, Lcom/isaigu/gymapp/fragment/SettingFragment;->english:Landroid/widget/Button;
+
+    const v1, 0x7f0c0010
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
+
+    goto/16 :goto_fc
 
     .line 504
     :cond_ec

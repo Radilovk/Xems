@@ -132,7 +132,7 @@
     .local v0, "sharedPreferences":Landroid/content/SharedPreferences;
     const-string v1, "language"
 
-    const-string v2, "en"
+    const-string v2, "bg"
 
     invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -314,6 +314,23 @@
 
     .line 66
     :cond_89
+    const-string v0, "bg"
+
+    invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_bg
+
+    new-instance v1, Ljava/util/Locale;
+
+    const-string v2, "BG"
+
+    invoke-direct {v1, v0, v2}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v1
+
+    :cond_bg
     sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
     return-object v0
