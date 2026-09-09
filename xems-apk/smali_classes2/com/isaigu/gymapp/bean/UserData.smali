@@ -106,13 +106,7 @@
     .line 53
     sget-object v0, Lcom/isaigu/gymapp/bean/UserData;->instance:Lcom/isaigu/gymapp/bean/UserData;
 
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
-
-    move-result-object v1
+    const-string v1, "bg"
 
     iput-object v1, v0, Lcom/isaigu/gymapp/bean/UserData;->language:Ljava/lang/String;
 
